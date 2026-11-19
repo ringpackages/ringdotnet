@@ -28,6 +28,19 @@ using System.Text;
 
 namespace RingDotNet
 {
+	/* A byte[] that Ring can keep. A byte[] that .NET returns becomes a Ring text (a copy), and a Ring text becomes a new array when it is
+	   passed in, so a method that FILLS an array (Stream.Read, Socket.Receive...) would fill a copy that Ring never sees. A ByteBuffer
+	   is a normal .NET object: Ring holds its handle, a parameter of type byte[] (or object) gets the live array inside it, and
+	   GetBytes(count) copies what was written into a Ring text. */
+	public sealed class ByteBuffer
+	{
+		public byte[] Data;
+		public ByteBuffer(int size) { Data = new byte[size]; }
+		public ByteBuffer(byte[] data) { Data = (byte[])data.Clone(); }
+		public int Length { get { return Data.Length; } }
+		public byte[] GetBytes(int count) { byte[] part = new byte[Math.Min(count, Data.Length)]; Array.Copy(Data, part, part.Length); return part; }
+	}
+
 	/* A handle to a type: members are then looked up as static members */
 	internal sealed class TypeRef
 	{
@@ -1072,6 +1085,12 @@ namespace RingDotNet
 			}
 			v = Plain(v);
 			Type ut = Nullable.GetUnderlyingType(t) ?? t;
+			if (v is ByteBuffer buffer && (ut == typeof(byte[]) || ut == typeof(object)))
+			{
+				result = buffer.Data;               /* the live array, so that the called method fills it */
+				score = ut == typeof(byte[]) ? 10 : 1;
+				return true;
+			}
 			if (v is CallbackRef cb)
 			{
 				if (typeof(Delegate).IsAssignableFrom(ut) && ut != typeof(Delegate) && ut != typeof(MulticastDelegate))

@@ -41,7 +41,7 @@ The Registry looks like a file system: **keys** are the folders, and each key ho
 | `ExpandString` | text with `%NAME%` variables | a path such as `%USERPROFILE%\Data`: `GetValue` gives the text with the variable already replaced |
 | `Binary` | bytes | pictures, encrypted data |
 
-A `MultiString` needs a real `string[]`, so the program builds one from a `List<string>` with `ToArray()` (`stringArray`). A `Binary` value needs a real `byte[]` **object**; in this package a byte array that comes back from .NET is turned into a Ring text, and a Ring text goes back as a string, so a Ring program cannot hold the object to pass it. This lesson therefore does not write `Binary` values; store bytes as Base64 text in a `String` value (the tutorial [URLs and encodings](tut-64-urls.html)).
+A `MultiString` needs a real `string[]`, so the program builds one from a `List<string>` with `ToArray()` (`stringArray`). A `Binary` value needs a real `byte[]` **object**, and a Ring text would be written as a `String`. So the program puts the bytes into a **byte buffer** first: `dnBuffer(bytes)` makes a .NET object that holds a `byte[]`, and a parameter of type `object` (the data of `SetValue`) receives that array. Reading a `Binary` value gives a `byte[]`, which is a Ring text of bytes: `Signature` has the five bytes `01 02 00 FE FF`, with a NUL and bytes that are not text in the middle. See the next section about byte buffers in the tutorial [Binary files](tut-45-binary.html).
 
 ### Reading
 

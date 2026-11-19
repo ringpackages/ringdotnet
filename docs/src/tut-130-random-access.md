@@ -32,7 +32,7 @@ Every record of the file has 20 bytes: the name in 12 characters (spaces fill th
 
 ### Seek and Position
 
-`Seek(offset, "Begin")` moves the position to a byte counted from the start (`"Current"` and `"End"` are the other origins). `Position` is where the next read or write happens: after reading record 3 it is `60`, right after the record. `Write(text, 0, count)` writes `count` bytes of a text, and `BinaryReader.ReadBytes(count)` reads them back (a `byte[]` is a Ring text in this package).
+`Seek(offset, "Begin")` moves the position to a byte counted from the start (`"Current"` and `"End"` are the other origins). `Position` is where the next read or write happens: after reading record 3 it is `60`, right after the record. `Write(text, 0, count)` writes `count` bytes of a text. `Read(buffer, 0, count)` reads them into a **byte buffer** (`dnBuffer(count)`), a .NET array that Ring holds, and gives the number of bytes it wrote; `dnBufferBytes(buffer, n)` copies them into a Ring text (the tutorial [Binary files](tut-45-binary.html)).
 
 ### In place
 

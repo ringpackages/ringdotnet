@@ -207,10 +207,24 @@ Generic **methods** work too (the bridge infers the type arguments from the valu
 | numbers (`int`, `long`, `double`, `decimal` ...) | number |
 | `bool` | `1` / `0` |
 | enum | string |
-| `byte[]` | string (binary safe) |
+| `byte[]` | string: a Ring text of bytes, binary safe (a copy) |
 | arrays and collections of simple values | list (use `toList()` on a collection object) |
 | any other object | a wrapped object (generated class, or a plain `DotNetObject`) |
 | `null` | an object whose `isNull()` is true |
+
+## Bytes and byte buffers
+
+A Ring text can hold any byte, so a `byte[]` that .NET returns is a Ring text (`oStream.ToArray()`, `File.ReadAllBytes`, `BitConverter.GetBytes`), and a text that you pass to a `byte[]` parameter becomes the same bytes (`File.WriteAllBytes(path, cBytes)`, `stream.Write(cBytes, 0, len(cBytes))`). Both are **copies**.
+
+A method that **fills** an array that you pass in has to work on the array itself, so it needs a byte buffer: an object that holds a live `byte[]`.
+
+```ring
+oBuffer = dnBuffer(1024)                  # a byte[] of 1024 bytes
+n = oStream.Read(oBuffer, 0, 1024)        # .NET writes into the array
+cBytes = dnBufferBytes(oBuffer, n)        # the first n bytes as a Ring text
+```
+
+`dnBuffer(text)` makes a buffer with the bytes of a text, and `dnBufferSize(oBuffer)` is its size. A buffer is accepted by every parameter of type `byte[]`, and by a parameter of type `object` (as the data of a registry `Binary` value). The test `test_binary.ring` shows `MemoryStream`, `FileStream` and a TCP stream.
 
 ## Errors
 

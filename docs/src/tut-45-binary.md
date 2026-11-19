@@ -45,6 +45,10 @@ Each line of the dump shows an offset (position), eight bytes in hexadecimal, an
 
 `Write(21.5)` writes a decimal (8 bytes); `Write(23)` would write a *whole* number (4 bytes) because Ring numbers without decimals are passed as integers. If you then read it back with `ReadDouble` you get an error ("unable to read beyond the end"). When the reader and the writer disagree, the file is garbage. Keep the values of a decimal field decimal (`23.0` is still whole to Ring: add a fraction or convert the value) and test your format by reading back what you wrote.
 
+### A buffer that .NET fills
+
+`File.ReadAllBytes` gives the whole file as a Ring text. For a big file, or for a network stream, a program reads in pieces with `Stream.Read(buffer, offset, count)`: .NET **writes into the array that you pass in**, and returns how many bytes it wrote. A Ring text cannot be that array (it is copied when it goes in), so the program makes a **byte buffer**: `dnBuffer(16)` is a .NET object that holds a `byte[]` of 16 bytes, and every parameter of type `byte[]` receives the live array inside it. After the call `dnBufferBytes(oBuffer, nRead)` copies the first `nRead` bytes into a Ring text. The text can hold any byte, so nothing is lost. The same buffer is used with sockets and with the registry (the tutorial [The Windows Registry](tut-118-registry.html)).
+
 ### The magic number
 
 The first bytes of a file say what kind of file it is: PNG files start with `89 50 4E 47`, zip files with `PK`. A reader checks them first and refuses anything else. Step 4 writes a text file over our file and `readMagic` returns something that is not `RDN1`: refused, instead of reading nonsense.

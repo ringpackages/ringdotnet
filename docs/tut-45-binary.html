@@ -287,6 +287,15 @@ using {
 	<span class="c"># 5. Bytes and numbers: BitConverter shows how a number is stored. Little endian: the smallest byte comes first</span>
 	aBytes = <span class="k">new</span> <span class="t">BitConverter</span>().<span class="f">GetBytes</span>(<span class="n">1000</span>)
 	? nl + <span class="s">"5. 1000 as bytes: "</span> + len(aBytes) + <span class="s">" bytes, the first two are "</span> + ascii(aBytes[<span class="n">1</span>]) + <span class="s">" and "</span> + ascii(aBytes[<span class="n">2</span>]) + <span class="s">" (1000 = 3 * 256 + 232)"</span>
+
+	<span class="c"># 6. Reading into a BUFFER. Stream.Read(buffer, offset, count) writes into an array that you pass in, so it needs a live .NET array and not</span>
+	<span class="c">#    a Ring text (a text is copied on the way in). dnBuffer makes such an array; Read gives the number of bytes that it wrote, and</span>
+	<span class="c">#    dnBufferBytes copies them back into a Ring text. The file is the one of step 4, a text that starts with "just".</span>
+	oStream = <span class="f">dnNew</span>(<span class="s">"FileStream"</span>,[ :path = cFile, :mode = <span class="s">"Open"</span> ])
+	oBuffer = <span class="f">dnBuffer</span>(<span class="n">16</span>)
+	nRead = oStream.<span class="f">Read</span>(oBuffer,<span class="n">0</span>,<span class="n">16</span>)
+	oStream.<span class="f">Dispose</span>()
+	? nl + <span class="s">"6. read "</span> + nRead + <span class="s">" bytes into a buffer of "</span> + <span class="f">dnBufferSize</span>(oBuffer) + <span class="s">"; the first four are '"</span> + <span class="f">dnBufferBytes</span>(oBuffer,<span class="n">4</span>) + <span class="s">"' (the text file of step 4)"</span>
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
 
 <span class="c"># a hex dump: 8 bytes per line</span>
@@ -348,7 +357,9 @@ using {
 
 4. Not our file format: refused
 
-5. 1000 as bytes: 4 bytes, the first two are 232 and 3 (1000 = 3 * 256 + 232)</code></pre></div>
+5. 1000 as bytes: 4 bytes, the first two are 232 and 3 (1000 = 3 * 256 + 232)
+
+6. read 16 bytes into a buffer of 16; the first four are 'just' (the text file of step 4)</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-format">The format<a class="anchor" href="#the-format">#</a></h3>
 <p>We invented it: first the text <code>RDN1</code>, then the count (3) as a 32-bit whole number, the title as a text, then that many decimal numbers. Any reader must follow <strong>exactly the same order</strong>. The <code>BinaryWriter</code> writes each value in a fixed, compact way, and the <code>BinaryReader</code> reads them back with matching calls: <code>ReadString</code>, <code>ReadInt32</code>, <code>ReadDouble</code>.</p>
@@ -358,6 +369,8 @@ using {
 <ul><li><code>04</code> is the <strong>length</strong> of the text that follows: a <code>BinaryWriter</code> writes a text as <em>length + characters</em>: <code>04</code> then <code>52 44 4e 31</code> = <code>R D N 1</code>.</li><li><code>03 00 00 00</code> is the whole number 3 written in 4 bytes. The <strong>smallest byte comes first</strong> (<em>little endian</em>): that is how Windows computers store numbers. 1000 is <code>E8 03 00 00</code>: 1000 = 3 × 256 + 232 (<code>E8</code>), which step 5 shows with <code>BitConverter</code>.</li><li><code>0c</code> = 12, the length of <code>Temperatures</code>.</li><li>The three decimal numbers take 8 bytes each (<code>00 00 00 00 00 80 35 40</code> is 21.5).</li></ul>
 <h3 id="the-type-that-you-pass-decides">The type that you pass decides<a class="anchor" href="#the-type-that-you-pass-decides">#</a></h3>
 <p><code>Write(21.5)</code> writes a decimal (8 bytes); <code>Write(23)</code> would write a <em>whole</em> number (4 bytes) because Ring numbers without decimals are passed as integers. If you then read it back with <code>ReadDouble</code> you get an error ("unable to read beyond the end"). When the reader and the writer disagree, the file is garbage. Keep the values of a decimal field decimal (<code>23.0</code> is still whole to Ring: add a fraction or convert the value) and test your format by reading back what you wrote.</p>
+<h3 id="a-buffer-that-net-fills">A buffer that .NET fills<a class="anchor" href="#a-buffer-that-net-fills">#</a></h3>
+<p><code>File.ReadAllBytes</code> gives the whole file as a Ring text. For a big file, or for a network stream, a program reads in pieces with <code>Stream.Read(buffer, offset, count)</code>: .NET <strong>writes into the array that you pass in</strong>, and returns how many bytes it wrote. A Ring text cannot be that array (it is copied when it goes in), so the program makes a <strong>byte buffer</strong>: <code>dnBuffer(16)</code> is a .NET object that holds a <code>byte[]</code> of 16 bytes, and every parameter of type <code>byte[]</code> receives the live array inside it. After the call <code>dnBufferBytes(oBuffer, nRead)</code> copies the first <code>nRead</code> bytes into a Ring text. The text can hold any byte, so nothing is lost. The same buffer is used with sockets and with the registry (the tutorial <a href="tut-118-registry.html">The Windows Registry</a>).</p>
 <h3 id="the-magic-number">The magic number<a class="anchor" href="#the-magic-number">#</a></h3>
 <p>The first bytes of a file say what kind of file it is: PNG files start with <code>89 50 4E 47</code>, zip files with <code>PK</code>. A reader checks them first and refuses anything else. Step 4 writes a text file over our file and <code>readMagic</code> returns something that is not <code>RDN1</code>: refused, instead of reading nonsense.</p>
 <h3 id="close-files-in-every-case">Close files in every case<a class="anchor" href="#close-files-in-every-case">#</a></h3>

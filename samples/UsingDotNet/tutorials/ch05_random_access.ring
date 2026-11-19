@@ -81,8 +81,9 @@ func writeRecordAt oStream,n,cName,nQuantity
 
 func readRecord oStream,n
 	oStream.Seek((n - 1) * nSize,"Begin")
-	oReader = dnNew("BinaryReader",[ :input = oStream, :encoding = new UTF8Encoding(), :leaveOpen = True ])
-	return oReader.ReadBytes(nSize)
+	oBuffer = dnBuffer(nSize)                              # a .NET byte[] that Read fills
+	nRead = oStream.Read(oBuffer,0,nSize)
+	return dnBufferBytes(oBuffer,nRead)
 
 func showRecord cRecord
 	return trim(left(cRecord,12)) + ", quantity " + (0 + substr(cRecord,13,4))

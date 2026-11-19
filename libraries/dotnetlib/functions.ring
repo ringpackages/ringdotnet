@@ -415,6 +415,21 @@ func dnFindFactory  dn_cChain
 func dnNull
 	return new DotNetObject(0)
 
+# A byte buffer that .NET can fill: oBuffer = dnBuffer(1024) makes a byte[] of 1024 bytes, dnBuffer("bytes") one with the bytes of a text.
+# A byte[] that .NET returns is a Ring text (a copy), and a Ring text passed in is a new array, so a method that FILLS an array
+# (Stream.Read, Socket.Receive...) needs this object: pass it as the byte[] parameter and read what was written with dnBufferBytes.
+#   n = oStream.Read(oBuffer,0,1024)         cBytes = dnBufferBytes(oBuffer,n)
+func dnBuffer  xSizeOrBytes
+	return dnNew("RingDotNet.ByteBuffer",[xSizeOrBytes])
+
+# The first nCount bytes of a buffer as a Ring text (use the number that Read or Receive returned; dnBufferSize(oBuffer) for all of them)
+func dnBufferBytes  oBuffer, nCount
+	return oBuffer.callMethod("GetBytes",[nCount])
+
+# The size of a buffer in bytes
+func dnBufferSize  oBuffer
+	return oBuffer.getProp("Length")
+
 # Use ASP.NET Core (adds the ASP.NET runtime and loads the web server of RingDotNet). Call it before any other .NET call.
 func dnUseWeb
 	dotnet_start("web")

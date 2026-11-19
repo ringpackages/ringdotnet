@@ -48,6 +48,15 @@ func main
 	# 5. Bytes and numbers: BitConverter shows how a number is stored. Little endian: the smallest byte comes first
 	aBytes = new BitConverter().GetBytes(1000)
 	? nl + "5. 1000 as bytes: " + len(aBytes) + " bytes, the first two are " + ascii(aBytes[1]) + " and " + ascii(aBytes[2]) + " (1000 = 3 * 256 + 232)"
+
+	# 6. Reading into a BUFFER. Stream.Read(buffer, offset, count) writes into an array that you pass in, so it needs a live .NET array and not
+	#    a Ring text (a text is copied on the way in). dnBuffer makes such an array; Read gives the number of bytes that it wrote, and
+	#    dnBufferBytes copies them back into a Ring text. The file is the one of step 4, a text that starts with "just".
+	oStream = dnNew("FileStream",[ :path = cFile, :mode = "Open" ])
+	oBuffer = dnBuffer(16)
+	nRead = oStream.Read(oBuffer,0,16)
+	oStream.Dispose()
+	? nl + "6. read " + nRead + " bytes into a buffer of " + dnBufferSize(oBuffer) + "; the first four are '" + dnBufferBytes(oBuffer,4) + "' (the text file of step 4)"
 	new File().Delete(cFile)
 
 # a hex dump: 8 bytes per line

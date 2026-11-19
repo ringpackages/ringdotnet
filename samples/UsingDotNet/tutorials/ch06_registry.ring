@@ -26,13 +26,15 @@ func main
 	? "1. the key HKEY_CURRENT_USER\" + C_PATH + " was made: " + (not oKey.isNull())
 
 	# 2. SetValue(name, data, kind). The kind says how Windows stores the data: String, DWord (a 32-bit number), QWord (64 bits),
-	#    MultiString (a list of texts), ExpandString (a text with %NAME% variables that Windows replaces) and Binary (bytes: see the page,
-#    a Binary value needs a real byte[] object, which a Ring program can not hold, so this lesson does not write one).
+	#    MultiString (a list of texts), ExpandString (a text with %NAME% variables that Windows replaces) and Binary (bytes).
 	oKey.callMethod("SetValue",["UserName","Ann","String"])
 	oKey.callMethod("SetValue",["WindowWidth",1280,"DWord"])
 	oKey.callMethod("SetValue",["LastFiles",stringArray(["a.txt","b.txt","c.txt"]),"MultiString"])          # MultiString needs a string[]: a List<string> and ToArray()
 	oKey.callMethod("SetValue",["DataFolder","%USERPROFILE%\Data","ExpandString"])
 	oKey.callMethod("SetValue",["BigNumber",5000000000,"QWord"])          # a number above 2147483647 needs 64 bits
+	# Binary needs a real byte[] object. A Ring text would be written as a String, so the bytes are put into a byte buffer (dnBuffer) first:
+	# the buffer is a .NET object that holds a byte[], and a parameter of type object receives that array.
+	oKey.callMethod("SetValue",["Signature",dnBuffer(char(1) + char(2) + char(0) + char(254) + char(255)),"Binary"])
 	? nl + "2. values written: " + oKey.getProp("ValueCount")
 
 	# 3. Reading: GetValue(name, default) gives the data in the form that fits its kind, or the default when the name is missing
@@ -43,6 +45,8 @@ func main
 	cFolder = oKey.callMethod("GetValue",["DataFolder"])
 	? "   DataFolder  = ends with \Data: " + (right(cFolder,5) = "\Data") + ", still has a % sign: " + (substr(cFolder,"%") > 0) + "   (Windows replaced %USERPROFILE%; the path is not printed because it holds your user name)"
 	? "   BigNumber   = " + oKey.callMethod("GetValue",["BigNumber"]) + "   (a 64-bit number)"
+	cSignature = oKey.callMethod("GetValue",["Signature"])                 # a byte[] comes back as a Ring text of bytes
+	? "   Signature   = " + len(cSignature) + " bytes, in hexadecimal " + new Convert().ToHexString(cSignature) + "   (Binary)"
 
 	# 4. The kind of a value, and a list of all values. GetValueKind tells how it is stored.
 	? nl + "4. all the values with their kinds:"

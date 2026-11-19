@@ -319,8 +319,9 @@ nSize = <span class="n">20</span>                        <span class="c"># every
 
 <span class="k">func</span> <span class="f">readRecord</span> oStream,n
 	oStream.<span class="f">Seek</span>((n - <span class="n">1</span>) * nSize,<span class="s">"Begin"</span>)
-	oReader = <span class="f">dnNew</span>(<span class="s">"BinaryReader"</span>,[ :input = oStream, :encoding = <span class="k">new</span> <span class="t">UTF8Encoding</span>(), :leaveOpen = <span class="k">True</span> ])
-	<span class="k">return</span> oReader.<span class="f">ReadBytes</span>(nSize)
+	oBuffer = <span class="f">dnBuffer</span>(nSize)                              <span class="c"># a .NET byte[] that Read fills</span>
+	nRead = oStream.<span class="f">Read</span>(oBuffer,<span class="n">0</span>,nSize)
+	<span class="k">return</span> <span class="f">dnBufferBytes</span>(oBuffer,nRead)
 
 <span class="k">func</span> <span class="f">showRecord</span> cRecord
 	<span class="k">return</span> trim(left(cRecord,<span class="n">12</span>)) + <span class="s">", quantity "</span> + (<span class="n">0</span> + substr(cRecord,<span class="n">13</span>,<span class="n">4</span>))
@@ -375,7 +376,7 @@ nSize = <span class="n">20</span>                        <span class="c"># every
 <h3 id="opening-a-filestream">Opening a FileStream<a class="anchor" href="#opening-a-filestream">#</a></h3>
 <p><code>dnNew("FileStream",[ :path = ..., :mode = "Create", :access = "ReadWrite", :share = "None" ])</code> has three important values. The <strong>mode</strong> says what happens when the file exists: <code>Create</code> makes a new empty file, <code>Open</code> opens an existing one, <code>OpenOrCreate</code> does either, <code>Append</code> writes at the end. The <strong>access</strong> says what this stream may do (<code>Read</code>, <code>Write</code>, <code>ReadWrite</code>). The <strong>share</strong> says what <em>others</em> may do while the stream is open.</p>
 <h3 id="seek-and-position">Seek and Position<a class="anchor" href="#seek-and-position">#</a></h3>
-<p><code>Seek(offset, "Begin")</code> moves the position to a byte counted from the start (<code>"Current"</code> and <code>"End"</code> are the other origins). <code>Position</code> is where the next read or write happens: after reading record 3 it is <code>60</code>, right after the record. <code>Write(text, 0, count)</code> writes <code>count</code> bytes of a text, and <code>BinaryReader.ReadBytes(count)</code> reads them back (a <code>byte[]</code> is a Ring text in this package).</p>
+<p><code>Seek(offset, "Begin")</code> moves the position to a byte counted from the start (<code>"Current"</code> and <code>"End"</code> are the other origins). <code>Position</code> is where the next read or write happens: after reading record 3 it is <code>60</code>, right after the record. <code>Write(text, 0, count)</code> writes <code>count</code> bytes of a text. <code>Read(buffer, 0, count)</code> reads them into a <strong>byte buffer</strong> (<code>dnBuffer(count)</code>), a .NET array that Ring holds, and gives the number of bytes it wrote; <code>dnBufferBytes(buffer, n)</code> copies them into a Ring text (the tutorial <a href="tut-45-binary.html">Binary files</a>).</p>
 <h3 id="in-place">In place<a class="anchor" href="#in-place">#</a></h3>
 <p>To change a record the program seeks to it and writes 20 new bytes over the old ones. Nothing else moves, so changing one record is as fast in a big file as in a small one. This only works because the new record has <em>exactly</em> the same size. To add a record the program seeks to the end (<code>n = 6</code>, the byte 100) and writes there; the file becomes longer.</p>
 <h3 id="flush-and-setlength">Flush and SetLength<a class="anchor" href="#flush-and-setlength">#</a></h3>

@@ -117,7 +117,9 @@ Events from timers on other threads (`System.Threading.Timer`, `Task.Run(...)`) 
 
 ### Binary data
 
-`byte[]` travels as a Ring string, so it is binary safe — except through the Entity Framework layer, where `bytes` columns are hex texts.
+A Ring text can hold any byte (a NUL, bytes that are not valid UTF-8), so a `byte[]` that .NET returns is a Ring text and nothing is lost; a text that is passed to a `byte[]` parameter becomes the same bytes. Only the Entity Framework layer is different: `bytes` columns are hex texts.
+
+A method that **fills** an array that you pass in (`Stream.Read(buffer, 0, n)`, `Socket.Receive`) needs a live array, because a Ring text is copied when it goes in and a returned array is copied when it comes out. Use a byte buffer: `oBuffer = dnBuffer(1024)`, `n = oStream.Read(oBuffer, 0, 1024)`, `cBytes = dnBufferBytes(oBuffer, n)`. The same object is the way to pass a `byte[]` where the parameter has the type `object`.
 
 ### Tracked EF rows
 

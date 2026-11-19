@@ -290,7 +290,8 @@ cResult = <span class="k">new</span> <span class="t">Regex</span>(<span class="s
 <h3 id="enums-are-strings">Enums are strings<a class="anchor" href="#enums-are-strings">#</a></h3>
 <p><code>oForm.WindowState = "Maximized"</code>, <code>oForm.FormBorderStyle = "FixedDialog"</code>.</p>
 <h3 id="binary-data">Binary data<a class="anchor" href="#binary-data">#</a></h3>
-<p><code>byte[]</code> travels as a Ring string, so it is binary safe — except through the Entity Framework layer, where <code>bytes</code> columns are hex texts.</p>
+<p>A Ring text can hold any byte (a NUL, bytes that are not valid UTF-8), so a <code>byte[]</code> that .NET returns is a Ring text and nothing is lost; a text that is passed to a <code>byte[]</code> parameter becomes the same bytes. Only the Entity Framework layer is different: <code>bytes</code> columns are hex texts.</p>
+<p>A method that <strong>fills</strong> an array that you pass in (<code>Stream.Read(buffer, 0, n)</code>, <code>Socket.Receive</code>) needs a live array, because a Ring text is copied when it goes in and a returned array is copied when it comes out. Use a byte buffer: <code>oBuffer = dnBuffer(1024)</code>, <code>n = oStream.Read(oBuffer, 0, 1024)</code>, <code>cBytes = dnBufferBytes(oBuffer, n)</code>. The same object is the way to pass a <code>byte[]</code> where the parameter has the type <code>object</code>.</p>
 <h3 id="tracked-ef-rows">Tracked EF rows<a class="anchor" href="#tracked-ef-rows">#</a></h3>
 <p><code>RingDatabase.byKey</code> returns the tracked row. After a raw SQL change (<code>execute</code>, <code>apply</code>) call <code>discard()</code> to read the new values.</p>
 <h2 id="limits">Limits<a class="anchor" href="#limits">#</a></h2>

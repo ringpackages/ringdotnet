@@ -102,14 +102,16 @@ func send oSocket,cBytes,cType,lClient
 func sendText oSocket,cText,lClient
 	send(oSocket,cText,"Text",lClient)
 
-# Receive into a buffer of nSize bytes. The buffer is an ArraySegment that is made here and filled by .NET: its Array property
-# is read AFTER the call, and the received bytes are the first Count of them. The answer is [the bytes, the type, EndOfMessage].
+# Receive into a buffer of nSize bytes. The buffer is a byte buffer (dnBuffer): a .NET byte[] that Ring holds. The ArraySegment is made
+# on that array, .NET fills it, and the received bytes are the first Count bytes of the buffer. The answer is [the bytes, the type,
+# EndOfMessage].
 func receive oSocket,nSize
-	oBuffer = dnNew("System.ArraySegment`1[[System.Byte]]",[ copy(" ",nSize) ])
-	oTask = oSocket.ReceiveAsync(oBuffer,oToken)
+	oBuffer = dnBuffer(nSize)
+	oSegment = dnNew("System.ArraySegment`1[[System.Byte]]",[ oBuffer ])
+	oTask = oSocket.ReceiveAsync(oSegment,oToken)
 	oTask.Wait(NULL)
 	oResult = oTask.getProp("Result")
-	return [ left(oBuffer.getProp("Array"),oResult.Count), "" + oResult.MessageType, oResult.EndOfMessage ]
+	return [ dnBufferBytes(oBuffer,oResult.Count), "" + oResult.MessageType, oResult.EndOfMessage ]
 
 func receiveText oSocket
 	return receive(oSocket,1024)[1]

@@ -340,14 +340,16 @@ oToken = <span class="s">""</span>                       <span class="c"># a tok
 <span class="k">func</span> <span class="f">sendText</span> oSocket,cText,lClient
 	send(oSocket,cText,<span class="s">"Text"</span>,lClient)
 
-<span class="c"># Receive into a buffer of nSize bytes. The buffer is an ArraySegment that is made here and filled by .NET: its Array property</span>
-<span class="c"># is read AFTER the call, and the received bytes are the first Count of them. The answer is [the bytes, the type, EndOfMessage].</span>
+<span class="c"># Receive into a buffer of nSize bytes. The buffer is a byte buffer (dnBuffer): a .NET byte[] that Ring holds. The ArraySegment is made</span>
+<span class="c"># on that array, .NET fills it, and the received bytes are the first Count bytes of the buffer. The answer is [the bytes, the type,</span>
+<span class="c"># EndOfMessage].</span>
 <span class="k">func</span> <span class="f">receive</span> oSocket,nSize
-	oBuffer = <span class="f">dnNew</span>(<span class="s">"System.ArraySegment`1[[System.Byte]]"</span>,[ copy(<span class="s">" "</span>,nSize) ])
-	oTask = oSocket.<span class="f">ReceiveAsync</span>(oBuffer,oToken)
+	oBuffer = <span class="f">dnBuffer</span>(nSize)
+	oSegment = <span class="f">dnNew</span>(<span class="s">"System.ArraySegment`1[[System.Byte]]"</span>,[ oBuffer ])
+	oTask = oSocket.<span class="f">ReceiveAsync</span>(oSegment,oToken)
 	oTask.<span class="f">Wait</span>(<span class="k">NULL</span>)
 	oResult = oTask.<span class="f">getProp</span>(<span class="s">"Result"</span>)
-	<span class="k">return</span> [ left(oBuffer.<span class="f">getProp</span>(<span class="s">"Array"</span>),oResult.Count), <span class="s">""</span> + oResult.MessageType, oResult.EndOfMessage ]
+	<span class="k">return</span> [ <span class="f">dnBufferBytes</span>(oBuffer,oResult.Count), <span class="s">""</span> + oResult.MessageType, oResult.EndOfMessage ]
 
 <span class="k">func</span> <span class="f">receiveText</span> oSocket
 	<span class="k">return</span> receive(oSocket,<span class="n">1024</span>)[<span class="n">1</span>]
@@ -384,7 +386,7 @@ oToken = <span class="s">""</span>                       <span class="c"># a tok
 <h3 id="one-thread-two-sides">One thread, two sides<a class="anchor" href="#one-thread-two-sides">#</a></h3>
 <p>Server and client are both in the program, and Ring runs on one thread. The connecting and the accepting are two halves of one handshake, so the program <strong>starts</strong> both tasks first and then waits for both (<code>Wait(NULL)</code>). A cancellation token with a limit of 20 seconds makes every call fail with an error instead of waiting for ever if something is wrong.</p>
 <h3 id="bytes-and-the-bridge">Bytes and the bridge<a class="anchor" href="#bytes-and-the-bridge">#</a></h3>
-<p>A message is a <strong>byte array</strong>. <code>SendAsync</code> takes an <code>ArraySegment&lt;byte&gt;</code>: a part of an array. A Ring text can hold any bytes, so <code>dnNew("System.ArraySegment</code>1[[System.Byte]]", [ text ])<code> makes a segment (and the array inside it) from the bytes of the text. For receiving, the program makes a segment of </code>nSize<code> spaces. </code>ReceiveAsync<code> **fills the array of that segment inside .NET**, and the program reads it afterwards: </code>oBuffer.getProp("Array")<code> returns the bytes as a Ring text, and the first </code>Count` of them are the message. The array that .NET filled is the one inside the segment object, which the program still holds, so the data is there to read; Ring strings are binary strings, so nothing is lost on the way (step 4 sends all 256 byte values).</p>
+<p>A message is a <strong>byte array</strong>. <code>SendAsync</code> takes an <code>ArraySegment&lt;byte&gt;</code>: a part of an array. A Ring text can hold any bytes, so <code>dnNew("System.ArraySegment</code>1[[System.Byte]]", [ text ])<code> makes a segment (and the array inside it) from the bytes of the text. For receiving, .NET must **write into an array that Ring can read afterwards**, and a Ring text is copied when it goes in. So the program makes a **byte buffer** with </code>dnBuffer(nSize)<code>: a .NET object that holds a live </code>byte[]<code>. The segment is made on that buffer, </code>ReceiveAsync<code> fills it, and </code>dnBufferBytes(oBuffer, count)<code> copies the first </code>Count` bytes into a Ring text. Ring strings are binary strings, so nothing is lost on the way (step 4 sends all 256 byte values).</p>
 <h3 id="text-and-binary">Text and binary<a class="anchor" href="#text-and-binary">#</a></h3>
 <p>The message type is <code>"Text"</code> (the bytes are UTF-8 text) or <code>"Binary"</code> (anything). The server echoes each text in capital letters, so a round trip shows both directions. The result of <code>ReceiveAsync</code> has <code>Count</code>, <code>MessageType</code> and <code>EndOfMessage</code>.</p>
 <h3 id="messages-in-parts">Messages in parts<a class="anchor" href="#messages-in-parts">#</a></h3>

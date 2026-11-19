@@ -10,7 +10,8 @@ The first release. It needs Ring 1.28 and an installed .NET runtime (6.0 or newe
 - `using { "System" "System.Text" }` imports namespaces and starts the runtime mode that the names need (desktop, web, data).
 - `new Class` works without parentheses for classes that need no value; `new Class(args)` with parentheses when values are passed.
 - Overloaded methods are one Ring method: `Name(NULL)`, `Name(value)` or `Name([ :parameter = value ])`.
-- `out` and `ref` parameters come back as a list; enums are texts; `byte[]` is a Ring text of bytes.
+- `out` and `ref` parameters come back as a list; enums are texts; `byte[]` is a Ring text of bytes (binary safe).
+- `dnBuffer(size)` is a byte buffer that .NET can fill (`Stream.Read`, `Socket.Receive`...) and that is accepted by `byte[]` and `object` parameters (registry `Binary` values); `dnBufferBytes` reads it back.
 - .NET objects are released when Ring drops them (managed pointers, handles released in groups); `release()` releases at once.
 - Callbacks from .NET to Ring (`dnCallback`) and events (`setXXXEvent`) while a call from Ring is running on the Ring thread.
 - LINQ helpers (`dnQuery`), closed generic collections, generic types with `dnNewGeneric`.

@@ -33,7 +33,7 @@ Server and client are both in the program, and Ring runs on one thread. The conn
 
 ### Bytes and the bridge
 
-A message is a **byte array**. `SendAsync` takes an `ArraySegment<byte>`: a part of an array. A Ring text can hold any bytes, so `dnNew("System.ArraySegment`1[[System.Byte]]", [ text ])` makes a segment (and the array inside it) from the bytes of the text. For receiving, the program makes a segment of `nSize` spaces. `ReceiveAsync` **fills the array of that segment inside .NET**, and the program reads it afterwards: `oBuffer.getProp("Array")` returns the bytes as a Ring text, and the first `Count` of them are the message. The array that .NET filled is the one inside the segment object, which the program still holds, so the data is there to read; Ring strings are binary strings, so nothing is lost on the way (step 4 sends all 256 byte values).
+A message is a **byte array**. `SendAsync` takes an `ArraySegment<byte>`: a part of an array. A Ring text can hold any bytes, so `dnNew("System.ArraySegment`1[[System.Byte]]", [ text ])` makes a segment (and the array inside it) from the bytes of the text. For receiving, .NET must **write into an array that Ring can read afterwards**, and a Ring text is copied when it goes in. So the program makes a **byte buffer** with `dnBuffer(nSize)`: a .NET object that holds a live `byte[]`. The segment is made on that buffer, `ReceiveAsync` fills it, and `dnBufferBytes(oBuffer, count)` copies the first `Count` bytes into a Ring text. Ring strings are binary strings, so nothing is lost on the way (step 4 sends all 256 byte values).
 
 ### Text and binary
 

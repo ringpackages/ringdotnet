@@ -1,6 +1,6 @@
 1. the key HKEY_CURRENT_USER\Software\RingDotNetTutorial118 was made: 1
 
-2. values written: 5
+2. values written: 6
 
 3. UserName    = Ann
    WindowWidth = 1280   (a number, so 1300 after + 20)
@@ -8,16 +8,18 @@
    LastFiles   = a.txt, b.txt, c.txt
    DataFolder  = ends with \Data: 1, still has a % sign: 0   (Windows replaced %USERPROFILE%; the path is not printed because it holds your user name)
    BigNumber   = 5000000000   (a 64-bit number)
+   Signature   = 5 bytes, in hexadecimal 010200FEFF   (Binary)
 
 4. all the values with their kinds:
    BigNumber   QWord
    DataFolder  ExpandString
    LastFiles   MultiString
+   Signature   Binary
    UserName    String
    WindowWidth DWord
 
 5. sub-keys: Window1, Window2
    Window1 has Left = 100, Top = 50
 
-6. after DeleteValue(BigNumber): 4 values
+6. after DeleteValue(BigNumber): 5 values
    the key was deleted: 1
