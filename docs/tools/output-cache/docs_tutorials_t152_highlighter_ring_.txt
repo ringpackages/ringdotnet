@@ -1,0 +1,37 @@
+1. the tokens (each token with its kind), without the spaces:
+   comment  [# count to three]
+   word     [for]
+   word     [i]
+   other    [=]
+   number   [1]
+   word     [to]
+   number   [3]
+   other    [?]
+   string   ["Number "]
+   other    [+]
+   word     [i]
+   comment  [# print it]
+   word     [next]
+   word     [x]
+   other    [=]
+   number   [3.14]
+   other    [*]
+   word     [radius]
+
+2. the keywords found: for, to, next
+   the names found:    i, x, radius
+
+3. the code as HTML:
+<span class="comment"># count to three</span>
+<span class="keyword">for</span> i = <span class="number">1</span> <span class="keyword">to</span> <span class="number">3</span>
+	? <span class="string">"Number "</span> + i   <span class="comment"># print it</span>
+<span class="keyword">next</span>
+x = <span class="number">3.14</span> * radius
+
+4. the text without the tags is the original code: yes
+
+5. characters of HTML in code:
+   <span class="keyword">if</span> a &lt; b and c &gt; d  <span class="comment"># a &lt;b&gt;tag&lt;/b&gt; &amp; more</span>
+
+6. a # inside a string:
+   text = <span class="string">"not # a comment"</span>

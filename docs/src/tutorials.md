@@ -84,6 +84,7 @@ Regular expressions, Unicode and encodings, comparing and escaping text, URLs an
 <a class="card" href="tut-29-regex.html"><div class="ic">🔤</div><b>Regular expressions in depth</b><span>Patterns, groups, replace, split, greedy and lazy, validation.</span></a>
 <a class="card" href="tut-129-formatting.html"><div class="ic">🔤</div><b>Formatting numbers and dates</b><span>Format strings: decimals, thousands, percent, patterns, alignment, dates and durations.</span></a>
 <a class="card" href="tut-144-mailmerge.html"><div class="ic">🔤</div><b>Project: mail merge</b><span>A template with fields, CSV data, Regex.Replace with a callback and a check for missing data.</span></a>
+<a class="card" href="tut-152-highlighter.html"><div class="ic">🔤</div><b>Project: a syntax highlighter</b><span>One regular expression with named groups, tokens, HTML spans and escaped text.</span></a>
 <a class="card" href="tut-52-unicode.html"><div class="ic">🔤</div><b>Unicode and encodings</b><span>Bytes, code points and letters; UTF-8, UTF-16 and mojibake.</span></a>
 <a class="card" href="tut-132-text-encodings.html"><div class="ic">🔤</div><b>Text files and encodings</b><span>The bytes of a text, the BOM, reading Latin-1 and UTF-16 files, strict UTF-8 and line endings.</span></a>
 <a class="card" href="tut-97-comparers.html"><div class="ic">🔤</div><b>Comparing text</b><span>Ordinal and culture comparison, StringComparer, and the Turkish i.</span></a>
@@ -196,6 +197,7 @@ IP addresses and networks, TCP and UDP sockets, HttpClient and REST, web service
 <a class="card" href="tut-26-website.html"><div class="ic">🌐</div><b>A small web site</b><span>HTML pages, a form, a guestbook, status codes and the escaping rule.</span></a>
 <a class="card" href="tut-55-miniweb.html"><div class="ic">🌐</div><b>A tiny web framework</b><span>Routes with parameters, a catch-all handler and escaped templates.</span></a>
 <a class="card" href="tut-120-routes.html"><div class="ic">🌐</div><b>Route templates</b><span>users/{id}, optional, default and catch-all parts, choosing a route.</span></a>
+<a class="card" href="tut-150-shortener.html"><div class="ic">🌐</div><b>Project: a link shortener</b><span>Base 62 codes, a 302 redirect, a catch-all handler, visit counts and address checks.</span></a>
 <a class="card" href="tut-94-mail-messages.html"><div class="ic">🌐</div><b>E-mail messages</b><span>MailAddress, MailMessage, recipients and text plus HTML views.</span></a>
 </div>
 
@@ -293,6 +295,7 @@ Giving Ring code to .NET (callbacks and events), exploring and building code wit
 <div class="cards">
 <a class="card" href="tut-19-callbacks.html"><div class="ic">📦</div><b>Callbacks and events</b><span>Give Ring code to .NET: function names, code texts, events, errors and the thread rule.</span></a>
 <a class="card" href="tut-20-reflection.html"><div class="ic">📦</div><b>Exploring .NET with reflection</b><span>Ask a class what it can do: properties, methods, parameters, enums.</span></a>
+<a class="card" href="tut-151-inspector.html"><div class="ic">📦</div><b>Project: an object inspector</b><span>GetType, GetProperties and GetValue: the properties of any object in a list.</span></a>
 <a class="card" href="tut-87-expressions.html"><div class="ic">📦</div><b>Expression trees</b><span>Code as data: build, print, compile and call functions at run time.</span></a>
 <a class="card" href="tut-18-csharp-library.html"><div class="ic">📦</div><b>A library written in C#</b><span>Build a small C# library, wrap it and call it from Ring.</span></a>
 <a class="card" href="tut-28-testing.html"><div class="ic">📦</div><b>Testing your programs</b><span>Testable functions, dnAssert, testing errors, self-testing windows.</span></a>

@@ -73,4 +73,4 @@ A template describes the **path**. It does not read the query string (`?page=2`,
 
 ## Next
 
-[E-mail messages](tut-94-mail-messages.html)
+[A project: a link shortener](tut-150-shortener.html)

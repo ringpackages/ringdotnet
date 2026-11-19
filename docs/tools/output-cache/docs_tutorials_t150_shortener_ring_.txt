@@ -1,0 +1,18 @@
+1. numbers as codes: 1000 -> g8, 1001 -> g9, 3844 -> 100, 238328 -> 1000
+
+2. POST /shorten
+   Created  g8  https://example.com/a/ver...
+   Created  g9  https://example.org/
+   OK  g8  (already known)
+
+3. GET /g8 (a redirect: the client does not follow it)
+   Found, Location: https://example.com/a/very/long/address?with=parameters&and=more
+
+4. GET /stats
+   g8: 2 visits; g9: 1 visits
+
+5. errors:
+   GET /zzzz                   -> NotFound
+   POST /shorten, no address   -> BadRequest
+   POST /shorten, not a URL    -> BadRequest
+   POST /shorten, a script     -> BadRequest

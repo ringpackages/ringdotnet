@@ -55,6 +55,7 @@ SHOTS = [
     ("g143_quiz.ring", "g143", "\tuiTest(", "\tplay(1)\n\tplay(0)\n\taAnswers[3].Checked = True\n", 2500, "forms"),
     ("g146_keyboard.ring", "g146", "\tuiTest(", "\toName.Text = 'ann'\n\toAge.Text = '12'\n\taccept()\n", 2500, "forms"),
     ("g148_wpf_lists.ring", "g148", "\twpfTest(", "\tfor cItem in ['tea','coffee','milk','honey','lemon']\n\t\twpfFind(oWindow,'input').Text = cItem\n\t\taddItem()\n\tnext\n\tlistBox().SelectedIndex = 1\n", 1300, "wpf"),
+    ("g151_inspector.ring", "g151", None, "", 2500, "forms"),
 ]
 
 
