@@ -163,9 +163,11 @@ Class AuthorizationBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationBuilder, Microsoft.AspNetCore.Authorization',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func SetInvokeHandlersAfterFailure P1
@@ -206,6 +208,7 @@ Class AuthorizationFailure from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -247,9 +250,11 @@ Class AuthorizationFailureReason from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationFailureReason, Microsoft.AspNetCore.Authorization',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -282,9 +287,11 @@ Class AuthorizationHandlerContext from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext, Microsoft.AspNetCore.Authorization',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Fail P1
@@ -355,21 +362,26 @@ Class AuthorizationMiddleware from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationMiddleware, Microsoft.AspNetCore.Authorization.Policy',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Authorization.AuthorizationMiddleware, Microsoft.AspNetCore.Authorization.Policy',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationMiddleware, Microsoft.AspNetCore.Authorization.Policy',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationMiddleware, Microsoft.AspNetCore.Authorization.Policy',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Invoke P1
@@ -386,22 +398,25 @@ Class AuthorizationOptions from Object
 	FallbackPolicy
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'authorizationoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationOptions, Microsoft.AspNetCore.Authorization',[])
+		dnDefaultObject('Microsoft.AspNetCore.Authorization.AuthorizationOptions, Microsoft.AspNetCore.Authorization')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationOptions, Microsoft.AspNetCore.Authorization',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddPolicy P1,P2
@@ -445,9 +460,11 @@ Class AuthorizationPolicy from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -484,9 +501,11 @@ Class AuthorizationPolicyBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationPolicyBuilder, Microsoft.AspNetCore.Authorization',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddAuthenticationSchemes P1
@@ -546,6 +565,7 @@ Class AuthorizationResult from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -584,6 +604,7 @@ Class AuthorizationServiceExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -601,22 +622,25 @@ Class AuthorizationServiceExtensions from Object
 Class DefaultAuthorizationEvaluator from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'defaultauthorizationevaluator'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.DefaultAuthorizationEvaluator, Microsoft.AspNetCore.Authorization',[])
+		dnDefaultObject('Microsoft.AspNetCore.Authorization.DefaultAuthorizationEvaluator, Microsoft.AspNetCore.Authorization')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.DefaultAuthorizationEvaluator, Microsoft.AspNetCore.Authorization',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Evaluate P1
@@ -629,22 +653,25 @@ Class DefaultAuthorizationEvaluator from Object
 Class DefaultAuthorizationHandlerContextFactory from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'defaultauthorizationhandlercontextfactory'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.DefaultAuthorizationHandlerContextFactory, Microsoft.AspNetCore.Authorization',[])
+		dnDefaultObject('Microsoft.AspNetCore.Authorization.DefaultAuthorizationHandlerContextFactory, Microsoft.AspNetCore.Authorization')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.DefaultAuthorizationHandlerContextFactory, Microsoft.AspNetCore.Authorization',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateContext P1,P2,P3
@@ -660,9 +687,11 @@ Class DefaultAuthorizationHandlerProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.DefaultAuthorizationHandlerProvider, Microsoft.AspNetCore.Authorization',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetHandlersAsync P1
@@ -680,9 +709,11 @@ Class DefaultAuthorizationPolicyProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.DefaultAuthorizationPolicyProvider, Microsoft.AspNetCore.Authorization',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetDefaultPolicyAsync 
@@ -710,9 +741,11 @@ Class DefaultAuthorizationService from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.DefaultAuthorizationService, Microsoft.AspNetCore.Authorization',[P1,P2,P3,P4,P5,P6])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AuthorizeAsync P1,P2,P3
@@ -728,6 +761,7 @@ Class IAllowAnonymous from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -739,6 +773,7 @@ Class IAuthorizationEvaluator from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -753,6 +788,7 @@ Class IAuthorizationHandler from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -767,6 +803,7 @@ Class IAuthorizationHandlerContextFactory from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -781,6 +818,7 @@ Class IAuthorizationHandlerProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -795,6 +833,7 @@ Class IAuthorizationMiddlewareResultHandler from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -811,6 +850,7 @@ Class IAuthorizationPolicyProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -837,6 +877,7 @@ Class IAuthorizationRequirement from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -848,6 +889,7 @@ Class IAuthorizationRequirementData from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -862,6 +904,7 @@ Class IAuthorizationService from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -880,6 +923,7 @@ Class IAuthorizeData from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self

@@ -311,6 +311,15 @@ namespace RingDotNet
 				case "set":
 					SetMember(a[0], Str(a, 1), a[2]);
 					return null;
+				case "releasemany":
+					lock (Handles)
+					{
+						foreach (object handle in a)
+						{
+							Handles.Remove(Convert.ToInt64(handle is double h ? h : 0, Inv));
+						}
+					}
+					return null;
 				case "release":
 					Handles.Remove(Convert.ToInt64(a[0] is double d ? d : 0, Inv));
 					return null;

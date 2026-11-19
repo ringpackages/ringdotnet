@@ -35,21 +35,26 @@ Class AssociatedMetadataTypeTypeDescriptionProvider from TypeDescriptionProvider
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.DataAnnotations.AssociatedMetadataTypeTypeDescriptionProvider, System.ComponentModel.Annotations',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.DataAnnotations.AssociatedMetadataTypeTypeDescriptionProvider, System.ComponentModel.Annotations',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.ComponentModel.DataAnnotations.AssociatedMetadataTypeTypeDescriptionProvider, System.ComponentModel.Annotations',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.DataAnnotations.AssociatedMetadataTypeTypeDescriptionProvider, System.ComponentModel.Annotations',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -59,6 +64,7 @@ Class IValidatableObject from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -79,21 +85,26 @@ Class ValidationContext from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.Annotations',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.Annotations',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.Annotations',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.Annotations',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func InitializeServiceProvider P1
@@ -149,21 +160,26 @@ Class DataAnnotationsValidationResult from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.DataAnnotations.ValidationResult, System.ComponentModel.Annotations',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.DataAnnotations.ValidationResult, System.ComponentModel.Annotations',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.ComponentModel.DataAnnotations.ValidationResult, System.ComponentModel.Annotations',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.DataAnnotations.ValidationResult, System.ComponentModel.Annotations',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -195,6 +211,7 @@ Class Validator from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self

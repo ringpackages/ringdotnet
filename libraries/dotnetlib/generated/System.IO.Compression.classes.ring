@@ -76,22 +76,25 @@ Class BrotliCompressionOptions from Object
 	Quality
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'brotlicompressionoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.IO.Compression.BrotliCompressionOptions, System.IO.Compression.Brotli',[])
+		dnDefaultObject('System.IO.Compression.BrotliCompressionOptions, System.IO.Compression.Brotli')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.IO.Compression.BrotliCompressionOptions, System.IO.Compression.Brotli',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -108,22 +111,25 @@ Class BrotliCompressionOptions from Object
 Class BrotliDecoder from ValueType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'brotlidecoder'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.IO.Compression.BrotliDecoder, System.IO.Compression.Brotli',[])
+		dnDefaultObject('System.IO.Compression.BrotliDecoder, System.IO.Compression.Brotli')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.IO.Compression.BrotliDecoder, System.IO.Compression.Brotli',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -134,38 +140,45 @@ Class BrotliDecoder from ValueType
 Class BrotliEncoder from ValueType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'brotliencoder'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',[])
+		dnDefaultObject('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -184,21 +197,26 @@ Class BrotliStream from Stream
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Compression.BrotliStream, System.IO.Compression.Brotli',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.IO.Compression.BrotliStream, System.IO.Compression.Brotli',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.IO.Compression.BrotliStream, System.IO.Compression.Brotli',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Compression.BrotliStream, System.IO.Compression.Brotli',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBaseStream
@@ -216,21 +234,26 @@ Class DeflateStream from Stream
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Compression.DeflateStream, System.IO.Compression',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.IO.Compression.DeflateStream, System.IO.Compression',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.IO.Compression.DeflateStream, System.IO.Compression',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Compression.DeflateStream, System.IO.Compression',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func WriteAsync P1
@@ -254,21 +277,26 @@ Class GZipStream from Stream
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Compression.GZipStream, System.IO.Compression',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.IO.Compression.GZipStream, System.IO.Compression',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.IO.Compression.GZipStream, System.IO.Compression',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Compression.GZipStream, System.IO.Compression',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBaseStream
@@ -284,22 +312,25 @@ Class ZLibCompressionOptions from Object
 	CompressionStrategy
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'zlibcompressionoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.IO.Compression.ZLibCompressionOptions, System.IO.Compression',[])
+		dnDefaultObject('System.IO.Compression.ZLibCompressionOptions, System.IO.Compression')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.IO.Compression.ZLibCompressionOptions, System.IO.Compression',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -328,21 +359,26 @@ Class ZLibStream from Stream
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Compression.ZLibStream, System.IO.Compression',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.IO.Compression.ZLibStream, System.IO.Compression',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.IO.Compression.ZLibStream, System.IO.Compression',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Compression.ZLibStream, System.IO.Compression',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBaseStream
@@ -362,21 +398,26 @@ Class ZipArchive from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Compression.ZipArchive, System.IO.Compression',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.IO.Compression.ZipArchive, System.IO.Compression',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.IO.Compression.ZipArchive, System.IO.Compression',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Compression.ZipArchive, System.IO.Compression',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateEntry P1
@@ -432,6 +473,7 @@ Class ZipArchiveEntry from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -516,6 +558,7 @@ Class ZipFile from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -553,6 +596,7 @@ Class ZipFileExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self

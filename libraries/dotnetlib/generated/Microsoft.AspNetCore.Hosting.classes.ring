@@ -149,9 +149,11 @@ Class DelegateStartup from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Hosting.DelegateStartup, Microsoft.AspNetCore.Hosting',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Configure P1
@@ -188,6 +190,7 @@ Class HostingAbstractionsWebHostBuilderExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -238,6 +241,7 @@ Class HostingEnvironmentExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -252,6 +256,7 @@ Class IHostingStartup from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -267,6 +272,7 @@ Class IStartup from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -285,6 +291,7 @@ Class IStartupFilter from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -302,6 +309,7 @@ Class IWebHost from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -347,6 +355,7 @@ Class IWebHostBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -376,6 +385,7 @@ Class IWebHostEnvironment from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -401,6 +411,7 @@ Class KestrelServerOptionsSystemdExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -421,6 +432,7 @@ Class ListenOptionsConnectionLoggingExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -441,6 +453,7 @@ Class ListenOptionsHttpsExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -461,6 +474,7 @@ Class StartupBase from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -483,22 +497,25 @@ Class StartupBase from Object
 Class WebHostBuilder from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'webhostbuilder'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Hosting.WebHostBuilder, Microsoft.AspNetCore.Hosting',[])
+		dnDefaultObject('Microsoft.AspNetCore.Hosting.WebHostBuilder, Microsoft.AspNetCore.Hosting')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Hosting.WebHostBuilder, Microsoft.AspNetCore.Hosting',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetSetting P1
@@ -526,22 +543,25 @@ Class WebHostBuilderContext from Object
 	Configuration
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'webhostbuildercontext'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Hosting.WebHostBuilderContext, Microsoft.AspNetCore.Hosting.Abstractions',[])
+		dnDefaultObject('Microsoft.AspNetCore.Hosting.WebHostBuilderContext, Microsoft.AspNetCore.Hosting.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Hosting.WebHostBuilderContext, Microsoft.AspNetCore.Hosting.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -568,6 +588,7 @@ Class WebHostBuilderExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -603,6 +624,7 @@ Class WebHostBuilderHttpSysExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -623,6 +645,7 @@ Class WebHostBuilderIISExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -640,6 +663,7 @@ Class WebHostBuilderKestrelExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -669,6 +693,7 @@ Class WebHostBuilderNamedPipeExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -689,6 +714,7 @@ Class WebHostBuilderQuicExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -709,6 +735,7 @@ Class WebHostBuilderSocketExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -747,6 +774,7 @@ Class WebHostDefaults from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -863,6 +891,7 @@ Class WebHostExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self

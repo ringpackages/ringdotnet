@@ -95,6 +95,7 @@ Class Dispatcher from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -238,6 +239,7 @@ Class DispatcherEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -258,9 +260,11 @@ Class DispatcherHookEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherHookEventArgs, WindowsBase',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getDispatcher
@@ -282,6 +286,7 @@ Class DispatcherHooks from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -346,6 +351,7 @@ Class DispatcherObject from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -379,6 +385,7 @@ Class DispatcherOperation from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -452,22 +459,25 @@ Class DispatcherOperation from Object
 Class DispatcherPriorityAwaitable from ValueType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dispatcherpriorityawaitable'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Threading.DispatcherPriorityAwaitable, WindowsBase',[])
+		dnDefaultObject('System.Windows.Threading.DispatcherPriorityAwaitable, WindowsBase')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherPriorityAwaitable, WindowsBase',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetAwaiter 
@@ -479,22 +489,25 @@ Class DispatcherPriorityAwaiter from ValueType
 	IsCompleted
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dispatcherpriorityawaiter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Threading.DispatcherPriorityAwaiter, WindowsBase',[])
+		dnDefaultObject('System.Windows.Threading.DispatcherPriorityAwaiter, WindowsBase')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherPriorityAwaiter, WindowsBase',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetResult 
@@ -515,22 +528,25 @@ Class DispatcherPriorityAwaiter from ValueType
 Class DispatcherProcessingDisabled from ValueType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dispatcherprocessingdisabled'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Threading.DispatcherProcessingDisabled, WindowsBase',[])
+		dnDefaultObject('System.Windows.Threading.DispatcherProcessingDisabled, WindowsBase')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherProcessingDisabled, WindowsBase',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -541,38 +557,45 @@ Class DispatcherProcessingDisabled from ValueType
 Class DispatcherSynchronizationContext from SynchronizationContext
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dispatchersynchronizationcontext'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Threading.DispatcherSynchronizationContext, WindowsBase',[])
+		dnDefaultObject('System.Windows.Threading.DispatcherSynchronizationContext, WindowsBase')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherSynchronizationContext, WindowsBase',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Threading.DispatcherSynchronizationContext, WindowsBase',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Threading.DispatcherSynchronizationContext, WindowsBase',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherSynchronizationContext, WindowsBase',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -584,38 +607,45 @@ Class DispatcherTimer from Object
 	Tag
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dispatchertimer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Threading.DispatcherTimer, WindowsBase',[])
+		dnDefaultObject('System.Windows.Threading.DispatcherTimer, WindowsBase')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherTimer, WindowsBase',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Threading.DispatcherTimer, WindowsBase',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Threading.DispatcherTimer, WindowsBase',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherTimer, WindowsBase',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Start 
@@ -668,38 +698,45 @@ Class DispatcherTimer from Object
 Class DispatcherFrame from DispatcherObject
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dispatcherframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Threading.DispatcherFrame, WindowsBase',[])
+		dnDefaultObject('System.Windows.Threading.DispatcherFrame, WindowsBase')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherFrame, WindowsBase',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Threading.DispatcherFrame, WindowsBase',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Threading.DispatcherFrame, WindowsBase',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherFrame, WindowsBase',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getContinue
@@ -719,6 +756,7 @@ Class DispatcherUnhandledExceptionEventArgs from DispatcherEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -746,6 +784,7 @@ Class DispatcherUnhandledExceptionFilterEventArgs from DispatcherEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self

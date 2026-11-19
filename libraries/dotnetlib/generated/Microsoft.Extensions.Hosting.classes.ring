@@ -163,6 +163,7 @@ Class BackgroundService from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -192,22 +193,25 @@ Class ConsoleLifetimeOptions from Object
 	SuppressStatusMessages
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'consolelifetimeoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Hosting.ConsoleLifetimeOptions, Microsoft.Extensions.Hosting',[])
+		dnDefaultObject('Microsoft.Extensions.Hosting.ConsoleLifetimeOptions, Microsoft.Extensions.Hosting')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.ConsoleLifetimeOptions, Microsoft.Extensions.Hosting',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -231,6 +235,7 @@ Class Environments from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -263,6 +268,7 @@ Class GenericHostBuilderExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -283,6 +289,7 @@ Class GenericHostWebHostBuilderExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -306,6 +313,7 @@ Class Host from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -344,38 +352,45 @@ Class HostApplicationBuilder from Object
 	Metrics
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hostapplicationbuilder'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostApplicationBuilder, Microsoft.Extensions.Hosting',[])
+		dnDefaultObject('Microsoft.Extensions.Hosting.HostApplicationBuilder, Microsoft.Extensions.Hosting')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostApplicationBuilder, Microsoft.Extensions.Hosting',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Hosting.HostApplicationBuilder, Microsoft.Extensions.Hosting',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Extensions.Hosting.HostApplicationBuilder, Microsoft.Extensions.Hosting',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostApplicationBuilder, Microsoft.Extensions.Hosting',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ConfigureContainer P1
@@ -433,22 +448,25 @@ Class HostApplicationBuilderSettings from Object
 	ContentRootPath
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hostapplicationbuildersettings'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostApplicationBuilderSettings, Microsoft.Extensions.Hosting',[])
+		dnDefaultObject('Microsoft.Extensions.Hosting.HostApplicationBuilderSettings, Microsoft.Extensions.Hosting')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostApplicationBuilderSettings, Microsoft.Extensions.Hosting',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -502,22 +520,25 @@ Class HostBuilder from Object
 	Properties
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hostbuilder'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostBuilder, Microsoft.Extensions.Hosting',[])
+		dnDefaultObject('Microsoft.Extensions.Hosting.HostBuilder, Microsoft.Extensions.Hosting')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostBuilder, Microsoft.Extensions.Hosting',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ConfigureHostConfiguration P1
@@ -558,9 +579,11 @@ Class HostBuilderContext from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostBuilderContext, Microsoft.Extensions.Hosting.Abstractions',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -597,6 +620,7 @@ Class HostDefaults from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -629,6 +653,7 @@ Class HostEnvironmentEnvExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -658,22 +683,25 @@ Class HostOptions from Object
 	BackgroundServiceExceptionBehavior
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hostoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostOptions, Microsoft.Extensions.Hosting',[])
+		dnDefaultObject('Microsoft.Extensions.Hosting.HostOptions, Microsoft.Extensions.Hosting')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostOptions, Microsoft.Extensions.Hosting',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -721,6 +749,7 @@ Class HostingAbstractionsHostBuilderExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -744,6 +773,7 @@ Class HostingAbstractionsHostExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -785,6 +815,7 @@ Class AspHostingEnvironmentExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -811,6 +842,7 @@ Class HostingHostBuilderExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -869,6 +901,7 @@ Class IHost from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -911,6 +944,7 @@ Class IHostApplicationBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -970,6 +1004,7 @@ Class IHostApplicationLifetime from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1005,6 +1040,7 @@ Class IHostBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1045,6 +1081,7 @@ Class IHostEnvironment from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1084,6 +1121,7 @@ Class IHostLifetime from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1101,6 +1139,7 @@ Class IHostedLifecycleService from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1124,6 +1163,7 @@ Class IHostedService from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1140,22 +1180,25 @@ Class WebHostBuilderOptions from Object
 	SuppressEnvironmentConfiguration
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'webhostbuilderoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Hosting.WebHostBuilderOptions, Microsoft.AspNetCore.Hosting',[])
+		dnDefaultObject('Microsoft.Extensions.Hosting.WebHostBuilderOptions, Microsoft.AspNetCore.Hosting')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.WebHostBuilderOptions, Microsoft.AspNetCore.Hosting',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1

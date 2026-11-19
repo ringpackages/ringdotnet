@@ -634,38 +634,45 @@ Class AddingNewEventArgs from EventArgs
 	NewObject
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'addingneweventargs'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getNewObject
@@ -686,9 +693,11 @@ Class AsyncCompletedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.AsyncCompletedEventArgs, System.ComponentModel.EventBasedAsync',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCancelled
@@ -719,6 +728,7 @@ Class AsyncOperation from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -759,6 +769,7 @@ Class AsyncOperationManager from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -786,9 +797,11 @@ Class AttributeCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.AttributeCollection, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Contains P1
@@ -831,38 +844,45 @@ Class CancelEventArgs from EventArgs
 	Cancel
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'canceleventargs'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.CancelEventArgs, System.ComponentModel',[])
+		dnDefaultObject('System.ComponentModel.CancelEventArgs, System.ComponentModel')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.CancelEventArgs, System.ComponentModel',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.CancelEventArgs, System.ComponentModel',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.ComponentModel.CancelEventArgs, System.ComponentModel',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.CancelEventArgs, System.ComponentModel',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCancel
@@ -882,9 +902,11 @@ Class CollectionChangeEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.CollectionChangeEventArgs, System.ComponentModel.TypeConverter',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAction
@@ -906,22 +928,25 @@ Class Component from MarshalByRefObject
 	Container
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'component'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.Component, System.ComponentModel.Primitives',[])
+		dnDefaultObject('System.ComponentModel.Component, System.ComponentModel.Primitives')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.Component, System.ComponentModel.Primitives',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -956,9 +981,11 @@ Class ComponentCollection from ReadOnlyCollectionBase
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.ComponentCollection, System.ComponentModel.Primitives',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CopyTo P1,P2
@@ -975,6 +1002,7 @@ Class ComponentEditor from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -992,38 +1020,45 @@ Class ComponentEditor from Object
 Class ComponentResourceManager from ResourceManager
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'componentresourcemanager'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ApplyResources P1
@@ -1043,22 +1078,25 @@ Class Container from Object
 	Components
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'container'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.Container, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.Container, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.Container, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -1093,6 +1131,7 @@ Class ContainerFilterService from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1112,6 +1151,7 @@ Class CustomTypeDescriptor from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1185,9 +1225,11 @@ Class DataErrorsChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.DataErrorsChangedEventArgs, System.ObjectModel',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPropertyName
@@ -1206,21 +1248,26 @@ Class EventDescriptorCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.EventDescriptorCollection, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.EventDescriptorCollection, System.ComponentModel.TypeConverter',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.ComponentModel.EventDescriptorCollection, System.ComponentModel.TypeConverter',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.EventDescriptorCollection, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -1285,22 +1332,25 @@ Class EventDescriptorCollection from Object
 Class EventHandlerList from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'eventhandlerlist'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.EventHandlerList, System.ComponentModel.Primitives',[])
+		dnDefaultObject('System.ComponentModel.EventHandlerList, System.ComponentModel.Primitives')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.EventHandlerList, System.ComponentModel.Primitives',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddHandler P1,P2
@@ -1335,38 +1385,45 @@ Class HandledEventArgs from EventArgs
 	Handled
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'handledeventargs'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getHandled
@@ -1393,6 +1450,7 @@ Class IBindingList from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1493,6 +1551,7 @@ Class IBindingListView from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1537,6 +1596,7 @@ Class ICancelAddNew from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1558,6 +1618,7 @@ Class IChangeTracking from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1581,6 +1642,7 @@ Class IComponent from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1609,6 +1671,7 @@ Class IContainer from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1640,6 +1703,7 @@ Class ICustomTypeDescriptor from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1710,6 +1774,7 @@ Class IDataErrorInfo from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1730,6 +1795,7 @@ Class IEditableObject from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1753,6 +1819,7 @@ Class IExtenderProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1769,6 +1836,7 @@ Class IIntellisenseBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1791,6 +1859,7 @@ Class IListSource from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1813,6 +1882,7 @@ Class INestedContainer from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1832,6 +1902,7 @@ Class INestedSite from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1851,6 +1922,7 @@ Class INotifyDataErrorInfo from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1879,6 +1951,7 @@ Class INotifyPropertyChanged from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1898,6 +1971,7 @@ Class INotifyPropertyChanging from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1919,6 +1993,7 @@ Class IRaiseItemChangedEvents from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1936,6 +2011,7 @@ Class IRevertibleChangeTracking from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1956,6 +2032,7 @@ Class ISite from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1992,6 +2069,7 @@ Class ISupportInitialize from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2013,6 +2091,7 @@ Class ISupportInitializeNotification from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2040,6 +2119,7 @@ Class ISynchronizeInvoke from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2070,6 +2150,7 @@ Class ITypeDescriptorContext from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2106,6 +2187,7 @@ Class ITypedList from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2125,6 +2207,7 @@ Class InstanceCreationEditor from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2150,6 +2233,7 @@ Class License from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2173,22 +2257,25 @@ Class LicenseContext from Object
 	UsageMode
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'licensecontext'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.LicenseContext, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.LicenseContext, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.LicenseContext, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetSavedLicenseKey P1,P2
@@ -2220,6 +2307,7 @@ Class LicenseManager from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2277,6 +2365,7 @@ Class LicenseProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2299,21 +2388,26 @@ Class ListChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.ListChangedEventArgs, System.ComponentModel.TypeConverter',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.ListChangedEventArgs, System.ComponentModel.TypeConverter',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.ComponentModel.ListChangedEventArgs, System.ComponentModel.TypeConverter',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.ListChangedEventArgs, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getListChangedType
@@ -2350,9 +2444,11 @@ Class ListSortDescription from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.ListSortDescription, System.ComponentModel.TypeConverter',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2378,38 +2474,45 @@ Class ListSortDescriptionCollection from Object
 	Count
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listsortdescriptioncollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Contains P1
@@ -2446,22 +2549,25 @@ Class MarshalByValueComponent from Object
 	DesignMode
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'marshalbyvaluecomponent'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.MarshalByValueComponent, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.MarshalByValueComponent, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.MarshalByValueComponent, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -2531,21 +2637,26 @@ Class MaskedTextProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Clone 
@@ -2800,6 +2911,7 @@ Class MemberDescriptor from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2859,9 +2971,11 @@ Class ProgressChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.ProgressChangedEventArgs, System.ComponentModel.EventBasedAsync',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getProgressPercentage
@@ -2885,9 +2999,11 @@ Class PropertyChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.PropertyChangedEventArgs, System.ObjectModel',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPropertyName
@@ -2905,9 +3021,11 @@ Class PropertyChangingEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.PropertyChangingEventArgs, System.ObjectModel',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPropertyName
@@ -2926,21 +3044,26 @@ Class PropertyDescriptorCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.PropertyDescriptorCollection, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.PropertyDescriptorCollection, System.ComponentModel.TypeConverter',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.ComponentModel.PropertyDescriptorCollection, System.ComponentModel.TypeConverter',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.PropertyDescriptorCollection, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -3015,9 +3138,11 @@ Class RefreshEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.RefreshEventArgs, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getComponentChanged
@@ -3039,6 +3164,7 @@ Class SyntaxCheck from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3059,22 +3185,25 @@ Class SyntaxCheck from Object
 Class TypeConverter from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'typeconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.TypeConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.TypeConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.TypeConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CanConvertFrom P1
@@ -3200,6 +3329,7 @@ Class TypeDescriptionProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3270,6 +3400,7 @@ Class TypeDescriptor from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3453,22 +3584,25 @@ Class BackgroundWorker from Component
 	WorkerSupportsCancellation
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'backgroundworker'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.BackgroundWorker, System.ComponentModel.EventBasedAsync',[])
+		dnDefaultObject('System.ComponentModel.BackgroundWorker, System.ComponentModel.EventBasedAsync')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.BackgroundWorker, System.ComponentModel.EventBasedAsync',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CancelAsync 
@@ -3552,6 +3686,7 @@ Class BaseNumberConverter from TypeConverter
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3560,154 +3695,175 @@ Class BaseNumberConverter from TypeConverter
 Class BooleanConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'booleanconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.BooleanConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.BooleanConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.BooleanConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class CharConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'charconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.CharConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.CharConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.CharConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class CollectionConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'collectionconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.CollectionConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.CollectionConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.CollectionConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class CultureInfoConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cultureinfoconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.CultureInfoConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.CultureInfoConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.CultureInfoConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DateOnlyConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dateonlyconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.DateOnlyConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.DateOnlyConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.DateOnlyConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DateTimeConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datetimeconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.DateTimeConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.DateTimeConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.DateTimeConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DateTimeOffsetConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datetimeoffsetconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.DateTimeOffsetConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.DateTimeOffsetConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.DateTimeOffsetConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3720,9 +3876,11 @@ Class DoWorkEventArgs from CancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.DoWorkEventArgs, System.ComponentModel.EventBasedAsync',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getArgument
@@ -3745,9 +3903,11 @@ Class EnumConverter from TypeConverter
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.EnumConverter, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3761,6 +3921,7 @@ Class EventDescriptor from MemberDescriptor
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3795,88 +3956,100 @@ Class EventDescriptor from MemberDescriptor
 Class ExpandableObjectConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'expandableobjectconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.ExpandableObjectConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.ExpandableObjectConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.ExpandableObjectConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class GuidConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'guidconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.GuidConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.GuidConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.GuidConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class LicFileLicenseProvider from LicenseProvider
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'licfilelicenseprovider'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.LicFileLicenseProvider, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.LicFileLicenseProvider, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.LicFileLicenseProvider, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class MultilineStringConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'multilinestringconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.MultilineStringConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.MultilineStringConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.MultilineStringConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3888,9 +4061,11 @@ Class NestedContainer from Container
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.NestedContainer, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getOwner
@@ -3910,9 +4085,11 @@ Class NullableConverter from TypeConverter
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.NullableConverter, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getNullableType
@@ -3949,6 +4126,7 @@ Class PropertyDescriptor from MemberDescriptor
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4045,9 +4223,11 @@ Class ReferenceConverter from TypeConverter
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.ReferenceConverter, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -4059,9 +4239,11 @@ Class RunWorkerCompletedEventArgs from AsyncCompletedEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.RunWorkerCompletedEventArgs, System.ComponentModel.EventBasedAsync',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getResult
@@ -4074,66 +4256,75 @@ Class RunWorkerCompletedEventArgs from AsyncCompletedEventArgs
 Class StringConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.StringConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.StringConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.StringConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class TimeOnlyConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'timeonlyconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.TimeOnlyConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.TimeOnlyConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.TimeOnlyConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class TimeSpanConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'timespanconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.TimeSpanConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.TimeSpanConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.TimeSpanConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -4143,6 +4334,7 @@ Class TypeListConverter from TypeConverter
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4151,66 +4343,75 @@ Class TypeListConverter from TypeConverter
 Class VersionConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'versionconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.VersionConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.VersionConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.VersionConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class ArrayConverter from CollectionConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'arrayconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.ArrayConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.ArrayConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.ArrayConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class ByteConverter from BaseNumberConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'byteconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.ByteConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.ByteConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.ByteConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -4220,295 +4421,336 @@ Class ComponentConverter from ReferenceConverter
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.ComponentModel.ComponentConverter, System.ComponentModel.TypeConverter',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DecimalConverter from BaseNumberConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'decimalconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.DecimalConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.DecimalConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.DecimalConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DoubleConverter from BaseNumberConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'doubleconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.DoubleConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.DoubleConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.DoubleConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class HalfConverter from BaseNumberConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'halfconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.HalfConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.HalfConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.HalfConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class Int128Converter from BaseNumberConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int128converter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.Int128Converter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.Int128Converter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.Int128Converter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class Int16Converter from BaseNumberConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int16converter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.Int16Converter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.Int16Converter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.Int16Converter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class Int32Converter from BaseNumberConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int32converter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.Int32Converter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.Int32Converter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.Int32Converter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class Int64Converter from BaseNumberConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int64converter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.Int64Converter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.Int64Converter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.Int64Converter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class SByteConverter from BaseNumberConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sbyteconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.SByteConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.SByteConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.SByteConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class SingleConverter from BaseNumberConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'singleconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.SingleConverter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.SingleConverter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.SingleConverter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class UInt128Converter from BaseNumberConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uint128converter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.UInt128Converter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.UInt128Converter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.UInt128Converter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class UInt16Converter from BaseNumberConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uint16converter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.UInt16Converter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.UInt16Converter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.UInt16Converter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class UInt32Converter from BaseNumberConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uint32converter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.UInt32Converter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.UInt32Converter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.UInt32Converter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class UInt64Converter from BaseNumberConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uint64converter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.ComponentModel.UInt64Converter, System.ComponentModel.TypeConverter',[])
+		dnDefaultObject('System.ComponentModel.UInt64Converter, System.ComponentModel.TypeConverter')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.UInt64Converter, System.ComponentModel.TypeConverter',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 

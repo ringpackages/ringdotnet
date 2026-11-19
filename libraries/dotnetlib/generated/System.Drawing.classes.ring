@@ -227,6 +227,7 @@ Class Brush from MarshalByRefObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -387,6 +388,7 @@ Class Brushes from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1249,6 +1251,7 @@ Class BufferedGraphics from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1284,22 +1287,25 @@ Class BufferedGraphicsContext from Object
 	MaximumBuffer
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bufferedgraphicscontext'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.BufferedGraphicsContext, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.BufferedGraphicsContext, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.BufferedGraphicsContext, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Allocate P1,P2
@@ -1332,6 +1338,7 @@ Class BufferedGraphicsManager from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1352,38 +1359,45 @@ Class CharacterRange from ValueType
 	Length
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'characterrange'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.CharacterRange, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.CharacterRange, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.CharacterRange, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.CharacterRange, System.Drawing.Common',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.CharacterRange, System.Drawing.Common',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.CharacterRange, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFirst
@@ -1557,22 +1571,25 @@ Class Color from ValueType
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'color'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.Color, System.Drawing.Primitives',[])
+		dnDefaultObject('System.Drawing.Color, System.Drawing.Primitives')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Color, System.Drawing.Primitives',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetBrightness 
@@ -2521,6 +2538,7 @@ Class ColorTranslator from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2570,21 +2588,26 @@ Class Font from MarshalByRefObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Font, System.Drawing.Common',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Font, System.Drawing.Common',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.Font, System.Drawing.Common',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Font, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -2727,22 +2750,25 @@ Class Font from MarshalByRefObject
 Class FontConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fontconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.FontConverter, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.FontConverter, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.FontConverter, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -2758,21 +2784,26 @@ Class FontFamily from MarshalByRefObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.FontFamily, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.FontFamily, System.Drawing.Common',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.FontFamily, System.Drawing.Common',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.FontFamily, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -2857,6 +2888,7 @@ Class Graphics from MarshalByRefObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3347,6 +3379,7 @@ Class IDeviceContext from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3370,21 +3403,26 @@ Class Icon from MarshalByRefObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Icon, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Icon, System.Drawing.Common',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.Icon, System.Drawing.Common',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Icon, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Clone 
@@ -3441,22 +3479,25 @@ Class Icon from MarshalByRefObject
 Class IconConverter from ExpandableObjectConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'iconconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.IconConverter, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.IconConverter, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.IconConverter, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3481,6 +3522,7 @@ Class Image from MarshalByRefObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3661,6 +3703,7 @@ Class ImageAnimator from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3695,44 +3738,50 @@ Class ImageAnimator from Object
 Class ImageConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imageconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.ImageConverter, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.ImageConverter, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.ImageConverter, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class ImageFormatConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imageformatconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.ImageFormatConverter, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.ImageFormatConverter, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.ImageFormatConverter, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3760,21 +3809,26 @@ Class Pen from MarshalByRefObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Pen, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Pen, System.Drawing.Common',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.Pen, System.Drawing.Common',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Pen, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Clone 
@@ -4089,6 +4143,7 @@ Class Pens from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4954,21 +5009,26 @@ Class Point from ValueType
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Point, System.Drawing.Primitives',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Point, System.Drawing.Primitives',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.Point, System.Drawing.Primitives',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Point, System.Drawing.Primitives',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Offset P1
@@ -5032,21 +5092,26 @@ Class PointF from ValueType
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.PointF, System.Drawing.Primitives',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.PointF, System.Drawing.Primitives',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.PointF, System.Drawing.Primitives',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.PointF, System.Drawing.Primitives',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ToVector2 
@@ -5104,21 +5169,26 @@ Class Rectangle from ValueType
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Rectangle, System.Drawing.Primitives',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Rectangle, System.Drawing.Primitives',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.Rectangle, System.Drawing.Primitives',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Rectangle, System.Drawing.Primitives',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Contains P1
@@ -5271,21 +5341,26 @@ Class RectangleF from ValueType
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.RectangleF, System.Drawing.Primitives',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.RectangleF, System.Drawing.Primitives',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.RectangleF, System.Drawing.Primitives',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.RectangleF, System.Drawing.Primitives',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ToVector4 
@@ -5416,38 +5491,45 @@ Class RectangleF from ValueType
 Class Region from MarshalByRefObject
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'region'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.Region, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.Region, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Region, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Region, System.Drawing.Common',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.Region, System.Drawing.Common',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Region, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Clone 
@@ -5542,21 +5624,26 @@ Class Size from ValueType
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Size, System.Drawing.Primitives',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Size, System.Drawing.Primitives',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.Size, System.Drawing.Primitives',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Size, System.Drawing.Primitives',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1,P2
@@ -5612,21 +5699,26 @@ Class SizeF from ValueType
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.SizeF, System.Drawing.Primitives',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.SizeF, System.Drawing.Primitives',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.SizeF, System.Drawing.Primitives',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.SizeF, System.Drawing.Primitives',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ToVector2 
@@ -5684,38 +5776,45 @@ Class StringFormat from MarshalByRefObject
 	GenericTypographic
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringformat'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.StringFormat, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.StringFormat, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.StringFormat, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.StringFormat, System.Drawing.Common',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.StringFormat, System.Drawing.Common',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.StringFormat, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -5840,6 +5939,7 @@ Class SystemBrushes from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6090,6 +6190,7 @@ Class SystemColors from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6318,6 +6419,7 @@ Class SystemFonts from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6394,6 +6496,7 @@ Class SystemIcons from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6508,6 +6611,7 @@ Class SystemPens from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6723,21 +6827,26 @@ Class Bitmap from Image
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Bitmap, System.Drawing.Common',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Bitmap, System.Drawing.Common',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.Bitmap, System.Drawing.Common',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Bitmap, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetHbitmap P1
@@ -6825,9 +6934,11 @@ Class SolidBrush from Brush
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.SolidBrush, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getColor
@@ -6848,21 +6959,26 @@ Class TextureBrush from Brush
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.TextureBrush, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.TextureBrush, System.Drawing.Common',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.TextureBrush, System.Drawing.Common',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.TextureBrush, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ResetTransform 

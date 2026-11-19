@@ -242,4 +242,4 @@ When no class exists for a type, or when you want the generic style, every wrapp
 | `typeName()` | full .NET type name |
 | `toList()` | copy an array or collection into a Ring list |
 | `isNull()` | true for the .NET null |
-| `release()` | release the handle (rarely needed) |
+| `release()` | release the handle at once (Ring does it for you when the object is dropped; the object can not be used after this) |

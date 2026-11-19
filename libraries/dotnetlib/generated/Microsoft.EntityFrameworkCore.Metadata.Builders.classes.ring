@@ -457,9 +457,11 @@ Class CheckConstraintBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.CheckConstraintBuilder, Microsoft.EntityFrameworkCore.Relational',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasName P1
@@ -487,9 +489,11 @@ Class CollectionCollectionBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.CollectionCollectionBuilder, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func UsingEntity P1
@@ -520,9 +524,11 @@ Class CollectionNavigationBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.CollectionNavigationBuilder, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4,P5])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func WithOne P1
@@ -555,9 +561,11 @@ Class ColumnBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.ColumnBuilder, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasColumnName P1
@@ -582,9 +590,11 @@ Class ComplexPropertiesConfigurationBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.ComplexPropertiesConfigurationBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -599,9 +609,11 @@ Class ComplexPropertyBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.ComplexPropertyBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasPropertyAnnotation P1,P2
@@ -676,9 +688,11 @@ Class ComplexTypePrimitiveCollectionBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.ComplexTypePrimitiveCollectionBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2
@@ -783,9 +797,11 @@ Class ComplexTypePropertyBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.ComplexTypePropertyBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2
@@ -897,9 +913,11 @@ Class ConventionSetBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.ConventionSetBuilder, Microsoft.EntityFrameworkCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Replace P1
@@ -929,22 +947,25 @@ Class ConventionSetBuilder from Object
 Class DataBuilder from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'databuilder'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.DataBuilder, Microsoft.EntityFrameworkCore',[])
+		dnDefaultObject('Microsoft.EntityFrameworkCore.Metadata.Builders.DataBuilder, Microsoft.EntityFrameworkCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.DataBuilder, Microsoft.EntityFrameworkCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -959,6 +980,7 @@ Class DbFunctionBuilderBase from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1002,9 +1024,11 @@ Class DbFunctionParameterBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.DbFunctionParameterBuilder, Microsoft.EntityFrameworkCore.Relational',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasStoreType P1
@@ -1035,9 +1059,11 @@ Class DiscriminatorBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.DiscriminatorBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func IsComplete P1
@@ -1067,9 +1093,11 @@ Class ElementTypeBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.ElementTypeBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2
@@ -1129,9 +1157,11 @@ Class EntityTypeBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2
@@ -1255,6 +1285,7 @@ Class IConventionAnnotatableBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1310,6 +1341,7 @@ Class IConventionCheckConstraintBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1359,6 +1391,7 @@ Class IConventionComplexPropertyBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1390,6 +1423,7 @@ Class IConventionComplexTypeBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1460,6 +1494,7 @@ Class IConventionDbFunctionBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1587,6 +1622,7 @@ Class IConventionDbFunctionParameterBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1648,6 +1684,7 @@ Class IConventionDiscriminatorBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1691,6 +1728,7 @@ Class IConventionElementTypeBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1836,6 +1874,7 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2143,6 +2182,7 @@ Class IConventionEntityTypeMappingFragmentBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2162,6 +2202,7 @@ Class IConventionForeignKeyBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2325,6 +2366,7 @@ Class IConventionIndexBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2386,6 +2428,7 @@ Class IConventionKeyBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2423,6 +2466,7 @@ Class IConventionModelBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2562,6 +2606,7 @@ Class IConventionNavigationBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2615,6 +2660,7 @@ Class IConventionOwnedEntityTypeBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2628,6 +2674,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2863,6 +2910,7 @@ Class IConventionRelationalPropertyOverridesBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2882,6 +2930,7 @@ Class IConventionSequenceBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2991,6 +3040,7 @@ Class IConventionServicePropertyBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3022,6 +3072,7 @@ Class IConventionSkipNavigationBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3089,6 +3140,7 @@ Class IConventionStoredProcedureBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3222,6 +3274,7 @@ Class IConventionStoredProcedureParameterBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3283,6 +3336,7 @@ Class IConventionStoredProcedureResultColumnBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3332,6 +3386,7 @@ Class IConventionTriggerBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3369,6 +3424,7 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3532,9 +3588,11 @@ Class IndexBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.IndexBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2
@@ -3570,6 +3628,7 @@ Class InvertibleRelationshipBuilderBase from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3592,9 +3651,11 @@ Class KeyBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.KeyBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2
@@ -3618,9 +3679,11 @@ Class NavigationBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.NavigationBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2
@@ -3672,22 +3735,25 @@ Class NavigationBuilder from Object
 Class OwnedEntityTypeBuilder from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ownedentitytypebuilder'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.OwnedEntityTypeBuilder, Microsoft.EntityFrameworkCore',[])
+		dnDefaultObject('Microsoft.EntityFrameworkCore.Metadata.Builders.OwnedEntityTypeBuilder, Microsoft.EntityFrameworkCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.OwnedEntityTypeBuilder, Microsoft.EntityFrameworkCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -3703,9 +3769,11 @@ Class OwnedNavigationBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.OwnedNavigationBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2
@@ -3807,9 +3875,11 @@ Class OwnedNavigationSplitTableBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.OwnedNavigationSplitTableBuilder, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ExcludeFromMigrations P1
@@ -3868,9 +3938,11 @@ Class OwnedNavigationSplitViewBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.OwnedNavigationSplitViewBuilder, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Property P1
@@ -3909,9 +3981,11 @@ Class OwnedNavigationStoredProcedureBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.OwnedNavigationStoredProcedureBuilder, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasParameter P1
@@ -3982,9 +4056,11 @@ Class OwnedNavigationTableBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.OwnedNavigationTableBuilder, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ExcludeFromMigrations P1
@@ -4039,9 +4115,11 @@ Class OwnedNavigationViewBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.OwnedNavigationViewBuilder, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Property P1
@@ -4071,9 +4149,11 @@ Class PrimitiveCollectionBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.PrimitiveCollectionBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2
@@ -4176,9 +4256,11 @@ Class PropertiesConfigurationBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.PropertiesConfigurationBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HaveAnnotation P1,P2
@@ -4226,9 +4308,11 @@ Class PropertyBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2
@@ -4340,9 +4424,11 @@ Class ReferenceNavigationBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.ReferenceNavigationBuilder, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func WithMany P1
@@ -4375,6 +4461,7 @@ Class RelationshipBuilderBase from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4397,9 +4484,11 @@ Class SequenceBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.SequenceBuilder, Microsoft.EntityFrameworkCore.Relational',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func IncrementsBy P1
@@ -4447,9 +4536,11 @@ Class SplitTableBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.SplitTableBuilder, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ExcludeFromMigrations P1
@@ -4508,9 +4599,11 @@ Class SplitViewBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.SplitViewBuilder, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Property P1
@@ -4549,9 +4642,11 @@ Class StoredProcedureBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.StoredProcedureBuilder, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasParameter P1
@@ -4620,9 +4715,11 @@ Class StoredProcedureParameterBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.StoredProcedureParameterBuilder, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasName P1
@@ -4655,9 +4752,11 @@ Class StoredProcedureResultColumnBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.StoredProcedureResultColumnBuilder, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasName P1
@@ -4686,9 +4785,11 @@ Class TableBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.TableBuilder, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ExcludeFromMigrations P1
@@ -4742,9 +4843,11 @@ Class TriggerBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.TriggerBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2
@@ -4766,9 +4869,11 @@ Class TypeMappingConfigurationBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.TypeMappingConfigurationBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2
@@ -4817,9 +4922,11 @@ Class ViewBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.ViewBuilder, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Property P1
@@ -4849,9 +4956,11 @@ Class ViewColumnBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.ViewColumnBuilder, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasColumnName P1
@@ -4876,9 +4985,11 @@ Class DbFunctionBuilder from DbFunctionBuilderBase
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.DbFunctionBuilder, Microsoft.EntityFrameworkCore.Relational',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func IsNullable P1
@@ -4906,9 +5017,11 @@ Class OwnedNavigationTableValuedFunctionBuilder from DbFunctionBuilderBase
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.OwnedNavigationTableValuedFunctionBuilder, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2
@@ -4921,9 +5034,11 @@ Class OwnershipBuilder from RelationshipBuilderBase
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.OwnershipBuilder, Microsoft.EntityFrameworkCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2
@@ -4942,9 +5057,11 @@ Class ReferenceCollectionBuilder from RelationshipBuilderBase
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.ReferenceCollectionBuilder, Microsoft.EntityFrameworkCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2
@@ -4975,9 +5092,11 @@ Class ReferenceReferenceBuilder from InvertibleRelationshipBuilderBase
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.ReferenceReferenceBuilder, Microsoft.EntityFrameworkCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2
@@ -5008,9 +5127,11 @@ Class TableTriggerBuilder from TriggerBuilder
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.TableTriggerBuilder, Microsoft.EntityFrameworkCore.Relational',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasDatabaseName P1
@@ -5023,9 +5144,11 @@ Class TableValuedFunctionBuilder from DbFunctionBuilderBase
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.TableValuedFunctionBuilder, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasAnnotation P1,P2

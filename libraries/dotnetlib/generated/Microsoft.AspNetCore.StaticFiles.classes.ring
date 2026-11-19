@@ -53,9 +53,11 @@ Class DefaultFilesMiddleware from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.DefaultFilesMiddleware, Microsoft.AspNetCore.StaticFiles',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Invoke P1
@@ -71,21 +73,26 @@ Class DirectoryBrowserMiddleware from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.DirectoryBrowserMiddleware, Microsoft.AspNetCore.StaticFiles',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.StaticFiles.DirectoryBrowserMiddleware, Microsoft.AspNetCore.StaticFiles',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.DirectoryBrowserMiddleware, Microsoft.AspNetCore.StaticFiles',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.DirectoryBrowserMiddleware, Microsoft.AspNetCore.StaticFiles',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Invoke P1
@@ -100,38 +107,45 @@ Class FileExtensionContentTypeProvider from Object
 	Mappings
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fileextensioncontenttypeprovider'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider, Microsoft.AspNetCore.StaticFiles',[])
+		dnDefaultObject('Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider, Microsoft.AspNetCore.StaticFiles')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider, Microsoft.AspNetCore.StaticFiles',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider, Microsoft.AspNetCore.StaticFiles',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider, Microsoft.AspNetCore.StaticFiles',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider, Microsoft.AspNetCore.StaticFiles',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func TryGetContentType P1
@@ -153,9 +167,11 @@ Class HtmlDirectoryFormatter from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.HtmlDirectoryFormatter, Microsoft.AspNetCore.StaticFiles',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GenerateContentAsync P1,P2
@@ -171,6 +187,7 @@ Class IContentTypeProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -185,6 +202,7 @@ Class IDirectoryFormatter from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -199,9 +217,11 @@ Class StaticFileMiddleware from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware, Microsoft.AspNetCore.StaticFiles',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Invoke P1
@@ -220,9 +240,11 @@ Class StaticFileResponseContext from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.StaticFileResponseContext, Microsoft.AspNetCore.StaticFiles',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1

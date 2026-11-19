@@ -206,38 +206,45 @@ Func DotNetNew_VariantWrapper
 Class ArrayWithOffset from ValueType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'arraywithoffset'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Runtime.InteropServices.ArrayWithOffset, System.Private.CoreLib',[])
+		dnDefaultObject('System.Runtime.InteropServices.ArrayWithOffset, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.ArrayWithOffset, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.ArrayWithOffset, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Runtime.InteropServices.ArrayWithOffset, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.ArrayWithOffset, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetArray 
@@ -255,9 +262,11 @@ Class BStrWrapper from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.BStrWrapper, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -275,38 +284,45 @@ Class CLong from ValueType
 	Value
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'clong'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Runtime.InteropServices.CLong, System.Private.CoreLib',[])
+		dnDefaultObject('System.Runtime.InteropServices.CLong, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.CLong, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.CLong, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Runtime.InteropServices.CLong, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.CLong, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getValue
@@ -321,38 +337,45 @@ Class CULong from ValueType
 	Value
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'culong'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Runtime.InteropServices.CULong, System.Private.CoreLib',[])
+		dnDefaultObject('System.Runtime.InteropServices.CULong, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.CULong, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.CULong, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Runtime.InteropServices.CULong, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.CULong, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getValue
@@ -368,6 +391,7 @@ Class CollectionsMarshal from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -395,9 +419,11 @@ Class ComAwareEventInfo from EventInfo
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.ComAwareEventInfo, System.Runtime.InteropServices',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -407,6 +433,7 @@ Class ComEventsHelper from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -428,6 +455,7 @@ Class ComWrappers from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -474,6 +502,7 @@ Class CriticalHandle from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -523,9 +552,11 @@ Class DispatchWrapper from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.DispatchWrapper, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -546,9 +577,11 @@ Class ErrorWrapper from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.ErrorWrapper, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -567,22 +600,25 @@ Class GCHandle from ValueType
 	IsAllocated
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'gchandle'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib',[])
+		dnDefaultObject('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Free 
@@ -629,21 +665,26 @@ Class HandleCollector from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.HandleCollector, System.Runtime.InteropServices',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.HandleCollector, System.Runtime.InteropServices',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Runtime.InteropServices.HandleCollector, System.Runtime.InteropServices',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.HandleCollector, System.Runtime.InteropServices',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add 
@@ -688,38 +729,45 @@ Class HandleRef from ValueType
 	Handle
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'handleref'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Runtime.InteropServices.HandleRef, System.Private.CoreLib',[])
+		dnDefaultObject('System.Runtime.InteropServices.HandleRef, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.HandleRef, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.HandleRef, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Runtime.InteropServices.HandleRef, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.HandleRef, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ToIntPtr P1
@@ -744,6 +792,7 @@ Class ICustomAdapter from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -758,6 +807,7 @@ Class ICustomFactory from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -772,6 +822,7 @@ Class ICustomMarshaler from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -800,6 +851,7 @@ Class ICustomQueryInterface from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -814,6 +866,7 @@ Class IDynamicInterfaceCastable from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -834,6 +887,7 @@ Class Marshal from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1248,6 +1302,7 @@ Class MemoryMarshal from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1299,38 +1354,45 @@ Class NFloat from ValueType
 	NegativeZero
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'nfloat'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Runtime.InteropServices.NFloat, System.Private.CoreLib',[])
+		dnDefaultObject('System.Runtime.InteropServices.NFloat, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.NFloat, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.NFloat, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Runtime.InteropServices.NFloat, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.NFloat, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CompareTo P1
@@ -1697,6 +1759,7 @@ Class NativeLibrary from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1740,6 +1803,7 @@ Class NativeMemory from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1771,22 +1835,25 @@ Class OSPlatform from ValueType
 	Windows
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'osplatform'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib',[])
+		dnDefaultObject('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Create P1
@@ -1826,9 +1893,11 @@ Class PosixSignalContext from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.PosixSignalContext, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1854,6 +1923,7 @@ Class PosixSignalRegistration from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1877,6 +1947,7 @@ Class RuntimeEnvironment from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1918,6 +1989,7 @@ Class RuntimeInformation from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1969,6 +2041,7 @@ Class SafeBuffer from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2062,6 +2135,7 @@ Class SafeHandle from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2119,6 +2193,7 @@ Class StandardOleMarshalObject from MarshalByRefObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2132,9 +2207,11 @@ Class UnknownWrapper from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.UnknownWrapper, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2155,9 +2232,11 @@ Class VariantWrapper from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.VariantWrapper, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1

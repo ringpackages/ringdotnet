@@ -1345,6 +1345,7 @@ Class Animatable from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1384,22 +1385,25 @@ Class BeginStoryboard from TriggerAction
 	StoryboardProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'beginstoryboard'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.BeginStoryboard, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Media.Animation.BeginStoryboard, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.BeginStoryboard, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getStoryboard
@@ -1441,6 +1445,7 @@ Class BooleanKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1492,22 +1497,25 @@ Class BooleanKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'booleankeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.BooleanKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.BooleanKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.BooleanKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -1597,6 +1605,7 @@ Class ByteKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1648,22 +1657,25 @@ Class ByteKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bytekeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.ByteKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.ByteKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ByteKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -1753,6 +1765,7 @@ Class CharKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1804,22 +1817,25 @@ Class CharKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'charkeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.CharKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.CharKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.CharKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -1916,6 +1932,7 @@ Class Clock from DispatcherObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2036,6 +2053,7 @@ Class ClockCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2092,6 +2110,7 @@ Class ClockController from DispatcherObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2153,6 +2172,7 @@ Class ColorKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2204,22 +2224,25 @@ Class ColorKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'colorkeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.ColorKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.ColorKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ColorKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -2306,6 +2329,7 @@ Class ControllableStoryboardAction from TriggerAction
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2329,6 +2353,7 @@ Class DecimalKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2380,22 +2405,25 @@ Class DecimalKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'decimalkeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DecimalKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DecimalKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DecimalKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -2485,6 +2513,7 @@ Class DoubleKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2536,22 +2565,25 @@ Class DoubleKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'doublekeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DoubleKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DoubleKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DoubleKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -2639,6 +2671,7 @@ Class EasingFunctionBase from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2668,6 +2701,7 @@ Class IAnimatable from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2702,6 +2736,7 @@ Class IAnimation from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2716,6 +2751,7 @@ Class IEasingFunction from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2733,6 +2769,7 @@ Class IKeyFrame from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2760,6 +2797,7 @@ Class IKeyFrameAnimation from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2783,6 +2821,7 @@ Class Int16KeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2834,22 +2873,25 @@ Class Int16KeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int16keyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Int16KeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Int16KeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int16KeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -2939,6 +2981,7 @@ Class Int32KeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2990,22 +3033,25 @@ Class Int32KeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int32keyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Int32KeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Int32KeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int32KeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -3095,6 +3141,7 @@ Class Int64KeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3146,22 +3193,25 @@ Class Int64KeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int64keyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Int64KeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Int64KeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int64KeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -3246,38 +3296,45 @@ Class KeySpline from Freezable
 	ControlPoint2
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keyspline'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.KeySpline, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.KeySpline, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.KeySpline, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.KeySpline, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.KeySpline, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.KeySpline, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetSplineProgress P1
@@ -3313,22 +3370,25 @@ Class KeyTime from ValueType
 	Paced
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keytime'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.KeyTime, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.KeyTime, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.KeyTime, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -3391,6 +3451,7 @@ Class MatrixKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3442,22 +3503,25 @@ Class MatrixKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'matrixkeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.MatrixKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.MatrixKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.MatrixKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -3547,6 +3611,7 @@ Class ObjectKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3598,22 +3663,25 @@ Class ObjectKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'objectkeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.ObjectKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.ObjectKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ObjectKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -3703,6 +3771,7 @@ Class Point3DKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3754,22 +3823,25 @@ Class Point3DKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'point3dkeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Point3DKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Point3DKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Point3DKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -3859,6 +3931,7 @@ Class PointKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3910,22 +3983,25 @@ Class PointKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pointkeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.PointKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.PointKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PointKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -4015,6 +4091,7 @@ Class QuaternionKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4066,22 +4143,25 @@ Class QuaternionKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'quaternionkeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.QuaternionKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -4171,6 +4251,7 @@ Class RectKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4222,22 +4303,25 @@ Class RectKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rectkeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.RectKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.RectKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RectKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -4325,38 +4409,45 @@ Class RepeatBehavior from ValueType
 	Forever
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'repeatbehavior'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.RepeatBehavior, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.RepeatBehavior, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RepeatBehavior, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.RepeatBehavior, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.RepeatBehavior, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RepeatBehavior, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -4408,22 +4499,25 @@ Class RepeatBehavior from ValueType
 Class RepeatBehaviorConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'repeatbehaviorconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.RepeatBehaviorConverter, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.RepeatBehaviorConverter, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RepeatBehaviorConverter, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -4438,6 +4532,7 @@ Class Rotation3DKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4489,22 +4584,25 @@ Class Rotation3DKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rotation3dkeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Rotation3DKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -4594,6 +4692,7 @@ Class SingleKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4645,22 +4744,25 @@ Class SingleKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'singlekeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SingleKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SingleKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SingleKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -4750,6 +4852,7 @@ Class SizeKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4801,22 +4904,25 @@ Class SizeKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sizekeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SizeKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SizeKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SizeKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -4906,6 +5012,7 @@ Class StringKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4957,22 +5064,25 @@ Class StringKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringkeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.StringKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.StringKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.StringKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -5062,6 +5172,7 @@ Class ThicknessKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -5113,22 +5224,25 @@ Class ThicknessKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'thicknesskeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessKeyFrameCollection, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Media.Animation.ThicknessKeyFrameCollection, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessKeyFrameCollection, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -5218,6 +5332,7 @@ Class Vector3DKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -5269,22 +5384,25 @@ Class Vector3DKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vector3dkeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Vector3DKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -5374,6 +5492,7 @@ Class VectorKeyFrame from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -5425,22 +5544,25 @@ Class VectorKeyFrameCollection from Freezable
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vectorkeyframecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.VectorKeyFrameCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.VectorKeyFrameCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.VectorKeyFrameCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -5525,6 +5647,7 @@ Class AnimationClock from Clock
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -5539,22 +5662,25 @@ Class BackEase from EasingFunctionBase
 	AmplitudeProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'backease'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.BackEase, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.BackEase, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.BackEase, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAmplitude
@@ -5579,22 +5705,25 @@ Class BounceEase from EasingFunctionBase
 	BouncinessProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bounceease'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.BounceEase, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.BounceEase, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.BounceEase, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBounces
@@ -5627,22 +5756,25 @@ Class BounceEase from EasingFunctionBase
 Class CircleEase from EasingFunctionBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'circleease'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.CircleEase, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.CircleEase, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.CircleEase, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -5654,6 +5786,7 @@ Class ClockGroup from Clock
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -5668,858 +5801,1015 @@ Class ClockGroup from Clock
 Class CubicEase from EasingFunctionBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cubicease'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.CubicEase, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.CubicEase, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.CubicEase, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteBooleanKeyFrame from BooleanKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretebooleankeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteByteKeyFrame from ByteKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretebytekeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteCharKeyFrame from CharKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretecharkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteColorKeyFrame from ColorKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretecolorkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteDecimalKeyFrame from DecimalKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretedecimalkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteDoubleKeyFrame from DoubleKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretedoublekeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteInt16KeyFrame from Int16KeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discreteint16keyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteInt32KeyFrame from Int32KeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discreteint32keyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteInt64KeyFrame from Int64KeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discreteint64keyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteMatrixKeyFrame from MatrixKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretematrixkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteObjectKeyFrame from ObjectKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discreteobjectkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscretePoint3DKeyFrame from Point3DKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretepoint3dkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscretePointKeyFrame from PointKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretepointkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteQuaternionKeyFrame from QuaternionKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretequaternionkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteRectKeyFrame from RectKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discreterectkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteRotation3DKeyFrame from Rotation3DKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discreterotation3dkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteSingleKeyFrame from SingleKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretesinglekeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteSizeKeyFrame from SizeKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretesizekeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteStringKeyFrame from StringKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretestringkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteThicknessKeyFrame from ThicknessKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretethicknesskeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteVector3DKeyFrame from Vector3DKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretevector3dkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DiscreteVectorKeyFrame from VectorKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretevectorkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -6529,38 +6819,45 @@ Class EasingByteKeyFrame from ByteKeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingbytekeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEasingFunction
@@ -6583,38 +6880,45 @@ Class EasingColorKeyFrame from ColorKeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingcolorkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEasingFunction
@@ -6637,38 +6941,45 @@ Class EasingDecimalKeyFrame from DecimalKeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingdecimalkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEasingFunction
@@ -6691,38 +7002,45 @@ Class EasingDoubleKeyFrame from DoubleKeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingdoublekeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEasingFunction
@@ -6745,38 +7063,45 @@ Class EasingInt16KeyFrame from Int16KeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingint16keyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEasingFunction
@@ -6799,38 +7124,45 @@ Class EasingInt32KeyFrame from Int32KeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingint32keyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEasingFunction
@@ -6853,38 +7185,45 @@ Class EasingInt64KeyFrame from Int64KeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingint64keyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEasingFunction
@@ -6907,38 +7246,45 @@ Class EasingPoint3DKeyFrame from Point3DKeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingpoint3dkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEasingFunction
@@ -6961,38 +7307,45 @@ Class EasingPointKeyFrame from PointKeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingpointkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEasingFunction
@@ -7017,38 +7370,45 @@ Class EasingQuaternionKeyFrame from QuaternionKeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingquaternionkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUseShortestPath
@@ -7084,38 +7444,45 @@ Class EasingRectKeyFrame from RectKeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingrectkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEasingFunction
@@ -7138,38 +7505,45 @@ Class EasingRotation3DKeyFrame from Rotation3DKeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingrotation3dkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEasingFunction
@@ -7192,38 +7566,45 @@ Class EasingSingleKeyFrame from SingleKeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingsinglekeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEasingFunction
@@ -7246,38 +7627,45 @@ Class EasingSizeKeyFrame from SizeKeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingsizekeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEasingFunction
@@ -7300,38 +7688,45 @@ Class EasingThicknessKeyFrame from ThicknessKeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingthicknesskeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEasingFunction
@@ -7354,38 +7749,45 @@ Class EasingVector3DKeyFrame from Vector3DKeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingvector3dkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEasingFunction
@@ -7408,38 +7810,45 @@ Class EasingVectorKeyFrame from VectorKeyFrame
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingvectorkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEasingFunction
@@ -7464,22 +7873,25 @@ Class ElasticEase from EasingFunctionBase
 	SpringinessProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'elasticease'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.ElasticEase, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.ElasticEase, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ElasticEase, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getOscillations
@@ -7515,22 +7927,25 @@ Class ExponentialEase from EasingFunctionBase
 	ExponentProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'exponentialease'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.ExponentialEase, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.ExponentialEase, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ExponentialEase, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getExponent
@@ -7550,342 +7965,405 @@ Class ExponentialEase from EasingFunctionBase
 Class LinearByteKeyFrame from ByteKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearbytekeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class LinearColorKeyFrame from ColorKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearcolorkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class LinearDecimalKeyFrame from DecimalKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'lineardecimalkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class LinearDoubleKeyFrame from DoubleKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'lineardoublekeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class LinearInt16KeyFrame from Int16KeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearint16keyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class LinearInt32KeyFrame from Int32KeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearint32keyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class LinearInt64KeyFrame from Int64KeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearint64keyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class LinearPoint3DKeyFrame from Point3DKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearpoint3dkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class LinearPointKeyFrame from PointKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearpointkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -7895,38 +8373,45 @@ Class LinearQuaternionKeyFrame from QuaternionKeyFrame
 	UseShortestPathProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearquaternionkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUseShortestPath
@@ -7946,288 +8431,340 @@ Class LinearQuaternionKeyFrame from QuaternionKeyFrame
 Class LinearRectKeyFrame from RectKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearrectkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class LinearRotation3DKeyFrame from Rotation3DKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearrotation3dkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class LinearSingleKeyFrame from SingleKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearsinglekeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class LinearSizeKeyFrame from SizeKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearsizekeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class LinearThicknessKeyFrame from ThicknessKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearthicknesskeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class LinearVector3DKeyFrame from Vector3DKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearvector3dkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class LinearVectorKeyFrame from VectorKeyFrame
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearvectorkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class PauseStoryboard from ControllableStoryboardAction
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pausestoryboard'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.PauseStoryboard, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Media.Animation.PauseStoryboard, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PauseStoryboard, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -8237,22 +8774,25 @@ Class PowerEase from EasingFunctionBase
 	PowerProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'powerease'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.PowerEase, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.PowerEase, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PowerEase, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPower
@@ -8272,110 +8812,125 @@ Class PowerEase from EasingFunctionBase
 Class QuadraticEase from EasingFunctionBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'quadraticease'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.QuadraticEase, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.QuadraticEase, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuadraticEase, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class QuarticEase from EasingFunctionBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'quarticease'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.QuarticEase, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.QuarticEase, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuarticEase, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class QuinticEase from EasingFunctionBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'quinticease'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.QuinticEase, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.QuinticEase, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuinticEase, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class RemoveStoryboard from ControllableStoryboardAction
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'removestoryboard'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.RemoveStoryboard, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Media.Animation.RemoveStoryboard, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RemoveStoryboard, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class ResumeStoryboard from ControllableStoryboardAction
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'resumestoryboard'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.ResumeStoryboard, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Media.Animation.ResumeStoryboard, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ResumeStoryboard, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -8385,22 +8940,25 @@ Class SeekStoryboard from ControllableStoryboardAction
 	Origin
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'seekstoryboard'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SeekStoryboard, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Media.Animation.SeekStoryboard, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SeekStoryboard, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeOffset 
@@ -8426,22 +8984,25 @@ Class SetStoryboardSpeedRatio from ControllableStoryboardAction
 	SpeedRatio
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'setstoryboardspeedratio'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SetStoryboardSpeedRatio, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Media.Animation.SetStoryboardSpeedRatio, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SetStoryboardSpeedRatio, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getSpeedRatio
@@ -8455,44 +9016,50 @@ Class SetStoryboardSpeedRatio from ControllableStoryboardAction
 Class SineEase from EasingFunctionBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sineease'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SineEase, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SineEase, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SineEase, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class SkipStoryboardToFill from ControllableStoryboardAction
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'skipstoryboardtofill'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SkipStoryboardToFill, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Media.Animation.SkipStoryboardToFill, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SkipStoryboardToFill, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -8502,38 +9069,45 @@ Class SplineByteKeyFrame from ByteKeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinebytekeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeySpline
@@ -8556,38 +9130,45 @@ Class SplineColorKeyFrame from ColorKeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinecolorkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeySpline
@@ -8610,38 +9191,45 @@ Class SplineDecimalKeyFrame from DecimalKeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinedecimalkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeySpline
@@ -8664,38 +9252,45 @@ Class SplineDoubleKeyFrame from DoubleKeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinedoublekeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeySpline
@@ -8718,38 +9313,45 @@ Class SplineInt16KeyFrame from Int16KeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splineint16keyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeySpline
@@ -8772,38 +9374,45 @@ Class SplineInt32KeyFrame from Int32KeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splineint32keyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeySpline
@@ -8826,38 +9435,45 @@ Class SplineInt64KeyFrame from Int64KeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splineint64keyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeySpline
@@ -8880,38 +9496,45 @@ Class SplinePoint3DKeyFrame from Point3DKeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinepoint3dkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeySpline
@@ -8934,38 +9557,45 @@ Class SplinePointKeyFrame from PointKeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinepointkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeySpline
@@ -8990,38 +9620,45 @@ Class SplineQuaternionKeyFrame from QuaternionKeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinequaternionkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUseShortestPath
@@ -9057,38 +9694,45 @@ Class SplineRectKeyFrame from RectKeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinerectkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeySpline
@@ -9111,38 +9755,45 @@ Class SplineRotation3DKeyFrame from Rotation3DKeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinerotation3dkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeySpline
@@ -9165,38 +9816,45 @@ Class SplineSingleKeyFrame from SingleKeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinesinglekeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeySpline
@@ -9219,38 +9877,45 @@ Class SplineSizeKeyFrame from SizeKeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinesizekeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeySpline
@@ -9273,38 +9938,45 @@ Class SplineThicknessKeyFrame from ThicknessKeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinethicknesskeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeySpline
@@ -9327,38 +9999,45 @@ Class SplineVector3DKeyFrame from Vector3DKeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinevector3dkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeySpline
@@ -9381,38 +10060,45 @@ Class SplineVectorKeyFrame from VectorKeyFrame
 	KeySplineProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinevectorkeyframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeySpline
@@ -9432,22 +10118,25 @@ Class SplineVectorKeyFrame from VectorKeyFrame
 Class StopStoryboard from ControllableStoryboardAction
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stopstoryboard'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.StopStoryboard, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Media.Animation.StopStoryboard, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.StopStoryboard, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -9477,6 +10166,7 @@ Class Timeline from Animatable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9666,38 +10356,45 @@ Class TimelineCollection from Animatable
 	Count
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'timelinecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.TimelineCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.TimelineCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.TimelineCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.TimelineCollection, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.TimelineCollection, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.TimelineCollection, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -9757,6 +10454,7 @@ Class AnimationTimeline from Timeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9798,6 +10496,7 @@ Class TimelineGroup from Timeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9822,6 +10521,7 @@ Class BooleanAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9833,6 +10533,7 @@ Class ByteAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9844,6 +10545,7 @@ Class CharAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9855,6 +10557,7 @@ Class ColorAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9866,6 +10569,7 @@ Class DecimalAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9877,6 +10581,7 @@ Class DoubleAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9888,6 +10593,7 @@ Class Int16AnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9899,6 +10605,7 @@ Class Int32AnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9910,6 +10617,7 @@ Class Int64AnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9921,6 +10629,7 @@ Class MatrixAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9932,6 +10641,7 @@ Class ObjectAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9943,38 +10653,45 @@ Class ParallelTimeline from TimelineGroup
 	SlipBehaviorProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'paralleltimeline'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.ParallelTimeline, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getSlipBehavior
@@ -9997,6 +10714,7 @@ Class Point3DAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10008,6 +10726,7 @@ Class PointAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10019,6 +10738,7 @@ Class QuaternionAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10030,6 +10750,7 @@ Class RectAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10041,6 +10762,7 @@ Class Rotation3DAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10052,6 +10774,7 @@ Class SingleAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10063,6 +10786,7 @@ Class SizeAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10074,6 +10798,7 @@ Class StringAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10085,6 +10810,7 @@ Class ThicknessAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10096,6 +10822,7 @@ Class Vector3DAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10107,6 +10834,7 @@ Class VectorAnimationBase from AnimationTimeline
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10117,22 +10845,25 @@ Class BooleanAnimationUsingKeyFrames from BooleanAnimationBase
 	KeyFrames
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'booleananimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.BooleanAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.BooleanAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.BooleanAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -10160,38 +10891,45 @@ Class ByteAnimation from ByteAnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'byteanimation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimation, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.ByteAnimation, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimation, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.ByteAnimation, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimation, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimation, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFrom
@@ -10268,22 +11006,25 @@ Class ByteAnimationUsingKeyFrames from ByteAnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'byteanimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.ByteAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -10316,22 +11057,25 @@ Class CharAnimationUsingKeyFrames from CharAnimationBase
 	KeyFrames
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'charanimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.CharAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.CharAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.CharAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -10359,38 +11103,45 @@ Class ColorAnimation from ColorAnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'coloranimation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimation, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.ColorAnimation, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimation, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.ColorAnimation, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimation, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimation, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFrom
@@ -10467,22 +11218,25 @@ Class ColorAnimationUsingKeyFrames from ColorAnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'coloranimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.ColorAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -10524,38 +11278,45 @@ Class DecimalAnimation from DecimalAnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'decimalanimation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DecimalAnimation, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFrom
@@ -10632,22 +11393,25 @@ Class DecimalAnimationUsingKeyFrames from DecimalAnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'decimalanimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DecimalAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -10689,38 +11453,45 @@ Class DoubleAnimation from DoubleAnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'doubleanimation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DoubleAnimation, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFrom
@@ -10797,22 +11568,25 @@ Class DoubleAnimationUsingKeyFrames from DoubleAnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'doubleanimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DoubleAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -10850,22 +11624,25 @@ Class DoubleAnimationUsingPath from DoubleAnimationBase
 	SourceProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'doubleanimationusingpath'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimationUsingPath, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.DoubleAnimationUsingPath, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimationUsingPath, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPathGeometry
@@ -10923,38 +11700,45 @@ Class Int16Animation from Int16AnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int16animation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Int16Animation, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Int16Animation, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int16Animation, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Int16Animation, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.Int16Animation, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int16Animation, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFrom
@@ -11031,22 +11815,25 @@ Class Int16AnimationUsingKeyFrames from Int16AnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int16animationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Int16AnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Int16AnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int16AnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -11088,38 +11875,45 @@ Class Int32Animation from Int32AnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int32animation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Int32Animation, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Int32Animation, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int32Animation, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Int32Animation, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.Int32Animation, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int32Animation, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFrom
@@ -11196,22 +11990,25 @@ Class Int32AnimationUsingKeyFrames from Int32AnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int32animationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Int32AnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Int32AnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int32AnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -11253,38 +12050,45 @@ Class Int64Animation from Int64AnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int64animation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Int64Animation, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Int64Animation, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int64Animation, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Int64Animation, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.Int64Animation, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int64Animation, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFrom
@@ -11361,22 +12165,25 @@ Class Int64AnimationUsingKeyFrames from Int64AnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int64animationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Int64AnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Int64AnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int64AnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -11409,22 +12216,25 @@ Class MatrixAnimationUsingKeyFrames from MatrixAnimationBase
 	KeyFrames
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'matrixanimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.MatrixAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.MatrixAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.MatrixAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -11451,22 +12261,25 @@ Class MatrixAnimationUsingPath from MatrixAnimationBase
 	PathGeometryProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'matrixanimationusingpath'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getDoesRotateWithTangent
@@ -11534,22 +12347,25 @@ Class ObjectAnimationUsingKeyFrames from ObjectAnimationBase
 	KeyFrames
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'objectanimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.ObjectAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.ObjectAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ObjectAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -11577,38 +12393,45 @@ Class Point3DAnimation from Point3DAnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'point3danimation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Point3DAnimation, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFrom
@@ -11685,22 +12508,25 @@ Class Point3DAnimationUsingKeyFrames from Point3DAnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'point3danimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Point3DAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -11742,38 +12568,45 @@ Class PointAnimation from PointAnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pointanimation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimation, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.PointAnimation, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimation, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.PointAnimation, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.PointAnimation, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimation, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFrom
@@ -11850,22 +12683,25 @@ Class PointAnimationUsingKeyFrames from PointAnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pointanimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.PointAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -11901,22 +12737,25 @@ Class PointAnimationUsingPath from PointAnimationBase
 	PathGeometryProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pointanimationusingpath'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimationUsingPath, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.PointAnimationUsingPath, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimationUsingPath, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPathGeometry
@@ -11963,38 +12802,45 @@ Class QuaternionAnimation from QuaternionAnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'quaternionanimation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUseShortestPath
@@ -12084,22 +12930,25 @@ Class QuaternionAnimationUsingKeyFrames from QuaternionAnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'quaternionanimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.QuaternionAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -12141,38 +12990,45 @@ Class RectAnimation from RectAnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rectanimation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.RectAnimation, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.RectAnimation, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RectAnimation, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.RectAnimation, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.RectAnimation, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RectAnimation, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFrom
@@ -12249,22 +13105,25 @@ Class RectAnimationUsingKeyFrames from RectAnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rectanimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.RectAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.RectAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RectAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -12306,38 +13165,45 @@ Class Rotation3DAnimation from Rotation3DAnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rotation3danimation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFrom
@@ -12414,22 +13280,25 @@ Class Rotation3DAnimationUsingKeyFrames from Rotation3DAnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rotation3danimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Rotation3DAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -12471,38 +13340,45 @@ Class SingleAnimation from SingleAnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'singleanimation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimation, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SingleAnimation, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimation, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SingleAnimation, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimation, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimation, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFrom
@@ -12579,22 +13455,25 @@ Class SingleAnimationUsingKeyFrames from SingleAnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'singleanimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SingleAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -12636,38 +13515,45 @@ Class SizeAnimation from SizeAnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sizeanimation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimation, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SizeAnimation, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimation, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SizeAnimation, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimation, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimation, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFrom
@@ -12744,22 +13630,25 @@ Class SizeAnimationUsingKeyFrames from SizeAnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sizeanimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.SizeAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -12794,22 +13683,25 @@ Class Storyboard from ParallelTimeline
 	TargetPropertyProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'storyboard'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Storyboard, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Media.Animation.Storyboard, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Storyboard, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Begin P1
@@ -13004,22 +13896,25 @@ Class StringAnimationUsingKeyFrames from StringAnimationBase
 	KeyFrames
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringanimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.StringAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.StringAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.StringAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -13047,38 +13942,45 @@ Class ThicknessAnimation from ThicknessAnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'thicknessanimation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFrom
@@ -13155,22 +14057,25 @@ Class ThicknessAnimationUsingKeyFrames from ThicknessAnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'thicknessanimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimationUsingKeyFrames, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Media.Animation.ThicknessAnimationUsingKeyFrames, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimationUsingKeyFrames, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -13212,38 +14117,45 @@ Class Vector3DAnimation from Vector3DAnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vector3danimation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFrom
@@ -13320,22 +14232,25 @@ Class Vector3DAnimationUsingKeyFrames from Vector3DAnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vector3danimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.Vector3DAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 
@@ -13377,38 +14292,45 @@ Class VectorAnimation from VectorAnimationBase
 	EasingFunctionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vectoranimation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimation, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.VectorAnimation, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimation, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.VectorAnimation, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimation, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimation, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFrom
@@ -13485,22 +14407,25 @@ Class VectorAnimationUsingKeyFrames from VectorAnimationBase
 	IsCumulative
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vectoranimationusingkeyframes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimationUsingKeyFrames, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Animation.VectorAnimationUsingKeyFrames, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimationUsingKeyFrames, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeKeyFrames 

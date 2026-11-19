@@ -121,6 +121,7 @@ Class DrawingAttributeIds from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -187,22 +188,25 @@ Class DrawingAttributes from Object
 	MaxWidth
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'drawingattributes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Ink.DrawingAttributes, PresentationCore',[])
+		dnDefaultObject('System.Windows.Ink.DrawingAttributes, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Ink.DrawingAttributes, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddPropertyData P1,P2
@@ -334,9 +338,11 @@ Class DrawingAttributesReplacedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Ink.DrawingAttributesReplacedEventArgs, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getNewDrawingAttributes
@@ -361,6 +367,7 @@ Class GestureRecognitionResult from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -386,38 +393,45 @@ Class GestureRecognizer from DependencyObject
 	IsRecognizerAvailable
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'gesturerecognizer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Ink.GestureRecognizer, PresentationCore',[])
+		dnDefaultObject('System.Windows.Ink.GestureRecognizer, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Ink.GestureRecognizer, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.GestureRecognizer, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Ink.GestureRecognizer, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Ink.GestureRecognizer, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func SetEnabledGestures P1
@@ -449,6 +463,7 @@ Class IncrementalHitTester from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -484,6 +499,7 @@ Class LassoSelectionChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -511,9 +527,11 @@ Class PropertyDataChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Ink.PropertyDataChangedEventArgs, PresentationCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPropertyGuid
@@ -544,21 +562,26 @@ Class Stroke from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Ink.Stroke, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.Stroke, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Ink.Stroke, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Ink.Stroke, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Clone 
@@ -695,38 +718,45 @@ Class StrokeCollection from DotNetObject
 	InkSerializedFormat
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'strokecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Ink.StrokeCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Ink.StrokeCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Ink.StrokeCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.StrokeCollection, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Ink.StrokeCollection, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Ink.StrokeCollection, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Save P1
@@ -886,9 +916,11 @@ Class StrokeCollectionChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Ink.StrokeCollectionChangedEventArgs, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAdded
@@ -912,6 +944,7 @@ Class StrokeHitEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -935,9 +968,11 @@ Class StylusPointsReplacedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Ink.StylusPointsReplacedEventArgs, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getNewStylusPoints
@@ -963,6 +998,7 @@ Class StylusShape from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -995,21 +1031,26 @@ Class EllipseStylusShape from StylusShape
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Ink.EllipseStylusShape, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.EllipseStylusShape, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Ink.EllipseStylusShape, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Ink.EllipseStylusShape, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1019,6 +1060,7 @@ Class IncrementalLassoHitTester from IncrementalHitTester
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1038,6 +1080,7 @@ Class IncrementalStrokeHitTester from IncrementalHitTester
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1057,21 +1100,26 @@ Class RectangleStylusShape from StylusShape
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Ink.RectangleStylusShape, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.RectangleStylusShape, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Ink.RectangleStylusShape, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Ink.RectangleStylusShape, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 

@@ -692,6 +692,7 @@ Class AccessKeyEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -717,6 +718,7 @@ Class AccessKeyManager from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -760,38 +762,45 @@ Class AccessKeyPressedEventArgs from RoutedEventArgs
 	Key
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'accesskeypressedeventargs'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.AccessKeyPressedEventArgs, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.AccessKeyPressedEventArgs, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.AccessKeyPressedEventArgs, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.AccessKeyPressedEventArgs, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.AccessKeyPressedEventArgs, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.AccessKeyPressedEventArgs, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getScope
@@ -844,6 +853,7 @@ Class ApplicationCommands from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -993,6 +1003,7 @@ Class CanExecuteChangedEventManager from WeakEventManager
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1017,6 +1028,7 @@ Class CanExecuteRoutedEventArgs from RoutedEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1053,38 +1065,45 @@ Class CommandBinding from Object
 	Command
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'commandbinding'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.CommandBinding, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.CommandBinding, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.CommandBinding, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.CommandBinding, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.CommandBinding, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.CommandBinding, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1139,38 +1158,45 @@ Class CommandBindingCollection from Object
 	Count
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'commandbindingcollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.CommandBindingCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.CommandBindingCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.CommandBindingCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.CommandBindingCollection, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.CommandBindingCollection, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.CommandBindingCollection, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -1253,22 +1279,25 @@ Class CommandBindingCollection from Object
 Class CommandConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'commandconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.CommandConverter, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Input.CommandConverter, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.CommandConverter, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1283,6 +1312,7 @@ Class CommandManager from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1401,6 +1431,7 @@ Class ComponentCommands from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1577,21 +1608,26 @@ Class WpfCursor from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.Cursor, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.Cursor, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.Cursor, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.Cursor, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -1605,22 +1641,25 @@ Class WpfCursor from Object
 Class WpfCursorConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wpfcursorconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.CursorConverter, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.CursorConverter, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.CursorConverter, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1659,6 +1698,7 @@ Class WpfCursors from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1844,6 +1884,7 @@ Class ExecutedRoutedEventArgs from RoutedEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1872,6 +1913,7 @@ Class FocusManager from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1947,6 +1989,7 @@ Class ICommandSource from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1979,6 +2022,7 @@ Class IInputLanguageSource from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2013,6 +2057,7 @@ Class IManipulator from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2047,22 +2092,25 @@ Class InertiaExpansionBehavior from Object
 	InitialRadius
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inertiaexpansionbehavior'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.InertiaExpansionBehavior, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.InertiaExpansionBehavior, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InertiaExpansionBehavior, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2104,22 +2152,25 @@ Class InertiaRotationBehavior from Object
 	DesiredRotation
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inertiarotationbehavior'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.InertiaRotationBehavior, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.InertiaRotationBehavior, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InertiaRotationBehavior, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2154,22 +2205,25 @@ Class InertiaTranslationBehavior from Object
 	DesiredDisplacement
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inertiatranslationbehavior'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.InertiaTranslationBehavior, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.InertiaTranslationBehavior, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InertiaTranslationBehavior, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2211,9 +2265,11 @@ Class InputBinding from Freezable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputBinding, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCommand
@@ -2272,38 +2328,45 @@ Class InputBindingCollection from Object
 	IsReadOnly
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inputbindingcollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.InputBindingCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.InputBindingCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputBindingCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.InputBindingCollection, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.InputBindingCollection, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputBindingCollection, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -2392,6 +2455,7 @@ Class InputDevice from DispatcherObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2418,9 +2482,11 @@ Class InputEventArgs from RoutedEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputEventArgs, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getDevice
@@ -2442,6 +2508,7 @@ Class InputGesture from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2462,38 +2529,45 @@ Class InputGestureCollection from Object
 	Count
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inputgesturecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.InputGestureCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.InputGestureCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputGestureCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.InputGestureCollection, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.InputGestureCollection, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputGestureCollection, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -2586,6 +2660,7 @@ Class InputLanguageEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2615,6 +2690,7 @@ Class InputLanguageManager from DispatcherObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2705,6 +2781,7 @@ Class InputManager from DispatcherObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2835,6 +2912,7 @@ Class InputMethod from DispatcherObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3023,6 +3101,7 @@ Class InputMethodStateChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3072,22 +3151,25 @@ Class InputScope from Object
 	PhraseList
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inputscope'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.InputScope, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.InputScope, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputScope, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -3123,22 +3205,25 @@ Class InputScope from Object
 Class InputScopeConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inputscopeconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.InputScopeConverter, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.InputScopeConverter, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputScopeConverter, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3147,38 +3232,45 @@ Class InputScopeName from Object
 	NameValue
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inputscopename'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.InputScopeName, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.InputScopeName, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputScopeName, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.InputScopeName, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.InputScopeName, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputScopeName, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddChild P1
@@ -3203,22 +3295,25 @@ Class InputScopeName from Object
 Class InputScopeNameConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inputscopenameconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.InputScopeNameConverter, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.InputScopeNameConverter, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputScopeNameConverter, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3227,38 +3322,45 @@ Class InputScopePhrase from Object
 	Name
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inputscopephrase'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.InputScopePhrase, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.InputScopePhrase, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputScopePhrase, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.InputScopePhrase, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.InputScopePhrase, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputScopePhrase, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddChild P1
@@ -3283,66 +3385,75 @@ Class InputScopePhrase from Object
 Class KeyConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keyconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.KeyConverter, WindowsBase',[])
+		dnDefaultObject('System.Windows.Input.KeyConverter, WindowsBase')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyConverter, WindowsBase',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class KeyGestureConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keygestureconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.KeyGestureConverter, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.KeyGestureConverter, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyGestureConverter, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class KeyGestureValueSerializer from ValueSerializer
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keygesturevalueserializer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.KeyGestureValueSerializer, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.KeyGestureValueSerializer, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyGestureValueSerializer, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3352,6 +3463,7 @@ Class KeyInterop from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3369,22 +3481,25 @@ Class KeyInterop from Object
 Class KeyValueSerializer from ValueSerializer
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keyvalueserializer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.KeyValueSerializer, WindowsBase',[])
+		dnDefaultObject('System.Windows.Input.KeyValueSerializer, WindowsBase')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyValueSerializer, WindowsBase',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3409,6 +3524,7 @@ Class Keyboard from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3614,6 +3730,7 @@ Class KeyboardNavigation from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3706,6 +3823,7 @@ Class Manipulation from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3769,9 +3887,11 @@ Class ManipulationDelta from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.ManipulationDelta, PresentationCore',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -3808,38 +3928,45 @@ Class ManipulationPivot from Object
 	Radius
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'manipulationpivot'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.ManipulationPivot, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.ManipulationPivot, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.ManipulationPivot, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.ManipulationPivot, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.ManipulationPivot, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.ManipulationPivot, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -3870,9 +3997,11 @@ Class ManipulationVelocities from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.ManipulationVelocities, PresentationCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -3928,6 +4057,7 @@ Class MediaCommands from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4083,22 +4213,25 @@ Class MediaCommands from Object
 Class ModifierKeysConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modifierkeysconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.ModifierKeysConverter, WindowsBase',[])
+		dnDefaultObject('System.Windows.Input.ModifierKeysConverter, WindowsBase')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.ModifierKeysConverter, WindowsBase',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func IsDefinedModifierKeys P1
@@ -4108,22 +4241,25 @@ Class ModifierKeysConverter from TypeConverter
 Class ModifierKeysValueSerializer from ValueSerializer
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modifierkeysvalueserializer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.ModifierKeysValueSerializer, WindowsBase',[])
+		dnDefaultObject('System.Windows.Input.ModifierKeysValueSerializer, WindowsBase')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.ModifierKeysValueSerializer, WindowsBase',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -4159,6 +4295,7 @@ Class Mouse from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4464,88 +4601,100 @@ Class Mouse from Object
 Class MouseActionConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mouseactionconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.MouseActionConverter, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.MouseActionConverter, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseActionConverter, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class MouseActionValueSerializer from ValueSerializer
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mouseactionvalueserializer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.MouseActionValueSerializer, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.MouseActionValueSerializer, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseActionValueSerializer, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class MouseGestureConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mousegestureconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.MouseGestureConverter, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.MouseGestureConverter, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseGestureConverter, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class MouseGestureValueSerializer from ValueSerializer
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mousegesturevalueserializer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.MouseGestureValueSerializer, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.MouseGestureValueSerializer, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseGestureValueSerializer, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -4572,6 +4721,7 @@ Class NavigationCommands from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4685,6 +4835,7 @@ Class NotifyInputEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4709,38 +4860,45 @@ Class RoutedCommand from Object
 	InputGestures
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routedcommand'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.RoutedCommand, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.RoutedCommand, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.RoutedCommand, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.RoutedCommand, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.RoutedCommand, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.RoutedCommand, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Execute P1,P2
@@ -4788,6 +4946,7 @@ Class StagingAreaInputItem from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4845,6 +5004,7 @@ Class Stylus from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -5252,6 +5412,7 @@ Class StylusButton from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -5292,6 +5453,7 @@ Class StylusButtonCollection from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -5342,6 +5504,7 @@ Class StylusDeviceCollection from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -5391,38 +5554,45 @@ Class StylusPoint from ValueType
 	MinXY
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'styluspoint'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.StylusPoint, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.StylusPoint, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPoint, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.StylusPoint, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.StylusPoint, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPoint, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasProperty P1
@@ -5493,38 +5663,45 @@ Class StylusPointCollection from DotNetObject
 	Count
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'styluspointcollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.StylusPointCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.StylusPointCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPointCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.StylusPointCollection, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.StylusPointCollection, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPointCollection, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -5613,38 +5790,45 @@ Class StylusPointDescription from Object
 	PropertyCount
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'styluspointdescription'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.StylusPointDescription, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.StylusPointDescription, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPointDescription, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.StylusPointDescription, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.StylusPointDescription, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPointDescription, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasProperty P1
@@ -5704,6 +5888,7 @@ Class StylusPointProperties from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -5853,9 +6038,11 @@ Class StylusPointProperty from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPointProperty, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -5883,6 +6070,7 @@ Class Tablet from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -5910,22 +6098,25 @@ Class TabletDeviceCollection from Object
 	IsSynchronized
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tabletdevicecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.TabletDeviceCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.TabletDeviceCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.TabletDeviceCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CopyTo P1,P2
@@ -5970,21 +6161,26 @@ Class TextComposition from DispatcherObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.TextComposition, PresentationCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.TextComposition, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.TextComposition, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.TextComposition, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Complete 
@@ -6041,6 +6237,7 @@ Class TextCompositionManager from DispatcherObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6145,6 +6342,7 @@ Class Touch from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6169,6 +6367,7 @@ Class TouchFrameEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6202,9 +6401,11 @@ Class TouchPoint from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.TouchPoint, PresentationCore',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -6246,22 +6447,25 @@ Class TouchPointCollection from DotNetObject
 	Count
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'touchpointcollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.TouchPointCollection, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.TouchPointCollection, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.TouchPointCollection, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -6331,9 +6535,11 @@ Class TraversalRequest from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.TraversalRequest, WindowsBase',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -6359,9 +6565,11 @@ Class WpfInputLanguageChangedEventArgs from InputLanguageEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputLanguageChangedEventArgs, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -6373,9 +6581,11 @@ Class WpfInputLanguageChangingEventArgs from InputLanguageEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputLanguageChangingEventArgs, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getRejected
@@ -6394,38 +6604,45 @@ Class KeyBinding from InputBinding
 	KeyProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keybinding'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.KeyBinding, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.KeyBinding, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyBinding, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.KeyBinding, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.KeyBinding, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyBinding, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getModifiers
@@ -6465,21 +6682,26 @@ Class KeyGesture from InputGesture
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyGesture, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.KeyGesture, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.KeyGesture, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyGesture, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetDisplayStringForCulture P1
@@ -6514,6 +6736,7 @@ Class KeyboardDevice from InputDevice
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6565,9 +6788,11 @@ Class KeyboardEventArgs from InputEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyboardEventArgs, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeyboardDevice
@@ -6587,6 +6812,7 @@ Class ManipulationBoundaryFeedbackEventArgs from InputEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6623,6 +6849,7 @@ Class ManipulationCompletedEventArgs from InputEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6681,6 +6908,7 @@ Class ManipulationDeltaEventArgs from InputEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6757,6 +6985,7 @@ Class ManipulationInertiaStartingEventArgs from InputEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6825,6 +7054,7 @@ Class ManipulationStartedEventArgs from InputEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6867,6 +7097,7 @@ Class ManipulationStartingEventArgs from InputEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6919,38 +7150,45 @@ Class MouseBinding from InputBinding
 	MouseActionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mousebinding'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.MouseBinding, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.MouseBinding, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseBinding, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.MouseBinding, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.MouseBinding, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseBinding, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getMouseAction
@@ -6982,6 +7220,7 @@ Class MouseDevice from InputDevice
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -7070,21 +7309,26 @@ Class WpfMouseEventArgs from InputEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseEventArgs, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.MouseEventArgs, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.MouseEventArgs, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseEventArgs, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetPosition P1
@@ -7139,38 +7383,45 @@ Class MouseGesture from InputGesture
 	Modifiers
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mousegesture'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.MouseGesture, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.MouseGesture, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseGesture, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.MouseGesture, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.MouseGesture, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseGesture, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getMouseAction
@@ -7194,6 +7445,7 @@ Class ProcessInputEventArgs from NotifyInputEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -7216,38 +7468,45 @@ Class RoutedUICommand from RoutedCommand
 	Text
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routeduicommand'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Input.RoutedUICommand, PresentationCore',[])
+		dnDefaultObject('System.Windows.Input.RoutedUICommand, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.RoutedUICommand, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.RoutedUICommand, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.RoutedUICommand, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.RoutedUICommand, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getText
@@ -7275,6 +7534,7 @@ Class StylusDevice from InputDevice
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -7369,9 +7629,11 @@ Class StylusEventArgs from InputEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.StylusEventArgs, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetPosition P1
@@ -7413,21 +7675,26 @@ Class StylusPointPropertyInfo from StylusPointProperty
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPointPropertyInfo, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.StylusPointPropertyInfo, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.StylusPointPropertyInfo, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPointPropertyInfo, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getMinimum
@@ -7469,6 +7736,7 @@ Class TabletDevice from InputDevice
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -7530,9 +7798,11 @@ Class TextCompositionEventArgs from InputEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.TextCompositionEventArgs, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getTextComposition
@@ -7572,6 +7842,7 @@ Class TouchDevice from InputDevice
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -7655,9 +7926,11 @@ Class TouchEventArgs from InputEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.TouchEventArgs, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetTouchPoint P1
@@ -7690,9 +7963,11 @@ Class WpfKeyEventArgs from KeyboardEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyEventArgs, PresentationCore',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getInputSource
@@ -7765,9 +8040,11 @@ Class KeyboardFocusChangedEventArgs from KeyboardEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyboardFocusChangedEventArgs, PresentationCore',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getOldFocus
@@ -7791,9 +8068,11 @@ Class KeyboardInputProviderAcquireFocusEventArgs from KeyboardEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyboardInputProviderAcquireFocusEventArgs, PresentationCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFocusAcquired
@@ -7813,21 +8092,26 @@ Class MouseButtonEventArgs from WpfMouseEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseButtonEventArgs, PresentationCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.MouseButtonEventArgs, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.MouseButtonEventArgs, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseButtonEventArgs, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getChangedButton
@@ -7857,9 +8141,11 @@ Class MouseWheelEventArgs from WpfMouseEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseWheelEventArgs, PresentationCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getDelta
@@ -7877,6 +8163,7 @@ Class PreProcessInputEventArgs from ProcessInputEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -7900,21 +8187,26 @@ Class QueryCursorEventArgs from WpfMouseEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.QueryCursorEventArgs, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.QueryCursorEventArgs, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Input.QueryCursorEventArgs, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.QueryCursorEventArgs, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCursor
@@ -7933,9 +8225,11 @@ Class StylusButtonEventArgs from StylusEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.StylusButtonEventArgs, PresentationCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getStylusButton
@@ -7953,9 +8247,11 @@ Class StylusDownEventArgs from StylusEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.StylusDownEventArgs, PresentationCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getTapCount
@@ -7973,9 +8269,11 @@ Class StylusSystemGestureEventArgs from StylusEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Input.StylusSystemGestureEventArgs, PresentationCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getSystemGesture

@@ -58,6 +58,7 @@ Class IXsltContextFunction from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -100,6 +101,7 @@ Class IXsltContextVariable from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -131,38 +133,45 @@ Class XslCompiledTransform from Object
 	OutputSettings
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xslcompiledtransform'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Xsl.XslCompiledTransform, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Xsl.XslCompiledTransform, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Xsl.XslCompiledTransform, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Xsl.XslCompiledTransform, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Xsl.XslCompiledTransform, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Xsl.XslCompiledTransform, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Load_ P1
@@ -195,22 +204,25 @@ Class XslTransform from Object
 	XmlResolver
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xsltransform'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Xsl.XslTransform, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Xsl.XslTransform, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Xsl.XslTransform, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Load_ P1
@@ -238,22 +250,25 @@ Class XslTransform from Object
 Class XsltArgumentList from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xsltargumentlist'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Xsl.XsltArgumentList, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Xsl.XsltArgumentList, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Xsl.XsltArgumentList, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetParam P1,P2
@@ -300,6 +315,7 @@ Class XsltContext from XmlNamespaceManager
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -331,6 +347,7 @@ Class XsltMessageEncounteredEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -350,38 +367,45 @@ Class XsltSettings from Object
 	TrustedXslt
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xsltsettings'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Xsl.XsltSettings, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Xsl.XsltSettings, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Xsl.XsltSettings, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Xsl.XsltSettings, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Xsl.XsltSettings, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Xsl.XsltSettings, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1

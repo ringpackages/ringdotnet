@@ -71,6 +71,7 @@ Class CacheEntryExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -112,6 +113,7 @@ Class CacheExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -160,6 +162,7 @@ Class ICacheEntry from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -231,6 +234,7 @@ Class IMemoryCache from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -258,21 +262,26 @@ Class MemoryCache from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCache, Microsoft.Extensions.Caching.Memory',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Caching.Memory.MemoryCache, Microsoft.Extensions.Caching.Memory',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCache, Microsoft.Extensions.Caching.Memory',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCache, Microsoft.Extensions.Caching.Memory',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateEntry P1
@@ -322,6 +331,7 @@ Class MemoryCacheEntryExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -362,22 +372,25 @@ Class MemoryCacheEntryOptions from Object
 	Size
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'memorycacheentryoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions, Microsoft.Extensions.Caching.Abstractions',[])
+		dnDefaultObject('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions, Microsoft.Extensions.Caching.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions, Microsoft.Extensions.Caching.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -442,22 +455,25 @@ Class MemoryCacheOptions from Object
 	TrackStatistics
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'memorycacheoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheOptions, Microsoft.Extensions.Caching.Memory',[])
+		dnDefaultObject('Microsoft.Extensions.Caching.Memory.MemoryCacheOptions, Microsoft.Extensions.Caching.Memory')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheOptions, Microsoft.Extensions.Caching.Memory',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -521,22 +537,25 @@ Class MemoryCacheStatistics from Object
 	TotalHits
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'memorycachestatistics'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheStatistics, Microsoft.Extensions.Caching.Abstractions',[])
+		dnDefaultObject('Microsoft.Extensions.Caching.Memory.MemoryCacheStatistics, Microsoft.Extensions.Caching.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheStatistics, Microsoft.Extensions.Caching.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -577,22 +596,25 @@ Class PostEvictionCallbackRegistration from Object
 	State
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'postevictioncallbackregistration'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.PostEvictionCallbackRegistration, Microsoft.Extensions.Caching.Abstractions',[])
+		dnDefaultObject('Microsoft.Extensions.Caching.Memory.PostEvictionCallbackRegistration, Microsoft.Extensions.Caching.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.PostEvictionCallbackRegistration, Microsoft.Extensions.Caching.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -616,22 +638,25 @@ Class PostEvictionCallbackRegistration from Object
 Class MemoryDistributedCacheOptions from MemoryCacheOptions
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'memorydistributedcacheoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryDistributedCacheOptions, Microsoft.Extensions.Caching.Memory',[])
+		dnDefaultObject('Microsoft.Extensions.Caching.Memory.MemoryDistributedCacheOptions, Microsoft.Extensions.Caching.Memory')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryDistributedCacheOptions, Microsoft.Extensions.Caching.Memory',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 

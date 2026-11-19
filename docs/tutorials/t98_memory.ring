@@ -20,10 +20,10 @@ func main
 	oBig = dnNewGeneric("System.Collections.Generic.List",["System.Byte"],[10000000])
 	nWith = oGC.GetTotalMemory(True)
 	? nl + "2. a list with room for 10 million bytes grew the memory by at least 9 MB: " + (nWith - nBefore > 9000000)
-	oBig.release()
-	oBig = NULL
+	oBig = NULL                     # nothing in Ring uses the list now: Ring frees it, and its handle is released with the next .NET calls
+	dnFlush()                       # ... or at once, with dnFlush()
 	nAfter = oGC.GetTotalMemory(True)
-	? "   after release and a collection the memory is smaller again: " + (nAfter < nWith - 9000000)
+	? "   after the list is dropped and a collection the memory is smaller again: " + (nAfter < nWith - 9000000)
 
 	# 3. Collections are counted: CollectionCount(generation) says how many times the GC ran for that generation
 	nCount = oGC.CollectionCount(0)
@@ -35,12 +35,12 @@ func main
 	oObject = new MemoryStream()
 	oWeak = new WeakReference(oObject)
 	? nl + "4. the weak reference is alive while we hold the object: " + oWeak.IsAlive
-	oObject.release()               # the bridge keeps a handle to every object it gave to Ring until it is released
-	oObject = NULL
+	oObject = NULL                  # the bridge keeps a handle to the object until Ring frees it: that is now
+	dnFlush()
 	oGC.Collect(NULL)
 	oGC.WaitForPendingFinalizers()
 	oGC.Collect(NULL)
-	? "   after release and a collection: alive = " + oWeak.IsAlive
+	? "   after dropping it and a collection: alive = " + oWeak.IsAlive
 
 	# 5. Which generation is an object in? A new object is in generation 0; after it survives a collection it moves up
 	oNew = new StringBuilder("x")

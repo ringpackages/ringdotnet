@@ -80,22 +80,25 @@ Class AttributeRouteInfo from Object
 	SuppressPathMatching
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'attributerouteinfo'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.AttributeRouteInfo, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.Routing.AttributeRouteInfo, Microsoft.AspNetCore.Mvc.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.AttributeRouteInfo, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -145,6 +148,7 @@ Class DynamicRouteValueTransformer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -174,6 +178,7 @@ Class IActionHttpMethodProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -195,6 +200,7 @@ Class IRouteTemplateProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -227,6 +233,7 @@ Class IRouteValueProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -250,6 +257,7 @@ Class IUrlHelperFactory from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -264,9 +272,11 @@ Class KnownRouteValueConstraint from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.KnownRouteValueConstraint, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Match P1,P2,P3,P4,P5
@@ -286,22 +296,25 @@ Class UrlActionContext from Object
 	Fragment
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'urlactioncontext'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.Routing.UrlActionContext, Microsoft.AspNetCore.Mvc.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -358,6 +371,7 @@ Class UrlHelperBase from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -390,22 +404,25 @@ Class UrlHelperBase from Object
 Class UrlHelperFactory from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'urlhelperfactory'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlHelperFactory, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.Routing.UrlHelperFactory, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlHelperFactory, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetUrlHelper P1
@@ -424,22 +441,25 @@ Class UrlRouteContext from Object
 	Fragment
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'urlroutecontext'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlRouteContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.Routing.UrlRouteContext, Microsoft.AspNetCore.Mvc.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlRouteContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -487,9 +507,11 @@ Class UrlHelper from UrlHelperBase
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlHelper, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 

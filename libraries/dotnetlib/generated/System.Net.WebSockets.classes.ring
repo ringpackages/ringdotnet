@@ -66,6 +66,7 @@ Class ClientWebSocketOptions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -180,38 +181,45 @@ Class ValueWebSocketReceiveResult from ValueType
 	MessageType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'valuewebsocketreceiveresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.WebSockets.ValueWebSocketReceiveResult, System.Net.WebSockets',[])
+		dnDefaultObject('System.Net.WebSockets.ValueWebSocketReceiveResult, System.Net.WebSockets')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.WebSockets.ValueWebSocketReceiveResult, System.Net.WebSockets',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.WebSockets.ValueWebSocketReceiveResult, System.Net.WebSockets',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.WebSockets.ValueWebSocketReceiveResult, System.Net.WebSockets',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.WebSockets.ValueWebSocketReceiveResult, System.Net.WebSockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCount
@@ -245,6 +253,7 @@ Class WebSocket from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -347,6 +356,7 @@ Class WebSocketContext from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -436,22 +446,25 @@ Class WebSocketCreationOptions from Object
 	DangerousDeflateOptions
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'websocketcreationoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.WebSockets.WebSocketCreationOptions, System.Net.WebSockets',[])
+		dnDefaultObject('System.Net.WebSockets.WebSocketCreationOptions, System.Net.WebSockets')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.WebSockets.WebSocketCreationOptions, System.Net.WebSockets',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -501,22 +514,25 @@ Class WebSocketDeflateOptions from Object
 	ServerContextTakeover
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'websocketdeflateoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.WebSockets.WebSocketDeflateOptions, System.Net.WebSockets',[])
+		dnDefaultObject('System.Net.WebSockets.WebSocketDeflateOptions, System.Net.WebSockets')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.WebSockets.WebSocketDeflateOptions, System.Net.WebSockets',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -563,21 +579,26 @@ Class WebSocketReceiveResult from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.WebSockets.WebSocketReceiveResult, System.Net.WebSockets',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.WebSockets.WebSocketReceiveResult, System.Net.WebSockets',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.WebSockets.WebSocketReceiveResult, System.Net.WebSockets',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.WebSockets.WebSocketReceiveResult, System.Net.WebSockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -621,22 +642,25 @@ Class ClientWebSocket from WebSocket
 	HttpResponseHeaders
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'clientwebsocket'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.WebSockets.ClientWebSocket, System.Net.WebSockets.Client',[])
+		dnDefaultObject('System.Net.WebSockets.ClientWebSocket, System.Net.WebSockets.Client')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.WebSockets.ClientWebSocket, System.Net.WebSockets.Client',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ConnectAsync P1

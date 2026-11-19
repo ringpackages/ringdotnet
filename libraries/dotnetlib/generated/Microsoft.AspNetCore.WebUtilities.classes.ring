@@ -125,6 +125,7 @@ Class AspBase64UrlTextEncoder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -147,21 +148,26 @@ Class BufferedReadStream from Stream
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.BufferedReadStream, Microsoft.AspNetCore.WebUtilities',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.BufferedReadStream, Microsoft.AspNetCore.WebUtilities',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.BufferedReadStream, Microsoft.AspNetCore.WebUtilities',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.BufferedReadStream, Microsoft.AspNetCore.WebUtilities',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func WriteAsync P1
@@ -214,21 +220,26 @@ Class FileBufferingReadStream from Stream
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingReadStream, Microsoft.AspNetCore.WebUtilities',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FileBufferingReadStream, Microsoft.AspNetCore.WebUtilities',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingReadStream, Microsoft.AspNetCore.WebUtilities',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingReadStream, Microsoft.AspNetCore.WebUtilities',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func WriteAsync P1
@@ -261,38 +272,45 @@ Class FileBufferingWriteStream from Stream
 	MemoryThreshold
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'filebufferingwritestream'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities',[])
+		dnDefaultObject('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ReadAsync P1
@@ -325,21 +343,26 @@ Class FileMultipartSection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileMultipartSection, Microsoft.AspNetCore.WebUtilities',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FileMultipartSection, Microsoft.AspNetCore.WebUtilities',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileMultipartSection, Microsoft.AspNetCore.WebUtilities',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileMultipartSection, Microsoft.AspNetCore.WebUtilities',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -379,21 +402,26 @@ Class FormMultipartSection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormMultipartSection, Microsoft.AspNetCore.WebUtilities',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FormMultipartSection, Microsoft.AspNetCore.WebUtilities',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormMultipartSection, Microsoft.AspNetCore.WebUtilities',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormMultipartSection, Microsoft.AspNetCore.WebUtilities',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetValueAsync P1
@@ -431,21 +459,26 @@ Class FormPipeReader from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormPipeReader, Microsoft.AspNetCore.WebUtilities',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FormPipeReader, Microsoft.AspNetCore.WebUtilities',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormPipeReader, Microsoft.AspNetCore.WebUtilities',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormPipeReader, Microsoft.AspNetCore.WebUtilities',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ReadFormAsync P1
@@ -495,21 +528,26 @@ Class FormReader from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ReadNextPair 
@@ -589,21 +627,26 @@ Class HttpRequestStreamReader from TextReader
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.HttpRequestStreamReader, Microsoft.AspNetCore.WebUtilities',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.HttpRequestStreamReader, Microsoft.AspNetCore.WebUtilities',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.HttpRequestStreamReader, Microsoft.AspNetCore.WebUtilities',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.HttpRequestStreamReader, Microsoft.AspNetCore.WebUtilities',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -613,21 +656,26 @@ Class HttpResponseStreamWriter from TextWriter
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.HttpResponseStreamWriter, Microsoft.AspNetCore.WebUtilities',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.HttpResponseStreamWriter, Microsoft.AspNetCore.WebUtilities',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.HttpResponseStreamWriter, Microsoft.AspNetCore.WebUtilities',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.HttpResponseStreamWriter, Microsoft.AspNetCore.WebUtilities',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -638,22 +686,25 @@ Class KeyValueAccumulator from ValueType
 	ValueCount
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keyvalueaccumulator'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.KeyValueAccumulator, Microsoft.AspNetCore.WebUtilities',[])
+		dnDefaultObject('Microsoft.AspNetCore.WebUtilities.KeyValueAccumulator, Microsoft.AspNetCore.WebUtilities')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.KeyValueAccumulator, Microsoft.AspNetCore.WebUtilities',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Append P1,P2
@@ -694,21 +745,26 @@ Class MultipartReader from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ReadNextSectionAsync P1
@@ -766,22 +822,25 @@ Class MultipartSection from Object
 	BaseStreamOffset
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'multipartsection'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.MultipartSection, Microsoft.AspNetCore.WebUtilities',[])
+		dnDefaultObject('Microsoft.AspNetCore.WebUtilities.MultipartSection, Microsoft.AspNetCore.WebUtilities')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.MultipartSection, Microsoft.AspNetCore.WebUtilities',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -827,6 +886,7 @@ Class MultipartSectionConverterExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -850,6 +910,7 @@ Class MultipartSectionStreamExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -870,6 +931,7 @@ Class QueryHelpers from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -893,38 +955,45 @@ Class QueryHelpers from Object
 Class QueryStringEnumerable from ValueType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'querystringenumerable'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable, Microsoft.AspNetCore.WebUtilities',[])
+		dnDefaultObject('Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable, Microsoft.AspNetCore.WebUtilities')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable, Microsoft.AspNetCore.WebUtilities',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable, Microsoft.AspNetCore.WebUtilities',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable, Microsoft.AspNetCore.WebUtilities',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable, Microsoft.AspNetCore.WebUtilities',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -937,6 +1006,7 @@ Class ReasonPhrases from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -954,6 +1024,7 @@ Class StreamHelperExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -974,6 +1045,7 @@ Class WebEncoders from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self

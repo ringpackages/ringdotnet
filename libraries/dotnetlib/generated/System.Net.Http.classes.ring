@@ -133,6 +133,7 @@ Class HttpContent from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -212,6 +213,7 @@ Class HttpMessageHandler from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -230,21 +232,26 @@ Class HttpMessageInvoker from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Http.HttpMessageInvoker, System.Net.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.HttpMessageInvoker, System.Net.Http',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Http.HttpMessageInvoker, System.Net.Http',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Http.HttpMessageInvoker, System.Net.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Send P1,P2
@@ -276,9 +283,11 @@ Class HttpMethod from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Http.HttpMethod, System.Net.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -351,38 +360,45 @@ Class HttpRequestMessage from Object
 	Options
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httprequestmessage'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Http.HttpRequestMessage, System.Net.Http',[])
+		dnDefaultObject('System.Net.Http.HttpRequestMessage, System.Net.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Http.HttpRequestMessage, System.Net.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.HttpRequestMessage, System.Net.Http',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Http.HttpRequestMessage, System.Net.Http',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Http.HttpRequestMessage, System.Net.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -449,22 +465,25 @@ Class HttpRequestMessage from Object
 Class HttpRequestOptions from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httprequestoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Http.HttpRequestOptions, System.Net.Http',[])
+		dnDefaultObject('System.Net.Http.HttpRequestOptions, System.Net.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Http.HttpRequestOptions, System.Net.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func TryGetValue P1
@@ -490,38 +509,45 @@ Class HttpResponseMessage from Object
 	IsSuccessStatusCode
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httpresponsemessage'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Http.HttpResponseMessage, System.Net.Http',[])
+		dnDefaultObject('System.Net.Http.HttpResponseMessage, System.Net.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Http.HttpResponseMessage, System.Net.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.HttpResponseMessage, System.Net.Http',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Http.HttpResponseMessage, System.Net.Http',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Http.HttpResponseMessage, System.Net.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func EnsureSuccessStatusCode 
@@ -597,6 +623,7 @@ Class SocketsHttpConnectionContext from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -627,6 +654,7 @@ Class SocketsHttpPlaintextStreamFilterContext from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -659,21 +687,26 @@ Class ByteArrayContent from HttpContent
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Http.ByteArrayContent, System.Net.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.ByteArrayContent, System.Net.Http',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Http.ByteArrayContent, System.Net.Http',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Http.ByteArrayContent, System.Net.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -685,6 +718,7 @@ Class DelegatingHandler from HttpMessageHandler
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -708,38 +742,45 @@ Class HttpClient from HttpMessageInvoker
 	DefaultProxy
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httpclient'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Http.HttpClient, System.Net.Http',[])
+		dnDefaultObject('System.Net.Http.HttpClient, System.Net.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Http.HttpClient, System.Net.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.HttpClient, System.Net.Http',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Http.HttpClient, System.Net.Http',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Http.HttpClient, System.Net.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetStringAsync P1
@@ -884,22 +925,25 @@ Class HttpClientHandler from HttpMessageHandler
 	DangerousAcceptAnyServerCertificateValidator
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httpclienthandler'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Http.HttpClientHandler, System.Net.Http',[])
+		dnDefaultObject('System.Net.Http.HttpClientHandler, System.Net.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Http.HttpClientHandler, System.Net.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getSupportsAutomaticDecompression
@@ -1077,38 +1121,45 @@ Class MultipartContent from HttpContent
 	HeaderEncodingSelector
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'multipartcontent'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Http.MultipartContent, System.Net.Http',[])
+		dnDefaultObject('System.Net.Http.MultipartContent, System.Net.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Http.MultipartContent, System.Net.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.MultipartContent, System.Net.Http',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Http.MultipartContent, System.Net.Http',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Http.MultipartContent, System.Net.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -1132,9 +1183,11 @@ Class ReadOnlyMemoryContent from HttpContent
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Http.ReadOnlyMemoryContent, System.Net.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1175,22 +1228,25 @@ Class SocketsHttpHandler from HttpMessageHandler
 	IsSupported
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'socketshttphandler'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Http.SocketsHttpHandler, System.Net.Http',[])
+		dnDefaultObject('System.Net.Http.SocketsHttpHandler, System.Net.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Http.SocketsHttpHandler, System.Net.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUseCookies
@@ -1429,21 +1485,26 @@ Class StreamContent from HttpContent
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Http.StreamContent, System.Net.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.StreamContent, System.Net.Http',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Http.StreamContent, System.Net.Http',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Http.StreamContent, System.Net.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1453,9 +1514,11 @@ Class FormUrlEncodedContent from ByteArrayContent
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Http.FormUrlEncodedContent, System.Net.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1465,6 +1528,7 @@ Class MessageProcessingHandler from DelegatingHandler
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1473,38 +1537,45 @@ Class MessageProcessingHandler from DelegatingHandler
 Class MultipartFormDataContent from MultipartContent
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'multipartformdatacontent'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Http.MultipartFormDataContent, System.Net.Http',[])
+		dnDefaultObject('System.Net.Http.MultipartFormDataContent, System.Net.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Http.MultipartFormDataContent, System.Net.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.MultipartFormDataContent, System.Net.Http',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Http.MultipartFormDataContent, System.Net.Http',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Http.MultipartFormDataContent, System.Net.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -1522,21 +1593,26 @@ Class StringContent from ByteArrayContent
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Http.StringContent, System.Net.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.StringContent, System.Net.Http',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Http.StringContent, System.Net.Http',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Http.StringContent, System.Net.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 

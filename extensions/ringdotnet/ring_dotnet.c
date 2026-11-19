@@ -405,6 +405,115 @@ RING_FUNC(ring_dotnet_start)
 	RING_API_RETNUMBER(1);
 }
 
+/*
+**  Guards: a Ring object that owns a .NET handle keeps a managed C pointer (a "guard") with the number of the handle. Ring frees the
+**  pointer when the last copy of the object is gone, and the number is put in a list. The list is sent to the bridge (one request for
+**  many handles) by the next dotnet_invoke() once it has 32 handles (or by dotnet_flush()): the free function itself never calls .NET, because Ring may run
+**  it at any moment, even when the program ends.
+*/
+typedef struct { double nHandle ; } DNGuard ;
+static double *g_aPending = NULL ;
+static int g_nPending = 0 ;
+static int g_nPendingCapacity = 0 ;
+#define DN_FLUSH_AT 32
+
+static void ringdotnet_freeguard ( void *pState, void *pPointer )
+{
+	DNGuard *pGuard = (DNGuard *) pPointer ;
+	if ( pGuard->nHandle > 0 ) {
+		if ( g_nPending == g_nPendingCapacity ) {
+			int nCapacity = g_nPendingCapacity ? g_nPendingCapacity * 2 : 256 ;
+			double *pNew = (double *) realloc(g_aPending,nCapacity * sizeof(double));
+			if ( pNew ) {
+				g_aPending = pNew ;
+				g_nPendingCapacity = nCapacity ;
+			}
+		}
+		if ( g_nPending < g_nPendingCapacity ) {
+			g_aPending[g_nPending++] = pGuard->nHandle ;
+		}
+	}
+	free(pGuard);
+}
+
+/* send the handles of the objects that were freed: releasemany(n1,n2,...) */
+static void ringdotnet_flushpending ( void )
+{
+	char *pRequest, *p ;
+	unsigned char *pOut ;
+	int nOutSize = 0, x, nLen ;
+	if ( g_nPending == 0 || ! g_pInvoke ) {
+		return ;
+	}
+	pRequest = (char *) malloc(32 + (size_t) g_nPending * 32);
+	if ( ! pRequest ) {
+		return ;
+	}
+	p = pRequest ;
+	p += sprintf(p,"s11:releasemany");
+	for ( x = 0 ; x < g_nPending ; x++ ) {
+		char cNum[32] ;
+		nLen = sprintf(cNum,"%.0f",g_aPending[x]);
+		p += sprintf(p,"n%d:%s",nLen,cNum);
+	}
+	g_nPending = 0 ;
+	pOut = g_pInvoke((const unsigned char *) pRequest,(int) (p - pRequest),&nOutSize);
+	if ( pOut ) {
+		g_pFree(pOut);
+	}
+	free(pRequest);
+}
+
+/* dotnet_guard(nHandle) --> a managed pointer that releases the handle when Ring frees it */
+RING_FUNC(ring_dotnet_guard)
+{
+	DNGuard *pGuard ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pGuard = (DNGuard *) malloc(sizeof(DNGuard));
+	if ( ! pGuard ) {
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	pGuard->nHandle = RING_API_GETNUMBER(1) ;
+	RING_API_RETMANAGEDCPOINTER(pGuard,"dotnet_guard",ringdotnet_freeguard);
+}
+
+/* dotnet_unguard(oGuard): the guard no longer releases the handle (the handle was released or belongs to somebody else) */
+RING_FUNC(ring_dotnet_unguard)
+{
+	DNGuard *pGuard ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		return ;
+	}
+	pGuard = (DNGuard *) RING_API_GETCPOINTER(1,"dotnet_guard");
+	if ( pGuard ) {
+		pGuard->nHandle = 0 ;
+	}
+}
+
+/* dotnet_flush(): release the handles of the freed objects now */
+RING_FUNC(ring_dotnet_flush)
+{
+	ringdotnet_flushpending();
+}
+
+/* dotnet_pending() --> the number of freed objects that wait for their handle to be released */
+RING_FUNC(ring_dotnet_pending)
+{
+	RING_API_RETNUMBER(g_nPending);
+}
+
 /* dotnet_invoke(cRequest) --> cResponse */
 RING_FUNC(ring_dotnet_invoke)
 {
@@ -425,6 +534,9 @@ RING_FUNC(ring_dotnet_invoke)
 	}
 	/* Keep the output order between Ring (C stdio) and .NET (Console) */
 	fflush(stdout);
+	if ( g_nPending >= DN_FLUSH_AT ) {
+		ringdotnet_flushpending();
+	}
 	pOldVM = g_pVM ;
 	g_pVM = pPointer ;
 	g_nDepth++ ;
@@ -465,6 +577,10 @@ RING_LIBINIT
 {
 	RING_API_REGISTER("dotnet_start",ring_dotnet_start);
 	RING_API_REGISTER("dotnet_invoke",ring_dotnet_invoke);
+	RING_API_REGISTER("dotnet_guard",ring_dotnet_guard);
+	RING_API_REGISTER("dotnet_unguard",ring_dotnet_unguard);
+	RING_API_REGISTER("dotnet_pending",ring_dotnet_pending);
+	RING_API_REGISTER("dotnet_flush",ring_dotnet_flush);
 	RING_API_REGISTER("dotnet_info",ring_dotnet_info);
 	RING_API_REGISTER("dotnet_callbackrequest",ring_dotnet_callbackrequest);
 	RING_API_REGISTER("dotnet_callbackresult",ring_dotnet_callbackresult);

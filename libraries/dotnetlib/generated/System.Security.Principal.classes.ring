@@ -57,6 +57,7 @@ Class IIdentity from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -88,6 +89,7 @@ Class IPrincipal from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -110,6 +112,7 @@ Class IdentityReference from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -135,38 +138,45 @@ Class IdentityReferenceCollection from Object
 	Count
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'identityreferencecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Principal.IdentityReferenceCollection, System.Security.Principal.Windows',[])
+		dnDefaultObject('System.Security.Principal.IdentityReferenceCollection, System.Security.Principal.Windows')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Principal.IdentityReferenceCollection, System.Security.Principal.Windows',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Principal.IdentityReferenceCollection, System.Security.Principal.Windows',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Principal.IdentityReferenceCollection, System.Security.Principal.Windows',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Principal.IdentityReferenceCollection, System.Security.Principal.Windows',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CopyTo P1,P2
@@ -231,6 +241,7 @@ Class WindowsIdentity from ClaimsIdentity
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -238,13 +249,16 @@ Class WindowsIdentity from ClaimsIdentity
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -349,9 +363,11 @@ Class WindowsPrincipal from ClaimsPrincipal
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Principal.WindowsPrincipal, System.Security.Principal.Windows',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUserClaims
@@ -373,21 +389,26 @@ Class NTAccount from IdentityReference
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Principal.NTAccount, System.Security.Principal.Windows',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Principal.NTAccount, System.Security.Principal.Windows',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Principal.NTAccount, System.Security.Principal.Windows',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Principal.NTAccount, System.Security.Principal.Windows',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -402,21 +423,26 @@ Class SecurityIdentifier from IdentityReference
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func IsAccountSid 

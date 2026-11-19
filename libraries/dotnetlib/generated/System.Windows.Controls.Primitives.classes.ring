@@ -294,22 +294,25 @@ Class BulletDecorator from Decorator
 	BackgroundProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bulletdecorator'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.BulletDecorator, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.BulletDecorator, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.BulletDecorator, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBackground
@@ -351,6 +354,7 @@ Class WpfButtonBase from ContentControl
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -439,22 +443,25 @@ Class CalendarButton from WpfButton
 	IsInactiveProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'calendarbutton'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.CalendarButton, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.CalendarButton, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.CalendarButton, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getHasSelectedDays
@@ -496,22 +503,25 @@ Class CalendarDayButton from WpfButton
 	IsHighlightedProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'calendardaybutton'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.CalendarDayButton, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.CalendarDayButton, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.CalendarDayButton, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getIsToday
@@ -580,22 +590,25 @@ Class CalendarItem from WpfControl
 	DayTitleTemplateResourceKey
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'calendaritem'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.CalendarItem, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.CalendarItem, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.CalendarItem, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getDayTitleTemplateResourceKey
@@ -611,38 +624,45 @@ Class CustomPopupPlacement from ValueType
 	PrimaryAxis
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'custompopupplacement'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.CustomPopupPlacement, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.CustomPopupPlacement, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.CustomPopupPlacement, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.Primitives.CustomPopupPlacement, PresentationFramework',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Controls.Primitives.CustomPopupPlacement, PresentationFramework',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.CustomPopupPlacement, PresentationFramework',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPoint
@@ -665,22 +685,25 @@ Class DataGridCellsPresenter from ItemsControl
 	Item
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridcellspresenter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.DataGridCellsPresenter, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.DataGridCellsPresenter, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.DataGridCellsPresenter, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ContainerFromElement P1
@@ -696,22 +719,25 @@ Class DataGridCellsPresenter from ItemsControl
 Class DataGridColumnHeadersPresenter from ItemsControl
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridcolumnheaderspresenter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.DataGridColumnHeadersPresenter, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.DataGridColumnHeadersPresenter, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.DataGridColumnHeadersPresenter, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ContainerFromElement P1
@@ -721,66 +747,75 @@ Class DataGridColumnHeadersPresenter from ItemsControl
 Class DataGridDetailsPresenter from ContentPresenter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagriddetailspresenter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.DataGridDetailsPresenter, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.DataGridDetailsPresenter, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.DataGridDetailsPresenter, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DataGridRowsPresenter from VirtualizingStackPanel
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridrowspresenter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.DataGridRowsPresenter, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.DataGridRowsPresenter, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.DataGridRowsPresenter, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DatePickerTextBox from WpfTextBox
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datepickertextbox'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.DatePickerTextBox, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.DatePickerTextBox, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.DatePickerTextBox, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -796,22 +831,25 @@ Class DocumentPageView from FrameworkElement
 	StretchDirectionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'documentpageview'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.DocumentPageView, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.DocumentPageView, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.DocumentPageView, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setPageConnectedEvent P1
@@ -902,6 +940,7 @@ Class DocumentViewerBase from WpfControl
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1036,9 +1075,11 @@ Class DragCompletedEventArgs from RoutedEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.DragCompletedEventArgs, PresentationFramework',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getHorizontalChange
@@ -1069,9 +1110,11 @@ Class DragDeltaEventArgs from RoutedEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.DragDeltaEventArgs, PresentationFramework',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getHorizontalChange
@@ -1096,9 +1139,11 @@ Class DragStartedEventArgs from RoutedEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.DragStartedEventArgs, PresentationFramework',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getHorizontalOffset
@@ -1120,38 +1165,45 @@ Class GeneratorPosition from ValueType
 	Offset
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'generatorposition'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.GeneratorPosition, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.GeneratorPosition, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.GeneratorPosition, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.Primitives.GeneratorPosition, PresentationFramework',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Controls.Primitives.GeneratorPosition, PresentationFramework',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.GeneratorPosition, PresentationFramework',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getIndex
@@ -1178,6 +1230,7 @@ Class GridViewRowPresenterBase from FrameworkElement
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1202,6 +1255,7 @@ Class IContainItemStorage from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1239,6 +1293,7 @@ Class IHierarchicalVirtualizationAndScrollInfo from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1290,6 +1345,7 @@ Class IItemContainerGenerator from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1331,6 +1387,7 @@ Class IRecyclingItemContainerGenerator from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1356,6 +1413,7 @@ Class IScrollInfo from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1483,6 +1541,7 @@ Class ItemsChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1524,6 +1583,7 @@ Class LayoutInformation from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1552,6 +1612,7 @@ Class MenuBase from ItemsControl
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1614,22 +1675,25 @@ Class Popup from FrameworkElement
 	HasDropShadowProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'popup'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.Popup, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.Popup, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.Popup, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateRootPopup P1,P2
@@ -1826,6 +1890,7 @@ Class RangeBase from WpfControl
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1917,22 +1982,25 @@ Class RangeBase from WpfControl
 Class ResizeGrip from WpfControl
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'resizegrip'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.ResizeGrip, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.ResizeGrip, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.ResizeGrip, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1945,9 +2013,11 @@ Class WpfScrollEventArgs from RoutedEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.ScrollEventArgs, PresentationFramework',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getScrollEventType
@@ -1968,22 +2038,25 @@ Class SelectiveScrollingGrid from Grid
 	SelectiveScrollingOrientationProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'selectivescrollinggrid'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.SelectiveScrollingGrid, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.SelectiveScrollingGrid, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.SelectiveScrollingGrid, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetSelectiveScrollingOrientation P1
@@ -2022,6 +2095,7 @@ Class Selector from ItemsControl
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2165,22 +2239,25 @@ Class StatusBar from ItemsControl
 	UsesItemContainerTemplateProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'statusbar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.StatusBar, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.StatusBar, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.StatusBar, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ContainerFromElement P1
@@ -2222,44 +2299,50 @@ Class StatusBar from ItemsControl
 Class StatusBarItem from ContentControl
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'statusbaritem'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.StatusBarItem, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.StatusBarItem, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.StatusBarItem, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class TabPanel from WpfPanel
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tabpanel'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.TabPanel, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.TabPanel, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.TabPanel, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -2311,6 +2394,7 @@ Class WpfTextBoxBase from WpfControl
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2684,22 +2768,25 @@ Class Thumb from WpfControl
 	IsDraggingProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'thumb'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.Thumb, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.Thumb, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.Thumb, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CancelDrag 
@@ -2778,22 +2865,25 @@ Class TickBar from FrameworkElement
 	ReservedSpaceProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tickbar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.TickBar, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.TickBar, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.TickBar, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFill
@@ -2946,22 +3036,25 @@ Class ToolBarOverflowPanel from WpfPanel
 	WrapWidthProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolbaroverflowpanel'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.ToolBarOverflowPanel, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.ToolBarOverflowPanel, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.ToolBarOverflowPanel, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getWrapWidth
@@ -2981,22 +3074,25 @@ Class ToolBarOverflowPanel from WpfPanel
 Class ToolBarPanel from StackPanel
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolbarpanel'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.ToolBarPanel, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.ToolBarPanel, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.ToolBarPanel, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3019,22 +3115,25 @@ Class Track from FrameworkElement
 	IsDirectionReversedProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'track'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.Track, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.Track, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.Track, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ValueFromPoint P1
@@ -3160,22 +3259,25 @@ Class UniformGrid from WpfPanel
 	RowsProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uniformgrid'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.UniformGrid, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.UniformGrid, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.UniformGrid, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFirstColumn
@@ -3237,22 +3339,25 @@ Class DataGridColumnHeader from WpfButtonBase
 	IsFrozenProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridcolumnheader'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.DataGridColumnHeader, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.DataGridColumnHeader, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.DataGridColumnHeader, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getColumn
@@ -3358,22 +3463,25 @@ Class DataGridRowHeader from WpfButtonBase
 	IsRowSelectedProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridrowheader'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.DataGridRowHeader, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.DataGridRowHeader, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.DataGridRowHeader, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getSeparatorBrush
@@ -3423,6 +3531,7 @@ Class MultiSelector from Selector
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3450,22 +3559,25 @@ Class RepeatButton from WpfButtonBase
 	IntervalProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'repeatbutton'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.RepeatButton, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.RepeatButton, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.RepeatButton, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getDelay
@@ -3524,22 +3636,25 @@ Class WpfScrollBar from RangeBase
 	ScrollHereCommand
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wpfscrollbar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.ScrollBar, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.ScrollBar, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.ScrollBar, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setScrollEvent P1
@@ -3711,22 +3826,25 @@ Class ToggleButton from WpfButtonBase
 	IsThreeStateProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'togglebutton'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Controls.Primitives.ToggleButton, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Controls.Primitives.ToggleButton, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Controls.Primitives.ToggleButton, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setCheckedEvent P1

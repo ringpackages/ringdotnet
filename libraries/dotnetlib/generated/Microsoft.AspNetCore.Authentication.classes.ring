@@ -286,9 +286,11 @@ Class AccessDeniedContext from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AccessDeniedContext, Microsoft.AspNetCore.Authentication',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HandleResponse 
@@ -389,6 +391,7 @@ Class AuthenticateResult from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -456,9 +459,11 @@ Class AuthenticationBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationBuilder, Microsoft.AspNetCore.Authentication',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddScheme P1
@@ -489,6 +494,7 @@ Class AuthenticationConfigurationProviderExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -506,22 +512,25 @@ Class AuthenticationFeature from Object
 	OriginalPath
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'authenticationfeature'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationFeature, Microsoft.AspNetCore.Authentication.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Authentication.AuthenticationFeature, Microsoft.AspNetCore.Authentication.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationFeature, Microsoft.AspNetCore.Authentication.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -550,9 +559,11 @@ Class AuthenticationHandlerProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationHandlerProvider, Microsoft.AspNetCore.Authentication.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetHandlerAsync P1,P2
@@ -574,6 +585,7 @@ Class AuthenticationHttpContextExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -626,9 +638,11 @@ Class AuthenticationMiddleware from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationMiddleware, Microsoft.AspNetCore.Authentication',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Invoke P1
@@ -658,22 +672,25 @@ Class AuthenticationOptions from Object
 	RequireAuthenticatedSignIn
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'authenticationoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationOptions, Microsoft.AspNetCore.Authentication.Abstractions',[])
+		dnDefaultObject('Microsoft.AspNetCore.Authentication.AuthenticationOptions, Microsoft.AspNetCore.Authentication.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationOptions, Microsoft.AspNetCore.Authentication.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddScheme P1,P2
@@ -756,38 +773,45 @@ Class AuthenticationProperties from Object
 	AllowRefresh
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'authenticationproperties'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions',[])
+		dnDefaultObject('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Clone 
@@ -868,9 +892,11 @@ Class AuthenticationScheme from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationScheme, Microsoft.AspNetCore.Authentication.Abstractions',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -905,9 +931,11 @@ Class AuthenticationSchemeBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationSchemeBuilder, Microsoft.AspNetCore.Authentication.Abstractions',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Build 
@@ -952,22 +980,25 @@ Class AuthenticationSchemeOptions from Object
 	TimeProvider
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'authenticationschemeoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions, Microsoft.AspNetCore.Authentication',[])
+		dnDefaultObject('Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions, Microsoft.AspNetCore.Authentication')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions, Microsoft.AspNetCore.Authentication',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Validate P1
@@ -1069,9 +1100,11 @@ Class AuthenticationSchemeProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationSchemeProvider, Microsoft.AspNetCore.Authentication.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetDefaultAuthenticateSchemeAsync 
@@ -1124,9 +1157,11 @@ Class AuthenticationService from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationService, Microsoft.AspNetCore.Authentication.Core',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AuthenticateAsync P1,P2
@@ -1182,21 +1217,26 @@ Class AuthenticationTicket from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationTicket, Microsoft.AspNetCore.Authentication.Abstractions',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Authentication.AuthenticationTicket, Microsoft.AspNetCore.Authentication.Abstractions',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationTicket, Microsoft.AspNetCore.Authentication.Abstractions',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationTicket, Microsoft.AspNetCore.Authentication.Abstractions',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Clone 
@@ -1230,22 +1270,25 @@ Class AuthenticationToken from Object
 	Value
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'authenticationtoken'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationToken, Microsoft.AspNetCore.Authentication.Abstractions',[])
+		dnDefaultObject('Microsoft.AspNetCore.Authentication.AuthenticationToken, Microsoft.AspNetCore.Authentication.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationToken, Microsoft.AspNetCore.Authentication.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1272,6 +1315,7 @@ Class AuthenticationTokenExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1305,6 +1349,7 @@ Class Base64UrlTextEncoder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1325,6 +1370,7 @@ Class ClaimActionCollectionMapExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1378,6 +1424,7 @@ Class IAuthenticateResultFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1398,6 +1445,7 @@ Class IAuthenticationConfigurationProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1418,6 +1466,7 @@ Class IAuthenticationFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1443,6 +1492,7 @@ Class IAuthenticationHandler from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1466,6 +1516,7 @@ Class IAuthenticationHandlerProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1480,6 +1531,7 @@ Class IAuthenticationRequestHandler from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1494,6 +1546,7 @@ Class IAuthenticationSchemeProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1540,6 +1593,7 @@ Class IAuthenticationService from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1566,6 +1620,7 @@ Class IAuthenticationSignInHandler from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1580,6 +1635,7 @@ Class IAuthenticationSignOutHandler from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1594,6 +1650,7 @@ Class IClaimsTransformation from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1608,6 +1665,7 @@ Class JsonDocumentAuthExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1622,22 +1680,25 @@ Class JsonDocumentAuthExtensions from Object
 Class NoopClaimsTransformation from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'noopclaimstransformation'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.NoopClaimsTransformation, Microsoft.AspNetCore.Authentication.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Authentication.NoopClaimsTransformation, Microsoft.AspNetCore.Authentication.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.NoopClaimsTransformation, Microsoft.AspNetCore.Authentication.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func TransformAsync P1
@@ -1656,21 +1717,26 @@ Class PolicySchemeHandler from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PolicySchemeHandler, Microsoft.AspNetCore.Authentication',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Authentication.PolicySchemeHandler, Microsoft.AspNetCore.Authentication',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PolicySchemeHandler, Microsoft.AspNetCore.Authentication',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PolicySchemeHandler, Microsoft.AspNetCore.Authentication',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func SignInAsync P1,P2
@@ -1722,9 +1788,11 @@ Class PropertiesDataFormat from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PropertiesDataFormat, Microsoft.AspNetCore.Authentication',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Protect P1
@@ -1757,22 +1825,25 @@ Class PropertiesSerializer from Object
 	Default
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'propertiesserializer'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PropertiesSerializer, Microsoft.AspNetCore.Authentication',[])
+		dnDefaultObject('Microsoft.AspNetCore.Authentication.PropertiesSerializer, Microsoft.AspNetCore.Authentication')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PropertiesSerializer, Microsoft.AspNetCore.Authentication',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Serialize P1
@@ -1805,22 +1876,25 @@ Class RemoteAuthenticationEvents from Object
 	OnTicketReceived
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'remoteauthenticationevents'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.RemoteAuthenticationEvents, Microsoft.AspNetCore.Authentication',[])
+		dnDefaultObject('Microsoft.AspNetCore.Authentication.RemoteAuthenticationEvents, Microsoft.AspNetCore.Authentication')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.RemoteAuthenticationEvents, Microsoft.AspNetCore.Authentication',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AccessDenied P1
@@ -1872,9 +1946,11 @@ Class RemoteFailureContext from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.RemoteFailureContext, Microsoft.AspNetCore.Authentication',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HandleResponse 
@@ -1951,22 +2027,25 @@ Class RemoteFailureContext from DotNetObject
 Class RequestPathBaseCookieBuilder from CookieBuilder
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'requestpathbasecookiebuilder'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.RequestPathBaseCookieBuilder, Microsoft.AspNetCore.Authentication',[])
+		dnDefaultObject('Microsoft.AspNetCore.Authentication.RequestPathBaseCookieBuilder, Microsoft.AspNetCore.Authentication')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.RequestPathBaseCookieBuilder, Microsoft.AspNetCore.Authentication',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1976,9 +2055,11 @@ Class TicketDataFormat from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.TicketDataFormat, Microsoft.AspNetCore.Authentication',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Protect P1
@@ -2022,9 +2103,11 @@ Class TicketReceivedContext from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.TicketReceivedContext, Microsoft.AspNetCore.Authentication',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Success 
@@ -2118,22 +2201,25 @@ Class TicketSerializer from Object
 	Default
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ticketserializer'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.TicketSerializer, Microsoft.AspNetCore.Authentication',[])
+		dnDefaultObject('Microsoft.AspNetCore.Authentication.TicketSerializer, Microsoft.AspNetCore.Authentication')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.TicketSerializer, Microsoft.AspNetCore.Authentication',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Serialize P1
@@ -2165,22 +2251,25 @@ Class HandleRequestResult from AuthenticateResult
 	Skipped
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'handlerequestresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication',[])
+		dnDefaultObject('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Success P1
@@ -2217,22 +2306,25 @@ Class HandleRequestResult from AuthenticateResult
 Class PolicySchemeOptions from AuthenticationSchemeOptions
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'policyschemeoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PolicySchemeOptions, Microsoft.AspNetCore.Authentication',[])
+		dnDefaultObject('Microsoft.AspNetCore.Authentication.PolicySchemeOptions, Microsoft.AspNetCore.Authentication')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PolicySchemeOptions, Microsoft.AspNetCore.Authentication',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -2251,22 +2343,25 @@ Class RemoteAuthenticationOptions from AuthenticationSchemeOptions
 	CorrelationCookie
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'remoteauthenticationoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions, Microsoft.AspNetCore.Authentication',[])
+		dnDefaultObject('Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions, Microsoft.AspNetCore.Authentication')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions, Microsoft.AspNetCore.Authentication',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBackchannelTimeout

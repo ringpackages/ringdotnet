@@ -167,6 +167,7 @@ Class Ascii from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -187,6 +188,7 @@ Class CompositeFormat from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -219,6 +221,7 @@ Class Decoder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -269,6 +272,7 @@ Class DecoderFallback from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -306,6 +310,7 @@ Class DecoderFallbackBuffer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -342,6 +347,7 @@ Class Encoder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -386,6 +392,7 @@ Class EncoderFallback from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -423,6 +430,7 @@ Class EncoderFallbackBuffer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -483,6 +491,7 @@ Class Encoding from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -723,9 +732,11 @@ Class EncodingInfo from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Text.EncodingInfo, System.Private.CoreLib',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEncoding 
@@ -759,6 +770,7 @@ Class EncodingProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -787,38 +799,45 @@ Class Rune from ValueType
 	ReplacementChar
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rune'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.Rune, System.Private.CoreLib',[])
+		dnDefaultObject('System.Text.Rune, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Rune, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.Rune, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Text.Rune, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Text.Rune, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CompareTo P1
@@ -940,41 +959,49 @@ Class StringBuilder from Object
 	Length
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringbuilder'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.StringBuilder, System.Private.CoreLib',[])
+		dnDefaultObject('System.Text.StringBuilder, System.Private.CoreLib')
 	ok
 
 	Func init P1
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			if nHandle = 0
 				nHandle = dnCreate('System.Text.StringBuilder, System.Private.CoreLib',[])
+				oDotNetGuard = dotnet_guard(nHandle)
 			ok
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.StringBuilder, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.StringBuilder, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Text.StringBuilder, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Text.StringBuilder, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func EnsureCapacity P1
@@ -1071,22 +1098,25 @@ Class StringRuneEnumerator from ValueType
 	Current
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringruneenumerator'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.StringRuneEnumerator, System.Private.CoreLib',[])
+		dnDefaultObject('System.Text.StringRuneEnumerator, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.StringRuneEnumerator, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -1105,66 +1135,75 @@ Class StringRuneEnumerator from ValueType
 Class ASCIIEncoding from Encoding
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'asciiencoding'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.ASCIIEncoding, System.Private.CoreLib',[])
+		dnDefaultObject('System.Text.ASCIIEncoding, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.ASCIIEncoding, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DecoderExceptionFallback from DecoderFallback
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'decoderexceptionfallback'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.DecoderExceptionFallback, System.Private.CoreLib',[])
+		dnDefaultObject('System.Text.DecoderExceptionFallback, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.DecoderExceptionFallback, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class DecoderExceptionFallbackBuffer from DecoderFallbackBuffer
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'decoderexceptionfallbackbuffer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.DecoderExceptionFallbackBuffer, System.Private.CoreLib',[])
+		dnDefaultObject('System.Text.DecoderExceptionFallbackBuffer, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.DecoderExceptionFallbackBuffer, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1173,38 +1212,45 @@ Class DecoderReplacementFallback from DecoderFallback
 	DefaultString
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'decoderreplacementfallback'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.DecoderReplacementFallback, System.Private.CoreLib',[])
+		dnDefaultObject('System.Text.DecoderReplacementFallback, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.DecoderReplacementFallback, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.DecoderReplacementFallback, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Text.DecoderReplacementFallback, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Text.DecoderReplacementFallback, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getDefaultString
@@ -1220,53 +1266,61 @@ Class DecoderReplacementFallbackBuffer from DecoderFallbackBuffer
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Text.DecoderReplacementFallbackBuffer, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class EncoderExceptionFallback from EncoderFallback
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'encoderexceptionfallback'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.EncoderExceptionFallback, System.Private.CoreLib',[])
+		dnDefaultObject('System.Text.EncoderExceptionFallback, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.EncoderExceptionFallback, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class EncoderExceptionFallbackBuffer from EncoderFallbackBuffer
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'encoderexceptionfallbackbuffer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.EncoderExceptionFallbackBuffer, System.Private.CoreLib',[])
+		dnDefaultObject('System.Text.EncoderExceptionFallbackBuffer, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.EncoderExceptionFallbackBuffer, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1275,38 +1329,45 @@ Class EncoderReplacementFallback from EncoderFallback
 	DefaultString
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'encoderreplacementfallback'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.EncoderReplacementFallback, System.Private.CoreLib',[])
+		dnDefaultObject('System.Text.EncoderReplacementFallback, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.EncoderReplacementFallback, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.EncoderReplacementFallback, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Text.EncoderReplacementFallback, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Text.EncoderReplacementFallback, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getDefaultString
@@ -1322,123 +1383,146 @@ Class EncoderReplacementFallbackBuffer from EncoderFallbackBuffer
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Text.EncoderReplacementFallbackBuffer, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class UTF32Encoding from Encoding
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'utf32encoding'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.UTF32Encoding, System.Private.CoreLib',[])
+		dnDefaultObject('System.Text.UTF32Encoding, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.UTF32Encoding, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.UTF32Encoding, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Text.UTF32Encoding, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Text.UTF32Encoding, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class UTF7Encoding from Encoding
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'utf7encoding'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.UTF7Encoding, System.Private.CoreLib',[])
+		dnDefaultObject('System.Text.UTF7Encoding, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.UTF7Encoding, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.UTF7Encoding, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Text.UTF7Encoding, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Text.UTF7Encoding, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class UTF8Encoding from Encoding
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'utf8encoding'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.UTF8Encoding, System.Private.CoreLib',[])
+		dnDefaultObject('System.Text.UTF8Encoding, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.UTF8Encoding, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.UTF8Encoding, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Text.UTF8Encoding, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Text.UTF8Encoding, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1447,38 +1531,45 @@ Class UnicodeEncoding from Encoding
 	CharSize
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'unicodeencoding'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.UnicodeEncoding, System.Private.CoreLib',[])
+		dnDefaultObject('System.Text.UnicodeEncoding, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.UnicodeEncoding, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.UnicodeEncoding, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Text.UnicodeEncoding, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Text.UnicodeEncoding, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCharSize

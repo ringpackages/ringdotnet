@@ -138,22 +138,25 @@ Class AspCacheControlHeaderValue from Object
 	ProxyRevalidateString
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'aspcachecontrolheadervalue'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',[])
+		dnDefaultObject('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -363,9 +366,11 @@ Class AspContentDispositionHeaderValue from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.ContentDispositionHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func SetHttpFileName P1
@@ -454,6 +459,7 @@ Class ContentDispositionHeaderValueIdentityExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -481,21 +487,26 @@ Class AspContentRangeHeaderValue from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.ContentRangeHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.ContentRangeHeaderValue, Microsoft.Net.Http.Headers',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Net.Http.Headers.ContentRangeHeaderValue, Microsoft.Net.Http.Headers',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.ContentRangeHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -554,21 +565,26 @@ Class CookieHeaderValue from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.CookieHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.CookieHeaderValue, Microsoft.Net.Http.Headers',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Net.Http.Headers.CookieHeaderValue, Microsoft.Net.Http.Headers',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.CookieHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -617,21 +633,26 @@ Class AspEntityTagHeaderValue from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.EntityTagHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.EntityTagHeaderValue, Microsoft.Net.Http.Headers',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Net.Http.Headers.EntityTagHeaderValue, Microsoft.Net.Http.Headers',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.EntityTagHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -780,6 +801,7 @@ Class HeaderNames from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1373,6 +1395,7 @@ Class HeaderQuality from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1399,6 +1422,7 @@ Class HeaderUtilities from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1465,21 +1489,26 @@ Class AspMediaTypeHeaderValue from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.MediaTypeHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.MediaTypeHeaderValue, Microsoft.Net.Http.Headers',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Net.Http.Headers.MediaTypeHeaderValue, Microsoft.Net.Http.Headers',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.MediaTypeHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func IsSubsetOf P1
@@ -1622,6 +1651,7 @@ Class MediaTypeHeaderValueComparer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1649,21 +1679,26 @@ Class AspNameValueHeaderValue from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.NameValueHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.NameValueHeaderValue, Microsoft.Net.Http.Headers',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Net.Http.Headers.NameValueHeaderValue, Microsoft.Net.Http.Headers',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.NameValueHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Copy 
@@ -1732,9 +1767,11 @@ Class AspRangeConditionHeaderValue from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.RangeConditionHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1765,38 +1802,45 @@ Class AspRangeHeaderValue from Object
 	Ranges
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'asprangeheadervalue'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Net.Http.Headers.RangeHeaderValue, Microsoft.Net.Http.Headers',[])
+		dnDefaultObject('Microsoft.Net.Http.Headers.RangeHeaderValue, Microsoft.Net.Http.Headers')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.RangeHeaderValue, Microsoft.Net.Http.Headers',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.RangeHeaderValue, Microsoft.Net.Http.Headers',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Net.Http.Headers.RangeHeaderValue, Microsoft.Net.Http.Headers',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.RangeHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1831,9 +1875,11 @@ Class AspRangeItemHeaderValue from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.RangeItemHeaderValue, Microsoft.Net.Http.Headers',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1869,21 +1915,26 @@ Class SetCookieHeaderValue from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.SetCookieHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.SetCookieHeaderValue, Microsoft.Net.Http.Headers',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Net.Http.Headers.SetCookieHeaderValue, Microsoft.Net.Http.Headers',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.SetCookieHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AppendToStringBuilder P1
@@ -1990,21 +2041,26 @@ Class AspStringWithQualityHeaderValue from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.StringWithQualityHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.StringWithQualityHeaderValue, Microsoft.Net.Http.Headers',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Net.Http.Headers.StringWithQualityHeaderValue, Microsoft.Net.Http.Headers',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.StringWithQualityHeaderValue, Microsoft.Net.Http.Headers',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2049,6 +2105,7 @@ Class StringWithQualityHeaderValueComparer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self

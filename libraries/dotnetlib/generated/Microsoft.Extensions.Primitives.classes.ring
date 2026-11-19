@@ -62,9 +62,11 @@ Class CancellationChangeToken from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.CancellationChangeToken, Microsoft.Extensions.Primitives',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func RegisterChangeCallback P1,P2
@@ -92,6 +94,7 @@ Class ChangeToken from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -116,9 +119,11 @@ Class CompositeChangeToken from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.CompositeChangeToken, Microsoft.Extensions.Primitives',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func RegisterChangeCallback P1,P2
@@ -152,6 +157,7 @@ Class AspExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -172,6 +178,7 @@ Class IChangeToken from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -202,38 +209,45 @@ Class StringSegment from ValueType
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringsegment'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',[])
+		dnDefaultObject('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AsSpan P1
@@ -357,6 +371,7 @@ Class StringSegmentComparer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -395,38 +410,45 @@ Class StringSegmentComparer from Object
 Class StringTokenizer from ValueType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringtokenizer'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringTokenizer, Microsoft.Extensions.Primitives',[])
+		dnDefaultObject('Microsoft.Extensions.Primitives.StringTokenizer, Microsoft.Extensions.Primitives')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringTokenizer, Microsoft.Extensions.Primitives',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Primitives.StringTokenizer, Microsoft.Extensions.Primitives',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Extensions.Primitives.StringTokenizer, Microsoft.Extensions.Primitives',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringTokenizer, Microsoft.Extensions.Primitives',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -439,38 +461,45 @@ Class StringValues from ValueType
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringvalues'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',[])
+		dnDefaultObject('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ToArray 

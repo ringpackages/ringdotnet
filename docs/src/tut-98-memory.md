@@ -9,7 +9,7 @@ lead: .NET frees the memory of objects that nothing uses any more. This lesson l
 - `GC.GetTotalMemory`, `GC.Collect`, `GC.CollectionCount`,
 - `WeakReference`: a pointer that does not keep an object alive,
 - **generations** 0, 1 and 2,
-- `release()`: letting the bridge forget an object.
+- handles: how Ring frees .NET objects for you (`dnFlush()` and `release()`).
 
 ## The program
 
@@ -27,16 +27,18 @@ The numbers (bytes in use, how many collections) differ on every computer and ev
 
 ### What the bridge adds
 
-When a .NET method returns an object to Ring, the bridge keeps a **handle** to it in a table. A reference in a table keeps the object alive, so the GC cannot free it. Ring objects that hold such a handle do not free it automatically. When you are done with an object that is big or that holds a resource (a stream, a bitmap, a connection), do two things:
+When a .NET method returns an object to Ring, the bridge keeps a **handle** to it in a table, because Ring only holds a number. A reference in a table keeps the object alive, so the GC could not free it. That is why every Ring object that owns a handle also owns a small **guard**: when Ring frees the object (the last variable that holds it is changed or goes away), the guard puts the handle on a list, and the list is sent to .NET in one request. After that the GC is free to take the memory. You do not have to do anything: a loop that makes 100 000 objects and drops each of them stays small.
 
-1. `Dispose()` it if its class has that method ([tutorial 71](tut-71-dispose.html)): this frees *resources* such as files and connections at once.
-2. `release()` it (every wrapped object has this method): this removes the handle from the table, and after that the GC is free to take the memory. After `release()` the object cannot be used any more.
+Two things remain your job:
 
-Step 2 of the program shows the effect: a list with room for 10 million bytes makes the memory grow by 10 MB, and after `release()` and a collection the memory is smaller again. A program that creates millions of short-lived objects in a loop should `release()` them, or the table of handles grows.
+1. **`Dispose()`** ([tutorial 71](tut-71-dispose.html)) frees *resources* such as files and connections at once. Dropping the object frees its memory, but only some time later.
+2. **Timing.** The handles are released in groups (the next .NET call does it when 32 are waiting), so the memory of one big object is not free at the moment you drop it. `dnFlush()` releases the waiting handles now; use it before you look at the memory (`GC.GetTotalMemory`) or when one big object must go at once. `release()` is the other way: it releases one object immediately, and after it the object cannot be used any more.
+
+Step 2 of the program shows the effect: a list with room for 10 million bytes makes the memory grow by 10 MB, and after the variable is set to `NULL`, `dnFlush()` and a collection the memory is smaller again.
 
 ### Weak references
 
-A normal variable keeps its object alive. A `WeakReference` points to an object **without** keeping it alive: `IsAlive` says whether the object is still there, and when the GC frees it, the answer becomes false. This is the tool for **caches**: keep the result of a slow calculation as long as memory allows, and calculate it again when it is gone. In step 4 the object is alive while Ring holds it; after `release()` and a collection it is gone. (Collecting twice, with `WaitForPendingFinalizers` in between, makes the result sure in a small test; a real cache must always handle both answers.)
+A normal variable keeps its object alive. A `WeakReference` points to an object **without** keeping it alive: `IsAlive` says whether the object is still there, and when the GC frees it, the answer becomes false. This is the tool for **caches**: keep the result of a slow calculation as long as memory allows, and calculate it again when it is gone. In step 4 the object is alive while Ring holds it; after the variable is set to `NULL`, `dnFlush()` and a collection it is gone. (Collecting twice, with `WaitForPendingFinalizers` in between, makes the result sure in a small test; a real cache must always handle both answers.)
 
 ### Generations
 
@@ -48,13 +50,13 @@ The GC sorts objects by age, because most objects die young. Generation **0** ho
 
 - the GC frees unreachable objects; you do not choose when,
 - `GetTotalMemory`, `Collect` and `CollectionCount` for learning and tests,
-- the bridge keeps handles: `Dispose()` frees resources, `release()` lets go of the object,
+- Ring frees the handle of a dropped object for you; `Dispose()` frees resources, `dnFlush()` and `release()` make it immediate,
 - `WeakReference` for caches,
 - generations: young objects are collected often.
 
 ## Exercises
 
-1. Make 100 000 `StringBuilder` objects in a loop with and without `release()` and look at `GC.GetTotalMemory`.
+1. Make 100 000 `StringBuilder` objects with a capacity of 4000 in a loop and look at `GC.GetTotalMemory` after the loop, with and without `dnFlush()`.
 2. Build a small cache of results with `WeakReference` objects in a Ring list.
 3. Find out how many collections of generation 0, 1 and 2 happened in your program (`CollectionCount`).
 4. Read about `GCSettings.IsServerGC` and `GCSettings.LatencyMode` and print them.

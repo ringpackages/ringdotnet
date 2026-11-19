@@ -90,6 +90,7 @@ Class AuthenticatedStream from Stream
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -139,9 +140,11 @@ Class CipherSuitesPolicy from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Security.CipherSuitesPolicy, System.Net.Security',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -170,9 +173,11 @@ Class NegotiateAuthentication from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Security.NegotiateAuthentication, System.Net.Security',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -253,22 +258,25 @@ Class NegotiateAuthenticationClientOptions from Object
 	AllowedImpersonationLevel
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'negotiateauthenticationclientoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Security.NegotiateAuthenticationClientOptions, System.Net.Security',[])
+		dnDefaultObject('System.Net.Security.NegotiateAuthenticationClientOptions, System.Net.Security')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Security.NegotiateAuthenticationClientOptions, System.Net.Security',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -333,22 +341,25 @@ Class NegotiateAuthenticationServerOptions from Object
 	RequiredImpersonationLevel
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'negotiateauthenticationserveroptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Security.NegotiateAuthenticationServerOptions, System.Net.Security',[])
+		dnDefaultObject('System.Net.Security.NegotiateAuthenticationServerOptions, System.Net.Security')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Security.NegotiateAuthenticationServerOptions, System.Net.Security',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -405,38 +416,45 @@ Class SslApplicationProtocol from ValueType
 	Http11
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sslapplicationprotocol'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Security.SslApplicationProtocol, System.Net.Security',[])
+		dnDefaultObject('System.Net.Security.SslApplicationProtocol, System.Net.Security')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Security.SslApplicationProtocol, System.Net.Security',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Security.SslApplicationProtocol, System.Net.Security',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Security.SslApplicationProtocol, System.Net.Security',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Security.SslApplicationProtocol, System.Net.Security',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getProtocol
@@ -470,6 +488,7 @@ Class SslCertificateTrust from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -507,22 +526,25 @@ Class SslClientAuthenticationOptions from Object
 	CertificateChainPolicy
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sslclientauthenticationoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Security.SslClientAuthenticationOptions, System.Net.Security',[])
+		dnDefaultObject('System.Net.Security.SslClientAuthenticationOptions, System.Net.Security')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Security.SslClientAuthenticationOptions, System.Net.Security',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -626,38 +648,45 @@ Class SslClientHelloInfo from ValueType
 	SslProtocols
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sslclienthelloinfo'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Security.SslClientHelloInfo, System.Net.Security',[])
+		dnDefaultObject('System.Net.Security.SslClientHelloInfo, System.Net.Security')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Security.SslClientHelloInfo, System.Net.Security',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Security.SslClientHelloInfo, System.Net.Security',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Security.SslClientHelloInfo, System.Net.Security',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Security.SslClientHelloInfo, System.Net.Security',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getServerName
@@ -690,22 +719,25 @@ Class SslServerAuthenticationOptions from Object
 	CertificateChainPolicy
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sslserverauthenticationoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Security.SslServerAuthenticationOptions, System.Net.Security',[])
+		dnDefaultObject('System.Net.Security.SslServerAuthenticationOptions, System.Net.Security')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Security.SslServerAuthenticationOptions, System.Net.Security',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -812,6 +844,7 @@ Class SslStreamCertificateContext from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -847,21 +880,26 @@ Class NegotiateStream from AuthenticatedStream
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Security.NegotiateStream, System.Net.Security',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Security.NegotiateStream, System.Net.Security',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Security.NegotiateStream, System.Net.Security',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Security.NegotiateStream, System.Net.Security',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginAuthenticateAsClient P1
@@ -959,21 +997,26 @@ Class SslStream from AuthenticatedStream
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Security.SslStream, System.Net.Security',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Security.SslStream, System.Net.Security',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Security.SslStream, System.Net.Security',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Security.SslStream, System.Net.Security',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginAuthenticateAsClient P1

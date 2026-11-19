@@ -376,38 +376,45 @@ Class BindingInfo from Object
 	ServiceKey
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bindinginfo'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func TryApplyBindingInfo P1
@@ -493,9 +500,11 @@ Class AspBindingSource from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CanAcceptDataFrom P1
@@ -595,6 +604,7 @@ Class BindingSourceValueProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -617,38 +627,45 @@ Class CompositeValueProvider from DotNetObject
 	Count
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'compositevalueprovider'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ContainsPrefix P1
@@ -736,22 +753,25 @@ Class CompositeValueProvider from DotNetObject
 Class EmptyModelMetadataProvider from DotNetObject
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'emptymodelmetadataprovider'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.EmptyModelMetadataProvider, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.EmptyModelMetadataProvider, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.EmptyModelMetadataProvider, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetMetadataForProperties P1
@@ -791,38 +811,45 @@ Class EnumGroupAndName from ValueType
 	Name
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'enumgroupandname'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName, Microsoft.AspNetCore.Mvc.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName, Microsoft.AspNetCore.Mvc.Abstractions',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName, Microsoft.AspNetCore.Mvc.Abstractions',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getGroup
@@ -844,9 +871,11 @@ Class FormFileValueProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.FormFileValueProvider, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ContainsPrefix P1
@@ -862,22 +891,25 @@ Class FormFileValueProvider from Object
 Class FormFileValueProviderFactory from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'formfilevalueproviderfactory'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.FormFileValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.FormFileValueProviderFactory, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.FormFileValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateValueProviderAsync P1
@@ -890,22 +922,25 @@ Class FormFileValueProviderFactory from Object
 Class FormValueProviderFactory from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'formvalueproviderfactory'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.FormValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.FormValueProviderFactory, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.FormValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateValueProviderAsync P1
@@ -923,6 +958,7 @@ Class IBinderTypeProviderMetadata from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -942,6 +978,7 @@ Class IBindingSourceMetadata from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -959,6 +996,7 @@ Class IBindingSourceValueProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -973,6 +1011,7 @@ Class ICollectionModelBinder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -987,6 +1026,7 @@ Class IEnumerableValueProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1001,6 +1041,7 @@ Class IKeyRewriterValueProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1015,6 +1056,7 @@ Class IModelBinder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1029,6 +1071,7 @@ Class IModelBinderFactory from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1043,6 +1086,7 @@ Class IModelBinderProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1057,6 +1101,7 @@ Class IModelMetadataProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1076,6 +1121,7 @@ Class IModelNameProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1095,6 +1141,7 @@ Class IPropertyFilterProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1114,6 +1161,7 @@ Class IRequestPredicateProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1131,6 +1179,7 @@ Class IValueProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1148,6 +1197,7 @@ Class IValueProviderFactory from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1159,22 +1209,25 @@ Class IValueProviderFactory from DotNetObject
 Class JQueryFormValueProviderFactory from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jqueryformvalueproviderfactory'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.JQueryFormValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.JQueryFormValueProviderFactory, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.JQueryFormValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateValueProviderAsync P1
@@ -1187,22 +1240,25 @@ Class JQueryFormValueProviderFactory from Object
 Class JQueryQueryStringValueProviderFactory from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jqueryquerystringvalueproviderfactory'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.JQueryQueryStringValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.JQueryQueryStringValueProviderFactory, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.JQueryQueryStringValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateValueProviderAsync P1
@@ -1223,6 +1279,7 @@ Class ModelAttributes from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1276,9 +1333,11 @@ Class ModelBinderFactory from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateBinder P1
@@ -1295,22 +1354,25 @@ Class ModelBinderFactoryContext from Object
 	CacheToken
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modelbinderfactorycontext'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactoryContext, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactoryContext, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactoryContext, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1349,6 +1411,7 @@ Class ModelBinderProviderContext from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1393,6 +1456,7 @@ Class ModelBinderProviderExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1432,6 +1496,7 @@ Class ModelBindingContext from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1564,22 +1629,25 @@ Class ModelBindingResult from ValueType
 	IsModelSet
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modelbindingresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult, Microsoft.AspNetCore.Mvc.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Failed 
@@ -1610,21 +1678,26 @@ Class ModelError from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelError, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.ModelError, Microsoft.AspNetCore.Mvc.Abstractions',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelError, Microsoft.AspNetCore.Mvc.Abstractions',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelError, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1648,22 +1721,25 @@ Class ModelErrorCollection from DotNetObject
 	Count
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modelerrorcollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelErrorCollection, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.ModelErrorCollection, Microsoft.AspNetCore.Mvc.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelErrorCollection, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -1787,6 +1863,7 @@ Class ModelMetadata from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2146,6 +2223,7 @@ Class ModelMetadataProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2178,6 +2256,7 @@ Class ModelMetadataProviderExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2195,6 +2274,7 @@ Class ModelNames from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2217,9 +2297,11 @@ Class ModelPropertyCollection from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelPropertyCollection, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Contains P1
@@ -2271,38 +2353,45 @@ Class ModelStateDictionary from Object
 	DefaultMaxAllowedErrors
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modelstatedictionary'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func TryAddModelException P1,P2
@@ -2446,6 +2535,7 @@ Class ModelStateDictionaryExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2485,6 +2575,7 @@ Class ModelStateEntry from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2541,6 +2632,7 @@ Class ObjectModelValidator from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2565,9 +2657,11 @@ Class ParameterBinder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3,P4,P5])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BindModelAsync P1
@@ -2586,9 +2680,11 @@ Class PrefixContainer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.PrefixContainer, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ContainsPrefix P1
@@ -2604,22 +2700,25 @@ Class PrefixContainer from Object
 Class QueryStringValueProviderFactory from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'querystringvalueproviderfactory'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.QueryStringValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.QueryStringValueProviderFactory, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.QueryStringValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateValueProviderAsync P1
@@ -2632,22 +2731,25 @@ Class QueryStringValueProviderFactory from Object
 Class RouteValueProviderFactory from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routevalueproviderfactory'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.RouteValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.RouteValueProviderFactory, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.RouteValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateValueProviderAsync P1
@@ -2666,9 +2768,11 @@ Class SuppressChildValidationMetadataProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.SuppressChildValidationMetadataProvider, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateValidationMetadata P1
@@ -2699,22 +2803,25 @@ Class UnsupportedContentTypeFilter from Object
 	Order
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'unsupportedcontenttypefilter'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func OnActionExecuting P1
@@ -2745,9 +2852,11 @@ Class ValueProviderFactoryContext from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryContext, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2772,6 +2881,7 @@ Class ValueProviderFactoryExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2797,38 +2907,45 @@ Class ValueProviderResult from ValueType
 	None
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'valueproviderresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -2874,6 +2991,7 @@ Class CompositeBindingSource from AspBindingSource
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2893,22 +3011,25 @@ Class DefaultModelBindingContext from ModelBindingContext
 	OriginalValueProvider
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'defaultmodelbindingcontext'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.DefaultModelBindingContext, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ModelBinding.DefaultModelBindingContext, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.DefaultModelBindingContext, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateBindingContext P1,P2,P3,P4,P5
@@ -2930,9 +3051,11 @@ Class FormValueProvider from BindingSourceValueProvider
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.FormValueProvider, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetKeysFromPrefix P1
@@ -2953,6 +3076,7 @@ Class JQueryValueProvider from BindingSourceValueProvider
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2984,9 +3108,11 @@ Class QueryStringValueProvider from BindingSourceValueProvider
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.QueryStringValueProvider, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetKeysFromPrefix P1
@@ -3005,21 +3131,26 @@ Class RouteValueProvider from BindingSourceValueProvider
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.RouteValueProvider, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.RouteValueProvider, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.RouteValueProvider, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.RouteValueProvider, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3029,9 +3160,11 @@ Class JQueryFormValueProvider from JQueryValueProvider
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.JQueryFormValueProvider, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3041,9 +3174,11 @@ Class JQueryQueryStringValueProvider from JQueryValueProvider
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.JQueryQueryStringValueProvider, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 

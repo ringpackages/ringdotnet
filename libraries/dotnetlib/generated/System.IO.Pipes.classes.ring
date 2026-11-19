@@ -71,6 +71,7 @@ Class AnonymousPipeServerStreamAcl from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -88,6 +89,7 @@ Class NamedPipeServerStreamAcl from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -115,9 +117,11 @@ Class PipeAccessRule from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Pipes.PipeAccessRule, System.IO.Pipes',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetType 
@@ -182,9 +186,11 @@ Class PipeAuditRule from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Pipes.PipeAuditRule, System.IO.Pipes',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetType 
@@ -247,22 +253,25 @@ Class PipeSecurity from DotNetObject
 	AreAuditRulesCanonical
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pipesecurity'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.IO.Pipes.PipeSecurity, System.IO.Pipes',[])
+		dnDefaultObject('System.IO.Pipes.PipeSecurity, System.IO.Pipes')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.IO.Pipes.PipeSecurity, System.IO.Pipes',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddAccessRule P1
@@ -443,6 +452,7 @@ Class PipeStream from Stream
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -507,6 +517,7 @@ Class PipesAclExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -528,21 +539,26 @@ Class AnonymousPipeClientStream from PipeStream
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Pipes.AnonymousPipeClientStream, System.IO.Pipes',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.IO.Pipes.AnonymousPipeClientStream, System.IO.Pipes',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.IO.Pipes.AnonymousPipeClientStream, System.IO.Pipes',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Pipes.AnonymousPipeClientStream, System.IO.Pipes',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -551,38 +567,45 @@ Class AnonymousPipeServerStream from PipeStream
 	ClientSafePipeHandle
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'anonymouspipeserverstream'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.IO.Pipes.AnonymousPipeServerStream, System.IO.Pipes',[])
+		dnDefaultObject('System.IO.Pipes.AnonymousPipeServerStream, System.IO.Pipes')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.IO.Pipes.AnonymousPipeServerStream, System.IO.Pipes',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.IO.Pipes.AnonymousPipeServerStream, System.IO.Pipes',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.IO.Pipes.AnonymousPipeServerStream, System.IO.Pipes',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Pipes.AnonymousPipeServerStream, System.IO.Pipes',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetClientHandleAsString 
@@ -607,21 +630,26 @@ Class NamedPipeClientStream from PipeStream
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Pipes.NamedPipeClientStream, System.IO.Pipes',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.IO.Pipes.NamedPipeClientStream, System.IO.Pipes',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.IO.Pipes.NamedPipeClientStream, System.IO.Pipes',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Pipes.NamedPipeClientStream, System.IO.Pipes',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Connect P1
@@ -660,21 +688,26 @@ Class NamedPipeServerStream from PipeStream
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func WaitForConnectionAsync P1

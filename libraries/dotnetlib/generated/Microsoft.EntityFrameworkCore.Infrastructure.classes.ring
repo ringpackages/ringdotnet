@@ -425,6 +425,7 @@ Class AccessorExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -447,22 +448,25 @@ Class AnnotatableBase from Object
 	IsReadOnly
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'annotatablebase'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.AnnotatableBase, Microsoft.EntityFrameworkCore',[])
+		dnDefaultObject('Microsoft.EntityFrameworkCore.Infrastructure.AnnotatableBase, Microsoft.EntityFrameworkCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.AnnotatableBase, Microsoft.EntityFrameworkCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetAnnotations 
@@ -536,9 +540,11 @@ Class Annotation from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.Annotation, Microsoft.EntityFrameworkCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -560,38 +566,45 @@ Class Annotation from Object
 Class ConcurrencyDetectorCriticalSectionDisposer from ValueType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'concurrencydetectorcriticalsectiondisposer'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ConcurrencyDetectorCriticalSectionDisposer, Microsoft.EntityFrameworkCore',[])
+		dnDefaultObject('Microsoft.EntityFrameworkCore.Infrastructure.ConcurrencyDetectorCriticalSectionDisposer, Microsoft.EntityFrameworkCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ConcurrencyDetectorCriticalSectionDisposer, Microsoft.EntityFrameworkCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.ConcurrencyDetectorCriticalSectionDisposer, Microsoft.EntityFrameworkCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ConcurrencyDetectorCriticalSectionDisposer, Microsoft.EntityFrameworkCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ConcurrencyDetectorCriticalSectionDisposer, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -625,22 +638,25 @@ Class CoreOptionsExtension from Object
 	AsyncSeeder
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'coreoptionsextension'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.CoreOptionsExtension, Microsoft.EntityFrameworkCore',[])
+		dnDefaultObject('Microsoft.EntityFrameworkCore.Infrastructure.CoreOptionsExtension, Microsoft.EntityFrameworkCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.CoreOptionsExtension, Microsoft.EntityFrameworkCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func WithInternalServiceProvider P1
@@ -868,9 +884,11 @@ Class DatabaseFacade from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func EnsureCreated 
@@ -997,6 +1015,7 @@ Class DbContextOptionsExtensionInfo from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1040,38 +1059,45 @@ Class DbSetProperty from ValueType
 	Setter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dbsetproperty'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.DbSetProperty, Microsoft.EntityFrameworkCore',[])
+		dnDefaultObject('Microsoft.EntityFrameworkCore.Infrastructure.DbSetProperty, Microsoft.EntityFrameworkCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.DbSetProperty, Microsoft.EntityFrameworkCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.DbSetProperty, Microsoft.EntityFrameworkCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.DbSetProperty, Microsoft.EntityFrameworkCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.DbSetProperty, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetType_ 
@@ -1105,9 +1131,11 @@ Class DebugView from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.DebugView, Microsoft.EntityFrameworkCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1132,6 +1160,7 @@ Class EntityFrameworkMetricsData from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1180,9 +1209,11 @@ Class EntityFrameworkServicesBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkServicesBuilder, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func TryAddProviderSpecificServices P1
@@ -1218,6 +1249,7 @@ Class ExpressionExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1289,6 +1321,7 @@ Class IAnnotatable from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1324,6 +1357,7 @@ Class IAnnotation from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1347,6 +1381,7 @@ Class IConcurrencyDetector from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1369,6 +1404,7 @@ Class ICoreSingletonOptions from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1400,6 +1436,7 @@ Class ICurrentDbContext from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1419,6 +1456,7 @@ Class IDbContextOptions from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1439,6 +1477,7 @@ Class IDbContextOptionsBuilderInfrastructure from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1456,6 +1495,7 @@ Class IDbContextOptionsExtension from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1484,6 +1524,7 @@ Class IDbSetFinder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1498,6 +1539,7 @@ Class IInternalServiceCollectionMap from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1515,6 +1557,7 @@ Class ILazyLoader from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1558,6 +1601,7 @@ Class IModelCacheKeyFactory from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1572,6 +1616,7 @@ Class IModelCustomizer from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1587,6 +1632,7 @@ Class IModelRuntimeInitializer from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1604,6 +1650,7 @@ Class IModelSource from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1618,6 +1665,7 @@ Class IModelValidator from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1633,6 +1681,7 @@ Class IReadOnlyAnnotatable from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1667,6 +1716,7 @@ Class IRelationalDbContextOptionsBuilderInfrastructure from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1684,6 +1734,7 @@ Class IResettableService from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1708,6 +1759,7 @@ Class ISingletonOptions from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1727,22 +1779,25 @@ Class IndentedStringBuilder from Object
 	Length
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'indentedstringbuilder'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.IndentedStringBuilder, Microsoft.EntityFrameworkCore',[])
+		dnDefaultObject('Microsoft.EntityFrameworkCore.Infrastructure.IndentedStringBuilder, Microsoft.EntityFrameworkCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.IndentedStringBuilder, Microsoft.EntityFrameworkCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Append P1
@@ -1806,6 +1861,7 @@ Class LazyLoaderExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1826,6 +1882,7 @@ Class MethodInfoExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1843,21 +1900,26 @@ Class ModelCacheKey from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKey, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKey, Microsoft.EntityFrameworkCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKey, Microsoft.EntityFrameworkCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKey, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1870,9 +1932,11 @@ Class ModelCacheKeyFactory from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKeyFactory, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Create P1
@@ -1888,22 +1952,25 @@ Class ModelCacheKeyFactory from Object
 Class ModelCacheKeyFactoryDependencies from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modelcachekeyfactorydependencies'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKeyFactoryDependencies, Microsoft.EntityFrameworkCore',[])
+		dnDefaultObject('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKeyFactoryDependencies, Microsoft.EntityFrameworkCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKeyFactoryDependencies, Microsoft.EntityFrameworkCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1916,9 +1983,11 @@ Class ModelCustomizer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCustomizer, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Customize P1,P2
@@ -1932,22 +2001,25 @@ Class ModelCustomizer from Object
 Class ModelCustomizerDependencies from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modelcustomizerdependencies'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCustomizerDependencies, Microsoft.EntityFrameworkCore',[])
+		dnDefaultObject('Microsoft.EntityFrameworkCore.Infrastructure.ModelCustomizerDependencies, Microsoft.EntityFrameworkCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCustomizerDependencies, Microsoft.EntityFrameworkCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1962,9 +2034,11 @@ Class ModelDependencies from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelDependencies, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1984,9 +2058,11 @@ Class ModelRuntimeInitializer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelRuntimeInitializer, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Initialize P1
@@ -2008,9 +2084,11 @@ Class ModelRuntimeInitializerDependencies from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelRuntimeInitializerDependencies, Microsoft.EntityFrameworkCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2039,6 +2117,7 @@ Class ModelSnapshot from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2059,9 +2138,11 @@ Class ModelSource from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelSource, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetModel P1,P2,P3
@@ -2084,9 +2165,11 @@ Class ModelSourceDependencies from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelSourceDependencies, Microsoft.EntityFrameworkCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2120,9 +2203,11 @@ Class ModelValidator from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelValidator, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Validate P1,P2
@@ -2141,9 +2226,11 @@ Class ModelValidatorDependencies from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelValidatorDependencies, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2163,6 +2250,7 @@ Class ProductInfo from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2185,9 +2273,11 @@ Class RelationalModelDependencies from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2228,6 +2318,7 @@ Class EfRelationalModelExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2251,9 +2342,11 @@ Class RelationalModelRuntimeInitializerDependencies from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelRuntimeInitializerDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2282,9 +2375,11 @@ Class RelationalModelValidatorDependencies from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelValidatorDependencies, Microsoft.EntityFrameworkCore.Relational',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2320,6 +2415,7 @@ Class RelationalOptionsExtension from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2477,6 +2573,7 @@ Class EfRelationalPropertyExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2494,22 +2591,25 @@ Class EfRelationalPropertyExtensions from Object
 Class RuntimeAnnotatableBase from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'runtimeannotatablebase'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.RuntimeAnnotatableBase, Microsoft.EntityFrameworkCore',[])
+		dnDefaultObject('Microsoft.EntityFrameworkCore.Infrastructure.RuntimeAnnotatableBase, Microsoft.EntityFrameworkCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.RuntimeAnnotatableBase, Microsoft.EntityFrameworkCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddAnnotation P1,P2
@@ -2575,9 +2675,11 @@ Class RuntimeModelDependencies from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.RuntimeModelDependencies, Microsoft.EntityFrameworkCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2611,38 +2713,45 @@ Class ServiceCharacteristics from ValueType
 	MultipleRegistrations
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'servicecharacteristics'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteristics, Microsoft.EntityFrameworkCore',[])
+		dnDefaultObject('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteristics, Microsoft.EntityFrameworkCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteristics, Microsoft.EntityFrameworkCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteristics, Microsoft.EntityFrameworkCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteristics, Microsoft.EntityFrameworkCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteristics, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getLifetime
@@ -2666,9 +2775,11 @@ Class ServiceCollectionMap from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCollectionMap, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func TryAddTransient P1
@@ -2752,9 +2863,11 @@ Class ServiceProviderAccessor from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ServiceProviderAccessor, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2773,6 +2886,7 @@ Class SpatialiteLoader from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2794,9 +2908,11 @@ Class SqliteDbContextOptionsBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.SqliteDbContextOptionsBuilder, Microsoft.EntityFrameworkCore.Sqlite',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func MaxBatchSize P1
@@ -2857,6 +2973,7 @@ Class TypeExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2874,6 +2991,7 @@ Class Uniquifier from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2897,22 +3015,25 @@ Class Uniquifier from Object
 Class Annotatable from AnnotatableBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'annotatable'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.Annotatable, Microsoft.EntityFrameworkCore',[])
+		dnDefaultObject('Microsoft.EntityFrameworkCore.Infrastructure.Annotatable, Microsoft.EntityFrameworkCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.Annotatable, Microsoft.EntityFrameworkCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -2924,9 +3045,11 @@ Class EntityFrameworkRelationalServicesBuilder from EntityFrameworkServicesBuild
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkRelationalServicesBuilder, Microsoft.EntityFrameworkCore.Relational',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getRelationalServices
@@ -2942,9 +3065,11 @@ Class RelationalModelCustomizer from ModelCustomizer
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelCustomizer, Microsoft.EntityFrameworkCore.Relational',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -2954,9 +3079,11 @@ Class RelationalModelRuntimeInitializer from ModelRuntimeInitializer
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelRuntimeInitializer, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -2966,9 +3093,11 @@ Class RelationalModelValidator from ModelValidator
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelValidator, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -2978,6 +3107,7 @@ Class ConventionAnnotatable from Annotatable
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self

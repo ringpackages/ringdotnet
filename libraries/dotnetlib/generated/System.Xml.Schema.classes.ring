@@ -439,6 +439,7 @@ Class IXmlSchemaInfo from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -496,6 +497,7 @@ Class ValidationEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -525,6 +527,7 @@ Class XmlAtomicValue from XPathItem
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -541,6 +544,7 @@ Class XmlSchemaCollectionEnumerator from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -563,22 +567,25 @@ Class XmlSchemaCompilationSettings from Object
 	EnableUpaCheck
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemacompilationsettings'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaCompilationSettings, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaCompilationSettings, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaCompilationSettings, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -603,6 +610,7 @@ Class XmlSchemaDatatype from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -653,22 +661,25 @@ Class XmlSchemaInference from Object
 	TypeInference
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemainference'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaInference, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaInference, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaInference, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func InferSchema P1
@@ -707,22 +718,25 @@ Class XmlSchemaInfo from Object
 	ContentType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemainfo'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaInfo, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaInfo, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaInfo, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -797,6 +811,7 @@ Class XmlSchemaObject from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -843,38 +858,45 @@ Class XmlSchemaObject from Object
 Class XmlSchemaObjectCollection from CollectionBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaobjectcollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaObjectCollection, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaObjectCollection, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaObjectCollection, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Schema.XmlSchemaObjectCollection, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Schema.XmlSchemaObjectCollection, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaObjectCollection, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -914,6 +936,7 @@ Class XmlSchemaObjectEnumerator from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -945,6 +968,7 @@ Class XmlSchemaObjectTable from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -992,38 +1016,45 @@ Class XmlSchemaSet from Object
 	GlobalTypes
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaset'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSet, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaSet, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSet, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Schema.XmlSchemaSet, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Schema.XmlSchemaSet, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSet, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -1132,9 +1163,11 @@ Class XmlSchemaValidator from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaValidator, System.Private.Xml',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddSchema P1
@@ -1259,22 +1292,25 @@ Class XmlSchema from XmlSchemaObject
 	InstanceNamespace
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschema'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchema, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchema, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchema, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Write P1
@@ -1426,22 +1462,25 @@ Class XmlSchemaAnnotated from XmlSchemaObject
 	UnhandledAttributes
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaannotated'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAnnotated, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaAnnotated, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAnnotated, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getId
@@ -1473,22 +1512,25 @@ Class XmlSchemaAnnotation from XmlSchemaObject
 	UnhandledAttributes
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaannotation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAnnotation, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaAnnotation, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAnnotation, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getId
@@ -1518,22 +1560,25 @@ Class XmlSchemaAppInfo from XmlSchemaObject
 	Markup
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaappinfo'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAppInfo, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaAppInfo, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAppInfo, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getSource
@@ -1558,22 +1603,25 @@ Class XmlSchemaDocumentation from XmlSchemaObject
 	Markup
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemadocumentation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaDocumentation, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaDocumentation, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaDocumentation, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getSource
@@ -1609,6 +1657,7 @@ Class XmlSchemaExternal from XmlSchemaObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1648,22 +1697,25 @@ Class XmlSchemaAnyAttribute from XmlSchemaAnnotated
 	ProcessContents
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaanyattribute'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAnyAttribute, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaAnyAttribute, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAnyAttribute, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getNamespace
@@ -1696,22 +1748,25 @@ Class XmlSchemaAttribute from XmlSchemaAnnotated
 	AttributeSchemaType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaattribute'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAttribute, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaAttribute, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAttribute, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getDefaultValue
@@ -1798,22 +1853,25 @@ Class XmlSchemaAttributeGroup from XmlSchemaAnnotated
 	RedefinedAttributeGroup
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaattributegroup'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAttributeGroup, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaAttributeGroup, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAttributeGroup, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getName
@@ -1854,22 +1912,25 @@ Class XmlSchemaAttributeGroupRef from XmlSchemaAnnotated
 	RefName
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaattributegroupref'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAttributeGroupRef, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaAttributeGroupRef, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAttributeGroupRef, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getRefName
@@ -1886,6 +1947,7 @@ Class XmlSchemaContent from XmlSchemaAnnotated
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1899,6 +1961,7 @@ Class XmlSchemaContentModel from XmlSchemaAnnotated
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1920,6 +1983,7 @@ Class XmlSchemaFacet from XmlSchemaAnnotated
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1946,22 +2010,25 @@ Class XmlSchemaGroup from XmlSchemaAnnotated
 	QualifiedName
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemagroup'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaGroup, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaGroup, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaGroup, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getName
@@ -1993,22 +2060,25 @@ Class XmlSchemaIdentityConstraint from XmlSchemaAnnotated
 	QualifiedName
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaidentityconstraint'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaIdentityConstraint, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaIdentityConstraint, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaIdentityConstraint, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getName
@@ -2044,22 +2114,25 @@ Class XmlSchemaImport from XmlSchemaExternal
 	Annotation
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaimport'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaImport, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaImport, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaImport, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getNamespace
@@ -2082,22 +2155,25 @@ Class XmlSchemaInclude from XmlSchemaExternal
 	Annotation
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemainclude'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaInclude, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaInclude, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaInclude, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAnnotation
@@ -2115,22 +2191,25 @@ Class XmlSchemaNotation from XmlSchemaAnnotated
 	System
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemanotation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaNotation, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaNotation, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaNotation, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getName
@@ -2166,6 +2245,7 @@ Class XmlSchemaParticle from XmlSchemaAnnotated
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2207,22 +2287,25 @@ Class XmlSchemaRedefine from XmlSchemaExternal
 	Groups
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaredefine'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaRedefine, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaRedefine, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaRedefine, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getItems
@@ -2256,6 +2339,7 @@ Class XmlSchemaSimpleTypeContent from XmlSchemaAnnotated
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2275,22 +2359,25 @@ Class XmlSchemaType from XmlSchemaAnnotated
 	TypeCode
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschematype'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaType, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaType, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaType, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetBuiltInSimpleType P1
@@ -2371,22 +2458,25 @@ Class XmlSchemaXPath from XmlSchemaAnnotated
 	XPath
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaxpath'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaXPath, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaXPath, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaXPath, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getXPath
@@ -2403,22 +2493,25 @@ Class XmlSchemaAny from XmlSchemaParticle
 	ProcessContents
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaany'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAny, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaAny, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAny, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getNamespace
@@ -2441,22 +2534,25 @@ Class XmlSchemaComplexContent from XmlSchemaContentModel
 	IsMixed
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemacomplexcontent'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexContent, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaComplexContent, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexContent, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getIsMixed
@@ -2475,22 +2571,25 @@ Class XmlSchemaComplexContentExtension from XmlSchemaContent
 	AnyAttribute
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemacomplexcontentextension'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexContentExtension, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaComplexContentExtension, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexContentExtension, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBaseTypeName
@@ -2529,22 +2628,25 @@ Class XmlSchemaComplexContentRestriction from XmlSchemaContent
 	AnyAttribute
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemacomplexcontentrestriction'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexContentRestriction, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaComplexContentRestriction, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexContentRestriction, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBaseTypeName
@@ -2590,22 +2692,25 @@ Class XmlSchemaComplexType from XmlSchemaType
 	AttributeWildcard
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemacomplextype'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexType, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaComplexType, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexType, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getIsAbstract
@@ -2702,22 +2807,25 @@ Class XmlSchemaElement from XmlSchemaParticle
 	FinalResolved
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaelement'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaElement, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaElement, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaElement, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getIsAbstract
@@ -2844,22 +2952,25 @@ Class XmlSchemaElement from XmlSchemaParticle
 Class XmlSchemaEnumerationFacet from XmlSchemaFacet
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaenumerationfacet'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaEnumerationFacet, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaEnumerationFacet, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaEnumerationFacet, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -2871,6 +2982,7 @@ Class XmlSchemaGroupBase from XmlSchemaParticle
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2888,22 +3000,25 @@ Class XmlSchemaGroupRef from XmlSchemaParticle
 	Particle
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemagroupref'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaGroupRef, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaGroupRef, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaGroupRef, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getRefName
@@ -2923,22 +3038,25 @@ Class XmlSchemaGroupRef from XmlSchemaParticle
 Class XmlSchemaKey from XmlSchemaIdentityConstraint
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemakey'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaKey, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaKey, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaKey, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -2947,22 +3065,25 @@ Class XmlSchemaKeyref from XmlSchemaIdentityConstraint
 	Refer
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemakeyref'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaKeyref, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaKeyref, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaKeyref, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getRefer
@@ -2976,88 +3097,100 @@ Class XmlSchemaKeyref from XmlSchemaIdentityConstraint
 Class XmlSchemaMaxExclusiveFacet from XmlSchemaFacet
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemamaxexclusivefacet'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMaxExclusiveFacet, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaMaxExclusiveFacet, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMaxExclusiveFacet, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class XmlSchemaMaxInclusiveFacet from XmlSchemaFacet
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemamaxinclusivefacet'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMaxInclusiveFacet, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaMaxInclusiveFacet, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMaxInclusiveFacet, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class XmlSchemaMinExclusiveFacet from XmlSchemaFacet
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaminexclusivefacet'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMinExclusiveFacet, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaMinExclusiveFacet, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMinExclusiveFacet, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class XmlSchemaMinInclusiveFacet from XmlSchemaFacet
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemamininclusivefacet'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMinInclusiveFacet, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaMinInclusiveFacet, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMinInclusiveFacet, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3067,6 +3200,7 @@ Class XmlSchemaNumericFacet from XmlSchemaFacet
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3075,44 +3209,50 @@ Class XmlSchemaNumericFacet from XmlSchemaFacet
 Class XmlSchemaPatternFacet from XmlSchemaFacet
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemapatternfacet'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaPatternFacet, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaPatternFacet, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaPatternFacet, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class XmlSchemaSimpleContent from XmlSchemaContentModel
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemasimplecontent'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleContent, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaSimpleContent, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleContent, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3123,22 +3263,25 @@ Class XmlSchemaSimpleContentExtension from XmlSchemaContent
 	AnyAttribute
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemasimplecontentextension'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleContentExtension, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaSimpleContentExtension, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleContentExtension, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBaseTypeName
@@ -3171,22 +3314,25 @@ Class XmlSchemaSimpleContentRestriction from XmlSchemaContent
 	AnyAttribute
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemasimplecontentrestriction'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleContentRestriction, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaSimpleContentRestriction, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleContentRestriction, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBaseTypeName
@@ -3228,22 +3374,25 @@ Class XmlSchemaSimpleType from XmlSchemaType
 	Content
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemasimpletype'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleType, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaSimpleType, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleType, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getContent
@@ -3261,22 +3410,25 @@ Class XmlSchemaSimpleTypeList from XmlSchemaSimpleTypeContent
 	BaseItemType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemasimpletypelist'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleTypeList, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaSimpleTypeList, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleTypeList, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getItemTypeName
@@ -3308,22 +3460,25 @@ Class XmlSchemaSimpleTypeRestriction from XmlSchemaSimpleTypeContent
 	Facets
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemasimpletyperestriction'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleTypeRestriction, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaSimpleTypeRestriction, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleTypeRestriction, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBaseTypeName
@@ -3354,22 +3509,25 @@ Class XmlSchemaSimpleTypeUnion from XmlSchemaSimpleTypeContent
 	BaseMemberTypes
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemasimpletypeunion'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleTypeUnion, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaSimpleTypeUnion, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleTypeUnion, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBaseTypes
@@ -3395,220 +3553,250 @@ Class XmlSchemaSimpleTypeUnion from XmlSchemaSimpleTypeContent
 Class XmlSchemaUnique from XmlSchemaIdentityConstraint
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaunique'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaUnique, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaUnique, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaUnique, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class XmlSchemaWhiteSpaceFacet from XmlSchemaFacet
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemawhitespacefacet'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaWhiteSpaceFacet, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaWhiteSpaceFacet, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaWhiteSpaceFacet, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class XmlSchemaAll from XmlSchemaGroupBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaall'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAll, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaAll, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAll, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class XmlSchemaChoice from XmlSchemaGroupBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemachoice'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaChoice, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaChoice, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaChoice, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class XmlSchemaFractionDigitsFacet from XmlSchemaNumericFacet
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemafractiondigitsfacet'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaFractionDigitsFacet, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaFractionDigitsFacet, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaFractionDigitsFacet, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class XmlSchemaLengthFacet from XmlSchemaNumericFacet
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemalengthfacet'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaLengthFacet, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaLengthFacet, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaLengthFacet, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class XmlSchemaMaxLengthFacet from XmlSchemaNumericFacet
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemamaxlengthfacet'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMaxLengthFacet, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaMaxLengthFacet, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMaxLengthFacet, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class XmlSchemaMinLengthFacet from XmlSchemaNumericFacet
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaminlengthfacet'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMinLengthFacet, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaMinLengthFacet, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMinLengthFacet, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class XmlSchemaSequence from XmlSchemaGroupBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemasequence'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSequence, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaSequence, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSequence, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class XmlSchemaTotalDigitsFacet from XmlSchemaNumericFacet
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschematotaldigitsfacet'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Schema.XmlSchemaTotalDigitsFacet, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Schema.XmlSchemaTotalDigitsFacet, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaTotalDigitsFacet, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 

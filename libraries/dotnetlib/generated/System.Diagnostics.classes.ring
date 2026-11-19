@@ -338,9 +338,11 @@ Class Activity from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func SetStatus P1
@@ -627,22 +629,25 @@ Class ActivityChangedEventArgs from ValueType
 	Current
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'activitychangedeventargs'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.ActivityChangedEventArgs, System.Diagnostics.DiagnosticSource',[])
+		dnDefaultObject('System.Diagnostics.ActivityChangedEventArgs, System.Diagnostics.DiagnosticSource')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityChangedEventArgs, System.Diagnostics.DiagnosticSource',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPrevious
@@ -669,38 +674,45 @@ Class ActivityContext from ValueType
 	IsRemote
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'activitycontext'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',[])
+		dnDefaultObject('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func TryParse P1
@@ -750,38 +762,45 @@ Class ActivityEvent from ValueType
 	Tags
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'activityevent'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource',[])
+		dnDefaultObject('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func EnumerateTagObjects 
@@ -812,38 +831,45 @@ Class ActivityLink from ValueType
 	Tags
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'activitylink'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.ActivityLink, System.Diagnostics.DiagnosticSource',[])
+		dnDefaultObject('System.Diagnostics.ActivityLink, System.Diagnostics.DiagnosticSource')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityLink, System.Diagnostics.DiagnosticSource',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivityLink, System.Diagnostics.DiagnosticSource',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Diagnostics.ActivityLink, System.Diagnostics.DiagnosticSource',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityLink, System.Diagnostics.DiagnosticSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func EnumerateTagObjects 
@@ -872,22 +898,25 @@ Class ActivityListener from Object
 	Sample
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'activitylistener'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.ActivityListener, System.Diagnostics.DiagnosticSource',[])
+		dnDefaultObject('System.Diagnostics.ActivityListener, System.Diagnostics.DiagnosticSource')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityListener, System.Diagnostics.DiagnosticSource',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -950,21 +979,26 @@ Class ActivitySource from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasListeners 
@@ -1018,22 +1052,25 @@ Class ActivitySource from Object
 Class ActivitySpanId from ValueType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'activityspanid'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.ActivitySpanId, System.Diagnostics.DiagnosticSource',[])
+		dnDefaultObject('System.Diagnostics.ActivitySpanId, System.Diagnostics.DiagnosticSource')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivitySpanId, System.Diagnostics.DiagnosticSource',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ToHexString 
@@ -1051,38 +1088,45 @@ Class ActivityTagsCollection from Object
 	Count
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'activitytagscollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.ActivityTagsCollection, System.Diagnostics.DiagnosticSource',[])
+		dnDefaultObject('System.Diagnostics.ActivityTagsCollection, System.Diagnostics.DiagnosticSource')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityTagsCollection, System.Diagnostics.DiagnosticSource',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivityTagsCollection, System.Diagnostics.DiagnosticSource',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Diagnostics.ActivityTagsCollection, System.Diagnostics.DiagnosticSource',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityTagsCollection, System.Diagnostics.DiagnosticSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -1154,22 +1198,25 @@ Class ActivityTagsCollection from Object
 Class ActivityTraceId from ValueType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'activitytraceid'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.ActivityTraceId, System.Diagnostics.DiagnosticSource',[])
+		dnDefaultObject('System.Diagnostics.ActivityTraceId, System.Diagnostics.DiagnosticSource')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityTraceId, System.Diagnostics.DiagnosticSource',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ToHexString 
@@ -1188,6 +1235,7 @@ Class CorrelationManager from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1233,6 +1281,7 @@ Class DataReceivedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1254,6 +1303,7 @@ Class Debug from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1356,22 +1406,25 @@ Class Debug from Object
 Class DebugProvider from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'debugprovider'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.DebugProvider, System.Private.CoreLib',[])
+		dnDefaultObject('System.Diagnostics.DebugProvider, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.DebugProvider, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Fail P1,P2
@@ -1415,6 +1468,7 @@ Class Debugger from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1467,6 +1521,7 @@ Class DiagnosticMethodInfo from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1502,6 +1557,7 @@ Class DiagnosticSource from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1544,6 +1600,7 @@ Class DistributedContextPropagator from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1618,6 +1675,7 @@ Class FileVersionInfo from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1797,9 +1855,11 @@ Class InitializingSwitchEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.InitializingSwitchEventArgs, System.Diagnostics.TraceSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getSwitch
@@ -1815,9 +1875,11 @@ Class InitializingTraceSourceEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.InitializingTraceSourceEventArgs, System.Diagnostics.TraceSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getTraceSource
@@ -1888,22 +1950,25 @@ Class Process from Component
 	Responding
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'process'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.Process, System.Diagnostics.Process',[])
+		dnDefaultObject('System.Diagnostics.Process, System.Diagnostics.Process')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.Process, System.Diagnostics.Process',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CloseMainWindow 
@@ -2363,6 +2428,7 @@ Class ProcessModule from Component
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2410,9 +2476,11 @@ Class ProcessModuleCollection from ReadOnlyCollectionBase
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.ProcessModuleCollection, System.Diagnostics.Process',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func IndexOf P1
@@ -2458,38 +2526,45 @@ Class ProcessStartInfo from Object
 	UseShellExecute
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'processstartinfo'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process',[])
+		dnDefaultObject('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2688,6 +2763,7 @@ Class ProcessThread from Component
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2785,9 +2861,11 @@ Class ProcessThreadCollection from ReadOnlyCollectionBase
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.ProcessThreadCollection, System.Diagnostics.Process',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -2820,38 +2898,45 @@ Class StackFrame from Object
 	OFFSET_UNKNOWN
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stackframe'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.StackFrame, System.Private.CoreLib',[])
+		dnDefaultObject('System.Diagnostics.StackFrame, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.StackFrame, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.StackFrame, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Diagnostics.StackFrame, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.StackFrame, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetMethod 
@@ -2888,6 +2973,7 @@ Class StackFrameExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2920,38 +3006,45 @@ Class StackTrace from Object
 	METHODS_TO_SKIP
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stacktrace'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.StackTrace, System.Private.CoreLib',[])
+		dnDefaultObject('System.Diagnostics.StackTrace, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.StackTrace, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.StackTrace, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Diagnostics.StackTrace, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.StackTrace, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetFrame P1
@@ -2986,22 +3079,25 @@ Class Stopwatch from Object
 	IsHighResolution
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stopwatch'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.Stopwatch, System.Private.CoreLib',[])
+		dnDefaultObject('System.Diagnostics.Stopwatch, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.Stopwatch, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Start 
@@ -3084,6 +3180,7 @@ Class Switch_ from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3141,22 +3238,25 @@ Class TagList from ValueType
 	IsReadOnly
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taglist'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.TagList, System.Diagnostics.DiagnosticSource',[])
+		dnDefaultObject('System.Diagnostics.TagList, System.Diagnostics.DiagnosticSource')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.TagList, System.Diagnostics.DiagnosticSource',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -3228,6 +3328,7 @@ Class Trace from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3384,22 +3485,25 @@ Class TraceEventCache from Object
 	LogicalOperationStack
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'traceeventcache'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.TraceEventCache, System.Diagnostics.TraceSource',[])
+		dnDefaultObject('System.Diagnostics.TraceEventCache, System.Diagnostics.TraceSource')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.TraceEventCache, System.Diagnostics.TraceSource',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -3448,6 +3552,7 @@ Class TraceFilter from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3473,6 +3578,7 @@ Class TraceListener from MarshalByRefObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3584,6 +3690,7 @@ Class TraceListenerCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3652,21 +3759,26 @@ Class TraceSource from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.TraceSource, System.Diagnostics.TraceSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.TraceSource, System.Diagnostics.TraceSource',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Diagnostics.TraceSource, System.Diagnostics.TraceSource',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.TraceSource, System.Diagnostics.TraceSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Close 
@@ -3751,21 +3863,26 @@ Class BooleanSwitch from Switch_
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.BooleanSwitch, System.Diagnostics.TraceSource',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.BooleanSwitch, System.Diagnostics.TraceSource',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Diagnostics.BooleanSwitch, System.Diagnostics.TraceSource',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.BooleanSwitch, System.Diagnostics.TraceSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEnabled
@@ -3782,22 +3899,25 @@ Class DefaultTraceListener from TraceListener
 	LogFileName
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'defaulttracelistener'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.DefaultTraceListener, System.Diagnostics.TraceSource',[])
+		dnDefaultObject('System.Diagnostics.DefaultTraceListener, System.Diagnostics.TraceSource')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.DefaultTraceListener, System.Diagnostics.TraceSource',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAssertUiEnabled
@@ -3824,9 +3944,11 @@ Class DiagnosticListener from DiagnosticSource
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.DiagnosticListener, System.Diagnostics.DiagnosticSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Subscribe P1
@@ -3869,9 +3991,11 @@ Class EventTypeFilter from TraceFilter
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.EventTypeFilter, System.Diagnostics.TraceSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEventType
@@ -3890,9 +4014,11 @@ Class SourceFilter from TraceFilter
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.SourceFilter, System.Diagnostics.TraceSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getSource
@@ -3911,21 +4037,26 @@ Class SourceSwitch from Switch_
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.SourceSwitch, System.Diagnostics.TraceSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.SourceSwitch, System.Diagnostics.TraceSource',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Diagnostics.SourceSwitch, System.Diagnostics.TraceSource',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.SourceSwitch, System.Diagnostics.TraceSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldTrace P1
@@ -3944,38 +4075,45 @@ Class TextWriterTraceListener from TraceListener
 	Writer
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'textwritertracelistener'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.TextWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[])
+		dnDefaultObject('System.Diagnostics.TextWriterTraceListener, System.Diagnostics.TextWriterTraceListener')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.TextWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.TextWriterTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Diagnostics.TextWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.TextWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getWriter
@@ -3998,21 +4136,26 @@ Class TraceSwitch from Switch_
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.TraceSwitch, System.Diagnostics.TraceSource',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.TraceSwitch, System.Diagnostics.TraceSource',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Diagnostics.TraceSwitch, System.Diagnostics.TraceSource',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.TraceSwitch, System.Diagnostics.TraceSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getLevel
@@ -4050,38 +4193,45 @@ Class TraceSwitch from Switch_
 Class ConsoleTraceListener from TextWriterTraceListener
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'consoletracelistener'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Diagnostics.ConsoleTraceListener, System.Diagnostics.TextWriterTraceListener',[])
+		dnDefaultObject('System.Diagnostics.ConsoleTraceListener, System.Diagnostics.TextWriterTraceListener')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.ConsoleTraceListener, System.Diagnostics.TextWriterTraceListener',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ConsoleTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Diagnostics.ConsoleTraceListener, System.Diagnostics.TextWriterTraceListener',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.ConsoleTraceListener, System.Diagnostics.TextWriterTraceListener',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -4093,21 +4243,26 @@ Class DelimitedListTraceListener from TextWriterTraceListener
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.DelimitedListTraceListener, System.Diagnostics.TextWriterTraceListener',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.DelimitedListTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Diagnostics.DelimitedListTraceListener, System.Diagnostics.TextWriterTraceListener',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.DelimitedListTraceListener, System.Diagnostics.TextWriterTraceListener',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getDelimiter
@@ -4124,21 +4279,26 @@ Class XmlWriterTraceListener from TextWriterTraceListener
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.XmlWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.XmlWriterTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Diagnostics.XmlWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Diagnostics.XmlWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 

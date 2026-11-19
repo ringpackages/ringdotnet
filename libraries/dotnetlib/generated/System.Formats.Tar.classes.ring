@@ -78,6 +78,7 @@ Class TarEntry from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -181,6 +182,7 @@ Class TarFile from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -215,21 +217,26 @@ Class TarReader from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Formats.Tar.TarReader, System.Formats.Tar',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.TarReader, System.Formats.Tar',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Formats.Tar.TarReader, System.Formats.Tar',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Formats.Tar.TarReader, System.Formats.Tar',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -269,21 +276,26 @@ Class TarWriter from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Formats.Tar.TarWriter, System.Formats.Tar',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.TarWriter, System.Formats.Tar',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Formats.Tar.TarWriter, System.Formats.Tar',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Formats.Tar.TarWriter, System.Formats.Tar',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -328,6 +340,7 @@ Class PosixTarEntry from TarEntry
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -367,21 +380,26 @@ Class V7TarEntry from TarEntry
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Formats.Tar.V7TarEntry, System.Formats.Tar',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.V7TarEntry, System.Formats.Tar',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Formats.Tar.V7TarEntry, System.Formats.Tar',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Formats.Tar.V7TarEntry, System.Formats.Tar',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -394,21 +412,26 @@ Class GnuTarEntry from PosixTarEntry
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Formats.Tar.GnuTarEntry, System.Formats.Tar',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.GnuTarEntry, System.Formats.Tar',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Formats.Tar.GnuTarEntry, System.Formats.Tar',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Formats.Tar.GnuTarEntry, System.Formats.Tar',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAccessTime
@@ -434,9 +457,11 @@ Class PaxGlobalExtendedAttributesTarEntry from PosixTarEntry
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Formats.Tar.PaxGlobalExtendedAttributesTarEntry, System.Formats.Tar',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getGlobalExtendedAttributes
@@ -454,21 +479,26 @@ Class PaxTarEntry from PosixTarEntry
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Formats.Tar.PaxTarEntry, System.Formats.Tar',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.PaxTarEntry, System.Formats.Tar',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Formats.Tar.PaxTarEntry, System.Formats.Tar',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Formats.Tar.PaxTarEntry, System.Formats.Tar',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getExtendedAttributes
@@ -484,21 +514,26 @@ Class UstarTarEntry from PosixTarEntry
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Formats.Tar.UstarTarEntry, System.Formats.Tar',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.UstarTarEntry, System.Formats.Tar',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Formats.Tar.UstarTarEntry, System.Formats.Tar',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Formats.Tar.UstarTarEntry, System.Formats.Tar',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 

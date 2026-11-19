@@ -222,6 +222,7 @@ Class BitmapCodecInfo from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -317,6 +318,7 @@ Class BitmapDecoder from DispatcherObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -417,6 +419,7 @@ Class BitmapEncoder from DispatcherObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -499,9 +502,11 @@ Class BitmapMetadata from ImageMetadata
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.BitmapMetadata, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func SetQuery P1,P2
@@ -626,9 +631,11 @@ Class BitmapMetadataBlob from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.BitmapMetadataBlob, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetBlobValue 
@@ -646,21 +653,26 @@ Class BitmapPalette from DispatcherObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.BitmapPalette, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.BitmapPalette, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Imaging.BitmapPalette, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.BitmapPalette, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getColors
@@ -701,6 +713,7 @@ Class BitmapPalettes from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -864,6 +877,7 @@ Class BitmapSizeOptions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -925,6 +939,7 @@ Class BitmapSource from ImageSource
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1025,6 +1040,7 @@ Class DownloadProgressEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1047,6 +1063,7 @@ Class BitmapFrame from BitmapSource
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1109,38 +1126,45 @@ Class BitmapImage from BitmapSource
 	CacheOptionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bitmapimage'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Imaging.BitmapImage, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Imaging.BitmapImage, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.BitmapImage, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.BitmapImage, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Imaging.BitmapImage, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.BitmapImage, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginInit 
@@ -1282,31 +1306,36 @@ Class BmpBitmapDecoder from BitmapDecoder
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.BmpBitmapDecoder, PresentationCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class BmpBitmapEncoder from BitmapEncoder
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bmpbitmapencoder'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Imaging.BmpBitmapEncoder, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Imaging.BmpBitmapEncoder, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.BmpBitmapEncoder, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1316,9 +1345,11 @@ Class WpfCachedBitmap from BitmapSource
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.CachedBitmap, PresentationCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1334,38 +1365,45 @@ Class ColorConvertedBitmap from BitmapSource
 	DestinationFormatProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'colorconvertedbitmap'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginInit 
@@ -1437,38 +1475,45 @@ Class CroppedBitmap from BitmapSource
 	SourceRectProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'croppedbitmap'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginInit 
@@ -1518,38 +1563,45 @@ Class FormatConvertedBitmap from BitmapSource
 	AlphaThresholdProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'formatconvertedbitmap'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginInit 
@@ -1619,31 +1671,36 @@ Class GifBitmapDecoder from BitmapDecoder
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.GifBitmapDecoder, PresentationCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class GifBitmapEncoder from BitmapEncoder
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'gifbitmapencoder'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Imaging.GifBitmapEncoder, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Imaging.GifBitmapEncoder, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.GifBitmapEncoder, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1653,9 +1710,11 @@ Class IconBitmapDecoder from BitmapDecoder
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.IconBitmapDecoder, PresentationCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1665,6 +1724,7 @@ Class InPlaceBitmapMetadataWriter from BitmapMetadata
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1679,9 +1739,11 @@ Class JpegBitmapDecoder from BitmapDecoder
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.JpegBitmapDecoder, PresentationCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1693,22 +1755,25 @@ Class JpegBitmapEncoder from BitmapEncoder
 	FlipVertical
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jpegbitmapencoder'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Imaging.JpegBitmapEncoder, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Imaging.JpegBitmapEncoder, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.JpegBitmapEncoder, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getQualityLevel
@@ -1748,6 +1813,7 @@ Class LateBoundBitmapDecoder from BitmapDecoder
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1765,9 +1831,11 @@ Class PngBitmapDecoder from BitmapDecoder
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.PngBitmapDecoder, PresentationCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1776,22 +1844,25 @@ Class PngBitmapEncoder from BitmapEncoder
 	Interlace
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pngbitmapencoder'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Imaging.PngBitmapEncoder, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Imaging.PngBitmapEncoder, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.PngBitmapEncoder, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getInterlace
@@ -1808,9 +1879,11 @@ Class RenderTargetBitmap from BitmapSource
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.RenderTargetBitmap, PresentationCore',[P1,P2,P3,P4,P5])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Render P1
@@ -1828,9 +1901,11 @@ Class TiffBitmapDecoder from BitmapDecoder
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.TiffBitmapDecoder, PresentationCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1839,22 +1914,25 @@ Class TiffBitmapEncoder from BitmapEncoder
 	Compression
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tiffbitmapencoder'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Imaging.TiffBitmapEncoder, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Imaging.TiffBitmapEncoder, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.TiffBitmapEncoder, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCompression
@@ -1873,38 +1951,45 @@ Class TransformedBitmap from BitmapSource
 	TransformProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'transformedbitmap'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginInit 
@@ -1948,9 +2033,11 @@ Class WmpBitmapDecoder from BitmapDecoder
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.WmpBitmapDecoder, PresentationCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1976,22 +2063,25 @@ Class WmpBitmapEncoder from BitmapEncoder
 	IgnoreOverlap
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wmpbitmapencoder'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Media.Imaging.WmpBitmapEncoder, PresentationCore',[])
+		dnDefaultObject('System.Windows.Media.Imaging.WmpBitmapEncoder, PresentationCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.WmpBitmapEncoder, PresentationCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getImageQualityLevel
@@ -2130,21 +2220,26 @@ Class WriteableBitmap from BitmapSource
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.WriteableBitmap, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.WriteableBitmap, PresentationCore',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Media.Imaging.WriteableBitmap, PresentationCore',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.WriteableBitmap, PresentationCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddDirtyRect P1

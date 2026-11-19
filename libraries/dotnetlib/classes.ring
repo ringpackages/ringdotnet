@@ -6,11 +6,17 @@
 class DotNetObject
 
 	nHandle = 0
+	oDotNetGuard = ""          # a managed pointer: when the last copy of the object is gone, the handle is released (see dotnet_guard)
 
 	# (the parameter has another name: "this.nHandle = ..." would run Ring's property setter machinery,
 	# which breaks an outer assignment like oForm.Text = new Path().GetFileName(...))
 	func init  pHandle
 		nHandle = pHandle
+
+	# The default object of a class (used by the class body of the generated classes, for "new X" without parentheses)
+	func dnDefaultObject  cTypeName
+		nHandle = dnCreate(cTypeName,[])
+		oDotNetGuard = dotnet_guard(nHandle)
 
 	# True for the null reference
 	func isNull
@@ -47,8 +53,19 @@ class DotNetObject
 	# Release the reference kept by the bridge (the object can't be used after this)
 	func release
 		if nHandle != 0
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
+		ok
+
+# An object that came from .NET and has no generated class: it owns its handle (a plain DotNetObject, as in new DotNetObject(nHandle),
+# is a reference that does not own it). The guard is made inside init: Ring does not free a guard that is assigned from outside the object.
+class DotNetOwned from DotNetObject
+
+	func init  pHandle
+		nHandle = pHandle
+		if pHandle != 0
+			oDotNetGuard = dotnet_guard(pHandle)
 		ok
 
 # Ring code that .NET can run (pass it where a .NET delegate is expected).

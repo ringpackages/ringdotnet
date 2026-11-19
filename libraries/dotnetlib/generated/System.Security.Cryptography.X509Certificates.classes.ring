@@ -221,21 +221,26 @@ Class CertificateRequest from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateSigningRequest P1
@@ -314,22 +319,25 @@ Class CertificateRequest from Object
 Class CertificateRevocationListBuilder from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'certificaterevocationlistbuilder'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddEntry P1
@@ -371,6 +379,7 @@ Class DSACertificateExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -394,6 +403,7 @@ Class ECDsaCertificateExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -429,38 +439,45 @@ Class Pkcs12LoaderLimits from Object
 	DangerousNoLimits
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pkcs12loaderlimits'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func MakeReadOnly 
@@ -577,21 +594,26 @@ Class PublicKey from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.PublicKey, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.PublicKey, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.PublicKey, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.PublicKey, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ExportSubjectPublicKeyInfo 
@@ -643,6 +665,7 @@ Class RSACertificateExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -663,22 +686,25 @@ Class RSACertificateExtensions from Object
 Class SubjectAlternativeNameBuilder from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'subjectalternativenamebuilder'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.SubjectAlternativeNameBuilder, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.SubjectAlternativeNameBuilder, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.SubjectAlternativeNameBuilder, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddEmailAddress P1
@@ -722,21 +748,26 @@ Class X500DistinguishedName from AsnEncodedData
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X500DistinguishedName, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X500DistinguishedName, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X500DistinguishedName, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X500DistinguishedName, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Decode P1
@@ -761,22 +792,25 @@ Class X500DistinguishedName from AsnEncodedData
 Class X500DistinguishedNameBuilder from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x500distinguishednamebuilder'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X500DistinguishedNameBuilder, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X500DistinguishedNameBuilder, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X500DistinguishedNameBuilder, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -834,6 +868,7 @@ Class X500RelativeDistinguishedName from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -868,38 +903,45 @@ Class X509Certificate from Object
 	SerialNumberBytes
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509certificate'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Reset 
@@ -1032,6 +1074,7 @@ Class X509Certificate2Enumerator from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1056,38 +1099,45 @@ Class X509Certificate2Enumerator from Object
 Class X509CertificateCollection from CollectionBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509certificatecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -1129,6 +1179,7 @@ Class X509CertificateLoader from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1176,38 +1227,45 @@ Class X509Chain from Object
 	SafeHandle
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509chain'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Build P1
@@ -1269,6 +1327,7 @@ Class X509ChainElement from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1305,6 +1364,7 @@ Class X509ChainElementCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1349,6 +1409,7 @@ Class X509ChainElementEnumerator from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1386,22 +1447,25 @@ Class X509ChainPolicy from Object
 	UrlRetrievalTimeout
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509chainpolicy'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509ChainPolicy, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X509ChainPolicy, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509ChainPolicy, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Reset 
@@ -1501,22 +1565,25 @@ Class X509ChainStatus from ValueType
 	StatusInformation
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509chainstatus'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509ChainStatus, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X509ChainStatus, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509ChainStatus, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getStatus
@@ -1542,21 +1609,26 @@ Class X509Extension from AsnEncodedData
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Extension, System.Security.Cryptography',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Extension, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Extension, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Extension, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCritical
@@ -1574,22 +1646,25 @@ Class X509ExtensionCollection from Object
 	SyncRoot
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509extensioncollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509ExtensionCollection, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X509ExtensionCollection, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509ExtensionCollection, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -1635,6 +1710,7 @@ Class X509ExtensionEnumerator from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1664,6 +1740,7 @@ Class X509SignatureGenerator from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1699,38 +1776,45 @@ Class X509Store from Object
 	IsOpen
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509store'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Open P1
@@ -1798,38 +1882,45 @@ Class X509Store from Object
 Class X509AuthorityInformationAccessExtension from X509Extension
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509authorityinformationaccessextension'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func EnumerateUris P1
@@ -1850,38 +1941,45 @@ Class X509AuthorityKeyIdentifierExtension from X509Extension
 	SerialNumber
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509authoritykeyidentifierextension'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateFromSubjectKeyIdentifier P1
@@ -1928,38 +2026,45 @@ Class X509BasicConstraintsExtension from X509Extension
 	PathLengthConstraint
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509basicconstraintsextension'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateForCertificateAuthority P1
@@ -2019,38 +2124,45 @@ Class X509Certificate2 from X509Certificate
 	Version
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509certificate2'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetNameInfo P1,P2
@@ -2198,38 +2310,45 @@ Class X509Certificate2 from X509Certificate
 Class X509Certificate2Collection from X509CertificateCollection
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509certificate2collection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2Collection, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X509Certificate2Collection, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2Collection, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Certificate2Collection, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2Collection, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2Collection, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Export P1
@@ -2269,38 +2388,45 @@ Class X509EnhancedKeyUsageExtension from X509Extension
 	EnhancedKeyUsages
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509enhancedkeyusageextension'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEnhancedKeyUsages
@@ -2315,38 +2441,45 @@ Class X509KeyUsageExtension from X509Extension
 	KeyUsages
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509keyusageextension'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeyUsages
@@ -2359,38 +2492,45 @@ Class X509KeyUsageExtension from X509Extension
 Class X509SubjectAlternativeNameExtension from X509Extension
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509subjectalternativenameextension'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func EnumerateDnsNames 
@@ -2406,38 +2546,45 @@ Class X509SubjectKeyIdentifierExtension from X509Extension
 	SubjectKeyIdentifierBytes
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509subjectkeyidentifierextension'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',[])
+		dnDefaultObject('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getSubjectKeyIdentifier

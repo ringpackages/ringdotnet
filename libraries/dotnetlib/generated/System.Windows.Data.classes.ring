@@ -197,6 +197,7 @@ Class BindingBase from MarkupExtension
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -260,6 +261,7 @@ Class BindingExpressionBase from Expression
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -352,22 +354,25 @@ Class BindingGroup from DependencyObject
 	ValidationErrors
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bindinggroup'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Data.BindingGroup, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Data.BindingGroup, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.BindingGroup, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginEdit 
@@ -481,6 +486,7 @@ Class BindingOperations from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -576,22 +582,25 @@ Class CollectionContainer from DependencyObject
 	CollectionProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'collectioncontainer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Data.CollectionContainer, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Data.CollectionContainer, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.CollectionContainer, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeCollection 
@@ -620,6 +629,7 @@ Class CollectionRegisteringEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -663,9 +673,11 @@ Class CollectionView from DispatcherObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Data.CollectionView, PresentationFramework',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Contains P1
@@ -853,6 +865,7 @@ Class CollectionViewGroup from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -893,6 +906,7 @@ Class CollectionViewRegisteringEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -938,22 +952,25 @@ Class CollectionViewSource from DependencyObject
 	IsLiveGroupingProperty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'collectionviewsource'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Data.CollectionViewSource, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Data.CollectionViewSource, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.CollectionViewSource, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func DeferRefresh 
@@ -1165,38 +1182,45 @@ Class CompositeCollection from Object
 	Count
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'compositecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Data.CompositeCollection, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Data.CompositeCollection, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.CompositeCollection, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Data.CompositeCollection, PresentationFramework',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Data.CompositeCollection, PresentationFramework',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Data.CompositeCollection, PresentationFramework',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CopyTo P1,P2
@@ -1251,6 +1275,7 @@ Class DataChangedEventManager from WeakEventManager
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1282,6 +1307,7 @@ Class DataSourceProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1337,6 +1363,7 @@ Class DataTransferEventArgs from RoutedEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1363,6 +1390,7 @@ Class FilterEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1387,6 +1415,7 @@ Class IMultiValueConverter from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1404,6 +1433,7 @@ Class IValueConverter from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1427,38 +1457,45 @@ Class PropertyGroupDescription from DotNetObject
 	CompareNameDescending
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'propertygroupdescription'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Data.PropertyGroupDescription, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Data.PropertyGroupDescription, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.PropertyGroupDescription, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Data.PropertyGroupDescription, PresentationFramework',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Data.PropertyGroupDescription, PresentationFramework',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Data.PropertyGroupDescription, PresentationFramework',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GroupNameFromItem P1,P2,P3
@@ -1547,38 +1584,45 @@ Class RelativeSource from MarkupExtension
 	TemplatedParent
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'relativesource'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Data.RelativeSource, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Data.RelativeSource, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.RelativeSource, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Data.RelativeSource, PresentationFramework',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Data.RelativeSource, PresentationFramework',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Data.RelativeSource, PresentationFramework',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeAncestorType 
@@ -1630,38 +1674,45 @@ Class XmlNamespaceMapping from Object
 	Uri
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlnamespacemapping'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Data.XmlNamespaceMapping, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Data.XmlNamespaceMapping, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.XmlNamespaceMapping, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Data.XmlNamespaceMapping, PresentationFramework',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Data.XmlNamespaceMapping, PresentationFramework',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Data.XmlNamespaceMapping, PresentationFramework',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1688,22 +1739,25 @@ Class XmlNamespaceMappingCollection from XmlNamespaceManager
 	IsReadOnly
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlnamespacemappingcollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Data.XmlNamespaceMappingCollection, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Data.XmlNamespaceMappingCollection, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.XmlNamespaceMappingCollection, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -1767,38 +1821,45 @@ Class WpfBinding from BindingBase
 	IndexerName
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wpfbinding'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Data.Binding, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Data.Binding, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.Binding, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Data.Binding, PresentationFramework',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Data.Binding, PresentationFramework',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Data.Binding, PresentationFramework',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeValidationRules 
@@ -2021,6 +2082,7 @@ Class BindingExpression from BindingExpressionBase
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2079,9 +2141,11 @@ Class BindingListCollectionView from CollectionView
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Data.BindingListCollectionView, PresentationFramework',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddNew 
@@ -2284,9 +2348,11 @@ Class ListCollectionView from CollectionView
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Data.ListCollectionView, PresentationFramework',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddNew 
@@ -2481,22 +2547,25 @@ Class MultiBinding from BindingBase
 	ValidatesOnNotifyDataErrors
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'multibinding'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Data.MultiBinding, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Data.MultiBinding, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.MultiBinding, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeBindings 
@@ -2611,6 +2680,7 @@ Class MultiBindingExpression from BindingExpressionBase
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2638,22 +2708,25 @@ Class ObjectDataProvider from DataSourceProvider
 	IsAsynchronous
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'objectdataprovider'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Data.ObjectDataProvider, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Data.ObjectDataProvider, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.ObjectDataProvider, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeObjectType 
@@ -2714,22 +2787,25 @@ Class PriorityBinding from BindingBase
 	Bindings
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'prioritybinding'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Data.PriorityBinding, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Data.PriorityBinding, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.PriorityBinding, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeBindings 
@@ -2752,6 +2828,7 @@ Class PriorityBindingExpression from BindingExpressionBase
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2785,22 +2862,25 @@ Class XmlDataProvider from DataSourceProvider
 	XmlSerializer
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmldataprovider'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Data.XmlDataProvider, PresentationFramework',[])
+		dnDefaultObject('System.Windows.Data.XmlDataProvider, PresentationFramework')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.XmlDataProvider, PresentationFramework',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShouldSerializeSource 

@@ -73,9 +73,11 @@ Class CompositeFileProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.FileProviders.CompositeFileProvider, Microsoft.Extensions.FileProviders.Composite',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetFileInfo P1
@@ -103,21 +105,26 @@ Class EmbeddedFileProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.FileProviders.EmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.FileProviders.EmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Extensions.FileProviders.EmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.FileProviders.EmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetFileInfo P1
@@ -141,6 +148,7 @@ Class IDirectoryContents from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -165,6 +173,7 @@ Class IFileInfo from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -215,6 +224,7 @@ Class IFileProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -237,21 +247,26 @@ Class ManifestEmbeddedFileProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.FileProviders.ManifestEmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.FileProviders.ManifestEmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Extensions.FileProviders.ManifestEmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.FileProviders.ManifestEmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetDirectoryContents P1
@@ -279,22 +294,25 @@ Class NotFoundDirectoryContents from Object
 	Singleton
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'notfounddirectorycontents'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.FileProviders.NotFoundDirectoryContents, Microsoft.Extensions.FileProviders.Abstractions',[])
+		dnDefaultObject('Microsoft.Extensions.FileProviders.NotFoundDirectoryContents, Microsoft.Extensions.FileProviders.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.FileProviders.NotFoundDirectoryContents, Microsoft.Extensions.FileProviders.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -329,9 +347,11 @@ Class NotFoundFileInfo from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.FileProviders.NotFoundFileInfo, Microsoft.Extensions.FileProviders.Abstractions',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateReadStream 
@@ -387,6 +407,7 @@ Class NullChangeToken from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -419,22 +440,25 @@ Class NullChangeToken from Object
 Class NullFileProvider from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'nullfileprovider'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.FileProviders.NullFileProvider, Microsoft.Extensions.FileProviders.Abstractions',[])
+		dnDefaultObject('Microsoft.Extensions.FileProviders.NullFileProvider, Microsoft.Extensions.FileProviders.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.FileProviders.NullFileProvider, Microsoft.Extensions.FileProviders.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetDirectoryContents P1
@@ -460,21 +484,26 @@ Class PhysicalFileProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.FileProviders.PhysicalFileProvider, Microsoft.Extensions.FileProviders.Physical',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.FileProviders.PhysicalFileProvider, Microsoft.Extensions.FileProviders.Physical',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Extensions.FileProviders.PhysicalFileProvider, Microsoft.Extensions.FileProviders.Physical',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.FileProviders.PhysicalFileProvider, Microsoft.Extensions.FileProviders.Physical',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 

@@ -342,7 +342,8 @@ func buildPlan cTypeName, nForceInit
 	ok
 	if lDefaultRegion
 		cCode += "	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = '%CLASS%'          # new X without parentheses: the default object" + nl
-		cCode += "		nHandle = dnCreate('" + cTypeName + "',[])" + nl
+		# (a method makes the object and its guard: a managed pointer that is assigned directly in the class body is never freed by Ring)
+		cCode += "		dnDefaultObject('" + cTypeName + "')" + nl
 		cCode += "	ok" + nl + nl
 	ok
 
@@ -351,6 +352,7 @@ func buildPlan cTypeName, nForceInit
 	cCode += "		if nDotNetWrapHandle != 0" + nl
 	cCode += "			nHandle = nDotNetWrapHandle" + nl
 	cCode += "			nDotNetWrapHandle = 0" + nl
+	cCode += "			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone" + nl
 	cCode += "			return self" + nl
 	cCode += "		ok" + nl
 	if lCreate and lDefaultRegion and nInit = 0
@@ -365,6 +367,7 @@ func buildPlan cTypeName, nForceInit
 				cCode += "		if isstring(P1) and P1 = " + '""' + nl
 				cCode += "			if nHandle = 0" + nl
 				cCode += "				nHandle = dnCreate('" + cTypeName + "',[])" + nl
+				cCode += "				oDotNetGuard = dotnet_guard(nHandle)" + nl
 				cCode += "			ok" + nl
 				cCode += "			return self" + nl
 				cCode += "		ok" + nl
@@ -373,10 +376,12 @@ func buildPlan cTypeName, nForceInit
 		next
 		if lDefaultRegion
 			cCode += "		if nHandle != 0          # the default object made for the class body is not needed" + nl
+			cCode += "			dotnet_unguard(oDotNetGuard)" + nl
 			cCode += "			dnRequest(" + '"release"' + ",[nHandle])" + nl
 			cCode += "		ok" + nl
 		ok
 		cCode += "		nHandle = dnCreate('" + cTypeName + "',[" + paraList(nInit) + "])" + nl
+		cCode += "		oDotNetGuard = dotnet_guard(nHandle)" + nl
 	ok
 	cCode += "		return self" + nl + nl
 	# The other constructors: ONE method New_ that takes one parameter, like the methods with overloads:
@@ -392,19 +397,23 @@ func buildPlan cTypeName, nForceInit
 		cCode += "	Func New_ P1" + nl
 		if lDefaultRegion
 			cCode += "		if nHandle != 0          # the default object made for the class body is not needed" + nl
+			cCode += "			dotnet_unguard(oDotNetGuard)" + nl
 			cCode += "			dnRequest(" + '"release"' + ",[nHandle])" + nl
 			cCode += "			nHandle = 0" + nl
 			cCode += "		ok" + nl
 		ok
 		cCode += "		if dnIsNamed(P1)" + nl
 		cCode += "			nHandle = dnCreateNamed('" + cTypeName + "',P1)" + nl
+		cCode += "			oDotNetGuard = dotnet_guard(nHandle)" + nl
 		cCode += "			return self" + nl
 		cCode += "		ok" + nl
 		cCode += "		if isstring(P1) and P1 = " + '""' + nl
 		cCode += "			nHandle = dnCreate('" + cTypeName + "',[])" + nl
+		cCode += "			oDotNetGuard = dotnet_guard(nHandle)" + nl
 		cCode += "			return self" + nl
 		cCode += "		ok" + nl
 		cCode += "		nHandle = dnCreate('" + cTypeName + "',[P1])" + nl
+		cCode += "		oDotNetGuard = dotnet_guard(nHandle)" + nl
 		cCode += "		return self" + nl + nl
 	ok
 

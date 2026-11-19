@@ -334,22 +334,25 @@ Class DefaultSessionFeature from Object
 	Session
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'defaultsessionfeature'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.DefaultSessionFeature, Microsoft.AspNetCore.Http',[])
+		dnDefaultObject('Microsoft.AspNetCore.Http.Features.DefaultSessionFeature, Microsoft.AspNetCore.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.DefaultSessionFeature, Microsoft.AspNetCore.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -369,38 +372,45 @@ Class FeatureCollection from Object
 	IsReadOnly
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'featurecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features',[])
+		dnDefaultObject('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEnumerator 
@@ -442,6 +452,7 @@ Class FeatureCollectionExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -465,21 +476,26 @@ Class FormFeature from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FormFeature, Microsoft.AspNetCore.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.Features.FormFeature, Microsoft.AspNetCore.Http',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FormFeature, Microsoft.AspNetCore.Http',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FormFeature, Microsoft.AspNetCore.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ReadForm 
@@ -529,22 +545,25 @@ Class FormOptions from Object
 	DefaultMultipartBodyLengthLimit
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'formoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',[])
+		dnDefaultObject('Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -654,22 +673,25 @@ Class HttpConnectionFeature from Object
 	RemotePort
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httpconnectionfeature'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpConnectionFeature, Microsoft.AspNetCore.Http',[])
+		dnDefaultObject('Microsoft.AspNetCore.Http.Features.HttpConnectionFeature, Microsoft.AspNetCore.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpConnectionFeature, Microsoft.AspNetCore.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -724,22 +746,25 @@ Class HttpRequestFeature from Object
 	Body
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httprequestfeature'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpRequestFeature, Microsoft.AspNetCore.Http',[])
+		dnDefaultObject('Microsoft.AspNetCore.Http.Features.HttpRequestFeature, Microsoft.AspNetCore.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpRequestFeature, Microsoft.AspNetCore.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -814,22 +839,25 @@ Class HttpRequestIdentifierFeature from Object
 	TraceIdentifier
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httprequestidentifierfeature'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpRequestIdentifierFeature, Microsoft.AspNetCore.Http',[])
+		dnDefaultObject('Microsoft.AspNetCore.Http.Features.HttpRequestIdentifierFeature, Microsoft.AspNetCore.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpRequestIdentifierFeature, Microsoft.AspNetCore.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -848,22 +876,25 @@ Class HttpRequestLifetimeFeature from Object
 	RequestAborted
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httprequestlifetimefeature'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpRequestLifetimeFeature, Microsoft.AspNetCore.Http',[])
+		dnDefaultObject('Microsoft.AspNetCore.Http.Features.HttpRequestLifetimeFeature, Microsoft.AspNetCore.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpRequestLifetimeFeature, Microsoft.AspNetCore.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Abort 
@@ -890,22 +921,25 @@ Class HttpResponseFeature from Object
 	HasStarted
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httpresponsefeature'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpResponseFeature, Microsoft.AspNetCore.Http',[])
+		dnDefaultObject('Microsoft.AspNetCore.Http.Features.HttpResponseFeature, Microsoft.AspNetCore.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpResponseFeature, Microsoft.AspNetCore.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func OnStarting P1,P2
@@ -962,6 +996,7 @@ Class IBadRequestExceptionFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -981,6 +1016,7 @@ Class IEndpointFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1002,6 +1038,7 @@ Class IFeatureCollection from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1042,6 +1079,7 @@ Class IFormFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1074,6 +1112,7 @@ Class IHttpActivityFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1094,6 +1133,7 @@ Class IHttpBodyControlFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1118,6 +1158,7 @@ Class IHttpConnectionFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1167,6 +1208,7 @@ Class IHttpExtendedConnectFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1196,6 +1238,7 @@ Class IHttpMaxRequestBodySizeFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1223,6 +1266,7 @@ Class IHttpMetricsTagsFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1249,6 +1293,7 @@ Class IHttpRequestBodyDetectionFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1276,6 +1321,7 @@ Class IHttpRequestFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1352,6 +1398,7 @@ Class IHttpRequestIdentifierFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1372,6 +1419,7 @@ Class IHttpRequestLifetimeFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1397,6 +1445,7 @@ Class IHttpRequestTrailersFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1420,6 +1469,7 @@ Class IHttpResetFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1438,6 +1488,7 @@ Class IHttpResponseBodyFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1489,6 +1540,7 @@ Class IHttpResponseFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1544,6 +1596,7 @@ Class IHttpResponseTrailersFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1564,6 +1617,7 @@ Class IHttpUpgradeFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1586,6 +1640,7 @@ Class IHttpWebSocketFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1608,6 +1663,7 @@ Class IHttpWebTransportFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1636,6 +1692,7 @@ Class IHttpsCompressionFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1656,6 +1713,7 @@ Class IItemsFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1676,6 +1734,7 @@ Class IQueryFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1696,6 +1755,7 @@ Class IRequestBodyPipeFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1715,6 +1775,7 @@ Class IRequestCookiesFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1735,6 +1796,7 @@ Class IResponseCookiesFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1754,6 +1816,7 @@ Class IRouteValuesFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1772,6 +1835,7 @@ Class IServerVariablesFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1792,6 +1856,7 @@ Class IServiceProvidersFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1812,6 +1877,7 @@ Class ISessionFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1832,6 +1898,7 @@ Class ITlsConnectionFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1853,6 +1920,7 @@ Class ITlsTokenBindingFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1874,6 +1942,7 @@ Class ITrackingConsentFeature from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1916,6 +1985,7 @@ Class IWebTransportSession from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1954,22 +2024,25 @@ Class ItemsFeature from Object
 	Items
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'itemsfeature'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ItemsFeature, Microsoft.AspNetCore.Http',[])
+		dnDefaultObject('Microsoft.AspNetCore.Http.Features.ItemsFeature, Microsoft.AspNetCore.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ItemsFeature, Microsoft.AspNetCore.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1991,9 +2064,11 @@ Class QueryFeature from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.QueryFeature, Microsoft.AspNetCore.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2015,9 +2090,11 @@ Class RequestBodyPipeFeature from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.RequestBodyPipeFeature, Microsoft.AspNetCore.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2038,9 +2115,11 @@ Class RequestCookiesFeature from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.RequestCookiesFeature, Microsoft.AspNetCore.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2062,9 +2141,11 @@ Class RequestServicesFeature from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.RequestServicesFeature, Microsoft.AspNetCore.Http',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func DisposeAsync 
@@ -2093,21 +2174,26 @@ Class ResponseCookiesFeature from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature, Microsoft.AspNetCore.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature, Microsoft.AspNetCore.Http',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature, Microsoft.AspNetCore.Http',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature, Microsoft.AspNetCore.Http',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2125,22 +2211,25 @@ Class RouteValuesFeature from Object
 	RouteValues
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routevaluesfeature'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.RouteValuesFeature, Microsoft.AspNetCore.Http',[])
+		dnDefaultObject('Microsoft.AspNetCore.Http.Features.RouteValuesFeature, Microsoft.AspNetCore.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.RouteValuesFeature, Microsoft.AspNetCore.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2159,22 +2248,25 @@ Class ServiceProvidersFeature from Object
 	RequestServices
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'serviceprovidersfeature'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ServiceProvidersFeature, Microsoft.AspNetCore.Http',[])
+		dnDefaultObject('Microsoft.AspNetCore.Http.Features.ServiceProvidersFeature, Microsoft.AspNetCore.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ServiceProvidersFeature, Microsoft.AspNetCore.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2193,22 +2285,25 @@ Class TlsConnectionFeature from Object
 	ClientCertificate
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tlsconnectionfeature'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.TlsConnectionFeature, Microsoft.AspNetCore.Http',[])
+		dnDefaultObject('Microsoft.AspNetCore.Http.Features.TlsConnectionFeature, Microsoft.AspNetCore.Http')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.TlsConnectionFeature, Microsoft.AspNetCore.Http',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetClientCertificateAsync P1

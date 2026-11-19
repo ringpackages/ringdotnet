@@ -152,6 +152,7 @@ Class HistoryRepository from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -264,9 +265,11 @@ Class HistoryRepositoryDependencies from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.HistoryRepositoryDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -387,9 +390,11 @@ Class HistoryRow from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.HistoryRow, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -416,6 +421,7 @@ Class IHistoryRepository from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -515,6 +521,7 @@ Class IMigrationCommandExecutor from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -538,6 +545,7 @@ Class IMigrationsAnnotationProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -559,6 +567,7 @@ Class IMigrationsAssembly from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -594,6 +603,7 @@ Class IMigrationsDatabaseLock from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -614,6 +624,7 @@ Class IMigrationsIdGenerator from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -634,6 +645,7 @@ Class IMigrationsModelDiffer from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -651,6 +663,7 @@ Class IMigrationsSqlGenerator from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -668,6 +681,7 @@ Class IMigrator from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -718,6 +732,7 @@ Class Migration from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -766,9 +781,11 @@ Class MigrationBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder, Microsoft.EntityFrameworkCore.Relational',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddColumn P1
@@ -986,21 +1003,26 @@ Class MigrationCommand from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationCommand, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Migrations.MigrationCommand, Microsoft.EntityFrameworkCore.Relational',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationCommand, Microsoft.EntityFrameworkCore.Relational',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationCommand, Microsoft.EntityFrameworkCore.Relational',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ExecuteNonQuery P1
@@ -1043,9 +1065,11 @@ Class MigrationCommandListBuilder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationCommandListBuilder, Microsoft.EntityFrameworkCore.Relational',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetCommandList 
@@ -1097,22 +1121,25 @@ Class MigrationExecutionState from Object
 	Transaction
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'migrationexecutionstate'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationExecutionState, Microsoft.EntityFrameworkCore.Relational',[])
+		dnDefaultObject('Microsoft.EntityFrameworkCore.Migrations.MigrationExecutionState, Microsoft.EntityFrameworkCore.Relational')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationExecutionState, Microsoft.EntityFrameworkCore.Relational',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1160,9 +1187,11 @@ Class MigrationsAnnotationProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationsAnnotationProvider, Microsoft.EntityFrameworkCore.Relational',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ForRemove P1
@@ -1178,22 +1207,25 @@ Class MigrationsAnnotationProvider from Object
 Class MigrationsAnnotationProviderDependencies from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'migrationsannotationproviderdependencies'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationsAnnotationProviderDependencies, Microsoft.EntityFrameworkCore.Relational',[])
+		dnDefaultObject('Microsoft.EntityFrameworkCore.Migrations.MigrationsAnnotationProviderDependencies, Microsoft.EntityFrameworkCore.Relational')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationsAnnotationProviderDependencies, Microsoft.EntityFrameworkCore.Relational',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1206,6 +1238,7 @@ Class MigrationsAssemblyExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1223,9 +1256,11 @@ Class MigrationsSqlGenerator from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationsSqlGenerator, Microsoft.EntityFrameworkCore.Relational',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Generate P1
@@ -1254,9 +1289,11 @@ Class MigrationsSqlGeneratorDependencies from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationsSqlGeneratorDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1332,6 +1369,7 @@ Class SqliteMigrationBuilderExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1349,9 +1387,11 @@ Class SqliteMigrationsSqlGenerator from MigrationsSqlGenerator
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.SqliteMigrationsSqlGenerator, Microsoft.EntityFrameworkCore.Sqlite',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 

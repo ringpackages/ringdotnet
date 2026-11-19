@@ -79,6 +79,7 @@ Class JsonDocument from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -120,22 +121,25 @@ Class JsonDocumentOptions from ValueType
 	AllowTrailingCommas
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsondocumentoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.Json.JsonDocumentOptions, System.Text.Json',[])
+		dnDefaultObject('System.Text.Json.JsonDocumentOptions, System.Text.Json')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonDocumentOptions, System.Text.Json',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCommentHandling
@@ -165,22 +169,25 @@ Class JsonElement from ValueType
 	ValueKind
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonelement'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.Json.JsonElement, System.Text.Json',[])
+		dnDefaultObject('System.Text.Json.JsonElement, System.Text.Json')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonElement, System.Text.Json',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetArrayLength 
@@ -329,22 +336,25 @@ Class JsonEncodedText from ValueType
 	Value
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonencodedtext'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.Json.JsonEncodedText, System.Text.Json',[])
+		dnDefaultObject('System.Text.Json.JsonEncodedText, System.Text.Json')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonEncodedText, System.Text.Json',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Encode P1
@@ -378,6 +388,7 @@ Class JsonNamingPolicy from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -425,22 +436,25 @@ Class JsonProperty from ValueType
 	Name
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonproperty'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.Json.JsonProperty, System.Text.Json',[])
+		dnDefaultObject('System.Text.Json.JsonProperty, System.Text.Json')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonProperty, System.Text.Json',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func NameEquals P1
@@ -471,22 +485,25 @@ Class JsonReaderOptions from ValueType
 	AllowMultipleValues
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonreaderoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.Json.JsonReaderOptions, System.Text.Json',[])
+		dnDefaultObject('System.Text.Json.JsonReaderOptions, System.Text.Json')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonReaderOptions, System.Text.Json',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCommentHandling
@@ -523,38 +540,45 @@ Class JsonReaderState from ValueType
 	Options
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonreaderstate'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.Json.JsonReaderState, System.Text.Json',[])
+		dnDefaultObject('System.Text.Json.JsonReaderState, System.Text.Json')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonReaderState, System.Text.Json',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.Json.JsonReaderState, System.Text.Json',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Text.Json.JsonReaderState, System.Text.Json',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonReaderState, System.Text.Json',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getOptions
@@ -572,6 +596,7 @@ Class JsonSerializer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -675,38 +700,45 @@ Class JsonSerializerOptions from Object
 	Web
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonserializeroptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.Json.JsonSerializerOptions, System.Text.Json',[])
+		dnDefaultObject('System.Text.Json.JsonSerializerOptions, System.Text.Json')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonSerializerOptions, System.Text.Json',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.Json.JsonSerializerOptions, System.Text.Json',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Text.Json.JsonSerializerOptions, System.Text.Json',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonSerializerOptions, System.Text.Json',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetTypeInfo P1
@@ -961,22 +993,25 @@ Class JsonWriterOptions from ValueType
 	NewLine
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonwriteroptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.Json.JsonWriterOptions, System.Text.Json',[])
+		dnDefaultObject('System.Text.Json.JsonWriterOptions, System.Text.Json')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonWriterOptions, System.Text.Json',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEncoder
@@ -1040,21 +1075,26 @@ Class Utf8JsonWriter from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Text.Json.Utf8JsonWriter, System.Text.Json',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.Json.Utf8JsonWriter, System.Text.Json',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Text.Json.Utf8JsonWriter, System.Text.Json',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Text.Json.Utf8JsonWriter, System.Text.Json',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Reset P1

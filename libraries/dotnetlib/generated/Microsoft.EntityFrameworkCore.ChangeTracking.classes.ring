@@ -159,22 +159,25 @@ Class CaseInsensitiveValueComparer from DotNetObject
 	ConstructorExpression
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'caseinsensitivevaluecomparer'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.CaseInsensitiveValueComparer, Microsoft.EntityFrameworkCore',[])
+		dnDefaultObject('Microsoft.EntityFrameworkCore.ChangeTracking.CaseInsensitiveValueComparer, Microsoft.EntityFrameworkCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.CaseInsensitiveValueComparer, Microsoft.EntityFrameworkCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -261,9 +264,11 @@ Class ChangeTracker from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4,P5])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Entries 
@@ -413,22 +418,25 @@ Class ChangeTracker from Object
 Class DetectChangesEventArgs from EventArgs
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'detectchangeseventargs'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.DetectChangesEventArgs, Microsoft.EntityFrameworkCore',[])
+		dnDefaultObject('Microsoft.EntityFrameworkCore.ChangeTracking.DetectChangesEventArgs, Microsoft.EntityFrameworkCore')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.DetectChangesEventArgs, Microsoft.EntityFrameworkCore',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -440,9 +448,11 @@ Class DetectedChangesEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.DetectedChangesEventArgs, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getChangesFound
@@ -473,9 +483,11 @@ Class EntityEntry from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func DetectChanges 
@@ -622,9 +634,11 @@ Class EntityEntryEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntryEventArgs, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEntry
@@ -644,9 +658,11 @@ Class EntityEntryGraphNode from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntryGraphNode, Microsoft.EntityFrameworkCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateNode P1,P2,P3
@@ -680,6 +696,7 @@ Class IDependentKeyValueFactory from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -703,6 +720,7 @@ Class IEntityEntryGraphIterator from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -724,6 +742,7 @@ Class IPrincipalKeyValueFactory from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -746,6 +765,7 @@ Class MemberEntry from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -789,6 +809,7 @@ Class PropertyValues from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -845,6 +866,7 @@ Class ValueComparer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -934,6 +956,7 @@ Class ValueComparerExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -954,9 +977,11 @@ Class ComplexPropertyEntry from MemberEntry
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.ComplexPropertyEntry, Microsoft.EntityFrameworkCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Property P1
@@ -986,9 +1011,11 @@ Class DetectEntityChangesEventArgs from DetectChangesEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.DetectEntityChangesEventArgs, Microsoft.EntityFrameworkCore',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEntry
@@ -1006,9 +1033,11 @@ Class DetectedEntityChangesEventArgs from DetectedChangesEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.DetectedEntityChangesEventArgs, Microsoft.EntityFrameworkCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEntry
@@ -1027,9 +1056,11 @@ Class EntityStateChangedEventArgs from EntityEntryEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.EntityStateChangedEventArgs, Microsoft.EntityFrameworkCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getOldState
@@ -1054,9 +1085,11 @@ Class EntityStateChangingEventArgs from EntityEntryEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.EntityStateChangingEventArgs, Microsoft.EntityFrameworkCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getOldState
@@ -1080,9 +1113,11 @@ Class EntityTrackedEventArgs from EntityEntryEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.EntityTrackedEventArgs, Microsoft.EntityFrameworkCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFromQuery
@@ -1101,9 +1136,11 @@ Class EntityTrackingEventArgs from EntityEntryEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.EntityTrackingEventArgs, Microsoft.EntityFrameworkCore',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getState
@@ -1127,6 +1164,7 @@ Class NavigationEntry from MemberEntry
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1172,9 +1210,11 @@ Class PropertyEntry from MemberEntry
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.PropertyEntry, Microsoft.EntityFrameworkCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getIsTemporary
@@ -1198,9 +1238,11 @@ Class CollectionEntry from NavigationEntry
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.CollectionEntry, Microsoft.EntityFrameworkCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func FindEntry P1
@@ -1215,9 +1257,11 @@ Class ReferenceEntry from NavigationEntry
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.ReferenceEntry, Microsoft.EntityFrameworkCore',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getTargetEntry

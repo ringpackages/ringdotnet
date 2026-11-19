@@ -227,22 +227,25 @@ Class BinderOptions from Object
 	ErrorOnUnknownConfiguration
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'binderoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Configuration.BinderOptions, Microsoft.Extensions.Configuration.Binder',[])
+		dnDefaultObject('Microsoft.Extensions.Configuration.BinderOptions, Microsoft.Extensions.Configuration.Binder')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.BinderOptions, Microsoft.Extensions.Configuration.Binder',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -269,6 +272,7 @@ Class ChainedBuilderExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -291,9 +295,11 @@ Class ChainedConfigurationProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ChainedConfigurationProvider, Microsoft.Extensions.Configuration',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func TryGet P1
@@ -333,22 +339,25 @@ Class ChainedConfigurationSource from Object
 	ShouldDisposeConfiguration
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'chainedconfigurationsource'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Configuration.ChainedConfigurationSource, Microsoft.Extensions.Configuration',[])
+		dnDefaultObject('Microsoft.Extensions.Configuration.ChainedConfigurationSource, Microsoft.Extensions.Configuration')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ChainedConfigurationSource, Microsoft.Extensions.Configuration',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Build P1
@@ -378,6 +387,7 @@ Class CommandLineConfigurationExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -398,6 +408,7 @@ Class ConfigurationBinder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -431,22 +442,25 @@ Class ConfigurationBuilder from Object
 	Properties
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'configurationbuilder'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationBuilder, Microsoft.Extensions.Configuration',[])
+		dnDefaultObject('Microsoft.Extensions.Configuration.ConfigurationBuilder, Microsoft.Extensions.Configuration')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationBuilder, Microsoft.Extensions.Configuration',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -479,38 +493,45 @@ Class ConfigurationDebugViewContext from ValueType
 	ConfigurationProvider
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'configurationdebugviewcontext'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',[])
+		dnDefaultObject('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPath
@@ -544,6 +565,7 @@ Class ConfigurationExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -575,22 +597,25 @@ Class ConfigurationKeyComparer from Object
 	Instance
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'configurationkeycomparer'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationKeyComparer, Microsoft.Extensions.Configuration',[])
+		dnDefaultObject('Microsoft.Extensions.Configuration.ConfigurationKeyComparer, Microsoft.Extensions.Configuration')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationKeyComparer, Microsoft.Extensions.Configuration',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Compare P1,P2
@@ -611,22 +636,25 @@ Class ConfigurationManager from Object
 	Sources
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'configurationmanager'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationManager, Microsoft.Extensions.Configuration',[])
+		dnDefaultObject('Microsoft.Extensions.Configuration.ConfigurationManager, Microsoft.Extensions.Configuration')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationManager, Microsoft.Extensions.Configuration',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetSection P1
@@ -664,6 +692,7 @@ Class ConfigurationPath from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -693,6 +722,7 @@ Class ConfigurationProvider from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -724,22 +754,25 @@ Class ConfigurationReloadToken from Object
 	HasChanged
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'configurationreloadtoken'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationReloadToken, Microsoft.Extensions.Configuration',[])
+		dnDefaultObject('Microsoft.Extensions.Configuration.ConfigurationReloadToken, Microsoft.Extensions.Configuration')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationReloadToken, Microsoft.Extensions.Configuration',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func RegisterChangeCallback P1,P2
@@ -773,9 +806,11 @@ Class ConfigurationRoot from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationRoot, Microsoft.Extensions.Configuration',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetChildren 
@@ -818,6 +853,7 @@ Class ConfigurationRootExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -842,9 +878,11 @@ Class ConfigurationSection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationSection, Microsoft.Extensions.Configuration',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetSection P1
@@ -892,6 +930,7 @@ Class EnvironmentVariablesExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -912,6 +951,7 @@ Class FileConfigurationExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -948,6 +988,7 @@ Class FileConfigurationSource from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1016,22 +1057,25 @@ Class FileLoadExceptionContext from Object
 	Ignore
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fileloadexceptioncontext'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.Extensions.Configuration.FileLoadExceptionContext, Microsoft.Extensions.Configuration.FileExtensions',[])
+		dnDefaultObject('Microsoft.Extensions.Configuration.FileLoadExceptionContext, Microsoft.Extensions.Configuration.FileExtensions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.FileLoadExceptionContext, Microsoft.Extensions.Configuration.FileExtensions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1065,6 +1109,7 @@ Class IConfiguration from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1095,6 +1140,7 @@ Class IConfigurationBuilder from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1124,6 +1170,7 @@ Class IConfigurationManager from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1135,6 +1182,7 @@ Class IConfigurationProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1165,6 +1213,7 @@ Class IConfigurationRoot from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1190,6 +1239,7 @@ Class IConfigurationSection from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1220,6 +1270,7 @@ Class IConfigurationSource from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1234,6 +1285,7 @@ Class IniConfigurationExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1257,6 +1309,7 @@ Class JsonConfigurationExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1280,6 +1333,7 @@ Class KeyPerFileConfigurationBuilderExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1300,6 +1354,7 @@ Class MemoryConfigurationBuilderExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1322,6 +1377,7 @@ Class StreamConfigurationSource from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1346,6 +1402,7 @@ Class UserSecretsConfigurationExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1366,6 +1423,7 @@ Class XmlConfigurationExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1391,6 +1449,7 @@ Class FileConfigurationProvider from ConfigurationProvider
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1426,6 +1485,7 @@ Class StreamConfigurationProvider from ConfigurationProvider
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self

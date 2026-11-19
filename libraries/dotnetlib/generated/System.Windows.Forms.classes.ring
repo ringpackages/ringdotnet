@@ -2485,22 +2485,25 @@ Class AccessibleObject from StandardOleMarshalObject
 	Value
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'accessibleobject'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.AccessibleObject, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.AccessibleObject, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.AccessibleObject, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetChild P1
@@ -2609,22 +2612,25 @@ Class AmbientProperties from Object
 	ForeColor
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ambientproperties'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.AmbientProperties, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.AmbientProperties, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.AmbientProperties, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -2690,6 +2696,7 @@ Class Application from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2991,38 +2998,45 @@ Class ApplicationContext from Object
 	Tag
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'applicationcontext'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ApplicationContext, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ApplicationContext, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ApplicationContext, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ApplicationContext, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ApplicationContext, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ApplicationContext, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -3067,22 +3081,25 @@ Class AutoCompleteStringCollection from Object
 	SyncRoot
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'autocompletestringcollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.AutoCompleteStringCollection, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.AutoCompleteStringCollection, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.AutoCompleteStringCollection, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -3172,22 +3189,25 @@ Class BaseCollection from MarshalByRefObject
 	SyncRoot
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'basecollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.BaseCollection, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.BaseCollection, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.BaseCollection, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CopyTo P1,P2
@@ -3231,6 +3251,7 @@ Class BindableComponent from Component
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3278,21 +3299,26 @@ Class Binding from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Binding, System.Windows.Forms',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Binding, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.Binding, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Binding, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ReadValue 
@@ -3434,21 +3460,26 @@ Class BindingCompleteEventArgs from CancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingCompleteEventArgs, System.Windows.Forms',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingCompleteEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.BindingCompleteEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingCompleteEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBinding
@@ -3487,22 +3518,25 @@ Class BindingContext from Object
 	IsReadOnly
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bindingcontext'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.BindingContext, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.BindingContext, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingContext, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Contains P1
@@ -3548,6 +3582,7 @@ Class BindingManagerBase from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3662,9 +3697,11 @@ Class BindingManagerDataErrorEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingManagerDataErrorEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getException
@@ -3681,38 +3718,45 @@ Class BindingMemberInfo from ValueType
 	BindingMember
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bindingmemberinfo'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBindingPath
@@ -3765,38 +3809,45 @@ Class BindingSource from Component
 	SupportsFiltering
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bindingsource'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.BindingSource, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.BindingSource, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingSource, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingSource, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.BindingSource, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingSource, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetRelatedCurrencyManager P1
@@ -4171,6 +4222,7 @@ Class ButtonRenderer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4209,9 +4261,11 @@ Class CacheVirtualItemsEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.CacheVirtualItemsEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getStartIndex
@@ -4235,6 +4289,7 @@ Class CheckBoxRenderer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4273,6 +4328,7 @@ Class Clipboard from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4370,9 +4426,11 @@ Class ColumnClickEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnClickEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getColumn
@@ -4397,38 +4455,45 @@ Class ColumnHeader from Component
 	Width
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'columnheader'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ColumnHeader, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ColumnHeader, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnHeader, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ColumnHeader, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ColumnHeader, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnHeader, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AutoResize P1
@@ -4516,22 +4581,25 @@ Class ColumnHeader from Component
 Class ColumnHeaderConverter from ExpandableObjectConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'columnheaderconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ColumnHeaderConverter, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ColumnHeaderConverter, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnHeaderConverter, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -4545,9 +4613,11 @@ Class ColumnReorderedEventArgs from CancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnReorderedEventArgs, System.Windows.Forms',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getOldDisplayIndex
@@ -4577,9 +4647,11 @@ Class ColumnWidthChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnWidthChangedEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getColumnIndex
@@ -4598,21 +4670,26 @@ Class ColumnWidthChangingEventArgs from CancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnWidthChangingEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ColumnWidthChangingEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ColumnWidthChangingEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnWidthChangingEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getColumnIndex
@@ -4637,6 +4714,7 @@ Class ComboBoxRenderer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4670,6 +4748,7 @@ Class CommonDialog from Component
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -4711,9 +4790,11 @@ Class ContentsResizedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ContentsResizedEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getNewRectangle
@@ -4808,38 +4889,45 @@ Class Control from Component
 	MousePosition
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'control'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.Control, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.Control, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Control, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Control, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.Control, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Control, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ResetBindings 
@@ -6160,9 +6248,11 @@ Class ControlEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ControlEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getControl
@@ -6180,6 +6270,7 @@ Class ControlPaint from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6358,9 +6449,11 @@ Class ConvertEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ConvertEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getValue
@@ -6392,22 +6485,25 @@ Class CreateParams from Object
 	Param
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'createparams'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.CreateParams, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.CreateParams, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.CreateParams, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -6505,21 +6601,26 @@ Class Cursor from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Cursor, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Cursor, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.Cursor, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Cursor, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CopyHandle 
@@ -6598,22 +6699,25 @@ Class Cursor from Object
 Class CursorConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cursorconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.CursorConverter, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.CursorConverter, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.CursorConverter, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -6652,6 +6756,7 @@ Class Cursors from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -6856,6 +6961,7 @@ Class DataFormats from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -7002,22 +7108,25 @@ Class DataGridViewAdvancedBorderStyle from Object
 	Top
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewadvancedborderstyle'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewAdvancedBorderStyle, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewAdvancedBorderStyle, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewAdvancedBorderStyle, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -7068,9 +7177,11 @@ Class DataGridViewAutoSizeColumnModeEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewAutoSizeColumnModeEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getColumn
@@ -7094,9 +7205,11 @@ Class DataGridViewAutoSizeColumnsModeEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewAutoSizeColumnsModeEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPreviousModes
@@ -7114,9 +7227,11 @@ Class DataGridViewAutoSizeModeEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewAutoSizeModeEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPreviousModeAutoSized
@@ -7134,9 +7249,11 @@ Class DataGridViewBindingCompleteEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewBindingCompleteEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getListChangedType
@@ -7155,9 +7272,11 @@ Class DataGridViewCellCancelEventArgs from CancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellCancelEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getColumnIndex
@@ -7182,9 +7301,11 @@ Class DataGridViewCellEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getColumnIndex
@@ -7219,9 +7340,11 @@ Class DataGridViewCellPaintingEventArgs from HandledEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellPaintingEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Paint P1,P2
@@ -7318,9 +7441,11 @@ Class DataGridViewCellStateChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellStateChangedEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCell
@@ -7356,38 +7481,45 @@ Class DataGridViewCellStyle from Object
 	WrapMode
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcellstyle'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ApplyStyle P1
@@ -7519,6 +7651,7 @@ Class DataGridViewCellStyleContentChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -7539,22 +7672,25 @@ Class DataGridViewCellStyleContentChangedEventArgs from EventArgs
 Class DataGridViewCellStyleConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcellstyleconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellStyleConverter, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewCellStyleConverter, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellStyleConverter, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -7568,6 +7704,7 @@ Class DataGridViewCellValidatingEventArgs from CancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -7601,9 +7738,11 @@ Class DataGridViewCellValueEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellValueEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getColumnIndex
@@ -7634,9 +7773,11 @@ Class DataGridViewColumnEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumnEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getColumn
@@ -7655,9 +7796,11 @@ Class DataGridViewColumnStateChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumnStateChangedEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getColumn
@@ -7682,9 +7825,11 @@ Class DataGridViewEditingControlShowingEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewEditingControlShowingEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getControl
@@ -7707,22 +7852,25 @@ Class DataGridViewElement from Object
 	DataGridView
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewelement'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewElement, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewElement, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewElement, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -7749,9 +7897,11 @@ Class DataGridViewRowCancelEventArgs from CancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewRowCancelEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getRow
@@ -7770,9 +7920,11 @@ Class DataGridViewRowCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewRowCollection, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func SharedRow P1
@@ -7895,9 +8047,11 @@ Class DataGridViewRowContextMenuStripNeededEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getRowIndex
@@ -7923,6 +8077,7 @@ Class DataGridViewRowErrorTextNeededEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -7949,9 +8104,11 @@ Class DataGridViewRowEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewRowEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getRow
@@ -7971,6 +8128,7 @@ Class DataGridViewRowHeightInfoNeededEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -8006,6 +8164,7 @@ Class DataGridViewRowHeightInfoPushedEventArgs from HandledEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -8045,9 +8204,11 @@ Class DataGridViewRowPostPaintEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewRowPostPaintEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func DrawFocus P1,P2
@@ -8143,9 +8304,11 @@ Class DataGridViewRowPrePaintEventArgs from HandledEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewRowPrePaintEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func DrawFocus P1,P2
@@ -8240,9 +8403,11 @@ Class DataGridViewRowStateChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewRowStateChangedEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getRow
@@ -8267,9 +8432,11 @@ Class DataGridViewRowsAddedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewRowsAddedEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getRowIndex
@@ -8294,9 +8461,11 @@ Class DataGridViewRowsRemovedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewRowsRemovedEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getRowIndex
@@ -8325,9 +8494,11 @@ Class DataGridViewSortCompareEventArgs from HandledEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewSortCompareEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCellValue1
@@ -8371,38 +8542,45 @@ Class DataGridViewSortCompareEventArgs from HandledEventArgs
 Class DataObject from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dataobject'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataObject, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataObject, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataObject, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataObject, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.DataObject, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataObject, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetData P1
@@ -8504,6 +8682,7 @@ Class DateBoldEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -8536,9 +8715,11 @@ Class DateRangeEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DateRangeEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getStart
@@ -8561,6 +8742,7 @@ Class DpiChangedEventArgs from CancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -8600,21 +8782,26 @@ Class DragEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DragEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5,P6])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DragEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.DragEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DragEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getData
@@ -8690,21 +8877,26 @@ Class DrawItemEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DrawItemEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DrawItemEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.DrawItemEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DrawItemEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func DrawBackground 
@@ -8778,9 +8970,11 @@ Class DrawListViewColumnHeaderEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DrawListViewColumnHeaderEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5,P6,P7,P8])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func DrawBackground 
@@ -8868,9 +9062,11 @@ Class DrawListViewItemEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DrawListViewItemEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func DrawBackground 
@@ -8947,9 +9143,11 @@ Class DrawListViewSubItemEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DrawListViewSubItemEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5,P6,P7,P8])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func DrawBackground 
@@ -9041,9 +9239,11 @@ Class DrawToolTipEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DrawToolTipEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5,P6,P7,P8])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func DrawBackground 
@@ -9115,9 +9315,11 @@ Class DrawTreeNodeEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DrawTreeNodeEventArgs, System.Windows.Forms',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getGraphics
@@ -9165,38 +9367,45 @@ Class ErrorProvider from Component
 	Icon
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'errorprovider'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ErrorProvider, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ErrorProvider, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ErrorProvider, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ErrorProvider, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ErrorProvider, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ErrorProvider, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BindToDataAndErrors P1,P2
@@ -9312,6 +9521,7 @@ Class FeatureSupport from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9347,9 +9557,11 @@ Class FileDialogCustomPlace from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.FileDialogCustomPlace, System.Windows.Forms.Primitives',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -9375,22 +9587,25 @@ Class FileDialogCustomPlacesCollection from DotNetObject
 	Count
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'filedialogcustomplacescollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.FileDialogCustomPlacesCollection, System.Windows.Forms.Primitives',[])
+		dnDefaultObject('System.Windows.Forms.FileDialogCustomPlacesCollection, System.Windows.Forms.Primitives')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.FileDialogCustomPlacesCollection, System.Windows.Forms.Primitives',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -9463,6 +9678,7 @@ Class FlatButtonAppearance from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9514,9 +9730,11 @@ Class FormClosedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.FormClosedEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCloseReason
@@ -9534,9 +9752,11 @@ Class FormClosingEventArgs from CancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.FormClosingEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCloseReason
@@ -9549,22 +9769,25 @@ Class FormClosingEventArgs from CancelEventArgs
 Class FormCollection from ReadOnlyCollectionBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'formcollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.FormCollection, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.FormCollection, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.FormCollection, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Item P1
@@ -9583,21 +9806,26 @@ Class GiveFeedbackEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.GiveFeedbackEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.GiveFeedbackEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.GiveFeedbackEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.GiveFeedbackEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getEffect
@@ -9651,6 +9879,7 @@ Class GridItem from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9727,6 +9956,7 @@ Class GridItemCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9762,6 +9992,7 @@ Class GroupBoxRenderer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9797,6 +10028,7 @@ Class Help from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -9829,9 +10061,11 @@ Class HelpEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.HelpEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getMousePos
@@ -9854,22 +10088,25 @@ Class HelpProvider from Component
 	Tag
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'helpprovider'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.HelpProvider, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.HelpProvider, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.HelpProvider, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CanExtend P1
@@ -9950,6 +10187,7 @@ Class HtmlDocument from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10246,6 +10484,7 @@ Class HtmlElement from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10615,6 +10854,7 @@ Class HtmlElementCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10649,6 +10889,7 @@ Class HtmlElementErrorEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10699,6 +10940,7 @@ Class HtmlElementEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10793,6 +11035,7 @@ Class HtmlHistory from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -10849,6 +11092,7 @@ Class HtmlWindow from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11066,6 +11310,7 @@ Class HtmlWindowCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11095,6 +11340,7 @@ Class IBindableComponent from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11121,6 +11367,7 @@ Class IButtonControl from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11147,6 +11394,7 @@ Class ICommandExecutor from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11162,6 +11410,7 @@ Class IComponentEditorPageSite from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11182,6 +11431,7 @@ Class IContainerControl from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11205,6 +11455,7 @@ Class ICurrencyManagerProvider from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11225,6 +11476,7 @@ Class IDataGridColumnStyleEditingNotificationService from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11243,6 +11495,7 @@ Class IDataGridViewEditingCell from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11282,6 +11535,7 @@ Class IDataGridViewEditingControl from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11347,6 +11601,7 @@ Class IDataObject from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11387,6 +11642,7 @@ Class IDropTarget from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11414,6 +11670,7 @@ Class IFeatureSupport from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11434,6 +11691,7 @@ Class IFileReaderService from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11448,6 +11706,7 @@ Class IMessageFilter from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11464,6 +11723,7 @@ Class IWin32Window from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11481,6 +11741,7 @@ Class IWindowTarget from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11496,44 +11757,50 @@ Class IWindowTarget from DotNetObject
 Class ImageIndexConverter from Int32Converter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imageindexconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ImageIndexConverter, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ImageIndexConverter, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ImageIndexConverter, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class ImageKeyConverter from StringConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imagekeyconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ImageKeyConverter, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ImageKeyConverter, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ImageKeyConverter, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -11549,38 +11816,45 @@ Class ImageList from Component
 	TransparentColor
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imagelist'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ImageList, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ImageList, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ImageList, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ImageList, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ImageList, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ImageList, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Draw P1
@@ -11658,6 +11932,7 @@ Class ImageListStreamer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11680,6 +11955,7 @@ Class ImeContext from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11716,22 +11992,25 @@ Class ImeModeConversion from ValueType
 	IsCurrentConversionTableSupported
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imemodeconversion'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ImeModeConversion, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ImeModeConversion, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ImeModeConversion, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getImeModeConversionBits
@@ -11760,6 +12039,7 @@ Class InputLanguage from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11818,9 +12098,11 @@ Class InputLanguageChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.InputLanguageChangedEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getInputLanguage
@@ -11852,9 +12134,11 @@ Class InputLanguageChangingEventArgs from CancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.InputLanguageChangingEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getInputLanguage
@@ -11882,6 +12166,7 @@ Class InputLanguageCollection from ReadOnlyCollectionBase
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11908,9 +12193,11 @@ Class InvalidateEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.InvalidateEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getInvalidRect
@@ -11928,6 +12215,7 @@ Class ItemChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -11949,9 +12237,11 @@ Class ItemCheckEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ItemCheckEventArgs, System.Windows.Forms',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getIndex
@@ -11982,9 +12272,11 @@ Class ItemCheckedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ItemCheckedEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getItem
@@ -12003,21 +12295,26 @@ Class ItemDragEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ItemDragEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ItemDragEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ItemDragEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ItemDragEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getButton
@@ -12049,9 +12346,11 @@ Class KeyEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.KeyEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAlt
@@ -12120,9 +12419,11 @@ Class KeyPressEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.KeyPressEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeyChar
@@ -12143,22 +12444,25 @@ Class KeyPressEventArgs from EventArgs
 Class KeysConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keysconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.KeysConverter, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.KeysConverter, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.KeysConverter, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Compare P1,P2
@@ -12175,21 +12479,26 @@ Class LabelEditEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.LabelEditEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.LabelEditEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.LabelEditEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.LabelEditEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getItem
@@ -12222,9 +12531,11 @@ Class LayoutEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.LayoutEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAffectedComponent
@@ -12254,6 +12565,7 @@ Class LayoutSettings from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -12275,38 +12587,45 @@ Class LinkArea from ValueType
 	IsEmpty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linkarea'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.LinkArea, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.LinkArea, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.LinkArea, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.LinkArea, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.LinkArea, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.LinkArea, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getStart
@@ -12340,21 +12659,26 @@ Class LinkClickedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.LinkClickedEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.LinkClickedEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.LinkClickedEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.LinkClickedEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getLinkLength
@@ -12379,22 +12703,25 @@ Class LinkClickedEventArgs from EventArgs
 Class LinkConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linkconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.LinkConverter, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.LinkConverter, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.LinkConverter, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -12407,21 +12734,26 @@ Class LinkLabelLinkClickedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.LinkLabelLinkClickedEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.LinkLabelLinkClickedEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.LinkLabelLinkClickedEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.LinkLabelLinkClickedEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getLink
@@ -12440,22 +12772,25 @@ Class LinkLabelLinkClickedEventArgs from EventArgs
 Class ListBindingConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listbindingconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ListBindingConverter, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ListBindingConverter, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListBindingConverter, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -12465,6 +12800,7 @@ Class ListBindingHelper from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -12511,38 +12847,45 @@ Class ListViewGroup from Object
 	Tag
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listviewgroup'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ListViewGroup, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ListViewGroup, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewGroup, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListViewGroup, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ListViewGroup, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewGroup, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -12646,6 +12989,7 @@ Class ListViewGroupCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -12714,9 +13058,11 @@ Class ListViewGroupEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewGroupEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getGroupIndex
@@ -12736,9 +13082,11 @@ Class ListViewHitTestInfo from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewHitTestInfo, System.Windows.Forms',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -12774,6 +13122,7 @@ Class ListViewInsertionMark from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -12838,38 +13187,45 @@ Class ListViewItem from Object
 	UseItemStyleForSubItems
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listviewitem'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ListViewItem, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ListViewItem, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItem, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListViewItem, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ListViewItem, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItem, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginEdit 
@@ -13052,22 +13408,25 @@ Class ListViewItem from Object
 Class ListViewItemConverter from ExpandableObjectConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listviewitemconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ListViewItemConverter, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ListViewItemConverter, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItemConverter, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -13079,9 +13438,11 @@ Class ListViewItemMouseHoverEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItemMouseHoverEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getItem
@@ -13101,9 +13462,11 @@ Class ListViewItemSelectionChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItemSelectionChangedEventArgs, System.Windows.Forms',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getItem
@@ -13135,9 +13498,11 @@ Class ListViewVirtualItemsSelectionRangeChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewVirtualItemsSelectionRangeChangedEventArgs, System.Windows.Forms',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getStartIndex
@@ -13168,9 +13533,11 @@ Class MaskInputRejectedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.MaskInputRejectedEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPosition
@@ -13197,21 +13564,26 @@ Class MeasureItemEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.MeasureItemEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.MeasureItemEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.MeasureItemEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.MeasureItemEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getGraphics
@@ -13250,22 +13622,25 @@ Class Message from ValueType
 	Result
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'message'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.Message, System.Windows.Forms.Primitives',[])
+		dnDefaultObject('System.Windows.Forms.Message, System.Windows.Forms.Primitives')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Message, System.Windows.Forms.Primitives',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetLParam_ P1
@@ -13316,6 +13691,7 @@ Class MessageBox from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -13343,9 +13719,11 @@ Class MouseEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.MouseEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getButton
@@ -13390,22 +13768,25 @@ Class NativeWindow from MarshalByRefObject
 	Handle
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'nativewindow'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.NativeWindow, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.NativeWindow, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.NativeWindow, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AssignHandle P1
@@ -13445,9 +13826,11 @@ Class NavigateEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.NavigateEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getForward
@@ -13467,21 +13850,26 @@ Class NodeLabelEditEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.NodeLabelEditEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.NodeLabelEditEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.NodeLabelEditEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.NodeLabelEditEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getNode
@@ -13516,38 +13904,45 @@ Class NotifyIcon from Component
 	Tag
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'notifyicon'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.NotifyIcon, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.NotifyIcon, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.NotifyIcon, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.NotifyIcon, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.NotifyIcon, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.NotifyIcon, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ShowBalloonTip P1
@@ -13704,9 +14099,11 @@ Class NumericUpDownAcceleration from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.NumericUpDownAcceleration, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -13733,22 +14130,25 @@ Class NumericUpDownAccelerationCollection from MarshalByRefObject
 	IsReadOnly
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'numericupdownaccelerationcollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.NumericUpDownAccelerationCollection, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.NumericUpDownAccelerationCollection, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.NumericUpDownAccelerationCollection, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -13792,22 +14192,25 @@ Class NumericUpDownAccelerationCollection from MarshalByRefObject
 Class OpacityConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'opacityconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.OpacityConverter, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.OpacityConverter, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.OpacityConverter, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -13821,6 +14224,7 @@ Class OwnerDrawPropertyBag from MarshalByRefObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -13866,38 +14270,45 @@ Class Padding from ValueType
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'padding'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',[])
+		dnDefaultObject('System.Windows.Forms.Padding, System.Windows.Forms.Primitives')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1,P2
@@ -13969,22 +14380,25 @@ Class Padding from ValueType
 Class PaddingConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'paddingconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.PaddingConverter, System.Windows.Forms.Primitives',[])
+		dnDefaultObject('System.Windows.Forms.PaddingConverter, System.Windows.Forms.Primitives')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PaddingConverter, System.Windows.Forms.Primitives',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -13997,9 +14411,11 @@ Class PaintEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PaintEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -14030,9 +14446,11 @@ Class PopupEventArgs from CancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PopupEventArgs, System.Windows.Forms',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAssociatedWindow
@@ -14073,6 +14491,7 @@ Class PowerStatus from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -14126,9 +14545,11 @@ Class PreviewKeyDownEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PreviewKeyDownEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeyData
@@ -14187,21 +14608,26 @@ Class PrintControllerWithStatusDialog from PrintController
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PrintControllerWithStatusDialog, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.PrintControllerWithStatusDialog, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.PrintControllerWithStatusDialog, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PrintControllerWithStatusDialog, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -14267,22 +14693,25 @@ Class ProfessionalColorTable from Object
 	OverflowButtonGradientEnd
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'professionalcolortable'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ProfessionalColorTable, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ProfessionalColorTable, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ProfessionalColorTable, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -14702,6 +15131,7 @@ Class ProfessionalColors from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -15062,6 +15492,7 @@ Class ProgressBarRenderer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -15113,9 +15544,11 @@ Class PropertyTabChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PropertyTabChangedEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getOldTab
@@ -15140,9 +15573,11 @@ Class PropertyValueChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PropertyValueChangedEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getChangedItem
@@ -15165,38 +15600,45 @@ Class QueryAccessibilityHelpEventArgs from EventArgs
 	HelpKeyword
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'queryaccessibilityhelpeventargs'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getHelpNamespace
@@ -15231,9 +15673,11 @@ Class QueryContinueDragEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.QueryContinueDragEventArgs, System.Windows.Forms',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKeyState
@@ -15261,38 +15705,45 @@ Class QuestionEventArgs from EventArgs
 	Response
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'questioneventargs'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getResponse
@@ -15311,6 +15762,7 @@ Class RadioButtonRenderer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -15352,9 +15804,11 @@ Class RetrieveVirtualItemEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.RetrieveVirtualItemEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getItemIndex
@@ -15385,6 +15839,7 @@ Class Screen from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -15461,6 +15916,7 @@ Class ScrollBarRenderer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -15532,21 +15988,26 @@ Class ScrollEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ScrollEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ScrollEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ScrollEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ScrollEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetType_ 
@@ -15592,6 +16053,7 @@ Class ScrollProperties from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -15664,9 +16126,11 @@ Class SearchForVirtualItemEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.SearchForVirtualItemEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5,P6,P7])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getIsTextSearch
@@ -15728,9 +16192,11 @@ Class SelectedGridItemChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.SelectedGridItemChangedEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getOldSelection
@@ -15751,38 +16217,45 @@ Class SelectionRange from Object
 	Start
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'selectionrange'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.SelectionRange, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.SelectionRange, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.SelectionRange, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.SelectionRange, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.SelectionRange, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.SelectionRange, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -15806,22 +16279,25 @@ Class SelectionRange from Object
 Class SelectionRangeConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'selectionrangeconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.SelectionRangeConverter, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.SelectionRangeConverter, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.SelectionRangeConverter, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -15831,6 +16307,7 @@ Class SendKeys from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -15862,9 +16339,11 @@ Class SplitterCancelEventArgs from CancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.SplitterCancelEventArgs, System.Windows.Forms',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getMouseCursorX
@@ -15905,9 +16384,11 @@ Class SplitterEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.SplitterEventArgs, System.Windows.Forms',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getX
@@ -16048,6 +16529,7 @@ Class SystemInformation from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -16708,9 +17190,11 @@ Class TabControlCancelEventArgs from CancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TabControlCancelEventArgs, System.Windows.Forms',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getTabPage
@@ -16742,9 +17226,11 @@ Class TabControlEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TabControlEventArgs, System.Windows.Forms',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getTabPage
@@ -16774,6 +17260,7 @@ Class TabRenderer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -16805,38 +17292,45 @@ Class TableLayoutPanelCellPosition from ValueType
 	Column
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tablelayoutpanelcellposition'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getRow
@@ -16862,6 +17356,7 @@ Class TableLayoutStyle from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -16885,6 +17380,7 @@ Class TableLayoutStyleCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -16925,6 +17421,7 @@ Class TaskDialog from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -16960,22 +17457,25 @@ Class TaskDialogButtonCollection from DotNetObject
 	Count
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogbuttoncollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TaskDialogButtonCollection, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TaskDialogButtonCollection, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogButtonCollection, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -17047,6 +17547,7 @@ Class TaskDialogControl from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -17086,9 +17587,11 @@ Class TaskDialogIcon from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogIcon, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -17173,9 +17676,11 @@ Class TaskDialogLinkClickedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogLinkClickedEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getLinkHref
@@ -17206,22 +17711,25 @@ Class TaskDialogPage from Object
 	BoundDialog
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogpage'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TaskDialogPage, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TaskDialogPage, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogPage, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Navigate P1
@@ -17387,22 +17895,25 @@ Class TaskDialogRadioButtonCollection from DotNetObject
 	Count
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogradiobuttoncollection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TaskDialogRadioButtonCollection, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TaskDialogRadioButtonCollection, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogRadioButtonCollection, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -17470,6 +17981,7 @@ Class TextBoxRenderer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -17497,6 +18009,7 @@ Class TextRenderer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -17525,38 +18038,45 @@ Class FormsTimer from Component
 	Interval
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'formstimer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.Timer, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.Timer, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Timer, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Timer, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.Timer, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Timer, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Start 
@@ -17609,9 +18129,11 @@ Class ToolStripArrowRenderEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripArrowRenderEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getArrowRectangle
@@ -17658,9 +18180,11 @@ Class ToolStripContentPanelRenderEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripContentPanelRenderEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getGraphics
@@ -17691,9 +18215,11 @@ Class ToolStripDropDownClosedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownClosedEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCloseReason
@@ -17711,9 +18237,11 @@ Class ToolStripDropDownClosingEventArgs from CancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownClosingEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCloseReason
@@ -17740,9 +18268,11 @@ Class ToolStripDropDownItemAccessibleObject from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownItemAccessibleObject, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func DoDefaultAction 
@@ -17873,9 +18403,11 @@ Class ToolStripItemClickedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripItemClickedEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getClickedItem
@@ -17891,9 +18423,11 @@ Class ToolStripItemCollection from ArrangedElementCollection
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripItemCollection, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -17953,9 +18487,11 @@ Class ToolStripItemEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripItemEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getItem
@@ -17975,9 +18511,11 @@ Class ToolStripItemRenderEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripItemRenderEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getGraphics
@@ -18009,6 +18547,7 @@ Class ToolStripManager from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -18090,9 +18629,11 @@ Class ToolStripPanelRenderEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripPanelRenderEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getGraphics
@@ -18130,9 +18671,11 @@ Class ToolStripPanelRow from Component
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripPanelRow, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CanMove P1
@@ -18201,21 +18744,26 @@ Class ToolStripRenderEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripRenderEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripRenderEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ToolStripRenderEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripRenderEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getGraphics
@@ -18255,6 +18803,7 @@ Class ToolStripRenderer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -18526,38 +19075,45 @@ Class ToolTip from Component
 	UseFading
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tooltip'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolTip, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolTip, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolTip, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolTip, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ToolTip, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolTip, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CanExtend P1
@@ -18722,6 +19278,7 @@ Class TrackBarRenderer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -18825,38 +19382,45 @@ Class TreeNode from MarshalByRefObject
 	TreeView
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'treenode'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TreeNode, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TreeNode, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeNode, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TreeNode, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.TreeNode, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeNode, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginEdit 
@@ -19131,6 +19695,7 @@ Class TreeNodeCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -19215,22 +19780,25 @@ Class TreeNodeCollection from Object
 Class TreeNodeConverter from TypeConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'treenodeconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TreeNodeConverter, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TreeNodeConverter, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeNodeConverter, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -19242,9 +19810,11 @@ Class TreeNodeMouseHoverEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeNodeMouseHoverEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getNode
@@ -19263,9 +19833,11 @@ Class TreeViewCancelEventArgs from CancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeViewCancelEventArgs, System.Windows.Forms',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getNode
@@ -19290,21 +19862,26 @@ Class TreeViewEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeViewEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TreeViewEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.TreeViewEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeViewEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getNode
@@ -19329,9 +19906,11 @@ Class TreeViewHitTestInfo from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeViewHitTestInfo, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -19362,9 +19941,11 @@ Class TypeValidationEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TypeValidationEventArgs, System.Windows.Forms',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getValidatingType
@@ -19411,9 +19992,11 @@ Class UICuesEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.UICuesEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getShowFocus
@@ -19455,9 +20038,11 @@ Class UpDownEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.UpDownEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getButtonID
@@ -19475,9 +20060,11 @@ Class WebBrowserDocumentCompletedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.WebBrowserDocumentCompletedEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUrl
@@ -19495,9 +20082,11 @@ Class WebBrowserNavigatedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.WebBrowserNavigatedEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUrl
@@ -19516,9 +20105,11 @@ Class WebBrowserNavigatingEventArgs from CancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.WebBrowserNavigatingEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUrl
@@ -19543,9 +20134,11 @@ Class WebBrowserProgressChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.WebBrowserProgressChangedEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCurrentProgress
@@ -19567,6 +20160,7 @@ Class WebBrowserSiteBase from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -19584,22 +20178,25 @@ Class WindowsFormsSection from Object
 	JitDebugging
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'windowsformssection'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.WindowsFormsSection, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.WindowsFormsSection, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.WindowsFormsSection, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -19618,22 +20215,25 @@ Class WindowsFormsSynchronizationContext from SynchronizationContext
 	AutoInstall
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'windowsformssynchronizationcontext'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -19660,9 +20260,11 @@ Class ControlCollection from ArrangedElementCollection
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Control+ControlCollection, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ContainsKey P1
@@ -19733,21 +20335,26 @@ Class ListBoxObjectCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListBox+ObjectCollection, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListBox+ObjectCollection, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ListBox+ObjectCollection, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListBox+ObjectCollection, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -19818,9 +20425,11 @@ Class ListBoxSelectedObjectCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListBox+SelectedObjectCollection, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Contains P1
@@ -19880,9 +20489,11 @@ Class ComboBoxObjectCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ComboBox+ObjectCollection, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -19953,9 +20564,11 @@ Class ListViewItemCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListView+ListViewItemCollection, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -20044,9 +20657,11 @@ Class ColumnHeaderCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListView+ColumnHeaderCollection, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func RemoveByKey P1
@@ -20125,9 +20740,11 @@ Class SelectedListViewItemCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListView+SelectedListViewItemCollection, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Clear 
@@ -20185,6 +20802,7 @@ Class DataGridViewHitTestInfo from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -20243,38 +20861,45 @@ Class ListViewSubItem from Object
 	Name
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listviewsubitem'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ResetStyle 
@@ -20342,9 +20967,11 @@ Class ListViewSubItemCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItem+ListViewSubItemCollection, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -20428,9 +21055,11 @@ Class TabPageCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TabControl+TabPageCollection, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -20517,6 +21146,7 @@ Class ImageCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -20614,6 +21244,7 @@ Class CheckedItemCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -20663,6 +21294,7 @@ Class CheckedIndexCollection from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -20710,6 +21342,7 @@ Class AxHost from Control
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -20789,6 +21422,7 @@ Class BindingsCollection from BaseCollection
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -20835,6 +21469,7 @@ Class ButtonBase from Control
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -20979,22 +21614,25 @@ Class ColorDialog from CommonDialog
 	SolidColorOnly
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'colordialog'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ColorDialog, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ColorDialog, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ColorDialog, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAllowFullOpen
@@ -21052,38 +21690,45 @@ Class ColumnStyle from TableLayoutStyle
 	Width
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'columnstyle'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ColumnStyle, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ColumnStyle, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnStyle, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ColumnStyle, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ColumnStyle, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnStyle, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getWidth
@@ -21102,6 +21747,7 @@ Class CurrencyManager from BindingManagerBase
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -21216,22 +21862,25 @@ Class DataGridView from Control
 	VirtualMode
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridview'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridView, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridView, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridView, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AdjustColumnHeaderBorderStyle P1,P2,P3,P4
@@ -22841,6 +23490,7 @@ Class DataGridViewBand from DataGridViewElement
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -22978,6 +23628,7 @@ Class DataGridViewCell from DataGridViewElement
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -23242,9 +23893,11 @@ Class DataGridViewCellCollection from BaseCollection
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellCollection, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -23300,9 +23953,11 @@ Class DataGridViewCellContextMenuStripNeededEventArgs from DataGridViewCellEvent
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellContextMenuStripNeededEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getContextMenuStrip
@@ -23321,6 +23976,7 @@ Class DataGridViewCellErrorTextNeededEventArgs from DataGridViewCellEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -23344,9 +24000,11 @@ Class DataGridViewCellFormattingEventArgs from ConvertEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellFormattingEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCellStyle
@@ -23385,9 +24043,11 @@ Class DataGridViewCellMouseEventArgs from MouseEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellMouseEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getColumnIndex
@@ -23414,9 +24074,11 @@ Class DataGridViewCellParsingEventArgs from ConvertEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellParsingEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getRowIndex
@@ -23454,6 +24116,7 @@ Class DataGridViewCellToolTipTextNeededEventArgs from DataGridViewCellEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -23472,9 +24135,11 @@ Class DataGridViewColumnCollection from BaseCollection
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumnCollection, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -23552,9 +24217,11 @@ Class DataGridViewDataErrorEventArgs from DataGridViewCellCancelEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewDataErrorEventArgs, System.Windows.Forms',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getContext
@@ -23583,6 +24250,7 @@ Class DataGridViewSelectedCellCollection from BaseCollection
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -23608,6 +24276,7 @@ Class DataGridViewSelectedColumnCollection from BaseCollection
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -23633,6 +24302,7 @@ Class DataGridViewSelectedRowCollection from BaseCollection
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -23677,22 +24347,25 @@ Class DateTimePicker from Control
 	MaxDateTime
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datetimepicker'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DateTimePicker, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DateTimePicker, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DateTimePicker, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setFormatChangedEvent P1
@@ -23907,6 +24580,7 @@ Class FileDialog from CommonDialog
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -24081,6 +24755,7 @@ Class FlowLayoutSettings from LayoutSettings
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -24125,22 +24800,25 @@ Class FolderBrowserDialog from CommonDialog
 	UseDescriptionForTitle
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'folderbrowserdialog'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAddToRecent
@@ -24260,22 +24938,25 @@ Class FontDialog from CommonDialog
 	ShowHelp
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fontdialog'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.FontDialog, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.FontDialog, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.FontDialog, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setApplyEvent P1
@@ -24399,22 +25080,25 @@ Class GroupBox from Control
 	UseCompatibleTextRendering
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'groupbox'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.GroupBox, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.GroupBox, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.GroupBox, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAutoSizeMode
@@ -24445,9 +25129,11 @@ Class HScrollProperties from ScrollProperties
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.HScrollProperties, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -24459,21 +25145,26 @@ Class HandledMouseEventArgs from MouseEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.HandledMouseEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.HandledMouseEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.HandledMouseEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.HandledMouseEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getHandled
@@ -24502,22 +25193,25 @@ Class Label from Control
 	UseMnemonic
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'label'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.Label, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.Label, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Label, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setTextAlignChangedEvent P1
@@ -24640,6 +25334,7 @@ Class ListControl from Control
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -24776,9 +25471,11 @@ Class ListControlConvertEventArgs from ConvertEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListControlConvertEventArgs, System.Windows.Forms',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getListItem
@@ -24834,22 +25531,25 @@ Class ListView from Control
 	VirtualMode
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listview'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ListView, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ListView, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListView, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ArrangeIcons P1
@@ -25397,22 +26097,25 @@ Class ListView from Control
 Class ListViewItemStateImageIndexConverter from ImageIndexConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listviewitemstateimageindexconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ListViewItemStateImageIndexConverter, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ListViewItemStateImageIndexConverter, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItemStateImageIndexConverter, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -25421,22 +26124,25 @@ Class MdiClient from Control
 	MdiChildren
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mdiclient'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.MdiClient, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.MdiClient, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.MdiClient, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func LayoutMdi P1
@@ -25476,22 +26182,25 @@ Class MonthCalendar from Control
 	TrailingForeColor
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'monthcalendar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.MonthCalendar, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.MonthCalendar, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.MonthCalendar, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AddAnnuallyBoldedDate P1
@@ -25742,6 +26451,7 @@ Class OSFeature from FeatureSupport
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -25795,22 +26505,25 @@ Class PageSetupDialog from CommonDialog
 	ShowNetwork
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pagesetupdialog'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.PageSetupDialog, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.PageSetupDialog, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PageSetupDialog, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAllowMargins
@@ -25902,22 +26615,25 @@ Class PictureBox from Control
 	WaitOnLoad
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'picturebox'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.PictureBox, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.PictureBox, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PictureBox, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CancelAsync 
@@ -26036,22 +26752,25 @@ Class PrintDialog from CommonDialog
 	UseEXDialog
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'printdialog'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.PrintDialog, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.PrintDialog, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PrintDialog, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAllowCurrentPage
@@ -26136,22 +26855,25 @@ Class PrintPreviewControl from Control
 	StartPage
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'printpreviewcontrol'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.PrintPreviewControl, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.PrintPreviewControl, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PrintPreviewControl, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func InvalidatePreview 
@@ -26227,22 +26949,25 @@ Class ProgressBar from Control
 	Value
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'progressbar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ProgressBar, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ProgressBar, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ProgressBar, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Increment P1
@@ -26314,22 +27039,25 @@ Class ProgressBar from Control
 Class PropertyManager from BindingManagerBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'propertymanager'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.PropertyManager, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.PropertyManager, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PropertyManager, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -26338,38 +27066,45 @@ Class RowStyle from TableLayoutStyle
 	Height
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rowstyle'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.RowStyle, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.RowStyle, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.RowStyle, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.RowStyle, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.RowStyle, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.RowStyle, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getHeight
@@ -26393,6 +27128,7 @@ Class ScrollBar from Control
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -26467,22 +27203,25 @@ Class ScrollableControl from Control
 	DockPadding
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'scrollablecontrol'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ScrollableControl, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ScrollableControl, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ScrollableControl, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ScrollControlIntoView P1
@@ -26556,22 +27295,25 @@ Class Splitter from Control
 	SplitPosition
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splitter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.Splitter, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.Splitter, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Splitter, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setSplitterMovingEvent P1
@@ -26638,22 +27380,25 @@ Class TabControl from Control
 	TabPages
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tabcontrol'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TabControl, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TabControl, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TabControl, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func DeselectTab P1
@@ -26839,9 +27584,11 @@ Class TableLayoutCellPaintEventArgs from PaintEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TableLayoutCellPaintEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCellBounds
@@ -26869,6 +27616,7 @@ Class TableLayoutColumnStyleCollection from TableLayoutStyleCollection
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -26896,9 +27644,11 @@ Class TableLayoutControlCollection from ControlCollection
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TableLayoutControlCollection, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -26922,6 +27672,7 @@ Class TableLayoutRowStyleCollection from TableLayoutStyleCollection
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -26953,6 +27704,7 @@ Class TableLayoutSettings from LayoutSettings
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -27045,38 +27797,45 @@ Class TaskDialogButton from TaskDialogControl
 	TryAgain
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogbutton'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TaskDialogButton, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func PerformClick 
@@ -27199,38 +27958,45 @@ Class TaskDialogExpander from TaskDialogControl
 	Position
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogexpander'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setExpandedChangedEvent P1
@@ -27283,38 +28049,45 @@ Class TaskDialogFootnote from TaskDialogControl
 	Icon
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogfootnote'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getText
@@ -27341,38 +28114,45 @@ Class TaskDialogProgressBar from TaskDialogControl
 	MarqueeSpeed
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogprogressbar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getState
@@ -27418,38 +28198,45 @@ Class TaskDialogRadioButton from TaskDialogControl
 	Checked
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogradiobutton'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setCheckedChangedEvent P1
@@ -27488,38 +28275,45 @@ Class TaskDialogVerificationCheckBox from TaskDialogControl
 	Checked
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogverificationcheckbox'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setCheckedChangedEvent P1
@@ -27568,6 +28362,7 @@ Class TextBoxBase from Control
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -27809,9 +28604,11 @@ Class ToolStripGripRenderEventArgs from ToolStripRenderEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripGripRenderEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getGripBounds
@@ -27897,6 +28694,7 @@ Class ToolStripItem from BindableComponent
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -28607,21 +29405,26 @@ Class ToolStripItemImageRenderEventArgs from ToolStripItemRenderEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripItemImageRenderEventArgs, System.Windows.Forms',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripItemImageRenderEventArgs, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ToolStripItemImageRenderEventArgs, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripItemImageRenderEventArgs, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getImage
@@ -28650,9 +29453,11 @@ Class ToolStripItemTextRenderEventArgs from ToolStripItemRenderEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripItemTextRenderEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5,P6,P7])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getText
@@ -28704,38 +29509,45 @@ Class ToolStripProfessionalRenderer from ToolStripRenderer
 	RoundedEdges
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripprofessionalrenderer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getColorTable
@@ -28760,9 +29572,11 @@ Class ToolStripSeparatorRenderEventArgs from ToolStripItemRenderEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripSeparatorRenderEventArgs, System.Windows.Forms',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getVertical
@@ -28775,22 +29589,25 @@ Class ToolStripSeparatorRenderEventArgs from ToolStripItemRenderEventArgs
 Class ToolStripSystemRenderer from ToolStripRenderer
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripsystemrenderer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripSystemRenderer, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripSystemRenderer, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripSystemRenderer, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -28807,22 +29624,25 @@ Class TrackBar from Control
 	Value
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'trackbar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TrackBar, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TrackBar, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TrackBar, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginInit 
@@ -28933,9 +29753,11 @@ Class TreeNodeMouseClickEventArgs from MouseEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeNodeMouseClickEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getNode
@@ -28978,22 +29800,25 @@ Class TreeView from Control
 	VisibleCount
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'treeview'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TreeView, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TreeView, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeView, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginUpdate 
@@ -29364,44 +30189,50 @@ Class TreeView from Control
 Class TreeViewImageIndexConverter from ImageIndexConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'treeviewimageindexconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TreeViewImageIndexConverter, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TreeViewImageIndexConverter, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeViewImageIndexConverter, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class TreeViewImageKeyConverter from ImageKeyConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'treeviewimagekeyconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TreeViewImageKeyConverter, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TreeViewImageKeyConverter, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeViewImageKeyConverter, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -29411,9 +30242,11 @@ Class VScrollProperties from ScrollProperties
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.VScrollProperties, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -29425,6 +30258,7 @@ Class WebBrowserBase from Control
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -29442,9 +30276,11 @@ Class CheckedListBoxObjectCollection from ListBoxObjectCollection
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.CheckedListBox+ObjectCollection, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -29460,22 +30296,25 @@ Class Button from ButtonBase
 	DialogResult
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'button'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.Button, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.Button, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Button, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func NotifyDefault P1
@@ -29511,22 +30350,25 @@ Class CheckBox from ButtonBase
 	ThreeState
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'checkbox'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.CheckBox, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.CheckBox, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.CheckBox, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setAppearanceChangedEvent P1
@@ -29620,22 +30462,25 @@ Class ComboBox from ListControl
 	DropDownStyle
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'combobox'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ComboBox, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ComboBox, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ComboBox, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginUpdate 
@@ -29889,22 +30734,25 @@ Class ContainerControl from ScrollableControl
 	ParentForm
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'containercontrol'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ContainerControl, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ContainerControl, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ContainerControl, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func PerformAutoScale 
@@ -29988,9 +30836,11 @@ Class ControlBindingsCollection from BindingsCollection
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ControlBindingsCollection, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -30038,22 +30888,25 @@ Class DataGridViewButtonCell from DataGridViewCell
 	UseColumnTextForButtonValue
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewbuttoncell'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewButtonCell, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewButtonCell, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewButtonCell, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFlatStyle
@@ -30085,38 +30938,45 @@ Class DataGridViewCheckBoxCell from DataGridViewCell
 	TrueValue
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcheckboxcell'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetEditingCellFormattedValue_ P1
@@ -30198,38 +31058,45 @@ Class DataGridViewColumn from DataGridViewBand
 	Width
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcolumn'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetPreferredWidth P1,P2
@@ -30375,9 +31242,11 @@ Class DataGridViewColumnDividerDoubleClickEventArgs from HandledMouseEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumnDividerDoubleClickEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getColumnIndex
@@ -30402,22 +31271,25 @@ Class DataGridViewComboBoxCell from DataGridViewCell
 	ValueMember
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcomboboxcell'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewComboBoxCell, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewComboBoxCell, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewComboBoxCell, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAutoComplete
@@ -30503,22 +31375,25 @@ Class DataGridViewComboBoxCell from DataGridViewCell
 Class DataGridViewHeaderCell from DataGridViewCell
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewheadercell'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewHeaderCell, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewHeaderCell, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewHeaderCell, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -30529,38 +31404,45 @@ Class DataGridViewImageCell from DataGridViewCell
 	ValueIsIcon
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewimagecell'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getDescription
@@ -30596,22 +31478,25 @@ Class DataGridViewLinkCell from DataGridViewCell
 	VisitedLinkColor
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewlinkcell'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewLinkCell, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewLinkCell, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewLinkCell, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getActiveLinkColor
@@ -30680,22 +31565,25 @@ Class DataGridViewRow from DataGridViewBand
 	MinimumHeight
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewrow'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewRow, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewRow, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewRow, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AdjustRowHeaderBorderStyle P1,P2,P3,P4,P5,P6
@@ -30792,9 +31680,11 @@ Class DataGridViewRowDividerDoubleClickEventArgs from HandledMouseEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewRowDividerDoubleClickEventArgs, System.Windows.Forms',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getRowIndex
@@ -30809,22 +31699,25 @@ Class DataGridViewTextBoxCell from DataGridViewCell
 	MaxInputLength
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewtextboxcell'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewTextBoxCell, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewTextBoxCell, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewTextBoxCell, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getMaxInputLength
@@ -30841,22 +31734,25 @@ Class DataGridViewTextBoxCell from DataGridViewCell
 Class HScrollBar from ScrollBar
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hscrollbar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.HScrollBar, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.HScrollBar, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.HScrollBar, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -30872,22 +31768,25 @@ Class LinkLabel from Label
 	VisitedLinkColor
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linklabel'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.LinkLabel, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.LinkLabel, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.LinkLabel, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setLinkClickedEvent P1
@@ -30980,22 +31879,25 @@ Class ListBox from ListControl
 	DefaultItemHeight
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listbox'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ListBox, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ListBox, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListBox, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginUpdate 
@@ -31240,38 +32142,45 @@ Class MaskedTextBox from TextBoxBase
 	ValidatingType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'maskedtextbox'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.MaskedTextBox, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.MaskedTextBox, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.MaskedTextBox, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.MaskedTextBox, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.MaskedTextBox, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.MaskedTextBox, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ValidateText 
@@ -31486,22 +32395,25 @@ Class OpenFileDialog from FileDialog
 	SafeFileNames
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'openfiledialog'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.OpenFileDialog, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.OpenFileDialog, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.OpenFileDialog, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func OpenFile 
@@ -31561,22 +32473,25 @@ Class Panel from ScrollableControl
 	BorderStyle
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'panel'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.Panel, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.Panel, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Panel, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAutoSizeMode
@@ -31602,22 +32517,25 @@ Class RadioButton from ButtonBase
 	Checked
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'radiobutton'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.RadioButton, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.RadioButton, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.RadioButton, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func PerformClick 
@@ -31700,22 +32618,25 @@ Class RichTextBox from TextBoxBase
 	ZoomFactor
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'richtextbox'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.RichTextBox, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.RichTextBox, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.RichTextBox, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CanPaste P1
@@ -32009,22 +32930,25 @@ Class SaveFileDialog from FileDialog
 	OverwritePrompt
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'savefiledialog'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.SaveFileDialog, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.SaveFileDialog, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.SaveFileDialog, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func OpenFile 
@@ -32064,38 +32988,45 @@ Class TaskDialogCommandLinkButton from TaskDialogButton
 	DescriptionText
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogcommandlinkbutton'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getDescriptionText
@@ -32120,22 +33051,25 @@ Class TextBox from TextBoxBase
 	PlaceholderText
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'textbox'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TextBox, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TextBox, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TextBox, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Paste P1
@@ -32256,38 +33190,45 @@ Class ToolStrip from ScrollableControl
 	TextDirection
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstrip'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStrip, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStrip, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStrip, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStrip, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ToolStrip, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStrip, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetNextItem P1,P2
@@ -32537,38 +33478,45 @@ Class ToolStripButton from ToolStripItem
 	CheckState
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripbutton'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripButton, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripButton, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripButton, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripButton, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ToolStripButton, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripButton, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setCheckedChangedEvent P1
@@ -32620,21 +33568,26 @@ Class ToolStripControlHost from ToolStripItem
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripControlHost, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripControlHost, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ToolStripControlHost, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripControlHost, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Focus 
@@ -32752,6 +33705,7 @@ Class ToolStripDropDownItem from ToolStripItem
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -32839,38 +33793,45 @@ Class ToolStripLabel from ToolStripItem
 	VisitedLinkColor
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstriplabel'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripLabel, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getIsLink
@@ -32919,44 +33880,50 @@ Class ToolStripLabel from ToolStripItem
 Class ToolStripSeparator from ToolStripItem
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripseparator'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripSeparator, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripSeparator, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripSeparator, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class VScrollBar from ScrollBar
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vscrollbar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.VScrollBar, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.VScrollBar, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.VScrollBar, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -32985,22 +33952,25 @@ Class WebBrowser from WebBrowserBase
 	ScrollBarsEnabled
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'webbrowser'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.WebBrowser, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.WebBrowser, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.WebBrowser, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GoBack 
@@ -33304,38 +34274,45 @@ Class BindingNavigator from ToolStrip
 	CountItemFormat
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bindingnavigator'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.BindingNavigator, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.BindingNavigator, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingNavigator, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingNavigator, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.BindingNavigator, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingNavigator, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginInit 
@@ -33441,22 +34418,25 @@ Class CheckedListBox from ListBox
 	UseCompatibleTextRendering
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'checkedlistbox'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.CheckedListBox, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.CheckedListBox, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.CheckedListBox, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetItemCheckState P1
@@ -33522,22 +34502,25 @@ Class DataGridViewButtonColumn from DataGridViewColumn
 	UseColumnTextForButtonValue
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewbuttoncolumn'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFlatStyle
@@ -33571,38 +34554,45 @@ Class DataGridViewCheckBoxColumn from DataGridViewColumn
 	TrueValue
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcheckboxcolumn'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFalseValue
@@ -33646,22 +34636,25 @@ Class DataGridViewColumnHeaderCell from DataGridViewHeaderCell
 	SortGlyphDirection
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcolumnheadercell'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumnHeaderCell, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewColumnHeaderCell, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumnHeaderCell, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getSortGlyphDirection
@@ -33687,22 +34680,25 @@ Class DataGridViewComboBoxColumn from DataGridViewColumn
 	Sorted
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcomboboxcolumn'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAutoComplete
@@ -33792,22 +34788,25 @@ Class DataGridViewComboBoxEditingControl from ComboBox
 	RepositionEditingControlOnValueChange
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcomboboxeditingcontrol'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewComboBoxEditingControl, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewComboBoxEditingControl, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewComboBoxEditingControl, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ApplyCellStyleToEditingControl P1
@@ -33874,38 +34873,45 @@ Class DataGridViewImageColumn from DataGridViewColumn
 	ValuesAreIcons
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewimagecolumn'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getDescription
@@ -33955,22 +34961,25 @@ Class DataGridViewLinkColumn from DataGridViewColumn
 	VisitedLinkColor
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewlinkcolumn'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewLinkColumn, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewLinkColumn, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewLinkColumn, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getActiveLinkColor
@@ -34026,22 +35035,25 @@ Class DataGridViewLinkColumn from DataGridViewColumn
 Class DataGridViewRowHeaderCell from DataGridViewHeaderCell
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewrowheadercell'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewRowHeaderCell, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewRowHeaderCell, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewRowHeaderCell, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -34050,22 +35062,25 @@ Class DataGridViewTextBoxColumn from DataGridViewColumn
 	MaxInputLength
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewtextboxcolumn'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getMaxInputLength
@@ -34086,22 +35101,25 @@ Class DataGridViewTextBoxEditingControl from TextBox
 	RepositionEditingControlOnValueChange
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewtextboxeditingcontrol'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewTextBoxEditingControl, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewTextBoxEditingControl, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewTextBoxEditingControl, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ApplyCellStyleToEditingControl P1
@@ -34165,22 +35183,25 @@ Class FlowLayoutPanel from Panel
 	WrapContents
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'flowlayoutpanel'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetFlowBreak P1
@@ -34252,22 +35273,25 @@ Class Form from ContainerControl
 	ActiveForm
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'form'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.Form, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.Form, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Form, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Activate 
@@ -34839,22 +35863,25 @@ Class MenuStrip from ToolStrip
 	MdiWindowListItem
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'menustrip'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.MenuStrip, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.MenuStrip, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.MenuStrip, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setMenuActivateEvent P1
@@ -34919,22 +35946,25 @@ Class PropertyGrid from ContainerControl
 	UseCompatibleTextRendering
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'propertygrid'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.PropertyGrid, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.PropertyGrid, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PropertyGrid, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CollapseAllGridItems 
@@ -35245,22 +36275,25 @@ Class SplitContainer from ContainerControl
 	SplitterWidth
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splitcontainer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.SplitContainer, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.SplitContainer, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.SplitContainer, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginInit 
@@ -35397,9 +36430,11 @@ Class SplitterPanel from Panel
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.SplitterPanel, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -35409,22 +36444,25 @@ Class StatusStrip from ToolStrip
 	SizeGripBounds
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'statusstrip'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.StatusStrip, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.StatusStrip, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.StatusStrip, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getSizingGrip
@@ -35449,38 +36487,45 @@ Class TabPage from Panel
 	ToolTipText
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tabpage'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TabPage, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TabPage, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TabPage, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TabPage, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.TabPage, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TabPage, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetTabPageOfComponent P1
@@ -35526,22 +36571,25 @@ Class TableLayoutPanel from Panel
 	ColumnStyles
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tablelayoutpanel'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.TableLayoutPanel, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.TableLayoutPanel, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TableLayoutPanel, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetColumnSpan P1
@@ -35670,38 +36718,45 @@ Class ToolStripComboBox from ToolStripControlHost
 	Sorted
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripcombobox'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginUpdate 
@@ -35927,22 +36982,25 @@ Class ToolStripContainer from ContainerControl
 	TopToolStripPanelVisible
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripcontainer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripContainer, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripContainer, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripContainer, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBottomToolStripPanel
@@ -36010,22 +37068,25 @@ Class ToolStripContentPanel from Panel
 	RenderMode
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripcontentpanel'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripContentPanel, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripContentPanel, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripContentPanel, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setLoadEvent P1
@@ -36070,22 +37131,25 @@ Class ToolStripDropDown from ToolStrip
 	TopLevel
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripdropdown'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDown, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripDropDown, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDown, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Close P1
@@ -36198,38 +37262,45 @@ Class ToolStripDropDownButton from ToolStripDropDownItem
 	ShowDropDownArrow
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripdropdownbutton'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getShowDropDownArrow
@@ -36251,38 +37322,45 @@ Class ToolStripMenuItem from ToolStripDropDownItem
 	IsMdiWindowListEntry
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripmenuitem'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setCheckedChangedEvent P1
@@ -36360,22 +37438,25 @@ Class ToolStripPanel from ContainerControl
 	Rows
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstrippanel'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripPanel, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripPanel, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripPanel, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginInit 
@@ -36459,38 +37540,45 @@ Class ToolStripProgressBar from ToolStripControlHost
 	Value
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripprogressbar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Increment P1
@@ -36578,38 +37666,45 @@ Class ToolStripSplitButton from ToolStripDropDownItem
 	SplitterBounds
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripsplitbutton'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func OnButtonDoubleClick P1
@@ -36713,38 +37808,45 @@ Class ToolStripStatusLabel from ToolStripLabel
 	LiveSetting
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripstatuslabel'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBorderStyle
@@ -36802,38 +37904,45 @@ Class ToolStripTextBox from ToolStripControlHost
 	WordWrap
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstriptextbox'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AppendText P1
@@ -37126,6 +38235,7 @@ Class UpDownBase from ContainerControl
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -37197,22 +38307,25 @@ Class UserControl from ContainerControl
 	BorderStyle
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'usercontrol'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.UserControl, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.UserControl, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.UserControl, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setLoadEvent P1
@@ -37241,22 +38354,25 @@ Class UserControl from ContainerControl
 Class DataGridViewTopLeftHeaderCell from DataGridViewColumnHeaderCell
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewtopleftheadercell'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DataGridViewTopLeftHeaderCell, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DataGridViewTopLeftHeaderCell, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewTopLeftHeaderCell, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -37269,22 +38385,25 @@ Class DomainUpDown from UpDownBase
 	Wrap
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'domainupdown'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.DomainUpDown, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.DomainUpDown, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DomainUpDown, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setSelectedItemChangedEvent P1
@@ -37342,22 +38461,25 @@ Class NumericUpDown from UpDownBase
 	Value
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'numericupdown'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.NumericUpDown, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.NumericUpDown, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.NumericUpDown, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func BeginInit 
@@ -37439,22 +38561,25 @@ Class PrintPreviewDialog from Form
 	PrintPreviewControl
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'printpreviewdialog'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.PrintPreviewDialog, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.PrintPreviewDialog, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PrintPreviewDialog, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUseAntiAlias
@@ -37484,9 +38609,11 @@ Class ThreadExceptionDialog from Form
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ThreadExceptionDialog, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -37496,22 +38623,25 @@ Class ToolStripDropDownMenu from ToolStripDropDown
 	ShowCheckMargin
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripdropdownmenu'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownMenu, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ToolStripDropDownMenu, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownMenu, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getShowImageMargin
@@ -37535,9 +38665,11 @@ Class ToolStripOverflow from ToolStripDropDown
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripOverflow, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -37547,6 +38679,7 @@ Class ToolStripOverflowButton from ToolStripDropDownButton
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -37557,38 +38690,45 @@ Class ContextMenuStrip from ToolStripDropDownMenu
 	SourceControl
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'contextmenustrip'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms',[])
+		dnDefaultObject('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getSourceControl

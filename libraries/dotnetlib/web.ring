@@ -48,6 +48,7 @@ func webPlain  xValue
 class RingRequest
 
 	nHandle = 0
+	oOwner = ""          # the object that owns the handle (its guard releases the handle when this request is gone)
 
 	func init  pHandle
 		nHandle = pHandle
@@ -127,6 +128,7 @@ class WebServer
 			return false
 		ok
 		oWebRequest = new RingRequest(wb_oRaw.nHandle)
+		oWebRequest.oOwner = wb_oRaw
 		nRequests++
 		wb_cFound = ""
 		wb_cMethod = oWebRequest.method()

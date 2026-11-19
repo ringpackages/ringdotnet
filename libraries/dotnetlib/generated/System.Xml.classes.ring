@@ -251,6 +251,7 @@ Class IHasXmlNode from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -268,6 +269,7 @@ Class IXmlLineInfo from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -294,6 +296,7 @@ Class IXmlNamespaceResolver from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -311,22 +314,25 @@ Class IXmlNamespaceResolver from DotNetObject
 Class XmlConvert from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlconvert'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.XmlConvert, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.XmlConvert, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.XmlConvert, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Format P1
@@ -453,38 +459,45 @@ Class XmlConvert from Object
 Class XmlImplementation from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlimplementation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.XmlImplementation, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.XmlImplementation, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.XmlImplementation, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlImplementation, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.XmlImplementation, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.XmlImplementation, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasFeature P1,P2
@@ -503,6 +516,7 @@ Class XmlNameTable from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -531,6 +545,7 @@ Class XmlNamedNodeMap from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -575,9 +590,11 @@ Class XmlNamespaceManager from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.XmlNamespaceManager, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func PushScope 
@@ -655,6 +672,7 @@ Class XmlNode from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -882,9 +900,11 @@ Class XmlNodeChangedEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.XmlNodeChangedEventArgs, System.Private.Xml',[P1,P2,P3,P4,P5,P6])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAction
@@ -932,6 +952,7 @@ Class XmlNodeList from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -969,21 +990,26 @@ Class XmlParserContext from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.XmlParserContext, System.Private.Xml',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlParserContext, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.XmlParserContext, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.XmlParserContext, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1068,38 +1094,45 @@ Class XmlQualifiedName from Object
 	Empty
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlqualifiedname'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.XmlQualifiedName, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.XmlQualifiedName, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.XmlQualifiedName, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlQualifiedName, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.XmlQualifiedName, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.XmlQualifiedName, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Format P1
@@ -1171,6 +1204,7 @@ Class XmlReader from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1665,22 +1699,25 @@ Class XmlReaderSettings from Object
 	Schemas
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlreadersettings'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.XmlReaderSettings, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.XmlReaderSettings, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.XmlReaderSettings, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Reset 
@@ -1835,6 +1872,7 @@ Class XmlResolver from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1882,6 +1920,7 @@ Class XmlWriter from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2182,22 +2221,25 @@ Class XmlWriterSettings from Object
 	DoNotEscapeUriAttributes
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlwritersettings'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.XmlWriterSettings, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.XmlWriterSettings, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.XmlWriterSettings, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Reset 
@@ -2318,22 +2360,25 @@ Class XmlWriterSettings from Object
 Class NameTable from XmlNameTable
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'nametable'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.NameTable, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.NameTable, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.NameTable, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -2346,6 +2391,7 @@ Class XmlAttribute from XmlNode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2369,6 +2415,7 @@ Class XmlAttributeCollection from XmlNamedNodeMap
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2411,38 +2458,45 @@ Class XmlDocument from XmlNode
 	PreserveWhitespace
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmldocument'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.XmlDocument, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.XmlDocument, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.XmlDocument, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlDocument, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.XmlDocument, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.XmlDocument, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateAttribute P1
@@ -2625,6 +2679,7 @@ Class XmlDocumentFragment from XmlNode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2640,6 +2695,7 @@ Class XmlEntity from XmlNode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2669,6 +2725,7 @@ Class XmlLinkedNode from XmlNode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2680,9 +2737,11 @@ Class XmlNodeReader from XmlReader
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.XmlNodeReader, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -2695,6 +2754,7 @@ Class XmlNotation from XmlNode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2729,21 +2789,26 @@ Class XmlTextReader from XmlReader
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.XmlTextReader, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlTextReader, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.XmlTextReader, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.XmlTextReader, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func HasLineInfo 
@@ -2846,21 +2911,26 @@ Class XmlTextWriter from XmlWriter
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.XmlTextWriter, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlTextWriter, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.XmlTextWriter, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.XmlTextWriter, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBaseStream
@@ -2911,22 +2981,25 @@ Class XmlUrlResolver from XmlResolver
 	CachePolicy
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlurlresolver'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.XmlUrlResolver, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.XmlUrlResolver, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.XmlUrlResolver, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func setProxy P1
@@ -2947,6 +3020,7 @@ Class XmlCharacterData from XmlLinkedNode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2994,6 +3068,7 @@ Class XmlDeclaration from XmlLinkedNode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3031,6 +3106,7 @@ Class XmlDocumentType from XmlLinkedNode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3075,6 +3151,7 @@ Class XmlElement from XmlLinkedNode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3156,6 +3233,7 @@ Class XmlEntityReference from XmlLinkedNode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3170,6 +3248,7 @@ Class XmlProcessingInstruction from XmlLinkedNode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3194,6 +3273,7 @@ Class XmlCDataSection from XmlCharacterData
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3205,6 +3285,7 @@ Class XmlComment from XmlCharacterData
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3216,6 +3297,7 @@ Class XmlSignificantWhitespace from XmlCharacterData
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3227,6 +3309,7 @@ Class XmlText from XmlCharacterData
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -3241,6 +3324,7 @@ Class XmlWhitespace from XmlCharacterData
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self

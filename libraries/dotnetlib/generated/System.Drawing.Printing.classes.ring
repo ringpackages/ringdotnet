@@ -103,38 +103,45 @@ Class Margins from Object
 	Bottom
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'margins'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.Printing.Margins, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.Printing.Margins, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.Margins, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Printing.Margins, System.Drawing.Common',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.Printing.Margins, System.Drawing.Common',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.Margins, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Clone 
@@ -175,22 +182,25 @@ Class Margins from Object
 Class MarginsConverter from ExpandableObjectConverter
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'marginsconverter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.Printing.MarginsConverter, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.Printing.MarginsConverter, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.MarginsConverter, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -209,38 +219,45 @@ Class PageSettings from Object
 	PrinterSettings
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pagesettings'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.Printing.PageSettings, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.Printing.PageSettings, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PageSettings, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Printing.PageSettings, System.Drawing.Common',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.Printing.PageSettings, System.Drawing.Common',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PageSettings, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Clone 
@@ -340,38 +357,45 @@ Class PaperSize from Object
 	Width
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'papersize'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.Printing.PaperSize, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.Printing.PaperSize, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PaperSize, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Printing.PaperSize, System.Drawing.Common',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Drawing.Printing.PaperSize, System.Drawing.Common',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PaperSize, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -419,22 +443,25 @@ Class PaperSource from Object
 	SourceName
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'papersource'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.Printing.PaperSource, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.Printing.PaperSource, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PaperSource, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -470,9 +497,11 @@ Class PreviewPageInfo from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PreviewPageInfo, System.Drawing.Common',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -499,6 +528,7 @@ Class PrintController from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -537,22 +567,25 @@ Class PrintDocument from Component
 	PrinterSettings
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'printdocument'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.Printing.PrintDocument, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.Printing.PrintDocument, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PrintDocument, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Print 
@@ -632,22 +665,25 @@ Class PrintEventArgs from CancelEventArgs
 	PrintAction
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'printeventargs'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.Printing.PrintEventArgs, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.Printing.PrintEventArgs, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PrintEventArgs, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPrintAction
@@ -670,9 +706,11 @@ Class PrintPageEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PrintPageEventArgs, System.Drawing.Common',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCancel
@@ -721,22 +759,25 @@ Class PrinterResolution from Object
 	Y
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'printerresolution'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.Printing.PrinterResolution, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.Printing.PrinterResolution, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PrinterResolution, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -791,22 +832,25 @@ Class PrinterSettings from Object
 	InstalledPrinters
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'printersettings'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.Printing.PrinterSettings, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.Printing.PrinterSettings, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PrinterSettings, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func IsDirectPrintingSupported P1
@@ -1003,6 +1047,7 @@ Class PrinterUnitConvert from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1019,22 +1064,25 @@ Class PreviewPrintController from PrintController
 	UseAntiAlias
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'previewprintcontroller'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.Printing.PreviewPrintController, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.Printing.PreviewPrintController, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PreviewPrintController, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetPreviewPageInfo 
@@ -1056,9 +1104,11 @@ Class QueryPageSettingsEventArgs from PrintEventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.QueryPageSettingsEventArgs, System.Drawing.Common',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPageSettings
@@ -1072,22 +1122,25 @@ Class QueryPageSettingsEventArgs from PrintEventArgs
 Class StandardPrintController from PrintController
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'standardprintcontroller'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Drawing.Printing.StandardPrintController, System.Drawing.Common',[])
+		dnDefaultObject('System.Drawing.Printing.StandardPrintController, System.Drawing.Common')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.StandardPrintController, System.Drawing.Common',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 

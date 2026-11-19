@@ -113,22 +113,25 @@ Class IPPacketInformation from ValueType
 	Interface
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ippacketinformation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Sockets.IPPacketInformation, System.Net.Sockets',[])
+		dnDefaultObject('System.Net.Sockets.IPPacketInformation, System.Net.Sockets')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Sockets.IPPacketInformation, System.Net.Sockets',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAddress
@@ -153,21 +156,26 @@ Class IPv6MulticastOption from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.IPv6MulticastOption, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.IPv6MulticastOption, System.Net.Sockets',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Sockets.IPv6MulticastOption, System.Net.Sockets',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.IPv6MulticastOption, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -197,9 +205,11 @@ Class LingerOption from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.LingerOption, System.Net.Sockets',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -230,21 +240,26 @@ Class MulticastOption from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.MulticastOption, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.MulticastOption, System.Net.Sockets',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Sockets.MulticastOption, System.Net.Sockets',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.MulticastOption, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -281,21 +296,26 @@ Class NetworkStream from Stream
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.NetworkStream, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.NetworkStream, System.Net.Sockets',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Sockets.NetworkStream, System.Net.Sockets',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.NetworkStream, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Close P1
@@ -329,38 +349,45 @@ Class SafeSocketHandle from DotNetObject
 	IsClosed
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'safesockethandle'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Sockets.SafeSocketHandle, System.Net.Sockets',[])
+		dnDefaultObject('System.Net.Sockets.SafeSocketHandle, System.Net.Sockets')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Sockets.SafeSocketHandle, System.Net.Sockets',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.SafeSocketHandle, System.Net.Sockets',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Sockets.SafeSocketHandle, System.Net.Sockets',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.SafeSocketHandle, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func DangerousGetHandle 
@@ -425,21 +452,26 @@ Class SendPacketsElement from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.SendPacketsElement, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.SendPacketsElement, System.Net.Sockets',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Sockets.SendPacketsElement, System.Net.Sockets',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.SendPacketsElement, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -530,21 +562,26 @@ Class Socket from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.Socket, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.Socket, System.Net.Sockets',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Sockets.Socket, System.Net.Sockets',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.Socket, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Bind P1
@@ -1014,38 +1051,45 @@ Class SocketAsyncEventArgs from EventArgs
 	UserToken
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'socketasynceventargs'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Sockets.SocketAsyncEventArgs, System.Net.Sockets',[])
+		dnDefaultObject('System.Net.Sockets.SocketAsyncEventArgs, System.Net.Sockets')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Sockets.SocketAsyncEventArgs, System.Net.Sockets',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.SocketAsyncEventArgs, System.Net.Sockets',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Sockets.SocketAsyncEventArgs, System.Net.Sockets',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.SocketAsyncEventArgs, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func SetBuffer P1
@@ -1196,22 +1240,25 @@ Class SocketInformation from ValueType
 	Options
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'socketinformation'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Sockets.SocketInformation, System.Net.Sockets',[])
+		dnDefaultObject('System.Net.Sockets.SocketInformation, System.Net.Sockets')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Sockets.SocketInformation, System.Net.Sockets',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getProtocolInformation
@@ -1235,22 +1282,25 @@ Class SocketReceiveFromResult from ValueType
 	RemoteEndPoint
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'socketreceivefromresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Sockets.SocketReceiveFromResult, System.Net.Sockets',[])
+		dnDefaultObject('System.Net.Sockets.SocketReceiveFromResult, System.Net.Sockets')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Sockets.SocketReceiveFromResult, System.Net.Sockets',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getReceivedBytes
@@ -1276,22 +1326,25 @@ Class SocketReceiveMessageFromResult from ValueType
 	PacketInformation
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'socketreceivemessagefromresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Sockets.SocketReceiveMessageFromResult, System.Net.Sockets',[])
+		dnDefaultObject('System.Net.Sockets.SocketReceiveMessageFromResult, System.Net.Sockets')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Sockets.SocketReceiveMessageFromResult, System.Net.Sockets',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getReceivedBytes
@@ -1329,6 +1382,7 @@ Class SocketTaskExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1384,38 +1438,45 @@ Class TcpClient from Object
 	NoDelay
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tcpclient'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Sockets.TcpClient, System.Net.Sockets',[])
+		dnDefaultObject('System.Net.Sockets.TcpClient, System.Net.Sockets')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Sockets.TcpClient, System.Net.Sockets',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.TcpClient, System.Net.Sockets',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Sockets.TcpClient, System.Net.Sockets',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.TcpClient, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Connect P1
@@ -1532,21 +1593,26 @@ Class TcpListener from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.TcpListener, System.Net.Sockets',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.TcpListener, System.Net.Sockets',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Sockets.TcpListener, System.Net.Sockets',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.TcpListener, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AllowNatTraversal P1
@@ -1649,38 +1715,45 @@ Class UdpClient from Object
 	ExclusiveAddressUse
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'udpclient'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Sockets.UdpClient, System.Net.Sockets',[])
+		dnDefaultObject('System.Net.Sockets.UdpClient, System.Net.Sockets')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Sockets.UdpClient, System.Net.Sockets',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.UdpClient, System.Net.Sockets',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Sockets.UdpClient, System.Net.Sockets',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.UdpClient, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AllowNatTraversal P1
@@ -1816,38 +1889,45 @@ Class UdpReceiveResult from ValueType
 	RemoteEndPoint
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'udpreceiveresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Net.Sockets.UdpReceiveResult, System.Net.Sockets',[])
+		dnDefaultObject('System.Net.Sockets.UdpReceiveResult, System.Net.Sockets')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Sockets.UdpReceiveResult, System.Net.Sockets',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.UdpReceiveResult, System.Net.Sockets',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Net.Sockets.UdpReceiveResult, System.Net.Sockets',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.UdpReceiveResult, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getBuffer
@@ -1869,9 +1949,11 @@ Class UnixDomainSocketEndPoint from EndPoint
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Net.Sockets.UnixDomainSocketEndPoint, System.Net.Sockets',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 

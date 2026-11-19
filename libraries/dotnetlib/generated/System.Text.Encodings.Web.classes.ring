@@ -37,6 +37,7 @@ Class TextEncoder from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -63,38 +64,45 @@ Class TextEncoder from Object
 Class TextEncoderSettings from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'textencodersettings'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Text.Encodings.Web.TextEncoderSettings, System.Text.Encodings.Web',[])
+		dnDefaultObject('System.Text.Encodings.Web.TextEncoderSettings, System.Text.Encodings.Web')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Encodings.Web.TextEncoderSettings, System.Text.Encodings.Web',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.Encodings.Web.TextEncoderSettings, System.Text.Encodings.Web',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Text.Encodings.Web.TextEncoderSettings, System.Text.Encodings.Web',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Text.Encodings.Web.TextEncoderSettings, System.Text.Encodings.Web',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func AllowCharacter P1
@@ -152,6 +160,7 @@ Class HtmlEncoder from TextEncoder
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -175,6 +184,7 @@ Class JavaScriptEncoder from TextEncoder
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -203,6 +213,7 @@ Class UrlEncoder from TextEncoder
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self

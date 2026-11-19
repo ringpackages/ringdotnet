@@ -105,12 +105,18 @@ func dnRequest  cOperation, aParameters
 			on C_DOTNET_OBJECT
 				dnWrapInto(dn_cBody)
 				dn_oObject = oDotNetNew          # a copy: the next wrapped object replaces oDotNetNew, and a chained call (a.B().C()) may still be running on this one
+				oDotNetNew = ""          # (the global must not keep the object alive: it owns the handle)
 				return dn_oObject
 			off
 		ok
 	ok
 	dn_aItems = dnUnpack(dn_cResponse)
 	return dn_aItems[1]
+
+# The handles of the objects that Ring freed are released in groups (the next .NET call does it when 32 are waiting).
+# dnFlush() releases them now: use it before you look at the memory of .NET (GC.GetTotalMemory) or to let go of a big object at once.
+func dnFlush
+	dotnet_flush()
 
 # Version of the .NET runtime that is hosted in this process
 func dnVersion
@@ -173,6 +179,7 @@ func dnTypeCached  cTypeName
 func dnCreate  cTypeName, aParameters
 	dn_xNew = dnRequest("new",dnJoin([dnTypeCached(cTypeName)],aParameters))
 	if isobject(dn_xNew)
+		dotnet_unguard(dn_xNew.oDotNetGuard)          # the class that is being made keeps the handle (and makes its own guard)
 		return dn_xNew.nHandle
 	ok
 	return 0	# primitive values (Int32, Double...) have no object, their classes are used for static members
@@ -193,6 +200,7 @@ func dnIsNamed  aValue
 func dnCreateNamed  cTypeName, aNamed
 	dn_xNew = dnRequest("newnamed",[dnTypeCached(cTypeName),aNamed])
 	if isobject(dn_xNew)
+		dotnet_unguard(dn_xNew.oDotNetGuard)
 		return dn_xNew.nHandle
 	ok
 	return 0
@@ -355,13 +363,14 @@ func dnBuildIndexMap
 func dnWrapObject  cInfo
 	dnWrapInto(cInfo)
 	dn_oObject = oDotNetNew
+	oDotNetNew = ""
 	return dn_oObject
 
 # The same, but the object is left in the global oDotNetNew (returning it would copy it once more: a class can have 100 attributes)
 func dnWrapInto  cInfo
 	dn_nBar = substr(cInfo,"|")
 	if dn_nBar = 0
-		oDotNetNew = new DotNetObject(number(cInfo))
+		oDotNetNew = new DotNetOwned(number(cInfo))
 		return
 	ok
 	nHandle = number(left(cInfo,dn_nBar - 1))
@@ -372,7 +381,7 @@ func dnWrapInto  cInfo
 		aDotNetWrapCache[dn_cChain] = dn_cFactory
 	ok
 	if dn_cFactory = "-"
-		oDotNetNew = new DotNetObject(nHandle)
+		oDotNetNew = new DotNetOwned(nHandle)
 		return
 	ok
 	nDotNetWrapHandle = nHandle

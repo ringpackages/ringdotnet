@@ -199,6 +199,7 @@ Class Calendar from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -370,6 +371,7 @@ Class CharUnicodeInfo from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -412,6 +414,7 @@ Class CompareInfo from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -526,21 +529,26 @@ Class CultureInfo from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Globalization.CultureInfo, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Globalization.CultureInfo, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Globalization.CultureInfo, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Globalization.CultureInfo, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -778,22 +786,25 @@ Class DateTimeFormatInfo from Object
 	CurrentInfo
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datetimeformatinfo'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetFormat P1
@@ -1047,9 +1058,11 @@ Class DaylightTime from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Globalization.DaylightTime, System.Private.CoreLib',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1077,6 +1090,7 @@ Class GlobalizationExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1094,6 +1108,7 @@ Class ISOWeek from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1126,22 +1141,25 @@ Class IdnMapping from Object
 	UseStd3AsciiRules
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'idnmapping'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.IdnMapping, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.IdnMapping, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.IdnMapping, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetAscii P1
@@ -1208,22 +1226,25 @@ Class NumberFormatInfo from Object
 	CurrentInfo
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'numberformatinfo'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.NumberFormatInfo, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.NumberFormatInfo, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.NumberFormatInfo, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Clone 
@@ -1470,9 +1491,11 @@ Class RegionInfo from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Globalization.RegionInfo, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1572,6 +1595,7 @@ Class SortKey from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1604,9 +1628,11 @@ Class SortVersion from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Globalization.SortVersion, System.Private.CoreLib',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1631,38 +1657,45 @@ Class StringInfo from Object
 	LengthInTextElements
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringinfo'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.StringInfo, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.StringInfo, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.StringInfo, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Globalization.StringInfo, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Globalization.StringInfo, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Globalization.StringInfo, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1718,6 +1751,7 @@ Class TextElementEnumerator from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1764,6 +1798,7 @@ Class TextInfo from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1848,6 +1883,7 @@ Class EastAsianLunisolarCalendar from Calendar
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1868,38 +1904,45 @@ Class GregorianCalendar from Calendar
 	ADEra
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'gregoriancalendar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.GregorianCalendar, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.GregorianCalendar, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.GregorianCalendar, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Globalization.GregorianCalendar, System.Private.CoreLib',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Globalization.GregorianCalendar, System.Private.CoreLib',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Globalization.GregorianCalendar, System.Private.CoreLib',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getCalendarType
@@ -1921,22 +1964,25 @@ Class HebrewCalendar from Calendar
 	HebrewEra
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hebrewcalendar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.HebrewCalendar, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.HebrewCalendar, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.HebrewCalendar, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getHebrewEra
@@ -1952,22 +1998,25 @@ Class HijriCalendar from Calendar
 	HijriEra
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hijricalendar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.HijriCalendar, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.HijriCalendar, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.HijriCalendar, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getHijriAdjustment
@@ -1987,22 +2036,25 @@ Class HijriCalendar from Calendar
 Class JapaneseCalendar from Calendar
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'japanesecalendar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.JapaneseCalendar, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.JapaneseCalendar, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.JapaneseCalendar, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -2011,22 +2063,25 @@ Class JulianCalendar from Calendar
 	JulianEra
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'juliancalendar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.JulianCalendar, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.JulianCalendar, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.JulianCalendar, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getJulianEra
@@ -2041,22 +2096,25 @@ Class KoreanCalendar from Calendar
 	KoreanEra
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'koreancalendar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.KoreanCalendar, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.KoreanCalendar, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.KoreanCalendar, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getKoreanEra
@@ -2071,22 +2129,25 @@ Class PersianCalendar from Calendar
 	PersianEra
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'persiancalendar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.PersianCalendar, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.PersianCalendar, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.PersianCalendar, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPersianEra
@@ -2099,22 +2160,25 @@ Class PersianCalendar from Calendar
 Class TaiwanCalendar from Calendar
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taiwancalendar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.TaiwanCalendar, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.TaiwanCalendar, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.TaiwanCalendar, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -2123,22 +2187,25 @@ Class ThaiBuddhistCalendar from Calendar
 	ThaiBuddhistEra
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'thaibuddhistcalendar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getThaiBuddhistEra
@@ -2153,22 +2220,25 @@ Class UmAlQuraCalendar from Calendar
 	UmAlQuraEra
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'umalquracalendar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.UmAlQuraCalendar, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.UmAlQuraCalendar, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.UmAlQuraCalendar, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUmAlQuraEra
@@ -2183,22 +2253,25 @@ Class ChineseLunisolarCalendar from EastAsianLunisolarCalendar
 	ChineseEra
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'chineselunisolarcalendar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getChineseEra
@@ -2213,22 +2286,25 @@ Class JapaneseLunisolarCalendar from EastAsianLunisolarCalendar
 	JapaneseEra
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'japaneselunisolarcalendar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getJapaneseEra
@@ -2243,22 +2319,25 @@ Class KoreanLunisolarCalendar from EastAsianLunisolarCalendar
 	GregorianEra
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'koreanlunisolarcalendar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getGregorianEra
@@ -2271,22 +2350,25 @@ Class KoreanLunisolarCalendar from EastAsianLunisolarCalendar
 Class TaiwanLunisolarCalendar from EastAsianLunisolarCalendar
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taiwanlunisolarcalendar'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Globalization.TaiwanLunisolarCalendar, System.Private.CoreLib',[])
+		dnDefaultObject('System.Globalization.TaiwanLunisolarCalendar, System.Private.CoreLib')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.TaiwanLunisolarCalendar, System.Private.CoreLib',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 

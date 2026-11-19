@@ -421,38 +421,45 @@ Class ActionContext from Object
 	RouteData
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'actioncontext'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -492,6 +499,7 @@ Class ActionResult from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -518,22 +526,25 @@ Class ApiBehaviorOptions from Object
 	ClientErrorMapping
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'apibehavioroptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ApiBehaviorOptions, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ApiBehaviorOptions, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ApiBehaviorOptions, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -593,22 +604,25 @@ Class ApiDescriptionActionData from Object
 	GroupName
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'apidescriptionactiondata'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ApiDescriptionActionData, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ApiDescriptionActionData, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ApiDescriptionActionData, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -631,22 +645,25 @@ Class CacheProfile from Object
 	VaryByQueryKeys
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cacheprofile'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CacheProfile, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.CacheProfile, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CacheProfile, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -694,22 +711,25 @@ Class ClientErrorData from Object
 	Title
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'clienterrordata'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ClientErrorData, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ClientErrorData, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ClientErrorData, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -750,6 +770,7 @@ Class ControllerBase from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1144,22 +1165,25 @@ Class CookieTempDataProviderOptions from Object
 	Cookie
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cookietempdataprovideroptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CookieTempDataProviderOptions, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.CookieTempDataProviderOptions, Microsoft.AspNetCore.Mvc.ViewFeatures')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CookieTempDataProviderOptions, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1179,6 +1203,7 @@ Class DefaultApiConventions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1225,6 +1250,7 @@ Class IActionResult from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1239,6 +1265,7 @@ Class IDesignTimeMvcBuilderConfiguration from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1254,6 +1281,7 @@ Class IRequestFormLimitsPolicy from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1265,6 +1293,7 @@ Class IRequestSizePolicy from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1278,6 +1307,7 @@ Class IUrlHelper from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1310,6 +1340,7 @@ Class IViewComponentHelper from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1324,6 +1355,7 @@ Class IViewComponentResult from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1342,22 +1374,25 @@ Class JsonOptions from Object
 	JsonSerializerOptions
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.JsonOptions, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.JsonOptions, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.JsonOptions, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1409,22 +1444,25 @@ Class MvcOptions from Object
 	MaxIAsyncEnumerableBufferLimit
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mvcoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.MvcOptions, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.MvcOptions, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.MvcOptions, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1623,22 +1661,25 @@ Class MvcViewOptions from Object
 	ClientModelValidatorProviders
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mvcviewoptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.MvcViewOptions, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.MvcViewOptions, Microsoft.AspNetCore.Mvc.ViewFeatures')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.MvcViewOptions, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1674,22 +1715,25 @@ Class ProblemDetails from Object
 	Extensions
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'problemdetails'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ProblemDetails, Microsoft.AspNetCore.Http.Abstractions',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ProblemDetails, Microsoft.AspNetCore.Http.Abstractions')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ProblemDetails, Microsoft.AspNetCore.Http.Abstractions',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetType_ 
@@ -1744,38 +1788,45 @@ Class ProblemDetails from Object
 Class SerializableError from ObjectDictionary
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'serializableerror'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1785,6 +1836,7 @@ Class UrlHelperExtensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1826,38 +1878,45 @@ Class UrlHelperExtensions from Object
 Class ValidationProblemDetails from HttpValidationProblemDetails
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'validationproblemdetails'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1881,6 +1940,7 @@ Class ViewComponent from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1988,38 +2048,45 @@ Class ChallengeResult from ActionResult
 	Properties
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'challengeresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAuthenticationSchemes
@@ -2044,22 +2111,25 @@ Class ContentResult from ActionResult
 	StatusCode
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'contentresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ContentResult, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ContentResult, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ContentResult, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getContent
@@ -2094,6 +2164,7 @@ Class Controller from ControllerBase
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2169,38 +2240,45 @@ Class ControllerContext from ActionContext
 	ValueProviderFactories
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'controllercontext'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getValueProviderFactories
@@ -2214,22 +2292,25 @@ Class ControllerContext from ActionContext
 Class EmptyResult from ActionResult
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'emptyresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.EmptyResult, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.EmptyResult, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.EmptyResult, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -2245,6 +2326,7 @@ Class FileResult from ActionResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -2290,38 +2372,45 @@ Class ForbidResult from ActionResult
 	Properties
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'forbidresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAuthenticationSchemes
@@ -2350,21 +2439,26 @@ Class JsonResult from ActionResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.JsonResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.JsonResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.JsonResult, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.JsonResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getContentType
@@ -2407,21 +2501,26 @@ Class LocalRedirectResult from ActionResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.LocalRedirectResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.LocalRedirectResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.LocalRedirectResult, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.LocalRedirectResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPermanent
@@ -2465,9 +2564,11 @@ Class ObjectResult from ActionResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ObjectResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func OnFormatting P1
@@ -2521,22 +2622,25 @@ Class PartialViewResult from ActionResult
 	ContentType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'partialviewresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.PartialViewResult, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.PartialViewResult, Microsoft.AspNetCore.Mvc.ViewFeatures')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.PartialViewResult, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getStatusCode
@@ -2599,21 +2703,26 @@ Class RedirectResult from ActionResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.RedirectResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectResult, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getPermanent
@@ -2659,21 +2768,26 @@ Class RedirectToActionResult from ActionResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToActionResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.RedirectToActionResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToActionResult, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToActionResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUrlHelper
@@ -2742,21 +2856,26 @@ Class RedirectToPageResult from ActionResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToPageResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.RedirectToPageResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToPageResult, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToPageResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUrlHelper
@@ -2836,21 +2955,26 @@ Class RedirectToRouteResult from ActionResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.RedirectToRouteResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToRouteResult, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUrlHelper
@@ -2906,21 +3030,26 @@ Class SignInResult from ActionResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignInResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.SignInResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignInResult, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignInResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAuthenticationScheme
@@ -2951,38 +3080,45 @@ Class SignOutResult from ActionResult
 	Properties
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'signoutresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getAuthenticationSchemes
@@ -3008,9 +3144,11 @@ Class StatusCodeResult from ActionResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.StatusCodeResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getStatusCode
@@ -3032,22 +3170,25 @@ Class ViewComponentResult from ActionResult
 	ContentType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'viewcomponentresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ViewComponentResult, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ViewComponentResult, Microsoft.AspNetCore.Mvc.ViewFeatures')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ViewComponentResult, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getArguments
@@ -3117,22 +3258,25 @@ Class ViewResult from ActionResult
 	ContentType
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'viewresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ViewResult, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ViewResult, Microsoft.AspNetCore.Mvc.ViewFeatures')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ViewResult, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getStatusCode
@@ -3195,9 +3339,11 @@ Class AcceptedAtActionResult from ObjectResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedAtActionResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUrlHelper
@@ -3239,21 +3385,26 @@ Class AcceptedAtRouteResult from ObjectResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.AcceptedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUrlHelper
@@ -3283,38 +3434,45 @@ Class AcceptedResult from ObjectResult
 	Location
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'acceptedresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getLocation
@@ -3331,31 +3489,36 @@ Class BadRequestObjectResult from ObjectResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.BadRequestObjectResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class BadRequestResult from StatusCodeResult
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'badrequestresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.BadRequestResult, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.BadRequestResult, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.BadRequestResult, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3365,31 +3528,36 @@ Class ConflictObjectResult from ObjectResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ConflictObjectResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class ConflictResult from StatusCodeResult
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'conflictresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ConflictResult, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.ConflictResult, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ConflictResult, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3404,9 +3572,11 @@ Class CreatedAtActionResult from ObjectResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedAtActionResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3,P4])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUrlHelper
@@ -3448,21 +3618,26 @@ Class CreatedAtRouteResult from ObjectResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.CreatedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUrlHelper
@@ -3492,38 +3667,45 @@ Class CreatedResult from ObjectResult
 	Location
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'createdresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getLocation
@@ -3542,9 +3724,11 @@ Class FileContentResult from FileResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.FileContentResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFileContents
@@ -3563,9 +3747,11 @@ Class FileStreamResult from FileResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.FileStreamResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFileStream
@@ -3579,22 +3765,25 @@ Class FileStreamResult from FileResult
 Class NoContentResult from StatusCodeResult
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'nocontentresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.NoContentResult, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.NoContentResult, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.NoContentResult, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3604,31 +3793,36 @@ Class NotFoundObjectResult from ObjectResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.NotFoundObjectResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class NotFoundResult from StatusCodeResult
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'notfoundresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.NotFoundResult, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.NotFoundResult, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.NotFoundResult, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3638,31 +3832,36 @@ Class OkObjectResult from ObjectResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.OkObjectResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class OkResult from StatusCodeResult
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'okresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.OkResult, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.OkResult, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.OkResult, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3674,9 +3873,11 @@ Class PhysicalFileResult from FileResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.PhysicalFileResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFileName
@@ -3693,31 +3894,36 @@ Class UnauthorizedObjectResult from ObjectResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnauthorizedObjectResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class UnauthorizedResult from StatusCodeResult
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'unauthorizedresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnauthorizedResult, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.UnauthorizedResult, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnauthorizedResult, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3727,53 +3933,61 @@ Class UnprocessableEntityObjectResult from ObjectResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnprocessableEntityObjectResult, Microsoft.AspNetCore.Mvc.Core',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class UnprocessableEntityResult from StatusCodeResult
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'unprocessableentityresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnprocessableEntityResult, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.UnprocessableEntityResult, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnprocessableEntityResult, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
 Class UnsupportedMediaTypeResult from StatusCodeResult
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'unsupportedmediatyperesult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnsupportedMediaTypeResult, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.UnsupportedMediaTypeResult, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnsupportedMediaTypeResult, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -3786,9 +4000,11 @@ Class VirtualFileResult from FileResult
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.VirtualFileResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getFileName
@@ -3809,22 +4025,25 @@ Class VirtualFileResult from FileResult
 Class AntiforgeryValidationFailedResult from BadRequestResult
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'antiforgeryvalidationfailedresult'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AntiforgeryValidationFailedResult, Microsoft.AspNetCore.Mvc.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Mvc.AntiforgeryValidationFailedResult, Microsoft.AspNetCore.Mvc.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AntiforgeryValidationFailedResult, Microsoft.AspNetCore.Mvc.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 

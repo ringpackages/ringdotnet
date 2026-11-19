@@ -119,6 +119,7 @@ Class Extensions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -189,21 +190,26 @@ Class XDeclaration from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XDeclaration, System.Private.Xml.Linq',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XDeclaration, System.Private.Xml.Linq',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Linq.XDeclaration, System.Private.Xml.Linq',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XDeclaration, System.Private.Xml.Linq',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -241,6 +247,7 @@ Class XName from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -284,6 +291,7 @@ Class XNamespace from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -325,22 +333,25 @@ Class XNamespace from Object
 Class XNodeDocumentOrderComparer from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xnodedocumentordercomparer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Linq.XNodeDocumentOrderComparer, System.Private.Xml.Linq',[])
+		dnDefaultObject('System.Xml.Linq.XNodeDocumentOrderComparer, System.Private.Xml.Linq')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XNodeDocumentOrderComparer, System.Private.Xml.Linq',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Compare P1,P2
@@ -353,22 +364,25 @@ Class XNodeDocumentOrderComparer from Object
 Class XNodeEqualityComparer from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xnodeequalitycomparer'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Linq.XNodeEqualityComparer, System.Private.Xml.Linq',[])
+		dnDefaultObject('System.Xml.Linq.XNodeEqualityComparer, System.Private.Xml.Linq')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XNodeEqualityComparer, System.Private.Xml.Linq',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -398,6 +412,7 @@ Class XObject from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -492,9 +507,11 @@ Class XObjectChangeEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XObjectChangeEventArgs, System.Private.Xml.Linq',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getObjectChange
@@ -536,21 +553,26 @@ Class XStreamingElement from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XStreamingElement, System.Private.Xml.Linq',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XStreamingElement, System.Private.Xml.Linq',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Linq.XStreamingElement, System.Private.Xml.Linq',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XStreamingElement, System.Private.Xml.Linq',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -599,21 +621,26 @@ Class XAttribute from XObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XAttribute, System.Private.Xml.Linq',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XAttribute, System.Private.Xml.Linq',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Linq.XAttribute, System.Private.Xml.Linq',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XAttribute, System.Private.Xml.Linq',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Remove 
@@ -673,6 +700,7 @@ Class XNode from XObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -799,9 +827,11 @@ Class XComment from XNode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XComment, System.Private.Xml.Linq',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getValue
@@ -821,6 +851,7 @@ Class XContainer from XNode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -895,21 +926,26 @@ Class XDocumentType from XNode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XDocumentType, System.Private.Xml.Linq',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XDocumentType, System.Private.Xml.Linq',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Linq.XDocumentType, System.Private.Xml.Linq',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XDocumentType, System.Private.Xml.Linq',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getInternalSubset
@@ -950,21 +986,26 @@ Class XProcessingInstruction from XNode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XProcessingInstruction, System.Private.Xml.Linq',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XProcessingInstruction, System.Private.Xml.Linq',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Linq.XProcessingInstruction, System.Private.Xml.Linq',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XProcessingInstruction, System.Private.Xml.Linq',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getData
@@ -990,9 +1031,11 @@ Class XText from XNode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XText, System.Private.Xml.Linq',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getValue
@@ -1009,9 +1052,11 @@ Class XCData from XText
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XCData, System.Private.Xml.Linq',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 
@@ -1022,38 +1067,45 @@ Class XDocument from XContainer
 	Root
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xdocument'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Linq.XDocument, System.Private.Xml.Linq',[])
+		dnDefaultObject('System.Xml.Linq.XDocument, System.Private.Xml.Linq')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XDocument, System.Private.Xml.Linq',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XDocument, System.Private.Xml.Linq',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Linq.XDocument, System.Private.Xml.Linq',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XDocument, System.Private.Xml.Linq',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Save P1
@@ -1120,21 +1172,26 @@ Class XElement from XContainer
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XElement, System.Private.Xml.Linq',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XElement, System.Private.Xml.Linq',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Linq.XElement, System.Private.Xml.Linq',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Linq.XElement, System.Private.Xml.Linq',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Save P1

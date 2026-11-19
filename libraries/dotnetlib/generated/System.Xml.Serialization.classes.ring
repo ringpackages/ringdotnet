@@ -224,22 +224,25 @@ Func DotNetNew_XmlTypeMapping
 Class CodeIdentifier from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'codeidentifier'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.CodeIdentifier, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.CodeIdentifier, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.CodeIdentifier, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -260,38 +263,45 @@ Class CodeIdentifiers from Object
 	UseCamelCasing
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'codeidentifiers'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.CodeIdentifiers, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.CodeIdentifiers, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.CodeIdentifiers, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.CodeIdentifiers, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Serialization.CodeIdentifiers, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.CodeIdentifiers, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Clear 
@@ -346,6 +356,7 @@ Class IXmlSerializable from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -371,6 +382,7 @@ Class IXmlTextParser from DotNetObject
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -400,9 +412,11 @@ Class ImportContext from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.ImportContext, System.Private.Xml',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -433,6 +447,7 @@ Class SchemaImporter from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -444,22 +459,25 @@ Class SchemaImporter from Object
 Class SoapAttributeOverrides from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'soapattributeoverrides'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.SoapAttributeOverrides, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.SoapAttributeOverrides, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.SoapAttributeOverrides, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -486,38 +504,45 @@ Class SoapAttributes from Object
 	SoapDefaultValue
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'soapattributes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.SoapAttributes, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.SoapAttributes, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.SoapAttributes, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.SoapAttributes, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Serialization.SoapAttributes, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.SoapAttributes, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -569,38 +594,45 @@ Class SoapAttributes from Object
 Class SoapReflectionImporter from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'soapreflectionimporter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.SoapReflectionImporter, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.SoapReflectionImporter, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.SoapReflectionImporter, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.SoapReflectionImporter, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Serialization.SoapReflectionImporter, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.SoapReflectionImporter, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func IncludeTypes P1
@@ -633,22 +665,25 @@ Class SoapSchemaMember from Object
 	MemberName
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'soapschemamember'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.SoapSchemaMember, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.SoapSchemaMember, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.SoapSchemaMember, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -678,9 +713,11 @@ Class UnreferencedObjectEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.UnreferencedObjectEventArgs, System.Private.Xml',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getUnreferencedObject
@@ -699,22 +736,25 @@ Class UnreferencedObjectEventArgs from EventArgs
 Class XmlAnyElementAttributes from CollectionBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlanyelementattributes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.XmlAnyElementAttributes, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.XmlAnyElementAttributes, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlAnyElementAttributes, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -749,22 +789,25 @@ Class XmlAnyElementAttributes from CollectionBase
 Class XmlArrayItemAttributes from CollectionBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlarrayitemattributes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.XmlArrayItemAttributes, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.XmlArrayItemAttributes, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlArrayItemAttributes, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -808,6 +851,7 @@ Class XmlAttributeEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -846,22 +890,25 @@ Class XmlAttributeEventArgs from EventArgs
 Class XmlAttributeOverrides from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlattributeoverrides'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.XmlAttributeOverrides, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.XmlAttributeOverrides, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlAttributeOverrides, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -896,38 +943,45 @@ Class XmlAttributes from Object
 	Xmlns
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlattributes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.XmlAttributes, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.XmlAttributes, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlAttributes, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlAttributes, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Serialization.XmlAttributes, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlAttributes, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1036,22 +1090,25 @@ Class XmlDeserializationEvents from ValueType
 	OnUnreferencedObject
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmldeserializationevents'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.XmlDeserializationEvents, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.XmlDeserializationEvents, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlDeserializationEvents, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func getOnUnknownNode
@@ -1086,22 +1143,25 @@ Class XmlDeserializationEvents from ValueType
 Class XmlElementAttributes from CollectionBase
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlelementattributes'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.XmlElementAttributes, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.XmlElementAttributes, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlElementAttributes, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1
@@ -1145,6 +1205,7 @@ Class XmlElementEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1190,6 +1251,7 @@ Class XmlMapping from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1235,6 +1297,7 @@ Class XmlMemberMapping from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1309,6 +1372,7 @@ Class XmlNodeEventArgs from EventArgs
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1365,38 +1429,45 @@ Class XmlNodeEventArgs from EventArgs
 Class XmlReflectionImporter from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlreflectionimporter'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.XmlReflectionImporter, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.XmlReflectionImporter, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlReflectionImporter, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlReflectionImporter, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Serialization.XmlReflectionImporter, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlReflectionImporter, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func IncludeTypes P1
@@ -1433,22 +1504,25 @@ Class XmlReflectionMember from Object
 	OverrideIsNullable
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlreflectionmember'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.XmlReflectionMember, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.XmlReflectionMember, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlReflectionMember, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -1505,9 +1579,11 @@ Class XmlSchemaEnumerator from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlSchemaEnumerator, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Dispose 
@@ -1533,9 +1609,11 @@ Class XmlSchemaExporter from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlSchemaExporter, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ExportTypeMapping P1
@@ -1562,22 +1640,25 @@ Class XmlSchemas from CollectionBase
 	IsCompiled
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemas'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.XmlSchemas, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.XmlSchemas, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlSchemas, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func GetSchemas P1
@@ -1641,6 +1722,7 @@ Class XmlSerializationGeneratedCode from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1655,21 +1737,26 @@ Class XmlSerializer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlSerializer, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlSerializer, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Serialization.XmlSerializer, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlSerializer, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Serialize P1
@@ -1742,22 +1829,25 @@ Class XmlSerializer from Object
 Class XmlSerializerFactory from Object
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlserializerfactory'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.XmlSerializerFactory, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.XmlSerializerFactory, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlSerializerFactory, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func CreateSerializer P1
@@ -1782,6 +1872,7 @@ Class XmlSerializerImplementation from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1831,38 +1922,45 @@ Class XmlSerializerNamespaces from Object
 	Count
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlserializernamespaces'          # new X without parentheses: the default object
-		nHandle = dnCreate('System.Xml.Serialization.XmlSerializerNamespaces, System.Private.Xml',[])
+		dnDefaultObject('System.Xml.Serialization.XmlSerializerNamespaces, System.Private.Xml')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlSerializerNamespaces, System.Private.Xml',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlSerializerNamespaces, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Serialization.XmlSerializerNamespaces, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlSerializerNamespaces, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Add P1,P2
@@ -1891,6 +1989,7 @@ Class XmlMembersMapping from XmlMapping
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1920,21 +2019,26 @@ Class XmlSchemaImporter from SchemaImporter
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlSchemaImporter, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func New_ P1
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlSchemaImporter, System.Private.Xml',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
 			nHandle = dnCreate('System.Xml.Serialization.XmlSchemaImporter, System.Private.Xml',[])
+			oDotNetGuard = dotnet_guard(nHandle)
 			return self
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlSchemaImporter, System.Private.Xml',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ImportDerivedTypeMapping P1
@@ -1968,6 +2072,7 @@ Class XmlSerializationReader from XmlSerializationGeneratedCode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1979,6 +2084,7 @@ Class XmlSerializationWriter from XmlSerializationGeneratedCode
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -1994,6 +2100,7 @@ Class XmlTypeMapping from XmlMapping
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self

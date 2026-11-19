@@ -53,22 +53,25 @@ Class Http2Limits from Object
 	KeepAlivePingTimeout
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'http2limits'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.Http2Limits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Server.Kestrel.Core.Http2Limits, Microsoft.AspNetCore.Server.Kestrel.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.Http2Limits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -136,22 +139,25 @@ Class Http3Limits from Object
 	MaxRequestHeaderFieldSize
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'http3limits'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.Http3Limits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Server.Kestrel.Core.Http3Limits, Microsoft.AspNetCore.Server.Kestrel.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.Http3Limits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -174,9 +180,11 @@ Class KestrelServer from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer, Microsoft.AspNetCore.Server.Kestrel.Core',[P1,P2,P3])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func StartAsync P1,P2
@@ -223,22 +231,25 @@ Class KestrelServerLimits from Object
 	MinResponseDataRate
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'kestrelserverlimits'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits, Microsoft.AspNetCore.Server.Kestrel.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
@@ -357,22 +368,25 @@ Class KestrelServerOptions from Object
 	ConfigurationLoader
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'kestrelserveroptions'          # new X without parentheses: the default object
-		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions, Microsoft.AspNetCore.Server.Kestrel.Core',[])
+		dnDefaultObject('Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions, Microsoft.AspNetCore.Server.Kestrel.Core')
 	ok
 
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		if nHandle != 0          # made by the class body
 			return self
 		ok
 		if nHandle != 0          # the default object made for the class body is not needed
+			dotnet_unguard(oDotNetGuard)
 			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions, Microsoft.AspNetCore.Server.Kestrel.Core',[])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func ConfigureEndpointDefaults P1
@@ -543,6 +557,7 @@ Class ListenOptions from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		return self
@@ -622,9 +637,11 @@ Class MinDataRate from Object
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
+			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.MinDataRate, Microsoft.AspNetCore.Server.Kestrel.Core',[P1,P2])
+		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
 	Func Equals P1
