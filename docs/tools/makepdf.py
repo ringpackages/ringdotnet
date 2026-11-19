@@ -56,6 +56,7 @@ def rewrite(body, name, known):
             target = page[:-5]
             return 'href="#p-%s-%s"' % (target, frag) if frag else 'href="#p-%s"' % target
         return 'data-nolink="1"'            # a page that is not in the PDF (the class reference, source files)
+    body = body.replace(' loading="lazy"', "")
     body = re.sub(r'href="([^"]*)"', link, body)
     # a link to a page that is not in the PDF: only its text stays
     body = re.sub(r'<a data-nolink="1"[^>]*>(.*?)</a>', r"\1", body, flags=re.S)
@@ -81,7 +82,18 @@ article { max-width: none !important; }
 .anchor, .copy, .copy-btn, button { display: none !important; }
 pre { white-space: pre-wrap !important; word-break: break-word; font-size: 11.5px !important; max-height: none !important; overflow: visible !important; }
 pre code { white-space: pre-wrap !important; }
-table { break-inside: avoid-page; font-size: 13px; }
+.tablewrap { overflow: visible !important; border: 1px solid #d9dcea; }
+table { width: 100% !important; max-width: 100% !important; table-layout: auto; font-size: 12.5px; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+th, td { word-break: break-word; overflow-wrap: anywhere; min-width: 0; }
+td code, th code, td pre { white-space: pre-wrap !important; word-break: break-word; overflow-wrap: anywhere; }
+.gallery { display: block !important; margin: 10px 0 !important; }
+.item { display: block !important; break-inside: avoid; page-break-inside: avoid; margin: 0 0 16px; box-shadow: none !important; overflow: visible !important; }
+.item .pic { display: block !important; text-align: center; min-height: 0 !important; padding: 12px !important; }
+.item .pic img { max-height: 170px !important; width: auto; box-shadow: 0 1px 4px rgba(0,0,0,.25) !important; }
+.item .info { padding: 10px 14px 12px; }
+.item details { display: none; }
 img { max-width: 100%; break-inside: avoid; }
 figure, .shot { break-inside: avoid; }
 h1, h2, h3 { break-after: avoid; }
