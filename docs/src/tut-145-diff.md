@@ -62,6 +62,6 @@ When a line moves from the bottom to the top, the diff deletes it at one place a
 3. Compare the *words* of two sentences instead of the lines.
 4. Write the diff in the *unified* format, with `@@ -start,count +start,count @@` before each group.
 
-## Where to go next
+## Next
 
-This was the last tutorial of the chapter **Files and streams**. The next chapter is **Processes and performance**: it starts with [Asking the computer](tut-74-system.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.
+[A project: check that files did not change](tut-147-checksums.html)

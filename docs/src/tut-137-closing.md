@@ -57,4 +57,4 @@ A message box waits for a person, so the function `askSave` first looks at `cTes
 
 ## Next
 
-[Menus, toolbars and shortcuts](tut-41-menus.html)
+[More than one window](tut-149-windows.html)

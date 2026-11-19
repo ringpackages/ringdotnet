@@ -1,0 +1,18 @@
+1. the checksum of one file, readme.txt: 4d740af9c9c049709697fcc27549d4ac3183246fd8bf6be76fb88ff739914e74
+
+2. the list (the checksums are cut to 12 characters here):
+   492d5ea49605...  data.csv
+   9553eba9e8ed...  docs/guide.txt
+   4d740af9c9c0...  readme.txt
+
+3. verify:
+   all 3 files are as they were
+
+4. after a change, a delete and a new file:
+   MISSING data.csv
+   CHANGED readme.txt
+   NEW     docs/new.txt
+   3 problems in 3 files of the list
+
+5. the checksum of the list: 9ddec6614911...
+   after somebody edited the list the checksum is the same: no

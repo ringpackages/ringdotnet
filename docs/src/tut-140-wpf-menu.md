@@ -66,4 +66,4 @@ The test cannot click a menu with a mouse, so it raises the `Click` event of the
 
 ## Next
 
-[WPF animation](tut-70-wpf-animation.html)
+[WPF lists and dynamic content](tut-148-wpf-lists.html)

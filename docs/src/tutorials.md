@@ -159,6 +159,7 @@ Paths, streams, binary files, compression (GZip, ZIP, tar), file patterns, and p
 <a class="card" href="tut-46-backup.html"><div class="ic">📁</div><b>Project: a backup tool</b><span>Zip by date, keep the newest few, restore and verify.</span></a>
 <a class="card" href="tut-141-renamer.html"><div class="ic">📁</div><b>Project: rename many files</b><span>Rules, a preview, conflict checks, renaming and undo with a log.</span></a>
 <a class="card" href="tut-145-diff.html"><div class="ic">📁</div><b>Project: compare two files</b><span>The longest common subsequence, a diff with context, and a similarity in percent.</span></a>
+<a class="card" href="tut-147-checksums.html"><div class="ic">📁</div><b>Project: check that files did not change</b><span>SHA-256 checksums in the sha256sum format, verify, and protecting the list.</span></a>
 </div>
 
 ## Processes and performance
@@ -245,6 +246,7 @@ Windows with controls, layout, dialogs and menus, timers, drawing, images and ch
 <a class="card" href="tut-127-clipboard.html"><div class="ic">🪟</div><b>The clipboard</b><span>Text, a table for a spreadsheet, a picture, and leaving the clipboard as it was.</span></a>
 <a class="card" href="tut-40-dialog.html"><div class="ic">🪟</div><b>Your own dialog</b><span>A modal form that asks for data, validates it and returns it; tested with a timer.</span></a>
 <a class="card" href="tut-137-closing.html"><div class="ic">🪟</div><b>Closing a window</b><span>FormClosing and Cancel: ask to save changes, and a question that a test can answer.</span></a>
+<a class="card" href="tut-149-windows.html"><div class="ic">🪟</div><b>More than one window</b><span>Show with an owner, one copy of a tool window, talking windows and OpenForms.</span></a>
 <a class="card" href="tut-41-menus.html"><div class="ic">🪟</div><b>Menus, toolbars, shortcuts</b><span>Write each action once and reach it from a menu, a toolbar, a context menu and a key.</span></a>
 <a class="card" href="tut-34-timers.html"><div class="ic">🪟</div><b>Timers and progress</b><span>A stopwatch, a progress bar, and a long job in small steps.</span></a>
 <a class="card" href="tut-14-animation.html"><div class="ic">🪟</div><b>Drawing and animation</b><span>A canvas, a timer and the keyboard: a bouncing ball and a paddle.</span></a>
@@ -264,6 +266,7 @@ XAML windows, layout and styles, and animation (Windows only).
 <a class="card" href="tut-38-wpf-layout.html"><div class="ic">🎨</div><b>WPF layout and styles</b><span>Grid rows and columns, one Style for all buttons, a keypad.</span></a>
 <a class="card" href="tut-131-wpf-binding.html"><div class="ic">🎨</div><b>WPF data binding</b><span>Controls that follow each other in XAML: slider, text box, check box and list.</span></a>
 <a class="card" href="tut-140-wpf-menu.html"><div class="ic">🎨</div><b>WPF menus and tabs</b><span>Menu, checkable items, TabControl, ComboBox, DatePicker and Expander in XAML.</span></a>
+<a class="card" href="tut-148-wpf-lists.html"><div class="ic">🎨</div><b>WPF lists and dynamic content</b><span>Fill a ListBox from Ring, move and remove items, and make controls in code.</span></a>
 <a class="card" href="tut-70-wpf-animation.html"><div class="ic">🎨</div><b>WPF animation</b><span>Move, fade and rotate with DoubleAnimation, easing and AutoReverse.</span></a>
 </div>
 
