@@ -44,7 +44,7 @@ A `StatusStrip` holds `ToolStripStatusLabel` items. Change a label's `Text` to s
 
 `uiOpenFileName(title, filter)` and `uiSaveFileName(title, filter)` show the standard dialogs and return the chosen path (or `""` if the user cancels). The filter is `"Text files|*.txt|All files|*.*"`: pairs of a description and a pattern. `File.ReadAllText` and `File.WriteAllText` do the actual work.
 
-> [!NOTE] Look at `loadFile`: the text is first read into a variable (`cContent = new File().ReadAllText(cPath)`) and then assigned (`oEditor.Text = cContent`). Writing `oEditor.Text = new File().ReadAllText(cPath)` loses the assignment in Ring — a method of a *new* object on the right side of a property assignment. Use a variable.
+> [!NOTE] Look at `loadFile`: the text is first read into a variable (`cContent = new File().ReadAllText(cPath)`) and then assigned (`oEditor.Text = cContent`). Writing `oEditor.Text = new File().ReadAllText(cPath)` does not keep the assignment in Ring — a method of a *new* object on the right side of a property assignment. Use a variable.
 
 ### The test
 

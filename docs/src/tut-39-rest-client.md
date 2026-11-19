@@ -40,7 +40,7 @@ For this tutorial the service is started in the same program, so that it needs n
 
 `request(method, path, body)` builds the request, sends it, waits and returns `[status, body]`. Everything else calls it. A request is an `HttpRequestMessage` created with **named arguments**: `[ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ]`. For a `POST` the body is a `StringContent` with the text, the encoding (`UTF8`) and the **media type** `application/json`, which tells the server how to read it.
 
-> [!NOTE] The content is created in a variable first (`oContent = dnNew(...)`) and then assigned to `oMessage.Content`. Putting `new Encoding().UTF8` inside the right side of an assignment to a property loses the assignment.
+> [!NOTE] The content is created in a variable first (`oContent = dnNew(...)`) and then assigned to `oMessage.Content`. Writing `new Encoding().UTF8` directly on the right side of an assignment to a property does not store the value in the property, so the program uses a variable.
 
 ### The Task pattern
 
