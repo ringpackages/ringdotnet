@@ -21,7 +21,8 @@ func main
 	nWith = oGC.GetTotalMemory(True)
 	? nl + "2. a list with room for 10 million bytes grew the memory by at least 9 MB: " + (nWith - nBefore > 9000000)
 	oBig = NULL                     # nothing in Ring uses the list now: Ring frees it, and its handle is released with the next .NET calls
-	dnFlush()                       # ... or at once, with dnFlush()
+	callgc()                        # ... or at once: Ring collects its garbage (callgc) and the waiting handles are released (dnFlush)
+	dnFlush()
 	nAfter = oGC.GetTotalMemory(True)
 	? "   after the list is dropped and a collection the memory is smaller again: " + (nAfter < nWith - 9000000)
 
@@ -36,6 +37,7 @@ func main
 	oWeak = new WeakReference(oObject)
 	? nl + "4. the weak reference is alive while we hold the object: " + oWeak.IsAlive
 	oObject = NULL                  # the bridge keeps a handle to the object until Ring frees it: that is now
+	callgc()
 	dnFlush()
 	oGC.Collect(NULL)
 	oGC.WaitForPendingFinalizers()

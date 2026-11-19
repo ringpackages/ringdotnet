@@ -167,7 +167,7 @@
 <article>
 <h1>Tutorial 98: Memory and the garbage collector</h1><p class="lead">.NET frees the memory of objects that nothing uses any more. This lesson looks at how that works — how much memory the program uses, when a collection happens, weak references for caches, and generations — and at what the bridge adds to the picture.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
-<ul><li>what the <strong>garbage collector</strong> (GC) does and why you rarely call it,</li><li><code>GC.GetTotalMemory</code>, <code>GC.Collect</code>, <code>GC.CollectionCount</code>,</li><li><code>WeakReference</code>: a pointer that does not keep an object alive,</li><li><strong>generations</strong> 0, 1 and 2,</li><li><code>release()</code>: letting the bridge forget an object.</li></ul>
+<ul><li>what the <strong>garbage collector</strong> (GC) does and why you rarely call it,</li><li><code>GC.GetTotalMemory</code>, <code>GC.Collect</code>, <code>GC.CollectionCount</code>,</li><li><code>WeakReference</code>: a pointer that does not keep an object alive,</li><li><strong>generations</strong> 0, 1 and 2,</li><li>handles: how Ring frees .NET objects for you (<code>dnFlush()</code> and <code>release()</code>).</li></ul>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t98_memory.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 98: memory and the garbage collector - how much memory .NET uses, GC.Collect, WeakReference, generations and a big array</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
@@ -191,10 +191,11 @@ using {
 	oBig = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.List"</span>,[<span class="s">"System.Byte"</span>],[<span class="n">10000000</span>])
 	nWith = oGC.<span class="f">GetTotalMemory</span>(<span class="k">True</span>)
 	? nl + <span class="s">"2. a list with room for 10 million bytes grew the memory by at least 9 MB: "</span> + (nWith - nBefore &gt; <span class="n">9000000</span>)
-	oBig.<span class="f">release</span>()
-	oBig = <span class="k">NULL</span>
+	oBig = <span class="k">NULL</span>                     <span class="c"># nothing in Ring uses the list now: Ring frees it, and its handle is released with the next .NET calls</span>
+	callgc()                        <span class="c"># ... or at once: Ring collects its garbage (callgc) and the waiting handles are released (dnFlush)</span>
+	<span class="f">dnFlush</span>()
 	nAfter = oGC.<span class="f">GetTotalMemory</span>(<span class="k">True</span>)
-	? <span class="s">"   after release and a collection the memory is smaller again: "</span> + (nAfter &lt; nWith - <span class="n">9000000</span>)
+	? <span class="s">"   after the list is dropped and a collection the memory is smaller again: "</span> + (nAfter &lt; nWith - <span class="n">9000000</span>)
 
 	<span class="c"># 3. Collections are counted: CollectionCount(generation) says how many times the GC ran for that generation</span>
 	nCount = oGC.<span class="f">CollectionCount</span>(<span class="n">0</span>)
@@ -206,12 +207,13 @@ using {
 	oObject = <span class="k">new</span> <span class="t">MemoryStream</span>()
 	oWeak = <span class="k">new</span> <span class="t">WeakReference</span>(oObject)
 	? nl + <span class="s">"4. the weak reference is alive while we hold the object: "</span> + oWeak.IsAlive
-	oObject.<span class="f">release</span>()               <span class="c"># the bridge keeps a handle to every object it gave to Ring until it is released</span>
-	oObject = <span class="k">NULL</span>
+	oObject = <span class="k">NULL</span>                  <span class="c"># the bridge keeps a handle to the object until Ring frees it: that is now</span>
+	callgc()
+	<span class="f">dnFlush</span>()
 	oGC.<span class="f">Collect</span>(<span class="k">NULL</span>)
 	oGC.<span class="f">WaitForPendingFinalizers</span>()
 	oGC.<span class="f">Collect</span>(<span class="k">NULL</span>)
-	? <span class="s">"   after release and a collection: alive = "</span> + oWeak.IsAlive
+	? <span class="s">"   after dropping it and a collection: alive = "</span> + oWeak.IsAlive
 
 	<span class="c"># 5. Which generation is an object in? A new object is in generation 0; after it survives a collection it moves up</span>
 	oNew = <span class="k">new</span> <span class="t">StringBuilder</span>(<span class="s">"x"</span>)
@@ -236,18 +238,19 @@ using {
 <p>In .NET you never free an object by hand. The GC finds the objects that no variable can reach any more and frees them. You do not choose the moment: it runs when memory gets short, or when the runtime decides. <code>GC.Collect()</code> forces a collection, and <code>GC.GetTotalMemory(True)</code> collects first and then returns the number of bytes in use. Both are useful for <strong>learning and testing</strong>; in a real program calling <code>Collect</code> is almost always wrong, because the GC knows better than you when to run (and a forced collection can slow the program).</p>
 <p>The numbers (bytes in use, how many collections) differ on every computer and every run, so the program prints only statements that are always true, such as <em>"it grew by at least 9 MB"</em>.</p>
 <h3 id="what-the-bridge-adds">What the bridge adds<a class="anchor" href="#what-the-bridge-adds">#</a></h3>
-<p>When a .NET method returns an object to Ring, the bridge keeps a <strong>handle</strong> to it in a table. A reference in a table keeps the object alive, so the GC cannot free it. Ring objects that hold such a handle do not free it automatically. When you are done with an object that is big or that holds a resource (a stream, a bitmap, a connection), do two things:</p>
-<ol><li><code>Dispose()</code> it if its class has that method (<a href="tut-71-dispose.html">tutorial 71</a>): this frees <em>resources</em> such as files and connections at once.</li><li><code>release()</code> it (every wrapped object has this method): this removes the handle from the table, and after that the GC is free to take the memory. After <code>release()</code> the object cannot be used any more.</li></ol>
-<p>Step 2 of the program shows the effect: a list with room for 10 million bytes makes the memory grow by 10 MB, and after <code>release()</code> and a collection the memory is smaller again. A program that creates millions of short-lived objects in a loop should <code>release()</code> them, or the table of handles grows.</p>
+<p>When a .NET method returns an object to Ring, the bridge keeps a <strong>handle</strong> to it in a table, because Ring only holds a number. A reference in a table keeps the object alive, so the GC could not free it. That is why every Ring object that owns a handle also owns a small <strong>guard</strong>: when Ring frees the object (the last variable that holds it is changed or goes away), the guard puts the handle on a list, and the list is sent to .NET in one request. After that the GC is free to take the memory. You do not have to do anything: a loop that makes 100 000 objects and drops each of them stays small.</p>
+<p>Two things remain your job:</p>
+<ol><li>**<code>Dispose()</code>** (<a href="tut-71-dispose.html">tutorial 71</a>) frees <em>resources</em> such as files and connections at once. Dropping the object frees its memory, but only some time later.</li><li><strong>Timing.</strong> Two things delay the release a little: Ring frees an object some moments after the last variable that held it is gone, and the handles are released in groups (the next .NET call does it when 32 are waiting). So the memory of one big object is not free at the moment you drop it. When it must go now, or before you look at the memory (<code>GC.GetTotalMemory</code>), write <code>callgc()</code> (Ring collects its garbage; it works for the function that calls it) and then <code>dnFlush()</code> (the waiting handles are released). <code>release()</code> is the other way: it releases one object immediately, and after it the object cannot be used any more.</li></ol>
+<p>Step 2 of the program shows the effect: a list with room for 10 million bytes makes the memory grow by 10 MB, and after the variable is set to <code>NULL</code>, <code>callgc()</code>, <code>dnFlush()</code> and a collection the memory is smaller again.</p>
 <h3 id="weak-references">Weak references<a class="anchor" href="#weak-references">#</a></h3>
-<p>A normal variable keeps its object alive. A <code>WeakReference</code> points to an object <strong>without</strong> keeping it alive: <code>IsAlive</code> says whether the object is still there, and when the GC frees it, the answer becomes false. This is the tool for <strong>caches</strong>: keep the result of a slow calculation as long as memory allows, and calculate it again when it is gone. In step 4 the object is alive while Ring holds it; after <code>release()</code> and a collection it is gone. (Collecting twice, with <code>WaitForPendingFinalizers</code> in between, makes the result sure in a small test; a real cache must always handle both answers.)</p>
+<p>A normal variable keeps its object alive. A <code>WeakReference</code> points to an object <strong>without</strong> keeping it alive: <code>IsAlive</code> says whether the object is still there, and when the GC frees it, the answer becomes false. This is the tool for <strong>caches</strong>: keep the result of a slow calculation as long as memory allows, and calculate it again when it is gone. In step 4 the object is alive while Ring holds it; after the variable is set to <code>NULL</code>, <code>callgc()</code>, <code>dnFlush()</code> and a collection it is gone. (Collecting twice, with <code>WaitForPendingFinalizers</code> in between, makes the result sure in a small test; a real cache must always handle both answers.)</p>
 <h3 id="generations">Generations<a class="anchor" href="#generations">#</a></h3>
 <p>The GC sorts objects by age, because most objects die young. Generation <strong>0</strong> holds new objects and is collected often and fast. An object that survives a collection moves to generation <strong>1</strong>, and later to generation <strong>2</strong>, which is collected rarely. <code>GC.GetGeneration(object)</code> tells the generation: a new object is in 0 and after one collection it is in 1, as step 5 shows. Big objects (more than about 85 000 bytes) go to a separate heap and are in generation 2 at once.</p>
 <div class="callout note"><span class="t">Note</span><p><code>GC.GetTotalMemory</code> counts the memory of <strong>.NET</strong> objects only. The memory of the Ring program itself (its lists and texts) is separate and is not in the number.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<ul><li>the GC frees unreachable objects; you do not choose when,</li><li><code>GetTotalMemory</code>, <code>Collect</code> and <code>CollectionCount</code> for learning and tests,</li><li>the bridge keeps handles: <code>Dispose()</code> frees resources, <code>release()</code> lets go of the object,</li><li><code>WeakReference</code> for caches,</li><li>generations: young objects are collected often.</li></ul>
+<ul><li>the GC frees unreachable objects; you do not choose when,</li><li><code>GetTotalMemory</code>, <code>Collect</code> and <code>CollectionCount</code> for learning and tests,</li><li>Ring frees the handle of a dropped object for you; <code>Dispose()</code> frees resources, <code>callgc()</code> with <code>dnFlush()</code>, or <code>release()</code>, make it immediate,</li><li><code>WeakReference</code> for caches,</li><li>generations: young objects are collected often.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
-<ol><li>Make 100 000 <code>StringBuilder</code> objects in a loop with and without <code>release()</code> and look at <code>GC.GetTotalMemory</code>.</li><li>Build a small cache of results with <code>WeakReference</code> objects in a Ring list.</li><li>Find out how many collections of generation 0, 1 and 2 happened in your program (<code>CollectionCount</code>).</li><li>Read about <code>GCSettings.IsServerGC</code> and <code>GCSettings.LatencyMode</code> and print them.</li></ol>
+<ol><li>Make 100 000 <code>StringBuilder</code> objects with a capacity of 4000 in a loop and look at <code>GC.GetTotalMemory</code> after the loop, with and without <code>callgc()</code> and <code>dnFlush()</code>.</li><li>Build a small cache of results with <code>WeakReference</code> objects in a Ring list.</li><li>Find out how many collections of generation 0, 1 and 2 happened in your program (<code>CollectionCount</code>).</li><li>Read about <code>GCSettings.IsServerGC</code> and <code>GCSettings.LatencyMode</code> and print them.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>
 <p><a href="tut-99-vectors.html">Tutorial 99: Vectors and matrices</a></p>
 <div class="pager"><a href="tut-97-comparers.html"><small>Previous</small>97. Comparing text</a><a class="next" href="tut-99-vectors.html"><small>Next</small>99. Vectors and matrices</a></div>

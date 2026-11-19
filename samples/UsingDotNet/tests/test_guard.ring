@@ -17,6 +17,7 @@ func main
 		oBuilder.Capacity = 4000
 	next
 	oBuilder = NULL
+	callgc()
 	dnFlush()
 	nUsed = oGC.GetTotalMemory(True) - nStart
 	dnAssert("5000 dropped objects do not stay in memory (less than 8 MB, used " + floor(nUsed / 1024) + " KB)",nUsed < 8000000,True)
@@ -25,6 +26,7 @@ func main
 	oFirst = new StringBuilder("abc")
 	oSecond = oFirst
 	oFirst = NULL
+	callgc()
 	dnFlush()
 	dnAssert("a copy keeps the object alive",oSecond.Append("def").ToString(),"abcdef")
 
@@ -32,6 +34,7 @@ func main
 	oChain = new StringBuilder("")
 	oAgain = oChain.Append("x")
 	oChain = NULL
+	callgc()
 	dnFlush()
 	dnAssert("an object returned by a method works after the first one is gone",oAgain.Append("y").ToString(),"xy")
 
@@ -42,6 +45,7 @@ func main
 		oStream.WriteByte(i)
 	next
 	oStream = NULL
+	callgc()
 	dnFlush()
 	dnAssert("a list of 100 items",new MemoryStream().Length,0)
 
@@ -50,6 +54,7 @@ func main
 	oOne.release()
 	dnAssert("an object that was released has no handle",oOne.nHandle,0)
 	oOne = NULL
+	callgc()
 	dnFlush()
 	dnAssert("nothing waits after dnFlush()",dotnet_pending(),0)
 

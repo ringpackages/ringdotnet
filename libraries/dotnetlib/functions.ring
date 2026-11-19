@@ -114,7 +114,9 @@ func dnRequest  cOperation, aParameters
 	return dn_aItems[1]
 
 # The handles of the objects that Ring freed are released in groups (the next .NET call does it when 32 are waiting).
-# dnFlush() releases them now: use it before you look at the memory of .NET (GC.GetTotalMemory) or to let go of a big object at once.
+# dnFlush() releases them now. Ring frees an object a little after the last variable that held it is gone; callgc() (called in the
+# same function) makes it free the objects at once. So to let go of a big object now (or before you look at the memory of .NET with
+# GC.GetTotalMemory) write:  oBig = NULL  callgc()  dnFlush()
 func dnFlush
 	dotnet_flush()
 

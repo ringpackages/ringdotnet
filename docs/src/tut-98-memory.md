@@ -32,13 +32,13 @@ When a .NET method returns an object to Ring, the bridge keeps a **handle** to i
 Two things remain your job:
 
 1. **`Dispose()`** ([tutorial 71](tut-71-dispose.html)) frees *resources* such as files and connections at once. Dropping the object frees its memory, but only some time later.
-2. **Timing.** The handles are released in groups (the next .NET call does it when 32 are waiting), so the memory of one big object is not free at the moment you drop it. `dnFlush()` releases the waiting handles now; use it before you look at the memory (`GC.GetTotalMemory`) or when one big object must go at once. `release()` is the other way: it releases one object immediately, and after it the object cannot be used any more.
+2. **Timing.** Two things delay the release a little: Ring frees an object some moments after the last variable that held it is gone, and the handles are released in groups (the next .NET call does it when 32 are waiting). So the memory of one big object is not free at the moment you drop it. When it must go now, or before you look at the memory (`GC.GetTotalMemory`), write `callgc()` (Ring collects its garbage; it works for the function that calls it) and then `dnFlush()` (the waiting handles are released). `release()` is the other way: it releases one object immediately, and after it the object cannot be used any more.
 
-Step 2 of the program shows the effect: a list with room for 10 million bytes makes the memory grow by 10 MB, and after the variable is set to `NULL`, `dnFlush()` and a collection the memory is smaller again.
+Step 2 of the program shows the effect: a list with room for 10 million bytes makes the memory grow by 10 MB, and after the variable is set to `NULL`, `callgc()`, `dnFlush()` and a collection the memory is smaller again.
 
 ### Weak references
 
-A normal variable keeps its object alive. A `WeakReference` points to an object **without** keeping it alive: `IsAlive` says whether the object is still there, and when the GC frees it, the answer becomes false. This is the tool for **caches**: keep the result of a slow calculation as long as memory allows, and calculate it again when it is gone. In step 4 the object is alive while Ring holds it; after the variable is set to `NULL`, `dnFlush()` and a collection it is gone. (Collecting twice, with `WaitForPendingFinalizers` in between, makes the result sure in a small test; a real cache must always handle both answers.)
+A normal variable keeps its object alive. A `WeakReference` points to an object **without** keeping it alive: `IsAlive` says whether the object is still there, and when the GC frees it, the answer becomes false. This is the tool for **caches**: keep the result of a slow calculation as long as memory allows, and calculate it again when it is gone. In step 4 the object is alive while Ring holds it; after the variable is set to `NULL`, `callgc()`, `dnFlush()` and a collection it is gone. (Collecting twice, with `WaitForPendingFinalizers` in between, makes the result sure in a small test; a real cache must always handle both answers.)
 
 ### Generations
 
@@ -50,13 +50,13 @@ The GC sorts objects by age, because most objects die young. Generation **0** ho
 
 - the GC frees unreachable objects; you do not choose when,
 - `GetTotalMemory`, `Collect` and `CollectionCount` for learning and tests,
-- Ring frees the handle of a dropped object for you; `Dispose()` frees resources, `dnFlush()` and `release()` make it immediate,
+- Ring frees the handle of a dropped object for you; `Dispose()` frees resources, `callgc()` with `dnFlush()`, or `release()`, make it immediate,
 - `WeakReference` for caches,
 - generations: young objects are collected often.
 
 ## Exercises
 
-1. Make 100 000 `StringBuilder` objects with a capacity of 4000 in a loop and look at `GC.GetTotalMemory` after the loop, with and without `dnFlush()`.
+1. Make 100 000 `StringBuilder` objects with a capacity of 4000 in a loop and look at `GC.GetTotalMemory` after the loop, with and without `callgc()` and `dnFlush()`.
 2. Build a small cache of results with `WeakReference` objects in a Ring list.
 3. Find out how many collections of generation 0, 1 and 2 happened in your program (`CollectionCount`).
 4. Read about `GCSettings.IsServerGC` and `GCSettings.LatencyMode` and print them.
