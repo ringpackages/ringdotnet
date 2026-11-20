@@ -75,6 +75,29 @@ namespace RingDotNet
 				string file = Path.Combine(folder, new AssemblyName(args.Name).Name + ".dll");
 				return File.Exists(file) ? Assembly.LoadFrom(file) : null;
 			};
+			/* Native libraries of a package (SkiaSharp, for example) are in runtimes/<system>-<architecture>/native next to its DLL after dotnet publish.
+			   A program that is not started from its own folder does not look there, so this finds them. */
+			System.Runtime.Loader.AssemblyLoadContext.Default.ResolvingUnmanagedDll += FindNativeLibrary;
+		}
+
+		private static IntPtr FindNativeLibrary(Assembly assembly, string name)
+		{
+			string location = assembly.Location;
+			if (string.IsNullOrEmpty(location)) return IntPtr.Zero;
+			string folder = Path.GetDirectoryName(location);
+			string system = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "win" : RuntimeInformation.IsOSPlatform(OSPlatform.OSX) ? "osx" : "linux";
+			string architecture = RuntimeInformation.ProcessArchitecture.ToString().ToLowerInvariant();
+			string[] folders = { folder, Path.Combine(folder, "runtimes", system + "-" + architecture, "native"), Path.Combine(folder, "runtimes", system, "native") };
+			string[] names = { name, name + ".dll", name + ".so", "lib" + name + ".so", name + ".dylib", "lib" + name + ".dylib" };
+			foreach (string dir in folders)
+			{
+				foreach (string candidate in names)
+				{
+					string file = Path.Combine(dir, candidate);
+					if (File.Exists(file) && NativeLibrary.TryLoad(file, out IntPtr handle)) return handle;
+				}
+			}
+			return IntPtr.Zero;
 		}
 
 		private static readonly Dictionary<long, object> Handles = new Dictionary<long, object>();
