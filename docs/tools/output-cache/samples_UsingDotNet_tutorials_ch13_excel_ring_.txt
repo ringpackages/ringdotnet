@@ -1,0 +1,9 @@
+1. written: 1
+2. the sheet has 5 rows:
+   Product | Price | Quantity | Total
+   Tea | 12.5 | 4 | 50
+   Coffee | 20 | 3 | 60
+   Cake | 8.25 | 2 | 16.5
+   All |  |  | 126.5
+3. the total is 126.50
+   the header is bold: 1

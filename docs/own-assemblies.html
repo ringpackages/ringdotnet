@@ -209,6 +209,7 @@
 <a href="tut-164-sound.html">Sound</a>
 <a href="tut-165-qr.html">A QR code</a>
 <a href="tut-166-systems.html">More than one system</a>
+<a href="tut-167-excel.html">Excel files</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -307,6 +308,31 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 		<span class="k">public</span> <span class="k">int</span> <span class="t">Count</span> { <span class="k">get</span>; <span class="k">set</span>; }
 		<span class="k">public</span> <span class="k">void</span> <span class="t">Increment</span>() { Count++; }
 	}
+	<span class="c">// An interface that inherits another one, and a class that is not public: Shapes.NewBox returns the interface IBox.</span>
+	<span class="c">// The wrapper must be IBox (the interface named after the class), with the members that IBox inherits from IShape.</span>
+	<span class="k">public</span> <span class="k">interface</span> IShape
+	{
+		<span class="k">string</span> <span class="t">Name</span> { <span class="k">get</span>; <span class="k">set</span>; }
+		<span class="k">double</span> <span class="t">Area</span>();
+	}
+
+	<span class="k">public</span> <span class="k">interface</span> <span class="t">IBox</span> : IShape
+	{
+		<span class="k">double</span> <span class="t">Side</span> { <span class="k">get</span>; }
+	}
+
+	<span class="k">internal</span> <span class="k">class</span> <span class="t">Box</span> : IShape, IBox
+	{
+		<span class="k">public</span> <span class="k">string</span> <span class="t">Name</span> { <span class="k">get</span>; <span class="k">set</span>; } = <span class="s">"box"</span>;
+		<span class="k">public</span> <span class="k">double</span> <span class="t">Side</span> { <span class="k">get</span>; <span class="k">private</span> <span class="k">set</span>; }
+		<span class="k">public</span> <span class="t">Box</span>(<span class="k">double</span> side) { <span class="t">Side</span> = side; }
+		<span class="k">public</span> <span class="k">double</span> <span class="t">Area</span>() { <span class="k">return</span> <span class="t">Side</span> * Side; }
+	}
+
+	<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> Shapes
+	{
+		<span class="k">public</span> <span class="k">static</span> <span class="t">IBox</span> <span class="t">NewBox</span>(<span class="k">double</span> side) { <span class="k">return</span> <span class="k">new</span> <span class="t">Box</span>(side); }
+	}
 }</code></pre></div></details>
 <details class="src"><summary>samples/UsingDotNet/tests/test_userassembly.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tests/test_userassembly.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your own assemblies: tools/dotnettools/wrapassembly.ring generates the classes, dnImportFrom() loads them</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
@@ -345,6 +371,15 @@ nEvents = <span class="n">0</span>
 oCalc.<span class="f">setChangedEvent</span>(<span class="s">"nEvents++"</span>)
 oCalc.<span class="f">Add</span>(<span class="n">1</span>)
 <span class="f">dnAssert</span>(<span class="s">"user event"</span>,nEvents,<span class="n">1</span>)
+
+<span class="c"># a class that is not public comes back as the interface named after it (IBox), and an interface has the members of the interfaces it inherits</span>
+oBox = <span class="k">new</span> <span class="t">Shapes</span>().<span class="f">NewBox</span>(<span class="n">3</span>)
+<span class="f">dnAssert</span>(<span class="s">"a non-public class is wrapped as the interface named after it"</span>,classname(oBox),<span class="s">"ibox"</span>)
+<span class="f">dnAssert</span>(<span class="s">"a member of the interface itself"</span>,oBox.Side,<span class="n">3</span>)
+<span class="f">dnAssert</span>(<span class="s">"a method inherited from another interface"</span>,oBox.<span class="f">Area</span>(),<span class="n">9</span>)
+<span class="f">dnAssert</span>(<span class="s">"a property inherited from another interface"</span>,oBox.Name,<span class="s">"box"</span>)
+oBox.Name = <span class="s">"big"</span>
+<span class="f">dnAssert</span>(<span class="s">"an inherited property can be set"</span>,oBox.Name,<span class="s">"big"</span>)
 
 oCounter = <span class="k">new</span> <span class="t">Counter</span>()
 oCounter.<span class="f">Increment</span>()
