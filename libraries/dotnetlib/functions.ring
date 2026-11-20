@@ -415,6 +415,13 @@ func dnImportFrom  cFolder, cNamespace
 	ok
 	if find(aDotNetUserFolders,cFolder) = 0
 		aDotNetUserFolders + cFolder
+		# the index of the classes of the folder ([type, namespace]): an object of a type of another namespace of the same assembly
+		# is wrapped when it comes back, and its namespace is loaded from this folder
+		dn_cIndex = cFolder + "classindex.ring"
+		if fexists(dn_cIndex)
+			eval('load "' + dn_cIndex + '"')
+			dnBuildIndexMap()
+		ok
 	ok
 	aDotNetImported + dn_cFile
 	eval('load "' + dn_cFile + '"')
