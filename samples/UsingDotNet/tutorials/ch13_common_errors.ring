@@ -1,4 +1,5 @@
 # common mistakes - each one is made on purpose inside try/catch, and the message that Ring or .NET gives is printed, with the fix
+# errors on purpose
 load "dotnet.ring"
 using {
 	"System"

@@ -33,7 +33,16 @@ case "$KIND" in
 		;;
 	n)
 		OUT=$(cd "$DIR" && timeout 180 "$RING" "$FILE" 2>&1)
-		if echo "$OUT" | grep -q -e "Error (R" -e "rror (C" -e "^Line [0-9]* DotNet Error" -e "FAIL:"; then
+		# a program that makes errors on purpose and prints the caught messages says so on its first lines (# errors on purpose);
+		# for it only an error that was not caught fails: Ring starts the message of such an error with "Line <number>"
+		if head -3 "$DIR/$FILE" | grep -q "# errors on purpose"; then
+			if echo "$OUT" | grep -q -E "^Line [0-9]+ .*rror"; then BAD=1; else BAD=0; fi
+		elif echo "$OUT" | grep -q -e "Error (R" -e "rror (C" -e "^Line [0-9]* DotNet Error" -e "FAIL:"; then
+			BAD=1
+		else
+			BAD=0
+		fi
+		if [ "$BAD" = "1" ]; then
 			printf '%s\n' "FAILED  $LABEL" "$(echo "$OUT" | head -5)"
 		else
 			printf '%s\n' "ok      $LABEL"
