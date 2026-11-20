@@ -98,6 +98,9 @@ img { max-width: 100%; break-inside: avoid; }
 figure, .shot { break-inside: avoid; }
 h1, h2, h3 { break-after: avoid; }
 .callout { break-inside: avoid; }
+/* the closing Next / Where to go next section is small, so that it stays on the page of the text before it */
+article h2[id$='-next'], article h2[id$='-where-to-go-next'] { font-size: 1.15rem; margin: 22px 0 6px; padding-top: 0; }
+article h2[id$='-next']::before, article h2[id$='-where-to-go-next']::before { margin-bottom: 10px; }
 .code.keep { break-inside: avoid; }
 .code .bar { break-after: avoid; }
 p, li { orphans: 3; widows: 3; }

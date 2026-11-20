@@ -286,19 +286,20 @@ def slug(text):
 
 
 def inline(text):
-    parts = re.split(r"(`[^`]+`)", text)
-    out = []
-    for p in parts:
-        if p.startswith("`") and p.endswith("`") and len(p) > 1:
-            out.append("<code>%s</code>" % esc(p[1:-1]))
-            continue
-        p = esc(p)
-        p = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", p)
-        p = re.sub(r"(?<![\w*])\*([^*\n]+)\*(?![\w*])", r"<em>\1</em>", p)
-        p = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", lambda m: '<a href="%s">%s</a>' % (re.sub(r"\.md(#|$)", r".html\1", m.group(2)), m.group(1)), p)
-        p = p.replace("&amp;nbsp;", "&nbsp;")
-        out.append(p)
-    return "".join(out)
+    # code spans are set aside first, so that bold, italic and links can contain code (**a `b` c**)
+    codes = []
+
+    def keep(m):
+        codes.append("<code>%s</code>" % esc(m.group(1)))
+        return "@@CODE%d@@" % (len(codes) - 1)
+
+    p = re.sub(r"`([^`]+)`", keep, text)
+    p = esc(p)
+    p = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", p)
+    p = re.sub(r"(?<![\w*])\*([^*\n]+)\*(?![\w*])", r"<em>\1</em>", p)
+    p = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", lambda m: '<a href="%s">%s</a>' % (re.sub(r"\.md(#|$)", r".html\1", m.group(2)), m.group(1)), p)
+    p = p.replace("&amp;nbsp;", "&nbsp;")
+    return re.sub(r"@@CODE(\d+)@@", lambda m: codes[int(m.group(1))], p)
 
 
 def table(lines):

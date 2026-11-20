@@ -36,7 +36,7 @@ aResult = oDict.TryGetValue("three")   # out parameters come back as a list
 
 {{output:samples/UsingDotNet/introduction/test03_collections.ring}}
 
-> [!TIP] To add your own closed generic type, put a line such as `["System.Collections.Generic.List`1[[System.Int32]]","IntList",0]` into `aTypes` in `tools/dotnettools/gendotnet.ring` and run the generator. Without a class, `dnNewGeneric(...)` gives you the object and `callMethod` works on it.
+> [!TIP] To add your own closed generic type, add a line to the `:types` list of its namespace in `tools/dotnettools/dotnetmanifest.ring` and run the generator ([Class generator](generator.html#closed-generic-types) shows the line). Without a class, `dnNewGeneric(...)` gives you the object and `callMethod` works on it.
 
 ## Other collection classes
 
