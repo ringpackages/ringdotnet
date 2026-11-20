@@ -1,0 +1,6 @@
+Scale(10,3,4)             : 8
+UpperCase('ring')         : RING
+the PATH is not empty     : 1
+a missing variable is ''  : []
+the computer has more than 1 GB of memory : 1
+the screen is wider than 0 : 1

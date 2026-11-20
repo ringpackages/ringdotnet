@@ -18,3 +18,5 @@ samples/UsingDotNet/tutorials/addressbook.db-*
 samples/UsingDotNet/tutorials/Packages/libs/
 samples/UsingDotNet/tutorials/Packages/bin/
 samples/UsingDotNet/tutorials/Packages/classes/
+samples/UsingDotNet/tutorials/Native/bin/
+samples/UsingDotNet/tutorials/Native/classes/

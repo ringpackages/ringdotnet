@@ -179,6 +179,7 @@ PAGES = [
     ("tut-160-generic-calls", "The generic functions", "Tutorials: Libraries, testing and release"),
     ("tut-161-common-errors", "Common mistakes", "Tutorials: Libraries, testing and release"),
     ("tut-162-nuget", "A NuGet package", "Tutorials: Libraries, testing and release"),
+    ("tut-163-native", "Native DLLs", "Tutorials: Libraries, testing and release"),
     ("tut-28-testing", "Testing", "Tutorials: Libraries, testing and release"),
     ("tut-119-distribution", "Giving your program to others", "Tutorials: Libraries, testing and release"),
     ("concepts", "Core concepts", "Guide: the language bridge"),
