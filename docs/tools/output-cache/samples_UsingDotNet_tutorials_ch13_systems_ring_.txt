@@ -1,0 +1,6 @@
+1. windows: 1, linux: 0, macos: 0, platform: Win32NT
+2. separator: \   Combine: data\report.txt
+3. notes.txt exists: 1, NOTES.TXT exists: 1
+4. the end of a line has 2 character(s)
+5. the home folder exists: 1
+6. a window can be made: form

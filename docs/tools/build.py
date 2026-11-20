@@ -182,6 +182,7 @@ PAGES = [
     ("tut-163-native", "Native DLLs", "Tutorials: Libraries, testing and release"),
     ("tut-164-sound", "Sound", "Tutorials: Libraries, testing and release"),
     ("tut-165-qr", "A QR code", "Tutorials: Libraries, testing and release"),
+    ("tut-166-systems", "More than one system", "Tutorials: Libraries, testing and release"),
     ("tut-28-testing", "Testing", "Tutorials: Libraries, testing and release"),
     ("tut-119-distribution", "Giving your program to others", "Tutorials: Libraries, testing and release"),
     ("concepts", "Core concepts", "Guide: the language bridge"),
