@@ -95,8 +95,7 @@ Class BitmapEffect from Animatable
 		return self
 
 	Func GetOutput P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetOutput",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetOutput",P1])
 
 
 Class BitmapEffectCollection from Animatable
@@ -146,53 +145,42 @@ Class BitmapEffectCollection from Animatable
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -255,8 +243,7 @@ Class BitmapEffectInput from Animatable
 		return self
 
 	Func ShouldSerializeInput 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeInput"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeInput"])
 
 	Func getInput
 		return dnRequest("get",[self,"Input"])
@@ -354,8 +341,7 @@ Class PixelShader from Animatable
 		return self
 
 	Func SetStreamSource P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetStreamSource",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetStreamSource",P1])
 		return self
 
 	Func setInvalidPixelShaderEncounteredEvent P1

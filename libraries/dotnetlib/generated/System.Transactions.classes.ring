@@ -125,13 +125,11 @@ Class Enlistment from Object
 		return self
 
 	Func Done 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Done"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Done"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class IDtcTransaction from DotNetObject
@@ -146,18 +144,15 @@ Class IDtcTransaction from DotNetObject
 		return self
 
 	Func Commit P1,P2,P3
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Commit",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Commit",P1,P2,P3])
 		return self
 
 	Func Abort P1,P2,P3
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Abort",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Abort",P1,P2,P3])
 		return self
 
 	Func GetTransactionInfo P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"GetTransactionInfo",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"GetTransactionInfo",P1])
 		return self
 
 
@@ -173,23 +168,19 @@ Class IEnlistmentNotification from DotNetObject
 		return self
 
 	Func Prepare P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Prepare",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Prepare",P1])
 		return self
 
 	Func Commit P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Commit",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Commit",P1])
 		return self
 
 	Func Rollback P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Rollback",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Rollback",P1])
 		return self
 
 	Func InDoubt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"InDoubt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"InDoubt",P1])
 		return self
 
 
@@ -205,18 +196,15 @@ Class IPromotableSinglePhaseNotification from DotNetObject
 		return self
 
 	Func Initialize 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Initialize"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Initialize"])
 		return self
 
 	Func SinglePhaseCommit P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SinglePhaseCommit",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SinglePhaseCommit",P1])
 		return self
 
 	Func Rollback P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Rollback",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Rollback",P1])
 		return self
 
 
@@ -232,8 +220,7 @@ Class ISimpleTransactionSuperior from DotNetObject
 		return self
 
 	Func Rollback 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Rollback"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Rollback"])
 		return self
 
 
@@ -249,8 +236,7 @@ Class ISinglePhaseNotification from DotNetObject
 		return self
 
 	Func SinglePhaseCommit P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SinglePhaseCommit",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SinglePhaseCommit",P1])
 		return self
 
 
@@ -266,8 +252,7 @@ Class ITransactionPromoter from DotNetObject
 		return self
 
 	Func Promote 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Promote"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Promote"])
 
 
 Class Transaction from Object
@@ -287,71 +272,58 @@ Class Transaction from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetPromotedToken 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPromotedToken"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPromotedToken"])
 
 	Func EnlistDurable P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnlistDurable",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnlistDurable",P1,P2,P3])
 
 	Func Rollback P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Rollback",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Rollback",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Rollback"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Rollback"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Rollback",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Rollback",P1])
 		return self
 
 	Func EnlistVolatile P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnlistVolatile",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnlistVolatile",P1,P2])
 
 	Func Clone 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
 
 	Func DependentClone P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DependentClone",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DependentClone",P1])
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func EnlistPromotableSinglePhase P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"EnlistPromotableSinglePhase",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnlistPromotableSinglePhase",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnlistPromotableSinglePhase",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnlistPromotableSinglePhase",P1])
 
 	Func PromoteAndEnlistDurable P1,P2,P3,P4
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"PromoteAndEnlistDurable",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"PromoteAndEnlistDurable",P1,P2,P3,P4])
 
 	Func SetDistributedTransactionIdentifier P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetDistributedTransactionIdentifier",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetDistributedTransactionIdentifier",P1,P2])
 		return self
 
 	Func setTransactionCompletedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"TransactionCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"TransactionCompleted",dnCallback(P1)])
 		return self
 
 	Func clearTransactionCompletedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"TransactionCompleted"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"TransactionCompleted"])
 		return self
 
 	Func getTransactionInformation
@@ -430,8 +402,7 @@ Class TransactionInformation from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getLocalIdentifier
 		return dnRequest("get",[self,"LocalIdentifier"])
@@ -472,8 +443,7 @@ Class TransactionInterop from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetExportCookie P1,P2
 		return dnRequest("call",[dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local'),"GetExportCookie",P1,P2])
@@ -520,8 +490,7 @@ Class TransactionManager from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Reenlist P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local'),"Reenlist",P1,P2,P3])
@@ -654,18 +623,15 @@ Class TransactionScope from Object
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func Complete 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Complete"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Complete"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class CommittableTransaction from Transaction
@@ -713,17 +679,14 @@ Class CommittableTransaction from Transaction
 		return self
 
 	Func BeginCommit P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginCommit",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginCommit",P1,P2])
 
 	Func Commit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Commit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Commit"])
 		return self
 
 	Func EndCommit P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EndCommit",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EndCommit",P1])
 		return self
 
 
@@ -739,8 +702,7 @@ Class DependentTransaction from Transaction
 		return self
 
 	Func Complete 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Complete"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Complete"])
 		return self
 
 
@@ -756,26 +718,23 @@ Class PreparingEnlistment from Enlistment
 		return self
 
 	Func Prepared 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Prepared"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Prepared"])
 		return self
 
 	Func ForceRollback P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ForceRollback",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ForceRollback",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"ForceRollback"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"ForceRollback"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ForceRollback",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ForceRollback",P1])
 		return self
 
 	Func RecoveryInformation 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RecoveryInformation"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RecoveryInformation"])
 
 
 Class SinglePhaseEnlistment from Enlistment
@@ -790,34 +749,31 @@ Class SinglePhaseEnlistment from Enlistment
 		return self
 
 	Func Aborted P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Aborted",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Aborted",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Aborted"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Aborted"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Aborted",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Aborted",P1])
 		return self
 
 	Func Committed 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Committed"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Committed"])
 		return self
 
 	Func InDoubt P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"InDoubt",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"InDoubt",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"InDoubt"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"InDoubt"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"InDoubt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"InDoubt",P1])
 		return self
 
 

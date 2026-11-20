@@ -149,8 +149,7 @@ Class ConsoleLoggerExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddConsole P1
 		if dnIsNamed(P1)
@@ -195,8 +194,7 @@ Class DebugLoggerFactoryExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddDebug P1
 		if dnIsNamed(P1)
@@ -277,8 +275,7 @@ Class EventLoggerFactoryExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddEventLog P1
 		if dnIsNamed(P1)
@@ -299,8 +296,7 @@ Class EventSourceLoggerFactoryExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddEventSourceLogger P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.EventSourceLoggerFactoryExtensions, Microsoft.Extensions.Logging.EventSource'),"AddEventSourceLogger",P1])
@@ -318,8 +314,7 @@ Class FilterLoggingBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddFilter P1
 		if dnIsNamed(P1)
@@ -340,13 +335,11 @@ Class IExternalScopeProvider from DotNetObject
 		return self
 
 	Func ForEachScope P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ForEachScope",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ForEachScope",P1,P2])
 		return self
 
 	Func Push P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Push",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Push",P1])
 
 
 Class ILogger from DotNetObject
@@ -361,17 +354,14 @@ Class ILogger from DotNetObject
 		return self
 
 	Func Log P1,P2,P3,P4,P5
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Log",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Log",P1,P2,P3,P4,P5])
 		return self
 
 	Func IsEnabled P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsEnabled",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsEnabled",P1])
 
 	Func BeginScope P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginScope",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginScope",P1])
 
 
 Class ILoggerFactory from DotNetObject
@@ -386,12 +376,10 @@ Class ILoggerFactory from DotNetObject
 		return self
 
 	Func CreateLogger P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateLogger",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateLogger",P1])
 
 	Func AddProvider P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddProvider",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddProvider",P1])
 		return self
 
 
@@ -407,8 +395,7 @@ Class ILoggerProvider from DotNetObject
 		return self
 
 	Func CreateLogger P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateLogger",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateLogger",P1])
 
 
 Class ILoggingBuilder from DotNetObject
@@ -443,8 +430,7 @@ Class ISupportExternalScope from DotNetObject
 		return self
 
 	Func SetScopeProvider P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetScopeProvider",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetScopeProvider",P1])
 		return self
 
 
@@ -475,8 +461,7 @@ Class LogDefineOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getSkipEnabledCheck
 		return dnRequest("get",[self,"SkipEnabledCheck"])
@@ -498,8 +483,7 @@ Class LoggerExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func LogDebug P1
 		if dnIsNamed(P1)
@@ -579,17 +563,14 @@ Class LoggerExternalScopeProvider from Object
 		return self
 
 	Func ForEachScope P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ForEachScope",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ForEachScope",P1,P2])
 		return self
 
 	Func Push P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Push",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Push",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class LoggerFactory from Object
@@ -637,22 +618,18 @@ Class LoggerFactory from Object
 		return self
 
 	Func CreateLogger P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateLogger",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateLogger",P1])
 
 	Func AddProvider P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddProvider",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddProvider",P1])
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.LoggerFactory, Microsoft.Extensions.Logging'),"Create",P1])
@@ -670,8 +647,7 @@ Class LoggerFactoryExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func CreateLogger P1
 		if dnIsNamed(P1)
@@ -707,8 +683,7 @@ Class LoggerFactoryOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getActivityTrackingOptions
 		return dnRequest("get",[self,"ActivityTrackingOptions"])
@@ -747,8 +722,7 @@ Class LoggerFilterOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCaptureScopes
 		return dnRequest("get",[self,"CaptureScopes"])
@@ -790,8 +764,7 @@ Class LoggerFilterRule from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getProviderName
 		return dnRequest("get",[self,"ProviderName"])
@@ -830,8 +803,7 @@ Class LoggerMessage from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func DefineScope P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.LoggerMessage, Microsoft.Extensions.Logging.Abstractions'),"DefineScope",P1])
@@ -855,8 +827,7 @@ Class LoggingBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func SetMinimumLevel P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.LoggingBuilderExtensions, Microsoft.Extensions.Logging'),"SetMinimumLevel",P1,P2])
@@ -883,8 +854,7 @@ Class TraceSourceFactoryExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddTraceSource P1
 		if dnIsNamed(P1)

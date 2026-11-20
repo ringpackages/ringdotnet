@@ -70,84 +70,66 @@ Class ObservableObjectList from DotNetObject
 		return self
 
 	Func Move P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Move",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Move",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func setCollectionChangedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CollectionChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"CollectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CollectionChanged"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"CollectionChanged"])
 		return self
 
 	Func getCount
@@ -174,29 +156,23 @@ Class ReadOnlyStringList from Object
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -258,57 +234,45 @@ Class StringCollectionList from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -363,18 +327,15 @@ Class ObservableStringList from StringCollectionList
 		return self
 
 	Func Move P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Move",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Move",P1,P2])
 		return self
 
 	Func setCollectionChangedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CollectionChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"CollectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CollectionChanged"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"CollectionChanged"])
 		return self
 
 

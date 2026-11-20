@@ -1351,24 +1351,21 @@ Class Animatable from Freezable
 		return self
 
 	Func ApplyAnimationClock P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ApplyAnimationClock",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ApplyAnimationClock",P1])
 			return self
 		ok
 		raise("DotNet Error: ApplyAnimationClock does not take one argument: use named arguments, ApplyAnimationClock([ :parameter = value, ... ])")
 
 	Func BeginAnimation P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginAnimation",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginAnimation",P1])
 			return self
 		ok
 		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
 
 	Func GetAnimationBaseValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAnimationBaseValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAnimationBaseValue",P1])
 
 	Func ShouldSerializeStoredWeakReference P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Animatable, PresentationCore'),"ShouldSerializeStoredWeakReference",P1])
@@ -1454,16 +1451,13 @@ Class BooleanKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -1525,53 +1519,42 @@ Class BooleanKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -1628,16 +1611,13 @@ Class ByteKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -1699,53 +1679,42 @@ Class ByteKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -1802,16 +1771,13 @@ Class CharKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -1873,53 +1839,42 @@ Class CharKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -1983,53 +1938,43 @@ Class Clock from DispatcherObject
 		return self
 
 	Func setCompletedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Completed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"Completed",dnCallback(P1)])
 		return self
 
 	Func clearCompletedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Completed"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"Completed"])
 		return self
 
 	Func setCurrentGlobalSpeedInvalidatedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CurrentGlobalSpeedInvalidated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"CurrentGlobalSpeedInvalidated",dnCallback(P1)])
 		return self
 
 	Func clearCurrentGlobalSpeedInvalidatedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CurrentGlobalSpeedInvalidated"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"CurrentGlobalSpeedInvalidated"])
 		return self
 
 	Func setCurrentStateInvalidatedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CurrentStateInvalidated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"CurrentStateInvalidated",dnCallback(P1)])
 		return self
 
 	Func clearCurrentStateInvalidatedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CurrentStateInvalidated"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"CurrentStateInvalidated"])
 		return self
 
 	Func setCurrentTimeInvalidatedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CurrentTimeInvalidated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"CurrentTimeInvalidated",dnCallback(P1)])
 		return self
 
 	Func clearCurrentTimeInvalidatedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CurrentTimeInvalidated"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"CurrentTimeInvalidated"])
 		return self
 
 	Func setRemoveRequestedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RemoveRequested",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"RemoveRequested",dnCallback(P1)])
 		return self
 
 	Func clearRemoveRequestedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RemoveRequested"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"RemoveRequested"])
 		return self
 
 	Func getController
@@ -2114,41 +2059,34 @@ Class ClockCollection from Object
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Animation.ClockCollection, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -2178,43 +2116,35 @@ Class ClockController from DispatcherObject
 		return self
 
 	Func Begin 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Begin"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Begin"])
 		return self
 
 	Func SkipToFill 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SkipToFill"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SkipToFill"])
 		return self
 
 	Func Pause 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Pause"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Pause"])
 		return self
 
 	Func Resume 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Resume"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Resume"])
 		return self
 
 	Func Seek P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Seek",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Seek",P1,P2])
 		return self
 
 	Func SeekAlignedToLastTick P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SeekAlignedToLastTick",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SeekAlignedToLastTick",P1,P2])
 		return self
 
 	Func Stop 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Stop"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Stop"])
 		return self
 
 	Func Remove 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove"])
 		return self
 
 	Func getClock
@@ -2248,16 +2178,13 @@ Class ColorKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -2319,53 +2246,42 @@ Class ColorKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -2443,16 +2359,13 @@ Class DecimalKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -2514,53 +2427,42 @@ Class DecimalKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -2617,16 +2519,13 @@ Class DoubleKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -2688,53 +2587,42 @@ Class DoubleKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -2789,8 +2677,7 @@ Class EasingFunctionBase from Freezable
 		return self
 
 	Func Ease P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Ease",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Ease",P1])
 
 	Func getEasingMode
 		return dnRequest("get",[self,"EasingMode"])
@@ -2820,24 +2707,21 @@ Class IAnimatable from DotNetObject
 		return self
 
 	Func ApplyAnimationClock P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ApplyAnimationClock",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ApplyAnimationClock",P1])
 			return self
 		ok
 		raise("DotNet Error: ApplyAnimationClock does not take one argument: use named arguments, ApplyAnimationClock([ :parameter = value, ... ])")
 
 	Func BeginAnimation P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginAnimation",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginAnimation",P1])
 			return self
 		ok
 		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
 
 	Func GetAnimationBaseValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAnimationBaseValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAnimationBaseValue",P1])
 
 	Func getHasAnimatedProperties
 		return dnRequest("get",[self,"HasAnimatedProperties"])
@@ -2858,8 +2742,7 @@ Class IAnimation from DotNetObject
 		return self
 
 	Func GetCurrentValue P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCurrentValue",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentValue",P1,P2,P3])
 
 
 Class IEasingFunction from DotNetObject
@@ -2874,8 +2757,7 @@ Class IEasingFunction from DotNetObject
 		return self
 
 	Func Ease P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Ease",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Ease",P1])
 
 
 Class IKeyFrame from DotNetObject
@@ -2945,16 +2827,13 @@ Class Int16KeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -3016,53 +2895,42 @@ Class Int16KeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -3119,16 +2987,13 @@ Class Int32KeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -3190,53 +3055,42 @@ Class Int32KeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -3293,16 +3147,13 @@ Class Int64KeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -3364,53 +3215,42 @@ Class Int64KeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -3498,15 +3338,13 @@ Class KeySpline from Freezable
 		return self
 
 	Func GetSplineProgress P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSplineProgress",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSplineProgress",P1])
 
 	Func Format P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
 
 	Func getControlPoint1
 		return dnRequest("get",[self,"ControlPoint1"])
@@ -3554,18 +3392,16 @@ Class KeyTime from ValueType
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetType_ 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func FromPercent P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore'),"FromPercent",P1])
@@ -3621,16 +3457,13 @@ Class MatrixKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -3692,53 +3525,42 @@ Class MatrixKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -3795,16 +3617,13 @@ Class ObjectKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -3866,53 +3685,42 @@ Class ObjectKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -3969,16 +3777,13 @@ Class Point3DKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -4040,53 +3845,42 @@ Class Point3DKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -4143,16 +3937,13 @@ Class PointKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -4214,53 +4005,42 @@ Class PointKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -4317,16 +4097,13 @@ Class QuaternionKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -4388,53 +4165,42 @@ Class QuaternionKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -4491,16 +4257,13 @@ Class RectKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -4562,53 +4325,42 @@ Class RectKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -4699,21 +4451,19 @@ Class RepeatBehavior from ValueType
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Animation.RepeatBehavior, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Format P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
 
 	Func getHasCount
 		return dnRequest("get",[self,"HasCount"])
@@ -4788,16 +4538,13 @@ Class Rotation3DKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -4859,53 +4606,42 @@ Class Rotation3DKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -4962,16 +4698,13 @@ Class SingleKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -5033,53 +4766,42 @@ Class SingleKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -5136,16 +4858,13 @@ Class SizeKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -5207,53 +4926,42 @@ Class SizeKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -5310,16 +5018,13 @@ Class StringKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -5381,53 +5086,42 @@ Class StringKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -5484,16 +5178,13 @@ Class ThicknessKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -5555,53 +5246,42 @@ Class ThicknessKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -5658,16 +5338,13 @@ Class Vector3DKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -5729,53 +5406,42 @@ Class Vector3DKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -5832,16 +5498,13 @@ Class VectorKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue_ P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
@@ -5903,53 +5566,42 @@ Class VectorKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -6001,8 +5653,7 @@ Class AnimationClock from Clock
 		return self
 
 	Func GetCurrentValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCurrentValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentValue",P1,P2])
 
 
 Class BackEase from EasingFunctionBase
@@ -9311,8 +8962,7 @@ Class SeekStoryboard from ControllableStoryboardAction
 		return self
 
 	Func ShouldSerializeOffset 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeOffset"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeOffset"])
 
 	Func getOffset
 		return dnRequest("get",[self,"Offset"])
@@ -10522,14 +10172,13 @@ Class Timeline from Animatable
 		return self
 
 	Func CreateClock P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateClock",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateClock",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateClock"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"CreateClock"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateClock",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateClock",P1])
 
 	Func GetDesiredFrameRate P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore'),"GetDesiredFrameRate",P1])
@@ -10539,53 +10188,43 @@ Class Timeline from Animatable
 		return self
 
 	Func setCurrentStateInvalidatedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CurrentStateInvalidated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"CurrentStateInvalidated",dnCallback(P1)])
 		return self
 
 	Func clearCurrentStateInvalidatedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CurrentStateInvalidated"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"CurrentStateInvalidated"])
 		return self
 
 	Func setCurrentTimeInvalidatedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CurrentTimeInvalidated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"CurrentTimeInvalidated",dnCallback(P1)])
 		return self
 
 	Func clearCurrentTimeInvalidatedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CurrentTimeInvalidated"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"CurrentTimeInvalidated"])
 		return self
 
 	Func setCurrentGlobalSpeedInvalidatedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CurrentGlobalSpeedInvalidated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"CurrentGlobalSpeedInvalidated",dnCallback(P1)])
 		return self
 
 	Func clearCurrentGlobalSpeedInvalidatedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CurrentGlobalSpeedInvalidated"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"CurrentGlobalSpeedInvalidated"])
 		return self
 
 	Func setCompletedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Completed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"Completed",dnCallback(P1)])
 		return self
 
 	Func clearCompletedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Completed"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"Completed"])
 		return self
 
 	Func setRemoveRequestedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RemoveRequested",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"RemoveRequested",dnCallback(P1)])
 		return self
 
 	Func clearRemoveRequestedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RemoveRequested"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"RemoveRequested"])
 		return self
 
 	Func getAccelerationRatio
@@ -10759,53 +10398,42 @@ Class TimelineCollection from Animatable
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -10832,8 +10460,7 @@ Class AnimationTimeline from Timeline
 		return self
 
 	Func GetCurrentValue P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCurrentValue",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentValue",P1,P2,P3])
 
 	Func getTargetPropertyType
 		return dnRequest("get",[self,"TargetPropertyType"])
@@ -11240,8 +10867,7 @@ Class BooleanAnimationUsingKeyFrames from BooleanAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -11402,8 +11028,7 @@ Class ByteAnimationUsingKeyFrames from ByteAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -11454,8 +11079,7 @@ Class CharAnimationUsingKeyFrames from CharAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -11616,8 +11240,7 @@ Class ColorAnimationUsingKeyFrames from ColorAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -11792,8 +11415,7 @@ Class DecimalAnimationUsingKeyFrames from DecimalAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -11968,8 +11590,7 @@ Class DoubleAnimationUsingKeyFrames from DoubleAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -12216,8 +11837,7 @@ Class Int16AnimationUsingKeyFrames from Int16AnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -12392,8 +12012,7 @@ Class Int32AnimationUsingKeyFrames from Int32AnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -12568,8 +12187,7 @@ Class Int64AnimationUsingKeyFrames from Int64AnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -12620,8 +12238,7 @@ Class MatrixAnimationUsingKeyFrames from MatrixAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -12752,8 +12369,7 @@ Class ObjectAnimationUsingKeyFrames from ObjectAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -12914,8 +12530,7 @@ Class Point3DAnimationUsingKeyFrames from Point3DAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -13090,8 +12705,7 @@ Class PointAnimationUsingKeyFrames from PointAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -13338,8 +12952,7 @@ Class QuaternionAnimationUsingKeyFrames from QuaternionAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -13514,8 +13127,7 @@ Class RectAnimationUsingKeyFrames from RectAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -13690,8 +13302,7 @@ Class Rotation3DAnimationUsingKeyFrames from Rotation3DAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -13866,8 +13477,7 @@ Class SingleAnimationUsingKeyFrames from SingleAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -14042,8 +13652,7 @@ Class SizeAnimationUsingKeyFrames from SizeAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -14096,168 +13705,153 @@ Class Storyboard from ParallelTimeline
 		return self
 
 	Func Begin P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Begin",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Begin",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Begin"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Begin"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Begin",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Begin",P1])
 		return self
 
 	Func GetCurrentGlobalSpeed P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetCurrentGlobalSpeed",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCurrentGlobalSpeed",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCurrentGlobalSpeed"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentGlobalSpeed"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCurrentGlobalSpeed",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentGlobalSpeed",P1])
 
 	Func GetCurrentIteration P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetCurrentIteration",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCurrentIteration",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCurrentIteration"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentIteration"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCurrentIteration",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentIteration",P1])
 
 	Func GetCurrentProgress P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetCurrentProgress",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCurrentProgress",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCurrentProgress"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentProgress"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCurrentProgress",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentProgress",P1])
 
 	Func GetCurrentState P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetCurrentState",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCurrentState",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCurrentState"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentState"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCurrentState",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentState",P1])
 
 	Func GetCurrentTime P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetCurrentTime",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCurrentTime",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCurrentTime"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentTime"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCurrentTime",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentTime",P1])
 
 	Func GetIsPaused P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetIsPaused",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetIsPaused",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIsPaused"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetIsPaused"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIsPaused",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIsPaused",P1])
 
 	Func Pause P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Pause",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Pause",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Pause"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Pause"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Pause",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Pause",P1])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Remove",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Remove",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Remove"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Remove"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func Resume P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Resume",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Resume",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Resume"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Resume"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Resume",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Resume",P1])
 		return self
 
 	Func Seek P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Seek",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Seek",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Seek",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Seek",P1])
 		return self
 
 	Func SeekAlignedToLastTick P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SeekAlignedToLastTick",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SeekAlignedToLastTick",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SeekAlignedToLastTick",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SeekAlignedToLastTick",P1])
 		return self
 
 	Func SetSpeedRatio_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetSpeedRatio",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetSpeedRatio",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetSpeedRatio",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetSpeedRatio",P1])
 		return self
 
 	Func SkipToFill P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SkipToFill",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SkipToFill",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"SkipToFill"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"SkipToFill"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SkipToFill",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SkipToFill",P1])
 		return self
 
 	Func Stop P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Stop",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Stop",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Stop"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Stop"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Stop",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Stop",P1])
 		return self
 
 	Func SetTarget P1,P2
@@ -14324,8 +13918,7 @@ Class StringAnimationUsingKeyFrames from StringAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -14486,8 +14079,7 @@ Class ThicknessAnimationUsingKeyFrames from ThicknessAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -14662,8 +14254,7 @@ Class Vector3DAnimationUsingKeyFrames from Vector3DAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])
@@ -14838,8 +14429,7 @@ Class VectorAnimationUsingKeyFrames from VectorAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
 		return dnRequest("get",[self,"KeyFrames"])

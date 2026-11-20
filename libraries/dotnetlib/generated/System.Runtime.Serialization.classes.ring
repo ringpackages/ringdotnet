@@ -23,16 +23,13 @@ Class ISerializationSurrogateProvider from DotNetObject
 		return self
 
 	Func GetSurrogateType P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSurrogateType",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSurrogateType",P1])
 
 	Func GetObjectToSerialize P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetObjectToSerialize",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectToSerialize",P1,P2])
 
 	Func GetDeserializedObject P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDeserializedObject",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDeserializedObject",P1,P2])
 
 
 Class ISerializationSurrogateProvider2 from DotNetObject
@@ -47,16 +44,13 @@ Class ISerializationSurrogateProvider2 from DotNetObject
 		return self
 
 	Func GetCustomDataToExport P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCustomDataToExport",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCustomDataToExport",P1,P2])
 
 	Func GetKnownCustomDataTypes P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"GetKnownCustomDataTypes",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"GetKnownCustomDataTypes",P1])
 		return self
 
 	Func GetReferencedTypeOnImport P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetReferencedTypeOnImport",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetReferencedTypeOnImport",P1,P2,P3])
 
 

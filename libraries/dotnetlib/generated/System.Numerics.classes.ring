@@ -119,39 +119,34 @@ Class BigInteger from ValueType
 		return self
 
 	Func CompareTo P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
 
 	Func ToByteArray P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToByteArray",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToByteArray",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"ToByteArray"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"ToByteArray"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToByteArray",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToByteArray",P1])
 
 	Func GetByteCount P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetByteCount",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetByteCount",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetByteCount"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetByteCount"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetByteCount",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetByteCount",P1])
 
 	Func Format P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
 
 	Func GetBitLength 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBitLength"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBitLength"])
 
 	Func Parse P1
 		if dnIsNamed(P1)
@@ -331,8 +326,7 @@ Class BitOperations from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func IsPow2 P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib'),"IsPow2",P1])
@@ -417,11 +411,10 @@ Class Complex from ValueType
 		return self
 
 	Func Format P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
 
 	Func FromPolarCoordinates P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"FromPolarCoordinates",P1,P2])
@@ -677,8 +670,7 @@ Class Matrix3x2 from ValueType
 		return self
 
 	Func GetDeterminant 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDeterminant"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDeterminant"])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"Add",P1,P2])
@@ -849,8 +841,7 @@ Class Matrix4x4 from ValueType
 		return self
 
 	Func GetDeterminant 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDeterminant"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDeterminant"])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"Add",P1,P2])
@@ -1246,12 +1237,10 @@ Class Quaternion from ValueType
 		return self
 
 	Func Length 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Length"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Length"])
 
 	Func LengthSquared 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LengthSquared"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LengthSquared"])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib'),"Add",P1,P2])
@@ -1299,12 +1288,10 @@ Class Quaternion from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib'),"Subtract",P1,P2])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getIsIdentity
@@ -1368,14 +1355,13 @@ Class Vector from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AsVector4 P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"AsVector4",P1])
@@ -1771,28 +1757,24 @@ Class Vector2 from ValueType
 		return self
 
 	Func CopyTo P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
 		return self
 
 	Func Length 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Length"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Length"])
 
 	Func LengthSquared 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LengthSquared"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LengthSquared"])
 
 	Func Format P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
 
 	Func Abs P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib'),"Abs",P1])
@@ -1927,12 +1909,10 @@ Class Vector2 from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib'),"Truncate",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getX
@@ -2084,28 +2064,24 @@ Class Vector3 from ValueType
 		return self
 
 	Func CopyTo P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
 		return self
 
 	Func Length 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Length"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Length"])
 
 	Func LengthSquared 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LengthSquared"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LengthSquared"])
 
 	Func Format P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
 
 	Func Abs P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Abs",P1])
@@ -2243,12 +2219,10 @@ Class Vector3 from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Truncate",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getX
@@ -2415,28 +2389,24 @@ Class Vector4 from ValueType
 		return self
 
 	Func CopyTo P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
 		return self
 
 	Func Length 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Length"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Length"])
 
 	Func LengthSquared 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LengthSquared"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LengthSquared"])
 
 	Func Format P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
 
 	Func Abs P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Abs",P1])
@@ -2565,12 +2535,10 @@ Class Vector4 from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Truncate",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getX

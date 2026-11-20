@@ -34,8 +34,7 @@ Class UnicodeRange from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Create P1,P2
 		return dnRequest("call",[dnTypeCached('System.Text.Unicode.UnicodeRange, System.Text.Encodings.Web'),"Create",P1,P2])
@@ -228,8 +227,7 @@ Class UnicodeRanges from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getNone
 		return dnRequest("get",[dnTypeCached('System.Text.Unicode.UnicodeRanges, System.Text.Encodings.Web'),"None"])
@@ -1216,7 +1214,6 @@ Class Utf8 from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 

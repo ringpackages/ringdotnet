@@ -181,8 +181,7 @@ Class GatewayIPAddressInformation from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getAddress
 		return dnRequest("get",[self,"Address"])
@@ -206,39 +205,31 @@ Class GatewayIPAddressInformationCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -269,8 +260,7 @@ Class IPAddressInformation from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getAddress
 		return dnRequest("get",[self,"Address"])
@@ -306,39 +296,31 @@ Class IPAddressInformationCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -371,68 +353,52 @@ Class IPGlobalProperties from Object
 		return self
 
 	Func GetActiveUdpListeners 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetActiveUdpListeners"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetActiveUdpListeners"])
 
 	Func GetActiveTcpListeners 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetActiveTcpListeners"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetActiveTcpListeners"])
 
 	Func GetActiveTcpConnections 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetActiveTcpConnections"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetActiveTcpConnections"])
 
 	Func BeginGetUnicastAddresses P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginGetUnicastAddresses",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginGetUnicastAddresses",P1,P2])
 
 	Func EndGetUnicastAddresses P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndGetUnicastAddresses",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EndGetUnicastAddresses",P1])
 
 	Func GetTcpIPv4Statistics 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetTcpIPv4Statistics"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTcpIPv4Statistics"])
 
 	Func GetTcpIPv6Statistics 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetTcpIPv6Statistics"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTcpIPv6Statistics"])
 
 	Func GetUdpIPv4Statistics 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetUdpIPv4Statistics"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUdpIPv4Statistics"])
 
 	Func GetUdpIPv6Statistics 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetUdpIPv6Statistics"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUdpIPv6Statistics"])
 
 	Func GetIcmpV4Statistics 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIcmpV4Statistics"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIcmpV4Statistics"])
 
 	Func GetIcmpV6Statistics 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIcmpV6Statistics"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIcmpV6Statistics"])
 
 	Func GetIPv4GlobalStatistics 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIPv4GlobalStatistics"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIPv4GlobalStatistics"])
 
 	Func GetIPv6GlobalStatistics 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIPv6GlobalStatistics"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIPv6GlobalStatistics"])
 
 	Func GetUnicastAddresses 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetUnicastAddresses"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUnicastAddresses"])
 
 	Func GetUnicastAddressesAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetUnicastAddressesAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUnicastAddressesAsync"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetIPGlobalProperties 
 		return dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.IPGlobalProperties, System.Net.NetworkInformation'),"GetIPGlobalProperties"])
@@ -503,8 +469,7 @@ Class IPGlobalStatistics from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getDefaultTtl
 		return dnRequest("get",[self,"DefaultTtl"])
@@ -662,16 +627,13 @@ Class IPInterfaceProperties from Object
 		return self
 
 	Func GetIPv4Properties 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIPv4Properties"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIPv4Properties"])
 
 	Func GetIPv6Properties 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIPv6Properties"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIPv6Properties"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getIsDnsEnabled
 		return dnRequest("get",[self,"IsDnsEnabled"])
@@ -759,8 +721,7 @@ Class IPInterfaceStatistics from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getBytesReceived
 		return dnRequest("get",[self,"BytesReceived"])
@@ -855,8 +816,7 @@ Class IPv4InterfaceProperties from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getUsesWins
 		return dnRequest("get",[self,"UsesWins"])
@@ -926,8 +886,7 @@ Class IPv4InterfaceStatistics from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getBytesReceived
 		return dnRequest("get",[self,"BytesReceived"])
@@ -1017,12 +976,10 @@ Class IPv6InterfaceProperties from Object
 		return self
 
 	Func GetScopeId P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetScopeId",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetScopeId",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getIndex
 		return dnRequest("get",[self,"Index"])
@@ -1076,8 +1033,7 @@ Class IcmpV4Statistics from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getAddressMaskRepliesReceived
 		return dnRequest("get",[self,"AddressMaskRepliesReceived"])
@@ -1281,8 +1237,7 @@ Class IcmpV6Statistics from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getDestinationUnreachableMessagesReceived
 		return dnRequest("get",[self,"DestinationUnreachableMessagesReceived"])
@@ -1492,39 +1447,31 @@ Class MulticastIPAddressInformationCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -1584,8 +1531,7 @@ Class NetworkChange from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func RegisterNetworkChange P1
 		dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.NetworkChange, System.Net.NetworkInformation'),"RegisterNetworkChange",P1])
@@ -1631,28 +1577,22 @@ Class NetworkInterface from Object
 		return self
 
 	Func GetIPProperties 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIPProperties"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIPProperties"])
 
 	Func GetIPStatistics 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIPStatistics"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIPStatistics"])
 
 	Func GetIPv4Statistics 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIPv4Statistics"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIPv4Statistics"])
 
 	Func GetPhysicalAddress 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPhysicalAddress"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPhysicalAddress"])
 
 	Func Supports P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Supports",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Supports",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetAllNetworkInterfaces 
 		return dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"GetAllNetworkInterfaces"])
@@ -1737,12 +1677,10 @@ Class PhysicalAddress from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetAddressBytes 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAddressBytes"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAddressBytes"])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation'),"Parse",P1])
@@ -1782,40 +1720,34 @@ Class Ping from Component
 		return self
 
 	Func Send P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Send",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Send",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Send",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Send",P1])
 
 	Func SendAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SendAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendAsync",P1])
 			return self
 		ok
 		raise("DotNet Error: SendAsync does not take one argument: use named arguments, SendAsync([ :parameter = value, ... ])")
 
 	Func SendPingAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SendPingAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendPingAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SendPingAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SendPingAsync",P1])
 
 	Func SendAsyncCancel 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SendAsyncCancel"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SendAsyncCancel"])
 		return self
 
 	Func setPingCompletedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"PingCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"PingCompleted",dnCallback(P1)])
 		return self
 
 	Func clearPingCompletedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"PingCompleted"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"PingCompleted"])
 		return self
 
 
@@ -1887,8 +1819,7 @@ Class PingOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getTtl
 		return dnRequest("get",[self,"Ttl"])
@@ -1923,8 +1854,7 @@ Class PingReply from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getStatus
 		return dnRequest("get",[self,"Status"])
@@ -1973,8 +1903,7 @@ Class TcpConnectionInformation from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getLocalEndPoint
 		return dnRequest("get",[self,"LocalEndPoint"])
@@ -2022,8 +1951,7 @@ Class TcpStatistics from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getConnectionsAccepted
 		return dnRequest("get",[self,"ConnectionsAccepted"])
@@ -2128,8 +2056,7 @@ Class UdpStatistics from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getDatagramsReceived
 		return dnRequest("get",[self,"DatagramsReceived"])
@@ -2177,39 +2104,31 @@ Class UnicastIPAddressInformationCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])

@@ -179,8 +179,7 @@ Class IPv6MulticastOption from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getGroup
 		return dnRequest("get",[self,"Group"])
@@ -214,8 +213,7 @@ Class LingerOption from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getEnabled
 		return dnRequest("get",[self,"Enabled"])
@@ -265,8 +263,7 @@ Class MulticastOption from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getGroup
 		return dnRequest("get",[self,"Group"])
@@ -322,16 +319,15 @@ Class NetworkStream from Stream
 		return self
 
 	Func Close P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Close",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Close",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Close",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Close",P1])
 		return self
 
 	Func getSocket
@@ -395,48 +391,38 @@ Class SafeSocketHandle from DotNetObject
 		return self
 
 	Func DangerousGetHandle 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DangerousGetHandle"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DangerousGetHandle"])
 
 	Func Close 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func SetHandleAsInvalid 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetHandleAsInvalid"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetHandleAsInvalid"])
 		return self
 
 	Func DangerousAddRef P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DangerousAddRef",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DangerousAddRef",P1])
 
 	Func DangerousRelease 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"DangerousRelease"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"DangerousRelease"])
 		return self
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func getIsInvalid
 		return dnRequest("get",[self,"IsInvalid"])
@@ -489,8 +475,7 @@ Class SendPacketsElement from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getFilePath
 		return dnRequest("get",[self,"FilePath"])
@@ -600,300 +585,251 @@ Class Socket from Object
 		return self
 
 	Func Bind P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Bind",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Bind",P1])
 		return self
 
 	Func Connect P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Connect",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Connect",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Connect",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Connect",P1])
 		return self
 
 	Func Close P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Close",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Close",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Close",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Close",P1])
 		return self
 
 	Func Listen P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Listen",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Listen",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Listen"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Listen"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Listen",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Listen",P1])
 		return self
 
 	Func Accept 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Accept"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Accept"])
 
 	Func Send P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Send",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Send",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Send",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Send",P1])
 
 	Func SendFile P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SendFile",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendFile",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SendFile",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SendFile",P1])
 		return self
 
 	Func SendTo P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SendTo",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendTo",P1])
 		ok
 		raise("DotNet Error: SendTo does not take one argument: use named arguments, SendTo([ :parameter = value, ... ])")
 
 	Func Receive P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Receive",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Receive",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Receive",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Receive",P1])
 
 	Func ReceiveMessageFrom P1,P2,P3,P4,P5
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReceiveMessageFrom",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReceiveMessageFrom",P1,P2,P3,P4,P5])
 
 	Func ReceiveFrom P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReceiveFrom",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReceiveFrom",P1])
 		ok
 		raise("DotNet Error: ReceiveFrom does not take one argument: use named arguments, ReceiveFrom([ :parameter = value, ... ])")
 
 	Func IOControl P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IOControl",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IOControl",P1,P2,P3])
 
 	Func SetSocketOption P1,P2,P3
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetSocketOption",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetSocketOption",P1,P2,P3])
 		return self
 
 	Func GetSocketOption P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetSocketOption",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetSocketOption",P1])
 		ok
 		raise("DotNet Error: GetSocketOption does not take one argument: use named arguments, GetSocketOption([ :parameter = value, ... ])")
 
 	Func SetIPProtectionLevel P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetIPProtectionLevel",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetIPProtectionLevel",P1])
 		return self
 
 	Func Poll P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Poll",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Poll",P1,P2])
 
 	Func BeginConnect P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginConnect",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginConnect",P1])
 		ok
 		raise("DotNet Error: BeginConnect does not take one argument: use named arguments, BeginConnect([ :parameter = value, ... ])")
 
 	Func EndConnect P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EndConnect",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EndConnect",P1])
 		return self
 
 	Func BeginDisconnect P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginDisconnect",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginDisconnect",P1,P2,P3])
 
 	Func Disconnect P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Disconnect",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Disconnect",P1])
 		return self
 
 	Func EndDisconnect P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EndDisconnect",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EndDisconnect",P1])
 		return self
 
 	Func BeginSend P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginSend",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginSend",P1])
 		ok
 		raise("DotNet Error: BeginSend does not take one argument: use named arguments, BeginSend([ :parameter = value, ... ])")
 
 	Func EndSend P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndSend",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EndSend",P1])
 
 	Func BeginSendFile P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginSendFile",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginSendFile",P1])
 		ok
 		raise("DotNet Error: BeginSendFile does not take one argument: use named arguments, BeginSendFile([ :parameter = value, ... ])")
 
 	Func EndSendFile P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EndSendFile",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EndSendFile",P1])
 		return self
 
 	Func BeginSendTo P1,P2,P3,P4,P5,P6,P7
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginSendTo",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginSendTo",P1,P2,P3,P4,P5,P6,P7])
 
 	Func EndSendTo P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndSendTo",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EndSendTo",P1])
 
 	Func BeginReceive P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginReceive",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginReceive",P1])
 		ok
 		raise("DotNet Error: BeginReceive does not take one argument: use named arguments, BeginReceive([ :parameter = value, ... ])")
 
 	Func EndReceive P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndReceive",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EndReceive",P1])
 
 	Func BeginReceiveMessageFrom P1,P2,P3,P4,P5,P6,P7
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginReceiveMessageFrom",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginReceiveMessageFrom",P1,P2,P3,P4,P5,P6,P7])
 
 	Func EndReceiveMessageFrom P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndReceiveMessageFrom",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EndReceiveMessageFrom",P1,P2,P3])
 
 	Func BeginReceiveFrom P1,P2,P3,P4,P5,P6,P7
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginReceiveFrom",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginReceiveFrom",P1,P2,P3,P4,P5,P6,P7])
 
 	Func EndReceiveFrom P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndReceiveFrom",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EndReceiveFrom",P1,P2])
 
 	Func BeginAccept P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginAccept",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginAccept",P1])
 		ok
 		raise("DotNet Error: BeginAccept does not take one argument: use named arguments, BeginAccept([ :parameter = value, ... ])")
 
 	Func EndAccept P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndAccept",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EndAccept",P1])
 
 	Func Shutdown P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Shutdown",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Shutdown",P1])
 		return self
 
 	Func AcceptAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AcceptAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AcceptAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptAsync",P1])
 
 	Func ConnectAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets'),"ConnectAsync",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ConnectAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ConnectAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConnectAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ConnectAsync",P1])
 
 	Func DisconnectAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DisconnectAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"DisconnectAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisconnectAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DisconnectAsync",P1])
 
 	Func ReceiveAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReceiveAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReceiveAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReceiveAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReceiveAsync",P1])
 
 	Func ReceiveFromAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReceiveFromAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReceiveFromAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReceiveFromAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReceiveFromAsync",P1])
 
 	Func ReceiveMessageFromAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReceiveMessageFromAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReceiveMessageFromAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReceiveMessageFromAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReceiveMessageFromAsync",P1])
 
 	Func SendAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SendAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SendAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SendAsync",P1])
 
 	Func SendPacketsAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SendPacketsAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SendPacketsAsync",P1])
 
 	Func SendToAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SendToAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendToAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SendToAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SendToAsync",P1])
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func SendFileAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SendFileAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendFileAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SendFileAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SendFileAsync",P1])
 
 	Func DuplicateAndClose P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DuplicateAndClose",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DuplicateAndClose",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Select P1,P2,P3,P4
 		dnRequest("call",[dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets'),"Select",P1,P2,P3,P4])
@@ -1157,27 +1093,23 @@ Class SocketAsyncEventArgs from EventArgs
 		return self
 
 	Func SetBuffer P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetBuffer",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetBuffer",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetBuffer",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetBuffer",P1])
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func setCompletedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Completed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"Completed",dnCallback(P1)])
 		return self
 
 	Func clearCompletedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Completed"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"Completed"])
 		return self
 
 	Func getAcceptSocket
@@ -1456,8 +1388,7 @@ Class SocketTaskExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AcceptAsync P1
 		if dnIsNamed(P1)
@@ -1549,47 +1480,39 @@ Class TcpClient from Object
 		return self
 
 	Func Connect P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Connect",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Connect",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Connect",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Connect",P1])
 		return self
 
 	Func ConnectAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ConnectAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ConnectAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConnectAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ConnectAsync",P1])
 
 	Func BeginConnect P1,P2,P3,P4
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginConnect",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginConnect",P1,P2,P3,P4])
 
 	Func EndConnect P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EndConnect",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EndConnect",P1])
 		return self
 
 	Func GetStream 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetStream"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetStream"])
 
 	Func Close 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getAvailable
 		return dnRequest("get",[self,"Available"])
@@ -1693,84 +1616,70 @@ Class TcpListener from Object
 		return self
 
 	Func AllowNatTraversal P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AllowNatTraversal",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AllowNatTraversal",P1])
 		return self
 
 	Func Start P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Start",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Start",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Start"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Start"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Start",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Start",P1])
 		return self
 
 	Func Stop 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Stop"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Stop"])
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func Pending 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Pending"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Pending"])
 
 	Func AcceptSocket 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptSocket"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptSocket"])
 
 	Func AcceptTcpClient 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptTcpClient"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptTcpClient"])
 
 	Func BeginAcceptSocket P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginAcceptSocket",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginAcceptSocket",P1,P2])
 
 	Func EndAcceptSocket P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndAcceptSocket",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EndAcceptSocket",P1])
 
 	Func BeginAcceptTcpClient P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginAcceptTcpClient",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginAcceptTcpClient",P1,P2])
 
 	Func EndAcceptTcpClient P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndAcceptTcpClient",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EndAcceptTcpClient",P1])
 
 	Func AcceptSocketAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AcceptSocketAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AcceptSocketAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptSocketAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptSocketAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptSocketAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptSocketAsync",P1])
 
 	Func AcceptTcpClientAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AcceptTcpClientAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AcceptTcpClientAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptTcpClientAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptTcpClientAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptTcpClientAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptTcpClientAsync",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Net.Sockets.TcpListener, System.Net.Sockets'),"Create",P1])
@@ -1848,97 +1757,82 @@ Class UdpClient from Object
 		return self
 
 	Func AllowNatTraversal P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AllowNatTraversal",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AllowNatTraversal",P1])
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func BeginSend P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginSend",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginSend",P1])
 		ok
 		raise("DotNet Error: BeginSend does not take one argument: use named arguments, BeginSend([ :parameter = value, ... ])")
 
 	Func EndSend P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndSend",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EndSend",P1])
 
 	Func BeginReceive P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginReceive",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginReceive",P1,P2])
 
 	Func EndReceive P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndReceive",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EndReceive",P1,P2])
 
 	Func JoinMulticastGroup P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"JoinMulticastGroup",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"JoinMulticastGroup",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"JoinMulticastGroup",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"JoinMulticastGroup",P1])
 		return self
 
 	Func DropMulticastGroup P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DropMulticastGroup",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"DropMulticastGroup",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"DropMulticastGroup",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"DropMulticastGroup",P1])
 		return self
 
 	Func SendAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SendAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SendAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SendAsync",P1])
 
 	Func ReceiveAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReceiveAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReceiveAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"ReceiveAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"ReceiveAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReceiveAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReceiveAsync",P1])
 
 	Func Close 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
 		return self
 
 	Func Connect P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Connect",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Connect",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Connect",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Connect",P1])
 		return self
 
 	Func Receive P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Receive",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Receive",P1])
 
 	Func Send P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Send",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Send",P1])
 		ok
 		raise("DotNet Error: Send does not take one argument: use named arguments, Send([ :parameter = value, ... ])")
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getAvailable
 		return dnRequest("get",[self,"Available"])

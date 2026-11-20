@@ -647,8 +647,7 @@ Class AntiforgeryApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseAntiforgery P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.AntiforgeryApplicationBuilderExtensions, Microsoft.AspNetCore.Antiforgery'),"UseAntiforgery",P1])
@@ -687,16 +686,13 @@ Class ApplicationBuilder from Object
 		return self
 
 	Func Use P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Use",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Use",P1])
 
 	Func Build 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getApplicationServices
 		return dnRequest("get",[self,"ApplicationServices"])
@@ -730,8 +726,7 @@ Class ApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseRequestLocalization P1
 		if dnIsNamed(P1)
@@ -752,8 +747,7 @@ Class AuthAppBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseAuthentication P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions, Microsoft.AspNetCore.Authentication'),"UseAuthentication",P1])
@@ -771,8 +765,7 @@ Class AuthorizationAppBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseAuthorization P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy'),"UseAuthorization",P1])
@@ -790,8 +783,7 @@ Class AuthorizationEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func RequireAuthorization P1
 		if dnIsNamed(P1)
@@ -815,8 +807,7 @@ Class CertificateForwardingBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseCertificateForwarding P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.CertificateForwardingBuilderExtensions, Microsoft.AspNetCore.HttpOverrides'),"UseCertificateForwarding",P1])
@@ -834,18 +825,15 @@ Class ComponentEndpointConventionBuilder from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Finally P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Finally",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Finally",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class ComponentEndpointRouteBuilderExtensions from Object
@@ -860,8 +848,7 @@ Class ComponentEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapBlazorHub P1
 		if dnIsNamed(P1)
@@ -884,28 +871,22 @@ Class ConfigureHostBuilder from Object
 		return self
 
 	Func ConfigureAppConfiguration P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureAppConfiguration",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureAppConfiguration",P1])
 
 	Func ConfigureContainer P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureContainer",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureContainer",P1])
 
 	Func ConfigureHostConfiguration P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureHostConfiguration",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureHostConfiguration",P1])
 
 	Func ConfigureServices P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureServices",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureServices",P1])
 
 	Func UseServiceProviderFactory P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"UseServiceProviderFactory",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"UseServiceProviderFactory",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getProperties
 		return dnRequest("get",[self,"Properties"])
@@ -926,24 +907,19 @@ Class ConfigureWebHostBuilder from Object
 		return self
 
 	Func ConfigureAppConfiguration P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureAppConfiguration",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureAppConfiguration",P1])
 
 	Func ConfigureServices P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureServices",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureServices",P1])
 
 	Func GetSetting P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSetting",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSetting",P1])
 
 	Func UseSetting P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"UseSetting",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"UseSetting",P1,P2])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class ConnectionEndpointRouteBuilder from Object
@@ -958,18 +934,15 @@ Class ConnectionEndpointRouteBuilder from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Finally P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Finally",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Finally",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class ConnectionEndpointRouteBuilderExtensions from Object
@@ -984,8 +957,7 @@ Class ConnectionEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapConnections P1
 		if dnIsNamed(P1)
@@ -1012,18 +984,15 @@ Class ControllerActionEndpointConventionBuilder from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Finally P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Finally",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Finally",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class ControllerActionEndpointConventionBuilderResourceCollectionExtensions from Object
@@ -1038,8 +1007,7 @@ Class ControllerActionEndpointConventionBuilderResourceCollectionExtensions from
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func WithStaticAssets P1
 		if dnIsNamed(P1)
@@ -1060,8 +1028,7 @@ Class ControllerEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapControllers P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapControllers",P1])
@@ -1113,8 +1080,7 @@ Class CookiePolicyAppBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseCookiePolicy P1
 		if dnIsNamed(P1)
@@ -1157,8 +1123,7 @@ Class CookiePolicyOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getMinimumSameSitePolicy
 		return dnRequest("get",[self,"MinimumSameSitePolicy"])
@@ -1229,8 +1194,7 @@ Class CorsEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func RequireCors P1
 		if dnIsNamed(P1)
@@ -1251,8 +1215,7 @@ Class CorsMiddlewareExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseCors P1
 		if dnIsNamed(P1)
@@ -1273,8 +1236,7 @@ Class DefaultFilesExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseDefaultFiles P1
 		if dnIsNamed(P1)
@@ -1333,20 +1295,16 @@ Class DefaultFilesOptions from DotNetObject
 		return self
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func getDefaultFileNames
 		return dnRequest("get",[self,"DefaultFileNames"])
@@ -1389,8 +1347,7 @@ Class DeveloperExceptionPageExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseDeveloperExceptionPage P1
 		if dnIsNamed(P1)
@@ -1427,8 +1384,7 @@ Class DeveloperExceptionPageOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getSourceCodeLineCount
 		return dnRequest("get",[self,"SourceCodeLineCount"])
@@ -1457,8 +1413,7 @@ Class DirectoryBrowserExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseDirectoryBrowser P1
 		if dnIsNamed(P1)
@@ -1517,20 +1472,16 @@ Class DirectoryBrowserOptions from DotNetObject
 		return self
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func getFormatter
 		return dnRequest("get",[self,"Formatter"])
@@ -1579,12 +1530,10 @@ Class EndpointBuilder from Object
 		return self
 
 	Func Build 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getFilterFactories
 		return dnRequest("get",[self,"FilterFactories"])
@@ -1632,8 +1581,7 @@ Class EndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapGroup P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapGroup",P1,P2])
@@ -1678,8 +1626,7 @@ Class EndpointRoutingApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseRouting P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions, Microsoft.AspNetCore.Routing'),"UseRouting",P1])
@@ -1700,8 +1647,7 @@ Class ExceptionHandlerExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseExceptionHandler P1
 		if dnIsNamed(P1)
@@ -1741,8 +1687,7 @@ Class ExceptionHandlerOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getExceptionHandlingPath
 		return dnRequest("get",[self,"ExceptionHandlingPath"])
@@ -1794,8 +1739,7 @@ Class FallbackEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapFallback P1
 		if dnIsNamed(P1)
@@ -1822,8 +1766,7 @@ Class FileServerExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseFileServer P1
 		if dnIsNamed(P1)
@@ -1866,20 +1809,16 @@ Class FileServerOptions from DotNetObject
 		return self
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func getStaticFileOptions
 		return dnRequest("get",[self,"StaticFileOptions"])
@@ -1947,8 +1886,7 @@ Class ForwardedHeadersExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseForwardedHeaders P1
 		if dnIsNamed(P1)
@@ -1997,8 +1935,7 @@ Class ForwardedHeadersOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getForwardedForHeaderName
 		return dnRequest("get",[self,"ForwardedForHeaderName"])
@@ -2109,8 +2046,7 @@ Class HealthCheckApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseHealthChecks P1
 		if dnIsNamed(P1)
@@ -2131,8 +2067,7 @@ Class HealthCheckEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapHealthChecks P1
 		if dnIsNamed(P1)
@@ -2153,8 +2088,7 @@ Class HostFilteringBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseHostFiltering P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HostFilteringBuilderExtensions, Microsoft.AspNetCore.HostFiltering'),"UseHostFiltering",P1])
@@ -2172,8 +2106,7 @@ Class HostFilteringServicesExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddHostFiltering P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HostFilteringServicesExtensions, Microsoft.AspNetCore.HostFiltering'),"AddHostFiltering",P1,P2])
@@ -2191,8 +2124,7 @@ Class HstsBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseHsts P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HstsBuilderExtensions, Microsoft.AspNetCore.HttpsPolicy'),"UseHsts",P1])
@@ -2210,8 +2142,7 @@ Class HstsServicesExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddHsts P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HstsServicesExtensions, Microsoft.AspNetCore.HttpsPolicy'),"AddHsts",P1,P2])
@@ -2229,8 +2160,7 @@ Class HttpLoggingBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseHttpLogging P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpLoggingBuilderExtensions, Microsoft.AspNetCore.HttpLogging'),"UseHttpLogging",P1])
@@ -2251,8 +2181,7 @@ Class HttpLoggingEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func WithHttpLogging P1
 		if dnIsNamed(P1)
@@ -2273,8 +2202,7 @@ Class HttpMethodOverrideExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseHttpMethodOverride P1
 		if dnIsNamed(P1)
@@ -2310,8 +2238,7 @@ Class HttpMethodOverrideOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getFormFieldName
 		return dnRequest("get",[self,"FormFieldName"])
@@ -2333,8 +2260,7 @@ Class HttpMetricsEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func DisableHttpMetrics P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpMetricsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http.Extensions'),"DisableHttpMetrics",P1])
@@ -2352,8 +2278,7 @@ Class HttpsPolicyBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseHttpsRedirection P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions, Microsoft.AspNetCore.HttpsPolicy'),"UseHttpsRedirection",P1])
@@ -2371,8 +2296,7 @@ Class HttpsRedirectionServicesExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddHttpsRedirection P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpsRedirectionServicesExtensions, Microsoft.AspNetCore.HttpsPolicy'),"AddHttpsRedirection",P1,P2])
@@ -2390,18 +2314,15 @@ Class HubEndpointConventionBuilder from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Finally P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Finally",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Finally",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class HubEndpointRouteBuilderExtensions from Object
@@ -2416,8 +2337,7 @@ Class HubEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapHub P1
 		if dnIsNamed(P1)
@@ -2442,12 +2362,10 @@ Class IApplicationBuilder from DotNetObject
 		return self
 
 	Func Use P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Use",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Use",P1])
 
 	Func Build 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
 
 	Func getApplicationServices
 		return dnRequest("get",[self,"ApplicationServices"])
@@ -2481,13 +2399,11 @@ Class IEndpointConventionBuilder from DotNetObject
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Finally P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Finally",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Finally",P1])
 		return self
 
 
@@ -2532,8 +2448,7 @@ Class IISOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getAutomaticAuthentication
 		return dnRequest("get",[self,"AutomaticAuthentication"])
@@ -2588,8 +2503,7 @@ Class IISServerOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getAllowSynchronousIO
 		return dnRequest("get",[self,"AllowSynchronousIO"])
@@ -2639,8 +2553,7 @@ Class MapExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Map P1
 		if dnIsNamed(P1)
@@ -2661,8 +2574,7 @@ Class MapRouteRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapRoute P1
 		if dnIsNamed(P1)
@@ -2683,8 +2595,7 @@ Class MapWhenExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapWhen P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.MapWhenExtensions, Microsoft.AspNetCore.Http.Abstractions'),"MapWhen",P1,P2,P3])
@@ -2702,8 +2613,7 @@ Class MvcApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseMvc P1
 		if dnIsNamed(P1)
@@ -2727,8 +2637,7 @@ Class MvcAreaRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapAreaRoute P1
 		if dnIsNamed(P1)
@@ -2749,8 +2658,7 @@ Class OutputCacheApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseOutputCache P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.OutputCacheApplicationBuilderExtensions, Microsoft.AspNetCore.OutputCaching'),"UseOutputCache",P1])
@@ -2768,18 +2676,15 @@ Class PageActionEndpointConventionBuilder from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Finally P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Finally",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Finally",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class PageActionEndpointConventionBuilderResourceCollectionExtensions from Object
@@ -2794,8 +2699,7 @@ Class PageActionEndpointConventionBuilderResourceCollectionExtensions from Objec
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func WithStaticAssets P1
 		if dnIsNamed(P1)
@@ -2816,8 +2720,7 @@ Class RateLimiterApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseRateLimiter P1
 		if dnIsNamed(P1)
@@ -2838,8 +2741,7 @@ Class RateLimiterEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func RequireRateLimiting P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterEndpointConventionBuilderExtensions, Microsoft.AspNetCore.RateLimiting'),"RequireRateLimiting",P1,P2])
@@ -2860,8 +2762,7 @@ Class RateLimiterServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddRateLimiter P1
 		if dnIsNamed(P1)
@@ -2882,18 +2783,15 @@ Class RazorComponentsEndpointConventionBuilder from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Finally P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Finally",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Finally",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class RazorComponentsEndpointConventionBuilderExtensions from Object
@@ -2908,8 +2806,7 @@ Class RazorComponentsEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddAdditionalAssemblies P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints'),"AddAdditionalAssemblies",P1,P2])
@@ -2933,8 +2830,7 @@ Class RazorComponentsEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapRazorComponents P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints'),"MapRazorComponents",P1])
@@ -2952,8 +2848,7 @@ Class RazorPagesEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapRazorPages P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"MapRazorPages",P1])
@@ -2990,8 +2885,7 @@ Class RequestDecompressionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseRequestDecompression P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RequestDecompressionBuilderExtensions, Microsoft.AspNetCore.RequestDecompression'),"UseRequestDecompression",P1])
@@ -3031,20 +2925,16 @@ Class RequestLocalizationOptions from Object
 		return self
 
 	Func AddSupportedCultures P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddSupportedCultures",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddSupportedCultures",P1])
 
 	Func AddSupportedUICultures P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddSupportedUICultures",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddSupportedUICultures",P1])
 
 	Func SetDefaultCulture P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SetDefaultCulture",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SetDefaultCulture",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCultureInfoUseUserOverride
 		return dnRequest("get",[self,"CultureInfoUseUserOverride"])
@@ -3115,8 +3005,7 @@ Class RequestLocalizationOptionsExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddInitialRequestCultureProvider P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RequestLocalizationOptionsExtensions, Microsoft.AspNetCore.Localization'),"AddInitialRequestCultureProvider",P1,P2])
@@ -3134,8 +3023,7 @@ Class RequestTimeoutsIApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseRequestTimeouts P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RequestTimeoutsIApplicationBuilderExtensions, Microsoft.AspNetCore.Http'),"UseRequestTimeouts",P1])
@@ -3153,8 +3041,7 @@ Class RequestTimeoutsIEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func WithRequestTimeout P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http'),"WithRequestTimeout",P1,P2])
@@ -3175,8 +3062,7 @@ Class ResponseCachingExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseResponseCaching P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ResponseCachingExtensions, Microsoft.AspNetCore.ResponseCaching'),"UseResponseCaching",P1])
@@ -3194,8 +3080,7 @@ Class ResponseCompressionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseResponseCompression P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ResponseCompressionBuilderExtensions, Microsoft.AspNetCore.ResponseCompression'),"UseResponseCompression",P1])
@@ -3213,8 +3098,7 @@ Class ResponseCompressionServicesExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddResponseCompression P1
 		if dnIsNamed(P1)
@@ -3235,8 +3119,7 @@ Class RewriteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseRewriter P1
 		if dnIsNamed(P1)
@@ -3259,18 +3142,15 @@ Class RouteHandlerBuilder from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Finally P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Finally",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Finally",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class RouteShortCircuitEndpointConventionBuilderExtensions from Object
@@ -3285,8 +3165,7 @@ Class RouteShortCircuitEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func ShortCircuit P1
 		if dnIsNamed(P1)
@@ -3309,12 +3188,10 @@ Class RouterMiddleware from Object
 		return self
 
 	Func Invoke P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Invoke",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Invoke",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class RoutingBuilderExtensions from Object
@@ -3329,8 +3206,7 @@ Class RoutingBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseRouter P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingBuilderExtensions, Microsoft.AspNetCore.Routing'),"UseRouter",P1,P2])
@@ -3348,8 +3224,7 @@ Class RoutingEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func RequireHost P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"RequireHost",P1,P2])
@@ -3397,8 +3272,7 @@ Class RunExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Run P1,P2
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RunExtensions, Microsoft.AspNetCore.Http.Abstractions'),"Run",P1,P2])
@@ -3417,8 +3291,7 @@ Class ServerRazorComponentsEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddInteractiveServerRenderMode P1
 		if dnIsNamed(P1)
@@ -3439,8 +3312,7 @@ Class SessionMiddlewareExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseSession P1
 		if dnIsNamed(P1)
@@ -3478,8 +3350,7 @@ Class SessionOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCookie
 		return dnRequest("get",[self,"Cookie"])
@@ -3515,8 +3386,7 @@ Class StaticAssetsEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapStaticAssets P1
 		if dnIsNamed(P1)
@@ -3537,8 +3407,7 @@ Class StaticFileExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseStaticFiles P1
 		if dnIsNamed(P1)
@@ -3602,20 +3471,16 @@ Class StaticFileOptions from DotNetObject
 		return self
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func getContentTypeProvider
 		return dnRequest("get",[self,"ContentTypeProvider"])
@@ -3693,8 +3558,7 @@ Class StaticFilesEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapFallbackToFile P1
 		if dnIsNamed(P1)
@@ -3715,8 +3579,7 @@ Class StatusCodePagesExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseStatusCodePages P1
 		if dnIsNamed(P1)
@@ -3761,8 +3624,7 @@ Class StatusCodePagesOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getHandleAsync
 		return dnRequest("get",[self,"HandleAsync"])
@@ -3784,8 +3646,7 @@ Class UseExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Use P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.UseExtensions, Microsoft.AspNetCore.Http.Abstractions'),"Use",P1,P2])
@@ -3803,8 +3664,7 @@ Class UseMiddlewareExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseMiddleware P1
 		if dnIsNamed(P1)
@@ -3825,8 +3685,7 @@ Class UsePathBaseExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UsePathBase P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.UsePathBaseExtensions, Microsoft.AspNetCore.Http.Abstractions'),"UsePathBase",P1,P2])
@@ -3844,8 +3703,7 @@ Class UseWhenExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseWhen P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.UseWhenExtensions, Microsoft.AspNetCore.Http.Abstractions'),"UseWhen",P1,P2,P3])
@@ -3870,59 +3728,52 @@ Class WebApplication from Object
 		return self
 
 	Func StartAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"StartAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"StartAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"StartAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"StartAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"StartAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"StartAsync",P1])
 
 	Func StopAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"StopAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"StopAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"StopAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"StopAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"StopAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"StopAsync",P1])
 
 	Func RunAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RunAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RunAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"RunAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"RunAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RunAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RunAsync",P1])
 
 	Func Run P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Run",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Run",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Run"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Run"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Run",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Run",P1])
 		return self
 
 	Func DisposeAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DisposeAsync"])
 
 	Func Use P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Use",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Use",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -4011,12 +3862,10 @@ Class WebApplicationBuilder from Object
 		return self
 
 	Func Build 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getEnvironment
 		return dnRequest("get",[self,"Environment"])
@@ -4092,8 +3941,7 @@ Class WebApplicationOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getArgs
 		return dnRequest("get",[self,"Args"])
@@ -4143,8 +3991,7 @@ Class WebSocketMiddlewareExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseWebSockets P1
 		if dnIsNamed(P1)
@@ -4183,8 +4030,7 @@ Class WebSocketOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getKeepAliveInterval
 		return dnRequest("get",[self,"KeepAliveInterval"])
@@ -4226,8 +4072,7 @@ Class WelcomePageExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func UseWelcomePage P1
 		if dnIsNamed(P1)
@@ -4263,8 +4108,7 @@ Class WelcomePageOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getPath
 		return dnRequest("get",[self,"Path"])

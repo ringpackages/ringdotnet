@@ -228,8 +228,7 @@ Class BitmapCodecInfo from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getContainerFormat
 		return dnRequest("get",[self,"ContainerFormat"])
@@ -325,8 +324,7 @@ Class BitmapDecoder from DispatcherObject
 		return self
 
 	Func CreateInPlaceBitmapMetadataWriter 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateInPlaceBitmapMetadataWriter"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateInPlaceBitmapMetadataWriter"])
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -335,33 +333,27 @@ Class BitmapDecoder from DispatcherObject
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
 	Func setDownloadCompletedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DownloadCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"DownloadCompleted",dnCallback(P1)])
 		return self
 
 	Func clearDownloadCompletedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DownloadCompleted"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"DownloadCompleted"])
 		return self
 
 	Func setDownloadProgressEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DownloadProgress",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"DownloadProgress",dnCallback(P1)])
 		return self
 
 	Func clearDownloadProgressEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DownloadProgress"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"DownloadProgress"])
 		return self
 
 	Func setDownloadFailedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DownloadFailed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"DownloadFailed",dnCallback(P1)])
 		return self
 
 	Func clearDownloadFailedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DownloadFailed"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"DownloadFailed"])
 		return self
 
 	Func getPalette
@@ -433,8 +425,7 @@ Class BitmapEncoder from DispatcherObject
 		return self
 
 	Func Save P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Save",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Save",P1])
 		return self
 
 	Func Create P1
@@ -519,22 +510,18 @@ Class BitmapMetadata from ImageMetadata
 		return self
 
 	Func SetQuery P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetQuery",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetQuery",P1,P2])
 		return self
 
 	Func GetQuery P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetQuery",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetQuery",P1])
 
 	Func RemoveQuery P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveQuery",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveQuery",P1])
 		return self
 
 	Func ContainsQuery P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsQuery",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsQuery",P1])
 
 	Func getFormat
 		return dnRequest("get",[self,"Format"])
@@ -652,12 +639,10 @@ Class BitmapMetadataBlob from Object
 		return self
 
 	Func GetBlobValue 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBlobValue"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBlobValue"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class BitmapPalette from DispatcherObject
@@ -734,8 +719,7 @@ Class BitmapPalettes from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getBlackAndWhite
 		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"BlackAndWhite"])
@@ -899,8 +883,7 @@ Class BitmapSizeOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func FromEmptyOptions 
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"FromEmptyOptions"])
@@ -962,9 +945,8 @@ Class BitmapSource from ImageSource
 		return self
 
 	Func CopyPixels P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyPixels",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyPixels",P1])
 			return self
 		ok
 		raise("DotNet Error: CopyPixels does not take one argument: use named arguments, CopyPixels([ :parameter = value, ... ])")
@@ -976,43 +958,35 @@ Class BitmapSource from ImageSource
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
 	Func setDownloadCompletedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DownloadCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"DownloadCompleted",dnCallback(P1)])
 		return self
 
 	Func clearDownloadCompletedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DownloadCompleted"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"DownloadCompleted"])
 		return self
 
 	Func setDownloadProgressEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DownloadProgress",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"DownloadProgress",dnCallback(P1)])
 		return self
 
 	Func clearDownloadProgressEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DownloadProgress"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"DownloadProgress"])
 		return self
 
 	Func setDownloadFailedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DownloadFailed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"DownloadFailed",dnCallback(P1)])
 		return self
 
 	Func clearDownloadFailedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DownloadFailed"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"DownloadFailed"])
 		return self
 
 	Func setDecodeFailedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DecodeFailed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"DecodeFailed",dnCallback(P1)])
 		return self
 
 	Func clearDecodeFailedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DecodeFailed"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"DecodeFailed"])
 		return self
 
 	Func getFormat
@@ -1095,8 +1069,7 @@ Class BitmapFrame from BitmapSource
 		return self
 
 	Func CreateInPlaceBitmapMetadataWriter 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateInPlaceBitmapMetadataWriter"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateInPlaceBitmapMetadataWriter"])
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -1195,13 +1168,11 @@ Class BitmapImage from BitmapSource
 		return self
 
 	Func BeginInit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginInit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EndInit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EndInit"])
 		return self
 
 	Func getBaseUri
@@ -1436,13 +1407,11 @@ Class ColorConvertedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginInit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EndInit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EndInit"])
 		return self
 
 	Func getSource
@@ -1548,13 +1517,11 @@ Class CroppedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginInit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EndInit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EndInit"])
 		return self
 
 	Func getSource
@@ -1638,13 +1605,11 @@ Class FormatConvertedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginInit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EndInit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EndInit"])
 		return self
 
 	Func getSource
@@ -1765,8 +1730,7 @@ Class InPlaceBitmapMetadataWriter from BitmapMetadata
 		return self
 
 	Func TrySave 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TrySave"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TrySave"])
 
 
 Class JpegBitmapDecoder from BitmapDecoder
@@ -1923,13 +1887,11 @@ Class RenderTargetBitmap from BitmapSource
 		return self
 
 	Func Render P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Render",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Render",P1])
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 
@@ -2031,13 +1993,11 @@ Class TransformedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginInit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EndInit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EndInit"])
 		return self
 
 	Func getSource
@@ -2283,28 +2243,23 @@ Class WriteableBitmap from BitmapSource
 		return self
 
 	Func AddDirtyRect P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddDirtyRect",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddDirtyRect",P1])
 		return self
 
 	Func Lock 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Lock"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Lock"])
 		return self
 
 	Func TryLock P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryLock",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryLock",P1])
 
 	Func Unlock 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Unlock"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Unlock"])
 		return self
 
 	Func WritePixels P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"WritePixels",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"WritePixels",P1])
 			return self
 		ok
 		raise("DotNet Error: WritePixels does not take one argument: use named arguments, WritePixels([ :parameter = value, ... ])")

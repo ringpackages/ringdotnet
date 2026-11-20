@@ -1,6 +1,7 @@
 # After an error that was caught, the next call on a .NET object still reaches that object.
-# (A call is made with "new DotNetObject(...)" of the handle of the object; when the handle was read as an attribute inside that expression,
-# Ring could look for it in the wrong object after a caught error, and the call arrived at a null object.)
+# (A call is made with "new DotNetObject(...)" of the handle of the object; the arguments of new are read together with the new object, so
+# the plain name nHandle could be looked up in the wrong object after a caught error, and the call arrived at a null object. The generated
+# classes write this.nHandle.)
 load "dotnet.ring"
 using {
 	"System"

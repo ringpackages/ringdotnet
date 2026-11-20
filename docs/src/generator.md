@@ -83,8 +83,7 @@ The generator names the methods of a class like this:
 Class StringBuilder from Object
 
 	Func Append P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Append",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Append",P1])
 
 	Func getLength
 		return dnRequest("get",[self,"Length"])
@@ -93,7 +92,7 @@ Class StringBuilder from Object
 		dnRequest("set",[self,"Length",P1])
 ```
 
-Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when you assign to it. A method makes its target from a **local copy** of the handle (`dn_nTarget`): the arguments of `new DotNetObject(...)` are read together with the new object, and a name that is an attribute of both objects (`nHandle`) could be looked up in the wrong one after an error that was caught. A property accessor passes `self`, so it needs no copy.
+Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when you assign to it. A method makes its target with `this.nHandle`: the arguments of `new DotNetObject(...)` are read together with the new object, so the plain name `nHandle` (an attribute of both objects) could be looked up in the wrong one after an error that was caught. A property accessor passes `self`.
 
 ## Wrapping your own assembly
 

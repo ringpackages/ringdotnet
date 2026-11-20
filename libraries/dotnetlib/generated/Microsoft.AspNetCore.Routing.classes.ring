@@ -430,8 +430,7 @@ Class ContentEncodingMetadata from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getValue
 		return dnRequest("get",[self,"Value"])
@@ -458,8 +457,7 @@ Class ControllerLinkGeneratorExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetPathByAction P1
 		if dnIsNamed(P1)
@@ -490,8 +488,7 @@ Class DataTokensMetadata from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getDataTokens
 		return dnRequest("get",[self,"DataTokens"])
@@ -514,12 +511,10 @@ Class DefaultInlineConstraintResolver from Object
 		return self
 
 	Func ResolveConstraint P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ResolveConstraint",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveConstraint",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class EndpointDataSource from Object
@@ -536,16 +531,13 @@ Class EndpointDataSource from Object
 		return self
 
 	Func GetChangeToken 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChangeToken"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChangeToken"])
 
 	Func GetGroupedEndpoints P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetGroupedEndpoints",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetGroupedEndpoints",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getEndpoints
 		return dnRequest("get",[self,"Endpoints"])
@@ -570,8 +562,7 @@ Class EndpointNameMetadata from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getEndpointName
 		return dnRequest("get",[self,"EndpointName"])
@@ -612,8 +603,7 @@ Class HttpMethodMetadata from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getAcceptCorsPreflight
 		return dnRequest("get",[self,"AcceptCorsPreflight"])
@@ -724,8 +714,7 @@ Class IEndpointRouteBuilder from DotNetObject
 		return self
 
 	Func CreateApplicationBuilder 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateApplicationBuilder"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateApplicationBuilder"])
 
 	Func getServiceProvider
 		return dnRequest("get",[self,"ServiceProvider"])
@@ -820,8 +809,7 @@ Class IInlineConstraintResolver from DotNetObject
 		return self
 
 	Func ResolveConstraint P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ResolveConstraint",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveConstraint",P1])
 
 
 Class INamedRouter from DotNetObject
@@ -856,8 +844,7 @@ Class IOutboundParameterTransformer from DotNetObject
 		return self
 
 	Func TransformOutbound P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TransformOutbound",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TransformOutbound",P1])
 
 
 Class IParameterPolicy from DotNetObject
@@ -889,8 +876,7 @@ Class IRouteBuilder from DotNetObject
 		return self
 
 	Func Build 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
 
 	Func getApplicationBuilder
 		return dnRequest("get",[self,"ApplicationBuilder"])
@@ -930,8 +916,7 @@ Class IRouteCollection from DotNetObject
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 
@@ -947,8 +932,7 @@ Class IRouteConstraint from DotNetObject
 		return self
 
 	Func Match P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Match",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Match",P1,P2])
 
 
 Class IRouteHandler from DotNetObject
@@ -963,8 +947,7 @@ Class IRouteHandler from DotNetObject
 		return self
 
 	Func GetRequestHandler P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRequestHandler",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRequestHandler",P1,P2])
 
 
 Class IRouteNameMetadata from DotNetObject
@@ -999,12 +982,10 @@ Class IRouter from DotNetObject
 		return self
 
 	Func RouteAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RouteAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RouteAsync",P1])
 
 	Func GetVirtualPath P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetVirtualPath",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetVirtualPath",P1])
 
 
 Class IRoutingFeature from DotNetObject
@@ -1080,8 +1061,7 @@ Class IdentityApiEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapIdentityApi P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Identity'),"MapIdentityApi",P1])
@@ -1099,8 +1079,7 @@ Class InlineRouteParameterParser from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func ParseRouteParameter P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.InlineRouteParameterParser, Microsoft.AspNetCore.Routing'),"ParseRouteParameter",P1])
@@ -1118,22 +1097,19 @@ Class LinkGenerator from Object
 		return self
 
 	Func GetPathByAddress P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetPathByAddress",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetPathByAddress",P1])
 		ok
 		raise("DotNet Error: GetPathByAddress does not take one argument: use named arguments, GetPathByAddress([ :parameter = value, ... ])")
 
 	Func GetUriByAddress P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetUriByAddress",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetUriByAddress",P1])
 		ok
 		raise("DotNet Error: GetUriByAddress does not take one argument: use named arguments, GetUriByAddress([ :parameter = value, ... ])")
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class LinkGeneratorEndpointNameAddressExtensions from Object
@@ -1148,8 +1124,7 @@ Class LinkGeneratorEndpointNameAddressExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetPathByName P1
 		if dnIsNamed(P1)
@@ -1176,8 +1151,7 @@ Class LinkGeneratorRouteValuesAddressExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetPathByRouteValues P1
 		if dnIsNamed(P1)
@@ -1221,8 +1195,7 @@ Class LinkOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getLowercaseUrls
 		return dnRequest("get",[self,"LowercaseUrls"])
@@ -1258,12 +1231,10 @@ Class LinkParser from Object
 		return self
 
 	Func ParsePathByAddress P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ParsePathByAddress",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ParsePathByAddress",P1,P2])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class LinkParserEndpointNameAddressExtensions from Object
@@ -1278,8 +1249,7 @@ Class LinkParserEndpointNameAddressExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func ParsePathByEndpointName P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkParserEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"ParsePathByEndpointName",P1,P2,P3])
@@ -1299,8 +1269,7 @@ Class MatcherPolicy from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getOrder
 		return dnRequest("get",[self,"Order"])
@@ -1321,8 +1290,7 @@ Class PageLinkGeneratorExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetPathByPage P1
 		if dnIsNamed(P1)
@@ -1349,12 +1317,10 @@ Class ParameterPolicyFactory from Object
 		return self
 
 	Func Create P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Create",P1,P2])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class RequestDelegateRouteBuilderExtensions from Object
@@ -1369,8 +1335,7 @@ Class RequestDelegateRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapRoute P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapRoute",P1,P2,P3])
@@ -1427,16 +1392,13 @@ Class RouteBase from Object
 		return self
 
 	Func RouteAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RouteAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RouteAsync",P1])
 
 	Func GetVirtualPath P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetVirtualPath",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetVirtualPath",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getConstraints
 		return dnRequest("get",[self,"Constraints"])
@@ -1503,12 +1465,10 @@ Class RouteBuilder from Object
 		return self
 
 	Func Build 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getApplicationBuilder
 		return dnRequest("get",[self,"ApplicationBuilder"])
@@ -1563,25 +1523,20 @@ Class RouteCollection from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func RouteAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RouteAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RouteAsync",P1])
 
 	Func GetVirtualPath P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetVirtualPath",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetVirtualPath",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -1604,22 +1559,18 @@ Class RouteConstraintBuilder from Object
 		return self
 
 	Func Build 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
 
 	Func AddResolvedConstraint P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddResolvedConstraint",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddResolvedConstraint",P1,P2])
 		return self
 
 	Func SetOptional P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetOptional",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetOptional",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class RouteConstraintMatcher from Object
@@ -1634,8 +1585,7 @@ Class RouteConstraintMatcher from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Match P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.RouteConstraintMatcher, Microsoft.AspNetCore.Components'),"Match",P1,P2])
@@ -1659,8 +1609,7 @@ Class RouteContext from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getHandler
 		return dnRequest("get",[self,"Handler"])
@@ -1732,12 +1681,10 @@ Class RouteData from Object
 		return self
 
 	Func PushState P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"PushState",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"PushState",P1,P2,P3])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getDataTokens
 		return dnRequest("get",[self,"DataTokens"])
@@ -1830,8 +1777,7 @@ Class RouteGroupBuilder from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class RouteGroupContext from Object
@@ -1864,8 +1810,7 @@ Class RouteGroupContext from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getPrefix
 		return dnRequest("get",[self,"Prefix"])
@@ -1910,20 +1855,16 @@ Class RouteHandler from Object
 		return self
 
 	Func GetRequestHandler P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRequestHandler",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRequestHandler",P1,P2])
 
 	Func GetVirtualPath P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetVirtualPath",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetVirtualPath",P1])
 
 	Func RouteAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RouteAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RouteAsync",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class RouteHandlerOptions from Object
@@ -1953,8 +1894,7 @@ Class RouteHandlerOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getThrowOnBadRequest
 		return dnRequest("get",[self,"ThrowOnBadRequest"])
@@ -1976,8 +1916,7 @@ Class RouteHandlerServices from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Map P1
 		if dnIsNamed(P1)
@@ -2002,8 +1941,7 @@ Class RouteNameMetadata from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getRouteName
 		return dnRequest("get",[self,"RouteName"])
@@ -2039,17 +1977,15 @@ Class RouteOptions from Object
 		return self
 
 	Func SetParameterPolicy P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetParameterPolicy",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetParameterPolicy",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetParameterPolicy",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetParameterPolicy",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getConstraintMap
 		return dnRequest("get",[self,"ConstraintMap"])
@@ -2071,8 +2007,7 @@ Class RouteShortCircuitEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapShortCircuit P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.RouteShortCircuitEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapShortCircuit",P1,P2,P3])
@@ -2128,49 +2063,39 @@ Class RouteValueDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func ContainsKey P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsKey",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func TryAdd P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryAdd",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryAdd",P1,P2])
 
 	Func TryGetValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func FromArray P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions'),"FromArray",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getComparer
@@ -2225,21 +2150,19 @@ Class RouteValueEqualityComparer from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetHashCode",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetHashCode",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode",P1])
 
 	Func getDefault
 		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Routing.RouteValueEqualityComparer, Microsoft.AspNetCore.Components'),"Default"])
@@ -2277,8 +2200,7 @@ Class RouteValuesAddress from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getRouteName
 		return dnRequest("get",[self,"RouteName"])
@@ -2329,8 +2251,7 @@ Class RoutingFeature from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getRouteData
 		return dnRequest("get",[self,"RouteData"])
@@ -2352,8 +2273,7 @@ Class RoutingHttpContextExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetRouteData P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.RoutingHttpContextExtensions, Microsoft.AspNetCore.Routing.Abstractions'),"GetRouteData",P1])
@@ -2389,8 +2309,7 @@ Class SuppressLinkGenerationMetadata from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getSuppressLinkGeneration
 		return dnRequest("get",[self,"SuppressLinkGeneration"])
@@ -2426,8 +2345,7 @@ Class SuppressMatchingMetadata from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getSuppressMatching
 		return dnRequest("get",[self,"SuppressMatching"])
@@ -2470,8 +2388,7 @@ Class VirtualPathContext from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getAmbientValues
 		return dnRequest("get",[self,"AmbientValues"])
@@ -2532,8 +2449,7 @@ Class VirtualPathData from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getDataTokens
 		return dnRequest("get",[self,"DataTokens"])
@@ -2572,8 +2488,7 @@ Class CompositeEndpointDataSource from EndpointDataSource
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func getDataSources

@@ -29,8 +29,7 @@ Class HttpClientJsonExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetFromJsonAsAsyncEnumerable P1
 		if dnIsNamed(P1)
@@ -81,8 +80,7 @@ Class HttpContentJsonExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func ReadFromJsonAsAsyncEnumerable P1
 		if dnIsNamed(P1)

@@ -64,8 +64,7 @@ Class IXsltContextFunction from DotNetObject
 		return self
 
 	Func Invoke P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Invoke",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Invoke",P1,P2,P3])
 
 	Func getMinargs
 		return dnRequest("get",[self,"Minargs"])
@@ -108,8 +107,7 @@ Class IXsltContextVariable from DotNetObject
 		return self
 
 	Func Evaluate P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Evaluate",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Evaluate",P1])
 
 	Func getIsLocal
 		return dnRequest("get",[self,"IsLocal"])
@@ -177,25 +175,22 @@ Class XslCompiledTransform from Object
 		return self
 
 	Func Load_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Load",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Load",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Load",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Load",P1])
 		return self
 
 	Func Transform P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Transform",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Transform",P1])
 			return self
 		ok
 		raise("DotNet Error: Transform does not take one argument: use named arguments, Transform([ :parameter = value, ... ])")
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getOutputSettings
 		return dnRequest("get",[self,"OutputSettings"])
@@ -231,24 +226,21 @@ Class XslTransform from Object
 		return self
 
 	Func Load_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Load",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Load",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Load",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Load",P1])
 		return self
 
 	Func Transform P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Transform",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Transform",P1])
 		ok
 		raise("DotNet Error: Transform does not take one argument: use named arguments, Transform([ :parameter = value, ... ])")
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func setXmlResolver P1
 		dnRequest("set",[self,"XmlResolver",P1])
@@ -280,48 +272,38 @@ Class XsltArgumentList from Object
 		return self
 
 	Func GetParam P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetParam",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetParam",P1,P2])
 
 	Func GetExtensionObject P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetExtensionObject",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetExtensionObject",P1])
 
 	Func AddParam P1,P2,P3
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddParam",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddParam",P1,P2,P3])
 		return self
 
 	Func AddExtensionObject P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddExtensionObject",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddExtensionObject",P1,P2])
 		return self
 
 	Func RemoveParam P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveParam",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveParam",P1,P2])
 
 	Func RemoveExtensionObject P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveExtensionObject",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveExtensionObject",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func setXsltMessageEncounteredEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"XsltMessageEncountered",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"XsltMessageEncountered",dnCallback(P1)])
 		return self
 
 	Func clearXsltMessageEncounteredEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"XsltMessageEncountered"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"XsltMessageEncountered"])
 		return self
 
 
@@ -339,20 +321,16 @@ Class XsltContext from XmlNamespaceManager
 		return self
 
 	Func ResolveVariable P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ResolveVariable",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveVariable",P1,P2])
 
 	Func ResolveFunction P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ResolveFunction",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveFunction",P1,P2,P3])
 
 	Func PreserveWhitespace P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"PreserveWhitespace",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"PreserveWhitespace",P1])
 
 	Func CompareDocument P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareDocument",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareDocument",P1,P2])
 
 	Func getWhitespace
 		return dnRequest("get",[self,"Whitespace"])
@@ -431,8 +409,7 @@ Class XsltSettings from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getEnableDocumentFunction
 		return dnRequest("get",[self,"EnableDocumentFunction"])

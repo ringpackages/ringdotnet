@@ -160,8 +160,7 @@ Class AspCacheControlHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"Parse",P1])
@@ -375,18 +374,15 @@ Class AspContentDispositionHeaderValue from Object
 		return self
 
 	Func SetHttpFileName P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetHttpFileName",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetHttpFileName",P1])
 		return self
 
 	Func SetMimeFileName P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetMimeFileName",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetMimeFileName",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.ContentDispositionHeaderValue, Microsoft.Net.Http.Headers'),"Parse",P1])
@@ -469,8 +465,7 @@ Class ContentDispositionHeaderValueIdentityExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func IsFileDisposition P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.ContentDispositionHeaderValueIdentityExtensions, Microsoft.Net.Http.Headers'),"IsFileDisposition",P1])
@@ -515,8 +510,7 @@ Class AspContentRangeHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.ContentRangeHeaderValue, Microsoft.Net.Http.Headers'),"Parse",P1])
@@ -594,8 +588,7 @@ Class CookieHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.CookieHeaderValue, Microsoft.Net.Http.Headers'),"Parse",P1])
@@ -663,12 +656,10 @@ Class AspEntityTagHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Compare P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Compare",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Compare",P1,P2])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.EntityTagHeaderValue, Microsoft.Net.Http.Headers'),"Parse",P1])
@@ -816,8 +807,7 @@ Class HeaderNames from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getAccept
 		return dnRequest("get",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"Accept"])
@@ -1411,8 +1401,7 @@ Class HeaderQuality from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getMatch
 		return dnRequest("get",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderQuality, Microsoft.Net.Http.Headers'),"Match"])
@@ -1439,8 +1428,7 @@ Class HeaderUtilities from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func TryParseSeconds P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"TryParseSeconds",P1,P2])
@@ -1524,28 +1512,22 @@ Class AspMediaTypeHeaderValue from Object
 		return self
 
 	Func IsSubsetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsSubsetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSubsetOf",P1])
 
 	Func Copy 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Copy"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Copy"])
 
 	Func CopyAsReadOnly 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CopyAsReadOnly"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CopyAsReadOnly"])
 
 	Func MatchesMediaType P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MatchesMediaType",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MatchesMediaType",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetType_ 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.MediaTypeHeaderValue, Microsoft.Net.Http.Headers'),"Parse",P1])
@@ -1675,12 +1657,10 @@ Class MediaTypeHeaderValueComparer from Object
 		return self
 
 	Func Compare P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Compare",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Compare",P1,P2])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getQualityComparer
 		return dnRequest("get",[dnTypeCached('Microsoft.Net.Http.Headers.MediaTypeHeaderValueComparer, Microsoft.Net.Http.Headers'),"QualityComparer"])
@@ -1722,24 +1702,19 @@ Class AspNameValueHeaderValue from Object
 		return self
 
 	Func Copy 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Copy"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Copy"])
 
 	Func CopyAsReadOnly 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CopyAsReadOnly"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CopyAsReadOnly"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetUnescapedValue 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetUnescapedValue"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUnescapedValue"])
 
 	Func SetAndEscapeValue P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetAndEscapeValue",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetAndEscapeValue",P1])
 		return self
 
 	Func Parse P1
@@ -1800,8 +1775,7 @@ Class AspRangeConditionHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.RangeConditionHeaderValue, Microsoft.Net.Http.Headers'),"Parse",P1])
@@ -1870,8 +1844,7 @@ Class AspRangeHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.RangeHeaderValue, Microsoft.Net.Http.Headers'),"Parse",P1])
@@ -1910,8 +1883,7 @@ Class AspRangeItemHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getFrom
 		return dnRequest("get",[self,"From"])
@@ -1966,13 +1938,11 @@ Class SetCookieHeaderValue from Object
 		return self
 
 	Func AppendToStringBuilder P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AppendToStringBuilder",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AppendToStringBuilder",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.SetCookieHeaderValue, Microsoft.Net.Http.Headers'),"Parse",P1])
@@ -2094,8 +2064,7 @@ Class AspStringWithQualityHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.StringWithQualityHeaderValue, Microsoft.Net.Http.Headers'),"Parse",P1])
@@ -2142,12 +2111,10 @@ Class StringWithQualityHeaderValueComparer from Object
 		return self
 
 	Func Compare P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Compare",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Compare",P1,P2])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getQualityComparer
 		return dnRequest("get",[dnTypeCached('Microsoft.Net.Http.Headers.StringWithQualityHeaderValueComparer, Microsoft.Net.Http.Headers'),"QualityComparer"])

@@ -127,8 +127,7 @@ Class DrawingAttributeIds from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getColor
 		return dnRequest("get",[dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"Color"])
@@ -211,53 +210,42 @@ Class DrawingAttributes from Object
 		return self
 
 	Func AddPropertyData P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddPropertyData",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddPropertyData",P1,P2])
 		return self
 
 	Func RemovePropertyData P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemovePropertyData",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemovePropertyData",P1])
 		return self
 
 	Func GetPropertyData P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPropertyData",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPropertyData",P1])
 
 	Func GetPropertyDataIds 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPropertyDataIds"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPropertyDataIds"])
 
 	Func ContainsPropertyData P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsPropertyData",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsPropertyData",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Clone 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
 
 	Func setAttributeChangedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AttributeChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"AttributeChanged",dnCallback(P1)])
 		return self
 
 	Func clearAttributeChangedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AttributeChanged"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"AttributeChanged"])
 		return self
 
 	Func setPropertyDataChangedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"PropertyDataChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"PropertyDataChanged",dnCallback(P1)])
 		return self
 
 	Func clearPropertyDataChangedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"PropertyDataChanged"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"PropertyDataChanged"])
 		return self
 
 	Func getColor
@@ -385,8 +373,7 @@ Class GestureRecognitionResult from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getRecognitionConfidence
 		return dnRequest("get",[self,"RecognitionConfidence"])
@@ -448,21 +435,17 @@ Class GestureRecognizer from DependencyObject
 		return self
 
 	Func SetEnabledGestures P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetEnabledGestures",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetEnabledGestures",P1])
 		return self
 
 	Func GetEnabledGestures 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnabledGestures"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnabledGestures"])
 
 	Func Recognize P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Recognize",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Recognize",P1])
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func getIsRecognizerAvailable
@@ -486,23 +469,19 @@ Class IncrementalHitTester from Object
 		return self
 
 	Func AddPoint P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddPoint",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddPoint",P1])
 		return self
 
 	Func AddPoints P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddPoints",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddPoints",P1])
 		return self
 
 	Func EndHitTesting 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EndHitTesting"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EndHitTesting"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getIsValid
 		return dnRequest("get",[self,"IsValid"])
@@ -606,143 +585,116 @@ Class Stroke from Object
 		return self
 
 	Func Clone 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
 
 	Func Transform P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Transform",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Transform",P1,P2])
 		return self
 
 	Func GetBezierStylusPoints 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBezierStylusPoints"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBezierStylusPoints"])
 
 	Func AddPropertyData P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddPropertyData",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddPropertyData",P1,P2])
 		return self
 
 	Func RemovePropertyData P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemovePropertyData",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemovePropertyData",P1])
 		return self
 
 	Func GetPropertyData P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPropertyData",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPropertyData",P1])
 
 	Func GetPropertyDataIds 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPropertyDataIds"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPropertyDataIds"])
 
 	Func ContainsPropertyData P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsPropertyData",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsPropertyData",P1])
 
 	Func GetBounds 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBounds"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBounds"])
 
 	Func Draw P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Draw",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Draw",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Draw",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Draw",P1])
 		return self
 
 	Func GetClipResult P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetClipResult",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetClipResult",P1])
 
 	Func GetEraseResult P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetEraseResult",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetEraseResult",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEraseResult",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEraseResult",P1])
 
 	Func HitTest P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"HitTest",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HitTest",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"HitTest",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"HitTest",P1])
 
 	Func GetGeometry P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetGeometry",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetGeometry",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetGeometry"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetGeometry"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetGeometry",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetGeometry",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func setDrawingAttributesChangedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DrawingAttributesChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"DrawingAttributesChanged",dnCallback(P1)])
 		return self
 
 	Func clearDrawingAttributesChangedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DrawingAttributesChanged"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"DrawingAttributesChanged"])
 		return self
 
 	Func setDrawingAttributesReplacedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DrawingAttributesReplaced",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"DrawingAttributesReplaced",dnCallback(P1)])
 		return self
 
 	Func clearDrawingAttributesReplacedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DrawingAttributesReplaced"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"DrawingAttributesReplaced"])
 		return self
 
 	Func setStylusPointsReplacedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"StylusPointsReplaced",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"StylusPointsReplaced",dnCallback(P1)])
 		return self
 
 	Func clearStylusPointsReplacedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"StylusPointsReplaced"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"StylusPointsReplaced"])
 		return self
 
 	Func setStylusPointsChangedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"StylusPointsChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"StylusPointsChanged",dnCallback(P1)])
 		return self
 
 	Func clearStylusPointsChangedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"StylusPointsChanged"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"StylusPointsChanged"])
 		return self
 
 	Func setPropertyDataChangedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"PropertyDataChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"PropertyDataChanged",dnCallback(P1)])
 		return self
 
 	Func clearPropertyDataChangedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"PropertyDataChanged"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"PropertyDataChanged"])
 		return self
 
 	Func setInvalidatedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Invalidated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"Invalidated",dnCallback(P1)])
 		return self
 
 	Func clearInvalidatedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Invalidated"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"Invalidated"])
 		return self
 
 	Func getDrawingAttributes
@@ -808,173 +760,138 @@ Class StrokeCollection from DotNetObject
 		return self
 
 	Func Save P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Save",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Save",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Save",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Save",P1])
 		return self
 
 	Func AddPropertyData P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddPropertyData",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddPropertyData",P1,P2])
 		return self
 
 	Func RemovePropertyData P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemovePropertyData",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemovePropertyData",P1])
 		return self
 
 	Func GetPropertyData P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPropertyData",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPropertyData",P1])
 
 	Func GetPropertyDataIds 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPropertyDataIds"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPropertyDataIds"])
 
 	Func ContainsPropertyData P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsPropertyData",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsPropertyData",P1])
 
 	Func Transform P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Transform",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Transform",P1,P2])
 		return self
 
 	Func Clone 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Replace P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Replace",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Replace",P1,P2])
 		return self
 
 	Func GetBounds 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBounds"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBounds"])
 
 	Func HitTest P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"HitTest",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HitTest",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"HitTest",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"HitTest",P1])
 
 	Func Clip P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clip",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clip",P1])
 		return self
 
 	Func Erase P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Erase",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Erase",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Erase",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Erase",P1])
 		return self
 
 	Func Draw P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Draw",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Draw",P1])
 		return self
 
 	Func GetIncrementalStrokeHitTester P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIncrementalStrokeHitTester",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIncrementalStrokeHitTester",P1])
 
 	Func GetIncrementalLassoHitTester P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIncrementalLassoHitTester",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIncrementalLassoHitTester",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func setStrokesChangedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"StrokesChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"StrokesChanged",dnCallback(P1)])
 		return self
 
 	Func clearStrokesChangedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"StrokesChanged"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"StrokesChanged"])
 		return self
 
 	Func setPropertyDataChangedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"PropertyDataChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"PropertyDataChanged",dnCallback(P1)])
 		return self
 
 	Func clearPropertyDataChangedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"PropertyDataChanged"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"PropertyDataChanged"])
 		return self
 
 	Func getCount
@@ -1033,8 +950,7 @@ Class StrokeHitEventArgs from EventArgs
 		return self
 
 	Func GetPointEraseResults 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPointEraseResults"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPointEraseResults"])
 
 	Func getHitStroke
 		return dnRequest("get",[self,"HitStroke"])
@@ -1088,8 +1004,7 @@ Class StylusShape from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getWidth
 		return dnRequest("get",[self,"Width"])
@@ -1151,13 +1066,11 @@ Class IncrementalLassoHitTester from IncrementalHitTester
 		return self
 
 	Func setSelectionChangedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SelectionChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"SelectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectionChangedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SelectionChanged"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"SelectionChanged"])
 		return self
 
 
@@ -1173,13 +1086,11 @@ Class IncrementalStrokeHitTester from IncrementalHitTester
 		return self
 
 	Func setStrokeHitEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"StrokeHit",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"StrokeHit",dnCallback(P1)])
 		return self
 
 	Func clearStrokeHitEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"StrokeHit"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"StrokeHit"])
 		return self
 
 

@@ -131,8 +131,7 @@ Class AspBase64UrlTextEncoder from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Encode P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities'),"Encode",P1])
@@ -172,43 +171,37 @@ Class BufferedReadStream from Stream
 		return self
 
 	Func WriteAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"WriteAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteAsync",P1])
 		ok
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
 	Func ReadAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReadAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadAsync",P1])
 		ok
 		raise("DotNet Error: ReadAsync does not take one argument: use named arguments, ReadAsync([ :parameter = value, ... ])")
 
 	Func EnsureBuffered P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"EnsureBuffered",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnsureBuffered",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureBuffered"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureBuffered"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureBuffered",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureBuffered",P1])
 
 	Func EnsureBufferedAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"EnsureBufferedAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnsureBufferedAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureBufferedAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureBufferedAsync",P1])
 
 	Func ReadLine P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadLine",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadLine",P1])
 
 	Func ReadLineAsync P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadLineAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadLineAsync",P1,P2])
 
 	Func getBufferedData
 		return dnRequest("get",[self,"BufferedData"])
@@ -250,9 +243,8 @@ Class FileBufferingReadStream from Stream
 		return self
 
 	Func WriteAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"WriteAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteAsync",P1])
 		ok
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
@@ -322,18 +314,16 @@ Class FileBufferingWriteStream from Stream
 		return self
 
 	Func ReadAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReadAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadAsync",P1])
 		ok
 		raise("DotNet Error: ReadAsync does not take one argument: use named arguments, ReadAsync([ :parameter = value, ... ])")
 
 	Func DrainBufferAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrainBufferAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"DrainBufferAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DrainBufferAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DrainBufferAsync",P1])
 
 	Func getMemoryThreshold
 		return dnRequest("get",[self,"MemoryThreshold"])
@@ -376,8 +366,7 @@ Class FileMultipartSection from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getSection
 		return dnRequest("get",[self,"Section"])
@@ -436,18 +425,16 @@ Class FormMultipartSection from Object
 		return self
 
 	Func GetValueAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetValueAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetValueAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValueAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetValueAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValueAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValueAsync",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getSection
 		return dnRequest("get",[self,"Section"])
@@ -495,18 +482,16 @@ Class FormPipeReader from Object
 		return self
 
 	Func ReadFormAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReadFormAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadFormAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadFormAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadFormAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadFormAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadFormAsync",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getValueCountLimit
 		return dnRequest("get",[self,"ValueCountLimit"])
@@ -566,41 +551,35 @@ Class FormReader from Object
 		return self
 
 	Func ReadNextPair 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadNextPair"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadNextPair"])
 
 	Func ReadNextPairAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReadNextPairAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadNextPairAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadNextPairAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadNextPairAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadNextPairAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadNextPairAsync",P1])
 
 	Func ReadForm 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadForm"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadForm"])
 
 	Func ReadFormAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReadFormAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadFormAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadFormAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadFormAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadFormAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadFormAsync",P1])
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getValueCountLimit
 		return dnRequest("get",[self,"ValueCountLimit"])
@@ -729,13 +708,11 @@ Class KeyValueAccumulator from ValueType
 		return self
 
 	Func Append P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Append",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Append",P1,P2])
 		return self
 
 	Func GetResults 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetResults"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetResults"])
 
 	Func getHasValues
 		return dnRequest("get",[self,"HasValues"])
@@ -791,18 +768,16 @@ Class MultipartReader from Object
 		return self
 
 	Func ReadNextSectionAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReadNextSectionAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadNextSectionAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadNextSectionAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadNextSectionAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadNextSectionAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadNextSectionAsync",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getHeadersCountLimit
 		return dnRequest("get",[self,"HeadersCountLimit"])
@@ -869,8 +844,7 @@ Class MultipartSection from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getContentType
 		return dnRequest("get",[self,"ContentType"])
@@ -918,8 +892,7 @@ Class MultipartSectionConverterExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AsFileSection P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities'),"AsFileSection",P1])
@@ -943,8 +916,7 @@ Class MultipartSectionStreamExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func ReadAsStringAsync P1
 		if dnIsNamed(P1)
@@ -965,8 +937,7 @@ Class QueryHelpers from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddQueryString P1
 		if dnIsNamed(P1)
@@ -1026,8 +997,7 @@ Class QueryStringEnumerable from ValueType
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 
 Class ReasonPhrases from Object
@@ -1042,8 +1012,7 @@ Class ReasonPhrases from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetReasonPhrase P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities'),"GetReasonPhrase",P1])
@@ -1061,8 +1030,7 @@ Class StreamHelperExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func DrainAsync P1
 		if dnIsNamed(P1)
@@ -1083,8 +1051,7 @@ Class WebEncoders from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Base64UrlDecode P1
 		if dnIsNamed(P1)

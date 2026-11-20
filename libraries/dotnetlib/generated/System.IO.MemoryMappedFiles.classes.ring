@@ -31,33 +31,29 @@ Class MemoryMappedFile from Object
 		return self
 
 	Func CreateViewStream P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateViewStream",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateViewStream",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateViewStream"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"CreateViewStream"])
 		ok
 		raise("DotNet Error: CreateViewStream does not take one argument: use named arguments, CreateViewStream([ :parameter = value, ... ])")
 
 	Func CreateViewAccessor P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateViewAccessor",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateViewAccessor",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateViewAccessor"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"CreateViewAccessor"])
 		ok
 		raise("DotNet Error: CreateViewAccessor does not take one argument: use named arguments, CreateViewAccessor([ :parameter = value, ... ])")
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func OpenExisting P1
 		if dnIsNamed(P1)
@@ -105,8 +101,7 @@ Class MemoryMappedViewAccessor from UnmanagedMemoryAccessor
 		return self
 
 	Func Flush 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Flush"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Flush"])
 		return self
 
 	Func getSafeMemoryMappedViewHandle

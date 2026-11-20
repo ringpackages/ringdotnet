@@ -175,58 +175,52 @@ Class SqliteConnection from DbConnection
 		return self
 
 	Func CreateAggregate P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateAggregate",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateAggregate",P1])
 			return self
 		ok
 		raise("DotNet Error: CreateAggregate does not take one argument: use named arguments, CreateAggregate([ :parameter = value, ... ])")
 
 	Func CreateFunction P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateFunction",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateFunction",P1])
 			return self
 		ok
 		raise("DotNet Error: CreateFunction does not take one argument: use named arguments, CreateFunction([ :parameter = value, ... ])")
 
 	Func CreateCollation P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateCollation",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateCollation",P1])
 			return self
 		ok
 		raise("DotNet Error: CreateCollation does not take one argument: use named arguments, CreateCollation([ :parameter = value, ... ])")
 
 	Func EnableExtensions P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"EnableExtensions",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnableExtensions",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"EnableExtensions"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"EnableExtensions"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EnableExtensions",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EnableExtensions",P1])
 		return self
 
 	Func LoadExtension P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"LoadExtension",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"LoadExtension",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"LoadExtension",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"LoadExtension",P1])
 		return self
 
 	Func BackupDatabase P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BackupDatabase",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"BackupDatabase",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"BackupDatabase",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"BackupDatabase",P1])
 		return self
 
 	Func ClearAllPools 
@@ -375,12 +369,10 @@ Class SqliteDataReader from DbDataReader
 		return self
 
 	Func GetDateTimeOffset P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDateTimeOffset",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDateTimeOffset",P1])
 
 	Func GetTimeSpan P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetTimeSpan",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTimeSpan",P1])
 
 	Func getHandle
 		return dnRequest("get",[self,"Handle"])
@@ -456,8 +448,7 @@ Class SqliteParameter from DbParameter
 		return self
 
 	Func ResetSqliteType 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetSqliteType"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ResetSqliteType"])
 		return self
 
 	Func getSqliteType
@@ -480,15 +471,13 @@ Class SqliteParameterCollection from DbParameterCollection
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Add",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func AddWithValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddWithValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddWithValue",P1,P2])
 
 
 Class SqliteTransaction from DbTransaction

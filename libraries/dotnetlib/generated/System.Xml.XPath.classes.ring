@@ -47,8 +47,7 @@ Class IXPathNavigable from DotNetObject
 		return self
 
 	Func CreateNavigator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateNavigator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateNavigator"])
 
 
 Class XPathDocument from Object
@@ -80,12 +79,10 @@ Class XPathDocument from Object
 		return self
 
 	Func CreateNavigator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateNavigator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateNavigator"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class XPathExpression from Object
@@ -103,25 +100,21 @@ Class XPathExpression from Object
 		return self
 
 	Func AddSort P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AddSort",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddSort",P1])
 			return self
 		ok
 		raise("DotNet Error: AddSort does not take one argument: use named arguments, AddSort([ :parameter = value, ... ])")
 
 	Func Clone 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
 
 	Func SetContext P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetContext",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetContext",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Compile P1
 		if dnIsNamed(P1)
@@ -165,15 +158,13 @@ Class XPathItem from Object
 		return self
 
 	Func ValueAs P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ValueAs",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ValueAs",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ValueAs",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueAs",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getIsNode
 		return dnRequest("get",[self,"IsNode"])
@@ -252,20 +243,16 @@ Class XPathNodeIterator from Object
 		return self
 
 	Func Clone 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
 
 	Func MoveNext 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveNext"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveNext"])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCurrent
 		return dnRequest("get",[self,"Current"])
@@ -316,297 +303,244 @@ Class XPathNavigator from XPathItem
 		return self
 
 	Func SetValue P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValue",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1])
 		return self
 
 	Func SetTypedValue P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetTypedValue",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetTypedValue",P1])
 		return self
 
 	Func CreateNavigator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateNavigator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateNavigator"])
 
 	Func LookupNamespace P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LookupNamespace",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LookupNamespace",P1])
 
 	Func LookupPrefix P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LookupPrefix",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LookupPrefix",P1])
 
 	Func GetNamespacesInScope P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNamespacesInScope",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNamespacesInScope",P1])
 
 	Func Clone 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
 
 	Func ReadSubtree 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadSubtree"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadSubtree"])
 
 	Func WriteSubtree P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"WriteSubtree",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"WriteSubtree",P1])
 		return self
 
 	Func GetAttribute P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAttribute",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAttribute",P1,P2])
 
 	Func MoveToAttribute P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToAttribute",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToAttribute",P1,P2])
 
 	Func MoveToFirstAttribute 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToFirstAttribute"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToFirstAttribute"])
 
 	Func MoveToNextAttribute 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToNextAttribute"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToNextAttribute"])
 
 	Func GetNamespace P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNamespace",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNamespace",P1])
 
 	Func MoveToNamespace P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToNamespace",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToNamespace",P1])
 
 	Func MoveToFirstNamespace P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MoveToFirstNamespace",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"MoveToFirstNamespace",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToFirstNamespace"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToFirstNamespace"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToFirstNamespace",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToFirstNamespace",P1])
 
 	Func MoveToNextNamespace P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MoveToNextNamespace",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"MoveToNextNamespace",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToNextNamespace"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToNextNamespace"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToNextNamespace",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToNextNamespace",P1])
 
 	Func MoveToNext P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MoveToNext",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"MoveToNext",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToNext"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToNext"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToNext",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToNext",P1])
 
 	Func MoveToPrevious 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToPrevious"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToPrevious"])
 
 	Func MoveToFirst 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToFirst"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToFirst"])
 
 	Func MoveToFirstChild 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToFirstChild"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToFirstChild"])
 
 	Func MoveToParent 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToParent"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToParent"])
 
 	Func MoveToRoot 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToRoot"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"MoveToRoot"])
 		return self
 
 	Func MoveTo P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveTo",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveTo",P1])
 
 	Func MoveToId P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToId",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToId",P1])
 
 	Func MoveToChild P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MoveToChild",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"MoveToChild",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToChild",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToChild",P1])
 
 	Func MoveToFollowing P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MoveToFollowing",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"MoveToFollowing",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveToFollowing",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToFollowing",P1])
 
 	Func IsSamePosition P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsSamePosition",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSamePosition",P1])
 
 	Func IsDescendant P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsDescendant",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsDescendant",P1])
 
 	Func ComparePosition P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ComparePosition",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ComparePosition",P1])
 
 	Func CheckValidity P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CheckValidity",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CheckValidity",P1,P2])
 
 	Func Compile P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Compile",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Compile",P1])
 
 	Func SelectSingleNode P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SelectSingleNode",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SelectSingleNode",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SelectSingleNode",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SelectSingleNode",P1])
 
 	Func Select P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Select",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Select",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Select",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Select",P1])
 
 	Func Evaluate P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Evaluate",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Evaluate",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Evaluate",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Evaluate",P1])
 
 	Func Matches P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Matches",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Matches",P1])
 
 	Func SelectChildren P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SelectChildren",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SelectChildren",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SelectChildren",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SelectChildren",P1])
 
 	Func SelectAncestors P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SelectAncestors",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SelectAncestors",P1])
 		ok
 		raise("DotNet Error: SelectAncestors does not take one argument: use named arguments, SelectAncestors([ :parameter = value, ... ])")
 
 	Func SelectDescendants P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SelectDescendants",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SelectDescendants",P1])
 		ok
 		raise("DotNet Error: SelectDescendants does not take one argument: use named arguments, SelectDescendants([ :parameter = value, ... ])")
 
 	Func PrependChild P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"PrependChild",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"PrependChild",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"PrependChild"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"PrependChild"])
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"PrependChild",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"PrependChild",P1])
 		return self
 
 	Func AppendChild P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AppendChild",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AppendChild",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"AppendChild"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"AppendChild"])
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AppendChild",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AppendChild",P1])
 		return self
 
 	Func InsertAfter P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"InsertAfter",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"InsertAfter",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"InsertAfter"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"InsertAfter"])
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"InsertAfter",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"InsertAfter",P1])
 		return self
 
 	Func InsertBefore P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"InsertBefore",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"InsertBefore",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"InsertBefore"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"InsertBefore"])
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"InsertBefore",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"InsertBefore",P1])
 		return self
 
 	Func CreateAttributes 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateAttributes"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateAttributes"])
 
 	Func ReplaceRange P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReplaceRange",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReplaceRange",P1])
 
 	Func ReplaceSelf P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ReplaceSelf",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ReplaceSelf",P1])
 		return self
 
 	Func DeleteRange P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"DeleteRange",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"DeleteRange",P1])
 		return self
 
 	Func DeleteSelf 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"DeleteSelf"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"DeleteSelf"])
 		return self
 
 	Func PrependChildElement P1,P2,P3,P4
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"PrependChildElement",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(this.nHandle),"PrependChildElement",P1,P2,P3,P4])
 		return self
 
 	Func AppendChildElement P1,P2,P3,P4
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AppendChildElement",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AppendChildElement",P1,P2,P3,P4])
 		return self
 
 	Func InsertElementBefore P1,P2,P3,P4
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"InsertElementBefore",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(this.nHandle),"InsertElementBefore",P1,P2,P3,P4])
 		return self
 
 	Func InsertElementAfter P1,P2,P3,P4
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"InsertElementAfter",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(this.nHandle),"InsertElementAfter",P1,P2,P3,P4])
 		return self
 
 	Func CreateAttribute P1,P2,P3,P4
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CreateAttribute",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CreateAttribute",P1,P2,P3,P4])
 		return self
 
 	Func getNameTable

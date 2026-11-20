@@ -242,84 +242,68 @@ Class FilterCollection from DotNetObject
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Add",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"Add"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"Add"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func AddService P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AddService",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddService",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"AddService"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"AddService"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddService",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddService",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -343,12 +327,10 @@ Class FilterContext from ActionContext
 		return self
 
 	Func IsEffectivePolicy P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsEffectivePolicy",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsEffectivePolicy",P1])
 
 	Func FindEffectivePolicy 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindEffectivePolicy"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindEffectivePolicy"])
 
 	Func getFilters
 		return dnRequest("get",[self,"Filters"])
@@ -375,8 +357,7 @@ Class FilterDescriptor from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getFilter
 		return dnRequest("get",[self,"Filter"])
@@ -431,8 +412,7 @@ Class FilterItem from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getDescriptor
 		return dnRequest("get",[self,"Descriptor"])
@@ -472,8 +452,7 @@ Class FilterProviderContext from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getActionContext
 		return dnRequest("get",[self,"ActionContext"])
@@ -508,8 +487,7 @@ Class FilterScope from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getFirst
 		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"First"])
@@ -554,13 +532,11 @@ Class IActionFilter from DotNetObject
 		return self
 
 	Func OnActionExecuting P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnActionExecuting",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnActionExecuting",P1])
 		return self
 
 	Func OnActionExecuted P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnActionExecuted",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnActionExecuted",P1])
 		return self
 
 
@@ -588,8 +564,7 @@ Class IAsyncActionFilter from DotNetObject
 		return self
 
 	Func OnActionExecutionAsync P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"OnActionExecutionAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"OnActionExecutionAsync",P1,P2])
 
 
 Class IAsyncAlwaysRunResultFilter from DotNetObject
@@ -616,8 +591,7 @@ Class IAsyncAuthorizationFilter from DotNetObject
 		return self
 
 	Func OnAuthorizationAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"OnAuthorizationAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"OnAuthorizationAsync",P1])
 
 
 Class IAsyncExceptionFilter from DotNetObject
@@ -632,8 +606,7 @@ Class IAsyncExceptionFilter from DotNetObject
 		return self
 
 	Func OnExceptionAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"OnExceptionAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"OnExceptionAsync",P1])
 
 
 Class IAsyncPageFilter from DotNetObject
@@ -648,12 +621,10 @@ Class IAsyncPageFilter from DotNetObject
 		return self
 
 	Func OnPageHandlerSelectionAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"OnPageHandlerSelectionAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"OnPageHandlerSelectionAsync",P1])
 
 	Func OnPageHandlerExecutionAsync P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"OnPageHandlerExecutionAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"OnPageHandlerExecutionAsync",P1,P2])
 
 
 Class IAsyncResourceFilter from DotNetObject
@@ -668,8 +639,7 @@ Class IAsyncResourceFilter from DotNetObject
 		return self
 
 	Func OnResourceExecutionAsync P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"OnResourceExecutionAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"OnResourceExecutionAsync",P1,P2])
 
 
 Class IAsyncResultFilter from DotNetObject
@@ -684,8 +654,7 @@ Class IAsyncResultFilter from DotNetObject
 		return self
 
 	Func OnResultExecutionAsync P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"OnResultExecutionAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"OnResultExecutionAsync",P1,P2])
 
 
 Class IAuthorizationFilter from DotNetObject
@@ -700,8 +669,7 @@ Class IAuthorizationFilter from DotNetObject
 		return self
 
 	Func OnAuthorization P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnAuthorization",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnAuthorization",P1])
 		return self
 
 
@@ -717,8 +685,7 @@ Class IExceptionFilter from DotNetObject
 		return self
 
 	Func OnException P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnException",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnException",P1])
 		return self
 
 
@@ -757,8 +724,7 @@ Class IFilterFactory from DotNetObject
 		return self
 
 	Func CreateInstance P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateInstance",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateInstance",P1])
 
 	Func getIsReusable
 		return dnRequest("get",[self,"IsReusable"])
@@ -793,13 +759,11 @@ Class IFilterProvider from DotNetObject
 		return self
 
 	Func OnProvidersExecuting P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnProvidersExecuting",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnProvidersExecuting",P1])
 		return self
 
 	Func OnProvidersExecuted P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnProvidersExecuted",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnProvidersExecuted",P1])
 		return self
 
 	Func getOrder
@@ -841,18 +805,15 @@ Class IPageFilter from DotNetObject
 		return self
 
 	Func OnPageHandlerSelected P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnPageHandlerSelected",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnPageHandlerSelected",P1])
 		return self
 
 	Func OnPageHandlerExecuting P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnPageHandlerExecuting",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnPageHandlerExecuting",P1])
 		return self
 
 	Func OnPageHandlerExecuted P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnPageHandlerExecuted",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnPageHandlerExecuted",P1])
 		return self
 
 
@@ -868,13 +829,11 @@ Class IResourceFilter from DotNetObject
 		return self
 
 	Func OnResourceExecuting P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnResourceExecuting",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnResourceExecuting",P1])
 		return self
 
 	Func OnResourceExecuted P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnResourceExecuted",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnResourceExecuted",P1])
 		return self
 
 
@@ -890,13 +849,11 @@ Class IResultFilter from DotNetObject
 		return self
 
 	Func OnResultExecuting P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnResultExecuting",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnResultExecuting",P1])
 		return self
 
 	Func OnResultExecuted P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnResultExecuted",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnResultExecuted",P1])
 		return self
 
 

@@ -32,17 +32,14 @@ Class ArrangedElementCollection from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func getIsReadOnly
 		return dnRequest("get",[self,"IsReadOnly"])
@@ -69,17 +66,14 @@ Class LayoutEngine from Object
 		return self
 
 	Func InitLayout P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"InitLayout",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"InitLayout",P1,P2])
 		return self
 
 	Func Layout P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Layout",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Layout",P1,P2])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class TableLayoutSettingsTypeConverter from TypeConverter

@@ -95,8 +95,7 @@ Class IPrincipal from DotNetObject
 		return self
 
 	Func IsInRole P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsInRole",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsInRole",P1])
 
 	Func getIdentity
 		return dnRequest("get",[self,"Identity"])
@@ -119,16 +118,13 @@ Class IdentityReference from Object
 		return self
 
 	Func IsValidTargetType P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsValidTargetType",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsValidTargetType",P1])
 
 	Func Translate P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Translate",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Translate",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getValue
 		return dnRequest("get",[self,"Value"])
@@ -184,50 +180,40 @@ Class IdentityReferenceCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Translate P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Translate",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Translate",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Translate",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Translate",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -276,8 +262,7 @@ Class WindowsIdentity from ClaimsIdentity
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func GetCurrent P1
@@ -461,25 +446,20 @@ Class SecurityIdentifier from IdentityReference
 		return self
 
 	Func IsAccountSid 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsAccountSid"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsAccountSid"])
 
 	Func CompareTo P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
 
 	Func IsWellKnown P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsWellKnown",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsWellKnown",P1])
 
 	Func GetBinaryForm P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"GetBinaryForm",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"GetBinaryForm",P1,P2])
 		return self
 
 	Func IsEqualDomainSid P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsEqualDomainSid",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsEqualDomainSid",P1])
 
 	Func getBinaryLength
 		return dnRequest("get",[self,"BinaryLength"])

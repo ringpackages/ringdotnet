@@ -252,136 +252,114 @@ Class Assembly from Object
 		return self
 
 	Func GetTypes 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetTypes"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypes"])
 
 	Func GetExportedTypes_ 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetExportedTypes"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetExportedTypes"])
 
 	Func GetForwardedTypes 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetForwardedTypes"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetForwardedTypes"])
 
 	Func GetManifestResourceInfo P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetManifestResourceInfo",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetManifestResourceInfo",P1])
 
 	Func GetManifestResourceNames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetManifestResourceNames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetManifestResourceNames"])
 
 	Func GetManifestResourceStream P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetManifestResourceStream",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetManifestResourceStream",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetManifestResourceStream",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetManifestResourceStream",P1])
 
 	Func GetName P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetName",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetName",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetName"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetName"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetName",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetName",P1])
 
 	Func GetType P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetType",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetType",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType",P1])
 
 	Func IsDefined P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsDefined",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsDefined",P1,P2])
 
 	Func GetCustomAttributesData 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCustomAttributesData"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCustomAttributesData"])
 
 	Func GetCustomAttributes_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetCustomAttributes",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCustomAttributes",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCustomAttributes",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCustomAttributes",P1])
 
 	Func CreateInstance P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateInstance",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateInstance",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateInstance",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateInstance",P1])
 
 	Func GetModule P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetModule",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetModule",P1])
 
 	Func GetModules_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetModules",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetModules",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetModules"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetModules"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetModules",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetModules",P1])
 
 	Func GetLoadedModules P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetLoadedModules",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetLoadedModules",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetLoadedModules"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetLoadedModules"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetLoadedModules",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetLoadedModules",P1])
 
 	Func GetReferencedAssemblies 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetReferencedAssemblies"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetReferencedAssemblies"])
 
 	Func GetSatelliteAssembly P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetSatelliteAssembly",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetSatelliteAssembly",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSatelliteAssembly",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSatelliteAssembly",P1])
 
 	Func GetFile P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFile",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFile",P1])
 
 	Func GetFiles P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetFiles",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetFiles",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFiles"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetFiles"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFiles",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFiles",P1])
 
 	Func GetObjectData P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func LoadModule P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"LoadModule",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"LoadModule",P1])
 		ok
 		raise("DotNet Error: LoadModule does not take one argument: use named arguments, LoadModule([ :parameter = value, ... ])")
 
@@ -432,13 +410,11 @@ Class Assembly from Object
 		return dnRequest("call",[dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib'),"ReflectionOnlyLoadFrom",P1])
 
 	Func setModuleResolveEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ModuleResolve",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"ModuleResolve",dnCallback(P1)])
 		return self
 
 	Func clearModuleResolveEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ModuleResolve"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"ModuleResolve"])
 		return self
 
 	Func getDefinedTypes
@@ -609,40 +585,32 @@ Class AssemblyName from Object
 		return self
 
 	Func Clone 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
 
 	Func GetPublicKey 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPublicKey"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPublicKey"])
 
 	Func SetPublicKey P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetPublicKey",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetPublicKey",P1])
 		return self
 
 	Func GetPublicKeyToken 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPublicKeyToken"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPublicKeyToken"])
 
 	Func SetPublicKeyToken P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetPublicKeyToken",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetPublicKeyToken",P1])
 		return self
 
 	Func GetObjectData P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func OnDeserialization P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnDeserialization",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetAssemblyName P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.AssemblyName, System.Private.CoreLib'),"GetAssemblyName",P1])
@@ -765,8 +733,7 @@ Class AssemblyNameProxy from MarshalByRefObject
 		return self
 
 	Func GetAssemblyName P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAssemblyName",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAssemblyName",P1])
 
 
 Class Binder from Object
@@ -781,32 +748,25 @@ Class Binder from Object
 		return self
 
 	Func BindToField P1,P2,P3,P4
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BindToField",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BindToField",P1,P2,P3,P4])
 
 	Func BindToMethod P1,P2,P3,P4,P5,P6
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BindToMethod",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BindToMethod",P1,P2,P3,P4,P5,P6])
 
 	Func ChangeType P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ChangeType",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ChangeType",P1,P2,P3])
 
 	Func ReorderArgumentArray P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReorderArgumentArray",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReorderArgumentArray",P1,P2])
 
 	Func SelectMethod P1,P2,P3,P4
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SelectMethod",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SelectMethod",P1,P2,P3,P4])
 
 	Func SelectProperty P1,P2,P3,P4,P5
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SelectProperty",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SelectProperty",P1,P2,P3,P4,P5])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class ConstructorInvoker from Object
@@ -821,18 +781,16 @@ Class ConstructorInvoker from Object
 		return self
 
 	Func Invoke P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Invoke",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Invoke",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"Invoke"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"Invoke"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Invoke",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Invoke",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.ConstructorInvoker, System.Private.CoreLib'),"Create",P1])
@@ -855,8 +813,7 @@ Class CustomAttributeData from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetCustomAttributes P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.CustomAttributeData, System.Private.CoreLib'),"GetCustomAttributes",P1])
@@ -898,8 +855,7 @@ Class CustomAttributeExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetCustomAttribute P1
 		if dnIsNamed(P1)
@@ -1074,8 +1030,7 @@ Class ExceptionHandlingClause from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getFlags
 		return dnRequest("get",[self,"Flags"])
@@ -1132,15 +1087,13 @@ Class ICustomAttributeProvider from DotNetObject
 		return self
 
 	Func GetCustomAttributes P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetCustomAttributes",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCustomAttributes",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCustomAttributes",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCustomAttributes",P1])
 
 	Func IsDefined P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsDefined",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsDefined",P1,P2])
 
 
 Class IReflect from DotNetObject
@@ -1157,46 +1110,37 @@ Class IReflect from DotNetObject
 		return self
 
 	Func GetMethod P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetMethod",P1])
 		ok
 		raise("DotNet Error: GetMethod does not take one argument: use named arguments, GetMethod([ :parameter = value, ... ])")
 
 	Func GetMethods P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMethods",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMethods",P1])
 
 	Func GetField P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetField",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetField",P1,P2])
 
 	Func GetFields P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFields",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFields",P1])
 
 	Func GetProperty P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetProperty",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetProperty",P1])
 		ok
 		raise("DotNet Error: GetProperty does not take one argument: use named arguments, GetProperty([ :parameter = value, ... ])")
 
 	Func GetProperties P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetProperties",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetProperties",P1])
 
 	Func GetMember P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMember",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMember",P1,P2])
 
 	Func GetMembers P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMembers",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMembers",P1])
 
 	Func InvokeMember P1,P2,P3,P4,P5,P6,P7,P8
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InvokeMember",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InvokeMember",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func getUnderlyingSystemType
 		return dnRequest("get",[self,"UnderlyingSystemType"])
@@ -1217,8 +1161,7 @@ Class IReflectableType from DotNetObject
 		return self
 
 	Func GetTypeInfo 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetTypeInfo"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeInfo"])
 
 
 Class InterfaceMapping from ValueType
@@ -1291,8 +1234,7 @@ Class IntrospectionExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetTypeInfo P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.IntrospectionExtensions, System.Private.CoreLib'),"GetTypeInfo",P1])
@@ -1314,8 +1256,7 @@ Class LocalVariableInfo from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getLocalType
 		return dnRequest("get",[self,"LocalType"])
@@ -1354,8 +1295,7 @@ Class ManifestResourceInfo from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getReferencedAssembly
 		return dnRequest("get",[self,"ReferencedAssembly"])
@@ -1397,27 +1337,22 @@ Class MemberInfo from Object
 		return self
 
 	Func HasSameMetadataDefinitionAs P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"HasSameMetadataDefinitionAs",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"HasSameMetadataDefinitionAs",P1])
 
 	Func IsDefined P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsDefined",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsDefined",P1,P2])
 
 	Func GetCustomAttributes_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetCustomAttributes",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCustomAttributes",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCustomAttributes",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCustomAttributes",P1])
 
 	Func GetCustomAttributesData 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCustomAttributesData"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCustomAttributesData"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getMemberType
 		return dnRequest("get",[self,"MemberType"])
@@ -1486,12 +1421,10 @@ Class MethodBody from Object
 		return self
 
 	Func GetILAsByteArray 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetILAsByteArray"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetILAsByteArray"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getLocalSignatureMetadataToken
 		return dnRequest("get",[self,"LocalSignatureMetadataToken"])
@@ -1536,15 +1469,13 @@ Class MethodInvoker from Object
 		return self
 
 	Func Invoke P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Invoke",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Invoke",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Invoke",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Invoke",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.MethodInvoker, System.Private.CoreLib'),"Create",P1])
@@ -1564,8 +1495,7 @@ Class Missing from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getValue
 		return dnRequest("get",[dnTypeCached('System.Reflection.Missing, System.Private.CoreLib'),"Value"])
@@ -1598,124 +1528,104 @@ Class Module from Object
 		return self
 
 	Func GetPEKind 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPEKind"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPEKind"])
 
 	Func IsResource 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsResource"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsResource"])
 
 	Func IsDefined P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsDefined",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsDefined",P1,P2])
 
 	Func GetCustomAttributesData 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCustomAttributesData"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCustomAttributesData"])
 
 	Func GetCustomAttributes_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetCustomAttributes",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCustomAttributes",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCustomAttributes",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCustomAttributes",P1])
 
 	Func GetMethod P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetMethod",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMethod",P1])
 
 	Func GetMethods P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetMethods",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetMethods",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMethods"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetMethods"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMethods",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMethods",P1])
 
 	Func GetField P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetField",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetField",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetField",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetField",P1])
 
 	Func GetFields P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetFields",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetFields",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFields"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetFields"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFields",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFields",P1])
 
 	Func GetTypes 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetTypes"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypes"])
 
 	Func GetType P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetType",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetType",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType",P1])
 
 	Func FindTypes P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindTypes",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindTypes",P1,P2])
 
 	Func ResolveField P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ResolveField",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ResolveField",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ResolveField",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveField",P1])
 
 	Func ResolveMember P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ResolveMember",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ResolveMember",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ResolveMember",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveMember",P1])
 
 	Func ResolveMethod P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ResolveMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ResolveMethod",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ResolveMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveMethod",P1])
 
 	Func ResolveSignature P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ResolveSignature",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveSignature",P1])
 
 	Func ResolveString P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ResolveString",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveString",P1])
 
 	Func ResolveType P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ResolveType",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ResolveType",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ResolveType",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveType",P1])
 
 	Func GetObjectData P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getAssembly
 		return dnRequest("get",[self,"Assembly"])
@@ -1802,12 +1712,10 @@ Class NullabilityInfo from Object
 		return self
 
 	Func GetType_ 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getType
 		return dnRequest("get",[self,"Type"])
@@ -1865,12 +1773,10 @@ Class NullabilityInfoContext from Object
 		return self
 
 	Func Create P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Create",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class ParameterInfo from Object
@@ -1901,39 +1807,31 @@ Class ParameterInfo from Object
 		return self
 
 	Func IsDefined P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsDefined",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsDefined",P1,P2])
 
 	Func GetCustomAttributesData 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCustomAttributesData"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCustomAttributesData"])
 
 	Func GetCustomAttributes_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetCustomAttributes",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCustomAttributes",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCustomAttributes",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCustomAttributes",P1])
 
 	Func GetModifiedParameterType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetModifiedParameterType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetModifiedParameterType"])
 
 	Func GetOptionalCustomModifiers 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetOptionalCustomModifiers"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetOptionalCustomModifiers"])
 
 	Func GetRequiredCustomModifiers 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRequiredCustomModifiers"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRequiredCustomModifiers"])
 
 	Func GetRealObject P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRealObject",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRealObject",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getAttributes
 		return dnRequest("get",[self,"Attributes"])
@@ -2071,12 +1969,10 @@ Class ParameterModifier from ValueType
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 
@@ -2092,8 +1988,7 @@ Class Pointer from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Unbox P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.Pointer, System.Private.CoreLib'),"Unbox",P1])
@@ -2111,20 +2006,16 @@ Class ReflectionContext from Object
 		return self
 
 	Func MapAssembly P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MapAssembly",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MapAssembly",P1])
 
 	Func MapType P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MapType",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MapType",P1])
 
 	Func GetTypeForObject P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetTypeForObject",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeForObject",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class RuntimeReflectionExtensions from Object
@@ -2139,8 +2030,7 @@ Class RuntimeReflectionExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetRuntimeFields P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib'),"GetRuntimeFields",P1])
@@ -2198,36 +2088,28 @@ Class TypeInfo from Type
 		return self
 
 	Func AsType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AsType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AsType"])
 
 	Func GetDeclaredEvent P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDeclaredEvent",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDeclaredEvent",P1])
 
 	Func GetDeclaredField P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDeclaredField",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDeclaredField",P1])
 
 	Func GetDeclaredMethod P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDeclaredMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDeclaredMethod",P1])
 
 	Func GetDeclaredNestedType P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDeclaredNestedType",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDeclaredNestedType",P1])
 
 	Func GetDeclaredProperty P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDeclaredProperty",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDeclaredProperty",P1])
 
 	Func GetDeclaredMethods_ P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDeclaredMethods",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDeclaredMethods",P1])
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func getGenericTypeParameters
 		return dnRequest("get",[self,"GenericTypeParameters"])
@@ -2304,53 +2186,47 @@ Class EventInfo from MemberInfo
 		return self
 
 	Func GetOtherMethods P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetOtherMethods",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetOtherMethods",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetOtherMethods"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetOtherMethods"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetOtherMethods",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetOtherMethods",P1])
 
 	Func GetAddMethod_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetAddMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetAddMethod",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAddMethod"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetAddMethod"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAddMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAddMethod",P1])
 
 	Func GetRemoveMethod_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetRemoveMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetRemoveMethod",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRemoveMethod"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetRemoveMethod"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRemoveMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRemoveMethod",P1])
 
 	Func GetRaiseMethod_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetRaiseMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetRaiseMethod",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRaiseMethod"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetRaiseMethod"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRaiseMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRaiseMethod",P1])
 
 	Func AddEventHandler P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddEventHandler",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddEventHandler",P1,P2])
 		return self
 
 	Func RemoveEventHandler P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveEventHandler",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveEventHandler",P1,P2])
 		return self
 
 	Func getAttributes
@@ -2427,32 +2303,26 @@ Class FieldInfo from MemberInfo
 		return self
 
 	Func GetValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func SetValue P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetValue",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetValue",P1])
 			return self
 		ok
 		raise("DotNet Error: SetValue does not take one argument: use named arguments, SetValue([ :parameter = value, ... ])")
 
 	Func GetRawConstantValue 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRawConstantValue"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRawConstantValue"])
 
 	Func GetModifiedFieldType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetModifiedFieldType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetModifiedFieldType"])
 
 	Func GetOptionalCustomModifiers 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetOptionalCustomModifiers"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetOptionalCustomModifiers"])
 
 	Func GetRequiredCustomModifiers 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRequiredCustomModifiers"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRequiredCustomModifiers"])
 
 	Func GetFieldFromHandle P1
 		if dnIsNamed(P1)
@@ -2606,25 +2476,20 @@ Class MethodBase from MemberInfo
 		return self
 
 	Func GetParameters 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetParameters"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetParameters"])
 
 	Func GetMethodImplementationFlags_ 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMethodImplementationFlags"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMethodImplementationFlags"])
 
 	Func GetMethodBody 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMethodBody"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMethodBody"])
 
 	Func GetGenericArguments 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetGenericArguments"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetGenericArguments"])
 
 	Func Invoke P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Invoke",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Invoke",P1])
 		ok
 		raise("DotNet Error: Invoke does not take one argument: use named arguments, Invoke([ :parameter = value, ... ])")
 
@@ -2802,70 +2667,59 @@ Class PropertyInfo from MemberInfo
 		return self
 
 	Func GetIndexParameters 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIndexParameters"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIndexParameters"])
 
 	Func GetAccessors P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetAccessors",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetAccessors",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAccessors"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetAccessors"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAccessors",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAccessors",P1])
 
 	Func GetGetMethod_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetGetMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetGetMethod",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetGetMethod"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetGetMethod"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetGetMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetGetMethod",P1])
 
 	Func GetSetMethod_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetSetMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetSetMethod",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSetMethod"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetSetMethod"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSetMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSetMethod",P1])
 
 	Func GetModifiedPropertyType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetModifiedPropertyType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetModifiedPropertyType"])
 
 	Func GetOptionalCustomModifiers 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetOptionalCustomModifiers"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetOptionalCustomModifiers"])
 
 	Func GetRequiredCustomModifiers 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRequiredCustomModifiers"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRequiredCustomModifiers"])
 
 	Func GetValue P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetValue",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetValue",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func GetConstantValue 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetConstantValue"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetConstantValue"])
 
 	Func GetRawConstantValue 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRawConstantValue"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRawConstantValue"])
 
 	Func SetValue P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetValue",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetValue",P1])
 			return self
 		ok
 		raise("DotNet Error: SetValue does not take one argument: use named arguments, SetValue([ :parameter = value, ... ])")
@@ -2942,11 +2796,10 @@ Class ConstructorInfo from MethodBase
 		return self
 
 	Func Invoke P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Invoke",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Invoke",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Invoke",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Invoke",P1])
 
 	Func getConstructorName
 		return dnRequest("get",[dnTypeCached('System.Reflection.ConstructorInfo, System.Private.CoreLib'),"ConstructorName"])
@@ -2977,26 +2830,22 @@ Class MethodInfo from MethodBase
 		return self
 
 	Func GetGenericMethodDefinition 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetGenericMethodDefinition"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetGenericMethodDefinition"])
 
 	Func MakeGenericMethod P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MakeGenericMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MakeGenericMethod",P1])
 
 	Func GetBaseDefinition 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBaseDefinition"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBaseDefinition"])
 
 	Func CreateDelegate P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateDelegate",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateDelegate",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateDelegate"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"CreateDelegate"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateDelegate",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateDelegate",P1])
 
 	Func getReturnParameter
 		return dnRequest("get",[self,"ReturnParameter"])

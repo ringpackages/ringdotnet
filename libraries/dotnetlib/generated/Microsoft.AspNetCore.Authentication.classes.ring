@@ -294,30 +294,24 @@ Class AccessDeniedContext from DotNetObject
 		return self
 
 	Func HandleResponse 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"HandleResponse"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"HandleResponse"])
 		return self
 
 	Func SkipHandler 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SkipHandler"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SkipHandler"])
 		return self
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func getAccessDeniedPath
 		return dnRequest("get",[self,"AccessDeniedPath"])
@@ -403,12 +397,10 @@ Class AuthenticateResult from Object
 		return self
 
 	Func Clone 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Success P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"Success",P1])
@@ -475,23 +467,19 @@ Class AuthenticationBuilder from Object
 		return self
 
 	Func AddScheme P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AddScheme",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddScheme",P1])
 		ok
 		raise("DotNet Error: AddScheme does not take one argument: use named arguments, AddScheme([ :parameter = value, ... ])")
 
 	Func AddRemoteScheme P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddRemoteScheme",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddRemoteScheme",P1,P2,P3])
 
 	Func AddPolicyScheme P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddPolicyScheme",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddPolicyScheme",P1,P2,P3])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getServices
 		return dnRequest("get",[self,"Services"])
@@ -512,8 +500,7 @@ Class AuthenticationConfigurationProviderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetSchemeConfiguration P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationConfigurationProviderExtensions, Microsoft.AspNetCore.Authentication'),"GetSchemeConfiguration",P1,P2])
@@ -547,8 +534,7 @@ Class AuthenticationFeature from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getOriginalPathBase
 		return dnRequest("get",[self,"OriginalPathBase"])
@@ -581,12 +567,10 @@ Class AuthenticationHandlerProvider from Object
 		return self
 
 	Func GetHandlerAsync P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHandlerAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHandlerAsync",P1,P2])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getSchemes
 		return dnRequest("get",[self,"Schemes"])
@@ -607,8 +591,7 @@ Class AuthenticationHttpContextExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AuthenticateAsync P1
 		if dnIsNamed(P1)
@@ -663,12 +646,10 @@ Class AuthenticationMiddleware from Object
 		return self
 
 	Func Invoke P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Invoke",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Invoke",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getSchemes
 		return dnRequest("get",[self,"Schemes"])
@@ -713,13 +694,11 @@ Class AuthenticationOptions from Object
 		return self
 
 	Func AddScheme P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddScheme",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddScheme",P1,P2])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getSchemes
 		return dnRequest("get",[self,"Schemes"])
@@ -836,30 +815,24 @@ Class AuthenticationProperties from Object
 		return self
 
 	Func Clone 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
 
 	Func GetString P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetString",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetString",P1])
 
 	Func SetString P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetString",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetString",P1,P2])
 		return self
 
 	Func GetParameter P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetParameter",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetParameter",P1])
 
 	Func SetParameter P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetParameter",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetParameter",P1,P2])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getItems
 		return dnRequest("get",[self,"Items"])
@@ -927,8 +900,7 @@ Class AuthenticationScheme from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getName
 		return dnRequest("get",[self,"Name"])
@@ -967,12 +939,10 @@ Class AuthenticationSchemeBuilder from Object
 		return self
 
 	Func Build 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getName
 		return dnRequest("get",[self,"Name"])
@@ -1032,21 +1002,19 @@ Class AuthenticationSchemeOptions from Object
 		return self
 
 	Func Validate P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Validate",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Validate",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Validate"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Validate"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Validate",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Validate",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getClaimsIssuer
 		return dnRequest("get",[self,"ClaimsIssuer"])
@@ -1140,54 +1108,42 @@ Class AuthenticationSchemeProvider from Object
 		return self
 
 	Func GetDefaultAuthenticateSchemeAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDefaultAuthenticateSchemeAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultAuthenticateSchemeAsync"])
 
 	Func GetDefaultChallengeSchemeAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDefaultChallengeSchemeAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultChallengeSchemeAsync"])
 
 	Func GetDefaultForbidSchemeAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDefaultForbidSchemeAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultForbidSchemeAsync"])
 
 	Func GetDefaultSignInSchemeAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDefaultSignInSchemeAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultSignInSchemeAsync"])
 
 	Func GetDefaultSignOutSchemeAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDefaultSignOutSchemeAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultSignOutSchemeAsync"])
 
 	Func GetSchemeAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSchemeAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSchemeAsync",P1])
 
 	Func GetRequestHandlerSchemesAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRequestHandlerSchemesAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRequestHandlerSchemesAsync"])
 
 	Func TryAddScheme P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryAddScheme",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryAddScheme",P1])
 
 	Func AddScheme P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddScheme",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddScheme",P1])
 		return self
 
 	Func RemoveScheme P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveScheme",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveScheme",P1])
 		return self
 
 	Func GetAllSchemesAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAllSchemesAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAllSchemesAsync"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class AuthenticationService from Object
@@ -1209,28 +1165,22 @@ Class AuthenticationService from Object
 		return self
 
 	Func AuthenticateAsync P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AuthenticateAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsync",P1,P2])
 
 	Func ChallengeAsync P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ChallengeAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ChallengeAsync",P1,P2,P3])
 
 	Func ForbidAsync P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ForbidAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ForbidAsync",P1,P2,P3])
 
 	Func SignInAsync P1,P2,P3,P4
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SignInAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SignInAsync",P1,P2,P3,P4])
 
 	Func SignOutAsync P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SignOutAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SignOutAsync",P1,P2,P3])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getSchemes
 		return dnRequest("get",[self,"Schemes"])
@@ -1290,12 +1240,10 @@ Class AuthenticationTicket from Object
 		return self
 
 	Func Clone 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getAuthenticationScheme
 		return dnRequest("get",[self,"AuthenticationScheme"])
@@ -1344,8 +1292,7 @@ Class AuthenticationToken from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getName
 		return dnRequest("get",[self,"Name"])
@@ -1374,8 +1321,7 @@ Class AuthenticationTokenExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func StoreTokens P1,P2
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"StoreTokens",P1,P2])
@@ -1409,8 +1355,7 @@ Class Base64UrlTextEncoder from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Encode P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.Base64UrlTextEncoder, Microsoft.AspNetCore.Authentication'),"Encode",P1])
@@ -1431,8 +1376,7 @@ Class ClaimActionCollectionMapExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func MapJsonKey P1
 		if dnIsNamed(P1)
@@ -1554,20 +1498,16 @@ Class IAuthenticationHandler from DotNetObject
 		return self
 
 	Func InitializeAsync P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InitializeAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InitializeAsync",P1,P2])
 
 	Func AuthenticateAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AuthenticateAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsync"])
 
 	Func ChallengeAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ChallengeAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ChallengeAsync",P1])
 
 	Func ForbidAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ForbidAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ForbidAsync",P1])
 
 
 Class IAuthenticationHandlerProvider from DotNetObject
@@ -1582,8 +1522,7 @@ Class IAuthenticationHandlerProvider from DotNetObject
 		return self
 
 	Func GetHandlerAsync P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHandlerAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHandlerAsync",P1,P2])
 
 
 Class IAuthenticationRequestHandler from DotNetObject
@@ -1598,8 +1537,7 @@ Class IAuthenticationRequestHandler from DotNetObject
 		return self
 
 	Func HandleRequestAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"HandleRequestAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"HandleRequestAsync"])
 
 
 Class IAuthenticationSchemeProvider from DotNetObject
@@ -1614,50 +1552,39 @@ Class IAuthenticationSchemeProvider from DotNetObject
 		return self
 
 	Func GetAllSchemesAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAllSchemesAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAllSchemesAsync"])
 
 	Func GetSchemeAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSchemeAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSchemeAsync",P1])
 
 	Func GetDefaultAuthenticateSchemeAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDefaultAuthenticateSchemeAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultAuthenticateSchemeAsync"])
 
 	Func GetDefaultChallengeSchemeAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDefaultChallengeSchemeAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultChallengeSchemeAsync"])
 
 	Func GetDefaultForbidSchemeAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDefaultForbidSchemeAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultForbidSchemeAsync"])
 
 	Func GetDefaultSignInSchemeAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDefaultSignInSchemeAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultSignInSchemeAsync"])
 
 	Func GetDefaultSignOutSchemeAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDefaultSignOutSchemeAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultSignOutSchemeAsync"])
 
 	Func AddScheme P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddScheme",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddScheme",P1])
 		return self
 
 	Func TryAddScheme P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryAddScheme",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryAddScheme",P1])
 
 	Func RemoveScheme P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveScheme",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveScheme",P1])
 		return self
 
 	Func GetRequestHandlerSchemesAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRequestHandlerSchemesAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRequestHandlerSchemesAsync"])
 
 
 Class IAuthenticationService from DotNetObject
@@ -1672,24 +1599,19 @@ Class IAuthenticationService from DotNetObject
 		return self
 
 	Func AuthenticateAsync P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AuthenticateAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsync",P1,P2])
 
 	Func ChallengeAsync P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ChallengeAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ChallengeAsync",P1,P2,P3])
 
 	Func ForbidAsync P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ForbidAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ForbidAsync",P1,P2,P3])
 
 	Func SignInAsync P1,P2,P3,P4
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SignInAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SignInAsync",P1,P2,P3,P4])
 
 	Func SignOutAsync P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SignOutAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SignOutAsync",P1,P2,P3])
 
 
 Class IAuthenticationSignInHandler from DotNetObject
@@ -1704,8 +1626,7 @@ Class IAuthenticationSignInHandler from DotNetObject
 		return self
 
 	Func SignInAsync P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SignInAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SignInAsync",P1,P2])
 
 
 Class IAuthenticationSignOutHandler from DotNetObject
@@ -1720,8 +1641,7 @@ Class IAuthenticationSignOutHandler from DotNetObject
 		return self
 
 	Func SignOutAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SignOutAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SignOutAsync",P1])
 
 
 Class IClaimsTransformation from DotNetObject
@@ -1736,8 +1656,7 @@ Class IClaimsTransformation from DotNetObject
 		return self
 
 	Func TransformAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TransformAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TransformAsync",P1])
 
 
 Class JsonDocumentAuthExtensions from Object
@@ -1752,8 +1671,7 @@ Class JsonDocumentAuthExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetString P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.JsonDocumentAuthExtensions, Microsoft.AspNetCore.Authentication'),"GetString",P1,P2])
@@ -1784,12 +1702,10 @@ Class NoopClaimsTransformation from Object
 		return self
 
 	Func TransformAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TransformAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TransformAsync",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class PolicySchemeHandler from DotNetObject
@@ -1824,44 +1740,34 @@ Class PolicySchemeHandler from DotNetObject
 		return self
 
 	Func SignInAsync P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SignInAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SignInAsync",P1,P2])
 
 	Func SignOutAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SignOutAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SignOutAsync",P1])
 
 	Func InitializeAsync P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InitializeAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InitializeAsync",P1,P2])
 
 	Func AuthenticateAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AuthenticateAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsync"])
 
 	Func ChallengeAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ChallengeAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ChallengeAsync",P1])
 
 	Func ForbidAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ForbidAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ForbidAsync",P1])
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func getScheme
 		return dnRequest("get",[self,"Scheme"])
@@ -1890,34 +1796,28 @@ Class PropertiesDataFormat from DotNetObject
 		return self
 
 	Func Protect P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Protect",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Protect",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Protect",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Protect",P1])
 
 	Func Unprotect P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Unprotect",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Unprotect",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Unprotect",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Unprotect",P1])
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 
 Class PropertiesSerializer from Object
@@ -1947,25 +1847,20 @@ Class PropertiesSerializer from Object
 		return self
 
 	Func Serialize P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Serialize",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Serialize",P1])
 
 	Func Deserialize P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Deserialize",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Deserialize",P1])
 
 	Func Write P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Write",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Write",P1,P2])
 		return self
 
 	Func Read P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Read",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Read",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getDefault
 		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Authentication.PropertiesSerializer, Microsoft.AspNetCore.Authentication'),"Default"])
@@ -2003,20 +1898,16 @@ Class RemoteAuthenticationEvents from Object
 		return self
 
 	Func AccessDenied P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AccessDenied",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AccessDenied",P1])
 
 	Func RemoteFailure P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoteFailure",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoteFailure",P1])
 
 	Func TicketReceived P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TicketReceived",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TicketReceived",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getOnAccessDenied
 		return dnRequest("get",[self,"OnAccessDenied"])
@@ -2063,30 +1954,24 @@ Class RemoteFailureContext from DotNetObject
 		return self
 
 	Func HandleResponse 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"HandleResponse"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"HandleResponse"])
 		return self
 
 	Func SkipHandler 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SkipHandler"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SkipHandler"])
 		return self
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func getFailure
 		return dnRequest("get",[self,"Failure"])
@@ -2178,34 +2063,28 @@ Class TicketDataFormat from DotNetObject
 		return self
 
 	Func Protect P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Protect",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Protect",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Protect",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Protect",P1])
 
 	Func Unprotect P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Unprotect",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Unprotect",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Unprotect",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Unprotect",P1])
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 
 Class TicketReceivedContext from DotNetObject
@@ -2232,40 +2111,32 @@ Class TicketReceivedContext from DotNetObject
 		return self
 
 	Func Success 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Success"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Success"])
 		return self
 
 	Func Fail P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Fail",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Fail",P1])
 		return self
 
 	Func HandleResponse 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"HandleResponse"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"HandleResponse"])
 		return self
 
 	Func SkipHandler 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SkipHandler"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SkipHandler"])
 		return self
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func getReturnUri
 		return dnRequest("get",[self,"ReturnUri"])
@@ -2352,25 +2223,20 @@ Class TicketSerializer from Object
 		return self
 
 	Func Serialize P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Serialize",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Serialize",P1])
 
 	Func Deserialize P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Deserialize",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Deserialize",P1])
 
 	Func Write P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Write",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Write",P1,P2])
 		return self
 
 	Func Read P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Read",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Read",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getDefault
 		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Authentication.TicketSerializer, Microsoft.AspNetCore.Authentication'),"Default"])

@@ -249,8 +249,7 @@ Class BinderOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getBindNonPublicProperties
 		return dnRequest("get",[self,"BindNonPublicProperties"])
@@ -279,8 +278,7 @@ Class ChainedBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddConfiguration P1
 		if dnIsNamed(P1)
@@ -305,35 +303,28 @@ Class ChainedConfigurationProvider from Object
 		return self
 
 	Func TryGet P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGet",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGet",P1])
 
 	Func Set P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Set",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Set",P1,P2])
 		return self
 
 	Func GetReloadToken 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetReloadToken"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetReloadToken"])
 
 	Func Load_ 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Load"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Load"])
 		return self
 
 	Func GetChildKeys P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChildKeys",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChildKeys",P1,P2])
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getConfiguration
 		return dnRequest("get",[self,"Configuration"])
@@ -370,12 +361,10 @@ Class ChainedConfigurationSource from Object
 		return self
 
 	Func Build P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getConfiguration
 		return dnRequest("get",[self,"Configuration"])
@@ -404,8 +393,7 @@ Class CommandLineConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddCommandLine P1
 		if dnIsNamed(P1)
@@ -426,8 +414,7 @@ Class ConfigurationBinder from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Get_ P1
 		if dnIsNamed(P1)
@@ -477,16 +464,13 @@ Class ConfigurationBuilder from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Build 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getSources
 		return dnRequest("get",[self,"Sources"])
@@ -587,8 +571,7 @@ Class ConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"Add",P1,P2])
@@ -636,12 +619,10 @@ Class ConfigurationKeyComparer from Object
 		return self
 
 	Func Compare P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Compare",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Compare",P1,P2])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getInstance
 		return dnRequest("get",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationKeyComparer, Microsoft.Extensions.Configuration'),"Instance"])
@@ -677,29 +658,23 @@ Class ConfigurationManager from Object
 		return self
 
 	Func GetSection P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSection",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSection",P1])
 
 	Func GetChildren 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChildren"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChildren"])
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getSources
@@ -723,8 +698,7 @@ Class ConfigurationPath from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Combine P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"Combine",P1])
@@ -754,30 +728,24 @@ Class ConfigurationProvider from Object
 		return self
 
 	Func TryGet P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGet",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGet",P1])
 
 	Func Set P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Set",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Set",P1,P2])
 		return self
 
 	Func Load_ 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Load"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Load"])
 		return self
 
 	Func GetChildKeys P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChildKeys",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChildKeys",P1,P2])
 
 	Func GetReloadToken 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetReloadToken"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetReloadToken"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class ConfigurationReloadToken from Object
@@ -808,17 +776,14 @@ Class ConfigurationReloadToken from Object
 		return self
 
 	Func RegisterChangeCallback P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RegisterChangeCallback",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RegisterChangeCallback",P1,P2])
 
 	Func OnReload 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnReload"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnReload"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getActiveChangeCallbacks
 		return dnRequest("get",[self,"ActiveChangeCallbacks"])
@@ -849,38 +814,30 @@ Class ConfigurationRoot from Object
 		return self
 
 	Func GetChildren 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChildren"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChildren"])
 
 	Func GetReloadToken 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetReloadToken"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetReloadToken"])
 
 	Func GetSection P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSection",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSection",P1])
 
 	Func Reload 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Reload"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Reload"])
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getProviders
@@ -902,8 +859,7 @@ Class ConfigurationRootExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetDebugView P1
 		if dnIsNamed(P1)
@@ -930,28 +886,22 @@ Class ConfigurationSection from Object
 		return self
 
 	Func GetSection P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSection",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSection",P1])
 
 	Func GetChildren 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChildren"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChildren"])
 
 	Func GetReloadToken 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetReloadToken"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetReloadToken"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getPath
@@ -986,8 +936,7 @@ Class EnvironmentVariablesExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddEnvironmentVariables P1
 		if dnIsNamed(P1)
@@ -1008,8 +957,7 @@ Class FileConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func SetFileProvider P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions'),"SetFileProvider",P1,P2])
@@ -1046,22 +994,18 @@ Class FileConfigurationSource from Object
 		return self
 
 	Func Build P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build",P1])
 
 	Func EnsureDefaults P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureDefaults",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EnsureDefaults",P1])
 		return self
 
 	Func ResolveFileProvider 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ResolveFileProvider"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ResolveFileProvider"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getFileProvider
 		return dnRequest("get",[self,"FileProvider"])
@@ -1135,8 +1079,7 @@ Class FileLoadExceptionContext from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getProvider
 		return dnRequest("get",[self,"Provider"])
@@ -1172,24 +1115,19 @@ Class IConfiguration from DotNetObject
 		return self
 
 	Func GetSection P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSection",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSection",P1])
 
 	Func GetChildren 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChildren"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChildren"])
 
 	Func GetReloadToken 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetReloadToken"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetReloadToken"])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 
@@ -1208,12 +1146,10 @@ Class IConfigurationBuilder from DotNetObject
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Build 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
 
 	Func getProperties
 		return dnRequest("get",[self,"Properties"])
@@ -1252,26 +1188,21 @@ Class IConfigurationProvider from DotNetObject
 		return self
 
 	Func TryGet P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGet",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGet",P1])
 
 	Func Set P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Set",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Set",P1,P2])
 		return self
 
 	Func GetReloadToken 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetReloadToken"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetReloadToken"])
 
 	Func Load_ 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Load"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Load"])
 		return self
 
 	Func GetChildKeys P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChildKeys",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChildKeys",P1,P2])
 
 
 Class IConfigurationRoot from DotNetObject
@@ -1288,8 +1219,7 @@ Class IConfigurationRoot from DotNetObject
 		return self
 
 	Func Reload 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Reload"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Reload"])
 		return self
 
 	Func getProviders
@@ -1346,8 +1276,7 @@ Class IConfigurationSource from DotNetObject
 		return self
 
 	Func Build P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build",P1])
 
 
 Class IniConfigurationExtensions from Object
@@ -1362,8 +1291,7 @@ Class IniConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddIniFile P1
 		if dnIsNamed(P1)
@@ -1387,8 +1315,7 @@ Class JsonConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddJsonFile P1
 		if dnIsNamed(P1)
@@ -1412,8 +1339,7 @@ Class KeyPerFileConfigurationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddKeyPerFile P1
 		if dnIsNamed(P1)
@@ -1434,8 +1360,7 @@ Class MemoryConfigurationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddInMemoryCollection P1
 		if dnIsNamed(P1)
@@ -1458,12 +1383,10 @@ Class StreamConfigurationSource from Object
 		return self
 
 	Func Build P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getStream
 		return dnRequest("get",[self,"Stream"])
@@ -1485,8 +1408,7 @@ Class UserSecretsConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddUserSecrets P1
 		if dnIsNamed(P1)
@@ -1507,8 +1429,7 @@ Class XmlConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AddXmlFile P1
 		if dnIsNamed(P1)
@@ -1534,21 +1455,19 @@ Class FileConfigurationProvider from ConfigurationProvider
 		return self
 
 	Func Load_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Load",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Load",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Load"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Load"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Load",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Load",P1])
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func getSource
@@ -1572,16 +1491,15 @@ Class StreamConfigurationProvider from ConfigurationProvider
 		return self
 
 	Func Load_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Load",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Load",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Load"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Load"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Load",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Load",P1])
 		return self
 
 	Func getSource

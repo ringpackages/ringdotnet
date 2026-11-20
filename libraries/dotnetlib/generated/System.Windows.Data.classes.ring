@@ -203,12 +203,10 @@ Class BindingBase from MarkupExtension
 		return self
 
 	Func ShouldSerializeFallbackValue 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeFallbackValue"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeFallbackValue"])
 
 	Func ShouldSerializeTargetNullValue 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeTargetNullValue"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeTargetNullValue"])
 
 	Func getFallbackValue
 		return dnRequest("get",[self,"FallbackValue"])
@@ -269,18 +267,15 @@ Class BindingExpressionBase from Expression
 		return self
 
 	Func UpdateTarget 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"UpdateTarget"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"UpdateTarget"])
 		return self
 
 	Func UpdateSource 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"UpdateSource"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"UpdateSource"])
 		return self
 
 	Func ValidateWithoutUpdate 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ValidateWithoutUpdate"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ValidateWithoutUpdate"])
 
 	Func getTarget
 		return dnRequest("get",[self,"Target"])
@@ -381,37 +376,30 @@ Class BindingGroup from DependencyObject
 		return self
 
 	Func BeginEdit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginEdit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"BeginEdit"])
 		return self
 
 	Func CommitEdit 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CommitEdit"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CommitEdit"])
 
 	Func CancelEdit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CancelEdit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CancelEdit"])
 		return self
 
 	Func ValidateWithoutUpdate 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ValidateWithoutUpdate"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ValidateWithoutUpdate"])
 
 	Func UpdateSources 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"UpdateSources"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"UpdateSources"])
 
 	Func GetValue P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetValue",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetValue",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
 
 	Func TryGetValue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1,P2])
 
 	Func getOwner
 		return dnRequest("get",[self,"Owner"])
@@ -504,8 +492,7 @@ Class BindingOperations from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func SetBinding P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"SetBinding",P1,P2,P3])
@@ -617,8 +604,7 @@ Class CollectionContainer from DependencyObject
 		return self
 
 	Func ShouldSerializeCollection 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeCollection"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeCollection"])
 
 	Func getCollection
 		return dnRequest("get",[self,"Collection"])
@@ -695,77 +681,60 @@ Class CollectionView from DispatcherObject
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func Refresh 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Refresh"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Refresh"])
 		return self
 
 	Func DeferRefresh 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DeferRefresh"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DeferRefresh"])
 
 	Func MoveCurrentToFirst 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveCurrentToFirst"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveCurrentToFirst"])
 
 	Func MoveCurrentToLast 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveCurrentToLast"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveCurrentToLast"])
 
 	Func MoveCurrentToNext 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveCurrentToNext"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveCurrentToNext"])
 
 	Func MoveCurrentToPrevious 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveCurrentToPrevious"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveCurrentToPrevious"])
 
 	Func MoveCurrentTo P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveCurrentTo",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveCurrentTo",P1])
 
 	Func MoveCurrentToPosition P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveCurrentToPosition",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveCurrentToPosition",P1])
 
 	Func PassesFilter P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"PassesFilter",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"PassesFilter",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func GetItemAt P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetItemAt",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetItemAt",P1])
 
 	Func DetachFromSourceCollection 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"DetachFromSourceCollection"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"DetachFromSourceCollection"])
 		return self
 
 	Func setCurrentChangingEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CurrentChanging",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"CurrentChanging",dnCallback(P1)])
 		return self
 
 	Func clearCurrentChangingEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CurrentChanging"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"CurrentChanging"])
 		return self
 
 	Func setCurrentChangedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CurrentChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"CurrentChanged",dnCallback(P1)])
 		return self
 
 	Func clearCurrentChangedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CurrentChanged"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"CurrentChanged"])
 		return self
 
 	Func getCulture
@@ -902,8 +871,7 @@ Class CollectionViewGroup from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getName
 		return dnRequest("get",[self,"Name"])
@@ -1006,8 +974,7 @@ Class CollectionViewSource from DependencyObject
 		return self
 
 	Func DeferRefresh 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DeferRefresh"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DeferRefresh"])
 
 	Func GetDefaultView P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework'),"GetDefaultView",P1])
@@ -1016,13 +983,11 @@ Class CollectionViewSource from DependencyObject
 		return dnRequest("call",[dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework'),"IsDefaultView",P1])
 
 	Func setFilterEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Filter",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"Filter",dnCallback(P1)])
 		return self
 
 	Func clearFilterEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Filter"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"Filter"])
 		return self
 
 	Func getView
@@ -1259,53 +1224,42 @@ Class CompositeCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -1359,31 +1313,25 @@ Class DataSourceProvider from Object
 		return self
 
 	Func InitialLoad 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"InitialLoad"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"InitialLoad"])
 		return self
 
 	Func Refresh 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Refresh"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Refresh"])
 		return self
 
 	Func DeferRefresh 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DeferRefresh"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DeferRefresh"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func setDataChangedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DataChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"DataChanged",dnCallback(P1)])
 		return self
 
 	Func clearDataChangedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DataChanged"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"DataChanged"])
 		return self
 
 	Func getIsInitialLoadEnabled
@@ -1473,12 +1421,10 @@ Class IMultiValueConverter from DotNetObject
 		return self
 
 	Func Convert P1,P2,P3,P4
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Convert",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Convert",P1,P2,P3,P4])
 
 	Func ConvertBack P1,P2,P3,P4
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConvertBack",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ConvertBack",P1,P2,P3,P4])
 
 
 Class IValueConverter from DotNetObject
@@ -1493,12 +1439,10 @@ Class IValueConverter from DotNetObject
 		return self
 
 	Func Convert P1,P2,P3,P4
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Convert",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Convert",P1,P2,P3,P4])
 
 	Func ConvertBack P1,P2,P3,P4
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConvertBack",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ConvertBack",P1,P2,P3,P4])
 
 
 Class PropertyGroupDescription from DotNetObject
@@ -1555,36 +1499,28 @@ Class PropertyGroupDescription from DotNetObject
 		return self
 
 	Func GroupNameFromItem P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GroupNameFromItem",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GroupNameFromItem",P1,P2,P3])
 
 	Func NamesMatch P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"NamesMatch",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"NamesMatch",P1,P2])
 
 	Func ShouldSerializeGroupNames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeGroupNames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeGroupNames"])
 
 	Func ShouldSerializeSortDescriptions 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeSortDescriptions"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeSortDescriptions"])
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func getPropertyName
 		return dnRequest("get",[self,"PropertyName"])
@@ -1690,12 +1626,10 @@ Class RelativeSource from MarkupExtension
 		return self
 
 	Func ShouldSerializeAncestorType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeAncestorType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeAncestorType"])
 
 	Func ShouldSerializeAncestorLevel 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeAncestorLevel"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeAncestorLevel"])
 
 	Func getMode
 		return dnRequest("get",[self,"Mode"])
@@ -1782,8 +1716,7 @@ Class XmlNamespaceMapping from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getPrefix
 		return dnRequest("get",[self,"Prefix"])
@@ -1828,27 +1761,22 @@ Class XmlNamespaceMappingCollection from XmlNamespaceManager
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -1935,16 +1863,13 @@ Class WpfBinding from BindingBase
 		return self
 
 	Func ShouldSerializeValidationRules 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeValidationRules"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeValidationRules"])
 
 	Func ShouldSerializePath 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializePath"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializePath"])
 
 	Func ShouldSerializeSource 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeSource"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeSource"])
 
 	Func AddSourceUpdatedHandler P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Data.Binding, PresentationFramework'),"AddSourceUpdatedHandler",P1,P2])
@@ -2224,42 +2149,34 @@ Class BindingListCollectionView from CollectionView
 		return self
 
 	Func AddNew 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddNew"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddNew"])
 
 	Func CommitNew 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CommitNew"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CommitNew"])
 		return self
 
 	Func CancelNew 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CancelNew"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CancelNew"])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func EditItem P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EditItem",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EditItem",P1])
 		return self
 
 	Func CommitEdit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CommitEdit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CommitEdit"])
 		return self
 
 	Func CancelEdit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CancelEdit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CancelEdit"])
 		return self
 
 	Func getCustomFilter
@@ -2439,46 +2356,37 @@ Class ListCollectionView from CollectionView
 		return self
 
 	Func AddNew 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddNew"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddNew"])
 
 	Func AddNewItem P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddNewItem",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddNewItem",P1])
 
 	Func CommitNew 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CommitNew"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CommitNew"])
 		return self
 
 	Func CancelNew 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CancelNew"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CancelNew"])
 		return self
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func EditItem P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EditItem",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EditItem",P1])
 		return self
 
 	Func CommitEdit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CommitEdit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CommitEdit"])
 		return self
 
 	Func CancelEdit 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CancelEdit"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CancelEdit"])
 		return self
 
 	Func getCustomSort
@@ -2661,12 +2569,10 @@ Class MultiBinding from BindingBase
 		return self
 
 	Func ShouldSerializeBindings 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeBindings"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeBindings"])
 
 	Func ShouldSerializeValidationRules 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeValidationRules"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeValidationRules"])
 
 	Func getBindings
 		return dnRequest("get",[self,"Bindings"])
@@ -2824,20 +2730,16 @@ Class ObjectDataProvider from DataSourceProvider
 		return self
 
 	Func ShouldSerializeObjectType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeObjectType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeObjectType"])
 
 	Func ShouldSerializeObjectInstance 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeObjectInstance"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeObjectInstance"])
 
 	Func ShouldSerializeConstructorParameters 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeConstructorParameters"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeConstructorParameters"])
 
 	Func ShouldSerializeMethodParameters 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeMethodParameters"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeMethodParameters"])
 
 	Func getObjectType
 		return dnRequest("get",[self,"ObjectType"])
@@ -2907,8 +2809,7 @@ Class PriorityBinding from BindingBase
 		return self
 
 	Func ShouldSerializeBindings 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeBindings"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeBindings"])
 
 	Func getBindings
 		return dnRequest("get",[self,"Bindings"])
@@ -2983,16 +2884,13 @@ Class XmlDataProvider from DataSourceProvider
 		return self
 
 	Func ShouldSerializeSource 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeSource"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeSource"])
 
 	Func ShouldSerializeXPath 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeXPath"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeXPath"])
 
 	Func ShouldSerializeXmlSerializer 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeXmlSerializer"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeXmlSerializer"])
 
 	Func getSource
 		return dnRequest("get",[self,"Source"])

@@ -31,13 +31,11 @@ Class FontCollection from Object
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getFamilies
 		return dnRequest("get",[self,"Families"])
@@ -96,13 +94,11 @@ Class PrivateFontCollection from FontCollection
 		return self
 
 	Func AddFontFile P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddFontFile",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddFontFile",P1])
 		return self
 
 	Func AddMemoryFont P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddMemoryFont",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddMemoryFont",P1,P2])
 		return self
 
 

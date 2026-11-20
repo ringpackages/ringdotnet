@@ -244,39 +244,34 @@ Class CertificateRequest from Object
 		return self
 
 	Func CreateSigningRequest P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateSigningRequest",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateSigningRequest",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateSigningRequest"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"CreateSigningRequest"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateSigningRequest",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateSigningRequest",P1])
 
 	Func CreateSigningRequestPem P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateSigningRequestPem",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateSigningRequestPem",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateSigningRequestPem"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"CreateSigningRequestPem"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateSigningRequestPem",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateSigningRequestPem",P1])
 
 	Func CreateSelfSigned P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateSelfSigned",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateSelfSigned",P1,P2])
 
 	Func Create P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Create",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Create",P1])
 		ok
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func LoadSigningRequestPem P1
 		if dnIsNamed(P1)
@@ -346,28 +341,24 @@ Class CertificateRevocationListBuilder from Object
 		return self
 
 	Func AddEntry P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AddEntry",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddEntry",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddEntry",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddEntry",P1])
 		return self
 
 	Func RemoveEntry P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveEntry",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveEntry",P1])
 
 	Func Build P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Build",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Build",P1])
 		ok
 		raise("DotNet Error: Build does not take one argument: use named arguments, Build([ :parameter = value, ... ])")
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func BuildCrlDistributionPointExtension P1
 		if dnIsNamed(P1)
@@ -394,8 +385,7 @@ Class DSACertificateExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetDSAPublicKey P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography'),"GetDSAPublicKey",P1])
@@ -419,8 +409,7 @@ Class ECDsaCertificateExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetECDsaPublicKey P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography'),"GetECDsaPublicKey",P1])
@@ -492,13 +481,11 @@ Class Pkcs12LoaderLimits from Object
 		return self
 
 	Func MakeReadOnly 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"MakeReadOnly"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"MakeReadOnly"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getIsReadOnly
 		return dnRequest("get",[self,"IsReadOnly"])
@@ -630,28 +617,22 @@ Class PublicKey from Object
 		return self
 
 	Func ExportSubjectPublicKeyInfo 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExportSubjectPublicKeyInfo"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ExportSubjectPublicKeyInfo"])
 
 	Func GetRSAPublicKey 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRSAPublicKey"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRSAPublicKey"])
 
 	Func GetDSAPublicKey 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDSAPublicKey"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDSAPublicKey"])
 
 	Func GetECDsaPublicKey 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetECDsaPublicKey"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetECDsaPublicKey"])
 
 	Func GetECDiffieHellmanPublicKey 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetECDiffieHellmanPublicKey"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetECDiffieHellmanPublicKey"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getEncodedKeyValue
 		return dnRequest("get",[self,"EncodedKeyValue"])
@@ -690,8 +671,7 @@ Class RSACertificateExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetRSAPublicKey P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography'),"GetRSAPublicKey",P1])
@@ -728,43 +708,36 @@ Class SubjectAlternativeNameBuilder from Object
 		return self
 
 	Func AddEmailAddress P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddEmailAddress",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddEmailAddress",P1])
 		return self
 
 	Func AddDnsName P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddDnsName",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddDnsName",P1])
 		return self
 
 	Func AddUri P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddUri",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddUri",P1])
 		return self
 
 	Func AddIpAddress P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddIpAddress",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddIpAddress",P1])
 		return self
 
 	Func AddUserPrincipalName P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddUserPrincipalName",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddUserPrincipalName",P1])
 		return self
 
 	Func Build P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Build",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Build",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class X500DistinguishedName from AsnEncodedData
@@ -798,18 +771,16 @@ Class X500DistinguishedName from AsnEncodedData
 		return self
 
 	Func Decode P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Decode",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Decode",P1])
 
 	Func EnumerateRelativeDistinguishedNames P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"EnumerateRelativeDistinguishedNames",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnumerateRelativeDistinguishedNames",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"EnumerateRelativeDistinguishedNames"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateRelativeDistinguishedNames"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnumerateRelativeDistinguishedNames",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateRelativeDistinguishedNames",P1])
 
 	Func getName
 		return dnRequest("get",[self,"Name"])
@@ -843,60 +814,49 @@ Class X500DistinguishedNameBuilder from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Add",P1])
 			return self
 		ok
 		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
 
 	Func AddEmailAddress P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddEmailAddress",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddEmailAddress",P1])
 		return self
 
 	Func AddCommonName P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddCommonName",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddCommonName",P1])
 		return self
 
 	Func AddLocalityName P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddLocalityName",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddLocalityName",P1])
 		return self
 
 	Func AddCountryOrRegion P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddCountryOrRegion",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddCountryOrRegion",P1])
 		return self
 
 	Func AddOrganizationName P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddOrganizationName",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddOrganizationName",P1])
 		return self
 
 	Func AddOrganizationalUnitName P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddOrganizationalUnitName",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddOrganizationalUnitName",P1])
 		return self
 
 	Func AddStateOrProvinceName P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddStateOrProvinceName",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddStateOrProvinceName",P1])
 		return self
 
 	Func AddDomainComponent P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddDomainComponent",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddDomainComponent",P1])
 		return self
 
 	Func Build 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class X500RelativeDistinguishedName from Object
@@ -914,16 +874,13 @@ Class X500RelativeDistinguishedName from Object
 		return self
 
 	Func GetSingleElementType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSingleElementType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSingleElementType"])
 
 	Func GetSingleElementValue 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSingleElementValue"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSingleElementValue"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getRawData
 		return dnRequest("get",[self,"RawData"])
@@ -988,116 +945,94 @@ Class X509Certificate from Object
 		return self
 
 	Func Reset 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Reset"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Export P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Export",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Export",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Export",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Export",P1])
 
 	Func GetRawCertDataString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRawCertDataString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRawCertDataString"])
 
 	Func GetCertHash P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetCertHash",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCertHash",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCertHash"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetCertHash"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCertHash",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCertHash",P1])
 
 	Func GetCertHashString P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetCertHashString",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCertHashString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCertHashString"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetCertHashString"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCertHashString",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCertHashString",P1])
 
 	Func GetEffectiveDateString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEffectiveDateString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEffectiveDateString"])
 
 	Func GetExpirationDateString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetExpirationDateString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetExpirationDateString"])
 
 	Func GetFormat 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFormat"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFormat"])
 
 	Func GetPublicKeyString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPublicKeyString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPublicKeyString"])
 
 	Func GetRawCertData 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRawCertData"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRawCertData"])
 
 	Func GetKeyAlgorithm 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetKeyAlgorithm"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetKeyAlgorithm"])
 
 	Func GetKeyAlgorithmParameters 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetKeyAlgorithmParameters"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetKeyAlgorithmParameters"])
 
 	Func GetKeyAlgorithmParametersString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetKeyAlgorithmParametersString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetKeyAlgorithmParametersString"])
 
 	Func GetPublicKey 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPublicKey"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPublicKey"])
 
 	Func GetSerialNumber 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSerialNumber"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSerialNumber"])
 
 	Func GetSerialNumberString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSerialNumberString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSerialNumberString"])
 
 	Func GetName 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetName"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetName"])
 
 	Func GetIssuerName 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIssuerName"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIssuerName"])
 
 	Func Format P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
 
 	Func Import_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Import",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Import",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Import",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Import",P1])
 		return self
 
 	Func CreateFromCertFile P1
@@ -1145,17 +1080,14 @@ Class X509Certificate2Enumerator from Object
 		return self
 
 	Func MoveNext 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveNext"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveNext"])
 
 	Func Reset 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Reset"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCurrent
 		return dnRequest("get",[self,"Current"])
@@ -1209,44 +1141,35 @@ Class X509CertificateCollection from CollectionBase
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func AddRange P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddRange",P1])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 
@@ -1262,8 +1185,7 @@ Class X509CertificateLoader from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func LoadCertificate P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadCertificate",P1])
@@ -1347,22 +1269,18 @@ Class X509Chain from Object
 		return self
 
 	Func Build P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Build",P1])
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func Reset 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Reset"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Create 
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography'),"Create"])
@@ -1415,8 +1333,7 @@ Class X509ChainElement from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCertificate
 		return dnRequest("get",[self,"Certificate"])
@@ -1453,21 +1370,17 @@ Class X509ChainElementCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -1502,17 +1415,14 @@ Class X509ChainElementEnumerator from Object
 		return self
 
 	Func MoveNext 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveNext"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveNext"])
 
 	Func Reset 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Reset"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCurrent
 		return dnRequest("get",[self,"Current"])
@@ -1559,17 +1469,14 @@ Class X509ChainPolicy from Object
 		return self
 
 	Func Reset 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Reset"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
 		return self
 
 	Func Clone 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getDisableCertificateDownloads
 		return dnRequest("get",[self,"DisableCertificateDownloads"])
@@ -1761,25 +1668,20 @@ Class X509ExtensionCollection from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -1814,17 +1716,14 @@ Class X509ExtensionEnumerator from Object
 		return self
 
 	Func MoveNext 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveNext"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveNext"])
 
 	Func Reset 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Reset"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCurrent
 		return dnRequest("get",[self,"Current"])
@@ -1847,16 +1746,13 @@ Class X509SignatureGenerator from Object
 		return self
 
 	Func GetSignatureAlgorithmIdentifier P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSignatureAlgorithmIdentifier",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSignatureAlgorithmIdentifier",P1])
 
 	Func SignData P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SignData",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SignData",P1,P2])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func CreateForECDsa P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509SignatureGenerator, System.Security.Cryptography'),"CreateForECDsa",P1])
@@ -1922,43 +1818,35 @@ Class X509Store from Object
 		return self
 
 	Func Open P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Open",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Open",P1])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func AddRange P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddRange",P1])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 		return self
 
 	Func RemoveRange P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveRange",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveRange",P1])
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func Close 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getStoreHandle
 		return dnRequest("get",[self,"StoreHandle"])
@@ -2036,16 +1924,13 @@ Class X509AuthorityInformationAccessExtension from X509Extension
 		return self
 
 	Func EnumerateUris P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnumerateUris",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateUris",P1])
 
 	Func EnumerateCAIssuersUris 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnumerateCAIssuersUris"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateCAIssuersUris"])
 
 	Func EnumerateOcspUris 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnumerateOcspUris"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateOcspUris"])
 
 
 Class X509AuthorityKeyIdentifierExtension from X509Extension
@@ -2281,47 +2166,37 @@ Class X509Certificate2 from X509Certificate
 		return self
 
 	Func GetNameInfo P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNameInfo",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNameInfo",P1,P2])
 
 	Func Verify 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Verify"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Verify"])
 
 	Func GetECDiffieHellmanPublicKey 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetECDiffieHellmanPublicKey"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetECDiffieHellmanPublicKey"])
 
 	Func GetECDiffieHellmanPrivateKey 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetECDiffieHellmanPrivateKey"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetECDiffieHellmanPrivateKey"])
 
 	Func CopyWithPrivateKey P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CopyWithPrivateKey",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CopyWithPrivateKey",P1])
 
 	Func ExportCertificatePem 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExportCertificatePem"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ExportCertificatePem"])
 
 	Func MatchesHostname P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MatchesHostname",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"MatchesHostname",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MatchesHostname",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MatchesHostname",P1])
 
 	Func GetPublicKey_ 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPublicKey"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPublicKey"])
 
 	Func GetSerialNumber_ 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSerialNumber"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSerialNumber"])
 
 	Func GetIssuerName_ 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIssuerName"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIssuerName"])
 
 	Func GetCertContentType P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography'),"GetCertContentType",P1])
@@ -2477,42 +2352,35 @@ Class X509Certificate2Collection from X509CertificateCollection
 		return self
 
 	Func Export P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Export",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Export",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Export",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Export",P1])
 
 	Func Find P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Find",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Find",P1,P2,P3])
 
 	Func Import_ P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Import",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Import",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Import",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Import",P1])
 		return self
 
 	Func RemoveRange P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveRange",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveRange",P1])
 		return self
 
 	Func ImportFromPemFile P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ImportFromPemFile",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ImportFromPemFile",P1])
 		return self
 
 	Func ExportPkcs7Pem 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExportPkcs7Pem"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ExportPkcs7Pem"])
 
 	Func ExportCertificatePems 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExportCertificatePems"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ExportCertificatePems"])
 
 
 Class X509EnhancedKeyUsageExtension from X509Extension
@@ -2666,12 +2534,10 @@ Class X509SubjectAlternativeNameExtension from X509Extension
 		return self
 
 	Func EnumerateDnsNames 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnumerateDnsNames"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateDnsNames"])
 
 	Func EnumerateIPAddresses 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnumerateIPAddresses"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateIPAddresses"])
 
 
 Class X509SubjectKeyIdentifierExtension from X509Extension

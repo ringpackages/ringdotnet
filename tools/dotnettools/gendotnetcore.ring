@@ -673,10 +673,10 @@ func buildPlan cTypeName, nForceInit
 		ok
 	next
 
-	# The target of a call is made from a local copy of the handle: in "new DotNetObject(nHandle)" the argument is read while the new
-	# object is being made, and after an error that was caught Ring can look for nHandle in the wrong object (the new one, whose nHandle is 0)
+	# The target of a call is made with "this.nHandle": in "new DotNetObject(nHandle)" the argument is read together with the new object
+	# (Ring uses braces on it to call init), and after an error that was caught Ring could look for nHandle in the new object, whose nHandle is 0
 	for nBlock = 1 to len(aBlocks)
-		aBlocks[nBlock][2] = localTarget(aBlocks[nBlock][2])
+		aBlocks[nBlock][2] = substr(aBlocks[nBlock][2],"new DotNetObject(nHandle)","new DotNetObject(this.nHandle)")
 	next
 
 	aPlan = [aInfo,cTypeName,nInit,lCreate,cCode,aAttrList,aBlocks,aInfo[10],aAttrs]
@@ -952,12 +952,3 @@ func isIdent cName
 		ok
 	next
 	return len(cName) > 0
-
-# A method whose code makes a DotNetObject from nHandle reads the handle into a local variable first
-func localTarget cBlock
-	if substr(cBlock,"new DotNetObject(nHandle)") = 0
-		return cBlock
-	ok
-	cBlock = substr(cBlock,"new DotNetObject(nHandle)","new DotNetObject(dn_nTarget)")
-	nFirstLine = substr(cBlock,nl)
-	return left(cBlock,nFirstLine) + "		dn_nTarget = nHandle" + nl + right(cBlock,len(cBlock) - nFirstLine)

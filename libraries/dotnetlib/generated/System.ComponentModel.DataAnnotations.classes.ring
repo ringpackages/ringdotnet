@@ -70,8 +70,7 @@ Class IValidatableObject from DotNetObject
 		return self
 
 	Func Validate P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Validate",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Validate",P1])
 
 
 Class ValidationContext from Object
@@ -109,17 +108,14 @@ Class ValidationContext from Object
 		return self
 
 	Func InitializeServiceProvider P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"InitializeServiceProvider",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"InitializeServiceProvider",P1])
 		return self
 
 	Func GetService P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetService",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetService",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getObjectInstance
 		return dnRequest("get",[self,"ObjectInstance"])
@@ -187,8 +183,7 @@ Class DataAnnotationsValidationResult from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getMemberNames
 		return dnRequest("get",[self,"MemberNames"])
@@ -222,8 +217,7 @@ Class Validator from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func TryValidateProperty P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"TryValidateProperty",P1,P2,P3])

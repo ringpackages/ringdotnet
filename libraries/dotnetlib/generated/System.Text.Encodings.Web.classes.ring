@@ -43,19 +43,16 @@ Class TextEncoder from Object
 		return self
 
 	Func WillEncode P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"WillEncode",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"WillEncode",P1])
 
 	Func Encode P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Encode",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Encode",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Encode",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Encode",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getMaxOutputCharactersPerInputCharacter
 		return dnRequest("get",[self,"MaxOutputCharactersPerInputCharacter"])
@@ -109,62 +106,50 @@ Class TextEncoderSettings from Object
 		return self
 
 	Func AllowCharacter P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AllowCharacter",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AllowCharacter",P1])
 		return self
 
 	Func AllowCharacters P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AllowCharacters",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AllowCharacters",P1])
 		return self
 
 	Func AllowCodePoints P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AllowCodePoints",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AllowCodePoints",P1])
 		return self
 
 	Func AllowRange P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AllowRange",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AllowRange",P1])
 		return self
 
 	Func AllowRanges P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AllowRanges",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AllowRanges",P1])
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func ForbidCharacter P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ForbidCharacter",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ForbidCharacter",P1])
 		return self
 
 	Func ForbidCharacters P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ForbidCharacters",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ForbidCharacters",P1])
 		return self
 
 	Func ForbidRange P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ForbidRange",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ForbidRange",P1])
 		return self
 
 	Func ForbidRanges P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ForbidRanges",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ForbidRanges",P1])
 		return self
 
 	Func GetAllowedCodePoints 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAllowedCodePoints"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAllowedCodePoints"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class HtmlEncoder from TextEncoder

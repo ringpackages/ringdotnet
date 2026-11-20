@@ -463,8 +463,7 @@ Class ActionContext from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getActionDescriptor
 		return dnRequest("get",[self,"ActionDescriptor"])
@@ -506,17 +505,14 @@ Class ActionResult from Object
 		return self
 
 	Func ExecuteResultAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteResultAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ExecuteResultAsync",P1])
 
 	Func ExecuteResult P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteResult",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ExecuteResult",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class ApiBehaviorOptions from Object
@@ -552,8 +548,7 @@ Class ApiBehaviorOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getInvalidModelStateResponseFactory
 		return dnRequest("get",[self,"InvalidModelStateResponseFactory"])
@@ -631,8 +626,7 @@ Class ApiDescriptionActionData from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getGroupName
 		return dnRequest("get",[self,"GroupName"])
@@ -673,8 +667,7 @@ Class CacheProfile from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getDuration
 		return dnRequest("get",[self,"Duration"])
@@ -740,8 +733,7 @@ Class ClientErrorData from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getLink
 		return dnRequest("get",[self,"Link"])
@@ -784,350 +776,304 @@ Class ControllerBase from Object
 		return self
 
 	Func StatusCode P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"StatusCode",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"StatusCode",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"StatusCode",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"StatusCode",P1])
 
 	Func Content P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Content",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Content",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Content",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Content",P1])
 
 	Func NoContent 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"NoContent"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"NoContent"])
 
 	Func Ok P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Ok",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Ok",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"Ok"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"Ok"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Ok",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Ok",P1])
 
 	Func Redirect P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Redirect",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Redirect",P1])
 
 	Func RedirectPermanent P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectPermanent",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectPermanent",P1])
 
 	Func RedirectPreserveMethod P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectPreserveMethod",P1])
 
 	Func RedirectPermanentPreserveMethod P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectPermanentPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectPermanentPreserveMethod",P1])
 
 	Func LocalRedirect P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LocalRedirect",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LocalRedirect",P1])
 
 	Func LocalRedirectPermanent P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LocalRedirectPermanent",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LocalRedirectPermanent",P1])
 
 	Func LocalRedirectPreserveMethod P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LocalRedirectPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LocalRedirectPreserveMethod",P1])
 
 	Func LocalRedirectPermanentPreserveMethod P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LocalRedirectPermanentPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LocalRedirectPermanentPreserveMethod",P1])
 
 	Func RedirectToAction P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RedirectToAction",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RedirectToAction",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToAction"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToAction"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToAction",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToAction",P1])
 
 	Func RedirectToActionPreserveMethod P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RedirectToActionPreserveMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RedirectToActionPreserveMethod",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToActionPreserveMethod"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToActionPreserveMethod"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToActionPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToActionPreserveMethod",P1])
 
 	Func RedirectToActionPermanent P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RedirectToActionPermanent",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RedirectToActionPermanent",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToActionPermanent",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToActionPermanent",P1])
 
 	Func RedirectToActionPermanentPreserveMethod P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RedirectToActionPermanentPreserveMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RedirectToActionPermanentPreserveMethod",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToActionPermanentPreserveMethod"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToActionPermanentPreserveMethod"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToActionPermanentPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToActionPermanentPreserveMethod",P1])
 
 	Func RedirectToRoute P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RedirectToRoute",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RedirectToRoute",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToRoute",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToRoute",P1])
 
 	Func RedirectToRoutePreserveMethod P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RedirectToRoutePreserveMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RedirectToRoutePreserveMethod",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToRoutePreserveMethod"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToRoutePreserveMethod"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToRoutePreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToRoutePreserveMethod",P1])
 
 	Func RedirectToRoutePermanent P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RedirectToRoutePermanent",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RedirectToRoutePermanent",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToRoutePermanent",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToRoutePermanent",P1])
 
 	Func RedirectToRoutePermanentPreserveMethod P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RedirectToRoutePermanentPreserveMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RedirectToRoutePermanentPreserveMethod",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToRoutePermanentPreserveMethod"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToRoutePermanentPreserveMethod"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToRoutePermanentPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToRoutePermanentPreserveMethod",P1])
 
 	Func RedirectToPage P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RedirectToPage",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RedirectToPage",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToPage",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToPage",P1])
 
 	Func RedirectToPagePermanent P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RedirectToPagePermanent",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RedirectToPagePermanent",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToPagePermanent",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToPagePermanent",P1])
 
 	Func RedirectToPagePreserveMethod P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RedirectToPagePreserveMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RedirectToPagePreserveMethod",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToPagePreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToPagePreserveMethod",P1])
 
 	Func RedirectToPagePermanentPreserveMethod P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RedirectToPagePermanentPreserveMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RedirectToPagePermanentPreserveMethod",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RedirectToPagePermanentPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RedirectToPagePermanentPreserveMethod",P1])
 
 	Func File P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"File",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"File",P1])
 		ok
 		raise("DotNet Error: File does not take one argument: use named arguments, File([ :parameter = value, ... ])")
 
 	Func PhysicalFile P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"PhysicalFile",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"PhysicalFile",P1])
 		ok
 		raise("DotNet Error: PhysicalFile does not take one argument: use named arguments, PhysicalFile([ :parameter = value, ... ])")
 
 	Func Unauthorized P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Unauthorized",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Unauthorized",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"Unauthorized"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"Unauthorized"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Unauthorized",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Unauthorized",P1])
 
 	Func NotFound P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"NotFound",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"NotFound",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"NotFound"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"NotFound"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"NotFound",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"NotFound",P1])
 
 	Func BadRequest P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BadRequest",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BadRequest",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"BadRequest"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"BadRequest"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BadRequest",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BadRequest",P1])
 
 	Func UnprocessableEntity P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"UnprocessableEntity",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"UnprocessableEntity",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"UnprocessableEntity"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"UnprocessableEntity"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"UnprocessableEntity",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"UnprocessableEntity",P1])
 
 	Func Conflict P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Conflict",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Conflict",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"Conflict"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"Conflict"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Conflict",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Conflict",P1])
 
 	Func Problem P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Problem",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Problem",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"Problem"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"Problem"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Problem",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Problem",P1])
 
 	Func ValidationProblem P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ValidationProblem",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ValidationProblem",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"ValidationProblem"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"ValidationProblem"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ValidationProblem",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ValidationProblem",P1])
 
 	Func Created P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Created",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Created",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"Created"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"Created"])
 		ok
 		raise("DotNet Error: Created does not take one argument: use named arguments, Created([ :parameter = value, ... ])")
 
 	Func CreatedAtAction P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreatedAtAction",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreatedAtAction",P1])
 		ok
 		raise("DotNet Error: CreatedAtAction does not take one argument: use named arguments, CreatedAtAction([ :parameter = value, ... ])")
 
 	Func CreatedAtRoute P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreatedAtRoute",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreatedAtRoute",P1])
 		ok
 		raise("DotNet Error: CreatedAtRoute does not take one argument: use named arguments, CreatedAtRoute([ :parameter = value, ... ])")
 
 	Func Accepted P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Accepted",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Accepted",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"Accepted"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"Accepted"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Accepted",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Accepted",P1])
 
 	Func AcceptedAtAction P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AcceptedAtAction",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AcceptedAtAction",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptedAtAction",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptedAtAction",P1])
 
 	Func AcceptedAtRoute P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AcceptedAtRoute",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AcceptedAtRoute",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptedAtRoute",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptedAtRoute",P1])
 
 	Func Challenge P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Challenge",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Challenge",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"Challenge"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"Challenge"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Challenge",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Challenge",P1])
 
 	Func Forbid P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Forbid",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Forbid",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"Forbid"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"Forbid"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Forbid",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Forbid",P1])
 
 	Func SignIn P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SignIn",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SignIn",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SignIn",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SignIn",P1])
 
 	Func SignOut P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SignOut",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SignOut",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"SignOut"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"SignOut"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SignOut",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SignOut",P1])
 
 	Func TryUpdateModelAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TryUpdateModelAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"TryUpdateModelAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryUpdateModelAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryUpdateModelAsync",P1])
 
 	Func TryValidateModel P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TryValidateModel",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"TryValidateModel",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryValidateModel",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryValidateModel",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getHttpContext
 		return dnRequest("get",[self,"HttpContext"])
@@ -1241,8 +1187,7 @@ Class CookieTempDataProviderOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCookie
 		return dnRequest("get",[self,"Cookie"])
@@ -1264,8 +1209,7 @@ Class DefaultApiConventions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Get_ P1
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.DefaultApiConventions, Microsoft.AspNetCore.Mvc.Core'),"Get",P1])
@@ -1312,8 +1256,7 @@ Class IActionResult from DotNetObject
 		return self
 
 	Func ExecuteResultAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteResultAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ExecuteResultAsync",P1])
 
 
 Class IDesignTimeMvcBuilderConfiguration from DotNetObject
@@ -1328,8 +1271,7 @@ Class IDesignTimeMvcBuilderConfiguration from DotNetObject
 		return self
 
 	Func ConfigureMvc P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureMvc",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureMvc",P1])
 		return self
 
 
@@ -1371,24 +1313,19 @@ Class IUrlHelper from DotNetObject
 		return self
 
 	Func Action P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Action",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Action",P1])
 
 	Func Content P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Content",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Content",P1])
 
 	Func IsLocalUrl P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsLocalUrl",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsLocalUrl",P1])
 
 	Func RouteUrl P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RouteUrl",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RouteUrl",P1])
 
 	Func Link P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Link",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Link",P1,P2])
 
 	Func getActionContext
 		return dnRequest("get",[self,"ActionContext"])
@@ -1409,8 +1346,7 @@ Class IViewComponentHelper from DotNetObject
 		return self
 
 	Func InvokeAsync P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InvokeAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InvokeAsync",P1,P2])
 
 
 Class IViewComponentResult from DotNetObject
@@ -1425,13 +1361,11 @@ Class IViewComponentResult from DotNetObject
 		return self
 
 	Func Execute P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Execute",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Execute",P1])
 		return self
 
 	Func ExecuteAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ExecuteAsync",P1])
 
 
 Class JsonOptions from Object
@@ -1462,8 +1396,7 @@ Class JsonOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getAllowInputFormatterExceptionMessages
 		return dnRequest("get",[self,"AllowInputFormatterExceptionMessages"])
@@ -1533,8 +1466,7 @@ Class MvcOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getEnableEndpointRouting
 		return dnRequest("get",[self,"EnableEndpointRouting"])
@@ -1751,8 +1683,7 @@ Class MvcViewOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getHtmlHelperOptions
 		return dnRequest("get",[self,"HtmlHelperOptions"])
@@ -1806,12 +1737,10 @@ Class ProblemDetails from Object
 		return self
 
 	Func GetType_ 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getType
 		return dnRequest("get",[self,"Type"])
@@ -1913,8 +1842,7 @@ Class UrlHelperExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Action P1
 		if dnIsNamed(P1)
@@ -2018,22 +1946,19 @@ Class ViewComponent from Object
 		return self
 
 	Func Content P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Content",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Content",P1])
 
 	Func View P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"View",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"View",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"View"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"View"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"View",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"View",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getHttpContext
 		return dnRequest("get",[self,"HttpContext"])
@@ -2245,56 +2170,48 @@ Class Controller from ControllerBase
 		return self
 
 	Func View P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"View",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"View",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"View"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"View"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"View",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"View",P1])
 
 	Func PartialView P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"PartialView",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"PartialView",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"PartialView"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"PartialView"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"PartialView",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"PartialView",P1])
 
 	Func ViewComponent P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ViewComponent",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ViewComponent",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ViewComponent",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ViewComponent",P1])
 
 	Func Json P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Json",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Json",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Json",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Json",P1])
 
 	Func OnActionExecuting P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnActionExecuting",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnActionExecuting",P1])
 		return self
 
 	Func OnActionExecuted P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnActionExecuted",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnActionExecuted",P1])
 		return self
 
 	Func OnActionExecutionAsync P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"OnActionExecutionAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"OnActionExecutionAsync",P1,P2])
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func getViewData
@@ -2655,8 +2572,7 @@ Class ObjectResult from ActionResult
 		return self
 
 	Func OnFormatting P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnFormatting",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnFormatting",P1])
 		return self
 
 	Func getValue

@@ -66,27 +66,23 @@ Class Claim from Object
 		return self
 
 	Func Clone P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Clone",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Clone",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone",P1])
 
 	Func WriteTo P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"WriteTo",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"WriteTo",P1])
 		return self
 
 	Func GetType_ 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getIssuer
 		return dnRequest("get",[self,"Issuer"])
@@ -198,8 +194,7 @@ Class ClaimTypes from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getAuthenticationInstant
 		return dnRequest("get",[dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims'),"AuthenticationInstant"])
@@ -566,8 +561,7 @@ Class ClaimValueTypes from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getBase64Binary
 		return dnRequest("get",[dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"Base64Binary"])
@@ -790,51 +784,41 @@ Class ClaimsIdentity from Object
 		return self
 
 	Func Clone 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
 
 	Func AddClaim P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddClaim",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddClaim",P1])
 		return self
 
 	Func AddClaims P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddClaims",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddClaims",P1])
 		return self
 
 	Func TryRemoveClaim P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryRemoveClaim",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryRemoveClaim",P1])
 
 	Func RemoveClaim P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveClaim",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveClaim",P1])
 		return self
 
 	Func FindAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindAll",P1])
 
 	Func FindFirst P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindFirst",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindFirst",P1])
 
 	Func HasClaim P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"HasClaim",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasClaim",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"HasClaim",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"HasClaim",P1])
 
 	Func WriteTo P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"WriteTo",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"WriteTo",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getAuthenticationType
 		return dnRequest("get",[self,"AuthenticationType"])
@@ -964,46 +948,37 @@ Class ClaimsPrincipal from Object
 		return self
 
 	Func AddIdentity P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddIdentity",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddIdentity",P1])
 		return self
 
 	Func AddIdentities P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddIdentities",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddIdentities",P1])
 		return self
 
 	Func Clone 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
 
 	Func FindAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindAll",P1])
 
 	Func FindFirst P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindFirst",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindFirst",P1])
 
 	Func HasClaim P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"HasClaim",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasClaim",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"HasClaim",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"HasClaim",P1])
 
 	Func IsInRole P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsInRole",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsInRole",P1])
 
 	Func WriteTo P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"WriteTo",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"WriteTo",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getClaims
 		return dnRequest("get",[self,"Claims"])

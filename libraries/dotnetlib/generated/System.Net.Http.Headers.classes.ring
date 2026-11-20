@@ -187,8 +187,7 @@ Class AuthenticationHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.AuthenticationHeaderValue, System.Net.Http'),"Parse",P1])
@@ -250,8 +249,7 @@ Class CacheControlHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.CacheControlHeaderValue, System.Net.Http'),"Parse",P1])
@@ -393,8 +391,7 @@ Class ContentDispositionHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.ContentDispositionHeaderValue, System.Net.Http'),"Parse",P1])
@@ -501,8 +498,7 @@ Class ContentRangeHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.ContentRangeHeaderValue, System.Net.Http'),"Parse",P1])
@@ -581,8 +577,7 @@ Class EntityTagHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http'),"Parse",P1])
@@ -636,8 +631,7 @@ Class HeaderStringValues from ValueType
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -660,42 +654,33 @@ Class HttpHeaders from Object
 		return self
 
 	Func Add P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
 		return self
 
 	Func TryAddWithoutValidation P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryAddWithoutValidation",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryAddWithoutValidation",P1,P2])
 
 	Func GetValues P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValues",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValues",P1])
 
 	Func TryGetValues P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValues",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValues",P1])
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getNonValidated
 		return dnRequest("get",[self,"NonValidated"])
@@ -731,20 +716,16 @@ Class HttpHeadersNonValidated from ValueType
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func TryGetValues P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValues",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValues",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -786,8 +767,7 @@ Class MediaTypeHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.MediaTypeHeaderValue, System.Net.Http'),"Parse",P1])
@@ -848,8 +828,7 @@ Class NameValueHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.NameValueHeaderValue, System.Net.Http'),"Parse",P1])
@@ -903,8 +882,7 @@ Class ProductHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.ProductHeaderValue, System.Net.Http'),"Parse",P1])
@@ -957,8 +935,7 @@ Class ProductInfoHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.ProductInfoHeaderValue, System.Net.Http'),"Parse",P1])
@@ -996,8 +973,7 @@ Class RangeConditionHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.RangeConditionHeaderValue, System.Net.Http'),"Parse",P1])
@@ -1066,8 +1042,7 @@ Class RangeHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.RangeHeaderValue, System.Net.Http'),"Parse",P1])
@@ -1106,8 +1081,7 @@ Class RangeItemHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getFrom
 		return dnRequest("get",[self,"From"])
@@ -1139,8 +1113,7 @@ Class RetryConditionHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.RetryConditionHeaderValue, System.Net.Http'),"Parse",P1])
@@ -1193,8 +1166,7 @@ Class StringWithQualityHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.StringWithQualityHeaderValue, System.Net.Http'),"Parse",P1])
@@ -1232,8 +1204,7 @@ Class TransferCodingHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.TransferCodingHeaderValue, System.Net.Http'),"Parse",P1])
@@ -1288,8 +1259,7 @@ Class ViaHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.ViaHeaderValue, System.Net.Http'),"Parse",P1])
@@ -1356,8 +1326,7 @@ Class WarningHeaderValue from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http'),"Parse",P1])

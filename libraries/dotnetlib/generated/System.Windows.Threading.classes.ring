@@ -101,53 +101,44 @@ Class Dispatcher from Object
 		return self
 
 	Func CheckAccess 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CheckAccess"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CheckAccess"])
 
 	Func VerifyAccess 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"VerifyAccess"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"VerifyAccess"])
 		return self
 
 	Func BeginInvokeShutdown P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginInvokeShutdown",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"BeginInvokeShutdown",P1])
 		return self
 
 	Func InvokeShutdown 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"InvokeShutdown"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"InvokeShutdown"])
 		return self
 
 	Func BeginInvoke P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginInvoke",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginInvoke",P1])
 		ok
 		raise("DotNet Error: BeginInvoke does not take one argument: use named arguments, BeginInvoke([ :parameter = value, ... ])")
 
 	Func Invoke P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Invoke",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Invoke",P1])
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Invoke",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Invoke",P1])
 		return self
 
 	Func InvokeAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"InvokeAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"InvokeAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"InvokeAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"InvokeAsync",P1])
 
 	Func DisableProcessing 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisableProcessing"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DisableProcessing"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func FromThread P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"FromThread",P1])
@@ -178,43 +169,35 @@ Class Dispatcher from Object
 		return self
 
 	Func setShutdownStartedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ShutdownStarted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"ShutdownStarted",dnCallback(P1)])
 		return self
 
 	Func clearShutdownStartedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ShutdownStarted"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"ShutdownStarted"])
 		return self
 
 	Func setShutdownFinishedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ShutdownFinished",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"ShutdownFinished",dnCallback(P1)])
 		return self
 
 	Func clearShutdownFinishedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ShutdownFinished"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"ShutdownFinished"])
 		return self
 
 	Func setUnhandledExceptionFilterEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"UnhandledExceptionFilter",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"UnhandledExceptionFilter",dnCallback(P1)])
 		return self
 
 	Func clearUnhandledExceptionFilterEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"UnhandledExceptionFilter"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"UnhandledExceptionFilter"])
 		return self
 
 	Func setUnhandledExceptionEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"UnhandledException",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"UnhandledException",dnCallback(P1)])
 		return self
 
 	Func clearUnhandledExceptionEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"UnhandledException"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"UnhandledException"])
 		return self
 
 	Func getThread
@@ -309,67 +292,54 @@ Class DispatcherHooks from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func setDispatcherInactiveEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DispatcherInactive",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"DispatcherInactive",dnCallback(P1)])
 		return self
 
 	Func clearDispatcherInactiveEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DispatcherInactive"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"DispatcherInactive"])
 		return self
 
 	Func setOperationPostedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"OperationPosted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"OperationPosted",dnCallback(P1)])
 		return self
 
 	Func clearOperationPostedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"OperationPosted"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"OperationPosted"])
 		return self
 
 	Func setOperationStartedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"OperationStarted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"OperationStarted",dnCallback(P1)])
 		return self
 
 	Func clearOperationStartedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"OperationStarted"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"OperationStarted"])
 		return self
 
 	Func setOperationCompletedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"OperationCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"OperationCompleted",dnCallback(P1)])
 		return self
 
 	Func clearOperationCompletedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"OperationCompleted"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"OperationCompleted"])
 		return self
 
 	Func setOperationPriorityChangedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"OperationPriorityChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"OperationPriorityChanged",dnCallback(P1)])
 		return self
 
 	Func clearOperationPriorityChangedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"OperationPriorityChanged"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"OperationPriorityChanged"])
 		return self
 
 	Func setOperationAbortedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"OperationAborted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"OperationAborted",dnCallback(P1)])
 		return self
 
 	Func clearOperationAbortedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"OperationAborted"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"OperationAborted"])
 		return self
 
 
@@ -387,17 +357,14 @@ Class DispatcherObject from Object
 		return self
 
 	Func CheckAccess 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CheckAccess"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CheckAccess"])
 
 	Func VerifyAccess 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"VerifyAccess"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"VerifyAccess"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getDispatcher
 		return dnRequest("get",[self,"Dispatcher"])
@@ -424,45 +391,37 @@ Class DispatcherOperation from Object
 		return self
 
 	Func GetAwaiter 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAwaiter"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAwaiter"])
 
 	Func Wait P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Wait",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Wait",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"Wait"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"Wait"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Wait",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Wait",P1])
 
 	Func Abort 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Abort"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Abort"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func setAbortedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Aborted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"Aborted",dnCallback(P1)])
 		return self
 
 	Func clearAbortedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Aborted"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"Aborted"])
 		return self
 
 	Func setCompletedEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Completed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"Completed",dnCallback(P1)])
 		return self
 
 	Func clearCompletedEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Completed"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"Completed"])
 		return self
 
 	Func getDispatcher
@@ -522,8 +481,7 @@ Class DispatcherPriorityAwaitable from ValueType
 		return self
 
 	Func GetAwaiter 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAwaiter"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAwaiter"])
 
 
 Class DispatcherPriorityAwaiter from ValueType
@@ -553,13 +511,11 @@ Class DispatcherPriorityAwaiter from ValueType
 		return self
 
 	Func GetResult 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"GetResult"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"GetResult"])
 		return self
 
 	Func OnCompleted P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnCompleted",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnCompleted",P1])
 		return self
 
 	Func getIsCompleted
@@ -594,8 +550,7 @@ Class DispatcherProcessingDisabled from ValueType
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 
@@ -694,27 +649,22 @@ Class DispatcherTimer from Object
 		return self
 
 	Func Start 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Start"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Start"])
 		return self
 
 	Func Stop 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Stop"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Stop"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func setTickEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Tick",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"Tick",dnCallback(P1)])
 		return self
 
 	Func clearTickEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Tick"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"Tick"])
 		return self
 
 	Func getDispatcher

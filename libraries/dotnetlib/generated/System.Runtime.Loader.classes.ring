@@ -25,16 +25,13 @@ Class AssemblyDependencyResolver from Object
 		return self
 
 	Func ResolveAssemblyToPath P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ResolveAssemblyToPath",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveAssemblyToPath",P1])
 
 	Func ResolveUnmanagedDllToPath P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ResolveUnmanagedDllToPath",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveUnmanagedDllToPath",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class AssemblyLoadContext from Object
@@ -73,55 +70,46 @@ Class AssemblyLoadContext from Object
 		return self
 
 	Func SetProfileOptimizationRoot P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetProfileOptimizationRoot",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetProfileOptimizationRoot",P1])
 		return self
 
 	Func StartProfileOptimization P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"StartProfileOptimization",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"StartProfileOptimization",P1])
 		return self
 
 	Func LoadFromAssemblyName P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LoadFromAssemblyName",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LoadFromAssemblyName",P1])
 
 	Func LoadFromAssemblyPath P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LoadFromAssemblyPath",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LoadFromAssemblyPath",P1])
 
 	Func LoadFromNativeImagePath P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LoadFromNativeImagePath",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LoadFromNativeImagePath",P1,P2])
 
 	Func LoadFromStream P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"LoadFromStream",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"LoadFromStream",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LoadFromStream",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LoadFromStream",P1])
 
 	Func Unload 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Unload"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Unload"])
 		return self
 
 	Func EnterContextualReflection P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"EnterContextualReflection",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"EnterContextualReflection",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnterContextualReflection",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"EnterContextualReflection"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"EnterContextualReflection"])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"EnterContextualReflection",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetLoadContext P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"GetLoadContext",P1])
@@ -130,33 +118,27 @@ Class AssemblyLoadContext from Object
 		return dnRequest("call",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"GetAssemblyName",P1])
 
 	Func setResolvingUnmanagedDllEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ResolvingUnmanagedDll",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"ResolvingUnmanagedDll",dnCallback(P1)])
 		return self
 
 	Func clearResolvingUnmanagedDllEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ResolvingUnmanagedDll"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"ResolvingUnmanagedDll"])
 		return self
 
 	Func setResolvingEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Resolving",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"Resolving",dnCallback(P1)])
 		return self
 
 	Func clearResolvingEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Resolving"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"Resolving"])
 		return self
 
 	Func setUnloadingEvent P1
-		dn_nTarget = nHandle
-		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Unloading",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(this.nHandle),"Unloading",dnCallback(P1)])
 		return self
 
 	Func clearUnloadingEvent
-		dn_nTarget = nHandle
-		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Unloading"])
+		dnRequest("clearevent",[new DotNetObject(this.nHandle),"Unloading"])
 		return self
 
 	Func getAssemblies

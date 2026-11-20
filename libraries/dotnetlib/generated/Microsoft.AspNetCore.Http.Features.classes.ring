@@ -356,8 +356,7 @@ Class DefaultSessionFeature from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getSession
 		return dnRequest("get",[self,"Session"])
@@ -415,29 +414,23 @@ Class FeatureCollection from Object
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Get_ 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Get"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Get"])
 
 	Func Set P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Set",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Set",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getRevision
@@ -465,8 +458,7 @@ Class FeatureCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetRequiredFeature P1
 		if dnIsNamed(P1)
@@ -507,22 +499,19 @@ Class FormFeature from Object
 		return self
 
 	Func ReadForm 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadForm"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadForm"])
 
 	Func ReadFormAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReadFormAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadFormAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadFormAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadFormAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadFormAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadFormAsync",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getHasFormContentType
 		return dnRequest("get",[self,"HasFormContentType"])
@@ -578,8 +567,7 @@ Class FormOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getBufferBody
 		return dnRequest("get",[self,"BufferBody"])
@@ -707,8 +695,7 @@ Class HttpConnectionFeature from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getConnectionId
 		return dnRequest("get",[self,"ConnectionId"])
@@ -781,8 +768,7 @@ Class HttpRequestFeature from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getProtocol
 		return dnRequest("get",[self,"Protocol"])
@@ -875,8 +861,7 @@ Class HttpRequestIdentifierFeature from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getTraceIdentifier
 		return dnRequest("get",[self,"TraceIdentifier"])
@@ -913,13 +898,11 @@ Class HttpRequestLifetimeFeature from Object
 		return self
 
 	Func Abort 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Abort"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Abort"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getRequestAborted
 		return dnRequest("get",[self,"RequestAborted"])
@@ -960,18 +943,15 @@ Class HttpResponseFeature from Object
 		return self
 
 	Func OnStarting P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnStarting",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnStarting",P1,P2])
 		return self
 
 	Func OnCompleted P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnCompleted",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnCompleted",P1,P2])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getStatusCode
 		return dnRequest("get",[self,"StatusCode"])
@@ -1064,21 +1044,17 @@ Class IFeatureCollection from DotNetObject
 		return self
 
 	Func Get_ 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Get"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Get"])
 
 	Func Set P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Set",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Set",P1])
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getIsReadOnly
@@ -1109,12 +1085,10 @@ Class IFormFeature from DotNetObject
 		return self
 
 	Func ReadForm 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadForm"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadForm"])
 
 	Func ReadFormAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadFormAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadFormAsync",P1])
 
 	Func getHasFormContentType
 		return dnRequest("get",[self,"HasFormContentType"])
@@ -1240,8 +1214,7 @@ Class IHttpExtendedConnectFeature from DotNetObject
 		return self
 
 	Func AcceptAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptAsync"])
 
 	Func getIsExtendedConnect
 		return dnRequest("get",[self,"IsExtendedConnect"])
@@ -1452,8 +1425,7 @@ Class IHttpRequestLifetimeFeature from DotNetObject
 		return self
 
 	Func Abort 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Abort"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Abort"])
 		return self
 
 	Func getRequestAborted
@@ -1503,8 +1475,7 @@ Class IHttpResetFeature from DotNetObject
 		return self
 
 	Func Reset P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Reset",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Reset",P1])
 		return self
 
 
@@ -1523,30 +1494,26 @@ Class IHttpResponseBodyFeature from DotNetObject
 		return self
 
 	Func DisableBuffering 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"DisableBuffering"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"DisableBuffering"])
 		return self
 
 	Func StartAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"StartAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"StartAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"StartAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"StartAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"StartAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"StartAsync",P1])
 
 	Func SendFileAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SendFileAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendFileAsync",P1])
 		ok
 		raise("DotNet Error: SendFileAsync does not take one argument: use named arguments, SendFileAsync([ :parameter = value, ... ])")
 
 	Func CompleteAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompleteAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CompleteAsync"])
 
 	Func getStream
 		return dnRequest("get",[self,"Stream"])
@@ -1579,13 +1546,11 @@ Class IHttpResponseFeature from DotNetObject
 		return self
 
 	Func OnStarting P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnStarting",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnStarting",P1,P2])
 		return self
 
 	Func OnCompleted P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnCompleted",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnCompleted",P1,P2])
 		return self
 
 	Func getStatusCode
@@ -1658,8 +1623,7 @@ Class IHttpUpgradeFeature from DotNetObject
 		return self
 
 	Func UpgradeAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"UpgradeAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"UpgradeAsync"])
 
 	Func getIsUpgradableRequest
 		return dnRequest("get",[self,"IsUpgradableRequest"])
@@ -1682,8 +1646,7 @@ Class IHttpWebSocketFeature from DotNetObject
 		return self
 
 	Func AcceptAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptAsync",P1])
 
 	Func getIsWebSocketRequest
 		return dnRequest("get",[self,"IsWebSocketRequest"])
@@ -1706,14 +1669,13 @@ Class IHttpWebTransportFeature from DotNetObject
 		return self
 
 	Func AcceptAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AcceptAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AcceptAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptAsync",P1])
 
 	Func getIsWebTransportRequest
 		return dnRequest("get",[self,"IsWebTransportRequest"])
@@ -1879,12 +1841,10 @@ Class IServerVariablesFeature from DotNetObject
 		return self
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 
@@ -1944,8 +1904,7 @@ Class ITlsConnectionFeature from DotNetObject
 		return self
 
 	Func GetClientCertificateAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetClientCertificateAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetClientCertificateAsync",P1])
 
 	Func getClientCertificate
 		return dnRequest("get",[self,"ClientCertificate"])
@@ -1967,12 +1926,10 @@ Class ITlsTokenBindingFeature from DotNetObject
 		return self
 
 	Func GetProvidedTokenBindingId 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetProvidedTokenBindingId"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetProvidedTokenBindingId"])
 
 	Func GetReferredTokenBindingId 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetReferredTokenBindingId"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetReferredTokenBindingId"])
 
 
 Class ITrackingConsentFeature from DotNetObject
@@ -1991,18 +1948,15 @@ Class ITrackingConsentFeature from DotNetObject
 		return self
 
 	Func GrantConsent 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"GrantConsent"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"GrantConsent"])
 		return self
 
 	Func WithdrawConsent 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"WithdrawConsent"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"WithdrawConsent"])
 		return self
 
 	Func CreateConsentCookie 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateConsentCookie"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateConsentCookie"])
 
 	Func getIsConsentNeeded
 		return dnRequest("get",[self,"IsConsentNeeded"])
@@ -2037,29 +1991,26 @@ Class IWebTransportSession from DotNetObject
 		return self
 
 	Func Abort P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Abort",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Abort",P1])
 		return self
 
 	Func AcceptStreamAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AcceptStreamAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AcceptStreamAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptStreamAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptStreamAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptStreamAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptStreamAsync",P1])
 
 	Func OpenUnidirectionalStreamAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"OpenUnidirectionalStreamAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"OpenUnidirectionalStreamAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenUnidirectionalStreamAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"OpenUnidirectionalStreamAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenUnidirectionalStreamAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"OpenUnidirectionalStreamAsync",P1])
 
 	Func getSessionId
 		return dnRequest("get",[self,"SessionId"])
@@ -2095,8 +2046,7 @@ Class ItemsFeature from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getItems
 		return dnRequest("get",[self,"Items"])
@@ -2122,8 +2072,7 @@ Class QueryFeature from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getQuery
 		return dnRequest("get",[self,"Query"])
@@ -2149,8 +2098,7 @@ Class RequestBodyPipeFeature from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getReader
 		return dnRequest("get",[self,"Reader"])
@@ -2175,8 +2123,7 @@ Class RequestCookiesFeature from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCookies
 		return dnRequest("get",[self,"Cookies"])
@@ -2202,17 +2149,14 @@ Class RequestServicesFeature from Object
 		return self
 
 	Func DisposeAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DisposeAsync"])
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getRequestServices
 		return dnRequest("get",[self,"RequestServices"])
@@ -2253,8 +2197,7 @@ Class ResponseCookiesFeature from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCookies
 		return dnRequest("get",[self,"Cookies"])
@@ -2290,8 +2233,7 @@ Class RouteValuesFeature from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getRouteValues
 		return dnRequest("get",[self,"RouteValues"])
@@ -2328,8 +2270,7 @@ Class ServiceProvidersFeature from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getRequestServices
 		return dnRequest("get",[self,"RequestServices"])
@@ -2366,12 +2307,10 @@ Class TlsConnectionFeature from Object
 		return self
 
 	Func GetClientCertificateAsync P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetClientCertificateAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetClientCertificateAsync",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getClientCertificate
 		return dnRequest("get",[self,"ClientCertificate"])

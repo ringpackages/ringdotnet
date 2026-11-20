@@ -248,12 +248,10 @@ Class ArrayWithOffset from ValueType
 		return self
 
 	Func GetArray 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetArray"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetArray"])
 
 	Func GetOffset 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetOffset"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetOffset"])
 
 
 Class BStrWrapper from Object
@@ -272,8 +270,7 @@ Class BStrWrapper from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getWrappedObject
 		return dnRequest("get",[self,"WrappedObject"])
@@ -400,8 +397,7 @@ Class CollectionsMarshal from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func AsSpan P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"AsSpan",P1])
@@ -443,8 +439,7 @@ Class ComEventsHelper from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Combine P1,P2,P3,P4
 		dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.ComEventsHelper, System.Private.CoreLib'),"Combine",P1,P2,P3,P4])
@@ -466,23 +461,19 @@ Class ComWrappers from Object
 		return self
 
 	Func GetOrCreateComInterfaceForObject P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetOrCreateComInterfaceForObject",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetOrCreateComInterfaceForObject",P1,P2])
 
 	Func GetOrCreateObjectForComInstance P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetOrCreateObjectForComInstance",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetOrCreateObjectForComInstance",P1,P2])
 
 	Func GetOrRegisterObjectForComInstance P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetOrRegisterObjectForComInstance",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetOrRegisterObjectForComInstance",P1])
 		ok
 		raise("DotNet Error: GetOrRegisterObjectForComInstance does not take one argument: use named arguments, GetOrRegisterObjectForComInstance([ :parameter = value, ... ])")
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func TryGetComInstance P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib'),"TryGetComInstance",P1])
@@ -517,35 +508,28 @@ Class CriticalHandle from DotNetObject
 		return self
 
 	Func Close 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func SetHandleAsInvalid 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetHandleAsInvalid"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetHandleAsInvalid"])
 		return self
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func getIsClosed
 		return dnRequest("get",[self,"IsClosed"])
@@ -576,8 +560,7 @@ Class DispatchWrapper from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getWrappedObject
 		return dnRequest("get",[self,"WrappedObject"])
@@ -602,8 +585,7 @@ Class ErrorWrapper from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getErrorCode
 		return dnRequest("get",[self,"ErrorCode"])
@@ -640,13 +622,11 @@ Class GCHandle from ValueType
 		return self
 
 	Func Free 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Free"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Free"])
 		return self
 
 	Func AddrOfPinnedObject 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddrOfPinnedObject"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddrOfPinnedObject"])
 
 	Func Alloc P1
 		if dnIsNamed(P1)
@@ -708,18 +688,15 @@ Class HandleCollector from Object
 		return self
 
 	Func Add 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add"])
 		return self
 
 	Func Remove 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Remove"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -821,8 +798,7 @@ Class ICustomAdapter from DotNetObject
 		return self
 
 	Func GetUnderlyingObject 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetUnderlyingObject"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUnderlyingObject"])
 
 
 Class ICustomFactory from DotNetObject
@@ -837,8 +813,7 @@ Class ICustomFactory from DotNetObject
 		return self
 
 	Func CreateInstance P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateInstance",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateInstance",P1])
 
 
 Class ICustomMarshaler from DotNetObject
@@ -853,26 +828,21 @@ Class ICustomMarshaler from DotNetObject
 		return self
 
 	Func MarshalNativeToManaged P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MarshalNativeToManaged",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MarshalNativeToManaged",P1])
 
 	Func MarshalManagedToNative P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"MarshalManagedToNative",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"MarshalManagedToNative",P1])
 
 	Func CleanUpNativeData P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CleanUpNativeData",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CleanUpNativeData",P1])
 		return self
 
 	Func CleanUpManagedData P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CleanUpManagedData",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CleanUpManagedData",P1])
 		return self
 
 	Func GetNativeDataSize 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNativeDataSize"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNativeDataSize"])
 
 
 Class ICustomQueryInterface from DotNetObject
@@ -887,8 +857,7 @@ Class ICustomQueryInterface from DotNetObject
 		return self
 
 	Func GetInterface P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetInterface",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetInterface",P1])
 
 
 Class IDynamicInterfaceCastable from DotNetObject
@@ -903,12 +872,10 @@ Class IDynamicInterfaceCastable from DotNetObject
 		return self
 
 	Func IsInterfaceImplemented P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsInterfaceImplemented",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsInterfaceImplemented",P1,P2])
 
 	Func GetInterfaceImplementation P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetInterfaceImplementation",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetInterfaceImplementation",P1])
 
 
 Class Marshal from Object
@@ -926,8 +893,7 @@ Class Marshal from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func OffsetOf P1
 		if dnIsNamed(P1)
@@ -1342,8 +1308,7 @@ Class MemoryMarshal from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetArrayDataReference P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"GetArrayDataReference",P1])
@@ -1431,15 +1396,13 @@ Class NFloat from ValueType
 		return self
 
 	Func CompareTo P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
 
 	Func Format P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
 
 	Func IsFinite P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"IsFinite",P1])
@@ -1802,8 +1765,7 @@ Class NativeLibrary from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Load_ P1
 		if dnIsNamed(P1)
@@ -1847,8 +1809,7 @@ Class NativeMemory from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Alloc P1
 		if dnIsNamed(P1)
@@ -1940,8 +1901,7 @@ Class PosixSignalContext from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getSignal
 		return dnRequest("get",[self,"Signal"])
@@ -1969,13 +1929,11 @@ Class PosixSignalRegistration from Object
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Create P1,P2
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.PosixSignalRegistration, System.Private.CoreLib'),"Create",P1,P2])
@@ -1995,8 +1953,7 @@ Class RuntimeEnvironment from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func FromGlobalAccessCache P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices'),"FromGlobalAccessCache",P1])
@@ -2038,8 +1995,7 @@ Class RuntimeInformation from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func IsOSPlatform P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib'),"IsOSPlatform",P1])
@@ -2091,81 +2047,65 @@ Class SafeBuffer from DotNetObject
 		return self
 
 	Func Initialize P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Initialize",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Initialize",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Initialize",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Initialize",P1])
 		return self
 
 	Func ReleasePointer 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ReleasePointer"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ReleasePointer"])
 		return self
 
 	Func Read P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Read",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Read",P1])
 
 	Func ReadArray P1,P2,P3,P4
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ReadArray",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ReadArray",P1,P2,P3,P4])
 		return self
 
 	Func Write P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Write",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Write",P1,P2])
 		return self
 
 	Func WriteArray P1,P2,P3,P4
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"WriteArray",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(this.nHandle),"WriteArray",P1,P2,P3,P4])
 		return self
 
 	Func DangerousGetHandle 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DangerousGetHandle"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DangerousGetHandle"])
 
 	Func Close 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func SetHandleAsInvalid 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetHandleAsInvalid"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetHandleAsInvalid"])
 		return self
 
 	Func DangerousAddRef P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DangerousAddRef",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DangerousAddRef",P1])
 
 	Func DangerousRelease 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"DangerousRelease"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"DangerousRelease"])
 		return self
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func getByteLength
 		return dnRequest("get",[self,"ByteLength"])
@@ -2201,48 +2141,38 @@ Class SafeHandle from DotNetObject
 		return self
 
 	Func DangerousGetHandle 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DangerousGetHandle"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DangerousGetHandle"])
 
 	Func Close 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func SetHandleAsInvalid 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetHandleAsInvalid"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetHandleAsInvalid"])
 		return self
 
 	Func DangerousAddRef P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DangerousAddRef",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DangerousAddRef",P1])
 
 	Func DangerousRelease 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"DangerousRelease"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"DangerousRelease"])
 		return self
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func getIsClosed
 		return dnRequest("get",[self,"IsClosed"])
@@ -2285,8 +2215,7 @@ Class UnknownWrapper from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getWrappedObject
 		return dnRequest("get",[self,"WrappedObject"])
@@ -2311,8 +2240,7 @@ Class VariantWrapper from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getWrappedObject
 		return dnRequest("get",[self,"WrappedObject"])

@@ -197,190 +197,155 @@ Class StringList from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func AddRange P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddRange",P1])
 		return self
 
 	Func AsReadOnly 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AsReadOnly"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AsReadOnly"])
 
 	Func BinarySearch P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BinarySearch",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BinarySearch",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BinarySearch",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BinarySearch",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func ConvertAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConvertAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ConvertAll",P1])
 
 	Func CopyTo P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
 		return self
 
 	Func EnsureCapacity P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
 
 	Func Exists P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Exists",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Exists",P1])
 
 	Func Find P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Find",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Find",P1])
 
 	Func FindAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindAll",P1])
 
 	Func FindIndex P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FindIndex",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FindIndex",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindIndex",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindIndex",P1])
 
 	Func FindLast P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindLast",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLast",P1])
 
 	Func FindLastIndex P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FindLastIndex",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FindLastIndex",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindLastIndex",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLastIndex",P1])
 
 	Func ForEach_ P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ForEach",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ForEach",P1])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func GetRange P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRange",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRange",P1,P2])
 
 	Func Slice P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Slice",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Slice",P1,P2])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexOf",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func InsertRange P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"InsertRange",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"InsertRange",P1,P2])
 		return self
 
 	Func LastIndexOf P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"LastIndexOf",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LastIndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func RemoveAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAll",P1])
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func RemoveRange P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveRange",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveRange",P1,P2])
 		return self
 
 	Func Reverse P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Reverse",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Reverse",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Reverse"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Reverse"])
 		return self
 		ok
 		raise("DotNet Error: Reverse does not take one argument: use named arguments, Reverse([ :parameter = value, ... ])")
 
 	Func Sort P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Sort",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Sort",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Sort"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Sort"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Sort",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Sort",P1])
 		return self
 
 	Func ToArray 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToArray"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
 
 	Func TrimExcess 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
 		return self
 
 	Func TrueForAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TrueForAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TrueForAll",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCapacity
@@ -445,190 +410,155 @@ Class NumberList from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func AddRange P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddRange",P1])
 		return self
 
 	Func AsReadOnly 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AsReadOnly"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AsReadOnly"])
 
 	Func BinarySearch P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BinarySearch",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BinarySearch",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BinarySearch",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BinarySearch",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func ConvertAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConvertAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ConvertAll",P1])
 
 	Func CopyTo P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
 		return self
 
 	Func EnsureCapacity P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
 
 	Func Exists P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Exists",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Exists",P1])
 
 	Func Find P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Find",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Find",P1])
 
 	Func FindAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindAll",P1])
 
 	Func FindIndex P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FindIndex",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FindIndex",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindIndex",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindIndex",P1])
 
 	Func FindLast P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindLast",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLast",P1])
 
 	Func FindLastIndex P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FindLastIndex",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FindLastIndex",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindLastIndex",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLastIndex",P1])
 
 	Func ForEach_ P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ForEach",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ForEach",P1])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func GetRange P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRange",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRange",P1,P2])
 
 	Func Slice P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Slice",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Slice",P1,P2])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexOf",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func InsertRange P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"InsertRange",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"InsertRange",P1,P2])
 		return self
 
 	Func LastIndexOf P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"LastIndexOf",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LastIndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func RemoveAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAll",P1])
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func RemoveRange P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveRange",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveRange",P1,P2])
 		return self
 
 	Func Reverse P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Reverse",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Reverse",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Reverse"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Reverse"])
 		return self
 		ok
 		raise("DotNet Error: Reverse does not take one argument: use named arguments, Reverse([ :parameter = value, ... ])")
 
 	Func Sort P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Sort",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Sort",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Sort"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Sort"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Sort",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Sort",P1])
 		return self
 
 	Func ToArray 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToArray"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
 
 	Func TrimExcess 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
 		return self
 
 	Func TrueForAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TrueForAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TrueForAll",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCapacity
@@ -693,190 +623,155 @@ Class IntList from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func AddRange P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddRange",P1])
 		return self
 
 	Func AsReadOnly 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AsReadOnly"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AsReadOnly"])
 
 	Func BinarySearch P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BinarySearch",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BinarySearch",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BinarySearch",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BinarySearch",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func ConvertAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConvertAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ConvertAll",P1])
 
 	Func CopyTo P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
 		return self
 
 	Func EnsureCapacity P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
 
 	Func Exists P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Exists",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Exists",P1])
 
 	Func Find P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Find",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Find",P1])
 
 	Func FindAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindAll",P1])
 
 	Func FindIndex P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FindIndex",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FindIndex",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindIndex",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindIndex",P1])
 
 	Func FindLast P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindLast",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLast",P1])
 
 	Func FindLastIndex P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FindLastIndex",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FindLastIndex",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindLastIndex",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLastIndex",P1])
 
 	Func ForEach_ P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ForEach",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ForEach",P1])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func GetRange P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRange",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRange",P1,P2])
 
 	Func Slice P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Slice",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Slice",P1,P2])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexOf",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func InsertRange P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"InsertRange",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"InsertRange",P1,P2])
 		return self
 
 	Func LastIndexOf P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"LastIndexOf",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LastIndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func RemoveAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAll",P1])
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func RemoveRange P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveRange",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveRange",P1,P2])
 		return self
 
 	Func Reverse P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Reverse",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Reverse",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Reverse"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Reverse"])
 		return self
 		ok
 		raise("DotNet Error: Reverse does not take one argument: use named arguments, Reverse([ :parameter = value, ... ])")
 
 	Func Sort P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Sort",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Sort",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Sort"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Sort"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Sort",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Sort",P1])
 		return self
 
 	Func ToArray 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToArray"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
 
 	Func TrimExcess 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
 		return self
 
 	Func TrueForAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TrueForAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TrueForAll",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCapacity
@@ -941,190 +836,155 @@ Class ObjectList from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 		return self
 
 	Func AddRange P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddRange",P1])
 		return self
 
 	Func AsReadOnly 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AsReadOnly"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AsReadOnly"])
 
 	Func BinarySearch P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BinarySearch",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BinarySearch",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BinarySearch",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BinarySearch",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func ConvertAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConvertAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ConvertAll",P1])
 
 	Func CopyTo P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
 		return self
 
 	Func EnsureCapacity P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
 
 	Func Exists P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Exists",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Exists",P1])
 
 	Func Find P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Find",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Find",P1])
 
 	Func FindAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindAll",P1])
 
 	Func FindIndex P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FindIndex",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FindIndex",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindIndex",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindIndex",P1])
 
 	Func FindLast P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindLast",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLast",P1])
 
 	Func FindLastIndex P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FindLastIndex",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FindLastIndex",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindLastIndex",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLastIndex",P1])
 
 	Func ForEach_ P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ForEach",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ForEach",P1])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func GetRange P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRange",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRange",P1,P2])
 
 	Func Slice P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Slice",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Slice",P1,P2])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexOf",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
 		return self
 
 	Func InsertRange P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"InsertRange",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"InsertRange",P1,P2])
 		return self
 
 	Func LastIndexOf P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"LastIndexOf",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LastIndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func RemoveAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAll",P1])
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func RemoveRange P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveRange",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveRange",P1,P2])
 		return self
 
 	Func Reverse P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Reverse",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Reverse",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Reverse"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Reverse"])
 		return self
 		ok
 		raise("DotNet Error: Reverse does not take one argument: use named arguments, Reverse([ :parameter = value, ... ])")
 
 	Func Sort P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Sort",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Sort",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Sort"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Sort"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Sort",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Sort",P1])
 		return self
 
 	Func ToArray 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToArray"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
 
 	Func TrimExcess 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
 		return self
 
 	Func TrueForAll P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TrueForAll",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TrueForAll",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCapacity
@@ -1192,85 +1052,68 @@ Class StringDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func ContainsKey P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsKey",P1])
 
 	Func ContainsValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsValue",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func GetObjectData P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func GetAlternateLookup 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAlternateLookup"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAlternateLookup"])
 
 	Func TryGetAlternateLookup 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetAlternateLookup"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetAlternateLookup"])
 
 	Func OnDeserialization P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnDeserialization",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func TryGetValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
 
 	Func TryAdd P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryAdd",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryAdd",P1,P2])
 
 	Func EnsureCapacity P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
 
 	Func TrimExcess P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getComparer
@@ -1355,85 +1198,68 @@ Class NumberDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func ContainsKey P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsKey",P1])
 
 	Func ContainsValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsValue",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func GetObjectData P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func GetAlternateLookup 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAlternateLookup"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAlternateLookup"])
 
 	Func TryGetAlternateLookup 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetAlternateLookup"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetAlternateLookup"])
 
 	Func OnDeserialization P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnDeserialization",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func TryGetValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
 
 	Func TryAdd P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryAdd",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryAdd",P1,P2])
 
 	Func EnsureCapacity P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
 
 	Func TrimExcess P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getComparer
@@ -1518,85 +1344,68 @@ Class ObjectDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func ContainsKey P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsKey",P1])
 
 	Func ContainsValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsValue",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func GetObjectData P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func GetAlternateLookup 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAlternateLookup"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAlternateLookup"])
 
 	Func TryGetAlternateLookup 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetAlternateLookup"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetAlternateLookup"])
 
 	Func OnDeserialization P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnDeserialization",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func TryGetValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
 
 	Func TryAdd P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryAdd",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryAdd",P1,P2])
 
 	Func EnsureCapacity P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
 
 	Func TrimExcess P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getComparer
@@ -1681,85 +1490,68 @@ Class NumberKeyDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func ContainsKey P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsKey",P1])
 
 	Func ContainsValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsValue",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func GetObjectData P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func GetAlternateLookup 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAlternateLookup"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAlternateLookup"])
 
 	Func TryGetAlternateLookup 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetAlternateLookup"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetAlternateLookup"])
 
 	Func OnDeserialization P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnDeserialization",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func TryGetValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
 
 	Func TryAdd P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryAdd",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryAdd",P1,P2])
 
 	Func EnsureCapacity P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
 
 	Func TrimExcess P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getComparer
@@ -1843,51 +1635,40 @@ Class SortedStringDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func ContainsKey P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsKey",P1])
 
 	Func ContainsValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsValue",P1])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func TryGetValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -1965,51 +1746,40 @@ Class SortedObjectDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func ContainsKey P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsKey",P1])
 
 	Func ContainsValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsValue",P1])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func TryGetValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -2088,77 +1858,60 @@ Class SortedObjectList from Object
 		return self
 
 	Func Add P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func ContainsKey P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsKey",P1])
 
 	Func ContainsValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsValue",P1])
 
 	Func GetValueAtIndex P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValueAtIndex",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValueAtIndex",P1])
 
 	Func SetValueAtIndex P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValueAtIndex",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetValueAtIndex",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func GetKeyAtIndex P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetKeyAtIndex",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetKeyAtIndex",P1])
 
 	Func IndexOfKey P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOfKey",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOfKey",P1])
 
 	Func IndexOfValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOfValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOfValue",P1])
 
 	Func TryGetValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
 
 	Func RemoveAt P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func TrimExcess 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCapacity
@@ -2242,125 +1995,100 @@ Class StringSet from Object
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func GetAlternateLookup 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAlternateLookup"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAlternateLookup"])
 
 	Func TryGetAlternateLookup 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetAlternateLookup"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetAlternateLookup"])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func GetObjectData P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func OnDeserialization P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnDeserialization",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func TryGetValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
 
 	Func UnionWith P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"UnionWith",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"UnionWith",P1])
 		return self
 
 	Func IntersectWith P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"IntersectWith",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"IntersectWith",P1])
 		return self
 
 	Func ExceptWith P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ExceptWith",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ExceptWith",P1])
 		return self
 
 	Func SymmetricExceptWith P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SymmetricExceptWith",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SymmetricExceptWith",P1])
 		return self
 
 	Func IsSubsetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsSubsetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSubsetOf",P1])
 
 	Func IsProperSubsetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsProperSubsetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsProperSubsetOf",P1])
 
 	Func IsSupersetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsSupersetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSupersetOf",P1])
 
 	Func IsProperSupersetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsProperSupersetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsProperSupersetOf",P1])
 
 	Func Overlaps P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Overlaps",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Overlaps",P1])
 
 	Func SetEquals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SetEquals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SetEquals",P1])
 
 	Func CopyTo P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
 		return self
 
 	Func RemoveWhere P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveWhere",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveWhere",P1])
 
 	Func EnsureCapacity P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
 
 	Func TrimExcess P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func CreateSetComparer 
 		return dnRequest("call",[dnTypeCached('System.Collections.Generic.HashSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"CreateSetComparer"])
@@ -2433,125 +2161,100 @@ Class NumberSet from Object
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func GetAlternateLookup 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAlternateLookup"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAlternateLookup"])
 
 	Func TryGetAlternateLookup 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetAlternateLookup"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetAlternateLookup"])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func GetObjectData P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func OnDeserialization P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnDeserialization",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func TryGetValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
 
 	Func UnionWith P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"UnionWith",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"UnionWith",P1])
 		return self
 
 	Func IntersectWith P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"IntersectWith",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"IntersectWith",P1])
 		return self
 
 	Func ExceptWith P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ExceptWith",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ExceptWith",P1])
 		return self
 
 	Func SymmetricExceptWith P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SymmetricExceptWith",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SymmetricExceptWith",P1])
 		return self
 
 	Func IsSubsetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsSubsetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSubsetOf",P1])
 
 	Func IsProperSubsetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsProperSubsetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsProperSubsetOf",P1])
 
 	Func IsSupersetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsSupersetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSupersetOf",P1])
 
 	Func IsProperSupersetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsProperSupersetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsProperSupersetOf",P1])
 
 	Func Overlaps P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Overlaps",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Overlaps",P1])
 
 	Func SetEquals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SetEquals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SetEquals",P1])
 
 	Func CopyTo P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
 		return self
 
 	Func RemoveWhere P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveWhere",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveWhere",P1])
 
 	Func EnsureCapacity P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
 
 	Func TrimExcess P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func CreateSetComparer 
 		return dnRequest("call",[dnTypeCached('System.Collections.Generic.HashSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"CreateSetComparer"])
@@ -2625,98 +2328,77 @@ Class SortedStringSet from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func CopyTo P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func UnionWith P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"UnionWith",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"UnionWith",P1])
 		return self
 
 	Func IntersectWith P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"IntersectWith",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"IntersectWith",P1])
 		return self
 
 	Func ExceptWith P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ExceptWith",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ExceptWith",P1])
 		return self
 
 	Func SymmetricExceptWith P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SymmetricExceptWith",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SymmetricExceptWith",P1])
 		return self
 
 	Func IsSubsetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsSubsetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSubsetOf",P1])
 
 	Func IsProperSubsetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsProperSubsetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsProperSubsetOf",P1])
 
 	Func IsSupersetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsSupersetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSupersetOf",P1])
 
 	Func IsProperSupersetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsProperSupersetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsProperSupersetOf",P1])
 
 	Func SetEquals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SetEquals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SetEquals",P1])
 
 	Func Overlaps P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Overlaps",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Overlaps",P1])
 
 	Func RemoveWhere P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveWhere",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveWhere",P1])
 
 	Func Reverse 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Reverse"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Reverse"])
 
 	Func GetViewBetween P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetViewBetween",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetViewBetween",P1,P2])
 
 	Func TryGetValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func CreateSetComparer P1
 		if dnIsNamed(P1)
@@ -2802,98 +2484,77 @@ Class SortedNumberSet from Object
 		return self
 
 	Func Add P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func CopyTo P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func UnionWith P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"UnionWith",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"UnionWith",P1])
 		return self
 
 	Func IntersectWith P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"IntersectWith",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"IntersectWith",P1])
 		return self
 
 	Func ExceptWith P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ExceptWith",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ExceptWith",P1])
 		return self
 
 	Func SymmetricExceptWith P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SymmetricExceptWith",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SymmetricExceptWith",P1])
 		return self
 
 	Func IsSubsetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsSubsetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSubsetOf",P1])
 
 	Func IsProperSubsetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsProperSubsetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsProperSubsetOf",P1])
 
 	Func IsSupersetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsSupersetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSupersetOf",P1])
 
 	Func IsProperSupersetOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsProperSupersetOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IsProperSupersetOf",P1])
 
 	Func SetEquals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SetEquals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SetEquals",P1])
 
 	Func Overlaps P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Overlaps",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Overlaps",P1])
 
 	Func RemoveWhere P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveWhere",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveWhere",P1])
 
 	Func Reverse 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Reverse"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Reverse"])
 
 	Func GetViewBetween P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetViewBetween",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetViewBetween",P1,P2])
 
 	Func TryGetValue P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func CreateSetComparer P1
 		if dnIsNamed(P1)
@@ -2977,68 +2638,55 @@ Class StringQueue from Object
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Enqueue P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Enqueue",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Enqueue",P1])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Dequeue 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Dequeue"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Dequeue"])
 
 	Func TryDequeue 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryDequeue"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryDequeue"])
 
 	Func Peek 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Peek"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Peek"])
 
 	Func TryPeek 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryPeek"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryPeek"])
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func ToArray 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToArray"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
 
 	Func TrimExcess P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 		return self
 
 	Func EnsureCapacity P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -3101,68 +2749,55 @@ Class ObjectQueue from Object
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Enqueue P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Enqueue",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Enqueue",P1])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Dequeue 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Dequeue"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Dequeue"])
 
 	Func TryDequeue 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryDequeue"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryDequeue"])
 
 	Func Peek 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Peek"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Peek"])
 
 	Func TryPeek 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryPeek"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryPeek"])
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func ToArray 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToArray"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
 
 	Func TrimExcess P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 		return self
 
 	Func EnsureCapacity P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -3225,68 +2860,55 @@ Class StringStack from Object
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func TrimExcess P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 		return self
 
 	Func Peek 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Peek"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Peek"])
 
 	Func TryPeek 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryPeek"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryPeek"])
 
 	Func Pop 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Pop"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Pop"])
 
 	Func TryPop 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryPop"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryPop"])
 
 	Func Push P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Push",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Push",P1])
 		return self
 
 	Func EnsureCapacity P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
 
 	Func ToArray 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToArray"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -3349,68 +2971,55 @@ Class ObjectStack from Object
 		return self
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func TrimExcess P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
 		return self
 
 	Func Peek 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Peek"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Peek"])
 
 	Func TryPeek 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryPeek"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryPeek"])
 
 	Func Pop 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Pop"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Pop"])
 
 	Func TryPop 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryPop"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryPop"])
 
 	Func Push P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Push",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Push",P1])
 		return self
 
 	Func EnsureCapacity P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
 
 	Func ToArray 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToArray"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -3474,74 +3083,58 @@ Class StringLinkedList from Object
 		return self
 
 	Func AddAfter P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddAfter",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddAfter",P1,P2])
 
 	Func AddBefore P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddBefore",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddBefore",P1,P2])
 
 	Func AddFirst P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddFirst",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddFirst",P1])
 
 	Func AddLast P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddLast",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddLast",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Find P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Find",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Find",P1])
 
 	Func FindLast P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindLast",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLast",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func RemoveFirst 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveFirst"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveFirst"])
 		return self
 
 	Func RemoveLast 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveLast"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveLast"])
 		return self
 
 	Func GetObjectData P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func OnDeserialization P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnDeserialization",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -3611,74 +3204,58 @@ Class ObjectLinkedList from Object
 		return self
 
 	Func AddAfter P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddAfter",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddAfter",P1,P2])
 
 	Func AddBefore P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddBefore",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddBefore",P1,P2])
 
 	Func AddFirst P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddFirst",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddFirst",P1])
 
 	Func AddLast P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddLast",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AddLast",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Find P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Find",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Find",P1])
 
 	Func FindLast P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindLast",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLast",P1])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Remove P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func RemoveFirst 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveFirst"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveFirst"])
 		return self
 
 	Func RemoveLast 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveLast"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveLast"])
 		return self
 
 	Func GetObjectData P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func OnDeserialization P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"OnDeserialization",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -3748,67 +3325,54 @@ Class StringPriorityQueue from Object
 		return self
 
 	Func Enqueue P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Enqueue",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Enqueue",P1,P2])
 		return self
 
 	Func Peek 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Peek"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Peek"])
 
 	Func Dequeue 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Dequeue"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Dequeue"])
 
 	Func DequeueEnqueue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DequeueEnqueue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DequeueEnqueue",P1,P2])
 
 	Func TryDequeue 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryDequeue"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryDequeue"])
 
 	Func TryPeek 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryPeek"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TryPeek"])
 
 	Func EnqueueDequeue P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnqueueDequeue",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnqueueDequeue",P1,P2])
 
 	Func EnqueueRange P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"EnqueueRange",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnqueueRange",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EnqueueRange",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EnqueueRange",P1])
 		return self
 
 	Func Remove P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Remove",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Remove",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
 
 	Func Clear 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
 		return self
 
 	Func EnsureCapacity P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
 
 	Func TrimExcess 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"TrimExcess"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -3877,8 +3441,7 @@ Class StringPair from ValueType
 		return self
 
 	Func Deconstruct 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Deconstruct"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Deconstruct"])
 
 	Func getKey
 		return dnRequest("get",[self,"Key"])
@@ -3941,8 +3504,7 @@ Class ObjectPair from ValueType
 		return self
 
 	Func Deconstruct 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Deconstruct"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Deconstruct"])
 
 	Func getKey
 		return dnRequest("get",[self,"Key"])
@@ -4005,8 +3567,7 @@ Class NumberPair from ValueType
 		return self
 
 	Func Deconstruct 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Deconstruct"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Deconstruct"])
 
 	Func getKey
 		return dnRequest("get",[self,"Key"])

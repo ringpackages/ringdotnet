@@ -70,12 +70,10 @@ Class CancellationChangeToken from Object
 		return self
 
 	Func RegisterChangeCallback P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RegisterChangeCallback",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RegisterChangeCallback",P1,P2])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getActiveChangeCallbacks
 		return dnRequest("get",[self,"ActiveChangeCallbacks"])
@@ -102,8 +100,7 @@ Class ChangeToken from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func OnChange P1
 		if dnIsNamed(P1)
@@ -130,12 +127,10 @@ Class CompositeChangeToken from Object
 		return self
 
 	Func RegisterChangeCallback P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RegisterChangeCallback",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RegisterChangeCallback",P1,P2])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getChangeTokens
 		return dnRequest("get",[self,"ChangeTokens"])
@@ -168,8 +163,7 @@ Class AspExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Append P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.Extensions, Microsoft.Extensions.Primitives'),"Append",P1,P2])
@@ -190,8 +184,7 @@ Class IChangeToken from DotNetObject
 		return self
 
 	Func RegisterChangeCallback P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RegisterChangeCallback",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RegisterChangeCallback",P1,P2])
 
 	Func getHasChanged
 		return dnRequest("get",[self,"HasChanged"])
@@ -258,84 +251,70 @@ Class StringSegment from ValueType
 		return self
 
 	Func AsSpan P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AsSpan",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AsSpan",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"AsSpan"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"AsSpan"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AsSpan",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AsSpan",P1])
 
 	Func AsMemory 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AsMemory"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AsMemory"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func StartsWith P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"StartsWith",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"StartsWith",P1,P2])
 
 	Func EndsWith P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndsWith",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"EndsWith",P1,P2])
 
 	Func Substring P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Substring",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Substring",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Substring",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Substring",P1])
 
 	Func Subsegment P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Subsegment",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Subsegment",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Subsegment",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Subsegment",P1])
 
 	Func IndexOf P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexOf",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
 
 	Func IndexOfAny P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IndexOfAny",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexOfAny",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOfAny",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOfAny",P1])
 
 	Func LastIndexOf P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"LastIndexOf",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
 
 	Func Trim 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Trim"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Trim"])
 
 	Func TrimStart 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TrimStart"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TrimStart"])
 
 	Func TrimEnd 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"TrimEnd"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"TrimEnd"])
 
 	Func Split P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Split",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Split",P1])
 
 	Func Compare P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"Compare",P1,P2,P3])
@@ -344,8 +323,7 @@ Class StringSegment from ValueType
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"IsNullOrEmpty",P1])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func getBuffer
 		return dnRequest("get",[self,"Buffer"])
@@ -399,25 +377,22 @@ Class StringSegmentComparer from Object
 		return self
 
 	Func Compare P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Compare",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Compare",P1,P2])
 
 	Func Equals P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetHashCode",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetHashCode",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode",P1])
 
 	Func getOrdinal
 		return dnRequest("get",[dnTypeCached('Microsoft.Extensions.Primitives.StringSegmentComparer, Microsoft.Extensions.Primitives'),"Ordinal"])
@@ -477,8 +452,7 @@ Class StringTokenizer from ValueType
 		return self
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 
 Class StringValues from ValueType
@@ -529,22 +503,19 @@ Class StringValues from ValueType
 		return self
 
 	Func ToArray 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToArray"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
 
 	Func GetEnumerator 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func IsNullOrEmpty P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"IsNullOrEmpty",P1])
@@ -553,8 +524,7 @@ Class StringValues from ValueType
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"Concat",P1,P2])
 
 	Func Item P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])

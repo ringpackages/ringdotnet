@@ -72,26 +72,22 @@ Class ClientWebSocketOptions from Object
 		return self
 
 	Func SetRequestHeader P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetRequestHeader",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetRequestHeader",P1,P2])
 		return self
 
 	Func AddSubProtocol P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddSubProtocol",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddSubProtocol",P1])
 		return self
 
 	Func SetBuffer P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetBuffer",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetBuffer",P1])
 			return self
 		ok
 		raise("DotNet Error: SetBuffer does not take one argument: use named arguments, SetBuffer([ :parameter = value, ... ])")
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getHttpVersion
 		return dnRequest("get",[self,"HttpVersion"])
@@ -263,37 +259,30 @@ Class WebSocket from Object
 		return self
 
 	Func Abort 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Abort"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Abort"])
 		return self
 
 	Func CloseAsync P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CloseAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CloseAsync",P1,P2,P3])
 
 	Func CloseOutputAsync P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"CloseOutputAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"CloseOutputAsync",P1,P2,P3])
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func ReceiveAsync P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReceiveAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ReceiveAsync",P1,P2])
 
 	Func SendAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SendAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendAsync",P1])
 		ok
 		raise("DotNet Error: SendAsync does not take one argument: use named arguments, SendAsync([ :parameter = value, ... ])")
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func CreateClientBuffer P1,P2
 		return dnRequest("call",[dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"CreateClientBuffer",P1,P2])
@@ -373,8 +362,7 @@ Class WebSocketContext from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getRequestUri
 		return dnRequest("get",[self,"RequestUri"])
@@ -480,8 +468,7 @@ Class WebSocketCreationOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getIsServer
 		return dnRequest("get",[self,"IsServer"])
@@ -549,8 +536,7 @@ Class WebSocketDeflateOptions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getClientMaxWindowBits
 		return dnRequest("get",[self,"ClientMaxWindowBits"])
@@ -616,8 +602,7 @@ Class WebSocketReceiveResult from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -679,15 +664,13 @@ Class ClientWebSocket from WebSocket
 		return self
 
 	Func ConnectAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ConnectAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ConnectAsync",P1])
 		ok
 		raise("DotNet Error: ConnectAsync does not take one argument: use named arguments, ConnectAsync([ :parameter = value, ... ])")
 
 	Func SendAsync P1,P2,P3,P4
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"SendAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"SendAsync",P1,P2,P3,P4])
 
 	Func getOptions
 		return dnRequest("get",[self,"Options"])

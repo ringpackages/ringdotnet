@@ -77,8 +77,7 @@ Class AnonymousPipeServerStreamAcl from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Create P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.IO.Pipes.AnonymousPipeServerStreamAcl, System.IO.Pipes'),"Create",P1,P2,P3,P4])
@@ -96,8 +95,7 @@ Class NamedPipeServerStreamAcl from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -127,20 +125,16 @@ Class PipeAccessRule from DotNetObject
 		return self
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func getPipeAccessRights
 		return dnRequest("get",[self,"PipeAccessRights"])
@@ -200,20 +194,16 @@ Class PipeAuditRule from DotNetObject
 		return self
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func getPipeAccessRights
 		return dnRequest("get",[self,"PipeAccessRights"])
@@ -285,156 +275,124 @@ Class PipeSecurity from DotNetObject
 		return self
 
 	Func AddAccessRule P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddAccessRule",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddAccessRule",P1])
 		return self
 
 	Func SetAccessRule P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetAccessRule",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetAccessRule",P1])
 		return self
 
 	Func ResetAccessRule P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetAccessRule",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ResetAccessRule",P1])
 		return self
 
 	Func RemoveAccessRule P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAccessRule",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAccessRule",P1])
 
 	Func RemoveAccessRuleSpecific P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAccessRuleSpecific",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAccessRuleSpecific",P1])
 		return self
 
 	Func AddAuditRule P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"AddAuditRule",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"AddAuditRule",P1])
 		return self
 
 	Func SetAuditRule P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetAuditRule",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetAuditRule",P1])
 		return self
 
 	Func RemoveAuditRule P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAuditRule",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAuditRule",P1])
 
 	Func RemoveAuditRuleAll P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAuditRuleAll",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAuditRuleAll",P1])
 		return self
 
 	Func RemoveAuditRuleSpecific P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAuditRuleSpecific",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAuditRuleSpecific",P1])
 		return self
 
 	Func AccessRuleFactory P1,P2,P3,P4,P5,P6
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AccessRuleFactory",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AccessRuleFactory",P1,P2,P3,P4,P5,P6])
 
 	Func AuditRuleFactory P1,P2,P3,P4,P5,P6
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"AuditRuleFactory",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"AuditRuleFactory",P1,P2,P3,P4,P5,P6])
 
 	Func GetAccessRules P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAccessRules",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAccessRules",P1,P2,P3])
 
 	Func GetAuditRules P1,P2,P3
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAuditRules",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAuditRules",P1,P2,P3])
 
 	Func GetOwner P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetOwner",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetOwner",P1])
 
 	Func SetOwner P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetOwner",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetOwner",P1])
 		return self
 
 	Func GetGroup P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetGroup",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetGroup",P1])
 
 	Func SetGroup P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetGroup",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetGroup",P1])
 		return self
 
 	Func PurgeAccessRules P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"PurgeAccessRules",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"PurgeAccessRules",P1])
 		return self
 
 	Func PurgeAuditRules P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"PurgeAuditRules",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"PurgeAuditRules",P1])
 		return self
 
 	Func SetAccessRuleProtection P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetAccessRuleProtection",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetAccessRuleProtection",P1,P2])
 		return self
 
 	Func SetAuditRuleProtection P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetAuditRuleProtection",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetAuditRuleProtection",P1,P2])
 		return self
 
 	Func GetSecurityDescriptorSddlForm P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSecurityDescriptorSddlForm",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSecurityDescriptorSddlForm",P1])
 
 	Func SetSecurityDescriptorSddlForm P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetSecurityDescriptorSddlForm",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetSecurityDescriptorSddlForm",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetSecurityDescriptorSddlForm",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetSecurityDescriptorSddlForm",P1])
 		return self
 
 	Func GetSecurityDescriptorBinaryForm 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSecurityDescriptorBinaryForm"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSecurityDescriptorBinaryForm"])
 
 	Func SetSecurityDescriptorBinaryForm P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetSecurityDescriptorBinaryForm",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetSecurityDescriptorBinaryForm",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"SetSecurityDescriptorBinaryForm",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"SetSecurityDescriptorBinaryForm",P1])
 		return self
 
 	Func ModifyAccessRule P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ModifyAccessRule",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ModifyAccessRule",P1,P2])
 
 	Func ModifyAuditRule P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ModifyAuditRule",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ModifyAuditRule",P1,P2])
 
 	Func GetType 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
 
 	Func ToString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
 
 	Func getAccessRightType
 		return dnRequest("get",[self,"AccessRightType"])
@@ -500,8 +458,7 @@ Class PipeStream from Stream
 		return self
 
 	Func WaitForPipeDrain 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"WaitForPipeDrain"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"WaitForPipeDrain"])
 		return self
 
 	Func getIsConnected
@@ -566,8 +523,7 @@ Class PipesAclExtensions from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func GetAccessControl P1
 		return dnRequest("call",[dnTypeCached('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes'),"GetAccessControl",P1])
@@ -653,12 +609,10 @@ Class AnonymousPipeServerStream from PipeStream
 		return self
 
 	Func GetClientHandleAsString 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetClientHandleAsString"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetClientHandleAsString"])
 
 	Func DisposeLocalCopyOfClientHandle 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"DisposeLocalCopyOfClientHandle"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"DisposeLocalCopyOfClientHandle"])
 		return self
 
 	Func getClientSafePipeHandle
@@ -699,27 +653,25 @@ Class NamedPipeClientStream from PipeStream
 		return self
 
 	Func Connect P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Connect",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Connect",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(dn_nTarget),"Connect"])
+			dnRequest("call",[new DotNetObject(this.nHandle),"Connect"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Connect",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Connect",P1])
 		return self
 
 	Func ConnectAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ConnectAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ConnectAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"ConnectAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"ConnectAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConnectAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"ConnectAsync",P1])
 
 	Func getNumberOfServerInstances
 		return dnRequest("get",[self,"NumberOfServerInstances"])
@@ -759,41 +711,34 @@ Class NamedPipeServerStream from PipeStream
 		return self
 
 	Func WaitForConnectionAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"WaitForConnectionAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"WaitForConnectionAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"WaitForConnectionAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"WaitForConnectionAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"WaitForConnectionAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"WaitForConnectionAsync",P1])
 
 	Func BeginWaitForConnection P1,P2
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginWaitForConnection",P1,P2])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginWaitForConnection",P1,P2])
 
 	Func EndWaitForConnection P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"EndWaitForConnection",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"EndWaitForConnection",P1])
 		return self
 
 	Func WaitForConnection 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"WaitForConnection"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"WaitForConnection"])
 		return self
 
 	Func Disconnect 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Disconnect"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Disconnect"])
 		return self
 
 	Func GetImpersonationUserName 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetImpersonationUserName"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetImpersonationUserName"])
 
 	Func RunAsClient P1
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"RunAsClient",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"RunAsClient",P1])
 		return self
 
 	Func getMaxAllowedServerInstances

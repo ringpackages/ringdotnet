@@ -84,20 +84,17 @@ Class TarEntry from Object
 		return self
 
 	Func ExtractToFile P1,P2
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"ExtractToFile",P1,P2])
+		dnRequest("call",[new DotNetObject(this.nHandle),"ExtractToFile",P1,P2])
 		return self
 
 	Func ExtractToFileAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ExtractToFileAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ExtractToFileAsync",P1])
 		ok
 		raise("DotNet Error: ExtractToFileAsync does not take one argument: use named arguments, ExtractToFileAsync([ :parameter = value, ... ])")
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getChecksum
 		return dnRequest("get",[self,"Checksum"])
@@ -191,8 +188,7 @@ Class TarFile from Object
 		return self
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func CreateFromDirectory P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"CreateFromDirectory",P1,P2,P3])
@@ -244,37 +240,32 @@ Class TarReader from Object
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DisposeAsync"])
 
 	Func GetNextEntry P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetNextEntry",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetNextEntry",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNextEntry"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetNextEntry"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNextEntry",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNextEntry",P1])
 
 	Func GetNextEntryAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetNextEntryAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetNextEntryAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNextEntryAsync"])
+			return dnRequest("call",[new DotNetObject(this.nHandle),"GetNextEntryAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNextEntryAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNextEntryAsync",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 
 Class TarWriter from Object
@@ -308,33 +299,28 @@ Class TarWriter from Object
 		return self
 
 	Func Dispose 
-		dn_nTarget = nHandle
-		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
+		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"DisposeAsync"])
 
 	Func WriteEntry P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"WriteEntry",P1])
+			dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteEntry",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(dn_nTarget),"WriteEntry",P1])
+		dnRequest("call",[new DotNetObject(this.nHandle),"WriteEntry",P1])
 		return self
 
 	Func WriteEntryAsync P1
-		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"WriteEntryAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteEntryAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"WriteEntryAsync",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteEntryAsync",P1])
 
 	Func Equals P1
-		dn_nTarget = nHandle
-		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
 
 	Func getFormat
 		return dnRequest("get",[self,"Format"])
