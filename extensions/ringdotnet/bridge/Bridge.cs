@@ -1362,6 +1362,114 @@ namespace RingDotNet
 			});
 		}
 
+		/* ---- the overload that was chosen for a kind of arguments is remembered ----
+		   Choosing among many overloads (Math.Max has 14) costs more than the call itself. For the same group of candidates and the same
+		   KINDS of arguments (the type, and for a number: whole or not and in which range) the choice is the same, so it is made once;
+		   the arguments are still converted for the chosen overload, and when that fails the full choice is made again. A text is a kind
+		   only when no candidate takes an enum, a Guid, a Type or another type that the text could become at that position (the choice
+		   would depend on the text); a list is never remembered. */
+		private sealed class PickGroup
+		{
+			public readonly System.Collections.Concurrent.ConcurrentDictionary<string, MethodBase> Chosen = new System.Collections.Concurrent.ConcurrentDictionary<string, MethodBase>();
+			public readonly bool[] TextIsKind = new bool[8];
+		}
+
+		private static readonly System.Collections.Concurrent.ConcurrentDictionary<object, PickGroup> PickGroups =
+			new System.Collections.Concurrent.ConcurrentDictionary<object, PickGroup>();
+
+		private static bool TextNeutral(Type t)
+		{
+			Type u = Nullable.GetUnderlyingType(t) ?? t;
+			return u == typeof(string) || u == typeof(object) || u == typeof(char) || u == typeof(byte[]) || (u.IsPrimitive && u != typeof(IntPtr) && u != typeof(UIntPtr)) || u == typeof(decimal);
+		}
+
+		private static PickGroup GroupOf(IEnumerable<MethodBase> candidates)
+		{
+			return PickGroups.GetOrAdd(candidates, key =>
+			{
+				PickGroup g = new PickGroup();
+				for (int i = 0; i < g.TextIsKind.Length; i++)
+				{
+					bool neutral = true;
+					foreach (MethodBase m in (IEnumerable<MethodBase>)key)
+					{
+						ParameterInfo[] ps = m.GetParameters();
+						if (m.ContainsGenericParameters) { neutral = false; break; }
+						if (i < ps.Length)
+						{
+							Type pt = ps[i].ParameterType.IsByRef ? ps[i].ParameterType.GetElementType() : ps[i].ParameterType;
+							if (!TextNeutral(pt)) { neutral = false; break; }
+						}
+					}
+					g.TextIsKind[i] = neutral;
+				}
+				return g;
+			});
+		}
+
+		/* the kinds of the arguments as a text, or null when they are not remembered */
+		private static string KindsOf(object[] args, PickGroup group)
+		{
+			if (args.Length > group.TextIsKind.Length)
+			{
+				return null;
+			}
+			StringBuilder sb = new StringBuilder(args.Length * 4);
+			for (int i = 0; i < args.Length; i++)
+			{
+				object v = args[i];
+				switch (v)
+				{
+					case null: sb.Append('z'); break;
+					case string str:
+						if (!group.TextIsKind[i]) { return null; }
+						sb.Append(str.Length == 1 ? 'c' : 's');
+						break;
+					case bool: sb.Append('b'); break;
+					case double d:
+						{
+							if (d != Math.Floor(d) || double.IsInfinity(d)) { sb.Append('d'); break; }
+							sb.Append(d >= 0
+								? (d <= 127 ? "p1" : d <= 255 ? "p2" : d <= 32767 ? "p3" : d <= 65535 ? "p4" : d <= 2147483647 ? "p5" : d <= 4294967295 ? "p6" : d < 9.2e18 ? "p7" : "p8")
+								: (d >= -128 ? "n1" : d >= -32768 ? "n2" : d >= -2147483648 ? "n3" : d > -9.2e18 ? "n4" : "n5"));
+							break;
+						}
+					case byte[]: sb.Append('y'); break;
+					case object[]: return null;
+					case TypeRef: sb.Append('R'); break;
+					case CallbackRef: sb.Append('k'); break;
+					case ByteBuffer: sb.Append('B'); break;
+					default: sb.Append('T').Append(v.GetType().TypeHandle.Value.ToInt64().ToString("x")); break;
+				}
+				sb.Append(',');
+			}
+			return sb.ToString();
+		}
+
+		private static MethodBase PickCached(IEnumerable<MethodBase> candidates, object[] args, out object[] converted)
+		{
+			PickGroup group = GroupOf(candidates);
+			string kinds = KindsOf(args, group);
+			if (kinds == null)
+			{
+				return Pick(candidates, args, out converted);
+			}
+			if (group.Chosen.TryGetValue(kinds, out MethodBase cached))
+			{
+				MethodBase again = Pick(new[] { cached }, args, out converted);
+				if (again != null)
+				{
+					return again;
+				}
+			}
+			MethodBase best = Pick(candidates, args, out converted);
+			if (best != null)
+			{
+				group.Chosen[kinds] = best;
+			}
+			return best;
+		}
+
 		private static MethodBase Pick(IEnumerable<MethodBase> candidates, object[] args, out object[] converted)
 		{
 			MethodBase best = null;
@@ -1565,7 +1673,7 @@ namespace RingDotNet
 			{
 				return Activator.CreateInstance(t);
 			}
-			ConstructorInfo ctor = Pick(ConstructorsOf(t), args, out object[] conv) as ConstructorInfo;
+			ConstructorInfo ctor = PickCached(ConstructorsOf(t), args, out object[] conv) as ConstructorInfo;
 			if (ctor == null)
 			{
 				throw new MissingMethodException("No public constructor of " + t.FullName + " matches the " + args.Length + " argument(s)");
@@ -1593,7 +1701,7 @@ namespace RingDotNet
 				t = target.GetType();
 				flags = InstanceFlags;
 			}
-			MethodInfo m = Pick(MethodsNamed(t, name, flags), args, out object[] conv) as MethodInfo;
+			MethodInfo m = PickCached(MethodsNamed(t, name, flags), args, out object[] conv) as MethodInfo;
 			if (m == null)
 			{
 				throw new MissingMethodException("No public method " + t.FullName + "." + name + " matches the " + args.Length + " argument(s)");
