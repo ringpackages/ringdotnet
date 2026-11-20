@@ -69,25 +69,15 @@ When a method returns an object, the bridge sends the list of its type and base 
 
 The runtime is configured with one of four `runtimeconfig.json` files: base (`RingDotNet.Bridge`), desktop (`RingDotNet.Desktop`), web (`RingDotNet.Web`) and all (`RingDotNet.All`). `dnUseDesktop()`, `dnUseWeb()` and `dnUseAll()` select the file before the runtime starts. `dnUseData()` only loads the Entity Framework assemblies; an `AssemblyResolve` handler in the bridge finds them next to it.
 
-## Speed
+## How a call is made
 
-A call from Ring to .NET is a request that Ring packs, the extension sends to the bridge, and the bridge runs by reflection. The numbers below are for a Windows computer with Ring 1.28 and .NET 9; `samples/UsingDotNet/tests/bench_calls.ring` measures them on yours.
+A call from Ring to .NET is a request that Ring packs, the extension sends to the bridge, and the bridge runs by reflection.
 
-| Call | Time | Calls in a second |
-|---|---|---|
-| a method that returns a text, a number or a yes/no (`oList.Contains("a")`), a property read (`oSB.Length`) | 2 to 3 µs | 350,000 to 450,000 |
-| a static method with numbers (`new Math().Max(1,2)`) | 3 to 4 µs | about 300,000 |
-| a method that returns an object (`oSB.Append("x")`) | about 45 to 50 µs | about 20,000 |
-| `new StringBuilder("x")` | about 25 µs | about 40,000 |
-
-How the time is spent:
-
-- The first group is packed and read **in C**: the generated method calls `dotnet_call` with the handle of the object, the name of the method (a ready wire item) and the arguments, and the extension builds the request, calls the bridge and returns the text, number or yes/no. The call into .NET itself (decoding, reflection, encoding the answer) takes about 0.5 µs.
-- The bridge **remembers the overload** that it chose for a kind of arguments (the type; for a number, whole or not and its range; a text only when no overload could read it as an enum or another type), so `Math.Max`, which has 14 overloads, costs about the same as a method with one.
-- The time of a returned object grows with the number of properties of its class, because every wrapper object declares one attribute for each property of its class and of its parent classes (that is how `oBtn.Text = "x"` reaches `setText()`), and Ring copies the whole object at each `return` level. A `StringBuilder` (about 7 attributes) comes back in about 30-40 µs; a Windows Forms `Button` (about 110 attributes) takes about 210 µs. The library keeps one ready object per wrapper class and copies it (a copy is cheaper than `new`, which runs the class bodies and `init` of every parent class); `new Button()` written in your code still pays the full price. So `oForm.Controls.Item(i)` in a loop of thousands is slow. Keep the returned object in a variable (`oButton = oForm.Controls.Item(0)`) and use the variable.
-- A method that returns an **object** takes more time: the extension answers the type and the handle, and Ring makes the wrapper object of the generated class with its guard, and copies it at each `return` level (the global that holds the new object cannot be returned directly: a method of the object may be running when the next one is made).
-- The arguments of a native call can be texts, numbers, lists, .NET objects and callbacks (a call with an object argument takes about 3 µs). A call with **named arguments** (`oMath.Round([ :value = 3.14159, :digits = 2 ])`) and a method with `out` or `ref` parameters are native too: about 4 to 7 µs.
-- Fewer crossings are faster than faster crossings: `toList()` copies a whole collection in one request, and a loop that reads 500 items with `Item(i)` makes 500 requests.
+- A method that returns a text, a number, a yes/no or nothing, and a property read or write, is packed and read **in C**: the generated method calls `dotnet_call` with the handle of the object, the name of the method (a ready wire item) and the arguments, and the extension builds the request, calls the bridge and returns the answer.
+- The bridge **remembers the overload** that it chose for a kind of arguments (the type; for a number, whole or not and its range; a text only when no overload could read it as an enum or another type), so a method with many overloads, such as `Math.Max`, costs about the same as a method with one.
+- A method that returns an **object**: the extension answers the type and the handle, and Ring makes the wrapper object of the generated class with its guard. The library keeps one ready object per wrapper class and copies it, because a copy is cheaper than `new`, which runs the class bodies and `init` of every parent class. Every wrapper object declares one attribute for each property of its class and of its parent classes (that is how `oBtn.Text = "x"` reaches `setText()`), so a class with many properties, such as a Windows Forms `Button`, costs more than a small one. Keep a returned object in a variable (`oButton = oForm.Controls.Item(0)`) and use the variable, instead of asking for it again in a loop.
+- The arguments of a native call can be texts, numbers, lists, .NET objects and callbacks. A call with **named arguments** (`oMath.Round([ :value = 3.14159, :digits = 2 ])`) and a method with `out` or `ref` parameters are native too.
+- Fewer crossings are better than faster crossings: `toList()` copies a whole collection in one request, and a loop that reads 500 items with `Item(i)` makes 500 requests.
 
 ## Packages
 

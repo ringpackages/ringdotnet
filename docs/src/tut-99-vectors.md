@@ -45,7 +45,7 @@ A matrix describes a transformation of space as a block of numbers. `Matrix3x2` 
 
 `Matrix3x2.Multiply(first, second)` combines two transformations into one: *first turn, then move* gives (10, 6), because the point is turned to (0, 1) and then moved. The **order** matters — moving first and turning second gives another point — which is the most common mistake with matrices. These methods have several forms, so the bridge chooses the form from the arguments (`new Matrix3x2().CreateRotation(...)`). `Matrix4x4` does the same in three dimensions (with `CreatePerspective`, `CreateLookAt`...) and `Quaternion` describes 3D rotations without the problems of angles.
 
-> [!NOTE] These types are made for speed in .NET code. Each call from Ring crosses the bridge (about 50 microseconds), so use them for the *logic* of your program, and let .NET do the heavy loops (for example a LINQ query, the tutorial [Collections and LINQ](tut-04-collections.html)) when you have thousands of points.
+> [!NOTE] These types are made for speed in .NET code. Each call from Ring crosses the bridge, so use them for the *logic* of your program, and let .NET do the heavy loops (for example a LINQ query, the tutorial [Collections and LINQ](tut-04-collections.html)) when you have thousands of points.
 
 ## What you learned
 

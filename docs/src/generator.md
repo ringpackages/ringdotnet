@@ -98,7 +98,7 @@ Class StringBuilder from Object
 
 Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when you assign to it. A generated method does not make a target object or a list for the request: it passes the handle as a number and the parts that never change (the operation `call` and the name) as ready wire items, and a C function of the extension packs the arguments, calls .NET and reads the answer:
 
-- `dotnet_call` for a method that returns a **text, a number or a yes/no**: the answer is that Ring value, about 2 to 3 µs for a call.
+- `dotnet_call` for a method that returns a **text, a number or a yes/no**: the answer is that Ring value.
 - `dotnet_callv` for a method that returns **nothing**.
 - `dotnet_callo` for a method that returns an **object**: it answers the type and the handle, and the Ring function `dnObj` makes the object of the generated class.
 - The arguments can be texts, numbers, lists, .NET objects and callbacks; an error of .NET is raised as a Ring error. An answer that the function does not expect (null, for example) comes back as a list that `dnFinish` reads.
