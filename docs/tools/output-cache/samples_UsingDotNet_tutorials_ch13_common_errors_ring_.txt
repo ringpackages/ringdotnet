@@ -1,0 +1,24 @@
+1. a class that is not imported
+   message: Error (R11) : Error in class name, class not found: stopwatch
+   fix: add the namespace to using { ... }   (the class reference lists the namespace of every class)
+   after using { "System.Diagnostics" } (here dnImport) a Stopwatch exists: stopwatch
+2. new StringBuilder() with empty parentheses
+   message: Error (R19) : Calling function with less number of parameters
+   fix: write new StringBuilder, or new StringBuilder(NULL), or give the value: new StringBuilder("x")
+3. an overloaded method called with no argument
+   message: Error (R19) : Calling function with less number of parameters
+   fix: NULL means no arguments: oList.Sort(NULL) gives apple first
+4. a method name with a typing mistake
+   message: Error (R14) : Calling Method without definition: ad
+4b. a property name with a typing mistake
+   message: Error (R12) : Error in property name, property not found: cuont
+   fix: look the name up in the class reference; Ring does not care about upper and lower case (oList.count is 2, the same as Count)
+5. an index outside the list (an exception of .NET)
+   message: DotNet Error: System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   the message starts with DotNet Error and the name of the exception; the text after it is the explanation of .NET
+6. a text where a number is needed
+   message: DotNet Error: System.MissingMethodException: No public method System.Math.Sqrt matches the 1 argument(s)
+   fix: pass what the parameter is: Sqrt(16) is 4. Use the class reference to see the types.
+7. a text joined with a .NET null (the call returned null, and the answer is an object)
+   message: Error (R50) : Object does not support operator overloading
+   fix: ask first: oVariable.isNull() is 1

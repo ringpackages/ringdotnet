@@ -41,7 +41,7 @@ The tutorials are grouped by **topic**. Read **The basics** first, in order; aft
 | [Windows Forms](#windows-forms) | Windows with controls, the keyboard and the mouse, layout, lists and grids, formatted text, the clipboard, drag and drop, dialogs, more than one window and a tray icon, printing, menus, timers, drawing, images and charts (Windows only). |
 | [WPF](#wpf) | XAML windows, layout and styles, data binding, menus and tabs, lists and dynamic content, and animation (Windows only). |
 | [Projects with windows](#projects-with-windows) | Complete programs: a to-do list, Tic-Tac-Toe, a quiz, a command runner, an address book with a database, a sorting lab, a maze, an image filter lab and a chat (Windows only). |
-| [Libraries, testing and release](#libraries-testing-and-release) | Giving Ring code to .NET (callbacks and events), exploring code with reflection and building it with expression trees, an object inspector, using a library written in C#, testing, and giving your program to others. |
+| [Libraries, testing and release](#libraries-testing-and-release) | Giving Ring code to .NET (callbacks and events), exploring code with reflection and building it with expression trees, an object inspector, using a library written in C#, the common mistakes, testing, and giving your program to others. |
 
 ## Where to start
 
@@ -306,6 +306,7 @@ Giving Ring code to .NET (callbacks and events), exploring code with reflection 
 <a class="card" href="tut-87-expressions.html"><div class="ic">📦</div><b>Expression trees</b><span>Code as data: build, print, compile and call functions at run time.</span></a>
 <a class="card" href="tut-18-csharp-library.html"><div class="ic">📦</div><b>A library written in C#</b><span>Build a small C# library, wrap it and call it from Ring.</span></a>
 <a class="card" href="tut-160-generic-calls.html"><div class="ic">📦</div><b>The generic functions</b><span>dnNewGeneric, dnType, dnNew with names, dnStatic, callMethod and getProp: what to use when there is no class.</span></a>
+<a class="card" href="tut-161-common-errors.html"><div class="ic">📦</div><b>Common mistakes</b><span>The seven errors of the first weeks, made on purpose: the message, what it means and the fix.</span></a>
 <a class="card" href="tut-28-testing.html"><div class="ic">📦</div><b>Testing your programs</b><span>Testable functions, dnAssert, testing errors, self-testing windows.</span></a>
 <a class="card" href="tut-119-distribution.html"><div class="ic">📦</div><b>Giving your program to others</b><span>Ring2EXE, what the other computer needs, a self check.</span></a>
 </div>
