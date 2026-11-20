@@ -390,6 +390,13 @@ func dnImport  cNamespace
 	ok
 	dn_cFile = cDotNetLibFolder + "generated/" + cNamespace + ".ring"
 	if not fexists(dn_cFile)
+		# a namespace of an assembly that was wrapped with wrapassembly.ring: its loader asks for the other namespaces of the same assembly,
+		# and they are in the folder that the program gave to dnImportFrom
+		for dn_cFolder in aDotNetUserFolders
+			if fexists(dn_cFolder + cNamespace + ".ring")
+				return dnImportFrom(dn_cFolder,cNamespace)
+			ok
+		next
 		raise("DotNet Error: No generated classes for the namespace " + cNamespace + " (see tools/dotnettools/dotnetmanifest.ring)")
 	ok
 	aDotNetImported + cNamespace
@@ -405,6 +412,9 @@ func dnImportFrom  cFolder, cNamespace
 	ok
 	if not fexists(dn_cFile)
 		raise("DotNet Error: File not found: " + dn_cFile)
+	ok
+	if find(aDotNetUserFolders,cFolder) = 0
+		aDotNetUserFolders + cFolder
 	ok
 	aDotNetImported + dn_cFile
 	eval('load "' + dn_cFile + '"')
