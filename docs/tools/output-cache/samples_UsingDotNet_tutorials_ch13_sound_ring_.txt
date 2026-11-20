@@ -1,0 +1,4 @@
+the DLL is next to System.Windows.Forms.dll: 1
+samples: 2000, bytes of the file: 4044
+the sound is loaded: 1
+(run the program with --play to hear it)
