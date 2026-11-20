@@ -95,17 +95,16 @@ Class BrotliCompressionOptions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getQuality
 		dn_x = dotnet_call("s3:get",nHandle,"s7:Quality")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Quality",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setQuality P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Quality",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Quality",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Quality",P1)
 		return self
 
 
@@ -130,8 +129,7 @@ Class BrotliDecoder from ValueType
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
@@ -173,14 +171,13 @@ Class BrotliEncoder from ValueType
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func GetMaxCompressedLength P1
 		dn_x = dotnet_call("s4:call",'System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',"s22:GetMaxCompressedLength",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',"s22:GetMaxCompressedLength",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -215,7 +212,7 @@ Class BrotliStream from Stream
 		return self
 
 	Func getBaseStream
-		return dnSend("s3:get",nHandle,"s10:BaseStream","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:BaseStream"))
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")
@@ -258,7 +255,7 @@ Class DeflateStream from Stream
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
 	Func getBaseStream
-		return dnSend("s3:get",nHandle,"s10:BaseStream","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:BaseStream"))
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")
@@ -295,7 +292,7 @@ Class GZipStream from Stream
 		return self
 
 	Func getBaseStream
-		return dnSend("s3:get",nHandle,"s10:BaseStream","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:BaseStream"))
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")
@@ -326,25 +323,23 @@ Class ZLibCompressionOptions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCompressionLevel
 		dn_x = dotnet_call("s3:get",nHandle,"s16:CompressionLevel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:CompressionLevel",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCompressionLevel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:CompressionLevel",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:CompressionLevel",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:CompressionLevel",P1)
 		return self
 
 	Func getCompressionStrategy
-		return dnSend("s3:get",nHandle,"s19:CompressionStrategy","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:CompressionStrategy"))
 
 	Func setCompressionStrategy P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:CompressionStrategy",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:CompressionStrategy",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:CompressionStrategy",P1)
 		return self
 
 
@@ -379,7 +374,7 @@ Class ZLibStream from Stream
 		return self
 
 	Func getBaseStream
-		return dnSend("s3:get",nHandle,"s10:BaseStream","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:BaseStream"))
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")
@@ -421,40 +416,38 @@ Class ZipArchive from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s11:CreateEntry",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s11:CreateEntry",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateEntry",P1))
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func GetEntry P1
-		return dnSend("s4:call",nHandle,"s8:GetEntry",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetEntry",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getComment
 		dn_x = dotnet_call("s3:get",nHandle,"s7:Comment")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Comment",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setComment P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Comment",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Comment",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Comment",P1)
 		return self
 
 	Func getEntries
-		return dnSend("s3:get",nHandle,"s7:Entries","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Entries"))
 
 	Func setEntries P1
 		raise("DotNet Error: Entries is a read-only property")
 
 	Func getMode
-		return dnSend("s3:get",nHandle,"s4:Mode","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Mode"))
 
 	Func setMode P1
 		raise("DotNet Error: Mode is a read-only property")
@@ -483,28 +476,27 @@ Class ZipArchiveEntry from Object
 		return self
 
 	Func Delete 
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Delete")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Delete","") ok
+		dotnet_callv("s4:call",nHandle,"s6:Delete")
 
 		return self
 
 	Func Open 
-		return dnSend("s4:call",nHandle,"s4:Open","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Open"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getArchive
-		return dnSend("s3:get",nHandle,"s7:Archive","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Archive"))
 
 	Func setArchive P1
 		raise("DotNet Error: Archive is a read-only property")
 
 	Func getCrc32
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Crc32")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Crc32",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCrc32 P1
@@ -512,7 +504,7 @@ Class ZipArchiveEntry from Object
 
 	Func getIsEncrypted
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsEncrypted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsEncrypted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsEncrypted P1
@@ -520,7 +512,7 @@ Class ZipArchiveEntry from Object
 
 	Func getCompressedLength
 		dn_x = dotnet_call("s3:get",nHandle,"s16:CompressedLength")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:CompressedLength",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCompressedLength P1
@@ -528,43 +520,40 @@ Class ZipArchiveEntry from Object
 
 	Func getExternalAttributes
 		dn_x = dotnet_call("s3:get",nHandle,"s18:ExternalAttributes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:ExternalAttributes",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setExternalAttributes P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:ExternalAttributes",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:ExternalAttributes",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:ExternalAttributes",P1)
 		return self
 
 	Func getComment
 		dn_x = dotnet_call("s3:get",nHandle,"s7:Comment")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Comment",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setComment P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Comment",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Comment",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Comment",P1)
 		return self
 
 	Func getFullName
 		dn_x = dotnet_call("s3:get",nHandle,"s8:FullName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:FullName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
 
 	Func getLastWriteTime
-		return dnSend("s3:get",nHandle,"s13:LastWriteTime","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:LastWriteTime"))
 
 	Func setLastWriteTime P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:LastWriteTime",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:LastWriteTime",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:LastWriteTime",P1)
 		return self
 
 	Func getLength
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Length",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLength P1
@@ -572,7 +561,7 @@ Class ZipArchiveEntry from Object
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
@@ -592,11 +581,11 @@ Class ZipFile from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func OpenRead P1
-		return dnSend("s4:call",dnTypeHandle('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"s8:OpenRead",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.IO.Compression.ZipFile, System.IO.Compression.ZipFile',"s8:OpenRead",P1))
 
 	Func Open P1
 		if dnIsNamed(P1)
@@ -632,7 +621,7 @@ Class ZipFileExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CreateEntryFromFile P1

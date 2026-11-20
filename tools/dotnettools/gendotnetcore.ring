@@ -238,10 +238,13 @@ func paraList nCount
 # Statement that returns the result of a call (the bridge result is wrapped by the runtime type, see dnWrapObject)
 func returnCode cRequest, cReturnType, nByRef
 	if nByRef = 0 and cReturnType = "System.Void"
-		return nativeCall(cRequest,true) + nl + "		return self" + nl
+		return nativeCall(cRequest,"void") + nl + "		return self" + nl
 	ok
 	if nByRef = 0 and isPrimitiveType(cReturnType)
-		return nativeCall(cRequest,false)
+		return nativeCall(cRequest,"value")
+	ok
+	if nByRef = 0
+		return "return dnObj(" + nativeCall(cRequest,"object") + ")" + nl
 	ok
 	return "return " + sendCall(cRequest) + nl
 
@@ -249,33 +252,23 @@ func returnCode cRequest, cReturnType, nByRef
 func isPrimitiveType cType
 	return find(["System.String","System.Boolean","System.Byte","System.SByte","System.Int16","System.UInt16","System.Int32","System.UInt32","System.Int64","System.UInt64","System.Single","System.Double","System.Decimal"],cType) > 0
 
-# The same request with the native function: dotnet_call(operation, handle, name, arguments...) packs the request and reads the answer in C.
-# It answers a list when it could not finish: dnLate then does the rest (see functions.ring).
-#   "call",[new DotNetObject(nHandle),"Contains",P1]  -->  dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1) ... 
-func nativeCall cRequest, lVoid
+# The same request with the native functions (ring_dotnet.c): dotnet_call (an answer that is a text, a number or a yes/no), dotnet_callv (nothing)
+# and dotnet_callo (an object) pack the request and read the answer in C.
+#   "call",[new DotNetObject(nHandle),"Contains",P1]  -->  dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+func nativeCall cRequest, cMode
 	aParts = requestParts(cRequest)
-	cPieces = aParts[1] + "," + aParts[5] + "," + aParts[3]
-	cNative = cPieces
-	cList = ""
+	cNative = aParts[1] + "," + aParts[5] + "," + aParts[3]
 	for cArg in aParts[4]
 		cNative += "," + cArg
-		if len(cList) > 0
-			cList += ","
-		ok
-		cList += cArg
 	next
-	cFunction = "dotnet_call"
-	if lVoid
-		cFunction = "dotnet_callv"
+	if cMode = "void"
+		return "dotnet_callv(" + cNative + ")" + nl
 	ok
-	cCode = "dn_x = " + cFunction + "(" + cNative + ")" + nl
-	if lVoid
-		cCode += "		if islist(dn_x) " + sendCall(cRequest) + " ok" + nl
-		return cCode
+	if cMode = "object"
+		return "dotnet_callo(" + cNative + ")"
 	ok
-	cCode += "		if islist(dn_x) return dnLate(dn_x," + cPieces + ",[" + cList + "]) ok" + nl
-	cCode += "		return dn_x" + nl
-	return cCode
+	# a text, a number or a yes/no: any other answer (null...) comes back as a list that dnFinish reads
+	return "dn_x = dotnet_call(" + cNative + ")" + nl + "		if islist(dn_x) return dnFinish(dn_x[2]) ok" + nl + "		return dn_x" + nl
 
 # The code of a request for a member of an object. The generated method does not make the target object and the list of the request:
 # it passes the handle as a number and the pieces that never change (the operation and the name) as ready wire items, so that the
@@ -683,7 +676,7 @@ func buildPlan cTypeName, nForceInit
 		ok
 		if aIndexer[3] and find(aNames,"setitem") = 0
 			cB = "	Func SetItem P1,P2" + nl
-			cB += "		" + nativeCall('"call",[new DotNetObject(nHandle),"set_Item",P1,P2]',true)
+			cB += "		" + nativeCall('"call",[new DotNetObject(nHandle),"set_Item",P1,P2]',"void")
 			cB += "		return self" + nl + nl
 			aBlocks + ["setitem",cB]
 		ok
@@ -731,7 +724,7 @@ func buildPlan cTypeName, nForceInit
 		if aMember[3] and (find(aNames,lower("set" + cName)) = 0)
 			aNames + lower("set" + cName)
 			cB = "	Func set" + cName + " P1" + nl
-			cB += "		" + nativeCall('"set",[' + cTarget + ',"' + cName + '",P1]',true)
+			cB += "		" + nativeCall('"set",[' + cTarget + ',"' + cName + '",P1]',"void")
 			cB += "		return self" + nl + nl
 			aBlocks + [lower("set" + cName),cB]
 		but (not aMember[3]) and (find(aAttrs,lower(cName)) > 0) and (find(aNames,lower("set" + cName)) = 0)

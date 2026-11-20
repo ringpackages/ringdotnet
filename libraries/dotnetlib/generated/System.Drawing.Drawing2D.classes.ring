@@ -124,23 +124,21 @@ Class Blend from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getFactors
-		return dnSend("s3:get",nHandle,"s7:Factors","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Factors"))
 
 	Func setFactors P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Factors",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Factors",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Factors",P1)
 		return self
 
 	Func getPositions
-		return dnSend("s3:get",nHandle,"s9:Positions","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Positions"))
 
 	Func setPositions P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Positions",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Positions",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Positions",P1)
 		return self
 
 
@@ -185,23 +183,21 @@ Class ColorBlend from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getColors
-		return dnSend("s3:get",nHandle,"s6:Colors","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Colors"))
 
 	Func setColors P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Colors",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Colors",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Colors",P1)
 		return self
 
 	Func getPositions
-		return dnSend("s3:get",nHandle,"s9:Positions","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Positions"))
 
 	Func setPositions P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Positions",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Positions",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Positions",P1)
 		return self
 
 
@@ -239,17 +235,15 @@ Class CustomLineCap from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func Clone 
-		return dnSend("s4:call",nHandle,"s5:Clone","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func SetStrokeCaps P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s13:SetStrokeCaps",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s13:SetStrokeCaps",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s13:SetStrokeCaps",P1,P2)
 
 		return self
 
@@ -257,39 +251,35 @@ Class CustomLineCap from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s13:GetStrokeCaps","")
 
 	Func getStrokeJoin
-		return dnSend("s3:get",nHandle,"s10:StrokeJoin","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:StrokeJoin"))
 
 	Func setStrokeJoin P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:StrokeJoin",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:StrokeJoin",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:StrokeJoin",P1)
 		return self
 
 	Func getBaseCap
-		return dnSend("s3:get",nHandle,"s7:BaseCap","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:BaseCap"))
 
 	Func setBaseCap P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:BaseCap",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:BaseCap",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:BaseCap",P1)
 		return self
 
 	Func getBaseInset
 		dn_x = dotnet_call("s3:get",nHandle,"s9:BaseInset")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:BaseInset",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBaseInset P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:BaseInset",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:BaseInset",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:BaseInset",P1)
 		return self
 
 	Func getWidthScale
 		dn_x = dotnet_call("s3:get",nHandle,"s10:WidthScale")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:WidthScale",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setWidthScale P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:WidthScale",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:WidthScale",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:WidthScale",P1)
 		return self
 
 
@@ -348,65 +338,57 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnSend("s4:call",nHandle,"s5:Clone","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func Reset 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Reset")
 
 		return self
 
 	Func StartFigure 
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:StartFigure")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:StartFigure","") ok
+		dotnet_callv("s4:call",nHandle,"s11:StartFigure")
 
 		return self
 
 	Func CloseFigure 
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:CloseFigure")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:CloseFigure","") ok
+		dotnet_callv("s4:call",nHandle,"s11:CloseFigure")
 
 		return self
 
 	Func CloseAllFigures 
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:CloseAllFigures")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:CloseAllFigures","") ok
+		dotnet_callv("s4:call",nHandle,"s15:CloseAllFigures")
 
 		return self
 
 	Func SetMarkers 
-		dn_x = dotnet_callv("s4:call",nHandle,"s10:SetMarkers")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s10:SetMarkers","") ok
+		dotnet_callv("s4:call",nHandle,"s10:SetMarkers")
 
 		return self
 
 	Func ClearMarkers 
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:ClearMarkers")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:ClearMarkers","") ok
+		dotnet_callv("s4:call",nHandle,"s12:ClearMarkers")
 
 		return self
 
 	Func Reverse 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Reverse")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Reverse","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Reverse")
 
 		return self
 
 	Func GetLastPoint 
-		return dnSend("s4:call",nHandle,"s12:GetLastPoint","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetLastPoint"))
 
 	Func IsVisible P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s9:IsVisible",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:IsVisible",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:IsVisible",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsOutlineVisible P1
@@ -423,8 +405,7 @@ Class GraphicsPath from MarshalByRefObject
 		raise("DotNet Error: AddLine does not take one argument: use named arguments, AddLine([ :parameter = value, ... ])")
 
 	Func AddLines P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:AddLines",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:AddLines",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:AddLines",P1)
 
 		return self
 
@@ -443,8 +424,7 @@ Class GraphicsPath from MarshalByRefObject
 		raise("DotNet Error: AddBezier does not take one argument: use named arguments, AddBezier([ :parameter = value, ... ])")
 
 	Func AddBeziers P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s10:AddBeziers",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s10:AddBeziers",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s10:AddBeziers",P1)
 
 		return self
 
@@ -453,8 +433,7 @@ Class GraphicsPath from MarshalByRefObject
 			dnSend("s9:callnamed",nHandle,"s8:AddCurve",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:AddCurve",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:AddCurve",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:AddCurve",P1)
 
 		return self
 
@@ -463,26 +442,22 @@ Class GraphicsPath from MarshalByRefObject
 			dnSend("s9:callnamed",nHandle,"s14:AddClosedCurve",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s14:AddClosedCurve",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s14:AddClosedCurve",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s14:AddClosedCurve",P1)
 
 		return self
 
 	Func AddRectangle P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:AddRectangle",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:AddRectangle",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s12:AddRectangle",P1)
 
 		return self
 
 	Func AddRectangles P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s13:AddRectangles",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s13:AddRectangles",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s13:AddRectangles",P1)
 
 		return self
 
 	Func AddRoundedRectangle P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s19:AddRoundedRectangle",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s19:AddRoundedRectangle",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s19:AddRoundedRectangle",P1,P2)
 
 		return self
 
@@ -491,8 +466,7 @@ Class GraphicsPath from MarshalByRefObject
 			dnSend("s9:callnamed",nHandle,"s10:AddEllipse",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s10:AddEllipse",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s10:AddEllipse",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s10:AddEllipse",P1)
 
 		return self
 
@@ -504,26 +478,22 @@ Class GraphicsPath from MarshalByRefObject
 		raise("DotNet Error: AddPie does not take one argument: use named arguments, AddPie([ :parameter = value, ... ])")
 
 	Func AddPolygon P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s10:AddPolygon",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s10:AddPolygon",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s10:AddPolygon",P1)
 
 		return self
 
 	Func AddPath P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:AddPath",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:AddPath",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s7:AddPath",P1,P2)
 
 		return self
 
 	Func AddString P1,P2,P3,P4,P5,P6
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:AddString",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:AddString",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6)) ok
+		dotnet_callv("s4:call",nHandle,"s9:AddString",P1,P2,P3,P4,P5,P6)
 
 		return self
 
 	Func Transform P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:Transform",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:Transform",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s9:Transform",P1)
 
 		return self
 
@@ -532,9 +502,9 @@ Class GraphicsPath from MarshalByRefObject
 			return dnSend("s9:callnamed",nHandle,"s9:GetBounds",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s9:GetBounds","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBounds"))
 		ok
-		return dnSend("s4:call",nHandle,"s9:GetBounds",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBounds",P1))
 
 	Func Flatten P1
 		if dnIsNamed(P1)
@@ -542,13 +512,11 @@ Class GraphicsPath from MarshalByRefObject
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_callv("s4:call",nHandle,"s7:Flatten")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Flatten","") ok
+			dotnet_callv("s4:call",nHandle,"s7:Flatten")
 
 		return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Flatten",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Flatten",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s7:Flatten",P1)
 
 		return self
 
@@ -557,8 +525,7 @@ Class GraphicsPath from MarshalByRefObject
 			dnSend("s9:callnamed",nHandle,"s5:Widen",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Widen",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Widen",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Widen",P1)
 
 		return self
 
@@ -570,35 +537,34 @@ Class GraphicsPath from MarshalByRefObject
 		raise("DotNet Error: Warp does not take one argument: use named arguments, Warp([ :parameter = value, ... ])")
 
 	Func getFillMode
-		return dnSend("s3:get",nHandle,"s8:FillMode","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:FillMode"))
 
 	Func setFillMode P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:FillMode",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:FillMode",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:FillMode",P1)
 		return self
 
 	Func getPathData
-		return dnSend("s3:get",nHandle,"s8:PathData","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:PathData"))
 
 	Func setPathData P1
 		raise("DotNet Error: PathData is a read-only property")
 
 	Func getPointCount
 		dn_x = dotnet_call("s3:get",nHandle,"s10:PointCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:PointCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPointCount P1
 		raise("DotNet Error: PointCount is a read-only property")
 
 	Func getPathTypes
-		return dnSend("s3:get",nHandle,"s9:PathTypes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:PathTypes"))
 
 	Func setPathTypes P1
 		raise("DotNet Error: PathTypes is a read-only property")
 
 	Func getPathPoints
-		return dnSend("s3:get",nHandle,"s10:PathPoints","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:PathPoints"))
 
 	Func setPathPoints P1
 		raise("DotNet Error: PathPoints is a read-only property")
@@ -621,8 +587,7 @@ Class GraphicsPathIterator from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
@@ -646,17 +611,16 @@ Class GraphicsPathIterator from MarshalByRefObject
 			return dnSend("s4:call",nHandle,"s10:NextMarker","")
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s10:NextMarker",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:NextMarker",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func HasCurve 
 		dn_x = dotnet_call("s4:call",nHandle,"s8:HasCurve")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:HasCurve",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Rewind 
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Rewind")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Rewind","") ok
+		dotnet_callv("s4:call",nHandle,"s6:Rewind")
 
 		return self
 
@@ -668,7 +632,7 @@ Class GraphicsPathIterator from MarshalByRefObject
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -676,7 +640,7 @@ Class GraphicsPathIterator from MarshalByRefObject
 
 	Func getSubpathCount
 		dn_x = dotnet_call("s3:get",nHandle,"s12:SubpathCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:SubpathCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSubpathCount P1
@@ -728,19 +692,19 @@ Class HatchBrush from Brush
 		return self
 
 	Func getHatchStyle
-		return dnSend("s3:get",nHandle,"s10:HatchStyle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:HatchStyle"))
 
 	Func setHatchStyle P1
 		raise("DotNet Error: HatchStyle is a read-only property")
 
 	Func getForegroundColor
-		return dnSend("s3:get",nHandle,"s15:ForegroundColor","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ForegroundColor"))
 
 	Func setForegroundColor P1
 		raise("DotNet Error: ForegroundColor is a read-only property")
 
 	Func getBackgroundColor
-		return dnSend("s3:get",nHandle,"s15:BackgroundColor","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:BackgroundColor"))
 
 	Func setBackgroundColor P1
 		raise("DotNet Error: BackgroundColor is a read-only property")
@@ -787,8 +751,7 @@ Class LinearGradientBrush from Brush
 			dnSend("s9:callnamed",nHandle,"s17:SetSigmaBellShape",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s17:SetSigmaBellShape",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s17:SetSigmaBellShape",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s17:SetSigmaBellShape",P1)
 
 		return self
 
@@ -797,14 +760,12 @@ Class LinearGradientBrush from Brush
 			dnSend("s9:callnamed",nHandle,"s23:SetBlendTriangularShape",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s23:SetBlendTriangularShape",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s23:SetBlendTriangularShape",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s23:SetBlendTriangularShape",P1)
 
 		return self
 
 	Func ResetTransform 
-		dn_x = dotnet_callv("s4:call",nHandle,"s14:ResetTransform")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s14:ResetTransform","") ok
+		dotnet_callv("s4:call",nHandle,"s14:ResetTransform")
 
 		return self
 
@@ -813,8 +774,7 @@ Class LinearGradientBrush from Brush
 			dnSend("s9:callnamed",nHandle,"s17:MultiplyTransform",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s17:MultiplyTransform",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s17:MultiplyTransform",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s17:MultiplyTransform",P1)
 
 		return self
 
@@ -837,65 +797,58 @@ Class LinearGradientBrush from Brush
 			dnSend("s9:callnamed",nHandle,"s15:RotateTransform",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:RotateTransform",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:RotateTransform",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s15:RotateTransform",P1)
 
 		return self
 
 	Func getLinearColors
-		return dnSend("s3:get",nHandle,"s12:LinearColors","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:LinearColors"))
 
 	Func setLinearColors P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:LinearColors",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:LinearColors",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:LinearColors",P1)
 		return self
 
 	Func getRectangle
-		return dnSend("s3:get",nHandle,"s9:Rectangle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Rectangle"))
 
 	Func setRectangle P1
 		raise("DotNet Error: Rectangle is a read-only property")
 
 	Func getGammaCorrection
 		dn_x = dotnet_call("s3:get",nHandle,"s15:GammaCorrection")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:GammaCorrection",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setGammaCorrection P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:GammaCorrection",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:GammaCorrection",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:GammaCorrection",P1)
 		return self
 
 	Func getBlend
-		return dnSend("s3:get",nHandle,"s5:Blend","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Blend"))
 
 	Func setBlend P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Blend",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Blend",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Blend",P1)
 		return self
 
 	Func getInterpolationColors
-		return dnSend("s3:get",nHandle,"s19:InterpolationColors","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:InterpolationColors"))
 
 	Func setInterpolationColors P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:InterpolationColors",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:InterpolationColors",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:InterpolationColors",P1)
 		return self
 
 	Func getWrapMode
-		return dnSend("s3:get",nHandle,"s8:WrapMode","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:WrapMode"))
 
 	Func setWrapMode P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:WrapMode",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:WrapMode",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:WrapMode",P1)
 		return self
 
 	Func getTransform
-		return dnSend("s3:get",nHandle,"s9:Transform","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Transform"))
 
 	Func setTransform P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Transform",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Transform",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Transform",P1)
 		return self
 
 
@@ -943,17 +896,15 @@ Class Matrix from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func Clone 
-		return dnSend("s4:call",nHandle,"s5:Clone","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func Reset 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Reset")
 
 		return self
 
@@ -962,8 +913,7 @@ Class Matrix from MarshalByRefObject
 			dnSend("s9:callnamed",nHandle,"s8:Multiply",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:Multiply",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Multiply",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:Multiply",P1)
 
 		return self
 
@@ -986,8 +936,7 @@ Class Matrix from MarshalByRefObject
 			dnSend("s9:callnamed",nHandle,"s6:Rotate",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Rotate",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Rotate",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Rotate",P1)
 
 		return self
 
@@ -1006,46 +955,41 @@ Class Matrix from MarshalByRefObject
 		raise("DotNet Error: Shear does not take one argument: use named arguments, Shear([ :parameter = value, ... ])")
 
 	Func Invert 
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Invert")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Invert","") ok
+		dotnet_callv("s4:call",nHandle,"s6:Invert")
 
 		return self
 
 	Func TransformPoints P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:TransformPoints",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:TransformPoints",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s15:TransformPoints",P1)
 
 		return self
 
 	Func TransformVectors P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:TransformVectors",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:TransformVectors",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s16:TransformVectors",P1)
 
 		return self
 
 	Func VectorTransformPoints P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s21:VectorTransformPoints",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s21:VectorTransformPoints",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s21:VectorTransformPoints",P1)
 
 		return self
 
 	Func getElements
-		return dnSend("s3:get",nHandle,"s8:Elements","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Elements"))
 
 	Func setElements P1
 		raise("DotNet Error: Elements is a read-only property")
 
 	Func getMatrixElements
-		return dnSend("s3:get",nHandle,"s14:MatrixElements","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:MatrixElements"))
 
 	Func setMatrixElements P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:MatrixElements",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:MatrixElements",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:MatrixElements",P1)
 		return self
 
 	Func getOffsetX
 		dn_x = dotnet_call("s3:get",nHandle,"s7:OffsetX")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:OffsetX",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOffsetX P1
@@ -1053,7 +997,7 @@ Class Matrix from MarshalByRefObject
 
 	Func getOffsetY
 		dn_x = dotnet_call("s3:get",nHandle,"s7:OffsetY")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:OffsetY",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOffsetY P1
@@ -1061,7 +1005,7 @@ Class Matrix from MarshalByRefObject
 
 	Func getIsInvertible
 		dn_x = dotnet_call("s3:get",nHandle,"s12:IsInvertible")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsInvertible",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsInvertible P1
@@ -1069,7 +1013,7 @@ Class Matrix from MarshalByRefObject
 
 	Func getIsIdentity
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsIdentity")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsIdentity",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsIdentity P1
@@ -1101,23 +1045,21 @@ Class PathData from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getPoints
-		return dnSend("s3:get",nHandle,"s6:Points","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Points"))
 
 	Func setPoints P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Points",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Points",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Points",P1)
 		return self
 
 	Func getTypes
-		return dnSend("s3:get",nHandle,"s5:Types","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Types"))
 
 	Func setTypes P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Types",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Types",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Types",P1)
 		return self
 
 
@@ -1164,8 +1106,7 @@ Class PathGradientBrush from Brush
 			dnSend("s9:callnamed",nHandle,"s17:SetSigmaBellShape",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s17:SetSigmaBellShape",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s17:SetSigmaBellShape",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s17:SetSigmaBellShape",P1)
 
 		return self
 
@@ -1174,14 +1115,12 @@ Class PathGradientBrush from Brush
 			dnSend("s9:callnamed",nHandle,"s23:SetBlendTriangularShape",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s23:SetBlendTriangularShape",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s23:SetBlendTriangularShape",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s23:SetBlendTriangularShape",P1)
 
 		return self
 
 	Func ResetTransform 
-		dn_x = dotnet_callv("s4:call",nHandle,"s14:ResetTransform")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s14:ResetTransform","") ok
+		dotnet_callv("s4:call",nHandle,"s14:ResetTransform")
 
 		return self
 
@@ -1190,8 +1129,7 @@ Class PathGradientBrush from Brush
 			dnSend("s9:callnamed",nHandle,"s17:MultiplyTransform",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s17:MultiplyTransform",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s17:MultiplyTransform",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s17:MultiplyTransform",P1)
 
 		return self
 
@@ -1214,79 +1152,70 @@ Class PathGradientBrush from Brush
 			dnSend("s9:callnamed",nHandle,"s15:RotateTransform",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:RotateTransform",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:RotateTransform",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s15:RotateTransform",P1)
 
 		return self
 
 	Func getCenterColor
-		return dnSend("s3:get",nHandle,"s11:CenterColor","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:CenterColor"))
 
 	Func setCenterColor P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:CenterColor",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:CenterColor",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:CenterColor",P1)
 		return self
 
 	Func getSurroundColors
-		return dnSend("s3:get",nHandle,"s14:SurroundColors","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:SurroundColors"))
 
 	Func setSurroundColors P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:SurroundColors",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:SurroundColors",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:SurroundColors",P1)
 		return self
 
 	Func getCenterPoint
-		return dnSend("s3:get",nHandle,"s11:CenterPoint","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:CenterPoint"))
 
 	Func setCenterPoint P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:CenterPoint",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:CenterPoint",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:CenterPoint",P1)
 		return self
 
 	Func getRectangle
-		return dnSend("s3:get",nHandle,"s9:Rectangle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Rectangle"))
 
 	Func setRectangle P1
 		raise("DotNet Error: Rectangle is a read-only property")
 
 	Func getBlend
-		return dnSend("s3:get",nHandle,"s5:Blend","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Blend"))
 
 	Func setBlend P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Blend",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Blend",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Blend",P1)
 		return self
 
 	Func getInterpolationColors
-		return dnSend("s3:get",nHandle,"s19:InterpolationColors","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:InterpolationColors"))
 
 	Func setInterpolationColors P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:InterpolationColors",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:InterpolationColors",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:InterpolationColors",P1)
 		return self
 
 	Func getTransform
-		return dnSend("s3:get",nHandle,"s9:Transform","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Transform"))
 
 	Func setTransform P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Transform",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Transform",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Transform",P1)
 		return self
 
 	Func getFocusScales
-		return dnSend("s3:get",nHandle,"s11:FocusScales","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:FocusScales"))
 
 	Func setFocusScales P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:FocusScales",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:FocusScales",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:FocusScales",P1)
 		return self
 
 	Func getWrapMode
-		return dnSend("s3:get",nHandle,"s8:WrapMode","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:WrapMode"))
 
 	Func setWrapMode P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:WrapMode",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:WrapMode",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:WrapMode",P1)
 		return self
 
 
@@ -1305,15 +1234,14 @@ Class RegionData from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getData
-		return dnSend("s3:get",nHandle,"s4:Data","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Data"))
 
 	Func setData P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Data",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Data",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Data",P1)
 		return self
 
 
@@ -1352,42 +1280,38 @@ Class AdjustableArrowCap from CustomLineCap
 
 	Func getHeight
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Height",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHeight P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Height",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
 		return self
 
 	Func getWidth
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Width",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setWidth P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Width",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
 		return self
 
 	Func getMiddleInset
 		dn_x = dotnet_call("s3:get",nHandle,"s11:MiddleInset")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:MiddleInset",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMiddleInset P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:MiddleInset",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:MiddleInset",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:MiddleInset",P1)
 		return self
 
 	Func getFilled
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Filled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Filled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFilled P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Filled",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Filled",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Filled",P1)
 		return self
 
 

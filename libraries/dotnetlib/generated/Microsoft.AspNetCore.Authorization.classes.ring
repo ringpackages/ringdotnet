@@ -171,30 +171,30 @@ Class AuthorizationBuilder from Object
 		return self
 
 	Func SetInvokeHandlersAfterFailure P1
-		return dnSend("s4:call",nHandle,"s29:SetInvokeHandlersAfterFailure",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:SetInvokeHandlersAfterFailure",P1))
 
 	Func SetDefaultPolicy P1
-		return dnSend("s4:call",nHandle,"s16:SetDefaultPolicy",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SetDefaultPolicy",P1))
 
 	Func SetFallbackPolicy P1
-		return dnSend("s4:call",nHandle,"s17:SetFallbackPolicy",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:SetFallbackPolicy",P1))
 
 	Func AddPolicy P1,P2
-		return dnSend("s4:call",nHandle,"s9:AddPolicy",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddPolicy",P1,P2))
 
 	Func AddDefaultPolicy P1,P2
-		return dnSend("s4:call",nHandle,"s16:AddDefaultPolicy",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddDefaultPolicy",P1,P2))
 
 	Func AddFallbackPolicy P1,P2
-		return dnSend("s4:call",nHandle,"s17:AddFallbackPolicy",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddFallbackPolicy",P1,P2))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getServices
-		return dnSend("s3:get",nHandle,"s8:Services","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
@@ -217,31 +217,31 @@ Class AuthorizationFailure from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ExplicitFail 
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationFailure, Microsoft.AspNetCore.Authorization'),"s12:ExplicitFail","")
+		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authorization.AuthorizationFailure, Microsoft.AspNetCore.Authorization',"s12:ExplicitFail"))
 
 	Func Failed P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationFailure, Microsoft.AspNetCore.Authorization'),"s6:Failed",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authorization.AuthorizationFailure, Microsoft.AspNetCore.Authorization',"s6:Failed",P1))
 
 	Func getFailCalled
 		dn_x = dotnet_call("s3:get",nHandle,"s10:FailCalled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:FailCalled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFailCalled P1
 		raise("DotNet Error: FailCalled is a read-only property")
 
 	Func getFailedRequirements
-		return dnSend("s3:get",nHandle,"s18:FailedRequirements","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:FailedRequirements"))
 
 	Func setFailedRequirements P1
 		raise("DotNet Error: FailedRequirements is a read-only property")
 
 	Func getFailureReasons
-		return dnSend("s3:get",nHandle,"s14:FailureReasons","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:FailureReasons"))
 
 	Func setFailureReasons P1
 		raise("DotNet Error: FailureReasons is a read-only property")
@@ -265,19 +265,19 @@ Class AuthorizationFailureReason from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getMessage
 		dn_x = dotnet_call("s3:get",nHandle,"s7:Message")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Message",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")
 
 	Func getHandler
-		return dnSend("s3:get",nHandle,"s7:Handler","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Handler"))
 
 	Func setHandler P1
 		raise("DotNet Error: Handler is a read-only property")
@@ -310,60 +310,57 @@ Class AuthorizationHandlerContext from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_callv("s4:call",nHandle,"s4:Fail")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Fail","") ok
+			dotnet_callv("s4:call",nHandle,"s4:Fail")
 
 		return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s4:Fail",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Fail",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s4:Fail",P1)
 
 		return self
 
 	Func Succeed P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Succeed",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Succeed",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s7:Succeed",P1)
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getRequirements
-		return dnSend("s3:get",nHandle,"s12:Requirements","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:Requirements"))
 
 	Func setRequirements P1
 		raise("DotNet Error: Requirements is a read-only property")
 
 	Func getUser
-		return dnSend("s3:get",nHandle,"s4:User","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:User"))
 
 	Func setUser P1
 		raise("DotNet Error: User is a read-only property")
 
 	Func getResource
-		return dnSend("s3:get",nHandle,"s8:Resource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Resource"))
 
 	Func setResource P1
 		raise("DotNet Error: Resource is a read-only property")
 
 	Func getPendingRequirements
-		return dnSend("s3:get",nHandle,"s19:PendingRequirements","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:PendingRequirements"))
 
 	Func setPendingRequirements P1
 		raise("DotNet Error: PendingRequirements is a read-only property")
 
 	Func getFailureReasons
-		return dnSend("s3:get",nHandle,"s14:FailureReasons","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:FailureReasons"))
 
 	Func setFailureReasons P1
 		raise("DotNet Error: FailureReasons is a read-only property")
 
 	Func getHasFailed
 		dn_x = dotnet_call("s3:get",nHandle,"s9:HasFailed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:HasFailed",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasFailed P1
@@ -371,7 +368,7 @@ Class AuthorizationHandlerContext from Object
 
 	Func getHasSucceeded
 		dn_x = dotnet_call("s3:get",nHandle,"s12:HasSucceeded")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:HasSucceeded",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasSucceeded P1
@@ -407,11 +404,11 @@ Class AuthorizationMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Invoke",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -440,43 +437,39 @@ Class AuthorizationOptions from Object
 		return self
 
 	Func AddPolicy P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:AddPolicy",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:AddPolicy",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s9:AddPolicy",P1,P2)
 
 		return self
 
 	Func GetPolicy P1
-		return dnSend("s4:call",nHandle,"s9:GetPolicy",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetPolicy",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getInvokeHandlersAfterFailure
 		dn_x = dotnet_call("s3:get",nHandle,"s26:InvokeHandlersAfterFailure")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:InvokeHandlersAfterFailure",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInvokeHandlersAfterFailure P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s26:InvokeHandlersAfterFailure",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s26:InvokeHandlersAfterFailure",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s26:InvokeHandlersAfterFailure",P1)
 		return self
 
 	Func getDefaultPolicy
-		return dnSend("s3:get",nHandle,"s13:DefaultPolicy","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DefaultPolicy"))
 
 	Func setDefaultPolicy P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:DefaultPolicy",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:DefaultPolicy",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:DefaultPolicy",P1)
 		return self
 
 	Func getFallbackPolicy
-		return dnSend("s3:get",nHandle,"s14:FallbackPolicy","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:FallbackPolicy"))
 
 	Func setFallbackPolicy P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:FallbackPolicy",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:FallbackPolicy",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:FallbackPolicy",P1)
 		return self
 
 
@@ -498,11 +491,11 @@ Class AuthorizationPolicy from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Combine P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"s7:Combine",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization',"s7:Combine",P1))
 
 	Func CombineAsync P1
 		if dnIsNamed(P1)
@@ -511,13 +504,13 @@ Class AuthorizationPolicy from Object
 		raise("DotNet Error: CombineAsync does not take one argument: use named arguments, CombineAsync([ :parameter = value, ... ])")
 
 	Func getRequirements
-		return dnSend("s3:get",nHandle,"s12:Requirements","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:Requirements"))
 
 	Func setRequirements P1
 		raise("DotNet Error: Requirements is a read-only property")
 
 	Func getAuthenticationSchemes
-		return dnSend("s3:get",nHandle,"s21:AuthenticationSchemes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:AuthenticationSchemes"))
 
 	Func setAuthenticationSchemes P1
 		raise("DotNet Error: AuthenticationSchemes is a read-only property")
@@ -540,54 +533,52 @@ Class AuthorizationPolicyBuilder from Object
 		return self
 
 	Func AddAuthenticationSchemes P1
-		return dnSend("s4:call",nHandle,"s24:AddAuthenticationSchemes",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:AddAuthenticationSchemes",P1))
 
 	Func AddRequirements P1
-		return dnSend("s4:call",nHandle,"s15:AddRequirements",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddRequirements",P1))
 
 	Func Combine P1
-		return dnSend("s4:call",nHandle,"s7:Combine",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Combine",P1))
 
 	Func RequireClaim P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s12:RequireClaim",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s12:RequireClaim",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:RequireClaim",P1))
 
 	Func RequireRole P1
-		return dnSend("s4:call",nHandle,"s11:RequireRole",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:RequireRole",P1))
 
 	Func RequireUserName P1
-		return dnSend("s4:call",nHandle,"s15:RequireUserName",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RequireUserName",P1))
 
 	Func RequireAuthenticatedUser 
-		return dnSend("s4:call",nHandle,"s24:RequireAuthenticatedUser","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:RequireAuthenticatedUser"))
 
 	Func RequireAssertion P1
-		return dnSend("s4:call",nHandle,"s16:RequireAssertion",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RequireAssertion",P1))
 
 	Func Build 
-		return dnSend("s4:call",nHandle,"s5:Build","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getRequirements
-		return dnSend("s3:get",nHandle,"s12:Requirements","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:Requirements"))
 
 	Func setRequirements P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:Requirements",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:Requirements",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:Requirements",P1)
 		return self
 
 	Func getAuthenticationSchemes
-		return dnSend("s3:get",nHandle,"s21:AuthenticationSchemes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:AuthenticationSchemes"))
 
 	Func setAuthenticationSchemes P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:AuthenticationSchemes",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:AuthenticationSchemes",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:AuthenticationSchemes",P1)
 		return self
 
 
@@ -607,31 +598,31 @@ Class AuthorizationResult from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Success 
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization'),"s7:Success","")
+		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization',"s7:Success"))
 
 	Func Failed P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization'),"s6:Failed",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization'),"s6:Failed","")
+			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization',"s6:Failed"))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization'),"s6:Failed",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization',"s6:Failed",P1))
 
 	Func getSucceeded
 		dn_x = dotnet_call("s3:get",nHandle,"s9:Succeeded")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Succeeded",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSucceeded P1
 		raise("DotNet Error: Succeeded is a read-only property")
 
 	Func getFailure
-		return dnSend("s3:get",nHandle,"s7:Failure","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Failure"))
 
 	Func setFailure P1
 		raise("DotNet Error: Failure is a read-only property")
@@ -650,7 +641,7 @@ Class AuthorizationServiceExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AuthorizeAsync P1
@@ -681,11 +672,11 @@ Class DefaultAuthorizationEvaluator from Object
 		return self
 
 	Func Evaluate P1
-		return dnSend("s4:call",nHandle,"s8:Evaluate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Evaluate",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -710,11 +701,11 @@ Class DefaultAuthorizationHandlerContextFactory from Object
 		return self
 
 	Func CreateContext P1,P2,P3
-		return dnSend("s4:call",nHandle,"s13:CreateContext",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:CreateContext",P1,P2,P3))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -732,11 +723,11 @@ Class DefaultAuthorizationHandlerProvider from Object
 		return self
 
 	Func GetHandlersAsync P1
-		return dnSend("s4:call",nHandle,"s16:GetHandlersAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetHandlersAsync",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -756,22 +747,22 @@ Class DefaultAuthorizationPolicyProvider from Object
 		return self
 
 	Func GetDefaultPolicyAsync 
-		return dnSend("s4:call",nHandle,"s21:GetDefaultPolicyAsync","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDefaultPolicyAsync"))
 
 	Func GetFallbackPolicyAsync 
-		return dnSend("s4:call",nHandle,"s22:GetFallbackPolicyAsync","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetFallbackPolicyAsync"))
 
 	Func GetPolicyAsync P1
-		return dnSend("s4:call",nHandle,"s14:GetPolicyAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetPolicyAsync",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getAllowsCachingPolicies
 		dn_x = dotnet_call("s3:get",nHandle,"s21:AllowsCachingPolicies")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:AllowsCachingPolicies",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAllowsCachingPolicies P1
@@ -792,11 +783,11 @@ Class DefaultAuthorizationService from Object
 		return self
 
 	Func AuthorizeAsync P1,P2,P3
-		return dnSend("s4:call",nHandle,"s14:AuthorizeAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AuthorizeAsync",P1,P2,P3))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -824,7 +815,7 @@ Class IAuthorizationEvaluator from DotNetObject
 		return self
 
 	Func Evaluate P1
-		return dnSend("s4:call",nHandle,"s8:Evaluate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Evaluate",P1))
 
 
 Class IAuthorizationHandler from DotNetObject
@@ -839,7 +830,7 @@ Class IAuthorizationHandler from DotNetObject
 		return self
 
 	Func HandleAsync P1
-		return dnSend("s4:call",nHandle,"s11:HandleAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:HandleAsync",P1))
 
 
 Class IAuthorizationHandlerContextFactory from DotNetObject
@@ -854,7 +845,7 @@ Class IAuthorizationHandlerContextFactory from DotNetObject
 		return self
 
 	Func CreateContext P1,P2,P3
-		return dnSend("s4:call",nHandle,"s13:CreateContext",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:CreateContext",P1,P2,P3))
 
 
 Class IAuthorizationHandlerProvider from DotNetObject
@@ -869,7 +860,7 @@ Class IAuthorizationHandlerProvider from DotNetObject
 		return self
 
 	Func GetHandlersAsync P1
-		return dnSend("s4:call",nHandle,"s16:GetHandlersAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetHandlersAsync",P1))
 
 
 Class IAuthorizationMiddlewareResultHandler from DotNetObject
@@ -884,7 +875,7 @@ Class IAuthorizationMiddlewareResultHandler from DotNetObject
 		return self
 
 	Func HandleAsync P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s11:HandleAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:HandleAsync",P1,P2,P3,P4))
 
 
 Class IAuthorizationPolicyProvider from DotNetObject
@@ -901,17 +892,17 @@ Class IAuthorizationPolicyProvider from DotNetObject
 		return self
 
 	Func GetPolicyAsync P1
-		return dnSend("s4:call",nHandle,"s14:GetPolicyAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetPolicyAsync",P1))
 
 	Func GetDefaultPolicyAsync 
-		return dnSend("s4:call",nHandle,"s21:GetDefaultPolicyAsync","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDefaultPolicyAsync"))
 
 	Func GetFallbackPolicyAsync 
-		return dnSend("s4:call",nHandle,"s22:GetFallbackPolicyAsync","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetFallbackPolicyAsync"))
 
 	Func getAllowsCachingPolicies
 		dn_x = dotnet_call("s3:get",nHandle,"s21:AllowsCachingPolicies")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:AllowsCachingPolicies",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAllowsCachingPolicies P1
@@ -942,7 +933,7 @@ Class IAuthorizationRequirementData from DotNetObject
 		return self
 
 	Func GetRequirements 
-		return dnSend("s4:call",nHandle,"s15:GetRequirements","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetRequirements"))
 
 
 Class IAuthorizationService from DotNetObject
@@ -957,7 +948,7 @@ Class IAuthorizationService from DotNetObject
 		return self
 
 	Func AuthorizeAsync P1,P2,P3
-		return dnSend("s4:call",nHandle,"s14:AuthorizeAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AuthorizeAsync",P1,P2,P3))
 
 
 Class IAuthorizeData from DotNetObject
@@ -977,32 +968,29 @@ Class IAuthorizeData from DotNetObject
 
 	Func getPolicy
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Policy")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Policy",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPolicy P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Policy",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Policy",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Policy",P1)
 		return self
 
 	Func getRoles
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Roles")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Roles",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRoles P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Roles",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Roles",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Roles",P1)
 		return self
 
 	Func getAuthenticationSchemes
 		dn_x = dotnet_call("s3:get",nHandle,"s21:AuthenticationSchemes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:AuthenticationSchemes",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAuthenticationSchemes P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:AuthenticationSchemes",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:AuthenticationSchemes",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:AuthenticationSchemes",P1)
 		return self
 
 

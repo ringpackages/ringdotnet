@@ -585,20 +585,189 @@ RING_FUNC(ring_dotnet_info)
 
 /* ---------------------------------------------------------------- dotnet_call: a call of a member, packed and read in C
 **
-**  dotnet_call(cOperation, nHandle, cName, arg1, arg2, ...)
-**    cOperation and cName are ready wire items ("s4:call", "s8:Contains"), nHandle is the handle of the target (0: the null object) and
-**    the arguments are Ring texts and numbers. The request is the same text that dnSend makes in Ring, the answer is read here:
-**      a text, a number or a yes/no  --> that value (a .NET error is raised as a Ring error)
-**      any other answer (an object, a list, null) --> the list [1, answer], for the Ring function dnFinish
-**      an argument that is not a text or a number (an object, a list)         --> the list [0]: nothing was sent, the Ring path is used
+**  dotnet_call(cOperation, nHandle or cTypeName, cName, arg1, arg2, ...)     the answer is a text, a number or a yes/no
+**  dotnet_callv(...)                                                         a method that returns nothing: 1
+**  dotnet_callo(...)                                                         a method that returns an object
+**    cOperation and cName are ready wire items ("s4:call", "s8:Contains"), the target is the handle of the object (0: the null object) or,
+**    for a static method, the name of the type (the handle is remembered in this file). The arguments are packed here: texts, numbers,
+**    lists (also lists of lists), .NET objects (their handle) and callbacks (their code), like the Ring function dnPackItem does.
+**    The request is the same text that dnSend makes in Ring; the answer is read here:
+**      dotnet_call:   a text, a number or a yes/no  --> that value
+**      dotnet_callv:  1
+**      dotnet_callo:  an object --> "<handle>|<type>|<base type>..." (a text: dnObj wraps it); null --> 0
+**      a .NET error is raised as a Ring error; any other answer --> the list [1, answer] (dnFinish reads it)
 */
 
-/* append one text item "s<length>:<data>" */
-static char *ringdotnet_additem ( char *p, char cTag, const char *cData, int nSize )
+/* A growing text: it starts in the buffer of the caller (1 KB) and moves to the heap when it needs more */
+typedef struct {
+	char *p ;
+	size_t nSize ;
+	size_t nCapacity ;
+	char cLocal[1024] ;
+} DnBuf ;
+
+static void dnbuf_init ( DnBuf *b )
 {
-	p += sprintf(p,"%c%d:",cTag,nSize);
-	memcpy(p,cData,(size_t) nSize);
-	return p + nSize ;
+	b->p = b->cLocal ;
+	b->nSize = 0 ;
+	b->nCapacity = sizeof(b->cLocal) ;
+}
+
+static void dnbuf_free ( DnBuf *b )
+{
+	if ( b->p != b->cLocal ) {
+		free(b->p);
+	}
+}
+
+static int dnbuf_need ( DnBuf *b, size_t nExtra )
+{
+	if ( b->nSize + nExtra + 1 > b->nCapacity ) {
+		size_t nNew = b->nCapacity * 2 ;
+		char *pNew ;
+		while ( b->nSize + nExtra + 1 > nNew ) {
+			nNew *= 2 ;
+		}
+		if ( b->p == b->cLocal ) {
+			pNew = (char *) malloc(nNew);
+			if ( pNew ) {
+				memcpy(pNew,b->p,b->nSize);
+			}
+		} else {
+			pNew = (char *) realloc(b->p,nNew);
+		}
+		if ( ! pNew ) {
+			return 0 ;
+		}
+		b->p = pNew ;
+		b->nCapacity = nNew ;
+	}
+	return 1 ;
+}
+
+static int dnbuf_add ( DnBuf *b, const char *pData, size_t nSize )
+{
+	if ( ! dnbuf_need(b,nSize) ) {
+		return 0 ;
+	}
+	memcpy(b->p + b->nSize,pData,nSize);
+	b->nSize += nSize ;
+	return 1 ;
+}
+
+/* one item: <tag><length>:<data> */
+static int dnbuf_item ( DnBuf *b, char cTag, const char *pData, size_t nSize )
+{
+	char cHead[32] ;
+	int nHead = sprintf(cHead,"%c%u:",cTag,(unsigned int) nSize);
+	return dnbuf_add(b,cHead,(size_t) nHead) && dnbuf_add(b,pData,nSize) ;
+}
+
+static int dnbuf_number ( DnBuf *b, double nValue )
+{
+	char cNum[48] ;
+	if ( (nValue == floor(nValue)) && (fabs(nValue) < 1000000000000.0) ) {
+		int nLen = sprintf(cNum,"%.0f",nValue);
+		return dnbuf_item(b,'n',cNum,(size_t) nLen) ;
+	}
+	/* other numbers travel as the 8 bytes of the double (no loss of precision) */
+	return dnbuf_item(b,'d',(const char *) &nValue,8) ;
+}
+
+/* the handle item of an object (o<length>:<handle>) or the null item */
+static int dnbuf_handle ( DnBuf *b, double nHandle )
+{
+	char cNum[48] ;
+	int nLen ;
+	if ( nHandle == 0 ) {
+		return dnbuf_add(b,"z0:",3) ;
+	}
+	nLen = sprintf(cNum,"%.0f",nHandle);
+	return dnbuf_item(b,'o',cNum,(size_t) nLen) ;
+}
+
+/* the variable list of an attribute of an object (by its lower case name), or NULL */
+static List *ringdotnet_attribute ( List *pObject, const char *cName )
+{
+	List *pData = RING_OBJECT_GETOBJECTDATA(pObject) ;
+	unsigned int x, nSize = ring_list_getsize(pData) ;
+	for ( x = 1 ; x <= nSize ; x++ ) {
+		List *pVar ;
+		if ( ! ring_list_islist(pData,x) ) {
+			continue ;
+		}
+		pVar = ring_list_getlist(pData,x);
+		if ( ring_list_getsize(pVar) >= RING_VAR_VALUE && ring_list_isstring(pVar,RING_VAR_NAME) &&
+		     (strcmp(ring_list_getstring(pVar,RING_VAR_NAME),cName) == 0) ) {
+			return pVar ;
+		}
+	}
+	return NULL ;
+}
+
+static int dn_packlist ( DnBuf *b, List *pList ) ;
+
+/* a Ring object that is an argument: a callback (the attribute cCode) or a .NET object (the attribute nHandle) */
+static int dn_packobject ( DnBuf *b, List *pObject )
+{
+	List *pVar = ringdotnet_attribute(pObject,"ccode") ;
+	if ( pVar && ring_list_isstring(pVar,RING_VAR_VALUE) ) {
+		return dnbuf_item(b,'c',ring_list_getstring(pVar,RING_VAR_VALUE),(size_t) ring_list_getstringsize(pVar,RING_VAR_VALUE)) ;
+	}
+	pVar = ringdotnet_attribute(pObject,"nhandle");
+	if ( pVar && ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
+		return dnbuf_handle(b,ring_list_getdouble(pVar,RING_VAR_VALUE)) ;
+	}
+	return -1 ;
+}
+
+/* a list item that is a list or an object */
+static int dn_packsub ( DnBuf *b, List *pSub )
+{
+	if ( ring_list_isobject(pSub) ) {
+		return dn_packobject(b,pSub) ;
+	}
+	return dn_packlist(b,pSub) ;
+}
+
+/* a list: the item 'l' with the items inside */
+static int dn_packlist ( DnBuf *b, List *pList )
+{
+	DnBuf oInner ;
+	unsigned int x, nSize = ring_list_getsize(pList) ;
+	int nResult = 1 ;
+	dnbuf_init(&oInner);
+	for ( x = 1 ; x <= nSize && nResult > 0 ; x++ ) {
+		if ( ring_list_isstring(pList,x) ) {
+			nResult = dnbuf_item(&oInner,'s',ring_list_getstring(pList,x),(size_t) ring_list_getstringsize(pList,x)) ;
+		} else if ( ring_list_isnumber(pList,x) ) {
+			nResult = dnbuf_number(&oInner,ring_list_getdouble(pList,x)) ;
+		} else if ( ring_list_islist(pList,x) ) {
+			nResult = dn_packsub(&oInner,ring_list_getlist(pList,x)) ;
+		} else {
+			nResult = -1 ;
+		}
+	}
+	if ( nResult > 0 ) {
+		nResult = dnbuf_item(b,'l',oInner.p,oInner.nSize) ;
+	}
+	dnbuf_free(&oInner);
+	return nResult ;
+}
+
+/* a parameter of the Ring function: 1 packed, 0 no memory, -1 not a type that can be sent */
+static int dn_packparam ( DnBuf *b, void *pPointer, int x )
+{
+	if ( RING_API_ISSTRING(x) ) {
+		return dnbuf_item(b,'s',RING_API_GETSTRING(x),(size_t) RING_API_GETSTRINGSIZE(x)) ;
+	}
+	if ( RING_API_ISNUMBER(x) ) {
+		return dnbuf_number(b,RING_API_GETNUMBER(x)) ;
+	}
+	if ( RING_API_ISLIST(x) ) {
+		return dn_packsub(b,RING_API_GETLIST(x)) ;
+	}
+	return -1 ;
 }
 
 /* The handle of the type object of a type name, for the static methods: dotnet_call may be given the name of the type (a text) instead of
@@ -614,7 +783,7 @@ static int ringdotnet_typehandle ( const char *cName, int nLen, double *pHandle 
 {
 	unsigned int nHash = 5381, nSlot ;
 	int x, nTry ;
-	char *pRequest, *p ;
+	DnBuf oRequest ;
 	const unsigned char *pOut ;
 	int nOutSize = 0 ;
 	for ( x = 0 ; x < nLen ; x++ ) {
@@ -635,17 +804,15 @@ static int ringdotnet_typehandle ( const char *cName, int nLen, double *pHandle 
 			nSlot = DN_TYPECACHE ;          /* the table is full: ask every time */
 		}
 	}
-	pRequest = (char *) malloc((size_t) nLen + 32);
-	if ( ! pRequest ) {
+	dnbuf_init(&oRequest);
+	if ( ! (dnbuf_add(&oRequest,"s4:type",7) && dnbuf_item(&oRequest,'s',cName,(size_t) nLen)) ) {
+		dnbuf_free(&oRequest);
 		return 0 ;
 	}
-	p = pRequest ;
-	p += sprintf(p,"s4:type");
-	p = ringdotnet_additem(p,'s',cName,nLen);
 	g_nDepth++ ;
-	pOut = g_pInvoke((const unsigned char *) pRequest,(int) (p - pRequest),&nOutSize);
+	pOut = g_pInvoke((const unsigned char *) oRequest.p,(int) oRequest.nSize,&nOutSize);
 	g_nDepth-- ;
-	free(pRequest);
+	dnbuf_free(&oRequest);
 	if ( ! pOut ) {
 		return 0 ;
 	}
@@ -677,26 +844,28 @@ static int ringdotnet_typehandle ( const char *cName, int nLen, double *pHandle 
 	return 0 ;
 }
 
-static void ringdotnet_docall ( void *pPointer, int nVoid )
+#define DN_MODE_VALUE 0
+#define DN_MODE_VOID 1
+#define DN_MODE_OBJECT 2
+
+static void ringdotnet_docall ( void *pPointer, int nMode )
 {
-	int nPara, x, nSize, nOutSize = 0, nLen, nColon ;
-	size_t nCapacity ;
-	char *pRequest, *p, cNum[48], *pStack ;
-	char cLocal[1024] ;
-	const unsigned char *pOut ;
-	char cTag ;
-	nPara = RING_API_PARACOUNT ;
+	int nPara, x, nOutSize = 0, nLen, nColon, nPacked ;
 	double nTarget ;
+	DnBuf oRequest ;
+	const unsigned char *pOut ;
+	char cTag, cNum[48] ;
+	nPara = RING_API_PARACOUNT ;
 	if ( (nPara < 3) || (! RING_API_ISSTRING(1)) || ((! RING_API_ISNUMBER(2)) && (! RING_API_ISSTRING(2))) || (! RING_API_ISSTRING(3)) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
+	if ( ! ringdotnet_startruntime(NULL) ) {
+		RING_API_ERROR(g_cError);
+		return ;
+	}
 	if ( RING_API_ISSTRING(2) ) {
 		/* the name of a type (a static method): its handle comes from the table of this file */
-		if ( ! ringdotnet_startruntime(NULL) ) {
-			RING_API_ERROR(g_cError);
-			return ;
-		}
 		if ( ! ringdotnet_typehandle(RING_API_GETSTRING(2),(int) RING_API_GETSTRINGSIZE(2),&nTarget) ) {
 			RING_API_ERROR("Can't find the .NET type");
 			return ;
@@ -704,62 +873,21 @@ static void ringdotnet_docall ( void *pPointer, int nVoid )
 	} else {
 		nTarget = RING_API_GETNUMBER(2) ;
 	}
-	/* the size of the request: the operation, the target, the name and the arguments (a number needs at most 48 bytes) */
-	nCapacity = (size_t) RING_API_GETSTRINGSIZE(1) + (size_t) RING_API_GETSTRINGSIZE(3) + 64 ;
-	for ( x = 4 ; x <= nPara ; x++ ) {
-		if ( RING_API_ISSTRING(x) ) {
-			nCapacity += (size_t) RING_API_GETSTRINGSIZE(x) + 24 ;
-		} else if ( RING_API_ISNUMBER(x) ) {
-			nCapacity += 64 ;
-		} else {
-			List *pList = RING_API_NEWLIST ;
-			ring_list_adddouble(pList,0);
-			RING_API_RETLIST(pList);
-			return ;
-		}
+	/* the request: the operation, the target, the name and the arguments */
+	dnbuf_init(&oRequest);
+	nPacked = dnbuf_add(&oRequest,RING_API_GETSTRING(1),(size_t) RING_API_GETSTRINGSIZE(1)) && dnbuf_handle(&oRequest,nTarget) &&
+	          dnbuf_add(&oRequest,RING_API_GETSTRING(3),(size_t) RING_API_GETSTRINGSIZE(3)) ;
+	for ( x = 4 ; x <= nPara && nPacked > 0 ; x++ ) {
+		nPacked = dn_packparam(&oRequest,pPointer,x) ;
 	}
-	pStack = NULL ;
-	if ( nCapacity <= sizeof(cLocal) ) {
-		pRequest = cLocal ;
-	} else {
-		pStack = (char *) malloc(nCapacity);
-		if ( ! pStack ) {
-			RING_API_ERROR(RING_OOM);
-			return ;
-		}
-		pRequest = pStack ;
+	if ( nPacked == 0 ) {
+		dnbuf_free(&oRequest);
+		RING_API_ERROR(RING_OOM);
+		return ;
 	}
-	p = pRequest ;
-	memcpy(p,RING_API_GETSTRING(1),(size_t) RING_API_GETSTRINGSIZE(1));
-	p += RING_API_GETSTRINGSIZE(1) ;
-	if ( nTarget == 0 ) {
-		p += sprintf(p,"z0:");
-	} else {
-		nLen = sprintf(cNum,"%.0f",nTarget);
-		p += sprintf(p,"o%d:%s",nLen,cNum);
-	}
-	memcpy(p,RING_API_GETSTRING(3),(size_t) RING_API_GETSTRINGSIZE(3));
-	p += RING_API_GETSTRINGSIZE(3) ;
-	for ( x = 4 ; x <= nPara ; x++ ) {
-		if ( RING_API_ISSTRING(x) ) {
-			p = ringdotnet_additem(p,'s',RING_API_GETSTRING(x),(int) RING_API_GETSTRINGSIZE(x));
-		} else {
-			double nValue = RING_API_GETNUMBER(x) ;
-			if ( (nValue == floor(nValue)) && (fabs(nValue) < 1000000000000.0) ) {
-				nLen = sprintf(cNum,"%.0f",nValue);
-				p += sprintf(p,"n%d:%s",nLen,cNum);
-			} else {
-				/* other numbers travel as the 8 bytes of the double (no loss of precision) */
-				memcpy(p,"d8:",3);
-				memcpy(p + 3,&nValue,8);
-				p += 11 ;
-			}
-		}
-	}
-	nSize = (int) (p - pRequest) ;
-	if ( ! ringdotnet_startruntime(NULL) ) {
-		free(pStack);
-		RING_API_ERROR(g_cError);
+	if ( nPacked < 0 ) {
+		dnbuf_free(&oRequest);
+		RING_API_ERROR("DotNet Error: Unsupported parameter type (use strings, numbers, lists and .NET objects)");
 		return ;
 	}
 	fflush(stdout);
@@ -770,11 +898,11 @@ static void ringdotnet_docall ( void *pPointer, int nVoid )
 		void *pOldVM = g_pVM ;
 		g_pVM = pPointer ;
 		g_nDepth++ ;
-		pOut = g_pInvoke((const unsigned char *) pRequest,nSize,&nOutSize);
+		pOut = g_pInvoke((const unsigned char *) oRequest.p,(int) oRequest.nSize,&nOutSize);
 		g_nDepth-- ;
 		g_pVM = pOldVM ;
 	}
-	free(pStack);
+	dnbuf_free(&oRequest);
 	if ( ! pOut ) {
 		RING_API_ERROR("The .NET bridge returned no response");
 		return ;
@@ -789,27 +917,41 @@ static void ringdotnet_docall ( void *pPointer, int nVoid )
 	}
 	if ( (nColon < nOutSize) && (pOut[nColon] == ':') && (nOutSize == nColon + 1 + nLen) ) {
 		const char *pBody = (const char *) pOut + nColon + 1 ;
-		if ( nVoid && (cTag != 'e') ) {
+		if ( nMode == DN_MODE_VOID && cTag != 'e' ) {
 			RING_API_RETNUMBER(1);
 			g_pFree((void *) pOut);
 			return ;
 		}
-		if ( cTag == 's' ) {
-			RING_API_RETSTRING2(pBody,nLen);
-			g_pFree((void *) pOut);
-			return ;
+		if ( nMode == DN_MODE_OBJECT ) {
+			if ( cTag == 'o' ) {
+				RING_API_RETSTRING2(pBody,nLen);
+				g_pFree((void *) pOut);
+				return ;
+			}
+			if ( cTag == 'z' ) {
+				RING_API_RETNUMBER(0);
+				g_pFree((void *) pOut);
+				return ;
+			}
 		}
-		if ( (cTag == 'n') && (nLen > 0) && (nLen < (int) sizeof(cNum)) ) {
-			memcpy(cNum,pBody,(size_t) nLen);
-			cNum[nLen] = 0 ;
-			RING_API_RETNUMBER(strtod(cNum,NULL));
-			g_pFree((void *) pOut);
-			return ;
-		}
-		if ( cTag == 'b' ) {
-			RING_API_RETNUMBER((nLen > 0 && pBody[0] == '1') ? 1 : 0);
-			g_pFree((void *) pOut);
-			return ;
+		if ( nMode == DN_MODE_VALUE ) {
+			if ( cTag == 's' ) {
+				RING_API_RETSTRING2(pBody,nLen);
+				g_pFree((void *) pOut);
+				return ;
+			}
+			if ( (cTag == 'n') && (nLen > 0) && (nLen < (int) sizeof(cNum)) ) {
+				memcpy(cNum,pBody,(size_t) nLen);
+				cNum[nLen] = 0 ;
+				RING_API_RETNUMBER(strtod(cNum,NULL));
+				g_pFree((void *) pOut);
+				return ;
+			}
+			if ( cTag == 'b' ) {
+				RING_API_RETNUMBER((nLen > 0 && pBody[0] == '1') ? 1 : 0);
+				g_pFree((void *) pOut);
+				return ;
+			}
 		}
 		if ( cTag == 'e' ) {
 			char *pError = (char *) malloc((size_t) nLen + 32);
@@ -827,26 +969,29 @@ static void ringdotnet_docall ( void *pPointer, int nVoid )
 			return ;
 		}
 	}
-	/* an object, a list, null...: the Ring function dnFinish reads the answer */
+	/* any other answer: the Ring function dnFinish reads it (the list is returned by reference: it was made here) */
 	{
 		List *pList = RING_API_NEWLIST ;
 		ring_list_adddouble(pList,1);
 		ring_list_addstring2(pList,(const char *) pOut,(unsigned int) nOutSize);
-		RING_API_RETLIST(pList);
+		RING_API_RETLISTBYREF(pList);
 	}
 	g_pFree((void *) pOut);
 }
 
-
-/* dotnet_call(...) --> the answer (see above); dotnet_callv(...) for a method that returns nothing: 1, or an error */
 RING_FUNC(ring_dotnet_call)
 {
-	ringdotnet_docall(pPointer,0);
+	ringdotnet_docall(pPointer,DN_MODE_VALUE);
 }
 
 RING_FUNC(ring_dotnet_callv)
 {
-	ringdotnet_docall(pPointer,1);
+	ringdotnet_docall(pPointer,DN_MODE_VOID);
+}
+
+RING_FUNC(ring_dotnet_callo)
+{
+	ringdotnet_docall(pPointer,DN_MODE_OBJECT);
 }
 
 /* dotnet_callbackrequest() --> the packed request of the running callback (function name, arguments) */
@@ -871,6 +1016,7 @@ RING_LIBINIT
 	RING_API_REGISTER("dotnet_invoke",ring_dotnet_invoke);
 	RING_API_REGISTER("dotnet_call",ring_dotnet_call);
 	RING_API_REGISTER("dotnet_callv",ring_dotnet_callv);
+	RING_API_REGISTER("dotnet_callo",ring_dotnet_callo);
 	RING_API_REGISTER("dotnet_guard",ring_dotnet_guard);
 	RING_API_REGISTER("dotnet_unguard",ring_dotnet_unguard);
 	RING_API_REGISTER("dotnet_pending",ring_dotnet_pending);

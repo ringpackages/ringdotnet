@@ -81,21 +81,21 @@ Class CompositeFileProvider from Object
 		return self
 
 	Func GetFileInfo P1
-		return dnSend("s4:call",nHandle,"s11:GetFileInfo",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetFileInfo",P1))
 
 	Func GetDirectoryContents P1
-		return dnSend("s4:call",nHandle,"s20:GetDirectoryContents",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetDirectoryContents",P1))
 
 	Func Watch P1
-		return dnSend("s4:call",nHandle,"s5:Watch",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Watch",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getFileProviders
-		return dnSend("s3:get",nHandle,"s13:FileProviders","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:FileProviders"))
 
 	Func setFileProviders P1
 		raise("DotNet Error: FileProviders is a read-only property")
@@ -130,17 +130,17 @@ Class EmbeddedFileProvider from Object
 		return self
 
 	Func GetFileInfo P1
-		return dnSend("s4:call",nHandle,"s11:GetFileInfo",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetFileInfo",P1))
 
 	Func GetDirectoryContents P1
-		return dnSend("s4:call",nHandle,"s20:GetDirectoryContents",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetDirectoryContents",P1))
 
 	Func Watch P1
-		return dnSend("s4:call",nHandle,"s5:Watch",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Watch",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -159,7 +159,7 @@ Class IDirectoryContents from DotNetObject
 
 	Func getExists
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Exists")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Exists",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setExists P1
@@ -185,11 +185,11 @@ Class IFileInfo from DotNetObject
 		return self
 
 	Func CreateReadStream 
-		return dnSend("s4:call",nHandle,"s16:CreateReadStream","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateReadStream"))
 
 	Func getExists
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Exists")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Exists",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setExists P1
@@ -197,7 +197,7 @@ Class IFileInfo from DotNetObject
 
 	Func getLength
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Length",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLength P1
@@ -205,7 +205,7 @@ Class IFileInfo from DotNetObject
 
 	Func getPhysicalPath
 		dn_x = dotnet_call("s3:get",nHandle,"s12:PhysicalPath")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:PhysicalPath",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPhysicalPath P1
@@ -213,21 +213,21 @@ Class IFileInfo from DotNetObject
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getLastModified
-		return dnSend("s3:get",nHandle,"s12:LastModified","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:LastModified"))
 
 	Func setLastModified P1
 		raise("DotNet Error: LastModified is a read-only property")
 
 	Func getIsDirectory
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsDirectory")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsDirectory",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsDirectory P1
@@ -246,13 +246,13 @@ Class IFileProvider from DotNetObject
 		return self
 
 	Func GetFileInfo P1
-		return dnSend("s4:call",nHandle,"s11:GetFileInfo",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetFileInfo",P1))
 
 	Func GetDirectoryContents P1
-		return dnSend("s4:call",nHandle,"s20:GetDirectoryContents",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetDirectoryContents",P1))
 
 	Func Watch P1
-		return dnSend("s4:call",nHandle,"s5:Watch",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Watch",P1))
 
 
 Class ManifestEmbeddedFileProvider from Object
@@ -286,21 +286,21 @@ Class ManifestEmbeddedFileProvider from Object
 		return self
 
 	Func GetDirectoryContents P1
-		return dnSend("s4:call",nHandle,"s20:GetDirectoryContents",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetDirectoryContents",P1))
 
 	Func GetFileInfo P1
-		return dnSend("s4:call",nHandle,"s11:GetFileInfo",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetFileInfo",P1))
 
 	Func Watch P1
-		return dnSend("s4:call",nHandle,"s5:Watch",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Watch",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getAssembly
-		return dnSend("s3:get",nHandle,"s8:Assembly","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Assembly"))
 
 	Func setAssembly P1
 		raise("DotNet Error: Assembly is a read-only property")
@@ -330,23 +330,23 @@ Class NotFoundDirectoryContents from Object
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getExists
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Exists")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Exists",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
 
 	Func getSingleton
-		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.FileProviders.NotFoundDirectoryContents, Microsoft.Extensions.FileProviders.Abstractions'),"s9:Singleton","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.Extensions.FileProviders.NotFoundDirectoryContents, Microsoft.Extensions.FileProviders.Abstractions',"s9:Singleton"))
 
 	Func setSingleton P1
 		raise("DotNet Error: Singleton is a read-only property")
@@ -373,16 +373,16 @@ Class NotFoundFileInfo from Object
 		return self
 
 	Func CreateReadStream 
-		return dnSend("s4:call",nHandle,"s16:CreateReadStream","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateReadStream"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getExists
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Exists")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Exists",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setExists P1
@@ -390,21 +390,21 @@ Class NotFoundFileInfo from Object
 
 	Func getIsDirectory
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsDirectory")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsDirectory",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsDirectory P1
 		raise("DotNet Error: IsDirectory is a read-only property")
 
 	Func getLastModified
-		return dnSend("s3:get",nHandle,"s12:LastModified","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:LastModified"))
 
 	Func setLastModified P1
 		raise("DotNet Error: LastModified is a read-only property")
 
 	Func getLength
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Length",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLength P1
@@ -412,7 +412,7 @@ Class NotFoundFileInfo from Object
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
@@ -420,7 +420,7 @@ Class NotFoundFileInfo from Object
 
 	Func getPhysicalPath
 		dn_x = dotnet_call("s3:get",nHandle,"s12:PhysicalPath")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:PhysicalPath",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPhysicalPath P1
@@ -443,16 +443,16 @@ Class NullChangeToken from Object
 		return self
 
 	Func RegisterChangeCallback P1,P2
-		return dnSend("s4:call",nHandle,"s22:RegisterChangeCallback",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:RegisterChangeCallback",P1,P2))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getHasChanged
 		dn_x = dotnet_call("s3:get",nHandle,"s10:HasChanged")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:HasChanged",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasChanged P1
@@ -460,14 +460,14 @@ Class NullChangeToken from Object
 
 	Func getActiveChangeCallbacks
 		dn_x = dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:ActiveChangeCallbacks",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setActiveChangeCallbacks P1
 		raise("DotNet Error: ActiveChangeCallbacks is a read-only property")
 
 	Func getSingleton
-		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.FileProviders.NullChangeToken, Microsoft.Extensions.FileProviders.Abstractions'),"s9:Singleton","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.Extensions.FileProviders.NullChangeToken, Microsoft.Extensions.FileProviders.Abstractions',"s9:Singleton"))
 
 	Func setSingleton P1
 		raise("DotNet Error: Singleton is a read-only property")
@@ -494,17 +494,17 @@ Class NullFileProvider from Object
 		return self
 
 	Func GetDirectoryContents P1
-		return dnSend("s4:call",nHandle,"s20:GetDirectoryContents",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetDirectoryContents",P1))
 
 	Func GetFileInfo P1
-		return dnSend("s4:call",nHandle,"s11:GetFileInfo",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetFileInfo",P1))
 
 	Func Watch P1
-		return dnSend("s4:call",nHandle,"s5:Watch",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Watch",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -541,48 +541,45 @@ Class PhysicalFileProvider from Object
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func GetFileInfo P1
-		return dnSend("s4:call",nHandle,"s11:GetFileInfo",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetFileInfo",P1))
 
 	Func GetDirectoryContents P1
-		return dnSend("s4:call",nHandle,"s20:GetDirectoryContents",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetDirectoryContents",P1))
 
 	Func Watch P1
-		return dnSend("s4:call",nHandle,"s5:Watch",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Watch",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getUsePollingFileWatcher
 		dn_x = dotnet_call("s3:get",nHandle,"s21:UsePollingFileWatcher")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:UsePollingFileWatcher",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUsePollingFileWatcher P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:UsePollingFileWatcher",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:UsePollingFileWatcher",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:UsePollingFileWatcher",P1)
 		return self
 
 	Func getUseActivePolling
 		dn_x = dotnet_call("s3:get",nHandle,"s16:UseActivePolling")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:UseActivePolling",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUseActivePolling P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:UseActivePolling",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:UseActivePolling",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:UseActivePolling",P1)
 		return self
 
 	Func getRoot
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Root")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Root",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRoot P1

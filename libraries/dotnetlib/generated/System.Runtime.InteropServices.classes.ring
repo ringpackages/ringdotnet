@@ -240,11 +240,11 @@ Class ArrayWithOffset from ValueType
 		return self
 
 	Func GetArray 
-		return dnSend("s4:call",nHandle,"s8:GetArray","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetArray"))
 
 	Func GetOffset 
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetOffset")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetOffset",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -265,12 +265,12 @@ Class BStrWrapper from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getWrappedObject
 		dn_x = dotnet_call("s3:get",nHandle,"s13:WrappedObject")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:WrappedObject",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setWrappedObject P1
@@ -316,7 +316,7 @@ Class CLong from ValueType
 		return self
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -361,7 +361,7 @@ Class CULong from ValueType
 		return self
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -380,21 +380,20 @@ Class CollectionsMarshal from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AsSpan P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"s6:AsSpan",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib',"s6:AsSpan",P1))
 
 	Func GetValueRefOrNullRef P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"s20:GetValueRefOrNullRef",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib',"s20:GetValueRefOrNullRef",P1,P2))
 
 	Func GetValueRefOrAddDefault P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"s23:GetValueRefOrAddDefault",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetCount P1,P2
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib',"s8:SetCount",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"s8:SetCount",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib',"s8:SetCount",P1,P2)
 
 		return self
 
@@ -426,17 +425,16 @@ Class ComEventsHelper from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Combine P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.ComEventsHelper, System.Private.CoreLib',"s7:Combine",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.ComEventsHelper, System.Private.CoreLib'),"s7:Combine",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.ComEventsHelper, System.Private.CoreLib',"s7:Combine",P1,P2,P3,P4)
 
 		return self
 
 	Func Remove P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.ComEventsHelper, System.Private.CoreLib'),"s6:Remove",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.ComEventsHelper, System.Private.CoreLib',"s6:Remove",P1,P2,P3,P4))
 
 
 Class ComWrappers from Object
@@ -451,10 +449,10 @@ Class ComWrappers from Object
 		return self
 
 	Func GetOrCreateComInterfaceForObject P1,P2
-		return dnSend("s4:call",nHandle,"s32:GetOrCreateComInterfaceForObject",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetOrCreateComInterfaceForObject",P1,P2))
 
 	Func GetOrCreateObjectForComInstance P1,P2
-		return dnSend("s4:call",nHandle,"s31:GetOrCreateObjectForComInstance",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetOrCreateObjectForComInstance",P1,P2))
 
 	Func GetOrRegisterObjectForComInstance P1
 		if dnIsNamed(P1)
@@ -464,7 +462,7 @@ Class ComWrappers from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryGetComInstance P1
@@ -474,14 +472,12 @@ Class ComWrappers from Object
 		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib'),"s12:TryGetObject",dnPackItem(P1))
 
 	Func RegisterForTrackerSupport P1
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib',"s25:RegisterForTrackerSupport",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib'),"s25:RegisterForTrackerSupport",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib',"s25:RegisterForTrackerSupport",P1)
 
 		return self
 
 	Func RegisterForMarshalling P1
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib',"s22:RegisterForMarshalling",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib'),"s22:RegisterForMarshalling",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib',"s22:RegisterForMarshalling",P1)
 
 		return self
 
@@ -504,44 +500,41 @@ Class CriticalHandle from DotNetObject
 		return self
 
 	Func Close 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Close")
 
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func SetHandleAsInvalid 
-		dn_x = dotnet_callv("s4:call",nHandle,"s18:SetHandleAsInvalid")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s18:SetHandleAsInvalid","") ok
+		dotnet_callv("s4:call",nHandle,"s18:SetHandleAsInvalid")
 
 		return self
 
 	Func GetType 
-		return dnSend("s4:call",nHandle,"s7:GetType","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode 
 		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getIsClosed
 		dn_x = dotnet_call("s3:get",nHandle,"s8:IsClosed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsClosed",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsClosed P1
@@ -549,7 +542,7 @@ Class CriticalHandle from DotNetObject
 
 	Func getIsInvalid
 		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInvalid")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsInvalid",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsInvalid P1
@@ -573,11 +566,11 @@ Class DispatchWrapper from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getWrappedObject
-		return dnSend("s3:get",nHandle,"s13:WrappedObject","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:WrappedObject"))
 
 	Func setWrappedObject P1
 		raise("DotNet Error: WrappedObject is a read-only property")
@@ -600,12 +593,12 @@ Class ErrorWrapper from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getErrorCode
 		dn_x = dotnet_call("s3:get",nHandle,"s9:ErrorCode")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:ErrorCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setErrorCode P1
@@ -636,37 +629,35 @@ Class GCHandle from ValueType
 		return self
 
 	Func Free 
-		dn_x = dotnet_callv("s4:call",nHandle,"s4:Free")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Free","") ok
+		dotnet_callv("s4:call",nHandle,"s4:Free")
 
 		return self
 
 	Func AddrOfPinnedObject 
-		return dnSend("s4:call",nHandle,"s18:AddrOfPinnedObject","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddrOfPinnedObject"))
 
 	Func Alloc P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib'),"s5:Alloc",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib'),"s5:Alloc",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.GCHandle, System.Private.CoreLib',"s5:Alloc",P1))
 
 	Func FromIntPtr P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib'),"s10:FromIntPtr",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.GCHandle, System.Private.CoreLib',"s10:FromIntPtr",P1))
 
 	Func ToIntPtr P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib'),"s8:ToIntPtr",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.GCHandle, System.Private.CoreLib',"s8:ToIntPtr",P1))
 
 	Func getTarget
-		return dnSend("s3:get",nHandle,"s6:Target","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Target"))
 
 	Func setTarget P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Target",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Target",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Target",P1)
 		return self
 
 	Func getIsAllocated
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsAllocated")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsAllocated",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAllocated P1
@@ -707,25 +698,23 @@ Class HandleCollector from Object
 		return self
 
 	Func Add 
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add","") ok
+		dotnet_callv("s4:call",nHandle,"s3:Add")
 
 		return self
 
 	Func Remove 
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove","") ok
+		dotnet_callv("s4:call",nHandle,"s6:Remove")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -733,7 +722,7 @@ Class HandleCollector from Object
 
 	Func getInitialThreshold
 		dn_x = dotnet_call("s3:get",nHandle,"s16:InitialThreshold")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:InitialThreshold",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInitialThreshold P1
@@ -741,7 +730,7 @@ Class HandleCollector from Object
 
 	Func getMaximumThreshold
 		dn_x = dotnet_call("s3:get",nHandle,"s16:MaximumThreshold")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:MaximumThreshold",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaximumThreshold P1
@@ -749,7 +738,7 @@ Class HandleCollector from Object
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
@@ -796,16 +785,16 @@ Class HandleRef from ValueType
 		return self
 
 	Func ToIntPtr P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.HandleRef, System.Private.CoreLib'),"s8:ToIntPtr",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.HandleRef, System.Private.CoreLib',"s8:ToIntPtr",P1))
 
 	Func getWrapper
-		return dnSend("s3:get",nHandle,"s7:Wrapper","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Wrapper"))
 
 	Func setWrapper P1
 		raise("DotNet Error: Wrapper is a read-only property")
 
 	Func getHandle
-		return dnSend("s3:get",nHandle,"s6:Handle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Handle"))
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
@@ -823,7 +812,7 @@ Class ICustomAdapter from DotNetObject
 		return self
 
 	Func GetUnderlyingObject 
-		return dnSend("s4:call",nHandle,"s19:GetUnderlyingObject","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetUnderlyingObject"))
 
 
 Class ICustomFactory from DotNetObject
@@ -838,7 +827,7 @@ Class ICustomFactory from DotNetObject
 		return self
 
 	Func CreateInstance P1
-		return dnSend("s4:call",nHandle,"s14:CreateInstance",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
 
 
 Class ICustomMarshaler from DotNetObject
@@ -853,26 +842,24 @@ Class ICustomMarshaler from DotNetObject
 		return self
 
 	Func MarshalNativeToManaged P1
-		return dnSend("s4:call",nHandle,"s22:MarshalNativeToManaged",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:MarshalNativeToManaged",P1))
 
 	Func MarshalManagedToNative P1
-		return dnSend("s4:call",nHandle,"s22:MarshalManagedToNative",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:MarshalManagedToNative",P1))
 
 	Func CleanUpNativeData P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s17:CleanUpNativeData",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s17:CleanUpNativeData",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s17:CleanUpNativeData",P1)
 
 		return self
 
 	Func CleanUpManagedData P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s18:CleanUpManagedData",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s18:CleanUpManagedData",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s18:CleanUpManagedData",P1)
 
 		return self
 
 	Func GetNativeDataSize 
 		dn_x = dotnet_call("s4:call",nHandle,"s17:GetNativeDataSize")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s17:GetNativeDataSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -904,11 +891,11 @@ Class IDynamicInterfaceCastable from DotNetObject
 
 	Func IsInterfaceImplemented P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s22:IsInterfaceImplemented",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s22:IsInterfaceImplemented",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetInterfaceImplementation P1
-		return dnSend("s4:call",nHandle,"s26:GetInterfaceImplementation",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetInterfaceImplementation",P1))
 
 
 Class Marshal from Object
@@ -927,21 +914,21 @@ Class Marshal from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func OffsetOf P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s8:OffsetOf",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s8:OffsetOf",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s8:OffsetOf",P1))
 
 	Func ReadByte P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s8:ReadByte",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s8:ReadByte",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s8:ReadByte",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReadInt16 P1
@@ -949,7 +936,7 @@ Class Marshal from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s9:ReadInt16",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s9:ReadInt16",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s9:ReadInt16",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReadInt32 P1
@@ -957,7 +944,7 @@ Class Marshal from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s9:ReadInt32",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s9:ReadInt32",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s9:ReadInt32",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReadInt64 P1
@@ -965,7 +952,7 @@ Class Marshal from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s9:ReadInt64",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s9:ReadInt64",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s9:ReadInt64",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func WriteByte P1
@@ -998,26 +985,24 @@ Class Marshal from Object
 
 	Func GetLastPInvokeError 
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s19:GetLastPInvokeError")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s19:GetLastPInvokeError",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetLastPInvokeError P1
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s19:SetLastPInvokeError",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:SetLastPInvokeError",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s19:SetLastPInvokeError",P1)
 
 		return self
 
 	Func GetExceptionPointers 
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s20:GetExceptionPointers","")
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s20:GetExceptionPointers"))
 
 	Func GetExceptionCode 
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s16:GetExceptionCode")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s16:GetExceptionCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StructureToPtr P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s14:StructureToPtr",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s14:StructureToPtr",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s14:StructureToPtr",P1,P2,P3)
 
 		return self
 
@@ -1026,133 +1011,129 @@ Class Marshal from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s16:DestroyStructure",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s16:DestroyStructure",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s16:DestroyStructure",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s16:DestroyStructure",P1)
 
 		return self
 
 	Func GetHINSTANCE P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s12:GetHINSTANCE",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s12:GetHINSTANCE",P1))
 
 	Func GetHRForException P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s17:GetHRForException",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s17:GetHRForException",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetTypeInfoName P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:GetTypeInfoName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:GetTypeInfoName",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetIUnknownForObject P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s20:GetIUnknownForObject",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s20:GetIUnknownForObject",P1))
 
 	Func GetIDispatchForObject P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s21:GetIDispatchForObject",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:GetIDispatchForObject",P1))
 
 	Func GetComInterfaceForObject P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s24:GetComInterfaceForObject",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s24:GetComInterfaceForObject",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s24:GetComInterfaceForObject",P1))
 
 	Func GetObjectForIUnknown P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s20:GetObjectForIUnknown",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s20:GetObjectForIUnknown",P1))
 
 	Func GetUniqueObjectForIUnknown P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s26:GetUniqueObjectForIUnknown",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s26:GetUniqueObjectForIUnknown",P1))
 
 	Func GetTypedObjectForIUnknown P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s25:GetTypedObjectForIUnknown",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s25:GetTypedObjectForIUnknown",P1,P2))
 
 	Func CreateAggregatedObject P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s22:CreateAggregatedObject",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s22:CreateAggregatedObject",P1,P2))
 
 	Func CleanupUnusedObjectsInCurrentContext 
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s36:CleanupUnusedObjectsInCurrentContext")
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s36:CleanupUnusedObjectsInCurrentContext","") ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s36:CleanupUnusedObjectsInCurrentContext")
 
 		return self
 
 	Func AreComObjectsAvailableForCleanup 
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s32:AreComObjectsAvailableForCleanup")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s32:AreComObjectsAvailableForCleanup",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsComObject P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s11:IsComObject",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s11:IsComObject",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReleaseComObject P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s16:ReleaseComObject",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s16:ReleaseComObject",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FinalReleaseComObject P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:FinalReleaseComObject",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:FinalReleaseComObject",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetComObjectData P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s16:GetComObjectData",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s16:GetComObjectData",P1,P2))
 
 	Func SetComObjectData P1,P2,P3
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s16:SetComObjectData",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s16:SetComObjectData",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CreateWrapperOfType P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:CreateWrapperOfType",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:CreateWrapperOfType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s19:CreateWrapperOfType",P1))
 
 	Func IsTypeVisibleFromCom P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s20:IsTypeVisibleFromCom",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s20:IsTypeVisibleFromCom",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetNativeVariantForObject P1,P2
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s25:GetNativeVariantForObject",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s25:GetNativeVariantForObject",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s25:GetNativeVariantForObject",P1,P2)
 
 		return self
 
 	Func GetObjectForNativeVariant P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s25:GetObjectForNativeVariant",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s25:GetObjectForNativeVariant",P1))
 
 	Func GetObjectsForNativeVariants P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s27:GetObjectsForNativeVariants",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s27:GetObjectsForNativeVariants",P1,P2))
 
 	Func GetStartComSlot P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:GetStartComSlot",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:GetStartComSlot",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetEndComSlot P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s13:GetEndComSlot",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s13:GetEndComSlot",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func BindToMoniker P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s13:BindToMoniker",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s13:BindToMoniker",P1))
 
 	Func ChangeWrapperHandleStrength P1,P2
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s27:ChangeWrapperHandleStrength",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s27:ChangeWrapperHandleStrength",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s27:ChangeWrapperHandleStrength",P1,P2)
 
 		return self
 
 	Func AllocHGlobal P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s12:AllocHGlobal",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s12:AllocHGlobal",P1))
 
 	Func PtrToStringAnsi P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s15:PtrToStringAnsi",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:PtrToStringAnsi",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:PtrToStringAnsi",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PtrToStringUni P1
@@ -1160,7 +1141,7 @@ Class Marshal from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s14:PtrToStringUni",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s14:PtrToStringUni",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s14:PtrToStringUni",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PtrToStringUTF8 P1
@@ -1168,7 +1149,7 @@ Class Marshal from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s15:PtrToStringUTF8",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:PtrToStringUTF8",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:PtrToStringUTF8",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SizeOf P1
@@ -1177,11 +1158,11 @@ Class Marshal from Object
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s6:SizeOf")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s6:SizeOf",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s6:SizeOf",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s6:SizeOf",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func QueryInterface P1,P2
@@ -1189,15 +1170,14 @@ Class Marshal from Object
 
 	Func AddRef P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s6:AddRef",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s6:AddRef",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnsafeAddrOfPinnedArrayElement P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s30:UnsafeAddrOfPinnedArrayElement",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s30:UnsafeAddrOfPinnedArrayElement",P1,P2))
 
 	Func Copy P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s4:Copy",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s4:Copy",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s4:Copy",P1,P2,P3,P4)
 
 		return self
 
@@ -1205,7 +1185,7 @@ Class Marshal from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s10:ReadIntPtr",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s10:ReadIntPtr",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s10:ReadIntPtr",P1))
 
 	Func WriteIntPtr P1
 		if dnIsNamed(P1)
@@ -1215,14 +1195,12 @@ Class Marshal from Object
 		raise("DotNet Error: WriteIntPtr does not take one argument: use named arguments, WriteIntPtr([ :parameter = value, ... ])")
 
 	Func Prelink P1
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s7:Prelink",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s7:Prelink",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s7:Prelink",P1)
 
 		return self
 
 	Func PrelinkAll P1
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s10:PrelinkAll",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s10:PrelinkAll",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s10:PrelinkAll",P1)
 
 		return self
 
@@ -1230,137 +1208,129 @@ Class Marshal from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s14:PtrToStructure",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s14:PtrToStructure",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s14:PtrToStructure",P1))
 
 	Func GetExceptionForHR P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s17:GetExceptionForHR",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s17:GetExceptionForHR",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s17:GetExceptionForHR",P1))
 
 	Func ThrowExceptionForHR P1
 		if dnIsNamed(P1)
 			dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:ThrowExceptionForHR",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s19:ThrowExceptionForHR",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:ThrowExceptionForHR",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s19:ThrowExceptionForHR",P1)
 
 		return self
 
 	Func SecureStringToBSTR P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s18:SecureStringToBSTR",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s18:SecureStringToBSTR",P1))
 
 	Func SecureStringToCoTaskMemAnsi P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s27:SecureStringToCoTaskMemAnsi",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s27:SecureStringToCoTaskMemAnsi",P1))
 
 	Func SecureStringToCoTaskMemUnicode P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s30:SecureStringToCoTaskMemUnicode",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s30:SecureStringToCoTaskMemUnicode",P1))
 
 	Func SecureStringToGlobalAllocAnsi P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s29:SecureStringToGlobalAllocAnsi",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s29:SecureStringToGlobalAllocAnsi",P1))
 
 	Func SecureStringToGlobalAllocUnicode P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s32:SecureStringToGlobalAllocUnicode",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s32:SecureStringToGlobalAllocUnicode",P1))
 
 	Func StringToHGlobalAnsi P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:StringToHGlobalAnsi",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s19:StringToHGlobalAnsi",P1))
 
 	Func StringToHGlobalUni P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s18:StringToHGlobalUni",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s18:StringToHGlobalUni",P1))
 
 	Func StringToCoTaskMemUni P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s20:StringToCoTaskMemUni",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s20:StringToCoTaskMemUni",P1))
 
 	Func StringToCoTaskMemUTF8 P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s21:StringToCoTaskMemUTF8",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:StringToCoTaskMemUTF8",P1))
 
 	Func StringToCoTaskMemAnsi P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s21:StringToCoTaskMemAnsi",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:StringToCoTaskMemAnsi",P1))
 
 	Func GenerateGuidForType P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:GenerateGuidForType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s19:GenerateGuidForType",P1))
 
 	Func GenerateProgIdForType P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:GenerateProgIdForType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:GenerateProgIdForType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetDelegateForFunctionPointer P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s29:GetDelegateForFunctionPointer",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s29:GetDelegateForFunctionPointer",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s29:GetDelegateForFunctionPointer",P1))
 
 	Func GetFunctionPointerForDelegate P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s29:GetFunctionPointerForDelegate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s29:GetFunctionPointerForDelegate",P1))
 
 	Func GetHRForLastWin32Error 
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s22:GetHRForLastWin32Error")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s22:GetHRForLastWin32Error",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ZeroFreeBSTR P1
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s12:ZeroFreeBSTR",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s12:ZeroFreeBSTR",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s12:ZeroFreeBSTR",P1)
 
 		return self
 
 	Func ZeroFreeCoTaskMemAnsi P1
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:ZeroFreeCoTaskMemAnsi",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s21:ZeroFreeCoTaskMemAnsi",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:ZeroFreeCoTaskMemAnsi",P1)
 
 		return self
 
 	Func ZeroFreeCoTaskMemUnicode P1
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s24:ZeroFreeCoTaskMemUnicode",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s24:ZeroFreeCoTaskMemUnicode",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s24:ZeroFreeCoTaskMemUnicode",P1)
 
 		return self
 
 	Func ZeroFreeCoTaskMemUTF8 P1
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:ZeroFreeCoTaskMemUTF8",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s21:ZeroFreeCoTaskMemUTF8",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:ZeroFreeCoTaskMemUTF8",P1)
 
 		return self
 
 	Func ZeroFreeGlobalAllocAnsi P1
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s23:ZeroFreeGlobalAllocAnsi",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s23:ZeroFreeGlobalAllocAnsi",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s23:ZeroFreeGlobalAllocAnsi",P1)
 
 		return self
 
 	Func ZeroFreeGlobalAllocUnicode P1
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s26:ZeroFreeGlobalAllocUnicode",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s26:ZeroFreeGlobalAllocUnicode",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s26:ZeroFreeGlobalAllocUnicode",P1)
 
 		return self
 
 	Func StringToBSTR P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s12:StringToBSTR",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s12:StringToBSTR",P1))
 
 	Func PtrToStringBSTR P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:PtrToStringBSTR",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:PtrToStringBSTR",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetTypeFromCLSID P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s16:GetTypeFromCLSID",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s16:GetTypeFromCLSID",P1))
 
 	Func InitHandle P1,P2
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s10:InitHandle",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s10:InitHandle",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s10:InitHandle",P1,P2)
 
 		return self
 
 	Func GetLastWin32Error 
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s17:GetLastWin32Error")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s17:GetLastWin32Error",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetLastPInvokeErrorMessage 
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s26:GetLastPInvokeErrorMessage")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s26:GetLastPInvokeErrorMessage",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PtrToStringAuto P1
@@ -1368,61 +1338,57 @@ Class Marshal from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s15:PtrToStringAuto",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:PtrToStringAuto",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:PtrToStringAuto",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StringToHGlobalAuto P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:StringToHGlobalAuto",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s19:StringToHGlobalAuto",P1))
 
 	Func StringToCoTaskMemAuto P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s21:StringToCoTaskMemAuto",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:StringToCoTaskMemAuto",P1))
 
 	Func FreeHGlobal P1
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s11:FreeHGlobal",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s11:FreeHGlobal",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s11:FreeHGlobal",P1)
 
 		return self
 
 	Func ReAllocHGlobal P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s14:ReAllocHGlobal",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s14:ReAllocHGlobal",P1,P2))
 
 	Func AllocCoTaskMem P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s14:AllocCoTaskMem",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s14:AllocCoTaskMem",P1))
 
 	Func FreeCoTaskMem P1
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s13:FreeCoTaskMem",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s13:FreeCoTaskMem",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s13:FreeCoTaskMem",P1)
 
 		return self
 
 	Func ReAllocCoTaskMem P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s16:ReAllocCoTaskMem",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s16:ReAllocCoTaskMem",P1,P2))
 
 	Func FreeBSTR P1
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s8:FreeBSTR",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s8:FreeBSTR",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s8:FreeBSTR",P1)
 
 		return self
 
 	Func GetLastSystemError 
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s18:GetLastSystemError")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s18:GetLastSystemError",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetLastSystemError P1
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s18:SetLastSystemError",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s18:SetLastSystemError",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s18:SetLastSystemError",P1)
 
 		return self
 
 	Func GetPInvokeErrorMessage P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s22:GetPInvokeErrorMessage",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s22:GetPInvokeErrorMessage",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getSystemDefaultCharSize
 		dn_x = dotnet_call("s3:get",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:SystemDefaultCharSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:SystemDefaultCharSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSystemDefaultCharSize P1
@@ -1430,7 +1396,7 @@ Class Marshal from Object
 
 	Func getSystemMaxDBCSCharSize
 		dn_x = dotnet_call("s3:get",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:SystemMaxDBCSCharSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:SystemMaxDBCSCharSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSystemMaxDBCSCharSize P1
@@ -1450,14 +1416,14 @@ Class MemoryMarshal from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetArrayDataReference P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s21:GetArrayDataReference",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib',"s21:GetArrayDataReference",P1))
 
 	Func AsMemory P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s8:AsMemory",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib',"s8:AsMemory",P1))
 
 	Func CreateSpan P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s10:CreateSpan",dnPackItem(P1) + dnPackItem(P2))
@@ -1472,13 +1438,13 @@ Class MemoryMarshal from Object
 		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s19:TryGetMemoryManager",dnPackItem(P1))
 
 	Func ToEnumerable P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s12:ToEnumerable",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib',"s12:ToEnumerable",P1))
 
 	Func TryGetString P1
 		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s12:TryGetString",dnPackItem(P1))
 
 	Func CreateFromPinnedArray P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s21:CreateFromPinnedArray",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib',"s21:CreateFromPinnedArray",P1,P2,P3))
 
 
 Class NFloat from ValueType
@@ -1532,7 +1498,7 @@ Class NFloat from ValueType
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
@@ -1540,54 +1506,54 @@ Class NFloat from ValueType
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsFinite P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s8:IsFinite",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s8:IsFinite",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsInfinity P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s10:IsInfinity",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s10:IsInfinity",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsNaN P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:IsNaN",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:IsNaN",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsNegative P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s10:IsNegative",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s10:IsNegative",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsNegativeInfinity P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s18:IsNegativeInfinity",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s18:IsNegativeInfinity",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsNormal P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s8:IsNormal",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s8:IsNormal",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsPositiveInfinity P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s18:IsPositiveInfinity",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s18:IsPositiveInfinity",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsSubnormal P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s11:IsSubnormal",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s11:IsSubnormal",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Parse P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
@@ -1597,332 +1563,332 @@ Class NFloat from ValueType
 
 	Func IsPow2 P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s6:IsPow2",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s6:IsPow2",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Log2",P1))
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Exp",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s3:Exp",P1))
 
 	Func ExpM1 P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:ExpM1",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:ExpM1",P1))
 
 	Func Exp2 P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Exp2",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Exp2",P1))
 
 	Func Exp2M1 P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s6:Exp2M1",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s6:Exp2M1",P1))
 
 	Func Exp10 P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Exp10",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:Exp10",P1))
 
 	Func Exp10M1 P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s7:Exp10M1",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s7:Exp10M1",P1))
 
 	Func Ceiling P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s7:Ceiling",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s7:Ceiling",P1))
 
 	Func ConvertToInteger P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:ConvertToInteger",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s16:ConvertToInteger",P1))
 
 	Func ConvertToIntegerNative P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s22:ConvertToIntegerNative",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s22:ConvertToIntegerNative",P1))
 
 	Func Floor P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Floor",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:Floor",P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:Round",P1))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s8:Truncate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s8:Truncate",P1))
 
 	Func Atan2 P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:Atan2",P1,P2))
 
 	Func Atan2Pi P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s7:Atan2Pi",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s7:Atan2Pi",P1,P2))
 
 	Func BitDecrement P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s12:BitDecrement",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s12:BitDecrement",P1))
 
 	Func BitIncrement P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s12:BitIncrement",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s12:BitIncrement",P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s16:FusedMultiplyAdd",P1,P2,P3))
 
 	Func Ieee754Remainder P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:Ieee754Remainder",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s16:Ieee754Remainder",P1,P2))
 
 	Func ILogB P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:ILogB",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:ILogB",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Lerp",P1,P2,P3))
 
 	Func ReciprocalEstimate P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s18:ReciprocalEstimate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s18:ReciprocalEstimate",P1))
 
 	Func ReciprocalSqrtEstimate P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s22:ReciprocalSqrtEstimate",P1))
 
 	Func ScaleB P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s6:ScaleB",P1,P2))
 
 	Func Acosh P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Acosh",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:Acosh",P1))
 
 	Func Asinh P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Asinh",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:Asinh",P1))
 
 	Func Atanh P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Atanh",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:Atanh",P1))
 
 	Func Cosh P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Cosh",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Cosh",P1))
 
 	Func Sinh P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Sinh",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Sinh",P1))
 
 	Func Tanh P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Tanh",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Tanh",P1))
 
 	Func Log P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s3:Log",P1))
 
 	Func LogP1 P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:LogP1",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:LogP1",P1))
 
 	Func Log2P1 P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s6:Log2P1",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s6:Log2P1",P1))
 
 	Func Log10 P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Log10",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:Log10",P1))
 
 	Func Log10P1 P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s7:Log10P1",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s7:Log10P1",P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:Clamp",P1,P2,P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s8:CopySign",P1,P2))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s3:Max",P1,P2))
 
 	Func MaxNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s9:MaxNumber",P1,P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s3:Min",P1,P2))
 
 	Func MinNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s9:MinNumber",P1,P2))
 
 	Func Sign P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Sign",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Sign",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s3:Abs",P1))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s13:CreateChecked",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s13:CreateChecked",P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:CreateSaturating",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s16:CreateSaturating",P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:CreateTruncating",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s16:CreateTruncating",P1))
 
 	Func IsEvenInteger P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s13:IsEvenInteger",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s13:IsEvenInteger",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsInteger P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s9:IsInteger",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s9:IsInteger",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsOddInteger P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s12:IsOddInteger",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s12:IsOddInteger",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsPositive P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s10:IsPositive",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s10:IsPositive",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsRealNumber P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s12:IsRealNumber",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s12:IsRealNumber",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s12:MaxMagnitude",P1,P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s18:MaxMagnitudeNumber",P1,P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s12:MinMagnitude",P1,P2))
 
 	Func MinMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s18:MinMagnitudeNumber",P1,P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s19:MultiplyAddEstimate",P1,P2,P3))
 
 	Func Pow P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s3:Pow",P1,P2))
 
 	Func Cbrt P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Cbrt",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Cbrt",P1))
 
 	Func Hypot P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:Hypot",P1,P2))
 
 	Func RootN P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:RootN",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:RootN",P1,P2))
 
 	Func Sqrt P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Sqrt",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Sqrt",P1))
 
 	Func Acos P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Acos",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Acos",P1))
 
 	Func AcosPi P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s6:AcosPi",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s6:AcosPi",P1))
 
 	Func Asin P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Asin",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Asin",P1))
 
 	Func AsinPi P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s6:AsinPi",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s6:AsinPi",P1))
 
 	Func Atan P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s4:Atan",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Atan",P1))
 
 	Func AtanPi P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s6:AtanPi",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s6:AtanPi",P1))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Cos",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s3:Cos",P1))
 
 	Func CosPi P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:CosPi",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:CosPi",P1))
 
 	Func DegreesToRadians P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:DegreesToRadians",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s16:DegreesToRadians",P1))
 
 	Func RadiansToDegrees P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:RadiansToDegrees",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s16:RadiansToDegrees",P1))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Sin",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s3:Sin",P1))
 
 	Func SinCos P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s6:SinCos",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s6:SinCos",P1))
 
 	Func SinCosPi P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s8:SinCosPi",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s8:SinCosPi",P1))
 
 	Func SinPi P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:SinPi",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:SinPi",P1))
 
 	Func Tan P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Tan",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s3:Tan",P1))
 
 	Func TanPi P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:TanPi",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:TanPi",P1))
 
 	Func getValue
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getEpsilon
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s7:Epsilon","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s7:Epsilon"))
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getMaxValue
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s8:MaxValue","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s8:MaxValue"))
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s8:MinValue","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s8:MinValue"))
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getNaN
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:NaN","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s3:NaN"))
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getNegativeInfinity
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:NegativeInfinity","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s16:NegativeInfinity"))
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getPositiveInfinity
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s16:PositiveInfinity","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s16:PositiveInfinity"))
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getSize
 		dn_x = dotnet_call("s3:get",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Size")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Size",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getE
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s1:E","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s1:E"))
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPi
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s2:Pi","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s2:Pi"))
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getTau
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Tau","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s3:Tau"))
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
 
 	Func getNegativeZero
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s12:NegativeZero","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s12:NegativeZero"))
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
@@ -1941,14 +1907,14 @@ Class NativeLibrary from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Load_ P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s4:Load",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s4:Load",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib',"s4:Load",P1))
 
 	Func TryLoad P1
 		if dnIsNamed(P1)
@@ -1957,25 +1923,23 @@ Class NativeLibrary from Object
 		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s7:TryLoad",dnPackItem(P1))
 
 	Func Free P1
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib',"s4:Free",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s4:Free",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib',"s4:Free",P1)
 
 		return self
 
 	Func GetExport P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s9:GetExport",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib',"s9:GetExport",P1,P2))
 
 	Func TryGetExport P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s12:TryGetExport",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetDllImportResolver P1,P2
-		dn_x = dotnet_callv("s4:call",'System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib',"s20:SetDllImportResolver",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s20:SetDllImportResolver",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib',"s20:SetDllImportResolver",P1,P2)
 
 		return self
 
 	Func GetMainProgramHandle 
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s20:GetMainProgramHandle","")
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib',"s20:GetMainProgramHandle"))
 
 
 Class NativeMemory from Object
@@ -1991,23 +1955,23 @@ Class NativeMemory from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Alloc P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"s5:Alloc",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"s5:Alloc",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s5:Alloc",P1))
 
 	Func AllocZeroed P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"s11:AllocZeroed",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"s11:AllocZeroed",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s11:AllocZeroed",P1))
 
 	Func AlignedAlloc P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"s12:AlignedAlloc",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s12:AlignedAlloc",P1,P2))
 
 
 Class OSPlatform from ValueType
@@ -2036,28 +2000,28 @@ Class OSPlatform from ValueType
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib',"s6:Create",P1))
 
 	Func getFreeBSD
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib'),"s7:FreeBSD","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib',"s7:FreeBSD"))
 
 	Func setFreeBSD P1
 		raise("DotNet Error: FreeBSD is a read-only property")
 
 	Func getLinux
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib'),"s5:Linux","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib',"s5:Linux"))
 
 	Func setLinux P1
 		raise("DotNet Error: Linux is a read-only property")
 
 	Func getOSX
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib'),"s3:OSX","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib',"s3:OSX"))
 
 	Func setOSX P1
 		raise("DotNet Error: OSX is a read-only property")
 
 	Func getWindows
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib'),"s7:Windows","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib',"s7:Windows"))
 
 	Func setWindows P1
 		raise("DotNet Error: Windows is a read-only property")
@@ -2081,23 +2045,22 @@ Class PosixSignalContext from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getSignal
-		return dnSend("s3:get",nHandle,"s6:Signal","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Signal"))
 
 	Func setSignal P1
 		raise("DotNet Error: Signal is a read-only property")
 
 	Func getCancel
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Cancel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Cancel",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCancel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Cancel",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Cancel",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Cancel",P1)
 		return self
 
 
@@ -2113,18 +2076,17 @@ Class PosixSignalRegistration from Object
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Create P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.PosixSignalRegistration, System.Private.CoreLib'),"s6:Create",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.PosixSignalRegistration, System.Private.CoreLib',"s6:Create",P1,P2))
 
 
 Class RuntimeEnvironment from Object
@@ -2142,33 +2104,33 @@ Class RuntimeEnvironment from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FromGlobalAccessCache P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s21:FromGlobalAccessCache",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s21:FromGlobalAccessCache",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetRuntimeDirectory 
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s19:GetRuntimeDirectory")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s19:GetRuntimeDirectory",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetRuntimeInterfaceAsIntPtr P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices'),"s27:GetRuntimeInterfaceAsIntPtr",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s27:GetRuntimeInterfaceAsIntPtr",P1,P2))
 
 	Func GetRuntimeInterfaceAsObject P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices'),"s27:GetRuntimeInterfaceAsObject",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s27:GetRuntimeInterfaceAsObject",P1,P2))
 
 	Func GetSystemVersion 
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s16:GetSystemVersion")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s16:GetSystemVersion",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getSystemConfigurationFile
 		dn_x = dotnet_call("s3:get",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s23:SystemConfigurationFile")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s23:SystemConfigurationFile",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSystemConfigurationFile P1
@@ -2194,45 +2156,45 @@ Class RuntimeInformation from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsOSPlatform P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib',"s12:IsOSPlatform",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib',"s12:IsOSPlatform",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getRuntimeIdentifier
 		dn_x = dotnet_call("s3:get",'System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib',"s17:RuntimeIdentifier")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib',"s17:RuntimeIdentifier",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRuntimeIdentifier P1
 		raise("DotNet Error: RuntimeIdentifier is a read-only property")
 
 	Func getProcessArchitecture
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib'),"s19:ProcessArchitecture","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib',"s19:ProcessArchitecture"))
 
 	Func setProcessArchitecture P1
 		raise("DotNet Error: ProcessArchitecture is a read-only property")
 
 	Func getOSDescription
 		dn_x = dotnet_call("s3:get",'System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib',"s13:OSDescription")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib',"s13:OSDescription",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOSDescription P1
 		raise("DotNet Error: OSDescription is a read-only property")
 
 	Func getOSArchitecture
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib'),"s14:OSArchitecture","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib',"s14:OSArchitecture"))
 
 	Func setOSArchitecture P1
 		raise("DotNet Error: OSArchitecture is a read-only property")
 
 	Func getFrameworkDescription
 		dn_x = dotnet_call("s3:get",'System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib',"s20:FrameworkDescription")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib',"s20:FrameworkDescription",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFrameworkDescription P1
@@ -2259,56 +2221,48 @@ Class SafeBuffer from DotNetObject
 			dnSend("s9:callnamed",nHandle,"s10:Initialize",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s10:Initialize",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s10:Initialize",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s10:Initialize",P1)
 
 		return self
 
 	Func ReleasePointer 
-		dn_x = dotnet_callv("s4:call",nHandle,"s14:ReleasePointer")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s14:ReleasePointer","") ok
+		dotnet_callv("s4:call",nHandle,"s14:ReleasePointer")
 
 		return self
 
 	Func Read P1
-		return dnSend("s4:call",nHandle,"s4:Read",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Read",P1))
 
 	Func ReadArray P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:ReadArray",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:ReadArray",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",nHandle,"s9:ReadArray",P1,P2,P3,P4)
 
 		return self
 
 	Func Write P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Write",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Write",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Write",P1,P2)
 
 		return self
 
 	Func WriteArray P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",nHandle,"s10:WriteArray",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s10:WriteArray",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",nHandle,"s10:WriteArray",P1,P2,P3,P4)
 
 		return self
 
 	Func DangerousGetHandle 
-		return dnSend("s4:call",nHandle,"s18:DangerousGetHandle","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:DangerousGetHandle"))
 
 	Func Close 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Close")
 
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func SetHandleAsInvalid 
-		dn_x = dotnet_callv("s4:call",nHandle,"s18:SetHandleAsInvalid")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s18:SetHandleAsInvalid","") ok
+		dotnet_callv("s4:call",nHandle,"s18:SetHandleAsInvalid")
 
 		return self
 
@@ -2316,32 +2270,31 @@ Class SafeBuffer from DotNetObject
 		return dnSend("s4:call",nHandle,"s15:DangerousAddRef",dnPackItem(P1))
 
 	Func DangerousRelease 
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:DangerousRelease")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:DangerousRelease","") ok
+		dotnet_callv("s4:call",nHandle,"s16:DangerousRelease")
 
 		return self
 
 	Func GetType 
-		return dnSend("s4:call",nHandle,"s7:GetType","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode 
 		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getByteLength
 		dn_x = dotnet_call("s3:get",nHandle,"s10:ByteLength")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:ByteLength",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setByteLength P1
@@ -2349,7 +2302,7 @@ Class SafeBuffer from DotNetObject
 
 	Func getIsInvalid
 		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInvalid")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsInvalid",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsInvalid P1
@@ -2357,7 +2310,7 @@ Class SafeBuffer from DotNetObject
 
 	Func getIsClosed
 		dn_x = dotnet_call("s3:get",nHandle,"s8:IsClosed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsClosed",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsClosed P1
@@ -2379,23 +2332,20 @@ Class SafeHandle from DotNetObject
 		return self
 
 	Func DangerousGetHandle 
-		return dnSend("s4:call",nHandle,"s18:DangerousGetHandle","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:DangerousGetHandle"))
 
 	Func Close 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Close")
 
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func SetHandleAsInvalid 
-		dn_x = dotnet_callv("s4:call",nHandle,"s18:SetHandleAsInvalid")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s18:SetHandleAsInvalid","") ok
+		dotnet_callv("s4:call",nHandle,"s18:SetHandleAsInvalid")
 
 		return self
 
@@ -2403,32 +2353,31 @@ Class SafeHandle from DotNetObject
 		return dnSend("s4:call",nHandle,"s15:DangerousAddRef",dnPackItem(P1))
 
 	Func DangerousRelease 
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:DangerousRelease")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:DangerousRelease","") ok
+		dotnet_callv("s4:call",nHandle,"s16:DangerousRelease")
 
 		return self
 
 	Func GetType 
-		return dnSend("s4:call",nHandle,"s7:GetType","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode 
 		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getIsClosed
 		dn_x = dotnet_call("s3:get",nHandle,"s8:IsClosed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsClosed",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsClosed P1
@@ -2436,7 +2385,7 @@ Class SafeHandle from DotNetObject
 
 	Func getIsInvalid
 		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInvalid")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsInvalid",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsInvalid P1
@@ -2472,11 +2421,11 @@ Class UnknownWrapper from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getWrappedObject
-		return dnSend("s3:get",nHandle,"s13:WrappedObject","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:WrappedObject"))
 
 	Func setWrappedObject P1
 		raise("DotNet Error: WrappedObject is a read-only property")
@@ -2499,11 +2448,11 @@ Class VariantWrapper from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getWrappedObject
-		return dnSend("s3:get",nHandle,"s13:WrappedObject","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:WrappedObject"))
 
 	Func setWrappedObject P1
 		raise("DotNet Error: WrappedObject is a read-only property")

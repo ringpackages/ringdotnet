@@ -23,13 +23,13 @@ Class ISerializationSurrogateProvider from DotNetObject
 		return self
 
 	Func GetSurrogateType P1
-		return dnSend("s4:call",nHandle,"s16:GetSurrogateType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetSurrogateType",P1))
 
 	Func GetObjectToSerialize P1,P2
-		return dnSend("s4:call",nHandle,"s20:GetObjectToSerialize",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetObjectToSerialize",P1,P2))
 
 	Func GetDeserializedObject P1,P2
-		return dnSend("s4:call",nHandle,"s21:GetDeserializedObject",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDeserializedObject",P1,P2))
 
 
 Class ISerializationSurrogateProvider2 from DotNetObject
@@ -44,15 +44,14 @@ Class ISerializationSurrogateProvider2 from DotNetObject
 		return self
 
 	Func GetCustomDataToExport P1,P2
-		return dnSend("s4:call",nHandle,"s21:GetCustomDataToExport",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetCustomDataToExport",P1,P2))
 
 	Func GetKnownCustomDataTypes P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s23:GetKnownCustomDataTypes",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s23:GetKnownCustomDataTypes",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s23:GetKnownCustomDataTypes",P1)
 
 		return self
 
 	Func GetReferencedTypeOnImport P1,P2,P3
-		return dnSend("s4:call",nHandle,"s25:GetReferencedTypeOnImport",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetReferencedTypeOnImport",P1,P2,P3))
 
 

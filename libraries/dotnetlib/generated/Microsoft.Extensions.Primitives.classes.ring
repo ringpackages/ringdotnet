@@ -70,16 +70,16 @@ Class CancellationChangeToken from Object
 		return self
 
 	Func RegisterChangeCallback P1,P2
-		return dnSend("s4:call",nHandle,"s22:RegisterChangeCallback",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:RegisterChangeCallback",P1,P2))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getActiveChangeCallbacks
 		dn_x = dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:ActiveChangeCallbacks",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setActiveChangeCallbacks P1
@@ -87,7 +87,7 @@ Class CancellationChangeToken from Object
 
 	Func getHasChanged
 		dn_x = dotnet_call("s3:get",nHandle,"s10:HasChanged")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:HasChanged",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasChanged P1
@@ -107,7 +107,7 @@ Class ChangeToken from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func OnChange P1
@@ -135,22 +135,22 @@ Class CompositeChangeToken from Object
 		return self
 
 	Func RegisterChangeCallback P1,P2
-		return dnSend("s4:call",nHandle,"s22:RegisterChangeCallback",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:RegisterChangeCallback",P1,P2))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getChangeTokens
-		return dnSend("s3:get",nHandle,"s12:ChangeTokens","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ChangeTokens"))
 
 	Func setChangeTokens P1
 		raise("DotNet Error: ChangeTokens is a read-only property")
 
 	Func getHasChanged
 		dn_x = dotnet_call("s3:get",nHandle,"s10:HasChanged")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:HasChanged",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasChanged P1
@@ -158,7 +158,7 @@ Class CompositeChangeToken from Object
 
 	Func getActiveChangeCallbacks
 		dn_x = dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:ActiveChangeCallbacks",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setActiveChangeCallbacks P1
@@ -178,11 +178,11 @@ Class AspExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Append P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Primitives.Extensions, Microsoft.Extensions.Primitives'),"s6:Append",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Primitives.Extensions, Microsoft.Extensions.Primitives',"s6:Append",P1,P2))
 
 
 Class IChangeToken from DotNetObject
@@ -200,11 +200,11 @@ Class IChangeToken from DotNetObject
 		return self
 
 	Func RegisterChangeCallback P1,P2
-		return dnSend("s4:call",nHandle,"s22:RegisterChangeCallback",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:RegisterChangeCallback",P1,P2))
 
 	Func getHasChanged
 		dn_x = dotnet_call("s3:get",nHandle,"s10:HasChanged")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:HasChanged",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasChanged P1
@@ -212,7 +212,7 @@ Class IChangeToken from DotNetObject
 
 	Func getActiveChangeCallbacks
 		dn_x = dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:ActiveChangeCallbacks",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setActiveChangeCallbacks P1
@@ -267,12 +267,12 @@ Class StringSegment from ValueType
 			return dnSend("s9:callnamed",nHandle,"s6:AsSpan",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s6:AsSpan","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:AsSpan"))
 		ok
-		return dnSend("s4:call",nHandle,"s6:AsSpan",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AsSpan",P1))
 
 	Func AsMemory 
-		return dnSend("s4:call",nHandle,"s8:AsMemory","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AsMemory"))
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -282,17 +282,17 @@ Class StringSegment from ValueType
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StartsWith P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s10:StartsWith",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:StartsWith",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EndsWith P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s8:EndsWith",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:EndsWith",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Substring P1
@@ -300,21 +300,21 @@ Class StringSegment from ValueType
 			return dnSend("s9:callnamed",nHandle,"s9:Substring",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:Substring",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:Substring",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Subsegment P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s10:Subsegment",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s10:Subsegment",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:Subsegment",P1))
 
 	Func IndexOf P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s7:IndexOf",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IndexOfAny P1
@@ -322,42 +322,42 @@ Class StringSegment from ValueType
 			return dnSend("s9:callnamed",nHandle,"s10:IndexOfAny",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s10:IndexOfAny",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:IndexOfAny",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LastIndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s11:LastIndexOf",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:LastIndexOf",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Trim 
-		return dnSend("s4:call",nHandle,"s4:Trim","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Trim"))
 
 	Func TrimStart 
-		return dnSend("s4:call",nHandle,"s9:TrimStart","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:TrimStart"))
 
 	Func TrimEnd 
-		return dnSend("s4:call",nHandle,"s7:TrimEnd","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:TrimEnd"))
 
 	Func Split P1
-		return dnSend("s4:call",nHandle,"s5:Split",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Split",P1))
 
 	Func Compare P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',"s7:Compare",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',"s7:Compare",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsNullOrEmpty P1
 		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',"s13:IsNullOrEmpty",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',"s13:IsNullOrEmpty",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getBuffer
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Buffer")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Buffer",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBuffer P1
@@ -365,7 +365,7 @@ Class StringSegment from ValueType
 
 	Func getOffset
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Offset")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Offset",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOffset P1
@@ -373,7 +373,7 @@ Class StringSegment from ValueType
 
 	Func getLength
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Length",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLength P1
@@ -381,7 +381,7 @@ Class StringSegment from ValueType
 
 	Func getValue
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValue P1
@@ -389,14 +389,14 @@ Class StringSegment from ValueType
 
 	Func getHasValue
 		dn_x = dotnet_call("s3:get",nHandle,"s8:HasValue")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:HasValue",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"s5:Empty","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',"s5:Empty"))
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -418,7 +418,7 @@ Class StringSegmentComparer from Object
 
 	Func Compare P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s7:Compare",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:Compare",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
@@ -426,7 +426,7 @@ Class StringSegmentComparer from Object
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode P1
@@ -435,21 +435,21 @@ Class StringSegmentComparer from Object
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getOrdinal
-		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Primitives.StringSegmentComparer, Microsoft.Extensions.Primitives'),"s7:Ordinal","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.Extensions.Primitives.StringSegmentComparer, Microsoft.Extensions.Primitives',"s7:Ordinal"))
 
 	Func setOrdinal P1
 		raise("DotNet Error: Ordinal is a read-only property")
 
 	Func getOrdinalIgnoreCase
-		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Primitives.StringSegmentComparer, Microsoft.Extensions.Primitives'),"s17:OrdinalIgnoreCase","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.Extensions.Primitives.StringSegmentComparer, Microsoft.Extensions.Primitives',"s17:OrdinalIgnoreCase"))
 
 	Func setOrdinalIgnoreCase P1
 		raise("DotNet Error: OrdinalIgnoreCase is a read-only property")
@@ -492,7 +492,7 @@ Class StringTokenizer from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 
 Class StringValues from ValueType
@@ -535,10 +535,10 @@ Class StringValues from ValueType
 		return self
 
 	Func ToArray 
-		return dnSend("s4:call",nHandle,"s7:ToArray","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -548,32 +548,32 @@ Class StringValues from ValueType
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsNullOrEmpty P1
 		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',"s13:IsNullOrEmpty",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',"s13:IsNullOrEmpty",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Concat P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"s6:Concat",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',"s6:Concat",P1,P2))
 
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:get_Item",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeHandle('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"s5:Empty","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',"s5:Empty"))
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")

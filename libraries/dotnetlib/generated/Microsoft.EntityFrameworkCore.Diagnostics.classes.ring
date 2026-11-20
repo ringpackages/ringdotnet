@@ -776,37 +776,37 @@ Class AbstractionsStrings from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ArgumentIsEmpty P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions',"s15:ArgumentIsEmpty",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions',"s15:ArgumentIsEmpty",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ArgumentIsNegativeNumber P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions',"s24:ArgumentIsNegativeNumber",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions',"s24:ArgumentIsNegativeNumber",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CollectionArgumentHasEmptyElements P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions',"s34:CollectionArgumentHasEmptyElements",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions',"s34:CollectionArgumentHasEmptyElements",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CollectionArgumentIsEmpty P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions',"s25:CollectionArgumentIsEmpty",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions',"s25:CollectionArgumentIsEmpty",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidNumberOfIndexSortOrderValues P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions',"s35:InvalidNumberOfIndexSortOrderValues",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions',"s35:InvalidNumberOfIndexSortOrderValues",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCannotSpecifyBothIsDescendingAndAllDescending
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions',"s45:CannotSpecifyBothIsDescendingAndAllDescending")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions',"s45:CannotSpecifyBothIsDescendingAndAllDescending",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCannotSpecifyBothIsDescendingAndAllDescending P1
@@ -902,438 +902,438 @@ Class CoreEventId from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getSaveChangesFailed
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s17:SaveChangesFailed","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s17:SaveChangesFailed"))
 
 	Func setSaveChangesFailed P1
 		raise("DotNet Error: SaveChangesFailed is a read-only property")
 
 	Func getSaveChangesCanceled
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s19:SaveChangesCanceled","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s19:SaveChangesCanceled"))
 
 	Func setSaveChangesCanceled P1
 		raise("DotNet Error: SaveChangesCanceled is a read-only property")
 
 	Func getDuplicateDependentEntityTypeInstanceWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s43:DuplicateDependentEntityTypeInstanceWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s43:DuplicateDependentEntityTypeInstanceWarning"))
 
 	Func setDuplicateDependentEntityTypeInstanceWarning P1
 		raise("DotNet Error: DuplicateDependentEntityTypeInstanceWarning is a read-only property")
 
 	Func getQueryIterationFailed
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s20:QueryIterationFailed","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s20:QueryIterationFailed"))
 
 	Func setQueryIterationFailed P1
 		raise("DotNet Error: QueryIterationFailed is a read-only property")
 
 	Func getQueryExecutionPlanned
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s21:QueryExecutionPlanned","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s21:QueryExecutionPlanned"))
 
 	Func setQueryExecutionPlanned P1
 		raise("DotNet Error: QueryExecutionPlanned is a read-only property")
 
 	Func getPossibleUnintendedCollectionNavigationNullComparisonWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s59:PossibleUnintendedCollectionNavigationNullComparisonWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s59:PossibleUnintendedCollectionNavigationNullComparisonWarning"))
 
 	Func setPossibleUnintendedCollectionNavigationNullComparisonWarning P1
 		raise("DotNet Error: PossibleUnintendedCollectionNavigationNullComparisonWarning is a read-only property")
 
 	Func getPossibleUnintendedReferenceComparisonWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s44:PossibleUnintendedReferenceComparisonWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s44:PossibleUnintendedReferenceComparisonWarning"))
 
 	Func setPossibleUnintendedReferenceComparisonWarning P1
 		raise("DotNet Error: PossibleUnintendedReferenceComparisonWarning is a read-only property")
 
 	Func getInvalidIncludePathError
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s23:InvalidIncludePathError","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s23:InvalidIncludePathError"))
 
 	Func setInvalidIncludePathError P1
 		raise("DotNet Error: InvalidIncludePathError is a read-only property")
 
 	Func getQueryCompilationStarting
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s24:QueryCompilationStarting","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s24:QueryCompilationStarting"))
 
 	Func setQueryCompilationStarting P1
 		raise("DotNet Error: QueryCompilationStarting is a read-only property")
 
 	Func getNavigationBaseIncluded
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s22:NavigationBaseIncluded","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s22:NavigationBaseIncluded"))
 
 	Func setNavigationBaseIncluded P1
 		raise("DotNet Error: NavigationBaseIncluded is a read-only property")
 
 	Func getNavigationBaseIncludeIgnored
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s28:NavigationBaseIncludeIgnored","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s28:NavigationBaseIncludeIgnored"))
 
 	Func setNavigationBaseIncludeIgnored P1
 		raise("DotNet Error: NavigationBaseIncludeIgnored is a read-only property")
 
 	Func getRowLimitingOperationWithoutOrderByWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s41:RowLimitingOperationWithoutOrderByWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s41:RowLimitingOperationWithoutOrderByWarning"))
 
 	Func setRowLimitingOperationWithoutOrderByWarning P1
 		raise("DotNet Error: RowLimitingOperationWithoutOrderByWarning is a read-only property")
 
 	Func getFirstWithoutOrderByAndFilterWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s35:FirstWithoutOrderByAndFilterWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s35:FirstWithoutOrderByAndFilterWarning"))
 
 	Func setFirstWithoutOrderByAndFilterWarning P1
 		raise("DotNet Error: FirstWithoutOrderByAndFilterWarning is a read-only property")
 
 	Func getDistinctAfterOrderByWithoutRowLimitingOperatorWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s53:DistinctAfterOrderByWithoutRowLimitingOperatorWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s53:DistinctAfterOrderByWithoutRowLimitingOperatorWarning"))
 
 	Func setDistinctAfterOrderByWithoutRowLimitingOperatorWarning P1
 		raise("DotNet Error: DistinctAfterOrderByWithoutRowLimitingOperatorWarning is a read-only property")
 
 	Func getQueryCanceled
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s13:QueryCanceled","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s13:QueryCanceled"))
 
 	Func setQueryCanceled P1
 		raise("DotNet Error: QueryCanceled is a read-only property")
 
 	Func getStringEnumValueInJson
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s21:StringEnumValueInJson","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s21:StringEnumValueInJson"))
 
 	Func setStringEnumValueInJson P1
 		raise("DotNet Error: StringEnumValueInJson is a read-only property")
 
 	Func getSensitiveDataLoggingEnabledWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s34:SensitiveDataLoggingEnabledWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s34:SensitiveDataLoggingEnabledWarning"))
 
 	Func setSensitiveDataLoggingEnabledWarning P1
 		raise("DotNet Error: SensitiveDataLoggingEnabledWarning is a read-only property")
 
 	Func getServiceProviderCreated
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s22:ServiceProviderCreated","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s22:ServiceProviderCreated"))
 
 	Func setServiceProviderCreated P1
 		raise("DotNet Error: ServiceProviderCreated is a read-only property")
 
 	Func getManyServiceProvidersCreatedWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s34:ManyServiceProvidersCreatedWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s34:ManyServiceProvidersCreatedWarning"))
 
 	Func setManyServiceProvidersCreatedWarning P1
 		raise("DotNet Error: ManyServiceProvidersCreatedWarning is a read-only property")
 
 	Func getContextInitialized
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s18:ContextInitialized","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s18:ContextInitialized"))
 
 	Func setContextInitialized P1
 		raise("DotNet Error: ContextInitialized is a read-only property")
 
 	Func getServiceProviderDebugInfo
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s24:ServiceProviderDebugInfo","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s24:ServiceProviderDebugInfo"))
 
 	Func setServiceProviderDebugInfo P1
 		raise("DotNet Error: ServiceProviderDebugInfo is a read-only property")
 
 	Func getExecutionStrategyRetrying
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s25:ExecutionStrategyRetrying","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s25:ExecutionStrategyRetrying"))
 
 	Func setExecutionStrategyRetrying P1
 		raise("DotNet Error: ExecutionStrategyRetrying is a read-only property")
 
 	Func getNavigationLazyLoading
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s21:NavigationLazyLoading","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s21:NavigationLazyLoading"))
 
 	Func setNavigationLazyLoading P1
 		raise("DotNet Error: NavigationLazyLoading is a read-only property")
 
 	Func getLazyLoadOnDisposedContextWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s32:LazyLoadOnDisposedContextWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s32:LazyLoadOnDisposedContextWarning"))
 
 	Func setLazyLoadOnDisposedContextWarning P1
 		raise("DotNet Error: LazyLoadOnDisposedContextWarning is a read-only property")
 
 	Func getDetachedLazyLoadingWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s26:DetachedLazyLoadingWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s26:DetachedLazyLoadingWarning"))
 
 	Func setDetachedLazyLoadingWarning P1
 		raise("DotNet Error: DetachedLazyLoadingWarning is a read-only property")
 
 	Func getRedundantAddServicesCallWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s31:RedundantAddServicesCallWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s31:RedundantAddServicesCallWarning"))
 
 	Func setRedundantAddServicesCallWarning P1
 		raise("DotNet Error: RedundantAddServicesCallWarning is a read-only property")
 
 	Func getOldModelVersionWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s22:OldModelVersionWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s22:OldModelVersionWarning"))
 
 	Func setOldModelVersionWarning P1
 		raise("DotNet Error: OldModelVersionWarning is a read-only property")
 
 	Func getShadowPropertyCreated
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s21:ShadowPropertyCreated","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s21:ShadowPropertyCreated"))
 
 	Func setShadowPropertyCreated P1
 		raise("DotNet Error: ShadowPropertyCreated is a read-only property")
 
 	Func getShadowForeignKeyPropertyCreated
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s31:ShadowForeignKeyPropertyCreated","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s31:ShadowForeignKeyPropertyCreated"))
 
 	Func setShadowForeignKeyPropertyCreated P1
 		raise("DotNet Error: ShadowForeignKeyPropertyCreated is a read-only property")
 
 	Func getMappedEntityTypeIgnoredWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s30:MappedEntityTypeIgnoredWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s30:MappedEntityTypeIgnoredWarning"))
 
 	Func setMappedEntityTypeIgnoredWarning P1
 		raise("DotNet Error: MappedEntityTypeIgnoredWarning is a read-only property")
 
 	Func getMappedNavigationIgnoredWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s30:MappedNavigationIgnoredWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s30:MappedNavigationIgnoredWarning"))
 
 	Func setMappedNavigationIgnoredWarning P1
 		raise("DotNet Error: MappedNavigationIgnoredWarning is a read-only property")
 
 	Func getMappedPropertyIgnoredWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s28:MappedPropertyIgnoredWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s28:MappedPropertyIgnoredWarning"))
 
 	Func setMappedPropertyIgnoredWarning P1
 		raise("DotNet Error: MappedPropertyIgnoredWarning is a read-only property")
 
 	Func getMappedComplexPropertyIgnoredWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s35:MappedComplexPropertyIgnoredWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s35:MappedComplexPropertyIgnoredWarning"))
 
 	Func setMappedComplexPropertyIgnoredWarning P1
 		raise("DotNet Error: MappedComplexPropertyIgnoredWarning is a read-only property")
 
 	Func getTypeLoadingErrorWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s23:TypeLoadingErrorWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s23:TypeLoadingErrorWarning"))
 
 	Func setTypeLoadingErrorWarning P1
 		raise("DotNet Error: TypeLoadingErrorWarning is a read-only property")
 
 	Func getSkippedEntityTypeConfigurationWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s37:SkippedEntityTypeConfigurationWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s37:SkippedEntityTypeConfigurationWarning"))
 
 	Func setSkippedEntityTypeConfigurationWarning P1
 		raise("DotNet Error: SkippedEntityTypeConfigurationWarning is a read-only property")
 
 	Func getNoEntityTypeConfigurationsWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s33:NoEntityTypeConfigurationsWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s33:NoEntityTypeConfigurationsWarning"))
 
 	Func setNoEntityTypeConfigurationsWarning P1
 		raise("DotNet Error: NoEntityTypeConfigurationsWarning is a read-only property")
 
 	Func getRedundantIndexRemoved
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s21:RedundantIndexRemoved","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s21:RedundantIndexRemoved"))
 
 	Func setRedundantIndexRemoved P1
 		raise("DotNet Error: RedundantIndexRemoved is a read-only property")
 
 	Func getIncompatibleMatchingForeignKeyProperties
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s40:IncompatibleMatchingForeignKeyProperties","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s40:IncompatibleMatchingForeignKeyProperties"))
 
 	Func setIncompatibleMatchingForeignKeyProperties P1
 		raise("DotNet Error: IncompatibleMatchingForeignKeyProperties is a read-only property")
 
 	Func getAmbiguousEndRequiredWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s27:AmbiguousEndRequiredWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s27:AmbiguousEndRequiredWarning"))
 
 	Func setAmbiguousEndRequiredWarning P1
 		raise("DotNet Error: AmbiguousEndRequiredWarning is a read-only property")
 
 	Func getAccidentalEntityType
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s20:AccidentalEntityType","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s20:AccidentalEntityType"))
 
 	Func setAccidentalEntityType P1
 		raise("DotNet Error: AccidentalEntityType is a read-only property")
 
 	Func getRequiredAttributeOnCollection
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s29:RequiredAttributeOnCollection","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s29:RequiredAttributeOnCollection"))
 
 	Func setRequiredAttributeOnCollection P1
 		raise("DotNet Error: RequiredAttributeOnCollection is a read-only property")
 
 	Func getRequiredAttributeOnSkipNavigation
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s33:RequiredAttributeOnSkipNavigation","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s33:RequiredAttributeOnSkipNavigation"))
 
 	Func setRequiredAttributeOnSkipNavigation P1
 		raise("DotNet Error: RequiredAttributeOnSkipNavigation is a read-only property")
 
 	Func getConflictingShadowForeignKeysWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s35:ConflictingShadowForeignKeysWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s35:ConflictingShadowForeignKeysWarning"))
 
 	Func setConflictingShadowForeignKeysWarning P1
 		raise("DotNet Error: ConflictingShadowForeignKeysWarning is a read-only property")
 
 	Func getMultiplePrimaryKeyCandidates
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s28:MultiplePrimaryKeyCandidates","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s28:MultiplePrimaryKeyCandidates"))
 
 	Func setMultiplePrimaryKeyCandidates P1
 		raise("DotNet Error: MultiplePrimaryKeyCandidates is a read-only property")
 
 	Func getMultipleNavigationProperties
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s28:MultipleNavigationProperties","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s28:MultipleNavigationProperties"))
 
 	Func setMultipleNavigationProperties P1
 		raise("DotNet Error: MultipleNavigationProperties is a read-only property")
 
 	Func getMultipleInversePropertiesSameTargetWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s42:MultipleInversePropertiesSameTargetWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s42:MultipleInversePropertiesSameTargetWarning"))
 
 	Func setMultipleInversePropertiesSameTargetWarning P1
 		raise("DotNet Error: MultipleInversePropertiesSameTargetWarning is a read-only property")
 
 	Func getNonDefiningInverseNavigationWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s35:NonDefiningInverseNavigationWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s35:NonDefiningInverseNavigationWarning"))
 
 	Func setNonDefiningInverseNavigationWarning P1
 		raise("DotNet Error: NonDefiningInverseNavigationWarning is a read-only property")
 
 	Func getNonOwnershipInverseNavigationWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s36:NonOwnershipInverseNavigationWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s36:NonOwnershipInverseNavigationWarning"))
 
 	Func setNonOwnershipInverseNavigationWarning P1
 		raise("DotNet Error: NonOwnershipInverseNavigationWarning is a read-only property")
 
 	Func getForeignKeyAttributesOnBothPropertiesWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s43:ForeignKeyAttributesOnBothPropertiesWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s43:ForeignKeyAttributesOnBothPropertiesWarning"))
 
 	Func setForeignKeyAttributesOnBothPropertiesWarning P1
 		raise("DotNet Error: ForeignKeyAttributesOnBothPropertiesWarning is a read-only property")
 
 	Func getForeignKeyAttributesOnBothNavigationsWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s44:ForeignKeyAttributesOnBothNavigationsWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s44:ForeignKeyAttributesOnBothNavigationsWarning"))
 
 	Func setForeignKeyAttributesOnBothNavigationsWarning P1
 		raise("DotNet Error: ForeignKeyAttributesOnBothNavigationsWarning is a read-only property")
 
 	Func getConflictingForeignKeyAttributesOnNavigationAndPropertyWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s61:ConflictingForeignKeyAttributesOnNavigationAndPropertyWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s61:ConflictingForeignKeyAttributesOnNavigationAndPropertyWarning"))
 
 	Func setConflictingForeignKeyAttributesOnNavigationAndPropertyWarning P1
 		raise("DotNet Error: ConflictingForeignKeyAttributesOnNavigationAndPropertyWarning is a read-only property")
 
 	Func getRedundantForeignKeyWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s26:RedundantForeignKeyWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s26:RedundantForeignKeyWarning"))
 
 	Func setRedundantForeignKeyWarning P1
 		raise("DotNet Error: RedundantForeignKeyWarning is a read-only property")
 
 	Func getConflictingKeylessAndKeyAttributesWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s41:ConflictingKeylessAndKeyAttributesWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s41:ConflictingKeylessAndKeyAttributesWarning"))
 
 	Func setConflictingKeylessAndKeyAttributesWarning P1
 		raise("DotNet Error: ConflictingKeylessAndKeyAttributesWarning is a read-only property")
 
 	Func getPossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s68:PossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s68:PossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning"))
 
 	Func setPossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning P1
 		raise("DotNet Error: PossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning is a read-only property")
 
 	Func getDetectChangesStarting
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s21:DetectChangesStarting","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s21:DetectChangesStarting"))
 
 	Func setDetectChangesStarting P1
 		raise("DotNet Error: DetectChangesStarting is a read-only property")
 
 	Func getDetectChangesCompleted
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s22:DetectChangesCompleted","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s22:DetectChangesCompleted"))
 
 	Func setDetectChangesCompleted P1
 		raise("DotNet Error: DetectChangesCompleted is a read-only property")
 
 	Func getPropertyChangeDetected
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s22:PropertyChangeDetected","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s22:PropertyChangeDetected"))
 
 	Func setPropertyChangeDetected P1
 		raise("DotNet Error: PropertyChangeDetected is a read-only property")
 
 	Func getForeignKeyChangeDetected
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s24:ForeignKeyChangeDetected","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s24:ForeignKeyChangeDetected"))
 
 	Func setForeignKeyChangeDetected P1
 		raise("DotNet Error: ForeignKeyChangeDetected is a read-only property")
 
 	Func getCollectionChangeDetected
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s24:CollectionChangeDetected","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s24:CollectionChangeDetected"))
 
 	Func setCollectionChangeDetected P1
 		raise("DotNet Error: CollectionChangeDetected is a read-only property")
 
 	Func getSkipCollectionChangeDetected
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s28:SkipCollectionChangeDetected","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s28:SkipCollectionChangeDetected"))
 
 	Func setSkipCollectionChangeDetected P1
 		raise("DotNet Error: SkipCollectionChangeDetected is a read-only property")
 
 	Func getReferenceChangeDetected
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s23:ReferenceChangeDetected","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s23:ReferenceChangeDetected"))
 
 	Func setReferenceChangeDetected P1
 		raise("DotNet Error: ReferenceChangeDetected is a read-only property")
 
 	Func getStartedTracking
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s15:StartedTracking","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s15:StartedTracking"))
 
 	Func setStartedTracking P1
 		raise("DotNet Error: StartedTracking is a read-only property")
 
 	Func getStateChanged
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s12:StateChanged","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s12:StateChanged"))
 
 	Func setStateChanged P1
 		raise("DotNet Error: StateChanged is a read-only property")
 
 	Func getValueGenerated
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s14:ValueGenerated","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s14:ValueGenerated"))
 
 	Func setValueGenerated P1
 		raise("DotNet Error: ValueGenerated is a read-only property")
 
 	Func getCascadeDelete
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s13:CascadeDelete","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s13:CascadeDelete"))
 
 	Func setCascadeDelete P1
 		raise("DotNet Error: CascadeDelete is a read-only property")
 
 	Func getCascadeDeleteOrphan
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s19:CascadeDeleteOrphan","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s19:CascadeDeleteOrphan"))
 
 	Func setCascadeDeleteOrphan P1
 		raise("DotNet Error: CascadeDeleteOrphan is a read-only property")
 
 	Func getSaveChangesStarting
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s19:SaveChangesStarting","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s19:SaveChangesStarting"))
 
 	Func setSaveChangesStarting P1
 		raise("DotNet Error: SaveChangesStarting is a read-only property")
 
 	Func getSaveChangesCompleted
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s20:SaveChangesCompleted","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s20:SaveChangesCompleted"))
 
 	Func setSaveChangesCompleted P1
 		raise("DotNet Error: SaveChangesCompleted is a read-only property")
 
 	Func getOptimisticConcurrencyException
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s30:OptimisticConcurrencyException","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s30:OptimisticConcurrencyException"))
 
 	Func setOptimisticConcurrencyException P1
 		raise("DotNet Error: OptimisticConcurrencyException is a read-only property")
 
 	Func getContextDisposed
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s15:ContextDisposed","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s15:ContextDisposed"))
 
 	Func setContextDisposed P1
 		raise("DotNet Error: ContextDisposed is a read-only property")
 
 	Func getCollectionWithoutComparer
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"s25:CollectionWithoutComparer","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s25:CollectionWithoutComparer"))
 
 	Func setCollectionWithoutComparer P1
 		raise("DotNet Error: CollectionWithoutComparer is a read-only property")
 
 	Func getCoreBaseId
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s10:CoreBaseId")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s10:CoreBaseId",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCoreBaseId P1
@@ -1341,7 +1341,7 @@ Class CoreEventId from Object
 
 	Func getRelationalBaseId
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s16:RelationalBaseId")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s16:RelationalBaseId",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRelationalBaseId P1
@@ -1349,7 +1349,7 @@ Class CoreEventId from Object
 
 	Func getProviderBaseId
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s14:ProviderBaseId")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s14:ProviderBaseId",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setProviderBaseId P1
@@ -1357,7 +1357,7 @@ Class CoreEventId from Object
 
 	Func getProviderDesignBaseId
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s20:ProviderDesignBaseId")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s20:ProviderDesignBaseId",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setProviderDesignBaseId P1
@@ -1377,12 +1377,11 @@ Class CoreLoggerExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SaveChangesFailed P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s17:SaveChangesFailed",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s17:SaveChangesFailed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s17:SaveChangesFailed",P1,P2,P3)
 
 		return self
 
@@ -1393,8 +1392,7 @@ Class CoreLoggerExtensions from Object
 		raise("DotNet Error: SaveChangesFailedAsync does not take one argument: use named arguments, SaveChangesFailedAsync([ :parameter = value, ... ])")
 
 	Func SaveChangesCanceled P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s19:SaveChangesCanceled",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s19:SaveChangesCanceled",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s19:SaveChangesCanceled",P1,P2)
 
 		return self
 
@@ -1405,13 +1403,12 @@ Class CoreLoggerExtensions from Object
 		raise("DotNet Error: SaveChangesCanceledAsync does not take one argument: use named arguments, SaveChangesCanceledAsync([ :parameter = value, ... ])")
 
 	Func OldModelVersionWarning P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s22:OldModelVersionWarning",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s22:OldModelVersionWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s22:OldModelVersionWarning",P1,P2,P3)
 
 		return self
 
 	Func OptimisticConcurrencyException P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s30:OptimisticConcurrencyException",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s30:OptimisticConcurrencyException",P1,P2,P3,P4,P5))
 
 	Func OptimisticConcurrencyExceptionAsync P1
 		if dnIsNamed(P1)
@@ -1420,430 +1417,360 @@ Class CoreLoggerExtensions from Object
 		raise("DotNet Error: OptimisticConcurrencyExceptionAsync does not take one argument: use named arguments, OptimisticConcurrencyExceptionAsync([ :parameter = value, ... ])")
 
 	Func DuplicateDependentEntityTypeInstanceWarning P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s43:DuplicateDependentEntityTypeInstanceWarning",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s43:DuplicateDependentEntityTypeInstanceWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s43:DuplicateDependentEntityTypeInstanceWarning",P1,P2,P3)
 
 		return self
 
 	Func QueryIterationFailed P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s20:QueryIterationFailed",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s20:QueryIterationFailed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s20:QueryIterationFailed",P1,P2,P3)
 
 		return self
 
 	Func QueryCanceled P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s13:QueryCanceled",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s13:QueryCanceled",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s13:QueryCanceled",P1,P2)
 
 		return self
 
 	Func QueryCompilationStarting P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s24:QueryCompilationStarting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s24:QueryCompilationStarting",P1,P2,P3,P4))
 
 	Func FirstWithoutOrderByAndFilterWarning P1
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s35:FirstWithoutOrderByAndFilterWarning",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s35:FirstWithoutOrderByAndFilterWarning",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s35:FirstWithoutOrderByAndFilterWarning",P1)
 
 		return self
 
 	Func RowLimitingOperationWithoutOrderByWarning P1
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s41:RowLimitingOperationWithoutOrderByWarning",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s41:RowLimitingOperationWithoutOrderByWarning",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s41:RowLimitingOperationWithoutOrderByWarning",P1)
 
 		return self
 
 	Func DistinctAfterOrderByWithoutRowLimitingOperatorWarning P1
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s53:DistinctAfterOrderByWithoutRowLimitingOperatorWarning",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s53:DistinctAfterOrderByWithoutRowLimitingOperatorWarning",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s53:DistinctAfterOrderByWithoutRowLimitingOperatorWarning",P1)
 
 		return self
 
 	Func NavigationBaseIncluded P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s22:NavigationBaseIncluded",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s22:NavigationBaseIncluded",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s22:NavigationBaseIncluded",P1,P2)
 
 		return self
 
 	Func NavigationBaseIncludeIgnored P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s28:NavigationBaseIncludeIgnored",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s28:NavigationBaseIncludeIgnored",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s28:NavigationBaseIncludeIgnored",P1,P2)
 
 		return self
 
 	Func QueryExecutionPlanned P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s21:QueryExecutionPlanned",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s21:QueryExecutionPlanned",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s21:QueryExecutionPlanned",P1,P2,P3,P4)
 
 		return self
 
 	Func SensitiveDataLoggingEnabledWarning P1
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s34:SensitiveDataLoggingEnabledWarning",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s34:SensitiveDataLoggingEnabledWarning",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s34:SensitiveDataLoggingEnabledWarning",P1)
 
 		return self
 
 	Func TypeLoadingErrorWarning P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s23:TypeLoadingErrorWarning",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s23:TypeLoadingErrorWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s23:TypeLoadingErrorWarning",P1,P2,P3)
 
 		return self
 
 	Func SkippedEntityTypeConfigurationWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s37:SkippedEntityTypeConfigurationWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s37:SkippedEntityTypeConfigurationWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s37:SkippedEntityTypeConfigurationWarning",P1,P2)
 
 		return self
 
 	Func NoEntityTypeConfigurationsWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s33:NoEntityTypeConfigurationsWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s33:NoEntityTypeConfigurationsWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s33:NoEntityTypeConfigurationsWarning",P1,P2)
 
 		return self
 
 	Func PossibleUnintendedCollectionNavigationNullComparisonWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s59:PossibleUnintendedCollectionNavigationNullComparisonWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s59:PossibleUnintendedCollectionNavigationNullComparisonWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s59:PossibleUnintendedCollectionNavigationNullComparisonWarning",P1,P2)
 
 		return self
 
 	Func PossibleUnintendedReferenceComparisonWarning P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s44:PossibleUnintendedReferenceComparisonWarning",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s44:PossibleUnintendedReferenceComparisonWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s44:PossibleUnintendedReferenceComparisonWarning",P1,P2,P3)
 
 		return self
 
 	Func InvalidIncludePathError P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s23:InvalidIncludePathError",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s23:InvalidIncludePathError",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s23:InvalidIncludePathError",P1,P2,P3)
 
 		return self
 
 	Func ServiceProviderCreated P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s22:ServiceProviderCreated",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s22:ServiceProviderCreated",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s22:ServiceProviderCreated",P1,P2)
 
 		return self
 
 	Func ManyServiceProvidersCreatedWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s34:ManyServiceProvidersCreatedWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s34:ManyServiceProvidersCreatedWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s34:ManyServiceProvidersCreatedWarning",P1,P2)
 
 		return self
 
 	Func ServiceProviderDebugInfo P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s24:ServiceProviderDebugInfo",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s24:ServiceProviderDebugInfo",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s24:ServiceProviderDebugInfo",P1,P2,P3)
 
 		return self
 
 	Func ContextInitialized P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s18:ContextInitialized",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s18:ContextInitialized",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s18:ContextInitialized",P1,P2,P3)
 
 		return self
 
 	Func ExecutionStrategyRetrying P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s25:ExecutionStrategyRetrying",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s25:ExecutionStrategyRetrying",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s25:ExecutionStrategyRetrying",P1,P2,P3,P4)
 
 		return self
 
 	Func LazyLoadOnDisposedContextWarning P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s32:LazyLoadOnDisposedContextWarning",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s32:LazyLoadOnDisposedContextWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s32:LazyLoadOnDisposedContextWarning",P1,P2,P3,P4)
 
 		return self
 
 	Func NavigationLazyLoading P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s21:NavigationLazyLoading",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s21:NavigationLazyLoading",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s21:NavigationLazyLoading",P1,P2,P3,P4)
 
 		return self
 
 	Func DetachedLazyLoadingWarning P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s26:DetachedLazyLoadingWarning",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s26:DetachedLazyLoadingWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s26:DetachedLazyLoadingWarning",P1,P2,P3,P4)
 
 		return self
 
 	Func RedundantAddServicesCallWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s31:RedundantAddServicesCallWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s31:RedundantAddServicesCallWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s31:RedundantAddServicesCallWarning",P1,P2)
 
 		return self
 
 	Func ShadowForeignKeyPropertyCreated P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s31:ShadowForeignKeyPropertyCreated",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s31:ShadowForeignKeyPropertyCreated",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s31:ShadowForeignKeyPropertyCreated",P1,P2,P3)
 
 		return self
 
 	Func ShadowPropertyCreated P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s21:ShadowPropertyCreated",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s21:ShadowPropertyCreated",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s21:ShadowPropertyCreated",P1,P2)
 
 		return self
 
 	Func CollectionWithoutComparer P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s25:CollectionWithoutComparer",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s25:CollectionWithoutComparer",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s25:CollectionWithoutComparer",P1,P2)
 
 		return self
 
 	Func RedundantIndexRemoved P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s21:RedundantIndexRemoved",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s21:RedundantIndexRemoved",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s21:RedundantIndexRemoved",P1,P2,P3)
 
 		return self
 
 	Func RedundantForeignKeyWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s26:RedundantForeignKeyWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s26:RedundantForeignKeyWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s26:RedundantForeignKeyWarning",P1,P2)
 
 		return self
 
 	Func IncompatibleMatchingForeignKeyProperties P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s40:IncompatibleMatchingForeignKeyProperties",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s40:IncompatibleMatchingForeignKeyProperties",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s40:IncompatibleMatchingForeignKeyProperties",P1,P2,P3,P4,P5)
 
 		return self
 
 	Func AccidentalEntityType P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s20:AccidentalEntityType",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s20:AccidentalEntityType",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s20:AccidentalEntityType",P1,P2)
 
 		return self
 
 	Func AmbiguousEndRequiredWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s27:AmbiguousEndRequiredWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s27:AmbiguousEndRequiredWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s27:AmbiguousEndRequiredWarning",P1,P2)
 
 		return self
 
 	Func RequiredAttributeOnCollection P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s29:RequiredAttributeOnCollection",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s29:RequiredAttributeOnCollection",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s29:RequiredAttributeOnCollection",P1,P2)
 
 		return self
 
 	Func RequiredAttributeOnSkipNavigation P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s33:RequiredAttributeOnSkipNavigation",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s33:RequiredAttributeOnSkipNavigation",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s33:RequiredAttributeOnSkipNavigation",P1,P2)
 
 		return self
 
 	Func ConflictingShadowForeignKeysWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s35:ConflictingShadowForeignKeysWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s35:ConflictingShadowForeignKeysWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s35:ConflictingShadowForeignKeysWarning",P1,P2)
 
 		return self
 
 	Func MultiplePrimaryKeyCandidates P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s28:MultiplePrimaryKeyCandidates",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s28:MultiplePrimaryKeyCandidates",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s28:MultiplePrimaryKeyCandidates",P1,P2,P3)
 
 		return self
 
 	Func MultipleNavigationProperties P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s28:MultipleNavigationProperties",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s28:MultipleNavigationProperties",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s28:MultipleNavigationProperties",P1,P2,P3)
 
 		return self
 
 	Func MultipleInversePropertiesSameTargetWarning P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s42:MultipleInversePropertiesSameTargetWarning",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s42:MultipleInversePropertiesSameTargetWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s42:MultipleInversePropertiesSameTargetWarning",P1,P2,P3,P4)
 
 		return self
 
 	Func NonOwnershipInverseNavigationWarning P1,P2,P3,P4,P5,P6
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s36:NonOwnershipInverseNavigationWarning",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s36:NonOwnershipInverseNavigationWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s36:NonOwnershipInverseNavigationWarning",P1,P2,P3,P4,P5,P6)
 
 		return self
 
 	Func ForeignKeyAttributesOnBothPropertiesWarning P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s43:ForeignKeyAttributesOnBothPropertiesWarning",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s43:ForeignKeyAttributesOnBothPropertiesWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s43:ForeignKeyAttributesOnBothPropertiesWarning",P1,P2,P3,P4,P5)
 
 		return self
 
 	Func ForeignKeyAttributesOnBothNavigationsWarning P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s44:ForeignKeyAttributesOnBothNavigationsWarning",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s44:ForeignKeyAttributesOnBothNavigationsWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s44:ForeignKeyAttributesOnBothNavigationsWarning",P1,P2,P3)
 
 		return self
 
 	Func ConflictingForeignKeyAttributesOnNavigationAndPropertyWarning P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s61:ConflictingForeignKeyAttributesOnNavigationAndPropertyWarning",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s61:ConflictingForeignKeyAttributesOnNavigationAndPropertyWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s61:ConflictingForeignKeyAttributesOnNavigationAndPropertyWarning",P1,P2,P3)
 
 		return self
 
 	Func DetectChangesStarting P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s21:DetectChangesStarting",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s21:DetectChangesStarting",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s21:DetectChangesStarting",P1,P2)
 
 		return self
 
 	Func DetectChangesCompleted P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s22:DetectChangesCompleted",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s22:DetectChangesCompleted",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s22:DetectChangesCompleted",P1,P2)
 
 		return self
 
 	Func PropertyChangeDetected P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s22:PropertyChangeDetected",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s22:PropertyChangeDetected",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s22:PropertyChangeDetected",P1,P2,P3,P4,P5)
 
 		return self
 
 	Func PropertyChangeDetectedSensitive P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s31:PropertyChangeDetectedSensitive",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s31:PropertyChangeDetectedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s31:PropertyChangeDetectedSensitive",P1,P2,P3,P4,P5)
 
 		return self
 
 	Func ForeignKeyChangeDetected P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s24:ForeignKeyChangeDetected",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s24:ForeignKeyChangeDetected",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s24:ForeignKeyChangeDetected",P1,P2,P3,P4,P5)
 
 		return self
 
 	Func ForeignKeyChangeDetectedSensitive P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s33:ForeignKeyChangeDetectedSensitive",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s33:ForeignKeyChangeDetectedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s33:ForeignKeyChangeDetectedSensitive",P1,P2,P3,P4,P5)
 
 		return self
 
 	Func CollectionChangeDetected P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s24:CollectionChangeDetected",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s24:CollectionChangeDetected",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s24:CollectionChangeDetected",P1,P2,P3,P4,P5)
 
 		return self
 
 	Func CollectionChangeDetectedSensitive P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s33:CollectionChangeDetectedSensitive",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s33:CollectionChangeDetectedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s33:CollectionChangeDetectedSensitive",P1,P2,P3,P4,P5)
 
 		return self
 
 	Func SkipCollectionChangeDetected P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s28:SkipCollectionChangeDetected",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s28:SkipCollectionChangeDetected",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s28:SkipCollectionChangeDetected",P1,P2,P3,P4,P5)
 
 		return self
 
 	Func SkipCollectionChangeDetectedSensitive P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s37:SkipCollectionChangeDetectedSensitive",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s37:SkipCollectionChangeDetectedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s37:SkipCollectionChangeDetectedSensitive",P1,P2,P3,P4,P5)
 
 		return self
 
 	Func ReferenceChangeDetected P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s23:ReferenceChangeDetected",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s23:ReferenceChangeDetected",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s23:ReferenceChangeDetected",P1,P2,P3,P4,P5)
 
 		return self
 
 	Func ReferenceChangeDetectedSensitive P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s32:ReferenceChangeDetectedSensitive",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s32:ReferenceChangeDetectedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s32:ReferenceChangeDetectedSensitive",P1,P2,P3,P4,P5)
 
 		return self
 
 	Func StringEnumValueInJson P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s21:StringEnumValueInJson",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s21:StringEnumValueInJson",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s21:StringEnumValueInJson",P1,P2)
 
 		return self
 
 	Func StartedTracking P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s15:StartedTracking",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s15:StartedTracking",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s15:StartedTracking",P1,P2)
 
 		return self
 
 	Func StartedTrackingSensitive P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s24:StartedTrackingSensitive",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s24:StartedTrackingSensitive",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s24:StartedTrackingSensitive",P1,P2)
 
 		return self
 
 	Func StateChanged P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s12:StateChanged",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s12:StateChanged",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s12:StateChanged",P1,P2,P3,P4)
 
 		return self
 
 	Func StateChangedSensitive P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s21:StateChangedSensitive",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s21:StateChangedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s21:StateChangedSensitive",P1,P2,P3,P4)
 
 		return self
 
 	Func ValueGenerated P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s14:ValueGenerated",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s14:ValueGenerated",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s14:ValueGenerated",P1,P2,P3,P4,P5)
 
 		return self
 
 	Func ValueGeneratedSensitive P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s23:ValueGeneratedSensitive",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s23:ValueGeneratedSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s23:ValueGeneratedSensitive",P1,P2,P3,P4,P5)
 
 		return self
 
 	Func CascadeDelete P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s13:CascadeDelete",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s13:CascadeDelete",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s13:CascadeDelete",P1,P2,P3,P4)
 
 		return self
 
 	Func CascadeDeleteSensitive P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s22:CascadeDeleteSensitive",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s22:CascadeDeleteSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s22:CascadeDeleteSensitive",P1,P2,P3,P4)
 
 		return self
 
 	Func CascadeDeleteOrphan P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s19:CascadeDeleteOrphan",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s19:CascadeDeleteOrphan",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s19:CascadeDeleteOrphan",P1,P2,P3,P4)
 
 		return self
 
 	Func MappedNavigationIgnoredWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s30:MappedNavigationIgnoredWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s30:MappedNavigationIgnoredWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s30:MappedNavigationIgnoredWarning",P1,P2)
 
 		return self
 
 	Func MappedPropertyIgnoredWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s28:MappedPropertyIgnoredWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s28:MappedPropertyIgnoredWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s28:MappedPropertyIgnoredWarning",P1,P2)
 
 		return self
 
 	Func MappedComplexPropertyIgnoredWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s35:MappedComplexPropertyIgnoredWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s35:MappedComplexPropertyIgnoredWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s35:MappedComplexPropertyIgnoredWarning",P1,P2)
 
 		return self
 
 	Func MappedEntityTypeIgnoredWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s30:MappedEntityTypeIgnoredWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s30:MappedEntityTypeIgnoredWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s30:MappedEntityTypeIgnoredWarning",P1,P2)
 
 		return self
 
 	Func CascadeDeleteOrphanSensitive P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s28:CascadeDeleteOrphanSensitive",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s28:CascadeDeleteOrphanSensitive",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s28:CascadeDeleteOrphanSensitive",P1,P2,P3,P4)
 
 		return self
 
 	Func SaveChangesStarting P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s19:SaveChangesStarting",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s19:SaveChangesStarting",P1,P2))
 
 	Func SaveChangesStartingAsync P1
 		if dnIsNamed(P1)
@@ -1853,7 +1780,7 @@ Class CoreLoggerExtensions from Object
 
 	Func SaveChangesCompleted P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s20:SaveChangesCompleted",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s20:SaveChangesCompleted",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SaveChangesCompletedAsync P1
@@ -1863,20 +1790,17 @@ Class CoreLoggerExtensions from Object
 		raise("DotNet Error: SaveChangesCompletedAsync does not take one argument: use named arguments, SaveChangesCompletedAsync([ :parameter = value, ... ])")
 
 	Func ContextDisposed P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s15:ContextDisposed",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s15:ContextDisposed",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s15:ContextDisposed",P1,P2)
 
 		return self
 
 	Func ConflictingKeylessAndKeyAttributesWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s41:ConflictingKeylessAndKeyAttributesWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s41:ConflictingKeylessAndKeyAttributesWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s41:ConflictingKeylessAndKeyAttributesWarning",P1,P2)
 
 		return self
 
 	Func PossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s68:PossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"s68:PossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore',"s68:PossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning",P1,P2)
 
 		return self
 
@@ -1948,1842 +1872,1842 @@ Class CoreStrings from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AbstractLeafEntityType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:AbstractLeafEntityType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:AbstractLeafEntityType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AddingProxyTypeAsEntityType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:AddingProxyTypeAsEntityType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:AddingProxyTypeAsEntityType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AmbiguousDependentEntity P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:AmbiguousDependentEntity",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:AmbiguousDependentEntity",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AmbiguousEndRequiredDependent P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:AmbiguousEndRequiredDependent",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:AmbiguousEndRequiredDependent",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AmbiguousEndRequiredDependentNavigation P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s39:AmbiguousEndRequiredDependentNavigation",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s39:AmbiguousEndRequiredDependentNavigation",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AmbiguousEndRequiredInverted P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:AmbiguousEndRequiredInverted",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:AmbiguousEndRequiredInverted",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AmbiguousForeignKeyPropertyCandidates P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s37:AmbiguousForeignKeyPropertyCandidates",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s37:AmbiguousForeignKeyPropertyCandidates",[P1,P2,P3,P4,P5]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AmbiguousOneToOneRelationship P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:AmbiguousOneToOneRelationship",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:AmbiguousOneToOneRelationship",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AmbiguousOwnedNavigation P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:AmbiguousOwnedNavigation",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:AmbiguousOwnedNavigation",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AmbiguousSharedTypeEntityTypeName P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:AmbiguousSharedTypeEntityTypeName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:AmbiguousSharedTypeEntityTypeName",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AnnotationNotFound P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:AnnotationNotFound",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:AnnotationNotFound",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ArgumentNotConstant P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:ArgumentNotConstant",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:ArgumentNotConstant",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ArgumentPropertyNull P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:ArgumentPropertyNull",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:ArgumentPropertyNull",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AttributeNotOnEntityTypeProperty P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s32:AttributeNotOnEntityTypeProperty",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s32:AttributeNotOnEntityTypeProperty",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AutoIncludeNavigationCycle P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:AutoIncludeNavigationCycle",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:AutoIncludeNavigationCycle",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func BackingFieldOnIndexer P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:BackingFieldOnIndexer",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:BackingFieldOnIndexer",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func BadBackingFieldType P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:BadBackingFieldType",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:BadBackingFieldType",[P1,P2,P3,P4,P5]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func BadDependencyRegistration P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:BadDependencyRegistration",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:BadDependencyRegistration",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func BadEnumValue P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s12:BadEnumValue",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s12:BadEnumValue",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func BadFilterDerivedType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:BadFilterDerivedType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:BadFilterDerivedType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func BadFilterExpression P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:BadFilterExpression",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:BadFilterExpression",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func BadFilterOwnedType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:BadFilterOwnedType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:BadFilterOwnedType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func BadJsonValueReaderWriterType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:BadJsonValueReaderWriterType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:BadJsonValueReaderWriterType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func BadListType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s11:BadListType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s11:BadListType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func BadValueComparerType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:BadValueComparerType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:BadValueComparerType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func BadValueConverterType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:BadValueConverterType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:BadValueConverterType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func BadValueGeneratorType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:BadValueGeneratorType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:BadValueGeneratorType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CannotBeNullable P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:CannotBeNullable",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:CannotBeNullable",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CannotBeNullableElement P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:CannotBeNullableElement",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:CannotBeNullableElement",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CannotBeNullablePK P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:CannotBeNullablePK",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:CannotBeNullablePK",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CannotConvertEnumValue P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:CannotConvertEnumValue",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:CannotConvertEnumValue",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CannotCreateJsonValueReaderWriter P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:CannotCreateJsonValueReaderWriter",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:CannotCreateJsonValueReaderWriter",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CannotCreateValueComparer P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:CannotCreateValueComparer",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:CannotCreateValueComparer",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CannotCreateValueConverter P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:CannotCreateValueConverter",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:CannotCreateValueConverter",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CannotCreateValueGenerator P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:CannotCreateValueGenerator",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:CannotCreateValueGenerator",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CannotLoadDetachedShadow P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:CannotLoadDetachedShadow",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:CannotLoadDetachedShadow",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CannotMarkNonShared P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:CannotMarkNonShared",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:CannotMarkNonShared",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CannotMarkShared P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:CannotMarkShared",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:CannotMarkShared",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CannotMaterializeAbstractType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:CannotMaterializeAbstractType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:CannotMaterializeAbstractType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CanOnlyConfigureExistingNavigations P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:CanOnlyConfigureExistingNavigations",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:CanOnlyConfigureExistingNavigations",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ChangeTrackingInterfaceMissing P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s30:ChangeTrackingInterfaceMissing",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s30:ChangeTrackingInterfaceMissing",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CircularDependency P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:CircularDependency",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:CircularDependency",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CircularInheritance P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:CircularInheritance",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:CircularInheritance",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ClashingMismatchedSharedType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:ClashingMismatchedSharedType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:ClashingMismatchedSharedType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ClashingNamedOwnedType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:ClashingNamedOwnedType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:ClashingNamedOwnedType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ClashingNonOwnedDerivedEntityType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:ClashingNonOwnedDerivedEntityType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:ClashingNonOwnedDerivedEntityType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ClashingNonOwnedEntityType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:ClashingNonOwnedEntityType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:ClashingNonOwnedEntityType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ClashingNonSharedType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:ClashingNonSharedType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:ClashingNonSharedType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ClashingOwnedDerivedEntityType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s30:ClashingOwnedDerivedEntityType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s30:ClashingOwnedDerivedEntityType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ClashingOwnedEntityType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:ClashingOwnedEntityType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:ClashingOwnedEntityType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ClashingSharedType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:ClashingSharedType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:ClashingSharedType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ClientProjectionCapturingConstantInMethodArgument P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s49:ClientProjectionCapturingConstantInMethodArgument",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s49:ClientProjectionCapturingConstantInMethodArgument",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ClientProjectionCapturingConstantInMethodInstance P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s49:ClientProjectionCapturingConstantInMethodInstance",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s49:ClientProjectionCapturingConstantInMethodInstance",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ClientProjectionCapturingConstantInTree P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s39:ClientProjectionCapturingConstantInTree",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s39:ClientProjectionCapturingConstantInTree",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CollectionIsReference P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:CollectionIsReference",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:CollectionIsReference",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ComparerPropertyMismatch P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:ComparerPropertyMismatch",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:ComparerPropertyMismatch",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ComparerPropertyMismatchElement P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:ComparerPropertyMismatchElement",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:ComparerPropertyMismatchElement",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CompiledModelDuplicateAttribute P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:CompiledModelDuplicateAttribute",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:CompiledModelDuplicateAttribute",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CompiledModelIncompatibleTypeMapping P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:CompiledModelIncompatibleTypeMapping",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:CompiledModelIncompatibleTypeMapping",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CompiledModelMissingInstance P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:CompiledModelMissingInstance",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:CompiledModelMissingInstance",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CompiledQueryDifferentModel P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:CompiledQueryDifferentModel",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:CompiledQueryDifferentModel",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ComplexCollectionWrongClrType P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:ComplexCollectionWrongClrType",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:ComplexCollectionWrongClrType",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ComplexPropertyCollection P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:ComplexPropertyCollection",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:ComplexPropertyCollection",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ComplexPropertyIndexer P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:ComplexPropertyIndexer",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:ComplexPropertyIndexer",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ComplexPropertyNotFound P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:ComplexPropertyNotFound",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:ComplexPropertyNotFound",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ComplexPropertyOptional P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:ComplexPropertyOptional",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:ComplexPropertyOptional",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ComplexPropertyShadow P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:ComplexPropertyShadow",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:ComplexPropertyShadow",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ComplexPropertyWrongClrType P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:ComplexPropertyWrongClrType",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:ComplexPropertyWrongClrType",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ComplexTypesNotSupported P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:ComplexTypesNotSupported",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:ComplexTypesNotSupported",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CompositeFkOnProperty P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:CompositeFkOnProperty",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:CompositeFkOnProperty",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CompositePKWithDataAnnotation P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:CompositePKWithDataAnnotation",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:CompositePKWithDataAnnotation",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingBackingFields P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:ConflictingBackingFields",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:ConflictingBackingFields",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingFieldProperty P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:ConflictingFieldProperty",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:ConflictingFieldProperty",[P1,P2,P3,P4,P5]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingForeignKeyAttributes P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:ConflictingForeignKeyAttributes",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:ConflictingForeignKeyAttributes",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingKeylessAndPrimaryKeyAttributes P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s41:ConflictingKeylessAndPrimaryKeyAttributes",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s41:ConflictingKeylessAndPrimaryKeyAttributes",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingPropertyOrNavigation P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:ConflictingPropertyOrNavigation",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:ConflictingPropertyOrNavigation",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingRelationshipConversions P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s34:ConflictingRelationshipConversions",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s34:ConflictingRelationshipConversions",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingRelationshipNavigation P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:ConflictingRelationshipNavigation",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:ConflictingRelationshipNavigation",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConstructorBindingFailed P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:ConstructorBindingFailed",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:ConstructorBindingFailed",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConstructorConflict P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:ConstructorConflict",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:ConstructorConflict",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConstructorNotFound P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:ConstructorNotFound",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:ConstructorNotFound",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConverterBadType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:ConverterBadType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:ConverterBadType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConverterPropertyMismatch P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:ConverterPropertyMismatch",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:ConverterPropertyMismatch",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConverterPropertyMismatchElement P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s32:ConverterPropertyMismatchElement",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s32:ConverterPropertyMismatchElement",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConvertersCannotBeComposed P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:ConvertersCannotBeComposed",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:ConvertersCannotBeComposed",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DbContextMissingConstructor P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:DbContextMissingConstructor",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:DbContextMissingConstructor",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DbSetIncorrectGenericType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:DbSetIncorrectGenericType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:DbSetIncorrectGenericType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DebugViewError P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s14:DebugViewError",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s14:DebugViewError",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DebugViewQueryExpressionError P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:DebugViewQueryExpressionError",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:DebugViewQueryExpressionError",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DebugViewQueryStringError P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:DebugViewQueryStringError",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:DebugViewQueryStringError",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DeleteBehaviorAttributeNotOnNavigationProperty P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s46:DeleteBehaviorAttributeNotOnNavigationProperty",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s46:DeleteBehaviorAttributeNotOnNavigationProperty",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DeleteBehaviorAttributeOnPrincipalProperty P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s42:DeleteBehaviorAttributeOnPrincipalProperty",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s42:DeleteBehaviorAttributeOnPrincipalProperty",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DependentEntityTypeNotInRelationship P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:DependentEntityTypeNotInRelationship",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:DependentEntityTypeNotInRelationship",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DerivedEntityCannotBeKeyless P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:DerivedEntityCannotBeKeyless",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:DerivedEntityCannotBeKeyless",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DerivedEntityCannotHaveKeys P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:DerivedEntityCannotHaveKeys",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:DerivedEntityCannotHaveKeys",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DerivedEntityOwnershipMismatch P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s30:DerivedEntityOwnershipMismatch",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s30:DerivedEntityOwnershipMismatch",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DerivedEntityTypeHasNoKey P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:DerivedEntityTypeHasNoKey",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:DerivedEntityTypeHasNoKey",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DerivedEntityTypeKey P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:DerivedEntityTypeKey",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:DerivedEntityTypeKey",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DerivedTypeDefiningQuery P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:DerivedTypeDefiningQuery",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:DerivedTypeDefiningQuery",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DiscriminatorEntityTypeNotDerived P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:DiscriminatorEntityTypeNotDerived",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:DiscriminatorEntityTypeNotDerived",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DiscriminatorPropertyMustBeOnRoot P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:DiscriminatorPropertyMustBeOnRoot",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:DiscriminatorPropertyMustBeOnRoot",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DiscriminatorPropertyNotFound P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:DiscriminatorPropertyNotFound",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:DiscriminatorPropertyNotFound",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DiscriminatorValueIncompatible P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s30:DiscriminatorValueIncompatible",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s30:DiscriminatorValueIncompatible",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateAnnotation P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:DuplicateAnnotation",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:DuplicateAnnotation",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateComplexType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:DuplicateComplexType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:DuplicateComplexType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateDiscriminatorValue P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:DuplicateDiscriminatorValue",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:DuplicateDiscriminatorValue",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateEntityType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:DuplicateEntityType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:DuplicateEntityType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateForeignKey P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:DuplicateForeignKey",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:DuplicateForeignKey",[P1,P2,P3,P4,P5]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateIndex P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s14:DuplicateIndex",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s14:DuplicateIndex",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateKey P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s12:DuplicateKey",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s12:DuplicateKey",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateNamedIndex P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:DuplicateNamedIndex",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:DuplicateNamedIndex",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicatePropertiesOnBase P1,P2,P3,P4,P5,P6
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:DuplicatePropertiesOnBase",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:DuplicatePropertiesOnBase",[P1,P2,P3,P4,P5,P6]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicatePropertyInForeignKey P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:DuplicatePropertyInForeignKey",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:DuplicatePropertyInForeignKey",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicatePropertyInIndex P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:DuplicatePropertyInIndex",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:DuplicatePropertyInIndex",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicatePropertyInKey P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:DuplicatePropertyInKey",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:DuplicatePropertyInKey",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateTrigger P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:DuplicateTrigger",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:DuplicateTrigger",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EmptyComplexType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:EmptyComplexType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:EmptyComplexType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntityEqualityOnCompositeKeyEntitySubqueryNotSupported P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s54:EntityEqualityOnCompositeKeyEntitySubqueryNotSupported",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s54:EntityEqualityOnCompositeKeyEntitySubqueryNotSupported",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntityEqualityOnKeylessEntityNotSupported P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s41:EntityEqualityOnKeylessEntityNotSupported",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s41:EntityEqualityOnKeylessEntityNotSupported",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntityRequiresKey P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:EntityRequiresKey",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:EntityRequiresKey",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntityTypeInUseByDerived P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:EntityTypeInUseByDerived",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:EntityTypeInUseByDerived",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntityTypeInUseByReferencingForeignKey P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s38:EntityTypeInUseByReferencingForeignKey",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s38:EntityTypeInUseByReferencingForeignKey",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntityTypeInUseByReferencingSkipNavigation P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s42:EntityTypeInUseByReferencingSkipNavigation",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s42:EntityTypeInUseByReferencingSkipNavigation",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntityTypeModelMismatch P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:EntityTypeModelMismatch",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:EntityTypeModelMismatch",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntityTypeNotFound P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:EntityTypeNotFound",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:EntityTypeNotFound",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntityTypeNotInRelationship P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:EntityTypeNotInRelationship",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:EntityTypeNotInRelationship",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntityTypeNotInRelationshipStrict P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:EntityTypeNotInRelationshipStrict",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:EntityTypeNotInRelationshipStrict",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntityTypesNotInRelationship P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:EntityTypesNotInRelationship",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:EntityTypesNotInRelationship",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ErrorMaterializingPropertyInvalidCast P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s37:ErrorMaterializingPropertyInvalidCast",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s37:ErrorMaterializingPropertyInvalidCast",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ExecuteQueriesNotSupported P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:ExecuteQueriesNotSupported",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:ExecuteQueriesNotSupported",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ExecutionStrategyExistingTransaction P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:ExecutionStrategyExistingTransaction",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:ExecutionStrategyExistingTransaction",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ExpressionParameterizationExceptionSensitive P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s44:ExpressionParameterizationExceptionSensitive",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s44:ExpressionParameterizationExceptionSensitive",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FieldNameMismatch P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:FieldNameMismatch",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:FieldNameMismatch",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FindNotCompositeKey P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:FindNotCompositeKey",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:FindNotCompositeKey",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FindValueCountMismatch P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:FindValueCountMismatch",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:FindValueCountMismatch",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FindValueTypeMismatch P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:FindValueTypeMismatch",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:FindValueTypeMismatch",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FindWrongCount P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s14:FindWrongCount",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s14:FindWrongCount",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FindWrongType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s13:FindWrongType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s13:FindWrongType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FkAttributeOnNonUniquePrincipal P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:FkAttributeOnNonUniquePrincipal",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:FkAttributeOnNonUniquePrincipal",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FkAttributeOnPropertyNavigationMismatch P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s39:FkAttributeOnPropertyNavigationMismatch",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s39:FkAttributeOnPropertyNavigationMismatch",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FkAttributeOnSkipNavigation P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:FkAttributeOnSkipNavigation",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:FkAttributeOnSkipNavigation",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ForeignKeyCountMismatch P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:ForeignKeyCountMismatch",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:ForeignKeyCountMismatch",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ForeignKeyInUseSkipNavigation P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:ForeignKeyInUseSkipNavigation",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:ForeignKeyInUseSkipNavigation",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ForeignKeyPropertiesWrongEntity P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:ForeignKeyPropertiesWrongEntity",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:ForeignKeyPropertiesWrongEntity",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ForeignKeyPropertyInKey P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:ForeignKeyPropertyInKey",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:ForeignKeyPropertyInKey",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ForeignKeyReferencedEntityKeyMismatch P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s37:ForeignKeyReferencedEntityKeyMismatch",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s37:ForeignKeyReferencedEntityKeyMismatch",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ForeignKeyTypeMismatch P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:ForeignKeyTypeMismatch",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:ForeignKeyTypeMismatch",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ForeignKeyWrongType P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:ForeignKeyWrongType",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:ForeignKeyWrongType",[P1,P2,P3,P4,P5]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FullChangeTrackingRequired P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:FullChangeTrackingRequired",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:FullChangeTrackingRequired",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FunctionOnClient P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:FunctionOnClient",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:FunctionOnClient",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GraphDoesNotContainVertex P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:GraphDoesNotContainVertex",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:GraphDoesNotContainVertex",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IdentifyingRelationshipCycle P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:IdentifyingRelationshipCycle",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:IdentifyingRelationshipCycle",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IdentityConflict P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:IdentityConflict",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:IdentityConflict",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IdentityConflictOwned P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:IdentityConflictOwned",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:IdentityConflictOwned",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IdentityConflictOwnedSensitive P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s30:IdentityConflictOwnedSensitive",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s30:IdentityConflictOwnedSensitive",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IdentityConflictSensitive P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:IdentityConflictSensitive",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:IdentityConflictSensitive",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ImplementationTypeRequired P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:ImplementationTypeRequired",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:ImplementationTypeRequired",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IncludeOnEntityWithDefiningQueryNotSupported P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s44:IncludeOnEntityWithDefiningQueryNotSupported",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s44:IncludeOnEntityWithDefiningQueryNotSupported",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IncludeOnNonEntity P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:IncludeOnNonEntity",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:IncludeOnNonEntity",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IncludeWithCycle P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:IncludeWithCycle",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:IncludeWithCycle",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IncompatibleSentinelValue P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:IncompatibleSentinelValue",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:IncompatibleSentinelValue",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InconsistentInheritance P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:InconsistentInheritance",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:InconsistentInheritance",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IncorrectNumberOfArguments P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:IncorrectNumberOfArguments",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:IncorrectNumberOfArguments",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IndexPropertiesWrongEntity P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:IndexPropertiesWrongEntity",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:IndexPropertiesWrongEntity",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IndexWrongType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s14:IndexWrongType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s14:IndexWrongType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InheritedPropertyCannotBeIgnored P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s32:InheritedPropertyCannotBeIgnored",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s32:InheritedPropertyCannotBeIgnored",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InterfacePropertyNotAdded P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:InterfacePropertyNotAdded",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:InterfacePropertyNotAdded",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidAlternateKeyValue P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:InvalidAlternateKeyValue",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:InvalidAlternateKeyValue",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidComplexType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:InvalidComplexType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:InvalidComplexType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidEntityType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:InvalidEntityType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:InvalidEntityType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidEntityTypeConfigurationAttribute P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s39:InvalidEntityTypeConfigurationAttribute",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s39:InvalidEntityTypeConfigurationAttribute",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidEnumValue P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:InvalidEnumValue",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:InvalidEnumValue",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidIncludeExpression P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:InvalidIncludeExpression",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:InvalidIncludeExpression",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidKeyValue P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:InvalidKeyValue",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:InvalidKeyValue",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidMemberExpression P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:InvalidMemberExpression",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:InvalidMemberExpression",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidMembersExpression P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:InvalidMembersExpression",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:InvalidMembersExpression",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidNavigationWithInverseProperty P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:InvalidNavigationWithInverseProperty",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:InvalidNavigationWithInverseProperty",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidNumberOfIndexSortOrderValues P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:InvalidNumberOfIndexSortOrderValues",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:InvalidNumberOfIndexSortOrderValues",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidPropertyListOnNavigation P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:InvalidPropertyListOnNavigation",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:InvalidPropertyListOnNavigation",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidRelationshipUsingDataAnnotations P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s39:InvalidRelationshipUsingDataAnnotations",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s39:InvalidRelationshipUsingDataAnnotations",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidReplaceService P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:InvalidReplaceService",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:InvalidReplaceService",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidSetKeylessOperation P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:InvalidSetKeylessOperation",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:InvalidSetKeylessOperation",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidSetSameTypeWithDifferentNamespace P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s40:InvalidSetSameTypeWithDifferentNamespace",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s40:InvalidSetSameTypeWithDifferentNamespace",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidSetSharedType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:InvalidSetSharedType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:InvalidSetSharedType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidSetType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s14:InvalidSetType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s14:InvalidSetType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidSetTypeOwned P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:InvalidSetTypeOwned",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:InvalidSetTypeOwned",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidSwitch P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s13:InvalidSwitch",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s13:InvalidSwitch",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidType P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s11:InvalidType",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s11:InvalidType",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidTypeConversationWithInclude P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s34:InvalidTypeConversationWithInclude",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s34:InvalidTypeConversationWithInclude",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidUseService P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:InvalidUseService",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:InvalidUseService",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidValueGeneratorFactoryProperty P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:InvalidValueGeneratorFactoryProperty",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:InvalidValueGeneratorFactoryProperty",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InversePropertyMismatch P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:InversePropertyMismatch",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:InversePropertyMismatch",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InverseToOwnedType P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:InverseToOwnedType",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:InverseToOwnedType",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IQueryableNotAsync P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:IQueryableNotAsync",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:IQueryableNotAsync",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonReaderInvalidTokenType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:JsonReaderInvalidTokenType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:JsonReaderInvalidTokenType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func KeyAttributeOnDerivedEntity P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:KeyAttributeOnDerivedEntity",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:KeyAttributeOnDerivedEntity",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func KeyInUse P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s8:KeyInUse",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s8:KeyInUse",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func KeylessTypeExistingKey P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:KeylessTypeExistingKey",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:KeylessTypeExistingKey",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func KeylessTypeTracked P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:KeylessTypeTracked",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:KeylessTypeTracked",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func KeylessTypeWithKey P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:KeylessTypeWithKey",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:KeylessTypeWithKey",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func KeyPropertiesWrongEntity P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:KeyPropertiesWrongEntity",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:KeyPropertiesWrongEntity",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func KeyPropertyCannotBeNullable P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:KeyPropertyCannotBeNullable",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:KeyPropertyCannotBeNullable",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func KeyPropertyMustBeReadOnly P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:KeyPropertyMustBeReadOnly",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:KeyPropertyMustBeReadOnly",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func KeyReadOnly P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s11:KeyReadOnly",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s11:KeyReadOnly",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func KeyWrongType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s12:KeyWrongType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s12:KeyWrongType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LiteralGenerationNotSupported P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:LiteralGenerationNotSupported",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:LiteralGenerationNotSupported",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ManyToManyOneNav P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:ManyToManyOneNav",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:ManyToManyOneNav",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MissingBackingField P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:MissingBackingField",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:MissingBackingField",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ModelNotFinalized P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:ModelNotFinalized",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:ModelNotFinalized",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MultipleFilteredIncludesOnSameNavigation P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s40:MultipleFilteredIncludesOnSameNavigation",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s40:MultipleFilteredIncludesOnSameNavigation",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MultipleNavigationsSameFk P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:MultipleNavigationsSameFk",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:MultipleNavigationsSameFk",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MultipleOwnerships P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:MultipleOwnerships",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:MultipleOwnerships",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MultipleProvidersConfigured P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:MultipleProvidersConfigured",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:MultipleProvidersConfigured",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MustRewriteToSameNode P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:MustRewriteToSameNode",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:MustRewriteToSameNode",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MutableKeyProperty P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:MutableKeyProperty",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:MutableKeyProperty",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NamedIndexDefinedOnIgnoredProperty P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s34:NamedIndexDefinedOnIgnoredProperty",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s34:NamedIndexDefinedOnIgnoredProperty",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NamedIndexDefinedOnNonExistentProperty P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s38:NamedIndexDefinedOnNonExistentProperty",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s38:NamedIndexDefinedOnNonExistentProperty",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NamedIndexWrongType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:NamedIndexWrongType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:NamedIndexWrongType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NavigationArray P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:NavigationArray",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:NavigationArray",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NavigationBadType P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:NavigationBadType",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:NavigationBadType",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NavigationCannotCreateType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:NavigationCannotCreateType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:NavigationCannotCreateType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NavigationCollectionWrongClrType P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s32:NavigationCollectionWrongClrType",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s32:NavigationCollectionWrongClrType",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NavigationForWrongForeignKey P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:NavigationForWrongForeignKey",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:NavigationForWrongForeignKey",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NavigationIsProperty P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:NavigationIsProperty",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:NavigationIsProperty",[P1,P2,P3,P4,P5]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NavigationlessOwnership P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:NavigationlessOwnership",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:NavigationlessOwnership",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NavigationNoSetter P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:NavigationNoSetter",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:NavigationNoSetter",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NavigationNotAdded P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:NavigationNotAdded",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:NavigationNotAdded",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NavigationNotAddedAdHoc P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:NavigationNotAddedAdHoc",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:NavigationNotAddedAdHoc",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NavigationNotAddedComplexType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:NavigationNotAddedComplexType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:NavigationNotAddedComplexType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NavigationSingleWrongClrType P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:NavigationSingleWrongClrType",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:NavigationSingleWrongClrType",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NavigationToKeylessType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:NavigationToKeylessType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:NavigationToKeylessType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NoBackingField P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s14:NoBackingField",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s14:NoBackingField",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NoBackingFieldLazyLoading P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:NoBackingFieldLazyLoading",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:NoBackingFieldLazyLoading",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NoClrNavigation P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:NoClrNavigation",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:NoClrNavigation",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NoDiscriminatorProperty P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:NoDiscriminatorProperty",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:NoDiscriminatorProperty",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NoDiscriminatorValue P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:NoDiscriminatorValue",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:NoDiscriminatorValue",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NoFieldOrGetter P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:NoFieldOrGetter",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:NoFieldOrGetter",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NoFieldOrSetter P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:NoFieldOrSetter",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:NoFieldOrSetter",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NoGetter P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s8:NoGetter",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s8:NoGetter",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonComparableKeyType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:NonComparableKeyType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:NonComparableKeyType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonComparableKeyTypes P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:NonComparableKeyTypes",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:NonComparableKeyTypes",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonConfiguredNavigationToSharedType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:NonConfiguredNavigationToSharedType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:NonConfiguredNavigationToSharedType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonGenericOptions P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:NonGenericOptions",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:NonGenericOptions",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonIndexerEntityType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:NonIndexerEntityType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:NonIndexerEntityType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonNotifyingCollection P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:NonNotifyingCollection",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:NonNotifyingCollection",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonQueryTranslationFailedWithDetails P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:NonQueryTranslationFailedWithDetails",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:NonQueryTranslationFailedWithDetails",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonUniqueRequiredDependentForeignKey P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:NonUniqueRequiredDependentForeignKey",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:NonUniqueRequiredDependentForeignKey",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonUniqueRequiredDependentNavigation P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:NonUniqueRequiredDependentNavigation",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:NonUniqueRequiredDependentNavigation",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NoParameterlessConstructor P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:NoParameterlessConstructor",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:NoParameterlessConstructor",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NoProperty P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s10:NoProperty",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s10:NoProperty",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NoPropertyType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s14:NoPropertyType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s14:NoPropertyType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NoProviderConfiguredFailedToResolveService P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s42:NoProviderConfiguredFailedToResolveService",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s42:NoProviderConfiguredFailedToResolveService",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NoSetter P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s8:NoSetter",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s8:NoSetter",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NotAnEFService P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s14:NotAnEFService",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s14:NotAnEFService",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NotAProviderService P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:NotAProviderService",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:NotAProviderService",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NotAssignableClrBaseType P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:NotAssignableClrBaseType",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:NotAssignableClrBaseType",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NotCollection P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s13:NotCollection",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s13:NotCollection",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NotParameterizedAttributeWithNonConstantNotSupportedInPrecompiledQueries P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s72:NotParameterizedAttributeWithNonConstantNotSupportedInPrecompiledQueries",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s72:NotParameterizedAttributeWithNonConstantNotSupportedInPrecompiledQueries",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NoValueGenerator P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:NoValueGenerator",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:NoValueGenerator",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NullableKey P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s11:NullableKey",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s11:NullableKey",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NullRequiredComplexProperty P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:NullRequiredComplexProperty",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:NullRequiredComplexProperty",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NullRequiredPrimitiveCollection P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:NullRequiredPrimitiveCollection",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:NullRequiredPrimitiveCollection",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ObjectRemovedFromModel P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:ObjectRemovedFromModel",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:ObjectRemovedFromModel",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func OptionsExtensionNotFound P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:OptionsExtensionNotFound",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:OptionsExtensionNotFound",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func OriginalValueNotTracked P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:OriginalValueNotTracked",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:OriginalValueNotTracked",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func OwnedDerivedType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:OwnedDerivedType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:OwnedDerivedType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func OwnerlessOwnedType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:OwnerlessOwnedType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:OwnerlessOwnedType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func OwnershipToDependent P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:OwnershipToDependent",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:OwnershipToDependent",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PoolingContextCtorError P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:PoolingContextCtorError",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:PoolingContextCtorError",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PrimaryKeyAttributeOnDerivedEntity P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s34:PrimaryKeyAttributeOnDerivedEntity",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s34:PrimaryKeyAttributeOnDerivedEntity",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PrimaryKeyDefinedOnIgnoredProperty P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s34:PrimaryKeyDefinedOnIgnoredProperty",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s34:PrimaryKeyDefinedOnIgnoredProperty",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PrimaryKeyDefinedOnNonExistentProperty P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s38:PrimaryKeyDefinedOnNonExistentProperty",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s38:PrimaryKeyDefinedOnNonExistentProperty",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PrincipalEndIncompatibleNavigations P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:PrincipalEndIncompatibleNavigations",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:PrincipalEndIncompatibleNavigations",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PrincipalEntityTypeNotInRelationship P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:PrincipalEntityTypeNotInRelationship",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:PrincipalEntityTypeNotInRelationship",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PrincipalKeylessType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:PrincipalKeylessType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:PrincipalKeylessType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PrincipalOwnedType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:PrincipalOwnedType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:PrincipalOwnedType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyClashingNonIndexer P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:PropertyClashingNonIndexer",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:PropertyClashingNonIndexer",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyConceptualNull P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:PropertyConceptualNull",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:PropertyConceptualNull",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyConceptualNullSensitive P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:PropertyConceptualNullSensitive",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:PropertyConceptualNullSensitive",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyDoesNotBelong P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:PropertyDoesNotBelong",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:PropertyDoesNotBelong",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyInUseForeignKey P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:PropertyInUseForeignKey",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:PropertyInUseForeignKey",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyInUseIndex P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:PropertyInUseIndex",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:PropertyInUseIndex",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyInUseKey P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:PropertyInUseKey",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:PropertyInUseKey",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyNotAdded P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:PropertyNotAdded",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:PropertyNotAdded",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyNotAddedAdHoc P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:PropertyNotAddedAdHoc",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:PropertyNotAddedAdHoc",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyNotFound P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:PropertyNotFound",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:PropertyNotFound",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyNotMapped P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:PropertyNotMapped",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:PropertyNotMapped",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyReadOnlyAfterSave P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:PropertyReadOnlyAfterSave",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:PropertyReadOnlyAfterSave",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyReadOnlyBeforeSave P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:PropertyReadOnlyBeforeSave",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:PropertyReadOnlyBeforeSave",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyWrongClrType P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:PropertyWrongClrType",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:PropertyWrongClrType",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyWrongEntityClrType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:PropertyWrongEntityClrType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:PropertyWrongEntityClrType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyWrongName P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:PropertyWrongName",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:PropertyWrongName",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyWrongType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:PropertyWrongType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:PropertyWrongType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func QueryEntityMaterializationConditionWrongShape P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s45:QueryEntityMaterializationConditionWrongShape",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s45:QueryEntityMaterializationConditionWrongShape",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func QueryInvalidMaterializationType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:QueryInvalidMaterializationType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:QueryInvalidMaterializationType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func QueryRootDifferentEntityType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:QueryRootDifferentEntityType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:QueryRootDifferentEntityType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func QueryUnableToTranslateEFProperty P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s32:QueryUnableToTranslateEFProperty",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s32:QueryUnableToTranslateEFProperty",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func QueryUnableToTranslateMember P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:QueryUnableToTranslateMember",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:QueryUnableToTranslateMember",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func QueryUnableToTranslateMethod P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:QueryUnableToTranslateMethod",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:QueryUnableToTranslateMethod",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func QueryUnhandledQueryRootExpression P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:QueryUnhandledQueryRootExpression",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:QueryUnhandledQueryRootExpression",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReferencedShadowKey P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:ReferencedShadowKey",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:ReferencedShadowKey",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReferenceIsCollection P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:ReferenceIsCollection",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:ReferenceIsCollection",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReferenceMustBeLoaded P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:ReferenceMustBeLoaded",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:ReferenceMustBeLoaded",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RelationshipConceptualNull P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:RelationshipConceptualNull",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:RelationshipConceptualNull",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RelationshipConceptualNullSensitive P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:RelationshipConceptualNullSensitive",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:RelationshipConceptualNullSensitive",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RelationshipCycle P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:RelationshipCycle",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:RelationshipCycle",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RequiredSkipNavigation P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:RequiredSkipNavigation",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:RequiredSkipNavigation",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RetryLimitExceeded P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:RetryLimitExceeded",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:RetryLimitExceeded",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SameParameterInstanceUsedInMultipleLambdas P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s42:SameParameterInstanceUsedInMultipleLambdas",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s42:SameParameterInstanceUsedInMultipleLambdas",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SaveOwnedWithoutOwner P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:SaveOwnedWithoutOwner",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:SaveOwnedWithoutOwner",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SeedDatumComplexProperty P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:SeedDatumComplexProperty",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:SeedDatumComplexProperty",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SeedDatumComplexPropertySensitive P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:SeedDatumComplexPropertySensitive",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:SeedDatumComplexPropertySensitive",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SeedDatumDefaultValue P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:SeedDatumDefaultValue",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:SeedDatumDefaultValue",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SeedDatumDerivedType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:SeedDatumDerivedType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:SeedDatumDerivedType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SeedDatumDuplicate P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:SeedDatumDuplicate",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:SeedDatumDuplicate",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SeedDatumDuplicateSensitive P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:SeedDatumDuplicateSensitive",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:SeedDatumDuplicateSensitive",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SeedDatumIncompatibleValue P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:SeedDatumIncompatibleValue",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:SeedDatumIncompatibleValue",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SeedDatumIncompatibleValueSensitive P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:SeedDatumIncompatibleValueSensitive",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:SeedDatumIncompatibleValueSensitive",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SeedDatumMissingValue P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:SeedDatumMissingValue",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:SeedDatumMissingValue",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SeedDatumNavigation P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:SeedDatumNavigation",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:SeedDatumNavigation",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SeedDatumNavigationSensitive P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:SeedDatumNavigationSensitive",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:SeedDatumNavigationSensitive",[P1,P2,P3,P4,P5]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SeedDatumSignedNumericValue P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:SeedDatumSignedNumericValue",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:SeedDatumSignedNumericValue",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SeedKeylessEntity P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:SeedKeylessEntity",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:SeedKeylessEntity",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SelfReferencingNavigationWithInverseProperty P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s44:SelfReferencingNavigationWithInverseProperty",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s44:SelfReferencingNavigationWithInverseProperty",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ServiceProviderConfigAdded P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:ServiceProviderConfigAdded",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:ServiceProviderConfigAdded",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ServiceProviderConfigChanged P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:ServiceProviderConfigChanged",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:ServiceProviderConfigChanged",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ServiceProviderConfigRemoved P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:ServiceProviderConfigRemoved",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:ServiceProviderConfigRemoved",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SharedTypeDerivedType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:SharedTypeDerivedType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:SharedTypeDerivedType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SingletonOptionChanged P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:SingletonOptionChanged",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:SingletonOptionChanged",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SingletonRequired P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:SingletonRequired",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:SingletonRequired",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SkipInverseMismatchedForeignKey P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:SkipInverseMismatchedForeignKey",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:SkipInverseMismatchedForeignKey",[P1,P2,P3,P4,P5]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SkipInverseMismatchedJoinType P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:SkipInverseMismatchedJoinType",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:SkipInverseMismatchedJoinType",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SkipNavigationForeignKeyWrongDependentType P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s42:SkipNavigationForeignKeyWrongDependentType",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s42:SkipNavigationForeignKeyWrongDependentType",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SkipNavigationForeignKeyWrongPrincipalType P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s42:SkipNavigationForeignKeyWrongPrincipalType",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s42:SkipNavigationForeignKeyWrongPrincipalType",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SkipNavigationInUseBySkipNavigation P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:SkipNavigationInUseBySkipNavigation",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:SkipNavigationInUseBySkipNavigation",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SkipNavigationNoForeignKey P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:SkipNavigationNoForeignKey",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:SkipNavigationNoForeignKey",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SkipNavigationNoInverse P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:SkipNavigationNoInverse",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:SkipNavigationNoInverse",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SkipNavigationNonCollection P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:SkipNavigationNonCollection",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:SkipNavigationNonCollection",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SkipNavigationWrongInverse P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:SkipNavigationWrongInverse",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:SkipNavigationWrongInverse",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SkipNavigationWrongType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:SkipNavigationWrongType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:SkipNavigationWrongType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoreGenValue P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s13:StoreGenValue",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s13:StoreGenValue",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TempValue P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s9:TempValue",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s9:TempValue",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TempValuePersists P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:TempValuePersists",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:TempValuePersists",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TrackingTypeMismatch P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:TrackingTypeMismatch",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:TrackingTypeMismatch",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TranslationFailed P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:TranslationFailed",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:TranslationFailed",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TranslationFailedWithDetails P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:TranslationFailedWithDetails",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:TranslationFailedWithDetails",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TypeConfigurationConflict P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:TypeConfigurationConflict",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:TypeConfigurationConflict",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TypeNotMarkedAsShared P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:TypeNotMarkedAsShared",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:TypeNotMarkedAsShared",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnableToDiscriminate P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:UnableToDiscriminate",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:UnableToDiscriminate",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnableToSetIsUnique P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:UnableToSetIsUnique",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s19:UnableToSetIsUnique",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnconfigurableType P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:UnconfigurableType",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:UnconfigurableType",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnconfigurableTypeMapping P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:UnconfigurableTypeMapping",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s25:UnconfigurableTypeMapping",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnhandledExpressionNode P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:UnhandledExpressionNode",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:UnhandledExpressionNode",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnhandledMemberBinding P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:UnhandledMemberBinding",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:UnhandledMemberBinding",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnhandledNavigationBase P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:UnhandledNavigationBase",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:UnhandledNavigationBase",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnknownEntity P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s13:UnknownEntity",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s13:UnknownEntity",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnknownKeyValue P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:UnknownKeyValue",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:UnknownKeyValue",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnknownShadowKeyValue P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:UnknownShadowKeyValue",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:UnknownShadowKeyValue",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnnamedIndexDefinedOnIgnoredProperty P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:UnnamedIndexDefinedOnIgnoredProperty",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:UnnamedIndexDefinedOnIgnoredProperty",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnnamedIndexDefinedOnNonExistentProperty P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s40:UnnamedIndexDefinedOnNonExistentProperty",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s40:UnnamedIndexDefinedOnNonExistentProperty",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UntrackedDependentEntity P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:UntrackedDependentEntity",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:UntrackedDependentEntity",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ValueCannotBeNull P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:ValueCannotBeNull",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:ValueCannotBeNull",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func VisitIsNotAllowed P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:VisitIsNotAllowed",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:VisitIsNotAllowed",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func WarningAsErrorTemplate P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:WarningAsErrorTemplate",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:WarningAsErrorTemplate",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func WrongGenericPropertyType P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:WrongGenericPropertyType",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:WrongGenericPropertyType",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func WrongStateManager P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:WrongStateManager",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:WrongStateManager",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCannotConvertQueryableToEnumerableMethod
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s40:CannotConvertQueryableToEnumerableMethod")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s40:CannotConvertQueryableToEnumerableMethod",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCannotConvertQueryableToEnumerableMethod P1
@@ -3791,7 +3715,7 @@ Class CoreStrings from Object
 
 	Func getConcurrentMethodInvocation
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:ConcurrentMethodInvocation")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:ConcurrentMethodInvocation",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setConcurrentMethodInvocation P1
@@ -3799,7 +3723,7 @@ Class CoreStrings from Object
 
 	Func getContextDisposed
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:ContextDisposed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:ContextDisposed",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setContextDisposed P1
@@ -3807,7 +3731,7 @@ Class CoreStrings from Object
 
 	Func getConventionsInfiniteLoop
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:ConventionsInfiniteLoop")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:ConventionsInfiniteLoop",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setConventionsInfiniteLoop P1
@@ -3815,7 +3739,7 @@ Class CoreStrings from Object
 
 	Func getDataBindingToLocalWithIListSource
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:DataBindingToLocalWithIListSource")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:DataBindingToLocalWithIListSource",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDataBindingToLocalWithIListSource P1
@@ -3823,7 +3747,7 @@ Class CoreStrings from Object
 
 	Func getDataBindingWithIListSource
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:DataBindingWithIListSource")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:DataBindingWithIListSource",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDataBindingWithIListSource P1
@@ -3831,7 +3755,7 @@ Class CoreStrings from Object
 
 	Func getDefaultMethodInvoked
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:DefaultMethodInvoked")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:DefaultMethodInvoked",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultMethodInvoked P1
@@ -3839,7 +3763,7 @@ Class CoreStrings from Object
 
 	Func getEFConstantInvoked
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:EFConstantInvoked")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:EFConstantInvoked",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEFConstantInvoked P1
@@ -3847,7 +3771,7 @@ Class CoreStrings from Object
 
 	Func getEFConstantNotSupported
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:EFConstantNotSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:EFConstantNotSupported",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEFConstantNotSupported P1
@@ -3855,7 +3779,7 @@ Class CoreStrings from Object
 
 	Func getEFConstantNotSupportedInPrecompiledQueries
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s42:EFConstantNotSupportedInPrecompiledQueries")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s42:EFConstantNotSupportedInPrecompiledQueries",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEFConstantNotSupportedInPrecompiledQueries P1
@@ -3863,7 +3787,7 @@ Class CoreStrings from Object
 
 	Func getEFConstantWithNonEvaluatableArgument
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:EFConstantWithNonEvaluatableArgument")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:EFConstantWithNonEvaluatableArgument",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEFConstantWithNonEvaluatableArgument P1
@@ -3871,7 +3795,7 @@ Class CoreStrings from Object
 
 	Func getEFParameterInvoked
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:EFParameterInvoked")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:EFParameterInvoked",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEFParameterInvoked P1
@@ -3879,7 +3803,7 @@ Class CoreStrings from Object
 
 	Func getEFParameterWithNonEvaluatableArgument
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s37:EFParameterWithNonEvaluatableArgument")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s37:EFParameterWithNonEvaluatableArgument",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEFParameterWithNonEvaluatableArgument P1
@@ -3887,7 +3811,7 @@ Class CoreStrings from Object
 
 	Func getEmptyJsonString
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:EmptyJsonString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:EmptyJsonString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEmptyJsonString P1
@@ -3895,7 +3819,7 @@ Class CoreStrings from Object
 
 	Func getEnumerableResetNotSupported
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:EnumerableResetNotSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:EnumerableResetNotSupported",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEnumerableResetNotSupported P1
@@ -3903,7 +3827,7 @@ Class CoreStrings from Object
 
 	Func getErrorInvalidQueryable
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:ErrorInvalidQueryable")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:ErrorInvalidQueryable",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setErrorInvalidQueryable P1
@@ -3911,7 +3835,7 @@ Class CoreStrings from Object
 
 	Func getExpressionParameterizationException
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:ExpressionParameterizationException")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:ExpressionParameterizationException",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setExpressionParameterizationException P1
@@ -3919,7 +3843,7 @@ Class CoreStrings from Object
 
 	Func getHiLoBadBlockSize
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:HiLoBadBlockSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:HiLoBadBlockSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHiLoBadBlockSize P1
@@ -3927,7 +3851,7 @@ Class CoreStrings from Object
 
 	Func getIncompatibleSourcesForSetOperation
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s34:IncompatibleSourcesForSetOperation")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s34:IncompatibleSourcesForSetOperation",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIncompatibleSourcesForSetOperation P1
@@ -3935,7 +3859,7 @@ Class CoreStrings from Object
 
 	Func getInvalidDbContext
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:InvalidDbContext")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:InvalidDbContext",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInvalidDbContext P1
@@ -3943,7 +3867,7 @@ Class CoreStrings from Object
 
 	Func getInvalidPoolSize
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:InvalidPoolSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:InvalidPoolSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInvalidPoolSize P1
@@ -3951,7 +3875,7 @@ Class CoreStrings from Object
 
 	Func getIQueryableProviderNotAsync
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:IQueryableProviderNotAsync")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:IQueryableProviderNotAsync",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIQueryableProviderNotAsync P1
@@ -3959,7 +3883,7 @@ Class CoreStrings from Object
 
 	Func getMemberListBindingNotSupported
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:MemberListBindingNotSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:MemberListBindingNotSupported",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMemberListBindingNotSupported P1
@@ -3967,7 +3891,7 @@ Class CoreStrings from Object
 
 	Func getMemberMemberBindingNotSupported
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:MemberMemberBindingNotSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:MemberMemberBindingNotSupported",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMemberMemberBindingNotSupported P1
@@ -3975,7 +3899,7 @@ Class CoreStrings from Object
 
 	Func getMissingAsyncSeeder
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:MissingAsyncSeeder")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:MissingAsyncSeeder",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMissingAsyncSeeder P1
@@ -3983,7 +3907,7 @@ Class CoreStrings from Object
 
 	Func getMissingSeeder
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s13:MissingSeeder")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s13:MissingSeeder",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMissingSeeder P1
@@ -3991,7 +3915,7 @@ Class CoreStrings from Object
 
 	Func getModelMutable
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s12:ModelMutable")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s12:ModelMutable",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setModelMutable P1
@@ -3999,7 +3923,7 @@ Class CoreStrings from Object
 
 	Func getModelReadOnly
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s13:ModelReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s13:ModelReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setModelReadOnly P1
@@ -4007,7 +3931,7 @@ Class CoreStrings from Object
 
 	Func getNativeAotDesignTimeModel
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:NativeAotDesignTimeModel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:NativeAotDesignTimeModel",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNativeAotDesignTimeModel P1
@@ -4015,7 +3939,7 @@ Class CoreStrings from Object
 
 	Func getNativeAotNoCompiledModel
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:NativeAotNoCompiledModel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:NativeAotNoCompiledModel",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNativeAotNoCompiledModel P1
@@ -4023,7 +3947,7 @@ Class CoreStrings from Object
 
 	Func getNoEfServices
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s12:NoEfServices")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s12:NoEfServices",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNoEfServices P1
@@ -4031,7 +3955,7 @@ Class CoreStrings from Object
 
 	Func getNoInterceptionResult
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:NoInterceptionResult")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:NoInterceptionResult",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNoInterceptionResult P1
@@ -4039,7 +3963,7 @@ Class CoreStrings from Object
 
 	Func getNoProviderConfigured
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:NoProviderConfigured")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:NoProviderConfigured",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNoProviderConfigured P1
@@ -4047,7 +3971,7 @@ Class CoreStrings from Object
 
 	Func getNotQueryingEnumerable
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:NotQueryingEnumerable")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:NotQueryingEnumerable",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNotQueryingEnumerable P1
@@ -4055,7 +3979,7 @@ Class CoreStrings from Object
 
 	Func getOwnedEntitiesCannotBeTrackedWithoutTheirOwner
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s45:OwnedEntitiesCannotBeTrackedWithoutTheirOwner")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s45:OwnedEntitiesCannotBeTrackedWithoutTheirOwner",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOwnedEntitiesCannotBeTrackedWithoutTheirOwner P1
@@ -4063,7 +3987,7 @@ Class CoreStrings from Object
 
 	Func getPoolingOptionsModified
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:PoolingOptionsModified")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:PoolingOptionsModified",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPoolingOptionsModified P1
@@ -4071,7 +3995,7 @@ Class CoreStrings from Object
 
 	Func getPrecompiledQueryNotSupported
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:PrecompiledQueryNotSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:PrecompiledQueryNotSupported",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPrecompiledQueryNotSupported P1
@@ -4079,7 +4003,7 @@ Class CoreStrings from Object
 
 	Func getPropertyMethodInvoked
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:PropertyMethodInvoked")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:PropertyMethodInvoked",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPropertyMethodInvoked P1
@@ -4087,7 +4011,7 @@ Class CoreStrings from Object
 
 	Func getQuerySelectContainsGrouping
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:QuerySelectContainsGrouping")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:QuerySelectContainsGrouping",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setQuerySelectContainsGrouping P1
@@ -4095,7 +4019,7 @@ Class CoreStrings from Object
 
 	Func getQueryUnableToTranslateStringEqualsWithStringComparison
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s54:QueryUnableToTranslateStringEqualsWithStringComparison")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s54:QueryUnableToTranslateStringEqualsWithStringComparison",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setQueryUnableToTranslateStringEqualsWithStringComparison P1
@@ -4103,7 +4027,7 @@ Class CoreStrings from Object
 
 	Func getRecursiveOnConfiguring
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:RecursiveOnConfiguring")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:RecursiveOnConfiguring",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRecursiveOnConfiguring P1
@@ -4111,7 +4035,7 @@ Class CoreStrings from Object
 
 	Func getRecursiveOnModelCreating
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:RecursiveOnModelCreating")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:RecursiveOnModelCreating",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRecursiveOnModelCreating P1
@@ -4119,7 +4043,7 @@ Class CoreStrings from Object
 
 	Func getRelationshipCannotBeInverted
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:RelationshipCannotBeInverted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:RelationshipCannotBeInverted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRelationshipCannotBeInverted P1
@@ -4127,7 +4051,7 @@ Class CoreStrings from Object
 
 	Func getResetNotSupported
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:ResetNotSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:ResetNotSupported",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setResetNotSupported P1
@@ -4135,7 +4059,7 @@ Class CoreStrings from Object
 
 	Func getRuntimeModelMissingData
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:RuntimeModelMissingData")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:RuntimeModelMissingData",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRuntimeModelMissingData P1
@@ -4143,7 +4067,7 @@ Class CoreStrings from Object
 
 	Func getRuntimeParameterMissingParameter
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s32:RuntimeParameterMissingParameter")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s32:RuntimeParameterMissingParameter",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRuntimeParameterMissingParameter P1
@@ -4151,7 +4075,7 @@ Class CoreStrings from Object
 
 	Func getSavepointsNotSupported
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:SavepointsNotSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:SavepointsNotSupported",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSavepointsNotSupported P1
@@ -4159,7 +4083,7 @@ Class CoreStrings from Object
 
 	Func getSensitiveDataDisabled
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:SensitiveDataDisabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:SensitiveDataDisabled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSensitiveDataDisabled P1
@@ -4167,7 +4091,7 @@ Class CoreStrings from Object
 
 	Func getSequenceContainsMoreThanOneElement
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s34:SequenceContainsMoreThanOneElement")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s34:SequenceContainsMoreThanOneElement",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSequenceContainsMoreThanOneElement P1
@@ -4175,7 +4099,7 @@ Class CoreStrings from Object
 
 	Func getSequenceContainsNoElements
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:SequenceContainsNoElements")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:SequenceContainsNoElements",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSequenceContainsNoElements P1
@@ -4183,7 +4107,7 @@ Class CoreStrings from Object
 
 	Func getSetOperationWithDifferentIncludesInOperands
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s43:SetOperationWithDifferentIncludesInOperands")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s43:SetOperationWithDifferentIncludesInOperands",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSetOperationWithDifferentIncludesInOperands P1
@@ -4191,7 +4115,7 @@ Class CoreStrings from Object
 
 	Func getSetPropertyMethodInvoked
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:SetPropertyMethodInvoked")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:SetPropertyMethodInvoked",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSetPropertyMethodInvoked P1
@@ -4199,7 +4123,7 @@ Class CoreStrings from Object
 
 	Func getTransactionsNotSupported
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:TransactionsNotSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:TransactionsNotSupported",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTransactionsNotSupported P1
@@ -4218,22 +4142,22 @@ Class DbCommandInterceptor from Object
 		return self
 
 	Func CommandCreating P1,P2
-		return dnSend("s4:call",nHandle,"s15:CommandCreating",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CommandCreating",P1,P2))
 
 	Func CommandCreated P1,P2
-		return dnSend("s4:call",nHandle,"s14:CommandCreated",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CommandCreated",P1,P2))
 
 	Func CommandInitialized P1,P2
-		return dnSend("s4:call",nHandle,"s18:CommandInitialized",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CommandInitialized",P1,P2))
 
 	Func ReaderExecuting P1,P2,P3
-		return dnSend("s4:call",nHandle,"s15:ReaderExecuting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ReaderExecuting",P1,P2,P3))
 
 	Func ScalarExecuting P1,P2,P3
-		return dnSend("s4:call",nHandle,"s15:ScalarExecuting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ScalarExecuting",P1,P2,P3))
 
 	Func NonQueryExecuting P1,P2,P3
-		return dnSend("s4:call",nHandle,"s17:NonQueryExecuting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:NonQueryExecuting",P1,P2,P3))
 
 	Func ReaderExecutingAsync P1
 		if dnIsNamed(P1)
@@ -4254,14 +4178,14 @@ Class DbCommandInterceptor from Object
 		raise("DotNet Error: NonQueryExecutingAsync does not take one argument: use named arguments, NonQueryExecutingAsync([ :parameter = value, ... ])")
 
 	Func ReaderExecuted P1,P2,P3
-		return dnSend("s4:call",nHandle,"s14:ReaderExecuted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ReaderExecuted",P1,P2,P3))
 
 	Func ScalarExecuted P1,P2,P3
-		return dnSend("s4:call",nHandle,"s14:ScalarExecuted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ScalarExecuted",P1,P2,P3))
 
 	Func NonQueryExecuted P1,P2,P3
 		dn_x = dotnet_call("s4:call",nHandle,"s16:NonQueryExecuted",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:NonQueryExecuted",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReaderExecutedAsync P1
@@ -4283,8 +4207,7 @@ Class DbCommandInterceptor from Object
 		raise("DotNet Error: NonQueryExecutedAsync does not take one argument: use named arguments, NonQueryExecutedAsync([ :parameter = value, ... ])")
 
 	Func CommandCanceled P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:CommandCanceled",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:CommandCanceled",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s15:CommandCanceled",P1,P2)
 
 		return self
 
@@ -4295,8 +4218,7 @@ Class DbCommandInterceptor from Object
 		raise("DotNet Error: CommandCanceledAsync does not take one argument: use named arguments, CommandCanceledAsync([ :parameter = value, ... ])")
 
 	Func CommandFailed P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s13:CommandFailed",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s13:CommandFailed",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s13:CommandFailed",P1,P2)
 
 		return self
 
@@ -4307,17 +4229,17 @@ Class DbCommandInterceptor from Object
 		raise("DotNet Error: CommandFailedAsync does not take one argument: use named arguments, CommandFailedAsync([ :parameter = value, ... ])")
 
 	Func DataReaderClosing P1,P2,P3
-		return dnSend("s4:call",nHandle,"s17:DataReaderClosing",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:DataReaderClosing",P1,P2,P3))
 
 	Func DataReaderClosingAsync P1,P2,P3
-		return dnSend("s4:call",nHandle,"s22:DataReaderClosingAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:DataReaderClosingAsync",P1,P2,P3))
 
 	Func DataReaderDisposing P1,P2,P3
-		return dnSend("s4:call",nHandle,"s19:DataReaderDisposing",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:DataReaderDisposing",P1,P2,P3))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -4333,13 +4255,13 @@ Class DbConnectionInterceptor from Object
 		return self
 
 	Func ConnectionCreating P1,P2
-		return dnSend("s4:call",nHandle,"s18:ConnectionCreating",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ConnectionCreating",P1,P2))
 
 	Func ConnectionCreated P1,P2
-		return dnSend("s4:call",nHandle,"s17:ConnectionCreated",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionCreated",P1,P2))
 
 	Func ConnectionOpening P1,P2,P3
-		return dnSend("s4:call",nHandle,"s17:ConnectionOpening",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionOpening",P1,P2,P3))
 
 	Func ConnectionOpeningAsync P1
 		if dnIsNamed(P1)
@@ -4348,8 +4270,7 @@ Class DbConnectionInterceptor from Object
 		raise("DotNet Error: ConnectionOpeningAsync does not take one argument: use named arguments, ConnectionOpeningAsync([ :parameter = value, ... ])")
 
 	Func ConnectionOpened P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:ConnectionOpened",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ConnectionOpened",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s16:ConnectionOpened",P1,P2)
 
 		return self
 
@@ -4360,38 +4281,35 @@ Class DbConnectionInterceptor from Object
 		raise("DotNet Error: ConnectionOpenedAsync does not take one argument: use named arguments, ConnectionOpenedAsync([ :parameter = value, ... ])")
 
 	Func ConnectionClosing P1,P2,P3
-		return dnSend("s4:call",nHandle,"s17:ConnectionClosing",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionClosing",P1,P2,P3))
 
 	Func ConnectionClosingAsync P1,P2,P3
-		return dnSend("s4:call",nHandle,"s22:ConnectionClosingAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:ConnectionClosingAsync",P1,P2,P3))
 
 	Func ConnectionClosed P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:ConnectionClosed",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ConnectionClosed",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s16:ConnectionClosed",P1,P2)
 
 		return self
 
 	Func ConnectionClosedAsync P1,P2
-		return dnSend("s4:call",nHandle,"s21:ConnectionClosedAsync",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:ConnectionClosedAsync",P1,P2))
 
 	Func ConnectionDisposing P1,P2,P3
-		return dnSend("s4:call",nHandle,"s19:ConnectionDisposing",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ConnectionDisposing",P1,P2,P3))
 
 	Func ConnectionDisposingAsync P1,P2,P3
-		return dnSend("s4:call",nHandle,"s24:ConnectionDisposingAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ConnectionDisposingAsync",P1,P2,P3))
 
 	Func ConnectionDisposed P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s18:ConnectionDisposed",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s18:ConnectionDisposed",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s18:ConnectionDisposed",P1,P2)
 
 		return self
 
 	Func ConnectionDisposedAsync P1,P2
-		return dnSend("s4:call",nHandle,"s23:ConnectionDisposedAsync",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ConnectionDisposedAsync",P1,P2))
 
 	Func ConnectionFailed P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:ConnectionFailed",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ConnectionFailed",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s16:ConnectionFailed",P1,P2)
 
 		return self
 
@@ -4403,7 +4321,7 @@ Class DbConnectionInterceptor from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -4419,10 +4337,10 @@ Class DbTransactionInterceptor from Object
 		return self
 
 	Func TransactionStarting P1,P2,P3
-		return dnSend("s4:call",nHandle,"s19:TransactionStarting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TransactionStarting",P1,P2,P3))
 
 	Func TransactionStarted P1,P2,P3
-		return dnSend("s4:call",nHandle,"s18:TransactionStarted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:TransactionStarted",P1,P2,P3))
 
 	Func TransactionStartingAsync P1
 		if dnIsNamed(P1)
@@ -4437,7 +4355,7 @@ Class DbTransactionInterceptor from Object
 		raise("DotNet Error: TransactionStartedAsync does not take one argument: use named arguments, TransactionStartedAsync([ :parameter = value, ... ])")
 
 	Func TransactionUsed P1,P2,P3
-		return dnSend("s4:call",nHandle,"s15:TransactionUsed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TransactionUsed",P1,P2,P3))
 
 	Func TransactionUsedAsync P1
 		if dnIsNamed(P1)
@@ -4446,11 +4364,10 @@ Class DbTransactionInterceptor from Object
 		raise("DotNet Error: TransactionUsedAsync does not take one argument: use named arguments, TransactionUsedAsync([ :parameter = value, ... ])")
 
 	Func TransactionCommitting P1,P2,P3
-		return dnSend("s4:call",nHandle,"s21:TransactionCommitting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:TransactionCommitting",P1,P2,P3))
 
 	Func TransactionCommitted P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s20:TransactionCommitted",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s20:TransactionCommitted",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s20:TransactionCommitted",P1,P2)
 
 		return self
 
@@ -4467,11 +4384,10 @@ Class DbTransactionInterceptor from Object
 		raise("DotNet Error: TransactionCommittedAsync does not take one argument: use named arguments, TransactionCommittedAsync([ :parameter = value, ... ])")
 
 	Func TransactionRollingBack P1,P2,P3
-		return dnSend("s4:call",nHandle,"s22:TransactionRollingBack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:TransactionRollingBack",P1,P2,P3))
 
 	Func TransactionRolledBack P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s21:TransactionRolledBack",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s21:TransactionRolledBack",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s21:TransactionRolledBack",P1,P2)
 
 		return self
 
@@ -4488,11 +4404,10 @@ Class DbTransactionInterceptor from Object
 		raise("DotNet Error: TransactionRolledBackAsync does not take one argument: use named arguments, TransactionRolledBackAsync([ :parameter = value, ... ])")
 
 	Func CreatingSavepoint P1,P2,P3
-		return dnSend("s4:call",nHandle,"s17:CreatingSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:CreatingSavepoint",P1,P2,P3))
 
 	Func CreatedSavepoint P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:CreatedSavepoint",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:CreatedSavepoint",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s16:CreatedSavepoint",P1,P2)
 
 		return self
 
@@ -4509,11 +4424,10 @@ Class DbTransactionInterceptor from Object
 		raise("DotNet Error: CreatedSavepointAsync does not take one argument: use named arguments, CreatedSavepointAsync([ :parameter = value, ... ])")
 
 	Func RollingBackToSavepoint P1,P2,P3
-		return dnSend("s4:call",nHandle,"s22:RollingBackToSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:RollingBackToSavepoint",P1,P2,P3))
 
 	Func RolledBackToSavepoint P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s21:RolledBackToSavepoint",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s21:RolledBackToSavepoint",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s21:RolledBackToSavepoint",P1,P2)
 
 		return self
 
@@ -4530,11 +4444,10 @@ Class DbTransactionInterceptor from Object
 		raise("DotNet Error: RolledBackToSavepointAsync does not take one argument: use named arguments, RolledBackToSavepointAsync([ :parameter = value, ... ])")
 
 	Func ReleasingSavepoint P1,P2,P3
-		return dnSend("s4:call",nHandle,"s18:ReleasingSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ReleasingSavepoint",P1,P2,P3))
 
 	Func ReleasedSavepoint P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s17:ReleasedSavepoint",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s17:ReleasedSavepoint",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s17:ReleasedSavepoint",P1,P2)
 
 		return self
 
@@ -4551,8 +4464,7 @@ Class DbTransactionInterceptor from Object
 		raise("DotNet Error: ReleasedSavepointAsync does not take one argument: use named arguments, ReleasedSavepointAsync([ :parameter = value, ... ])")
 
 	Func TransactionFailed P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s17:TransactionFailed",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s17:TransactionFailed",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s17:TransactionFailed",P1,P2)
 
 		return self
 
@@ -4564,7 +4476,7 @@ Class DbTransactionInterceptor from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -4587,24 +4499,24 @@ Class EventData from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getEventId
-		return dnSend("s3:get",nHandle,"s7:EventId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:EventId"))
 
 	Func setEventId P1
 		raise("DotNet Error: EventId is a read-only property")
 
 	Func getLogLevel
-		return dnSend("s3:get",nHandle,"s8:LogLevel","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:LogLevel"))
 
 	Func setLogLevel P1
 		raise("DotNet Error: LogLevel is a read-only property")
 
 	Func getEventIdCode
 		dn_x = dotnet_call("s3:get",nHandle,"s11:EventIdCode")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:EventIdCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEventIdCode P1
@@ -4629,31 +4541,31 @@ Class EventDefinitionBase from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getEventId
-		return dnSend("s3:get",nHandle,"s7:EventId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:EventId"))
 
 	Func setEventId P1
 		raise("DotNet Error: EventId is a read-only property")
 
 	Func getLevel
-		return dnSend("s3:get",nHandle,"s5:Level","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Level"))
 
 	Func setLevel P1
 		raise("DotNet Error: Level is a read-only property")
 
 	Func getEventIdCode
 		dn_x = dotnet_call("s3:get",nHandle,"s11:EventIdCode")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:EventIdCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEventIdCode P1
 		raise("DotNet Error: EventIdCode is a read-only property")
 
 	Func getWarningBehavior
-		return dnSend("s3:get",nHandle,"s15:WarningBehavior","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:WarningBehavior"))
 
 	Func setWarningBehavior P1
 		raise("DotNet Error: WarningBehavior is a read-only property")
@@ -4675,19 +4587,19 @@ Class ICollectionChangedEventData from DotNetObject
 		return self
 
 	Func getEntityEntry
-		return dnSend("s3:get",nHandle,"s11:EntityEntry","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:EntityEntry"))
 
 	Func setEntityEntry P1
 		raise("DotNet Error: EntityEntry is a read-only property")
 
 	Func getAdded
-		return dnSend("s3:get",nHandle,"s5:Added","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Added"))
 
 	Func setAdded P1
 		raise("DotNet Error: Added is a read-only property")
 
 	Func getRemoved
-		return dnSend("s3:get",nHandle,"s7:Removed","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Removed"))
 
 	Func setRemoved P1
 		raise("DotNet Error: Removed is a read-only property")
@@ -4705,22 +4617,22 @@ Class IDbCommandInterceptor from DotNetObject
 		return self
 
 	Func CommandCreating P1,P2
-		return dnSend("s4:call",nHandle,"s15:CommandCreating",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CommandCreating",P1,P2))
 
 	Func CommandCreated P1,P2
-		return dnSend("s4:call",nHandle,"s14:CommandCreated",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CommandCreated",P1,P2))
 
 	Func CommandInitialized P1,P2
-		return dnSend("s4:call",nHandle,"s18:CommandInitialized",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CommandInitialized",P1,P2))
 
 	Func ReaderExecuting P1,P2,P3
-		return dnSend("s4:call",nHandle,"s15:ReaderExecuting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ReaderExecuting",P1,P2,P3))
 
 	Func ScalarExecuting P1,P2,P3
-		return dnSend("s4:call",nHandle,"s15:ScalarExecuting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ScalarExecuting",P1,P2,P3))
 
 	Func NonQueryExecuting P1,P2,P3
-		return dnSend("s4:call",nHandle,"s17:NonQueryExecuting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:NonQueryExecuting",P1,P2,P3))
 
 	Func ReaderExecutingAsync P1
 		if dnIsNamed(P1)
@@ -4741,14 +4653,14 @@ Class IDbCommandInterceptor from DotNetObject
 		raise("DotNet Error: NonQueryExecutingAsync does not take one argument: use named arguments, NonQueryExecutingAsync([ :parameter = value, ... ])")
 
 	Func ReaderExecuted P1,P2,P3
-		return dnSend("s4:call",nHandle,"s14:ReaderExecuted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ReaderExecuted",P1,P2,P3))
 
 	Func ScalarExecuted P1,P2,P3
-		return dnSend("s4:call",nHandle,"s14:ScalarExecuted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ScalarExecuted",P1,P2,P3))
 
 	Func NonQueryExecuted P1,P2,P3
 		dn_x = dotnet_call("s4:call",nHandle,"s16:NonQueryExecuted",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:NonQueryExecuted",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReaderExecutedAsync P1
@@ -4770,8 +4682,7 @@ Class IDbCommandInterceptor from DotNetObject
 		raise("DotNet Error: NonQueryExecutedAsync does not take one argument: use named arguments, NonQueryExecutedAsync([ :parameter = value, ... ])")
 
 	Func CommandCanceled P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:CommandCanceled",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:CommandCanceled",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s15:CommandCanceled",P1,P2)
 
 		return self
 
@@ -4782,8 +4693,7 @@ Class IDbCommandInterceptor from DotNetObject
 		raise("DotNet Error: CommandCanceledAsync does not take one argument: use named arguments, CommandCanceledAsync([ :parameter = value, ... ])")
 
 	Func CommandFailed P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s13:CommandFailed",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s13:CommandFailed",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s13:CommandFailed",P1,P2)
 
 		return self
 
@@ -4794,13 +4704,13 @@ Class IDbCommandInterceptor from DotNetObject
 		raise("DotNet Error: CommandFailedAsync does not take one argument: use named arguments, CommandFailedAsync([ :parameter = value, ... ])")
 
 	Func DataReaderClosing P1,P2,P3
-		return dnSend("s4:call",nHandle,"s17:DataReaderClosing",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:DataReaderClosing",P1,P2,P3))
 
 	Func DataReaderClosingAsync P1,P2,P3
-		return dnSend("s4:call",nHandle,"s22:DataReaderClosingAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:DataReaderClosingAsync",P1,P2,P3))
 
 	Func DataReaderDisposing P1,P2,P3
-		return dnSend("s4:call",nHandle,"s19:DataReaderDisposing",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:DataReaderDisposing",P1,P2,P3))
 
 
 Class IDbConnectionInterceptor from DotNetObject
@@ -4815,13 +4725,13 @@ Class IDbConnectionInterceptor from DotNetObject
 		return self
 
 	Func ConnectionCreating P1,P2
-		return dnSend("s4:call",nHandle,"s18:ConnectionCreating",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ConnectionCreating",P1,P2))
 
 	Func ConnectionCreated P1,P2
-		return dnSend("s4:call",nHandle,"s17:ConnectionCreated",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionCreated",P1,P2))
 
 	Func ConnectionOpening P1,P2,P3
-		return dnSend("s4:call",nHandle,"s17:ConnectionOpening",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionOpening",P1,P2,P3))
 
 	Func ConnectionOpeningAsync P1
 		if dnIsNamed(P1)
@@ -4830,8 +4740,7 @@ Class IDbConnectionInterceptor from DotNetObject
 		raise("DotNet Error: ConnectionOpeningAsync does not take one argument: use named arguments, ConnectionOpeningAsync([ :parameter = value, ... ])")
 
 	Func ConnectionOpened P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:ConnectionOpened",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ConnectionOpened",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s16:ConnectionOpened",P1,P2)
 
 		return self
 
@@ -4842,38 +4751,35 @@ Class IDbConnectionInterceptor from DotNetObject
 		raise("DotNet Error: ConnectionOpenedAsync does not take one argument: use named arguments, ConnectionOpenedAsync([ :parameter = value, ... ])")
 
 	Func ConnectionClosing P1,P2,P3
-		return dnSend("s4:call",nHandle,"s17:ConnectionClosing",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionClosing",P1,P2,P3))
 
 	Func ConnectionClosingAsync P1,P2,P3
-		return dnSend("s4:call",nHandle,"s22:ConnectionClosingAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:ConnectionClosingAsync",P1,P2,P3))
 
 	Func ConnectionClosed P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:ConnectionClosed",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ConnectionClosed",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s16:ConnectionClosed",P1,P2)
 
 		return self
 
 	Func ConnectionClosedAsync P1,P2
-		return dnSend("s4:call",nHandle,"s21:ConnectionClosedAsync",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:ConnectionClosedAsync",P1,P2))
 
 	Func ConnectionDisposing P1,P2,P3
-		return dnSend("s4:call",nHandle,"s19:ConnectionDisposing",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ConnectionDisposing",P1,P2,P3))
 
 	Func ConnectionDisposingAsync P1,P2,P3
-		return dnSend("s4:call",nHandle,"s24:ConnectionDisposingAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ConnectionDisposingAsync",P1,P2,P3))
 
 	Func ConnectionDisposed P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s18:ConnectionDisposed",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s18:ConnectionDisposed",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s18:ConnectionDisposed",P1,P2)
 
 		return self
 
 	Func ConnectionDisposedAsync P1,P2
-		return dnSend("s4:call",nHandle,"s23:ConnectionDisposedAsync",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ConnectionDisposedAsync",P1,P2))
 
 	Func ConnectionFailed P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:ConnectionFailed",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ConnectionFailed",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s16:ConnectionFailed",P1,P2)
 
 		return self
 
@@ -4896,14 +4802,13 @@ Class IDbContextLogger from DotNetObject
 		return self
 
 	Func Log P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Log",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Log",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Log",P1)
 
 		return self
 
 	Func ShouldLog P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s9:ShouldLog",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:ShouldLog",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -4919,10 +4824,10 @@ Class IDbTransactionInterceptor from DotNetObject
 		return self
 
 	Func TransactionStarting P1,P2,P3
-		return dnSend("s4:call",nHandle,"s19:TransactionStarting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TransactionStarting",P1,P2,P3))
 
 	Func TransactionStarted P1,P2,P3
-		return dnSend("s4:call",nHandle,"s18:TransactionStarted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:TransactionStarted",P1,P2,P3))
 
 	Func TransactionStartingAsync P1
 		if dnIsNamed(P1)
@@ -4937,7 +4842,7 @@ Class IDbTransactionInterceptor from DotNetObject
 		raise("DotNet Error: TransactionStartedAsync does not take one argument: use named arguments, TransactionStartedAsync([ :parameter = value, ... ])")
 
 	Func TransactionUsed P1,P2,P3
-		return dnSend("s4:call",nHandle,"s15:TransactionUsed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TransactionUsed",P1,P2,P3))
 
 	Func TransactionUsedAsync P1
 		if dnIsNamed(P1)
@@ -4946,11 +4851,10 @@ Class IDbTransactionInterceptor from DotNetObject
 		raise("DotNet Error: TransactionUsedAsync does not take one argument: use named arguments, TransactionUsedAsync([ :parameter = value, ... ])")
 
 	Func TransactionCommitting P1,P2,P3
-		return dnSend("s4:call",nHandle,"s21:TransactionCommitting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:TransactionCommitting",P1,P2,P3))
 
 	Func TransactionCommitted P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s20:TransactionCommitted",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s20:TransactionCommitted",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s20:TransactionCommitted",P1,P2)
 
 		return self
 
@@ -4967,11 +4871,10 @@ Class IDbTransactionInterceptor from DotNetObject
 		raise("DotNet Error: TransactionCommittedAsync does not take one argument: use named arguments, TransactionCommittedAsync([ :parameter = value, ... ])")
 
 	Func TransactionRollingBack P1,P2,P3
-		return dnSend("s4:call",nHandle,"s22:TransactionRollingBack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:TransactionRollingBack",P1,P2,P3))
 
 	Func TransactionRolledBack P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s21:TransactionRolledBack",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s21:TransactionRolledBack",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s21:TransactionRolledBack",P1,P2)
 
 		return self
 
@@ -4988,11 +4891,10 @@ Class IDbTransactionInterceptor from DotNetObject
 		raise("DotNet Error: TransactionRolledBackAsync does not take one argument: use named arguments, TransactionRolledBackAsync([ :parameter = value, ... ])")
 
 	Func CreatingSavepoint P1,P2,P3
-		return dnSend("s4:call",nHandle,"s17:CreatingSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:CreatingSavepoint",P1,P2,P3))
 
 	Func CreatedSavepoint P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:CreatedSavepoint",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:CreatedSavepoint",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s16:CreatedSavepoint",P1,P2)
 
 		return self
 
@@ -5009,11 +4911,10 @@ Class IDbTransactionInterceptor from DotNetObject
 		raise("DotNet Error: CreatedSavepointAsync does not take one argument: use named arguments, CreatedSavepointAsync([ :parameter = value, ... ])")
 
 	Func RollingBackToSavepoint P1,P2,P3
-		return dnSend("s4:call",nHandle,"s22:RollingBackToSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:RollingBackToSavepoint",P1,P2,P3))
 
 	Func RolledBackToSavepoint P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s21:RolledBackToSavepoint",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s21:RolledBackToSavepoint",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s21:RolledBackToSavepoint",P1,P2)
 
 		return self
 
@@ -5030,11 +4931,10 @@ Class IDbTransactionInterceptor from DotNetObject
 		raise("DotNet Error: RolledBackToSavepointAsync does not take one argument: use named arguments, RolledBackToSavepointAsync([ :parameter = value, ... ])")
 
 	Func ReleasingSavepoint P1,P2,P3
-		return dnSend("s4:call",nHandle,"s18:ReleasingSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ReleasingSavepoint",P1,P2,P3))
 
 	Func ReleasedSavepoint P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s17:ReleasedSavepoint",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s17:ReleasedSavepoint",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s17:ReleasedSavepoint",P1,P2)
 
 		return self
 
@@ -5051,8 +4951,7 @@ Class IDbTransactionInterceptor from DotNetObject
 		raise("DotNet Error: ReleasedSavepointAsync does not take one argument: use named arguments, ReleasedSavepointAsync([ :parameter = value, ... ])")
 
 	Func TransactionFailed P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s17:TransactionFailed",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s17:TransactionFailed",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s17:TransactionFailed",P1,P2)
 
 		return self
 
@@ -5083,17 +4982,16 @@ Class IDiagnosticsLogger from DotNetObject
 
 	Func ShouldLogSensitiveData 
 		dn_x = dotnet_call("s4:call",nHandle,"s22:ShouldLogSensitiveData")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s22:ShouldLogSensitiveData",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ShouldLog P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:ShouldLog",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:ShouldLog",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DispatchEventData P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",nHandle,"s17:DispatchEventData",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s17:DispatchEventData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",nHandle,"s17:DispatchEventData",P1,P2,P3,P4)
 
 		return self
 
@@ -5101,37 +4999,37 @@ Class IDiagnosticsLogger from DotNetObject
 		return dnSend("s4:call",nHandle,"s14:NeedsEventData",dnPackItem(P1))
 
 	Func getOptions
-		return dnSend("s3:get",nHandle,"s7:Options","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Options"))
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getDefinitions
-		return dnSend("s3:get",nHandle,"s11:Definitions","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Definitions"))
 
 	Func setDefinitions P1
 		raise("DotNet Error: Definitions is a read-only property")
 
 	Func getLogger
-		return dnSend("s3:get",nHandle,"s6:Logger","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Logger"))
 
 	Func setLogger P1
 		raise("DotNet Error: Logger is a read-only property")
 
 	Func getDiagnosticSource
-		return dnSend("s3:get",nHandle,"s16:DiagnosticSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:DiagnosticSource"))
 
 	Func setDiagnosticSource P1
 		raise("DotNet Error: DiagnosticSource is a read-only property")
 
 	Func getDbContextLogger
-		return dnSend("s3:get",nHandle,"s15:DbContextLogger","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:DbContextLogger"))
 
 	Func setDbContextLogger P1
 		raise("DotNet Error: DbContextLogger is a read-only property")
 
 	Func getInterceptors
-		return dnSend("s3:get",nHandle,"s12:Interceptors","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:Interceptors"))
 
 	Func setInterceptors P1
 		raise("DotNet Error: Interceptors is a read-only property")
@@ -5151,7 +5049,7 @@ Class IErrorEventData from DotNetObject
 		return self
 
 	Func getException
-		return dnSend("s3:get",nHandle,"s9:Exception","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Exception"))
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
@@ -5169,8 +5067,7 @@ Class IIdentityResolutionInterceptor from DotNetObject
 		return self
 
 	Func UpdateTrackedInstance P1,P2,P3
-		dn_x = dotnet_callv("s4:call",nHandle,"s21:UpdateTrackedInstance",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s21:UpdateTrackedInstance",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",nHandle,"s21:UpdateTrackedInstance",P1,P2,P3)
 
 		return self
 
@@ -5187,7 +5084,7 @@ Class IInstantiationBindingInterceptor from DotNetObject
 		return self
 
 	Func ModifyBinding P1,P2
-		return dnSend("s4:call",nHandle,"s13:ModifyBinding",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ModifyBinding",P1,P2))
 
 
 Class IInterceptor from DotNetObject
@@ -5216,10 +5113,10 @@ Class IInterceptorAggregator from DotNetObject
 		return self
 
 	Func AggregateInterceptors P1
-		return dnSend("s4:call",nHandle,"s21:AggregateInterceptors",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AggregateInterceptors",P1))
 
 	Func getInterceptorType
-		return dnSend("s3:get",nHandle,"s15:InterceptorType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:InterceptorType"))
 
 	Func setInterceptorType P1
 		raise("DotNet Error: InterceptorType is a read-only property")
@@ -5237,7 +5134,7 @@ Class IInterceptors from DotNetObject
 		return self
 
 	Func Aggregate 
-		return dnSend("s4:call",nHandle,"s9:Aggregate","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Aggregate"))
 
 
 Class ILoggingOptions from DotNetObject
@@ -5258,12 +5155,12 @@ Class ILoggingOptions from DotNetObject
 
 	Func ShouldWarnForStringEnumValueInJson P1
 		dn_x = dotnet_call("s4:call",nHandle,"s34:ShouldWarnForStringEnumValueInJson",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s34:ShouldWarnForStringEnumValueInJson",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getIsSensitiveDataLoggingEnabled
 		dn_x = dotnet_call("s3:get",nHandle,"s29:IsSensitiveDataLoggingEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s29:IsSensitiveDataLoggingEnabled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsSensitiveDataLoggingEnabled P1
@@ -5271,24 +5168,23 @@ Class ILoggingOptions from DotNetObject
 
 	Func getIsSensitiveDataLoggingWarned
 		dn_x = dotnet_call("s3:get",nHandle,"s28:IsSensitiveDataLoggingWarned")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s28:IsSensitiveDataLoggingWarned",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsSensitiveDataLoggingWarned P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s28:IsSensitiveDataLoggingWarned",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s28:IsSensitiveDataLoggingWarned",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s28:IsSensitiveDataLoggingWarned",P1)
 		return self
 
 	Func getDetailedErrorsEnabled
 		dn_x = dotnet_call("s3:get",nHandle,"s21:DetailedErrorsEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:DetailedErrorsEnabled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDetailedErrorsEnabled P1
 		raise("DotNet Error: DetailedErrorsEnabled is a read-only property")
 
 	Func getWarningsConfiguration
-		return dnSend("s3:get",nHandle,"s21:WarningsConfiguration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:WarningsConfiguration"))
 
 	Func setWarningsConfiguration P1
 		raise("DotNet Error: WarningsConfiguration is a read-only property")
@@ -5306,16 +5202,16 @@ Class IMaterializationInterceptor from DotNetObject
 		return self
 
 	Func CreatingInstance P1,P2
-		return dnSend("s4:call",nHandle,"s16:CreatingInstance",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreatingInstance",P1,P2))
 
 	Func CreatedInstance P1,P2
-		return dnSend("s4:call",nHandle,"s15:CreatedInstance",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreatedInstance",P1,P2))
 
 	Func InitializingInstance P1,P2,P3
-		return dnSend("s4:call",nHandle,"s20:InitializingInstance",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:InitializingInstance",P1,P2,P3))
 
 	Func InitializedInstance P1,P2
-		return dnSend("s4:call",nHandle,"s19:InitializedInstance",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:InitializedInstance",P1,P2))
 
 
 Class INavigationBaseEventData from DotNetObject
@@ -5332,7 +5228,7 @@ Class INavigationBaseEventData from DotNetObject
 		return self
 
 	Func getNavigationBase
-		return dnSend("s3:get",nHandle,"s14:NavigationBase","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:NavigationBase"))
 
 	Func setNavigationBase P1
 		raise("DotNet Error: NavigationBase is a read-only property")
@@ -5350,7 +5246,7 @@ Class IQueryExpressionInterceptor from DotNetObject
 		return self
 
 	Func QueryCompilationStarting P1,P2
-		return dnSend("s4:call",nHandle,"s24:QueryCompilationStarting",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:QueryCompilationStarting",P1,P2))
 
 
 Class IRelationalCommandDiagnosticsLogger from DotNetObject
@@ -5365,22 +5261,22 @@ Class IRelationalCommandDiagnosticsLogger from DotNetObject
 		return self
 
 	Func CommandCreating P1,P2,P3,P4,P5,P6,P7
-		return dnSend("s4:call",nHandle,"s15:CommandCreating",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CommandCreating",P1,P2,P3,P4,P5,P6,P7))
 
 	Func CommandCreated P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnSend("s4:call",nHandle,"s14:CommandCreated",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8) + dnPackItem(P9))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CommandCreated",P1,P2,P3,P4,P5,P6,P7,P8,P9))
 
 	Func CommandInitialized P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnSend("s4:call",nHandle,"s18:CommandInitialized",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8) + dnPackItem(P9))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CommandInitialized",P1,P2,P3,P4,P5,P6,P7,P8,P9))
 
 	Func CommandReaderExecuting P1,P2,P3,P4,P5,P6,P7
-		return dnSend("s4:call",nHandle,"s22:CommandReaderExecuting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CommandReaderExecuting",P1,P2,P3,P4,P5,P6,P7))
 
 	Func CommandScalarExecuting P1,P2,P3,P4,P5,P6,P7
-		return dnSend("s4:call",nHandle,"s22:CommandScalarExecuting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CommandScalarExecuting",P1,P2,P3,P4,P5,P6,P7))
 
 	Func CommandNonQueryExecuting P1,P2,P3,P4,P5,P6,P7
-		return dnSend("s4:call",nHandle,"s24:CommandNonQueryExecuting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CommandNonQueryExecuting",P1,P2,P3,P4,P5,P6,P7))
 
 	Func CommandReaderExecutingAsync P1
 		if dnIsNamed(P1)
@@ -5401,14 +5297,14 @@ Class IRelationalCommandDiagnosticsLogger from DotNetObject
 		raise("DotNet Error: CommandNonQueryExecutingAsync does not take one argument: use named arguments, CommandNonQueryExecutingAsync([ :parameter = value, ... ])")
 
 	Func CommandReaderExecuted P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnSend("s4:call",nHandle,"s21:CommandReaderExecuted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8) + dnPackItem(P9))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:CommandReaderExecuted",P1,P2,P3,P4,P5,P6,P7,P8,P9))
 
 	Func CommandScalarExecuted P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnSend("s4:call",nHandle,"s21:CommandScalarExecuted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8) + dnPackItem(P9))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:CommandScalarExecuted",P1,P2,P3,P4,P5,P6,P7,P8,P9))
 
 	Func CommandNonQueryExecuted P1,P2,P3,P4,P5,P6,P7,P8,P9
 		dn_x = dotnet_call("s4:call",nHandle,"s23:CommandNonQueryExecuted",P1,P2,P3,P4,P5,P6,P7,P8,P9)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s23:CommandNonQueryExecuted",[P1,P2,P3,P4,P5,P6,P7,P8,P9]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CommandReaderExecutedAsync P1
@@ -5430,8 +5326,7 @@ Class IRelationalCommandDiagnosticsLogger from DotNetObject
 		raise("DotNet Error: CommandNonQueryExecutedAsync does not take one argument: use named arguments, CommandNonQueryExecutedAsync([ :parameter = value, ... ])")
 
 	Func CommandError P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:CommandError",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:CommandError",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8) + dnPackItem(P9) + dnPackItem(P10)) ok
+		dotnet_callv("s4:call",nHandle,"s12:CommandError",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10)
 
 		return self
 
@@ -5442,8 +5337,7 @@ Class IRelationalCommandDiagnosticsLogger from DotNetObject
 		raise("DotNet Error: CommandErrorAsync does not take one argument: use named arguments, CommandErrorAsync([ :parameter = value, ... ])")
 
 	Func CommandCanceled P1,P2,P3,P4,P5,P6,P7,P8,P9
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:CommandCanceled",P1,P2,P3,P4,P5,P6,P7,P8,P9)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:CommandCanceled",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8) + dnPackItem(P9)) ok
+		dotnet_callv("s4:call",nHandle,"s15:CommandCanceled",P1,P2,P3,P4,P5,P6,P7,P8,P9)
 
 		return self
 
@@ -5454,32 +5348,32 @@ Class IRelationalCommandDiagnosticsLogger from DotNetObject
 		raise("DotNet Error: CommandCanceledAsync does not take one argument: use named arguments, CommandCanceledAsync([ :parameter = value, ... ])")
 
 	Func DataReaderDisposing P1,P2,P3,P4,P5,P6,P7,P8
-		return dnSend("s4:call",nHandle,"s19:DataReaderDisposing",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:DataReaderDisposing",P1,P2,P3,P4,P5,P6,P7,P8))
 
 	Func DataReaderClosing P1,P2,P3,P4,P5,P6,P7
-		return dnSend("s4:call",nHandle,"s17:DataReaderClosing",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:DataReaderClosing",P1,P2,P3,P4,P5,P6,P7))
 
 	Func DataReaderClosingAsync P1,P2,P3,P4,P5,P6,P7
-		return dnSend("s4:call",nHandle,"s22:DataReaderClosingAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:DataReaderClosingAsync",P1,P2,P3,P4,P5,P6,P7))
 
 	Func ShouldLogCommandCreate P1
 		dn_x = dotnet_call("s4:call",nHandle,"s22:ShouldLogCommandCreate",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s22:ShouldLogCommandCreate",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ShouldLogCommandExecute P1
 		dn_x = dotnet_call("s4:call",nHandle,"s23:ShouldLogCommandExecute",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s23:ShouldLogCommandExecute",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ShouldLogDataReaderClose P1
 		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldLogDataReaderClose",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldLogDataReaderClose",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ShouldLogDataReaderDispose P1
 		dn_x = dotnet_call("s4:call",nHandle,"s26:ShouldLogDataReaderDispose",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s26:ShouldLogDataReaderDispose",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -5495,35 +5389,33 @@ Class IRelationalConnectionDiagnosticsLogger from DotNetObject
 		return self
 
 	Func ConnectionCreating P1,P2
-		return dnSend("s4:call",nHandle,"s18:ConnectionCreating",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ConnectionCreating",P1,P2))
 
 	Func ConnectionCreated P1,P2,P3
-		return dnSend("s4:call",nHandle,"s17:ConnectionCreated",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionCreated",P1,P2,P3))
 
 	Func ConnectionDisposing P1,P2
-		return dnSend("s4:call",nHandle,"s19:ConnectionDisposing",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ConnectionDisposing",P1,P2))
 
 	Func ConnectionDisposingAsync P1,P2
-		return dnSend("s4:call",nHandle,"s24:ConnectionDisposingAsync",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ConnectionDisposingAsync",P1,P2))
 
 	Func ConnectionDisposed P1,P2,P3
-		dn_x = dotnet_callv("s4:call",nHandle,"s18:ConnectionDisposed",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s18:ConnectionDisposed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",nHandle,"s18:ConnectionDisposed",P1,P2,P3)
 
 		return self
 
 	Func ConnectionDisposedAsync P1,P2,P3
-		return dnSend("s4:call",nHandle,"s23:ConnectionDisposedAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ConnectionDisposedAsync",P1,P2,P3))
 
 	Func ConnectionOpening P1,P2
-		return dnSend("s4:call",nHandle,"s17:ConnectionOpening",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionOpening",P1,P2))
 
 	Func ConnectionOpeningAsync P1,P2,P3
-		return dnSend("s4:call",nHandle,"s22:ConnectionOpeningAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:ConnectionOpeningAsync",P1,P2,P3))
 
 	Func ConnectionOpened P1,P2,P3
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:ConnectionOpened",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ConnectionOpened",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",nHandle,"s16:ConnectionOpened",P1,P2,P3)
 
 		return self
 
@@ -5534,23 +5426,21 @@ Class IRelationalConnectionDiagnosticsLogger from DotNetObject
 		raise("DotNet Error: ConnectionOpenedAsync does not take one argument: use named arguments, ConnectionOpenedAsync([ :parameter = value, ... ])")
 
 	Func ConnectionClosing P1,P2
-		return dnSend("s4:call",nHandle,"s17:ConnectionClosing",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionClosing",P1,P2))
 
 	Func ConnectionClosingAsync P1,P2
-		return dnSend("s4:call",nHandle,"s22:ConnectionClosingAsync",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:ConnectionClosingAsync",P1,P2))
 
 	Func ConnectionClosed P1,P2,P3
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:ConnectionClosed",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ConnectionClosed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",nHandle,"s16:ConnectionClosed",P1,P2,P3)
 
 		return self
 
 	Func ConnectionClosedAsync P1,P2,P3
-		return dnSend("s4:call",nHandle,"s21:ConnectionClosedAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:ConnectionClosedAsync",P1,P2,P3))
 
 	Func ConnectionError P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:ConnectionError",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:ConnectionError",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",nHandle,"s15:ConnectionError",P1,P2,P3,P4,P5)
 
 		return self
 
@@ -5562,22 +5452,22 @@ Class IRelationalConnectionDiagnosticsLogger from DotNetObject
 
 	Func ShouldLogConnectionCreate P1
 		dn_x = dotnet_call("s4:call",nHandle,"s25:ShouldLogConnectionCreate",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s25:ShouldLogConnectionCreate",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ShouldLogConnectionDispose P1
 		dn_x = dotnet_call("s4:call",nHandle,"s26:ShouldLogConnectionDispose",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s26:ShouldLogConnectionDispose",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ShouldLogConnectionOpen P1
 		dn_x = dotnet_call("s4:call",nHandle,"s23:ShouldLogConnectionOpen",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s23:ShouldLogConnectionOpen",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ShouldLogConnectionClose P1
 		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldLogConnectionClose",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s24:ShouldLogConnectionClose",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -5593,16 +5483,15 @@ Class ISaveChangesInterceptor from DotNetObject
 		return self
 
 	Func SavingChanges P1,P2
-		return dnSend("s4:call",nHandle,"s13:SavingChanges",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SavingChanges",P1,P2))
 
 	Func SavedChanges P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s12:SavedChanges",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:SavedChanges",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SaveChangesFailed P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s17:SaveChangesFailed",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s17:SaveChangesFailed",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s17:SaveChangesFailed",P1)
 
 		return self
 
@@ -5622,11 +5511,10 @@ Class ISaveChangesInterceptor from DotNetObject
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s22:SaveChangesFailedAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s22:SaveChangesFailedAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:SaveChangesFailedAsync",P1))
 
 	Func SaveChangesCanceled P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s19:SaveChangesCanceled",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s19:SaveChangesCanceled",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s19:SaveChangesCanceled",P1)
 
 		return self
 
@@ -5634,10 +5522,10 @@ Class ISaveChangesInterceptor from DotNetObject
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s24:SaveChangesCanceledAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s24:SaveChangesCanceledAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SaveChangesCanceledAsync",P1))
 
 	Func ThrowingConcurrencyException P1,P2
-		return dnSend("s4:call",nHandle,"s28:ThrowingConcurrencyException",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:ThrowingConcurrencyException",P1,P2))
 
 	Func ThrowingConcurrencyExceptionAsync P1
 		if dnIsNamed(P1)
@@ -5697,7 +5585,7 @@ Class IdentityResolutionInterceptionData from ValueType
 		return self
 
 	Func getContext
-		return dnSend("s3:get",nHandle,"s7:Context","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Context"))
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
@@ -5724,14 +5612,13 @@ Class IgnoringIdentityResolutionInterceptor from Object
 		return self
 
 	Func UpdateTrackedInstance P1,P2,P3
-		dn_x = dotnet_callv("s4:call",nHandle,"s21:UpdateTrackedInstance",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s21:UpdateTrackedInstance",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",nHandle,"s21:UpdateTrackedInstance",P1,P2,P3)
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -5774,7 +5661,7 @@ Class InstantiationBindingInterceptionData from ValueType
 		return self
 
 	Func getTypeBase
-		return dnSend("s3:get",nHandle,"s8:TypeBase","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:TypeBase"))
 
 	Func setTypeBase P1
 		raise("DotNet Error: TypeBase is a read-only property")
@@ -5803,11 +5690,11 @@ Class InterceptionResult from ValueType
 		return self
 
 	Func Suppress 
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.InterceptionResult, Microsoft.EntityFrameworkCore'),"s8:Suppress","")
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.InterceptionResult, Microsoft.EntityFrameworkCore',"s8:Suppress"))
 
 	Func getIsSuppressed
 		dn_x = dotnet_call("s3:get",nHandle,"s12:IsSuppressed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsSuppressed",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsSuppressed P1
@@ -5912,679 +5799,595 @@ Class LoggingDefinitions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getLogServiceProviderCreated
-		return dnSend("s3:get",nHandle,"s25:LogServiceProviderCreated","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s25:LogServiceProviderCreated"))
 
 	Func setLogServiceProviderCreated P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s25:LogServiceProviderCreated",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s25:LogServiceProviderCreated",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s25:LogServiceProviderCreated",P1)
 		return self
 
 	Func getLogManyServiceProvidersCreated
-		return dnSend("s3:get",nHandle,"s30:LogManyServiceProvidersCreated","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s30:LogManyServiceProvidersCreated"))
 
 	Func setLogManyServiceProvidersCreated P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s30:LogManyServiceProvidersCreated",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s30:LogManyServiceProvidersCreated",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s30:LogManyServiceProvidersCreated",P1)
 		return self
 
 	Func getLogMappedEntityTypeIgnored
-		return dnSend("s3:get",nHandle,"s26:LogMappedEntityTypeIgnored","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s26:LogMappedEntityTypeIgnored"))
 
 	Func setLogMappedEntityTypeIgnored P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s26:LogMappedEntityTypeIgnored",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s26:LogMappedEntityTypeIgnored",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s26:LogMappedEntityTypeIgnored",P1)
 		return self
 
 	Func getLogMappedNavigationIgnored
-		return dnSend("s3:get",nHandle,"s26:LogMappedNavigationIgnored","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s26:LogMappedNavigationIgnored"))
 
 	Func setLogMappedNavigationIgnored P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s26:LogMappedNavigationIgnored",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s26:LogMappedNavigationIgnored",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s26:LogMappedNavigationIgnored",P1)
 		return self
 
 	Func getLogMappedPropertyIgnored
-		return dnSend("s3:get",nHandle,"s24:LogMappedPropertyIgnored","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:LogMappedPropertyIgnored"))
 
 	Func setLogMappedPropertyIgnored P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:LogMappedPropertyIgnored",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:LogMappedPropertyIgnored",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:LogMappedPropertyIgnored",P1)
 		return self
 
 	Func getLogMappedComplexPropertyIgnored
-		return dnSend("s3:get",nHandle,"s31:LogMappedComplexPropertyIgnored","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s31:LogMappedComplexPropertyIgnored"))
 
 	Func setLogMappedComplexPropertyIgnored P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s31:LogMappedComplexPropertyIgnored",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s31:LogMappedComplexPropertyIgnored",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s31:LogMappedComplexPropertyIgnored",P1)
 		return self
 
 	Func getLogServiceProviderDebugInfo
-		return dnSend("s3:get",nHandle,"s27:LogServiceProviderDebugInfo","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s27:LogServiceProviderDebugInfo"))
 
 	Func setLogServiceProviderDebugInfo P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s27:LogServiceProviderDebugInfo",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s27:LogServiceProviderDebugInfo",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s27:LogServiceProviderDebugInfo",P1)
 		return self
 
 	Func getLogContextInitialized
-		return dnSend("s3:get",nHandle,"s21:LogContextInitialized","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:LogContextInitialized"))
 
 	Func setLogContextInitialized P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:LogContextInitialized",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:LogContextInitialized",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:LogContextInitialized",P1)
 		return self
 
 	Func getLogOldModelVersion
-		return dnSend("s3:get",nHandle,"s18:LogOldModelVersion","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:LogOldModelVersion"))
 
 	Func setLogOldModelVersion P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:LogOldModelVersion",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:LogOldModelVersion",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:LogOldModelVersion",P1)
 		return self
 
 	Func getLogExceptionDuringQueryIteration
-		return dnSend("s3:get",nHandle,"s32:LogExceptionDuringQueryIteration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s32:LogExceptionDuringQueryIteration"))
 
 	Func setLogExceptionDuringQueryIteration P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s32:LogExceptionDuringQueryIteration",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s32:LogExceptionDuringQueryIteration",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s32:LogExceptionDuringQueryIteration",P1)
 		return self
 
 	Func getLogExceptionDuringSaveChanges
-		return dnSend("s3:get",nHandle,"s29:LogExceptionDuringSaveChanges","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s29:LogExceptionDuringSaveChanges"))
 
 	Func setLogExceptionDuringSaveChanges P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s29:LogExceptionDuringSaveChanges",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s29:LogExceptionDuringSaveChanges",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s29:LogExceptionDuringSaveChanges",P1)
 		return self
 
 	Func getLogDetectChangesStarting
-		return dnSend("s3:get",nHandle,"s24:LogDetectChangesStarting","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:LogDetectChangesStarting"))
 
 	Func setLogDetectChangesStarting P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:LogDetectChangesStarting",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:LogDetectChangesStarting",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:LogDetectChangesStarting",P1)
 		return self
 
 	Func getLogDetectChangesCompleted
-		return dnSend("s3:get",nHandle,"s25:LogDetectChangesCompleted","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s25:LogDetectChangesCompleted"))
 
 	Func setLogDetectChangesCompleted P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s25:LogDetectChangesCompleted",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s25:LogDetectChangesCompleted",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s25:LogDetectChangesCompleted",P1)
 		return self
 
 	Func getLogPropertyChangeDetected
-		return dnSend("s3:get",nHandle,"s25:LogPropertyChangeDetected","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s25:LogPropertyChangeDetected"))
 
 	Func setLogPropertyChangeDetected P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s25:LogPropertyChangeDetected",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s25:LogPropertyChangeDetected",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s25:LogPropertyChangeDetected",P1)
 		return self
 
 	Func getLogPropertyChangeDetectedSensitive
-		return dnSend("s3:get",nHandle,"s34:LogPropertyChangeDetectedSensitive","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s34:LogPropertyChangeDetectedSensitive"))
 
 	Func setLogPropertyChangeDetectedSensitive P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s34:LogPropertyChangeDetectedSensitive",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s34:LogPropertyChangeDetectedSensitive",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s34:LogPropertyChangeDetectedSensitive",P1)
 		return self
 
 	Func getLogForeignKeyChangeDetected
-		return dnSend("s3:get",nHandle,"s27:LogForeignKeyChangeDetected","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s27:LogForeignKeyChangeDetected"))
 
 	Func setLogForeignKeyChangeDetected P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s27:LogForeignKeyChangeDetected",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s27:LogForeignKeyChangeDetected",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s27:LogForeignKeyChangeDetected",P1)
 		return self
 
 	Func getLogForeignKeyChangeDetectedSensitive
-		return dnSend("s3:get",nHandle,"s36:LogForeignKeyChangeDetectedSensitive","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s36:LogForeignKeyChangeDetectedSensitive"))
 
 	Func setLogForeignKeyChangeDetectedSensitive P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s36:LogForeignKeyChangeDetectedSensitive",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s36:LogForeignKeyChangeDetectedSensitive",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s36:LogForeignKeyChangeDetectedSensitive",P1)
 		return self
 
 	Func getLogCollectionChangeDetected
-		return dnSend("s3:get",nHandle,"s27:LogCollectionChangeDetected","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s27:LogCollectionChangeDetected"))
 
 	Func setLogCollectionChangeDetected P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s27:LogCollectionChangeDetected",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s27:LogCollectionChangeDetected",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s27:LogCollectionChangeDetected",P1)
 		return self
 
 	Func getLogCollectionChangeDetectedSensitive
-		return dnSend("s3:get",nHandle,"s36:LogCollectionChangeDetectedSensitive","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s36:LogCollectionChangeDetectedSensitive"))
 
 	Func setLogCollectionChangeDetectedSensitive P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s36:LogCollectionChangeDetectedSensitive",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s36:LogCollectionChangeDetectedSensitive",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s36:LogCollectionChangeDetectedSensitive",P1)
 		return self
 
 	Func getLogSaveChangesCanceled
-		return dnSend("s3:get",nHandle,"s22:LogSaveChangesCanceled","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:LogSaveChangesCanceled"))
 
 	Func setLogSaveChangesCanceled P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:LogSaveChangesCanceled",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:LogSaveChangesCanceled",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:LogSaveChangesCanceled",P1)
 		return self
 
 	Func getLogSkipCollectionChangeDetected
-		return dnSend("s3:get",nHandle,"s31:LogSkipCollectionChangeDetected","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s31:LogSkipCollectionChangeDetected"))
 
 	Func setLogSkipCollectionChangeDetected P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s31:LogSkipCollectionChangeDetected",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s31:LogSkipCollectionChangeDetected",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s31:LogSkipCollectionChangeDetected",P1)
 		return self
 
 	Func getLogSkipCollectionChangeDetectedSensitive
-		return dnSend("s3:get",nHandle,"s40:LogSkipCollectionChangeDetectedSensitive","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s40:LogSkipCollectionChangeDetectedSensitive"))
 
 	Func setLogSkipCollectionChangeDetectedSensitive P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s40:LogSkipCollectionChangeDetectedSensitive",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s40:LogSkipCollectionChangeDetectedSensitive",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s40:LogSkipCollectionChangeDetectedSensitive",P1)
 		return self
 
 	Func getLogStringEnumValueInJson
-		return dnSend("s3:get",nHandle,"s24:LogStringEnumValueInJson","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:LogStringEnumValueInJson"))
 
 	Func setLogStringEnumValueInJson P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:LogStringEnumValueInJson",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:LogStringEnumValueInJson",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:LogStringEnumValueInJson",P1)
 		return self
 
 	Func getLogReferenceChangeDetected
-		return dnSend("s3:get",nHandle,"s26:LogReferenceChangeDetected","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s26:LogReferenceChangeDetected"))
 
 	Func setLogReferenceChangeDetected P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s26:LogReferenceChangeDetected",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s26:LogReferenceChangeDetected",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s26:LogReferenceChangeDetected",P1)
 		return self
 
 	Func getLogReferenceChangeDetectedSensitive
-		return dnSend("s3:get",nHandle,"s35:LogReferenceChangeDetectedSensitive","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s35:LogReferenceChangeDetectedSensitive"))
 
 	Func setLogReferenceChangeDetectedSensitive P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s35:LogReferenceChangeDetectedSensitive",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s35:LogReferenceChangeDetectedSensitive",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s35:LogReferenceChangeDetectedSensitive",P1)
 		return self
 
 	Func getLogCascadeDelete
-		return dnSend("s3:get",nHandle,"s16:LogCascadeDelete","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:LogCascadeDelete"))
 
 	Func setLogCascadeDelete P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:LogCascadeDelete",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:LogCascadeDelete",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:LogCascadeDelete",P1)
 		return self
 
 	Func getLogCascadeDeleteSensitive
-		return dnSend("s3:get",nHandle,"s25:LogCascadeDeleteSensitive","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s25:LogCascadeDeleteSensitive"))
 
 	Func setLogCascadeDeleteSensitive P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s25:LogCascadeDeleteSensitive",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s25:LogCascadeDeleteSensitive",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s25:LogCascadeDeleteSensitive",P1)
 		return self
 
 	Func getLogCascadeDeleteOrphan
-		return dnSend("s3:get",nHandle,"s22:LogCascadeDeleteOrphan","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:LogCascadeDeleteOrphan"))
 
 	Func setLogCascadeDeleteOrphan P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:LogCascadeDeleteOrphan",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:LogCascadeDeleteOrphan",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:LogCascadeDeleteOrphan",P1)
 		return self
 
 	Func getLogCascadeDeleteOrphanSensitive
-		return dnSend("s3:get",nHandle,"s31:LogCascadeDeleteOrphanSensitive","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s31:LogCascadeDeleteOrphanSensitive"))
 
 	Func setLogCascadeDeleteOrphanSensitive P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s31:LogCascadeDeleteOrphanSensitive",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s31:LogCascadeDeleteOrphanSensitive",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s31:LogCascadeDeleteOrphanSensitive",P1)
 		return self
 
 	Func getLogStartedTracking
-		return dnSend("s3:get",nHandle,"s18:LogStartedTracking","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:LogStartedTracking"))
 
 	Func setLogStartedTracking P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:LogStartedTracking",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:LogStartedTracking",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:LogStartedTracking",P1)
 		return self
 
 	Func getLogStartedTrackingSensitive
-		return dnSend("s3:get",nHandle,"s27:LogStartedTrackingSensitive","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s27:LogStartedTrackingSensitive"))
 
 	Func setLogStartedTrackingSensitive P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s27:LogStartedTrackingSensitive",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s27:LogStartedTrackingSensitive",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s27:LogStartedTrackingSensitive",P1)
 		return self
 
 	Func getLogStateChanged
-		return dnSend("s3:get",nHandle,"s15:LogStateChanged","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:LogStateChanged"))
 
 	Func setLogStateChanged P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:LogStateChanged",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:LogStateChanged",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:LogStateChanged",P1)
 		return self
 
 	Func getLogStateChangedSensitive
-		return dnSend("s3:get",nHandle,"s24:LogStateChangedSensitive","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:LogStateChangedSensitive"))
 
 	Func setLogStateChangedSensitive P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:LogStateChangedSensitive",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:LogStateChangedSensitive",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:LogStateChangedSensitive",P1)
 		return self
 
 	Func getLogValueGenerated
-		return dnSend("s3:get",nHandle,"s17:LogValueGenerated","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:LogValueGenerated"))
 
 	Func setLogValueGenerated P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:LogValueGenerated",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:LogValueGenerated",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:LogValueGenerated",P1)
 		return self
 
 	Func getLogValueGeneratedSensitive
-		return dnSend("s3:get",nHandle,"s26:LogValueGeneratedSensitive","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s26:LogValueGeneratedSensitive"))
 
 	Func setLogValueGeneratedSensitive P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s26:LogValueGeneratedSensitive",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s26:LogValueGeneratedSensitive",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s26:LogValueGeneratedSensitive",P1)
 		return self
 
 	Func getLogTempValueGenerated
-		return dnSend("s3:get",nHandle,"s21:LogTempValueGenerated","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:LogTempValueGenerated"))
 
 	Func setLogTempValueGenerated P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:LogTempValueGenerated",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:LogTempValueGenerated",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:LogTempValueGenerated",P1)
 		return self
 
 	Func getLogTempValueGeneratedSensitive
-		return dnSend("s3:get",nHandle,"s30:LogTempValueGeneratedSensitive","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s30:LogTempValueGeneratedSensitive"))
 
 	Func setLogTempValueGeneratedSensitive P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s30:LogTempValueGeneratedSensitive",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s30:LogTempValueGeneratedSensitive",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s30:LogTempValueGeneratedSensitive",P1)
 		return self
 
 	Func getLogTypeLoadingErrorWarning
-		return dnSend("s3:get",nHandle,"s26:LogTypeLoadingErrorWarning","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s26:LogTypeLoadingErrorWarning"))
 
 	Func setLogTypeLoadingErrorWarning P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s26:LogTypeLoadingErrorWarning",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s26:LogTypeLoadingErrorWarning",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s26:LogTypeLoadingErrorWarning",P1)
 		return self
 
 	Func getLogSkippedEntityTypeConfigurationWarning
-		return dnSend("s3:get",nHandle,"s40:LogSkippedEntityTypeConfigurationWarning","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s40:LogSkippedEntityTypeConfigurationWarning"))
 
 	Func setLogSkippedEntityTypeConfigurationWarning P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s40:LogSkippedEntityTypeConfigurationWarning",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s40:LogSkippedEntityTypeConfigurationWarning",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s40:LogSkippedEntityTypeConfigurationWarning",P1)
 		return self
 
 	Func getLogNoEntityTypeConfigurationsWarning
-		return dnSend("s3:get",nHandle,"s36:LogNoEntityTypeConfigurationsWarning","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s36:LogNoEntityTypeConfigurationsWarning"))
 
 	Func setLogNoEntityTypeConfigurationsWarning P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s36:LogNoEntityTypeConfigurationsWarning",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s36:LogNoEntityTypeConfigurationsWarning",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s36:LogNoEntityTypeConfigurationsWarning",P1)
 		return self
 
 	Func getLogSaveChangesStarting
-		return dnSend("s3:get",nHandle,"s22:LogSaveChangesStarting","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:LogSaveChangesStarting"))
 
 	Func setLogSaveChangesStarting P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:LogSaveChangesStarting",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:LogSaveChangesStarting",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:LogSaveChangesStarting",P1)
 		return self
 
 	Func getLogSaveChangesCompleted
-		return dnSend("s3:get",nHandle,"s23:LogSaveChangesCompleted","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:LogSaveChangesCompleted"))
 
 	Func setLogSaveChangesCompleted P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:LogSaveChangesCompleted",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:LogSaveChangesCompleted",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:LogSaveChangesCompleted",P1)
 		return self
 
 	Func getLogContextDisposed
-		return dnSend("s3:get",nHandle,"s18:LogContextDisposed","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:LogContextDisposed"))
 
 	Func setLogContextDisposed P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:LogContextDisposed",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:LogContextDisposed",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:LogContextDisposed",P1)
 		return self
 
 	Func getLogIncludingNavigation
-		return dnSend("s3:get",nHandle,"s22:LogIncludingNavigation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:LogIncludingNavigation"))
 
 	Func setLogIncludingNavigation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:LogIncludingNavigation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:LogIncludingNavigation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:LogIncludingNavigation",P1)
 		return self
 
 	Func getLogQueryCanceled
-		return dnSend("s3:get",nHandle,"s16:LogQueryCanceled","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:LogQueryCanceled"))
 
 	Func setLogQueryCanceled P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:LogQueryCanceled",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:LogQueryCanceled",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:LogQueryCanceled",P1)
 		return self
 
 	Func getLogQueryExecutionPlanned
-		return dnSend("s3:get",nHandle,"s24:LogQueryExecutionPlanned","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:LogQueryExecutionPlanned"))
 
 	Func setLogQueryExecutionPlanned P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:LogQueryExecutionPlanned",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:LogQueryExecutionPlanned",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:LogQueryExecutionPlanned",P1)
 		return self
 
 	Func getLogSensitiveDataLoggingEnabled
-		return dnSend("s3:get",nHandle,"s30:LogSensitiveDataLoggingEnabled","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s30:LogSensitiveDataLoggingEnabled"))
 
 	Func setLogSensitiveDataLoggingEnabled P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s30:LogSensitiveDataLoggingEnabled",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s30:LogSensitiveDataLoggingEnabled",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s30:LogSensitiveDataLoggingEnabled",P1)
 		return self
 
 	Func getLogRowLimitingOperationWithoutOrderBy
-		return dnSend("s3:get",nHandle,"s37:LogRowLimitingOperationWithoutOrderBy","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s37:LogRowLimitingOperationWithoutOrderBy"))
 
 	Func setLogRowLimitingOperationWithoutOrderBy P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s37:LogRowLimitingOperationWithoutOrderBy",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s37:LogRowLimitingOperationWithoutOrderBy",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s37:LogRowLimitingOperationWithoutOrderBy",P1)
 		return self
 
 	Func getLogPossibleUnintendedCollectionNavigationNullComparison
-		return dnSend("s3:get",nHandle,"s55:LogPossibleUnintendedCollectionNavigationNullComparison","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s55:LogPossibleUnintendedCollectionNavigationNullComparison"))
 
 	Func setLogPossibleUnintendedCollectionNavigationNullComparison P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s55:LogPossibleUnintendedCollectionNavigationNullComparison",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s55:LogPossibleUnintendedCollectionNavigationNullComparison",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s55:LogPossibleUnintendedCollectionNavigationNullComparison",P1)
 		return self
 
 	Func getLogPossibleUnintendedReferenceComparison
-		return dnSend("s3:get",nHandle,"s40:LogPossibleUnintendedReferenceComparison","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s40:LogPossibleUnintendedReferenceComparison"))
 
 	Func setLogPossibleUnintendedReferenceComparison P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s40:LogPossibleUnintendedReferenceComparison",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s40:LogPossibleUnintendedReferenceComparison",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s40:LogPossibleUnintendedReferenceComparison",P1)
 		return self
 
 	Func getLogInvalidIncludePath
-		return dnSend("s3:get",nHandle,"s21:LogInvalidIncludePath","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:LogInvalidIncludePath"))
 
 	Func setLogInvalidIncludePath P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:LogInvalidIncludePath",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:LogInvalidIncludePath",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:LogInvalidIncludePath",P1)
 		return self
 
 	Func getLogDuplicateDependentEntityTypeInstance
-		return dnSend("s3:get",nHandle,"s39:LogDuplicateDependentEntityTypeInstance","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s39:LogDuplicateDependentEntityTypeInstance"))
 
 	Func setLogDuplicateDependentEntityTypeInstance P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s39:LogDuplicateDependentEntityTypeInstance",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s39:LogDuplicateDependentEntityTypeInstance",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s39:LogDuplicateDependentEntityTypeInstance",P1)
 		return self
 
 	Func getLogShadowPropertyCreated
-		return dnSend("s3:get",nHandle,"s24:LogShadowPropertyCreated","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:LogShadowPropertyCreated"))
 
 	Func setLogShadowPropertyCreated P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:LogShadowPropertyCreated",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:LogShadowPropertyCreated",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:LogShadowPropertyCreated",P1)
 		return self
 
 	Func getLogShadowForeignKeyPropertyCreated
-		return dnSend("s3:get",nHandle,"s34:LogShadowForeignKeyPropertyCreated","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s34:LogShadowForeignKeyPropertyCreated"))
 
 	Func setLogShadowForeignKeyPropertyCreated P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s34:LogShadowForeignKeyPropertyCreated",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s34:LogShadowForeignKeyPropertyCreated",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s34:LogShadowForeignKeyPropertyCreated",P1)
 		return self
 
 	Func getLogCollectionWithoutComparer
-		return dnSend("s3:get",nHandle,"s28:LogCollectionWithoutComparer","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s28:LogCollectionWithoutComparer"))
 
 	Func setLogCollectionWithoutComparer P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s28:LogCollectionWithoutComparer",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s28:LogCollectionWithoutComparer",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s28:LogCollectionWithoutComparer",P1)
 		return self
 
 	Func getLogExecutionStrategyRetrying
-		return dnSend("s3:get",nHandle,"s28:LogExecutionStrategyRetrying","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s28:LogExecutionStrategyRetrying"))
 
 	Func setLogExecutionStrategyRetrying P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s28:LogExecutionStrategyRetrying",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s28:LogExecutionStrategyRetrying",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s28:LogExecutionStrategyRetrying",P1)
 		return self
 
 	Func getLogNavigationLazyLoading
-		return dnSend("s3:get",nHandle,"s24:LogNavigationLazyLoading","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:LogNavigationLazyLoading"))
 
 	Func setLogNavigationLazyLoading P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:LogNavigationLazyLoading",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:LogNavigationLazyLoading",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:LogNavigationLazyLoading",P1)
 		return self
 
 	Func getLogLazyLoadOnDisposedContext
-		return dnSend("s3:get",nHandle,"s28:LogLazyLoadOnDisposedContext","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s28:LogLazyLoadOnDisposedContext"))
 
 	Func setLogLazyLoadOnDisposedContext P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s28:LogLazyLoadOnDisposedContext",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s28:LogLazyLoadOnDisposedContext",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s28:LogLazyLoadOnDisposedContext",P1)
 		return self
 
 	Func getLogDetachedLazyLoading
-		return dnSend("s3:get",nHandle,"s22:LogDetachedLazyLoading","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:LogDetachedLazyLoading"))
 
 	Func setLogDetachedLazyLoading P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:LogDetachedLazyLoading",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:LogDetachedLazyLoading",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:LogDetachedLazyLoading",P1)
 		return self
 
 	Func getLogRedundantAddServicesCall
-		return dnSend("s3:get",nHandle,"s27:LogRedundantAddServicesCall","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s27:LogRedundantAddServicesCall"))
 
 	Func setLogRedundantAddServicesCall P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s27:LogRedundantAddServicesCall",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s27:LogRedundantAddServicesCall",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s27:LogRedundantAddServicesCall",P1)
 		return self
 
 	Func getLogRedundantIndexRemoved
-		return dnSend("s3:get",nHandle,"s24:LogRedundantIndexRemoved","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:LogRedundantIndexRemoved"))
 
 	Func setLogRedundantIndexRemoved P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:LogRedundantIndexRemoved",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:LogRedundantIndexRemoved",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:LogRedundantIndexRemoved",P1)
 		return self
 
 	Func getLogIncompatibleMatchingForeignKeyProperties
-		return dnSend("s3:get",nHandle,"s43:LogIncompatibleMatchingForeignKeyProperties","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s43:LogIncompatibleMatchingForeignKeyProperties"))
 
 	Func setLogIncompatibleMatchingForeignKeyProperties P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s43:LogIncompatibleMatchingForeignKeyProperties",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s43:LogIncompatibleMatchingForeignKeyProperties",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s43:LogIncompatibleMatchingForeignKeyProperties",P1)
 		return self
 
 	Func getLogAccidentalEntityType
-		return dnSend("s3:get",nHandle,"s23:LogAccidentalEntityType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:LogAccidentalEntityType"))
 
 	Func setLogAccidentalEntityType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:LogAccidentalEntityType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:LogAccidentalEntityType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:LogAccidentalEntityType",P1)
 		return self
 
 	Func getLogAmbiguousEndRequired
-		return dnSend("s3:get",nHandle,"s23:LogAmbiguousEndRequired","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:LogAmbiguousEndRequired"))
 
 	Func setLogAmbiguousEndRequired P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:LogAmbiguousEndRequired",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:LogAmbiguousEndRequired",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:LogAmbiguousEndRequired",P1)
 		return self
 
 	Func getLogForeignKeyAttributesOnBothNavigations
-		return dnSend("s3:get",nHandle,"s40:LogForeignKeyAttributesOnBothNavigations","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s40:LogForeignKeyAttributesOnBothNavigations"))
 
 	Func setLogForeignKeyAttributesOnBothNavigations P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s40:LogForeignKeyAttributesOnBothNavigations",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s40:LogForeignKeyAttributesOnBothNavigations",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s40:LogForeignKeyAttributesOnBothNavigations",P1)
 		return self
 
 	Func getLogRequiredAttributeOnCollection
-		return dnSend("s3:get",nHandle,"s32:LogRequiredAttributeOnCollection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s32:LogRequiredAttributeOnCollection"))
 
 	Func setLogRequiredAttributeOnCollection P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s32:LogRequiredAttributeOnCollection",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s32:LogRequiredAttributeOnCollection",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s32:LogRequiredAttributeOnCollection",P1)
 		return self
 
 	Func getLogRequiredAttributeOnSkipNavigation
-		return dnSend("s3:get",nHandle,"s36:LogRequiredAttributeOnSkipNavigation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s36:LogRequiredAttributeOnSkipNavigation"))
 
 	Func setLogRequiredAttributeOnSkipNavigation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s36:LogRequiredAttributeOnSkipNavigation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s36:LogRequiredAttributeOnSkipNavigation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s36:LogRequiredAttributeOnSkipNavigation",P1)
 		return self
 
 	Func getLogForeignKeyAttributesOnBothProperties
-		return dnSend("s3:get",nHandle,"s39:LogForeignKeyAttributesOnBothProperties","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s39:LogForeignKeyAttributesOnBothProperties"))
 
 	Func setLogForeignKeyAttributesOnBothProperties P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s39:LogForeignKeyAttributesOnBothProperties",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s39:LogForeignKeyAttributesOnBothProperties",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s39:LogForeignKeyAttributesOnBothProperties",P1)
 		return self
 
 	Func getLogConflictingForeignKeyAttributesOnNavigationAndProperty
-		return dnSend("s3:get",nHandle,"s57:LogConflictingForeignKeyAttributesOnNavigationAndProperty","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s57:LogConflictingForeignKeyAttributesOnNavigationAndProperty"))
 
 	Func setLogConflictingForeignKeyAttributesOnNavigationAndProperty P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s57:LogConflictingForeignKeyAttributesOnNavigationAndProperty",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s57:LogConflictingForeignKeyAttributesOnNavigationAndProperty",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s57:LogConflictingForeignKeyAttributesOnNavigationAndProperty",P1)
 		return self
 
 	Func getLogMultipleInversePropertiesSameTarget
-		return dnSend("s3:get",nHandle,"s38:LogMultipleInversePropertiesSameTarget","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s38:LogMultipleInversePropertiesSameTarget"))
 
 	Func setLogMultipleInversePropertiesSameTarget P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s38:LogMultipleInversePropertiesSameTarget",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s38:LogMultipleInversePropertiesSameTarget",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s38:LogMultipleInversePropertiesSameTarget",P1)
 		return self
 
 	Func getLogConflictingShadowForeignKeys
-		return dnSend("s3:get",nHandle,"s31:LogConflictingShadowForeignKeys","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s31:LogConflictingShadowForeignKeys"))
 
 	Func setLogConflictingShadowForeignKeys P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s31:LogConflictingShadowForeignKeys",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s31:LogConflictingShadowForeignKeys",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s31:LogConflictingShadowForeignKeys",P1)
 		return self
 
 	Func getLogMultipleNavigationProperties
-		return dnSend("s3:get",nHandle,"s31:LogMultipleNavigationProperties","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s31:LogMultipleNavigationProperties"))
 
 	Func setLogMultipleNavigationProperties P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s31:LogMultipleNavigationProperties",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s31:LogMultipleNavigationProperties",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s31:LogMultipleNavigationProperties",P1)
 		return self
 
 	Func getLogMultiplePrimaryKeyCandidates
-		return dnSend("s3:get",nHandle,"s31:LogMultiplePrimaryKeyCandidates","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s31:LogMultiplePrimaryKeyCandidates"))
 
 	Func setLogMultiplePrimaryKeyCandidates P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s31:LogMultiplePrimaryKeyCandidates",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s31:LogMultiplePrimaryKeyCandidates",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s31:LogMultiplePrimaryKeyCandidates",P1)
 		return self
 
 	Func getLogNonOwnershipInverseNavigation
-		return dnSend("s3:get",nHandle,"s32:LogNonOwnershipInverseNavigation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s32:LogNonOwnershipInverseNavigation"))
 
 	Func setLogNonOwnershipInverseNavigation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s32:LogNonOwnershipInverseNavigation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s32:LogNonOwnershipInverseNavigation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s32:LogNonOwnershipInverseNavigation",P1)
 		return self
 
 	Func getLogFirstWithoutOrderByAndFilter
-		return dnSend("s3:get",nHandle,"s31:LogFirstWithoutOrderByAndFilter","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s31:LogFirstWithoutOrderByAndFilter"))
 
 	Func setLogFirstWithoutOrderByAndFilter P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s31:LogFirstWithoutOrderByAndFilter",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s31:LogFirstWithoutOrderByAndFilter",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s31:LogFirstWithoutOrderByAndFilter",P1)
 		return self
 
 	Func getLogDistinctAfterOrderByWithoutRowLimitingOperatorWarning
-		return dnSend("s3:get",nHandle,"s56:LogDistinctAfterOrderByWithoutRowLimitingOperatorWarning","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s56:LogDistinctAfterOrderByWithoutRowLimitingOperatorWarning"))
 
 	Func setLogDistinctAfterOrderByWithoutRowLimitingOperatorWarning P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s56:LogDistinctAfterOrderByWithoutRowLimitingOperatorWarning",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s56:LogDistinctAfterOrderByWithoutRowLimitingOperatorWarning",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s56:LogDistinctAfterOrderByWithoutRowLimitingOperatorWarning",P1)
 		return self
 
 	Func getLogNonDefiningInverseNavigation
-		return dnSend("s3:get",nHandle,"s31:LogNonDefiningInverseNavigation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s31:LogNonDefiningInverseNavigation"))
 
 	Func setLogNonDefiningInverseNavigation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s31:LogNonDefiningInverseNavigation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s31:LogNonDefiningInverseNavigation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s31:LogNonDefiningInverseNavigation",P1)
 		return self
 
 	Func getLogOptimisticConcurrencyException
-		return dnSend("s3:get",nHandle,"s33:LogOptimisticConcurrencyException","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s33:LogOptimisticConcurrencyException"))
 
 	Func setLogOptimisticConcurrencyException P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s33:LogOptimisticConcurrencyException",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s33:LogOptimisticConcurrencyException",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s33:LogOptimisticConcurrencyException",P1)
 		return self
 
 	Func getLogRedundantForeignKey
-		return dnSend("s3:get",nHandle,"s22:LogRedundantForeignKey","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:LogRedundantForeignKey"))
 
 	Func setLogRedundantForeignKey P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:LogRedundantForeignKey",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:LogRedundantForeignKey",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:LogRedundantForeignKey",P1)
 		return self
 
 	Func getLogConflictingKeylessAndKeyAttributes
-		return dnSend("s3:get",nHandle,"s37:LogConflictingKeylessAndKeyAttributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s37:LogConflictingKeylessAndKeyAttributes"))
 
 	Func setLogConflictingKeylessAndKeyAttributes P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s37:LogConflictingKeylessAndKeyAttributes",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s37:LogConflictingKeylessAndKeyAttributes",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s37:LogConflictingKeylessAndKeyAttributes",P1)
 		return self
 
 	Func getLogPossibleIncorrectRequiredNavigationWithQueryFilterInteraction
-		return dnSend("s3:get",nHandle,"s64:LogPossibleIncorrectRequiredNavigationWithQueryFilterInteraction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s64:LogPossibleIncorrectRequiredNavigationWithQueryFilterInteraction"))
 
 	Func setLogPossibleIncorrectRequiredNavigationWithQueryFilterInteraction P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s64:LogPossibleIncorrectRequiredNavigationWithQueryFilterInteraction",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s64:LogPossibleIncorrectRequiredNavigationWithQueryFilterInteraction",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s64:LogPossibleIncorrectRequiredNavigationWithQueryFilterInteraction",P1)
 		return self
 
 	Func getLogNavigationBaseIncluded
-		return dnSend("s3:get",nHandle,"s25:LogNavigationBaseIncluded","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s25:LogNavigationBaseIncluded"))
 
 	Func setLogNavigationBaseIncluded P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s25:LogNavigationBaseIncluded",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s25:LogNavigationBaseIncluded",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s25:LogNavigationBaseIncluded",P1)
 		return self
 
 	Func getLogNavigationBaseIncludeIgnored
-		return dnSend("s3:get",nHandle,"s31:LogNavigationBaseIncludeIgnored","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s31:LogNavigationBaseIncludeIgnored"))
 
 	Func setLogNavigationBaseIncludeIgnored P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s31:LogNavigationBaseIncludeIgnored",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s31:LogNavigationBaseIncludeIgnored",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s31:LogNavigationBaseIncludeIgnored",P1)
 		return self
 
 	Func getLogQueryCompilationStarting
-		return dnSend("s3:get",nHandle,"s27:LogQueryCompilationStarting","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s27:LogQueryCompilationStarting"))
 
 	Func setLogQueryCompilationStarting P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s27:LogQueryCompilationStarting",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s27:LogQueryCompilationStarting",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s27:LogQueryCompilationStarting",P1)
 		return self
 
 
@@ -6629,22 +6432,22 @@ Class MaterializationInterceptionData from ValueType
 		return self
 
 	Func GetPropertyValue P1
-		return dnSend("s4:call",nHandle,"s16:GetPropertyValue",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetPropertyValue",P1))
 
 	Func getContext
-		return dnSend("s3:get",nHandle,"s7:Context","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Context"))
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getEntityType
-		return dnSend("s3:get",nHandle,"s10:EntityType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getQueryTrackingBehavior
-		return dnSend("s3:get",nHandle,"s21:QueryTrackingBehavior","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:QueryTrackingBehavior"))
 
 	Func setQueryTrackingBehavior P1
 		raise("DotNet Error: QueryTrackingBehavior is a read-only property")
@@ -6738,449 +6541,449 @@ Class RelationalEventId from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getConnectionOpening
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s17:ConnectionOpening","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s17:ConnectionOpening"))
 
 	Func setConnectionOpening P1
 		raise("DotNet Error: ConnectionOpening is a read-only property")
 
 	Func getConnectionOpened
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s16:ConnectionOpened","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s16:ConnectionOpened"))
 
 	Func setConnectionOpened P1
 		raise("DotNet Error: ConnectionOpened is a read-only property")
 
 	Func getConnectionClosing
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s17:ConnectionClosing","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s17:ConnectionClosing"))
 
 	Func setConnectionClosing P1
 		raise("DotNet Error: ConnectionClosing is a read-only property")
 
 	Func getConnectionClosed
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s16:ConnectionClosed","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s16:ConnectionClosed"))
 
 	Func setConnectionClosed P1
 		raise("DotNet Error: ConnectionClosed is a read-only property")
 
 	Func getConnectionDisposing
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s19:ConnectionDisposing","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s19:ConnectionDisposing"))
 
 	Func setConnectionDisposing P1
 		raise("DotNet Error: ConnectionDisposing is a read-only property")
 
 	Func getConnectionDisposed
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s18:ConnectionDisposed","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s18:ConnectionDisposed"))
 
 	Func setConnectionDisposed P1
 		raise("DotNet Error: ConnectionDisposed is a read-only property")
 
 	Func getConnectionError
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s15:ConnectionError","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s15:ConnectionError"))
 
 	Func setConnectionError P1
 		raise("DotNet Error: ConnectionError is a read-only property")
 
 	Func getConnectionCreating
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s18:ConnectionCreating","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s18:ConnectionCreating"))
 
 	Func setConnectionCreating P1
 		raise("DotNet Error: ConnectionCreating is a read-only property")
 
 	Func getConnectionCreated
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s17:ConnectionCreated","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s17:ConnectionCreated"))
 
 	Func setConnectionCreated P1
 		raise("DotNet Error: ConnectionCreated is a read-only property")
 
 	Func getCommandCanceled
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s15:CommandCanceled","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s15:CommandCanceled"))
 
 	Func setCommandCanceled P1
 		raise("DotNet Error: CommandCanceled is a read-only property")
 
 	Func getCommandCreating
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s15:CommandCreating","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s15:CommandCreating"))
 
 	Func setCommandCreating P1
 		raise("DotNet Error: CommandCreating is a read-only property")
 
 	Func getCommandCreated
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s14:CommandCreated","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s14:CommandCreated"))
 
 	Func setCommandCreated P1
 		raise("DotNet Error: CommandCreated is a read-only property")
 
 	Func getCommandInitialized
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s18:CommandInitialized","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s18:CommandInitialized"))
 
 	Func setCommandInitialized P1
 		raise("DotNet Error: CommandInitialized is a read-only property")
 
 	Func getCommandExecuting
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s16:CommandExecuting","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s16:CommandExecuting"))
 
 	Func setCommandExecuting P1
 		raise("DotNet Error: CommandExecuting is a read-only property")
 
 	Func getCommandExecuted
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s15:CommandExecuted","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s15:CommandExecuted"))
 
 	Func setCommandExecuted P1
 		raise("DotNet Error: CommandExecuted is a read-only property")
 
 	Func getCommandError
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s12:CommandError","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s12:CommandError"))
 
 	Func setCommandError P1
 		raise("DotNet Error: CommandError is a read-only property")
 
 	Func getTransactionStarted
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s18:TransactionStarted","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s18:TransactionStarted"))
 
 	Func setTransactionStarted P1
 		raise("DotNet Error: TransactionStarted is a read-only property")
 
 	Func getTransactionStarting
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s19:TransactionStarting","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s19:TransactionStarting"))
 
 	Func setTransactionStarting P1
 		raise("DotNet Error: TransactionStarting is a read-only property")
 
 	Func getTransactionUsed
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s15:TransactionUsed","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s15:TransactionUsed"))
 
 	Func setTransactionUsed P1
 		raise("DotNet Error: TransactionUsed is a read-only property")
 
 	Func getTransactionCommitting
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s21:TransactionCommitting","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s21:TransactionCommitting"))
 
 	Func setTransactionCommitting P1
 		raise("DotNet Error: TransactionCommitting is a read-only property")
 
 	Func getTransactionCommitted
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s20:TransactionCommitted","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s20:TransactionCommitted"))
 
 	Func setTransactionCommitted P1
 		raise("DotNet Error: TransactionCommitted is a read-only property")
 
 	Func getTransactionRollingBack
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s22:TransactionRollingBack","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s22:TransactionRollingBack"))
 
 	Func setTransactionRollingBack P1
 		raise("DotNet Error: TransactionRollingBack is a read-only property")
 
 	Func getTransactionRolledBack
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s21:TransactionRolledBack","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s21:TransactionRolledBack"))
 
 	Func setTransactionRolledBack P1
 		raise("DotNet Error: TransactionRolledBack is a read-only property")
 
 	Func getCreatingTransactionSavepoint
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s28:CreatingTransactionSavepoint","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s28:CreatingTransactionSavepoint"))
 
 	Func setCreatingTransactionSavepoint P1
 		raise("DotNet Error: CreatingTransactionSavepoint is a read-only property")
 
 	Func getCreatedTransactionSavepoint
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s27:CreatedTransactionSavepoint","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s27:CreatedTransactionSavepoint"))
 
 	Func setCreatedTransactionSavepoint P1
 		raise("DotNet Error: CreatedTransactionSavepoint is a read-only property")
 
 	Func getRollingBackToTransactionSavepoint
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s33:RollingBackToTransactionSavepoint","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s33:RollingBackToTransactionSavepoint"))
 
 	Func setRollingBackToTransactionSavepoint P1
 		raise("DotNet Error: RollingBackToTransactionSavepoint is a read-only property")
 
 	Func getRolledBackToTransactionSavepoint
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s32:RolledBackToTransactionSavepoint","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s32:RolledBackToTransactionSavepoint"))
 
 	Func setRolledBackToTransactionSavepoint P1
 		raise("DotNet Error: RolledBackToTransactionSavepoint is a read-only property")
 
 	Func getReleasingTransactionSavepoint
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s29:ReleasingTransactionSavepoint","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s29:ReleasingTransactionSavepoint"))
 
 	Func setReleasingTransactionSavepoint P1
 		raise("DotNet Error: ReleasingTransactionSavepoint is a read-only property")
 
 	Func getReleasedTransactionSavepoint
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s28:ReleasedTransactionSavepoint","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s28:ReleasedTransactionSavepoint"))
 
 	Func setReleasedTransactionSavepoint P1
 		raise("DotNet Error: ReleasedTransactionSavepoint is a read-only property")
 
 	Func getTransactionDisposed
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s19:TransactionDisposed","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s19:TransactionDisposed"))
 
 	Func setTransactionDisposed P1
 		raise("DotNet Error: TransactionDisposed is a read-only property")
 
 	Func getTransactionError
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s16:TransactionError","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s16:TransactionError"))
 
 	Func setTransactionError P1
 		raise("DotNet Error: TransactionError is a read-only property")
 
 	Func getAmbientTransactionWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s25:AmbientTransactionWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s25:AmbientTransactionWarning"))
 
 	Func setAmbientTransactionWarning P1
 		raise("DotNet Error: AmbientTransactionWarning is a read-only property")
 
 	Func getAmbientTransactionEnlisted
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s26:AmbientTransactionEnlisted","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s26:AmbientTransactionEnlisted"))
 
 	Func setAmbientTransactionEnlisted P1
 		raise("DotNet Error: AmbientTransactionEnlisted is a read-only property")
 
 	Func getExplicitTransactionEnlisted
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s27:ExplicitTransactionEnlisted","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s27:ExplicitTransactionEnlisted"))
 
 	Func setExplicitTransactionEnlisted P1
 		raise("DotNet Error: ExplicitTransactionEnlisted is a read-only property")
 
 	Func getDataReaderDisposing
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s19:DataReaderDisposing","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s19:DataReaderDisposing"))
 
 	Func setDataReaderDisposing P1
 		raise("DotNet Error: DataReaderDisposing is a read-only property")
 
 	Func getDataReaderClosing
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s17:DataReaderClosing","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s17:DataReaderClosing"))
 
 	Func setDataReaderClosing P1
 		raise("DotNet Error: DataReaderClosing is a read-only property")
 
 	Func getMigrateUsingConnection
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s22:MigrateUsingConnection","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s22:MigrateUsingConnection"))
 
 	Func setMigrateUsingConnection P1
 		raise("DotNet Error: MigrateUsingConnection is a read-only property")
 
 	Func getMigrationReverting
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s18:MigrationReverting","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s18:MigrationReverting"))
 
 	Func setMigrationReverting P1
 		raise("DotNet Error: MigrationReverting is a read-only property")
 
 	Func getMigrationApplying
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s17:MigrationApplying","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s17:MigrationApplying"))
 
 	Func setMigrationApplying P1
 		raise("DotNet Error: MigrationApplying is a read-only property")
 
 	Func getMigrationGeneratingDownScript
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s29:MigrationGeneratingDownScript","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s29:MigrationGeneratingDownScript"))
 
 	Func setMigrationGeneratingDownScript P1
 		raise("DotNet Error: MigrationGeneratingDownScript is a read-only property")
 
 	Func getMigrationGeneratingUpScript
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s27:MigrationGeneratingUpScript","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s27:MigrationGeneratingUpScript"))
 
 	Func setMigrationGeneratingUpScript P1
 		raise("DotNet Error: MigrationGeneratingUpScript is a read-only property")
 
 	Func getMigrationsNotApplied
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s20:MigrationsNotApplied","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s20:MigrationsNotApplied"))
 
 	Func setMigrationsNotApplied P1
 		raise("DotNet Error: MigrationsNotApplied is a read-only property")
 
 	Func getMigrationsNotFound
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s18:MigrationsNotFound","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s18:MigrationsNotFound"))
 
 	Func setMigrationsNotFound P1
 		raise("DotNet Error: MigrationsNotFound is a read-only property")
 
 	Func getMigrationAttributeMissingWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s32:MigrationAttributeMissingWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s32:MigrationAttributeMissingWarning"))
 
 	Func setMigrationAttributeMissingWarning P1
 		raise("DotNet Error: MigrationAttributeMissingWarning is a read-only property")
 
 	Func getColumnOrderIgnoredWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s25:ColumnOrderIgnoredWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s25:ColumnOrderIgnoredWarning"))
 
 	Func setColumnOrderIgnoredWarning P1
 		raise("DotNet Error: ColumnOrderIgnoredWarning is a read-only property")
 
 	Func getPendingModelChangesWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s26:PendingModelChangesWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s26:PendingModelChangesWarning"))
 
 	Func setPendingModelChangesWarning P1
 		raise("DotNet Error: PendingModelChangesWarning is a read-only property")
 
 	Func getNonTransactionalMigrationOperationWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s41:NonTransactionalMigrationOperationWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s41:NonTransactionalMigrationOperationWarning"))
 
 	Func setNonTransactionalMigrationOperationWarning P1
 		raise("DotNet Error: NonTransactionalMigrationOperationWarning is a read-only property")
 
 	Func getAcquiringMigrationLock
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s22:AcquiringMigrationLock","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s22:AcquiringMigrationLock"))
 
 	Func setAcquiringMigrationLock P1
 		raise("DotNet Error: AcquiringMigrationLock is a read-only property")
 
 	Func getMigrationsUserTransactionWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s32:MigrationsUserTransactionWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s32:MigrationsUserTransactionWarning"))
 
 	Func setMigrationsUserTransactionWarning P1
 		raise("DotNet Error: MigrationsUserTransactionWarning is a read-only property")
 
 	Func getModelSnapshotNotFound
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s21:ModelSnapshotNotFound","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s21:ModelSnapshotNotFound"))
 
 	Func setModelSnapshotNotFound P1
 		raise("DotNet Error: ModelSnapshotNotFound is a read-only property")
 
 	Func getQueryPossibleUnintendedUseOfEqualsWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s41:QueryPossibleUnintendedUseOfEqualsWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s41:QueryPossibleUnintendedUseOfEqualsWarning"))
 
 	Func setQueryPossibleUnintendedUseOfEqualsWarning P1
 		raise("DotNet Error: QueryPossibleUnintendedUseOfEqualsWarning is a read-only property")
 
 	Func getMultipleCollectionIncludeWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s32:MultipleCollectionIncludeWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s32:MultipleCollectionIncludeWarning"))
 
 	Func setMultipleCollectionIncludeWarning P1
 		raise("DotNet Error: MultipleCollectionIncludeWarning is a read-only property")
 
 	Func getNonQueryOperationFailed
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s23:NonQueryOperationFailed","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s23:NonQueryOperationFailed"))
 
 	Func setNonQueryOperationFailed P1
 		raise("DotNet Error: NonQueryOperationFailed is a read-only property")
 
 	Func getExecuteDeleteFailed
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s19:ExecuteDeleteFailed","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s19:ExecuteDeleteFailed"))
 
 	Func setExecuteDeleteFailed P1
 		raise("DotNet Error: ExecuteDeleteFailed is a read-only property")
 
 	Func getExecuteUpdateFailed
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s19:ExecuteUpdateFailed","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s19:ExecuteUpdateFailed"))
 
 	Func setExecuteUpdateFailed P1
 		raise("DotNet Error: ExecuteUpdateFailed is a read-only property")
 
 	Func getModelValidationKeyDefaultValueWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s37:ModelValidationKeyDefaultValueWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s37:ModelValidationKeyDefaultValueWarning"))
 
 	Func setModelValidationKeyDefaultValueWarning P1
 		raise("DotNet Error: ModelValidationKeyDefaultValueWarning is a read-only property")
 
 	Func getBoolWithDefaultWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s22:BoolWithDefaultWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s22:BoolWithDefaultWarning"))
 
 	Func setBoolWithDefaultWarning P1
 		raise("DotNet Error: BoolWithDefaultWarning is a read-only property")
 
 	Func getAllIndexPropertiesNotToMappedToAnyTable
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s39:AllIndexPropertiesNotToMappedToAnyTable","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s39:AllIndexPropertiesNotToMappedToAnyTable"))
 
 	Func setAllIndexPropertiesNotToMappedToAnyTable P1
 		raise("DotNet Error: AllIndexPropertiesNotToMappedToAnyTable is a read-only property")
 
 	Func getIndexPropertiesBothMappedAndNotMappedToTable
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s44:IndexPropertiesBothMappedAndNotMappedToTable","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s44:IndexPropertiesBothMappedAndNotMappedToTable"))
 
 	Func setIndexPropertiesBothMappedAndNotMappedToTable P1
 		raise("DotNet Error: IndexPropertiesBothMappedAndNotMappedToTable is a read-only property")
 
 	Func getIndexPropertiesMappedToNonOverlappingTables
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s43:IndexPropertiesMappedToNonOverlappingTables","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s43:IndexPropertiesMappedToNonOverlappingTables"))
 
 	Func setIndexPropertiesMappedToNonOverlappingTables P1
 		raise("DotNet Error: IndexPropertiesMappedToNonOverlappingTables is a read-only property")
 
 	Func getKeyPropertiesNotMappedToTable
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s29:KeyPropertiesNotMappedToTable","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s29:KeyPropertiesNotMappedToTable"))
 
 	Func setKeyPropertiesNotMappedToTable P1
 		raise("DotNet Error: KeyPropertiesNotMappedToTable is a read-only property")
 
 	Func getStoredProcedureConcurrencyTokenNotMapped
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s40:StoredProcedureConcurrencyTokenNotMapped","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s40:StoredProcedureConcurrencyTokenNotMapped"))
 
 	Func setStoredProcedureConcurrencyTokenNotMapped P1
 		raise("DotNet Error: StoredProcedureConcurrencyTokenNotMapped is a read-only property")
 
 	Func getTriggerOnNonRootTphEntity
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s25:TriggerOnNonRootTphEntity","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s25:TriggerOnNonRootTphEntity"))
 
 	Func setTriggerOnNonRootTphEntity P1
 		raise("DotNet Error: TriggerOnNonRootTphEntity is a read-only property")
 
 	Func getForeignKeyPropertiesMappedToUnrelatedTables
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s43:ForeignKeyPropertiesMappedToUnrelatedTables","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s43:ForeignKeyPropertiesMappedToUnrelatedTables"))
 
 	Func setForeignKeyPropertiesMappedToUnrelatedTables P1
 		raise("DotNet Error: ForeignKeyPropertiesMappedToUnrelatedTables is a read-only property")
 
 	Func getForeignKeyTpcPrincipalWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s29:ForeignKeyTpcPrincipalWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s29:ForeignKeyTpcPrincipalWarning"))
 
 	Func setForeignKeyTpcPrincipalWarning P1
 		raise("DotNet Error: ForeignKeyTpcPrincipalWarning is a read-only property")
 
 	Func getTpcStoreGeneratedIdentityWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s32:TpcStoreGeneratedIdentityWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s32:TpcStoreGeneratedIdentityWarning"))
 
 	Func setTpcStoreGeneratedIdentityWarning P1
 		raise("DotNet Error: TpcStoreGeneratedIdentityWarning is a read-only property")
 
 	Func getOptionalDependentWithoutIdentifyingPropertyWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s50:OptionalDependentWithoutIdentifyingPropertyWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s50:OptionalDependentWithoutIdentifyingPropertyWarning"))
 
 	Func setOptionalDependentWithoutIdentifyingPropertyWarning P1
 		raise("DotNet Error: OptionalDependentWithoutIdentifyingPropertyWarning is a read-only property")
 
 	Func getDuplicateColumnOrders
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s21:DuplicateColumnOrders","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s21:DuplicateColumnOrders"))
 
 	Func setDuplicateColumnOrders P1
 		raise("DotNet Error: DuplicateColumnOrders is a read-only property")
 
 	Func getBatchReadyForExecution
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s22:BatchReadyForExecution","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s22:BatchReadyForExecution"))
 
 	Func setBatchReadyForExecution P1
 		raise("DotNet Error: BatchReadyForExecution is a read-only property")
 
 	Func getBatchSmallerThanMinBatchSize
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s28:BatchSmallerThanMinBatchSize","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s28:BatchSmallerThanMinBatchSize"))
 
 	Func setBatchSmallerThanMinBatchSize P1
 		raise("DotNet Error: BatchSmallerThanMinBatchSize is a read-only property")
 
 	Func getBatchExecutorFailedToRollbackToSavepoint
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s40:BatchExecutorFailedToRollbackToSavepoint","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s40:BatchExecutorFailedToRollbackToSavepoint"))
 
 	Func setBatchExecutorFailedToRollbackToSavepoint P1
 		raise("DotNet Error: BatchExecutorFailedToRollbackToSavepoint is a read-only property")
 
 	Func getBatchExecutorFailedToReleaseSavepoint
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s37:BatchExecutorFailedToReleaseSavepoint","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s37:BatchExecutorFailedToReleaseSavepoint"))
 
 	Func setBatchExecutorFailedToReleaseSavepoint P1
 		raise("DotNet Error: BatchExecutorFailedToReleaseSavepoint is a read-only property")
 
 	Func getOptionalDependentWithAllNullPropertiesWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s45:OptionalDependentWithAllNullPropertiesWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s45:OptionalDependentWithAllNullPropertiesWarning"))
 
 	Func setOptionalDependentWithAllNullPropertiesWarning P1
 		raise("DotNet Error: OptionalDependentWithAllNullPropertiesWarning is a read-only property")
 
 	Func getUnexpectedTrailingResultSetWhenSaving
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational'),"s37:UnexpectedTrailingResultSetWhenSaving","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId, Microsoft.EntityFrameworkCore.Relational',"s37:UnexpectedTrailingResultSetWhenSaving"))
 
 	Func setUnexpectedTrailingResultSetWhenSaving P1
 		raise("DotNet Error: UnexpectedTrailingResultSetWhenSaving is a read-only property")
@@ -7199,11 +7002,11 @@ Class RelationalLoggerExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TransactionStarting P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s19:TransactionStarting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s19:TransactionStarting",P1,P2,P3,P4,P5))
 
 	Func TransactionStartingAsync P1
 		if dnIsNamed(P1)
@@ -7212,7 +7015,7 @@ Class RelationalLoggerExtensions from Object
 		raise("DotNet Error: TransactionStartingAsync does not take one argument: use named arguments, TransactionStartingAsync([ :parameter = value, ... ])")
 
 	Func TransactionStarted P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s18:TransactionStarted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s18:TransactionStarted",P1,P2,P3,P4,P5,P6))
 
 	Func TransactionStartedAsync P1
 		if dnIsNamed(P1)
@@ -7221,7 +7024,7 @@ Class RelationalLoggerExtensions from Object
 		raise("DotNet Error: TransactionStartedAsync does not take one argument: use named arguments, TransactionStartedAsync([ :parameter = value, ... ])")
 
 	Func TransactionUsed P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s15:TransactionUsed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s15:TransactionUsed",P1,P2,P3,P4,P5))
 
 	Func TransactionUsedAsync P1
 		if dnIsNamed(P1)
@@ -7230,7 +7033,7 @@ Class RelationalLoggerExtensions from Object
 		raise("DotNet Error: TransactionUsedAsync does not take one argument: use named arguments, TransactionUsedAsync([ :parameter = value, ... ])")
 
 	Func TransactionCommitting P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s21:TransactionCommitting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s21:TransactionCommitting",P1,P2,P3,P4,P5))
 
 	Func TransactionCommittingAsync P1
 		if dnIsNamed(P1)
@@ -7239,8 +7042,7 @@ Class RelationalLoggerExtensions from Object
 		raise("DotNet Error: TransactionCommittingAsync does not take one argument: use named arguments, TransactionCommittingAsync([ :parameter = value, ... ])")
 
 	Func TransactionCommitted P1,P2,P3,P4,P5,P6
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s20:TransactionCommitted",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s20:TransactionCommitted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s20:TransactionCommitted",P1,P2,P3,P4,P5,P6)
 
 		return self
 
@@ -7251,8 +7053,7 @@ Class RelationalLoggerExtensions from Object
 		raise("DotNet Error: TransactionCommittedAsync does not take one argument: use named arguments, TransactionCommittedAsync([ :parameter = value, ... ])")
 
 	Func TransactionRolledBack P1,P2,P3,P4,P5,P6
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s21:TransactionRolledBack",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s21:TransactionRolledBack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s21:TransactionRolledBack",P1,P2,P3,P4,P5,P6)
 
 		return self
 
@@ -7263,7 +7064,7 @@ Class RelationalLoggerExtensions from Object
 		raise("DotNet Error: TransactionRolledBackAsync does not take one argument: use named arguments, TransactionRolledBackAsync([ :parameter = value, ... ])")
 
 	Func TransactionRollingBack P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s22:TransactionRollingBack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s22:TransactionRollingBack",P1,P2,P3,P4,P5))
 
 	Func TransactionRollingBackAsync P1
 		if dnIsNamed(P1)
@@ -7272,7 +7073,7 @@ Class RelationalLoggerExtensions from Object
 		raise("DotNet Error: TransactionRollingBackAsync does not take one argument: use named arguments, TransactionRollingBackAsync([ :parameter = value, ... ])")
 
 	Func CreatingTransactionSavepoint P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s28:CreatingTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s28:CreatingTransactionSavepoint",P1,P2,P3,P4,P5))
 
 	Func CreatingTransactionSavepointAsync P1
 		if dnIsNamed(P1)
@@ -7281,8 +7082,7 @@ Class RelationalLoggerExtensions from Object
 		raise("DotNet Error: CreatingTransactionSavepointAsync does not take one argument: use named arguments, CreatingTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func CreatedTransactionSavepoint P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s27:CreatedTransactionSavepoint",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s27:CreatedTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s27:CreatedTransactionSavepoint",P1,P2,P3,P4,P5)
 
 		return self
 
@@ -7293,7 +7093,7 @@ Class RelationalLoggerExtensions from Object
 		raise("DotNet Error: CreatedTransactionSavepointAsync does not take one argument: use named arguments, CreatedTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func RollingBackToTransactionSavepoint P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s33:RollingBackToTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s33:RollingBackToTransactionSavepoint",P1,P2,P3,P4,P5))
 
 	Func RollingBackToTransactionSavepointAsync P1
 		if dnIsNamed(P1)
@@ -7302,8 +7102,7 @@ Class RelationalLoggerExtensions from Object
 		raise("DotNet Error: RollingBackToTransactionSavepointAsync does not take one argument: use named arguments, RollingBackToTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func RolledBackToTransactionSavepoint P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s32:RolledBackToTransactionSavepoint",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s32:RolledBackToTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s32:RolledBackToTransactionSavepoint",P1,P2,P3,P4,P5)
 
 		return self
 
@@ -7314,7 +7113,7 @@ Class RelationalLoggerExtensions from Object
 		raise("DotNet Error: RolledBackToTransactionSavepointAsync does not take one argument: use named arguments, RolledBackToTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func ReleasingTransactionSavepoint P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s29:ReleasingTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s29:ReleasingTransactionSavepoint",P1,P2,P3,P4,P5))
 
 	Func ReleasingTransactionSavepointAsync P1
 		if dnIsNamed(P1)
@@ -7323,8 +7122,7 @@ Class RelationalLoggerExtensions from Object
 		raise("DotNet Error: ReleasingTransactionSavepointAsync does not take one argument: use named arguments, ReleasingTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func ReleasedTransactionSavepoint P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s28:ReleasedTransactionSavepoint",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s28:ReleasedTransactionSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s28:ReleasedTransactionSavepoint",P1,P2,P3,P4,P5)
 
 		return self
 
@@ -7335,20 +7133,17 @@ Class RelationalLoggerExtensions from Object
 		raise("DotNet Error: ReleasedTransactionSavepointAsync does not take one argument: use named arguments, ReleasedTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func TransactionDisposed P1,P2,P3,P4,P5
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s19:TransactionDisposed",P1,P2,P3,P4,P5)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s19:TransactionDisposed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s19:TransactionDisposed",P1,P2,P3,P4,P5)
 
 		return self
 
 	Func TriggerOnNonRootTphEntity P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s25:TriggerOnNonRootTphEntity",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s25:TriggerOnNonRootTphEntity",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s25:TriggerOnNonRootTphEntity",P1,P2)
 
 		return self
 
 	Func TransactionError P1,P2,P3,P4,P5,P6,P7,P8
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s16:TransactionError",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s16:TransactionError",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7) + dnPackItem(P8)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s16:TransactionError",P1,P2,P3,P4,P5,P6,P7,P8)
 
 		return self
 
@@ -7359,254 +7154,212 @@ Class RelationalLoggerExtensions from Object
 		raise("DotNet Error: TransactionErrorAsync does not take one argument: use named arguments, TransactionErrorAsync([ :parameter = value, ... ])")
 
 	Func AmbientTransactionWarning P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s25:AmbientTransactionWarning",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s25:AmbientTransactionWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s25:AmbientTransactionWarning",P1,P2,P3)
 
 		return self
 
 	Func AmbientTransactionEnlisted P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s26:AmbientTransactionEnlisted",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s26:AmbientTransactionEnlisted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s26:AmbientTransactionEnlisted",P1,P2,P3)
 
 		return self
 
 	Func ExplicitTransactionEnlisted P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s27:ExplicitTransactionEnlisted",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s27:ExplicitTransactionEnlisted",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s27:ExplicitTransactionEnlisted",P1,P2,P3)
 
 		return self
 
 	Func MigrateUsingConnection P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s22:MigrateUsingConnection",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s22:MigrateUsingConnection",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s22:MigrateUsingConnection",P1,P2,P3)
 
 		return self
 
 	Func MigrationReverting P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s18:MigrationReverting",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s18:MigrationReverting",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s18:MigrationReverting",P1,P2,P3)
 
 		return self
 
 	Func MigrationApplying P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s17:MigrationApplying",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s17:MigrationApplying",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s17:MigrationApplying",P1,P2,P3)
 
 		return self
 
 	Func MigrationGeneratingDownScript P1,P2,P3,P4,P5,P6
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s29:MigrationGeneratingDownScript",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s29:MigrationGeneratingDownScript",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s29:MigrationGeneratingDownScript",P1,P2,P3,P4,P5,P6)
 
 		return self
 
 	Func MigrationGeneratingUpScript P1,P2,P3,P4,P5,P6
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s27:MigrationGeneratingUpScript",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s27:MigrationGeneratingUpScript",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s27:MigrationGeneratingUpScript",P1,P2,P3,P4,P5,P6)
 
 		return self
 
 	Func MigrationsNotApplied P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s20:MigrationsNotApplied",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s20:MigrationsNotApplied",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s20:MigrationsNotApplied",P1,P2)
 
 		return self
 
 	Func MigrationsNotFound P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s18:MigrationsNotFound",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s18:MigrationsNotFound",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s18:MigrationsNotFound",P1,P2,P3)
 
 		return self
 
 	Func MigrationAttributeMissingWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s32:MigrationAttributeMissingWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s32:MigrationAttributeMissingWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s32:MigrationAttributeMissingWarning",P1,P2)
 
 		return self
 
 	Func PendingModelChangesWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s26:PendingModelChangesWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s26:PendingModelChangesWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s26:PendingModelChangesWarning",P1,P2)
 
 		return self
 
 	Func NonDeterministicModel P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s21:NonDeterministicModel",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s21:NonDeterministicModel",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s21:NonDeterministicModel",P1,P2)
 
 		return self
 
 	Func ModelSnapshotNotFound P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s21:ModelSnapshotNotFound",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s21:ModelSnapshotNotFound",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s21:ModelSnapshotNotFound",P1,P2,P3)
 
 		return self
 
 	Func NonTransactionalMigrationOperationWarning P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s41:NonTransactionalMigrationOperationWarning",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s41:NonTransactionalMigrationOperationWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s41:NonTransactionalMigrationOperationWarning",P1,P2,P3,P4)
 
 		return self
 
 	Func AcquiringMigrationLock P1
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s22:AcquiringMigrationLock",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s22:AcquiringMigrationLock",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s22:AcquiringMigrationLock",P1)
 
 		return self
 
 	Func MigrationsUserTransactionWarning P1
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s32:MigrationsUserTransactionWarning",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s32:MigrationsUserTransactionWarning",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s32:MigrationsUserTransactionWarning",P1)
 
 		return self
 
 	Func QueryPossibleUnintendedUseOfEqualsWarning P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s41:QueryPossibleUnintendedUseOfEqualsWarning",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s41:QueryPossibleUnintendedUseOfEqualsWarning",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s41:QueryPossibleUnintendedUseOfEqualsWarning",P1,P2,P3)
 
 		return self
 
 	Func ExecuteDeleteFailed P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s19:ExecuteDeleteFailed",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s19:ExecuteDeleteFailed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s19:ExecuteDeleteFailed",P1,P2,P3)
 
 		return self
 
 	Func ExecuteUpdateFailed P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s19:ExecuteUpdateFailed",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s19:ExecuteUpdateFailed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s19:ExecuteUpdateFailed",P1,P2,P3)
 
 		return self
 
 	Func NonQueryOperationFailed P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s23:NonQueryOperationFailed",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s23:NonQueryOperationFailed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s23:NonQueryOperationFailed",P1,P2,P3)
 
 		return self
 
 	Func MultipleCollectionIncludeWarning P1
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s32:MultipleCollectionIncludeWarning",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s32:MultipleCollectionIncludeWarning",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s32:MultipleCollectionIncludeWarning",P1)
 
 		return self
 
 	Func ModelValidationKeyDefaultValueWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s37:ModelValidationKeyDefaultValueWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s37:ModelValidationKeyDefaultValueWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s37:ModelValidationKeyDefaultValueWarning",P1,P2)
 
 		return self
 
 	Func BoolWithDefaultWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s22:BoolWithDefaultWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s22:BoolWithDefaultWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s22:BoolWithDefaultWarning",P1,P2)
 
 		return self
 
 	Func BatchReadyForExecution P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s22:BatchReadyForExecution",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s22:BatchReadyForExecution",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s22:BatchReadyForExecution",P1,P2,P3)
 
 		return self
 
 	Func BatchSmallerThanMinBatchSize P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s28:BatchSmallerThanMinBatchSize",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s28:BatchSmallerThanMinBatchSize",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s28:BatchSmallerThanMinBatchSize",P1,P2,P3,P4)
 
 		return self
 
 	Func AllIndexPropertiesNotToMappedToAnyTable P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s39:AllIndexPropertiesNotToMappedToAnyTable",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s39:AllIndexPropertiesNotToMappedToAnyTable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s39:AllIndexPropertiesNotToMappedToAnyTable",P1,P2,P3)
 
 		return self
 
 	Func IndexPropertiesBothMappedAndNotMappedToTable P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s44:IndexPropertiesBothMappedAndNotMappedToTable",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s44:IndexPropertiesBothMappedAndNotMappedToTable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s44:IndexPropertiesBothMappedAndNotMappedToTable",P1,P2,P3,P4)
 
 		return self
 
 	Func IndexPropertiesMappedToNonOverlappingTables P1,P2,P3,P4,P5,P6,P7
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s43:IndexPropertiesMappedToNonOverlappingTables",P1,P2,P3,P4,P5,P6,P7)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s43:IndexPropertiesMappedToNonOverlappingTables",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s43:IndexPropertiesMappedToNonOverlappingTables",P1,P2,P3,P4,P5,P6,P7)
 
 		return self
 
 	Func KeyPropertiesNotMappedToTable P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s29:KeyPropertiesNotMappedToTable",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s29:KeyPropertiesNotMappedToTable",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s29:KeyPropertiesNotMappedToTable",P1,P2)
 
 		return self
 
 	Func ForeignKeyPropertiesMappedToUnrelatedTables P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s43:ForeignKeyPropertiesMappedToUnrelatedTables",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s43:ForeignKeyPropertiesMappedToUnrelatedTables",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s43:ForeignKeyPropertiesMappedToUnrelatedTables",P1,P2)
 
 		return self
 
 	Func ForeignKeyTpcPrincipalWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s29:ForeignKeyTpcPrincipalWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s29:ForeignKeyTpcPrincipalWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s29:ForeignKeyTpcPrincipalWarning",P1,P2)
 
 		return self
 
 	Func TpcStoreGeneratedIdentityWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s32:TpcStoreGeneratedIdentityWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s32:TpcStoreGeneratedIdentityWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s32:TpcStoreGeneratedIdentityWarning",P1,P2)
 
 		return self
 
 	Func OptionalDependentWithoutIdentifyingPropertyWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s50:OptionalDependentWithoutIdentifyingPropertyWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s50:OptionalDependentWithoutIdentifyingPropertyWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s50:OptionalDependentWithoutIdentifyingPropertyWarning",P1,P2)
 
 		return self
 
 	Func StoredProcedureConcurrencyTokenNotMapped P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s40:StoredProcedureConcurrencyTokenNotMapped",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s40:StoredProcedureConcurrencyTokenNotMapped",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s40:StoredProcedureConcurrencyTokenNotMapped",P1,P2,P3,P4)
 
 		return self
 
 	Func BatchExecutorFailedToRollbackToSavepoint P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s40:BatchExecutorFailedToRollbackToSavepoint",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s40:BatchExecutorFailedToRollbackToSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s40:BatchExecutorFailedToRollbackToSavepoint",P1,P2,P3)
 
 		return self
 
 	Func BatchExecutorFailedToReleaseSavepoint P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s37:BatchExecutorFailedToReleaseSavepoint",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s37:BatchExecutorFailedToReleaseSavepoint",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s37:BatchExecutorFailedToReleaseSavepoint",P1,P2,P3)
 
 		return self
 
 	Func OptionalDependentWithAllNullPropertiesWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s45:OptionalDependentWithAllNullPropertiesWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s45:OptionalDependentWithAllNullPropertiesWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s45:OptionalDependentWithAllNullPropertiesWarning",P1,P2)
 
 		return self
 
 	Func OptionalDependentWithAllNullPropertiesWarningSensitive P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s54:OptionalDependentWithAllNullPropertiesWarningSensitive",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s54:OptionalDependentWithAllNullPropertiesWarningSensitive",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s54:OptionalDependentWithAllNullPropertiesWarningSensitive",P1,P2)
 
 		return self
 
 	Func DuplicateColumnOrders P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s21:DuplicateColumnOrders",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s21:DuplicateColumnOrders",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s21:DuplicateColumnOrders",P1,P2,P3)
 
 		return self
 
 	Func ColumnOrderIgnoredWarning P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s25:ColumnOrderIgnoredWarning",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s25:ColumnOrderIgnoredWarning",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s25:ColumnOrderIgnoredWarning",P1,P2)
 
 		return self
 
 	Func UnexpectedTrailingResultSetWhenSaving P1
-		dn_x = dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s37:UnexpectedTrailingResultSetWhenSaving",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"s37:UnexpectedTrailingResultSetWhenSaving",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational',"s37:UnexpectedTrailingResultSetWhenSaving",P1)
 
 		return self
 
@@ -7672,1212 +7425,1212 @@ Class RelationalStrings from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AbstractTpc P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s11:AbstractTpc",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s11:AbstractTpc",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CannotProjectNullableComplexType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:CannotProjectNullableComplexType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:CannotProjectNullableComplexType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CannotTranslateNonConstantNewArrayExpression P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:CannotTranslateNonConstantNewArrayExpression",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:CannotTranslateNonConstantNewArrayExpression",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CompiledModelFunctionTranslation P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:CompiledModelFunctionTranslation",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:CompiledModelFunctionTranslation",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ComputedColumnSqlUnspecified P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:ComputedColumnSqlUnspecified",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:ComputedColumnSqlUnspecified",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingColumnServerGeneration P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:ConflictingColumnServerGeneration",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:ConflictingColumnServerGeneration",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingOriginalRowValues P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:ConflictingOriginalRowValues",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:ConflictingOriginalRowValues",[P1,P2,P3,P4,P5]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingOriginalRowValuesSensitive P1,P2,P3,P4,P5,P6
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:ConflictingOriginalRowValuesSensitive",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:ConflictingOriginalRowValuesSensitive",[P1,P2,P3,P4,P5,P6]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingRowUpdateTypes P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:ConflictingRowUpdateTypes",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:ConflictingRowUpdateTypes",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingRowUpdateTypesSensitive P1,P2,P3,P4,P5,P6
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s34:ConflictingRowUpdateTypesSensitive",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s34:ConflictingRowUpdateTypesSensitive",[P1,P2,P3,P4,P5,P6]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingRowValues P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:ConflictingRowValues",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:ConflictingRowValues",[P1,P2,P3,P4,P5]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingRowValuesSensitive P1,P2,P3,P4,P5,P6
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:ConflictingRowValuesSensitive",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:ConflictingRowValuesSensitive",[P1,P2,P3,P4,P5,P6]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingSeedValues P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:ConflictingSeedValues",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:ConflictingSeedValues",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingSeedValuesSensitive P1,P2,P3,P4,P5,P6
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:ConflictingSeedValuesSensitive",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:ConflictingSeedValuesSensitive",[P1,P2,P3,P4,P5,P6]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConflictingTypeMappingsInferredForColumn P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s40:ConflictingTypeMappingsInferredForColumn",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s40:ConflictingTypeMappingsInferredForColumn",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ContainerTypeOnNestedOwnedEntityType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:ContainerTypeOnNestedOwnedEntityType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:ContainerTypeOnNestedOwnedEntityType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ContainerTypeOnNonContainer P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s27:ContainerTypeOnNonContainer",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s27:ContainerTypeOnNonContainer",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CreateIndexOperationWithInvalidSortOrder P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s40:CreateIndexOperationWithInvalidSortOrder",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s40:CreateIndexOperationWithInvalidSortOrder",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DataOperationNoProperty P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:DataOperationNoProperty",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:DataOperationNoProperty",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DataOperationNoTable P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:DataOperationNoTable",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:DataOperationNoTable",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DbFunctionExpressionIsNotMethodCall P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:DbFunctionExpressionIsNotMethodCall",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:DbFunctionExpressionIsNotMethodCall",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DbFunctionGenericMethodNotSupported P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:DbFunctionGenericMethodNotSupported",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:DbFunctionGenericMethodNotSupported",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DbFunctionInvalidInstanceType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:DbFunctionInvalidInstanceType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:DbFunctionInvalidInstanceType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DbFunctionInvalidIQueryableOwnedReturnType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s42:DbFunctionInvalidIQueryableOwnedReturnType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s42:DbFunctionInvalidIQueryableOwnedReturnType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DbFunctionInvalidIQueryableReturnType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:DbFunctionInvalidIQueryableReturnType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:DbFunctionInvalidIQueryableReturnType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DbFunctionInvalidParameterName P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:DbFunctionInvalidParameterName",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:DbFunctionInvalidParameterName",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DbFunctionInvalidParameterType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:DbFunctionInvalidParameterType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:DbFunctionInvalidParameterType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DbFunctionInvalidReturnEntityType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:DbFunctionInvalidReturnEntityType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:DbFunctionInvalidReturnEntityType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DbFunctionInvalidReturnType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s27:DbFunctionInvalidReturnType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s27:DbFunctionInvalidReturnType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DbFunctionNonScalarCustomTranslation P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:DbFunctionNonScalarCustomTranslation",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:DbFunctionNonScalarCustomTranslation",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DbFunctionNullableValueReturnType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:DbFunctionNullableValueReturnType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:DbFunctionNullableValueReturnType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DefaultValueSqlUnspecified P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:DefaultValueSqlUnspecified",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:DefaultValueSqlUnspecified",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DefaultValueUnspecified P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:DefaultValueUnspecified",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:DefaultValueUnspecified",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DeleteDataOperationNoModel P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:DeleteDataOperationNoModel",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:DeleteDataOperationNoModel",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DeleteDataOperationTypesCountMismatch P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:DeleteDataOperationTypesCountMismatch",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:DeleteDataOperationTypesCountMismatch",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DeleteDataOperationValuesCountMismatch P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:DeleteDataOperationValuesCountMismatch",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:DeleteDataOperationValuesCountMismatch",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DerivedStrategy P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:DerivedStrategy",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:DerivedStrategy",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateCheckConstraint P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:DuplicateCheckConstraint",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:DuplicateCheckConstraint",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateCheckConstraintSqlMismatch P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:DuplicateCheckConstraintSqlMismatch",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:DuplicateCheckConstraintSqlMismatch",[P1,P2,P3,P4,P5]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateColumnNameCollationMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:DuplicateColumnNameCollationMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:DuplicateColumnNameCollationMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateColumnNameCommentMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s34:DuplicateColumnNameCommentMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s34:DuplicateColumnNameCommentMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateColumnNameComputedSqlMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:DuplicateColumnNameComputedSqlMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:DuplicateColumnNameComputedSqlMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateColumnNameConcurrencyTokenMismatch P1,P2,P3,P4,P5,P6
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s43:DuplicateColumnNameConcurrencyTokenMismatch",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s43:DuplicateColumnNameConcurrencyTokenMismatch",[P1,P2,P3,P4,P5,P6]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateColumnNameDataTypeMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:DuplicateColumnNameDataTypeMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:DuplicateColumnNameDataTypeMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateColumnNameDefaultSqlMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:DuplicateColumnNameDefaultSqlMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:DuplicateColumnNameDefaultSqlMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateColumnNameFixedLengthMismatch P1,P2,P3,P4,P5,P6
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:DuplicateColumnNameFixedLengthMismatch",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:DuplicateColumnNameFixedLengthMismatch",[P1,P2,P3,P4,P5,P6]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateColumnNameIsStoredMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:DuplicateColumnNameIsStoredMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:DuplicateColumnNameIsStoredMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateColumnNameMaxLengthMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:DuplicateColumnNameMaxLengthMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:DuplicateColumnNameMaxLengthMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateColumnNameNullabilityMismatch P1,P2,P3,P4,P5,P6
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:DuplicateColumnNameNullabilityMismatch",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:DuplicateColumnNameNullabilityMismatch",[P1,P2,P3,P4,P5,P6]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateColumnNameOrderMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:DuplicateColumnNameOrderMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:DuplicateColumnNameOrderMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateColumnNamePrecisionMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:DuplicateColumnNamePrecisionMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:DuplicateColumnNamePrecisionMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateColumnNameProviderTypeMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s39:DuplicateColumnNameProviderTypeMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s39:DuplicateColumnNameProviderTypeMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateColumnNameSameHierarchy P1,P2,P3,P4,P5,P6
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:DuplicateColumnNameSameHierarchy",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:DuplicateColumnNameSameHierarchy",[P1,P2,P3,P4,P5,P6]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateColumnNameScaleMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:DuplicateColumnNameScaleMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:DuplicateColumnNameScaleMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateColumnNameUnicodenessMismatch P1,P2,P3,P4,P5,P6
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:DuplicateColumnNameUnicodenessMismatch",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:DuplicateColumnNameUnicodenessMismatch",[P1,P2,P3,P4,P5,P6]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateForeignKeyColumnMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:DuplicateForeignKeyColumnMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:DuplicateForeignKeyColumnMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateForeignKeyDeleteBehaviorMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s41:DuplicateForeignKeyDeleteBehaviorMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s41:DuplicateForeignKeyDeleteBehaviorMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateForeignKeyPrincipalColumnMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s42:DuplicateForeignKeyPrincipalColumnMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s42:DuplicateForeignKeyPrincipalColumnMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateForeignKeyPrincipalTableMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s41:DuplicateForeignKeyPrincipalTableMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s41:DuplicateForeignKeyPrincipalTableMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateForeignKeyTableMismatch P1,P2,P3,P4,P5,P6,P7
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:DuplicateForeignKeyTableMismatch",P1,P2,P3,P4,P5,P6,P7)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:DuplicateForeignKeyTableMismatch",[P1,P2,P3,P4,P5,P6,P7]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateForeignKeyUniquenessMismatch P1,P2,P3,P4,P5,P6
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:DuplicateForeignKeyUniquenessMismatch",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:DuplicateForeignKeyUniquenessMismatch",[P1,P2,P3,P4,P5,P6]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateIndexColumnMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:DuplicateIndexColumnMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:DuplicateIndexColumnMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateIndexFiltersMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:DuplicateIndexFiltersMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:DuplicateIndexFiltersMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateIndexSortOrdersMismatch P1,P2,P3,P4,P5,P6
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:DuplicateIndexSortOrdersMismatch",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:DuplicateIndexSortOrdersMismatch",[P1,P2,P3,P4,P5,P6]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateIndexTableMismatch P1,P2,P3,P4,P5,P6,P7
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s27:DuplicateIndexTableMismatch",P1,P2,P3,P4,P5,P6,P7)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s27:DuplicateIndexTableMismatch",[P1,P2,P3,P4,P5,P6,P7]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateIndexUniquenessMismatch P1,P2,P3,P4,P5,P6
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:DuplicateIndexUniquenessMismatch",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:DuplicateIndexUniquenessMismatch",[P1,P2,P3,P4,P5,P6]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateKeyColumnMismatch P1,P2,P3,P4,P5,P6,P7,P8
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:DuplicateKeyColumnMismatch",P1,P2,P3,P4,P5,P6,P7,P8)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:DuplicateKeyColumnMismatch",[P1,P2,P3,P4,P5,P6,P7,P8]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateKeyTableMismatch P1,P2,P3,P4,P5,P6,P7
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:DuplicateKeyTableMismatch",P1,P2,P3,P4,P5,P6,P7)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:DuplicateKeyTableMismatch",[P1,P2,P3,P4,P5,P6,P7]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateSeedData P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s17:DuplicateSeedData",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s17:DuplicateSeedData",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DuplicateSeedDataSensitive P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:DuplicateSeedDataSensitive",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:DuplicateSeedDataSensitive",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntityShortNameNotUnique P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:EntityShortNameNotUnique",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:EntityShortNameNotUnique",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntitySplittingConflictingMainFragment P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:EntitySplittingConflictingMainFragment",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:EntitySplittingConflictingMainFragment",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntitySplittingHierarchy P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:EntitySplittingHierarchy",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:EntitySplittingHierarchy",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntitySplittingMissingPrimaryKey P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:EntitySplittingMissingPrimaryKey",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:EntitySplittingMissingPrimaryKey",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntitySplittingMissingProperties P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:EntitySplittingMissingProperties",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:EntitySplittingMissingProperties",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntitySplittingMissingPropertiesMainFragment P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:EntitySplittingMissingPropertiesMainFragment",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:EntitySplittingMissingPropertiesMainFragment",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntitySplittingMissingRequiredPropertiesOptionalDependent P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s57:EntitySplittingMissingRequiredPropertiesOptionalDependent",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s57:EntitySplittingMissingRequiredPropertiesOptionalDependent",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntitySplittingUnmappedMainFragment P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:EntitySplittingUnmappedMainFragment",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:EntitySplittingUnmappedMainFragment",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EntitySplittingUnmatchedMainTableSplitting P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s42:EntitySplittingUnmatchedMainTableSplitting",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s42:EntitySplittingUnmatchedMainTableSplitting",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ErrorMaterializingProperty P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:ErrorMaterializingProperty",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:ErrorMaterializingProperty",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ErrorMaterializingPropertyNullReference P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s39:ErrorMaterializingPropertyNullReference",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s39:ErrorMaterializingPropertyNullReference",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ErrorMaterializingValueInvalidCast P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s34:ErrorMaterializingValueInvalidCast",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s34:ErrorMaterializingValueInvalidCast",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ErrorMaterializingValueNullReference P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:ErrorMaterializingValueNullReference",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:ErrorMaterializingValueNullReference",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ExecuteDeleteOnTableSplitting P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:ExecuteDeleteOnTableSplitting",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:ExecuteDeleteOnTableSplitting",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ExecuteOperationOnEntitySplitting P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:ExecuteOperationOnEntitySplitting",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:ExecuteOperationOnEntitySplitting",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ExecuteOperationOnKeylessEntityTypeWithUnsupportedOperator P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s58:ExecuteOperationOnKeylessEntityTypeWithUnsupportedOperator",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s58:ExecuteOperationOnKeylessEntityTypeWithUnsupportedOperator",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ExecuteOperationOnTPC P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:ExecuteOperationOnTPC",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:ExecuteOperationOnTPC",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ExecuteOperationOnTPT P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:ExecuteOperationOnTPT",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:ExecuteOperationOnTPT",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ExecuteOperationWithUnsupportedOperatorInSqlGeneration P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s54:ExecuteOperationWithUnsupportedOperatorInSqlGeneration",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s54:ExecuteOperationWithUnsupportedOperatorInSqlGeneration",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ExecuteUpdateSubqueryNotSupportedOverComplexTypes P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s49:ExecuteUpdateSubqueryNotSupportedOverComplexTypes",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s49:ExecuteUpdateSubqueryNotSupportedOverComplexTypes",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FromSqlMissingColumn P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:FromSqlMissingColumn",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:FromSqlMissingColumn",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FunctionOverrideMismatch P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:FunctionOverrideMismatch",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:FunctionOverrideMismatch",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func HasDataNotSupportedForEntitiesMappedToJson P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s42:HasDataNotSupportedForEntitiesMappedToJson",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s42:HasDataNotSupportedForEntitiesMappedToJson",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IncompatibleTableCommentMismatch P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:IncompatibleTableCommentMismatch",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:IncompatibleTableCommentMismatch",[P1,P2,P3,P4,P5]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IncompatibleTableDerivedRelationship P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:IncompatibleTableDerivedRelationship",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:IncompatibleTableDerivedRelationship",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IncompatibleTableExcludedMismatch P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:IncompatibleTableExcludedMismatch",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:IncompatibleTableExcludedMismatch",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IncompatibleTableKeyNameMismatch P1,P2,P3,P4,P5,P6,P7
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:IncompatibleTableKeyNameMismatch",P1,P2,P3,P4,P5,P6,P7)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:IncompatibleTableKeyNameMismatch",[P1,P2,P3,P4,P5,P6,P7]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IncompatibleTableNoRelationship P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s31:IncompatibleTableNoRelationship",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s31:IncompatibleTableNoRelationship",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IncompatibleViewDerivedRelationship P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:IncompatibleViewDerivedRelationship",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:IncompatibleViewDerivedRelationship",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IncompatibleViewNoRelationship P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:IncompatibleViewNoRelationship",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:IncompatibleViewNoRelationship",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InconsistentNumberOfArguments P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:InconsistentNumberOfArguments",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:InconsistentNumberOfArguments",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IncorrectDefaultValueType P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:IncorrectDefaultValueType",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:IncorrectDefaultValueType",[P1,P2,P3,P4,P5]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InsertDataOperationNoModel P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:InsertDataOperationNoModel",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:InsertDataOperationNoModel",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InsertDataOperationTypesCountMismatch P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:InsertDataOperationTypesCountMismatch",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:InsertDataOperationTypesCountMismatch",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InsertDataOperationValuesCountMismatch P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:InsertDataOperationValuesCountMismatch",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:InsertDataOperationValuesCountMismatch",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidCommandTimeout P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:InvalidCommandTimeout",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:InvalidCommandTimeout",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidDerivedTypeInEntityProjection P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:InvalidDerivedTypeInEntityProjection",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:InvalidDerivedTypeInEntityProjection",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidFromSqlArguments P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:InvalidFromSqlArguments",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:InvalidFromSqlArguments",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidKeySelectorForGroupBy P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:InvalidKeySelectorForGroupBy",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:InvalidKeySelectorForGroupBy",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidMappedFunctionDerivedType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:InvalidMappedFunctionDerivedType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:InvalidMappedFunctionDerivedType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidMappedFunctionUnmatchedReturn P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:InvalidMappedFunctionUnmatchedReturn",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:InvalidMappedFunctionUnmatchedReturn",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidMappedFunctionWithParameters P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:InvalidMappedFunctionWithParameters",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:InvalidMappedFunctionWithParameters",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidMappedSqlQueryDerivedType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:InvalidMappedSqlQueryDerivedType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:InvalidMappedSqlQueryDerivedType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidMappingStrategy P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s22:InvalidMappingStrategy",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s22:InvalidMappingStrategy",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidMaxBatchSize P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s19:InvalidMaxBatchSize",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s19:InvalidMaxBatchSize",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidMinBatchSize P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s19:InvalidMinBatchSize",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s19:InvalidMinBatchSize",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidPropertyInSetProperty P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:InvalidPropertyInSetProperty",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:InvalidPropertyInSetProperty",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InvalidValueInSetProperty P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:InvalidValueInSetProperty",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:InvalidValueInSetProperty",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonCantNavigateToParentEntity P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:JsonCantNavigateToParentEntity",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:JsonCantNavigateToParentEntity",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonEntityMappedToDifferentTableOrViewThanOwner P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s47:JsonEntityMappedToDifferentTableOrViewThanOwner",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s47:JsonEntityMappedToDifferentTableOrViewThanOwner",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonEntityMissingKeyInformation P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s31:JsonEntityMissingKeyInformation",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s31:JsonEntityMissingKeyInformation",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonEntityMultipleRootsMappedToTheSameJsonColumn P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s48:JsonEntityMultipleRootsMappedToTheSameJsonColumn",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s48:JsonEntityMultipleRootsMappedToTheSameJsonColumn",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonEntityOrCollectionProjectedAtRootLevelInTrackingQuery P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s57:JsonEntityOrCollectionProjectedAtRootLevelInTrackingQuery",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s57:JsonEntityOrCollectionProjectedAtRootLevelInTrackingQuery",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonEntityOwnedByNonJsonOwnedType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:JsonEntityOwnedByNonJsonOwnedType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:JsonEntityOwnedByNonJsonOwnedType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonEntityReferencingRegularEntity P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s34:JsonEntityReferencingRegularEntity",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s34:JsonEntityReferencingRegularEntity",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonEntityWithDefaultValueSetOnItsProperty P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s42:JsonEntityWithDefaultValueSetOnItsProperty",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s42:JsonEntityWithDefaultValueSetOnItsProperty",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonEntityWithExplicitlyConfiguredJsonPropertyNameOnKey P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s55:JsonEntityWithExplicitlyConfiguredJsonPropertyNameOnKey",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s55:JsonEntityWithExplicitlyConfiguredJsonPropertyNameOnKey",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonEntityWithExplicitlyConfiguredKey P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:JsonEntityWithExplicitlyConfiguredKey",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:JsonEntityWithExplicitlyConfiguredKey",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonEntityWithIncorrectNumberOfKeyProperties P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:JsonEntityWithIncorrectNumberOfKeyProperties",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:JsonEntityWithIncorrectNumberOfKeyProperties",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonEntityWithMultiplePropertiesMappedToSameJsonProperty P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s56:JsonEntityWithMultiplePropertiesMappedToSameJsonProperty",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s56:JsonEntityWithMultiplePropertiesMappedToSameJsonProperty",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonEntityWithNonTphInheritanceOnOwner P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:JsonEntityWithNonTphInheritanceOnOwner",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:JsonEntityWithNonTphInheritanceOnOwner",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonEntityWithOwnerNotMappedToTableOrView P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s41:JsonEntityWithOwnerNotMappedToTableOrView",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s41:JsonEntityWithOwnerNotMappedToTableOrView",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonErrorExtractingJsonProperty P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s31:JsonErrorExtractingJsonProperty",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s31:JsonErrorExtractingJsonProperty",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonProjectingCollectionElementAccessedUsingParmeterNoTrackingWithIdentityResolution P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s84:JsonProjectingCollectionElementAccessedUsingParmeterNoTrackingWithIdentityResolution",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s84:JsonProjectingCollectionElementAccessedUsingParmeterNoTrackingWithIdentityResolution",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonProjectingEntitiesIncorrectOrderNoTrackingWithIdentityResolution P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s68:JsonProjectingEntitiesIncorrectOrderNoTrackingWithIdentityResolution",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s68:JsonProjectingEntitiesIncorrectOrderNoTrackingWithIdentityResolution",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonProjectingQueryableOperationNoTrackingWithIdentityResolution P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s64:JsonProjectingQueryableOperationNoTrackingWithIdentityResolution",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s64:JsonProjectingQueryableOperationNoTrackingWithIdentityResolution",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonRequiredEntityWithNullJson P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:JsonRequiredEntityWithNullJson",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:JsonRequiredEntityWithNullJson",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func JsonValueReadWriterMissingOnTypeMapping P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s39:JsonValueReadWriterMissingOnTypeMapping",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s39:JsonValueReadWriterMissingOnTypeMapping",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func KeylessMappingStrategy P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s22:KeylessMappingStrategy",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s22:KeylessMappingStrategy",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LastUsedWithoutOrderBy P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s22:LastUsedWithoutOrderBy",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s22:LastUsedWithoutOrderBy",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MappedFunctionNotFound P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s22:MappedFunctionNotFound",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s22:MappedFunctionNotFound",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MethodOnNonTphRootNotSupported P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:MethodOnNonTphRootNotSupported",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:MethodOnNonTphRootNotSupported",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MigrationNotFound P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s17:MigrationNotFound",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s17:MigrationNotFound",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MigrationSqlGenerationMissing P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:MigrationSqlGenerationMissing",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:MigrationSqlGenerationMissing",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MissingConcurrencyColumn P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:MissingConcurrencyColumn",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:MissingConcurrencyColumn",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MissingParameterValue P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:MissingParameterValue",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:MissingParameterValue",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ModificationCommandInvalidEntityState P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:ModificationCommandInvalidEntityState",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:ModificationCommandInvalidEntityState",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ModificationCommandInvalidEntityStateSensitive P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s46:ModificationCommandInvalidEntityStateSensitive",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s46:ModificationCommandInvalidEntityStateSensitive",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MultipleTablesInExecuteUpdate P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:MultipleTablesInExecuteUpdate",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:MultipleTablesInExecuteUpdate",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NamedConnectionStringNotFound P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:NamedConnectionStringNotFound",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:NamedConnectionStringNotFound",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NestedCollectionsNotSupported P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:NestedCollectionsNotSupported",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:NestedCollectionsNotSupported",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NoAliasOnTable P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s14:NoAliasOnTable",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s14:NoAliasOnTable",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonConstantOrParameterAsInExpressionValue P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s41:NonConstantOrParameterAsInExpressionValue",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s41:NonConstantOrParameterAsInExpressionValue",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonScalarFunctionCannotBeNullable P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:NonScalarFunctionCannotBeNullable",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:NonScalarFunctionCannotBeNullable",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonScalarFunctionParameterCannotPropagatesNullability P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s53:NonScalarFunctionParameterCannotPropagatesNullability",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s53:NonScalarFunctionParameterCannotPropagatesNullability",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonTphDiscriminatorValueNotString P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:NonTphDiscriminatorValueNotString",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:NonTphDiscriminatorValueNotString",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonTphMappingStrategy P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:NonTphMappingStrategy",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:NonTphMappingStrategy",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonTphStoredProcedureClash P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:NonTphStoredProcedureClash",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:NonTphStoredProcedureClash",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonTphTableClash P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s16:NonTphTableClash",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s16:NonTphTableClash",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonTphViewClash P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:NonTphViewClash",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:NonTphViewClash",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NullKeyValue P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s12:NullKeyValue",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s12:NullKeyValue",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NullTypeMappingInSqlTree P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:NullTypeMappingInSqlTree",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:NullTypeMappingInSqlTree",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func OneOfThreeValuesMustBeSet P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:OneOfThreeValuesMustBeSet",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:OneOfThreeValuesMustBeSet",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func OneOfTwoValuesMustBeSet P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:OneOfTwoValuesMustBeSet",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:OneOfTwoValuesMustBeSet",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func OptionalDependentWithDependentWithoutIdentifyingProperty P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s56:OptionalDependentWithDependentWithoutIdentifyingProperty",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s56:OptionalDependentWithDependentWithoutIdentifyingProperty",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ParameterNotObjectArray P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:ParameterNotObjectArray",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:ParameterNotObjectArray",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyNotMapped P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s17:PropertyNotMapped",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s17:PropertyNotMapped",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PropertyNotMappedToTable P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:PropertyNotMappedToTable",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:PropertyNotMappedToTable",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReadonlyEntitySaved P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s19:ReadonlyEntitySaved",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s19:ReadonlyEntitySaved",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SelectExpressionNonTphWithCustomTable P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:SelectExpressionNonTphWithCustomTable",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:SelectExpressionNonTphWithCustomTable",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetOperationOverDifferentStructuralTypes P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s40:SetOperationOverDifferentStructuralTypes",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s40:SetOperationOverDifferentStructuralTypes",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetOperationsRequireAtLeastOneSideWithValidTypeMapping P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s54:SetOperationsRequireAtLeastOneSideWithValidTypeMapping",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s54:SetOperationsRequireAtLeastOneSideWithValidTypeMapping",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SqlQueryOverrideMismatch P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:SqlQueryOverrideMismatch",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:SqlQueryOverrideMismatch",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SqlQueryUnmappedType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:SqlQueryUnmappedType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:SqlQueryUnmappedType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredKeyTypesNotConvertable P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:StoredKeyTypesNotConvertable",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:StoredKeyTypesNotConvertable",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureCurrentValueParameterOnDelete P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:StoredProcedureCurrentValueParameterOnDelete",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:StoredProcedureCurrentValueParameterOnDelete",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureDeleteNonKeyProperty P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:StoredProcedureDeleteNonKeyProperty",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:StoredProcedureDeleteNonKeyProperty",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureDuplicateOriginalValueParameter P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s46:StoredProcedureDuplicateOriginalValueParameter",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s46:StoredProcedureDuplicateOriginalValueParameter",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureDuplicateParameter P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:StoredProcedureDuplicateParameter",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:StoredProcedureDuplicateParameter",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureDuplicateParameterName P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:StoredProcedureDuplicateParameterName",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:StoredProcedureDuplicateParameterName",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureDuplicateResultColumn P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:StoredProcedureDuplicateResultColumn",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:StoredProcedureDuplicateResultColumn",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureDuplicateResultColumnName P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s40:StoredProcedureDuplicateResultColumnName",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s40:StoredProcedureDuplicateResultColumnName",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureDuplicateRowsAffectedParameter P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s45:StoredProcedureDuplicateRowsAffectedParameter",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s45:StoredProcedureDuplicateRowsAffectedParameter",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureDuplicateRowsAffectedResultColumn P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s48:StoredProcedureDuplicateRowsAffectedResultColumn",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s48:StoredProcedureDuplicateRowsAffectedResultColumn",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureGeneratedPropertiesNotMapped P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s43:StoredProcedureGeneratedPropertiesNotMapped",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s43:StoredProcedureGeneratedPropertiesNotMapped",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureInputParameterForInsertNonSaveProperty P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s53:StoredProcedureInputParameterForInsertNonSaveProperty",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s53:StoredProcedureInputParameterForInsertNonSaveProperty",[P1,P2,P3,P4,P5]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureInputParameterForUpdateNonSaveProperty P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s53:StoredProcedureInputParameterForUpdateNonSaveProperty",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s53:StoredProcedureInputParameterForUpdateNonSaveProperty",[P1,P2,P3,P4,P5]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureKeyless P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s22:StoredProcedureKeyless",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s22:StoredProcedureKeyless",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureNoName P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:StoredProcedureNoName",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:StoredProcedureNoName",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureOriginalValueParameterOnInsert P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s45:StoredProcedureOriginalValueParameterOnInsert",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s45:StoredProcedureOriginalValueParameterOnInsert",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureOutputParameterConflict P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:StoredProcedureOutputParameterConflict",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:StoredProcedureOutputParameterConflict",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureOutputParameterNotGenerated P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s42:StoredProcedureOutputParameterNotGenerated",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s42:StoredProcedureOutputParameterNotGenerated",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureOverrideMismatch P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s31:StoredProcedureOverrideMismatch",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s31:StoredProcedureOverrideMismatch",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureParameterInvalidConfiguration P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:StoredProcedureParameterInvalidConfiguration",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:StoredProcedureParameterInvalidConfiguration",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureParameterInvalidDirection P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s40:StoredProcedureParameterInvalidDirection",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s40:StoredProcedureParameterInvalidDirection",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureParameterNotFound P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:StoredProcedureParameterNotFound",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:StoredProcedureParameterNotFound",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedurePropertiesNotMapped P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s34:StoredProcedurePropertiesNotMapped",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s34:StoredProcedurePropertiesNotMapped",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureResultColumnDelete P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:StoredProcedureResultColumnDelete",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:StoredProcedureResultColumnDelete",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureResultColumnNotFound P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:StoredProcedureResultColumnNotFound",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:StoredProcedureResultColumnNotFound",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureResultColumnNotGenerated P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s39:StoredProcedureResultColumnNotGenerated",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s39:StoredProcedureResultColumnNotGenerated",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureResultColumnParameterConflict P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:StoredProcedureResultColumnParameterConflict",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:StoredProcedureResultColumnParameterConflict",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureRowsAffectedForInsert P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:StoredProcedureRowsAffectedForInsert",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:StoredProcedureRowsAffectedForInsert",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureRowsAffectedNotPopulated P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s39:StoredProcedureRowsAffectedNotPopulated",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s39:StoredProcedureRowsAffectedNotPopulated",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureRowsAffectedReturnConflictingParameter P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s53:StoredProcedureRowsAffectedReturnConflictingParameter",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s53:StoredProcedureRowsAffectedReturnConflictingParameter",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureRowsAffectedWithResultColumns P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:StoredProcedureRowsAffectedWithResultColumns",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:StoredProcedureRowsAffectedWithResultColumns",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureTableSharing P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s27:StoredProcedureTableSharing",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s27:StoredProcedureTableSharing",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureTphDuplicate P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s27:StoredProcedureTphDuplicate",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s27:StoredProcedureTphDuplicate",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StoredProcedureUnmapped P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:StoredProcedureUnmapped",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:StoredProcedureUnmapped",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SubqueryOverComplexTypesNotSupported P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:SubqueryOverComplexTypesNotSupported",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:SubqueryOverComplexTypesNotSupported",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TableNotMappedEntityType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:TableNotMappedEntityType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:TableNotMappedEntityType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TableOverrideMismatch P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:TableOverrideMismatch",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:TableOverrideMismatch",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TableValuedFunctionNonTph P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:TableValuedFunctionNonTph",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:TableValuedFunctionNonTph",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TimeoutTooBig P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s13:TimeoutTooBig",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s13:TimeoutTooBig",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TimeoutTooSmall P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:TimeoutTooSmall",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:TimeoutTooSmall",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TooFewReaderFields P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s18:TooFewReaderFields",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s18:TooFewReaderFields",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TpcTableSharing P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:TpcTableSharing",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:TpcTableSharing",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TpcTableSharingDependent P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:TpcTableSharingDependent",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:TpcTableSharingDependent",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TphDbFunctionMismatch P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:TphDbFunctionMismatch",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s21:TphDbFunctionMismatch",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TphStoredProcedureMismatch P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:TphStoredProcedureMismatch",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:TphStoredProcedureMismatch",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TphTableMismatch P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s16:TphTableMismatch",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s16:TphTableMismatch",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TphViewMismatch P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:TphViewMismatch",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:TphViewMismatch",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TriggerWithMismatchedTable P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:TriggerWithMismatchedTable",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:TriggerWithMismatchedTable",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnableToBindMemberToEntityProjection P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:UnableToBindMemberToEntityProjection",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s36:UnableToBindMemberToEntityProjection",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnhandledAnnotatableType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:UnhandledAnnotatableType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s24:UnhandledAnnotatableType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnhandledExpressionInVisitor P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:UnhandledExpressionInVisitor",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:UnhandledExpressionInVisitor",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnknownOperation P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s16:UnknownOperation",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s16:UnknownOperation",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnmappedNonTPHOwner P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s19:UnmappedNonTPHOwner",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s19:UnmappedNonTPHOwner",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnsupportedDataOperationStoreType P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:UnsupportedDataOperationStoreType",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:UnsupportedDataOperationStoreType",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnsupportedOperatorForSqlExpression P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:UnsupportedOperatorForSqlExpression",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:UnsupportedOperatorForSqlExpression",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnsupportedPropertyType P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:UnsupportedPropertyType",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:UnsupportedPropertyType",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnsupportedStoreType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:UnsupportedStoreType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:UnsupportedStoreType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnsupportedType P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:UnsupportedType",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:UnsupportedType",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UpdateConcurrencyException P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:UpdateConcurrencyException",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:UpdateConcurrencyException",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UpdateDataOperationKeyTypesCountMismatch P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s40:UpdateDataOperationKeyTypesCountMismatch",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s40:UpdateDataOperationKeyTypesCountMismatch",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UpdateDataOperationKeyValuesCountMismatch P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s41:UpdateDataOperationKeyValuesCountMismatch",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s41:UpdateDataOperationKeyValuesCountMismatch",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UpdateDataOperationNoModel P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:UpdateDataOperationNoModel",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:UpdateDataOperationNoModel",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UpdateDataOperationRowCountMismatch P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:UpdateDataOperationRowCountMismatch",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:UpdateDataOperationRowCountMismatch",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UpdateDataOperationTypesCountMismatch P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:UpdateDataOperationTypesCountMismatch",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s37:UpdateDataOperationTypesCountMismatch",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UpdateDataOperationValuesCountMismatch P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:UpdateDataOperationValuesCountMismatch",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s38:UpdateDataOperationValuesCountMismatch",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ViewOverrideMismatch P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:ViewOverrideMismatch",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:ViewOverrideMismatch",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getBadSequenceString
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s17:BadSequenceString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s17:BadSequenceString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBadSequenceString P1
@@ -8885,7 +8638,7 @@ Class RelationalStrings from Object
 
 	Func getBadSequenceType
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:BadSequenceType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:BadSequenceType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBadSequenceType P1
@@ -8893,7 +8646,7 @@ Class RelationalStrings from Object
 
 	Func getCannotChangeWhenOpen
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:CannotChangeWhenOpen")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:CannotChangeWhenOpen",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCannotChangeWhenOpen P1
@@ -8901,7 +8654,7 @@ Class RelationalStrings from Object
 
 	Func getCannotCompareComplexTypeToNull
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:CannotCompareComplexTypeToNull")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:CannotCompareComplexTypeToNull",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCannotCompareComplexTypeToNull P1
@@ -8909,7 +8662,7 @@ Class RelationalStrings from Object
 
 	Func getCannotSetAliasOnJoin
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:CannotSetAliasOnJoin")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:CannotSetAliasOnJoin",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCannotSetAliasOnJoin P1
@@ -8917,7 +8670,7 @@ Class RelationalStrings from Object
 
 	Func getClientGroupByNotSupported
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:ClientGroupByNotSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:ClientGroupByNotSupported",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setClientGroupByNotSupported P1
@@ -8925,7 +8678,7 @@ Class RelationalStrings from Object
 
 	Func getConflictingAmbientTransaction
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:ConflictingAmbientTransaction")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:ConflictingAmbientTransaction",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setConflictingAmbientTransaction P1
@@ -8933,7 +8686,7 @@ Class RelationalStrings from Object
 
 	Func getConflictingEnlistedTransaction
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:ConflictingEnlistedTransaction")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:ConflictingEnlistedTransaction",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setConflictingEnlistedTransaction P1
@@ -8941,7 +8694,7 @@ Class RelationalStrings from Object
 
 	Func getDistinctOnCollectionNotSupported
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:DistinctOnCollectionNotSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:DistinctOnCollectionNotSupported",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDistinctOnCollectionNotSupported P1
@@ -8949,7 +8702,7 @@ Class RelationalStrings from Object
 
 	Func getEmptyCollectionNotSupportedAsInlineQueryRoot
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:EmptyCollectionNotSupportedAsInlineQueryRoot")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:EmptyCollectionNotSupportedAsInlineQueryRoot",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEmptyCollectionNotSupportedAsInlineQueryRoot P1
@@ -8957,7 +8710,7 @@ Class RelationalStrings from Object
 
 	Func getErrorMaterializingValue
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:ErrorMaterializingValue")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:ErrorMaterializingValue",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setErrorMaterializingValue P1
@@ -8965,7 +8718,7 @@ Class RelationalStrings from Object
 
 	Func getExecuteDeleteOnNonEntityType
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:ExecuteDeleteOnNonEntityType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:ExecuteDeleteOnNonEntityType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setExecuteDeleteOnNonEntityType P1
@@ -8973,7 +8726,7 @@ Class RelationalStrings from Object
 
 	Func getFromSqlNonComposable
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:FromSqlNonComposable")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:FromSqlNonComposable",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFromSqlNonComposable P1
@@ -8981,7 +8734,7 @@ Class RelationalStrings from Object
 
 	Func getInsufficientInformationToIdentifyElementOfCollectionJoin
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s56:InsufficientInformationToIdentifyElementOfCollectionJoin")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s56:InsufficientInformationToIdentifyElementOfCollectionJoin",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInsufficientInformationToIdentifyElementOfCollectionJoin P1
@@ -8989,7 +8742,7 @@ Class RelationalStrings from Object
 
 	Func getInvalidArgumentToExecuteUpdate
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:InvalidArgumentToExecuteUpdate")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:InvalidArgumentToExecuteUpdate",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInvalidArgumentToExecuteUpdate P1
@@ -8997,7 +8750,7 @@ Class RelationalStrings from Object
 
 	Func getJsonEmptyString
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:JsonEmptyString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:JsonEmptyString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setJsonEmptyString P1
@@ -9005,7 +8758,7 @@ Class RelationalStrings from Object
 
 	Func getJsonEntityWithTableSplittingIsNotSupported
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s42:JsonEntityWithTableSplittingIsNotSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s42:JsonEntityWithTableSplittingIsNotSupported",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setJsonEntityWithTableSplittingIsNotSupported P1
@@ -9013,7 +8766,7 @@ Class RelationalStrings from Object
 
 	Func getJsonNodeMustBeHandledByProviderSpecificVisitor
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s46:JsonNodeMustBeHandledByProviderSpecificVisitor")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s46:JsonNodeMustBeHandledByProviderSpecificVisitor",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setJsonNodeMustBeHandledByProviderSpecificVisitor P1
@@ -9021,7 +8774,7 @@ Class RelationalStrings from Object
 
 	Func getJsonPropertyNameShouldBeConfiguredOnNestedNavigation
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s52:JsonPropertyNameShouldBeConfiguredOnNestedNavigation")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s52:JsonPropertyNameShouldBeConfiguredOnNestedNavigation",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setJsonPropertyNameShouldBeConfiguredOnNestedNavigation P1
@@ -9029,7 +8782,7 @@ Class RelationalStrings from Object
 
 	Func getJsonQueryLinqOperatorsNotSupported
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s34:JsonQueryLinqOperatorsNotSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s34:JsonQueryLinqOperatorsNotSupported",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setJsonQueryLinqOperatorsNotSupported P1
@@ -9037,7 +8790,7 @@ Class RelationalStrings from Object
 
 	Func getMappingFragmentMissingName
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:MappingFragmentMissingName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:MappingFragmentMissingName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMappingFragmentMissingName P1
@@ -9045,7 +8798,7 @@ Class RelationalStrings from Object
 
 	Func getMethodNeedsToBeImplementedInTheProvider
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s39:MethodNeedsToBeImplementedInTheProvider")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s39:MethodNeedsToBeImplementedInTheProvider",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMethodNeedsToBeImplementedInTheProvider P1
@@ -9053,7 +8806,7 @@ Class RelationalStrings from Object
 
 	Func getMigrationDownMissing
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:MigrationDownMissing")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:MigrationDownMissing",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMigrationDownMissing P1
@@ -9061,7 +8814,7 @@ Class RelationalStrings from Object
 
 	Func getMissingOrderingInSelectExpression
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:MissingOrderingInSelectExpression")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:MissingOrderingInSelectExpression",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMissingOrderingInSelectExpression P1
@@ -9069,7 +8822,7 @@ Class RelationalStrings from Object
 
 	Func getMissingResultSetWhenSaving
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:MissingResultSetWhenSaving")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:MissingResultSetWhenSaving",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMissingResultSetWhenSaving P1
@@ -9077,7 +8830,7 @@ Class RelationalStrings from Object
 
 	Func getModificationCommandBatchAlreadyComplete
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s39:ModificationCommandBatchAlreadyComplete")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s39:ModificationCommandBatchAlreadyComplete",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setModificationCommandBatchAlreadyComplete P1
@@ -9085,7 +8838,7 @@ Class RelationalStrings from Object
 
 	Func getModificationCommandBatchNotComplete
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:ModificationCommandBatchNotComplete")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:ModificationCommandBatchNotComplete",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setModificationCommandBatchNotComplete P1
@@ -9093,7 +8846,7 @@ Class RelationalStrings from Object
 
 	Func getMultipleProvidersConfigured
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s27:MultipleProvidersConfigured")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s27:MultipleProvidersConfigured",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMultipleProvidersConfigured P1
@@ -9101,7 +8854,7 @@ Class RelationalStrings from Object
 
 	Func getNestedAmbientTransactionError
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:NestedAmbientTransactionError")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:NestedAmbientTransactionError",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNestedAmbientTransactionError P1
@@ -9109,7 +8862,7 @@ Class RelationalStrings from Object
 
 	Func getNoActiveTransaction
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s19:NoActiveTransaction")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s19:NoActiveTransaction",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNoActiveTransaction P1
@@ -9117,7 +8870,7 @@ Class RelationalStrings from Object
 
 	Func getNoDbCommand
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s11:NoDbCommand")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s11:NoDbCommand",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNoDbCommand P1
@@ -9125,7 +8878,7 @@ Class RelationalStrings from Object
 
 	Func getNoneRelationalTypeMappingOnARelationalTypeMappingSource
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s55:NoneRelationalTypeMappingOnARelationalTypeMappingSource")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s55:NoneRelationalTypeMappingOnARelationalTypeMappingSource",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNoneRelationalTypeMappingOnARelationalTypeMappingSource P1
@@ -9133,7 +8886,7 @@ Class RelationalStrings from Object
 
 	Func getNoProviderConfigured
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:NoProviderConfigured")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:NoProviderConfigured",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNoProviderConfigured P1
@@ -9141,7 +8894,7 @@ Class RelationalStrings from Object
 
 	Func getNoSetPropertyInvocation
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:NoSetPropertyInvocation")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:NoSetPropertyInvocation",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNoSetPropertyInvocation P1
@@ -9149,7 +8902,7 @@ Class RelationalStrings from Object
 
 	Func getOnlyConstantsSupportedInInlineCollectionQueryRoots
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s50:OnlyConstantsSupportedInInlineCollectionQueryRoots")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s50:OnlyConstantsSupportedInInlineCollectionQueryRoots",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOnlyConstantsSupportedInInlineCollectionQueryRoots P1
@@ -9157,7 +8910,7 @@ Class RelationalStrings from Object
 
 	Func getPendingAmbientTransaction
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:PendingAmbientTransaction")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:PendingAmbientTransaction",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPendingAmbientTransaction P1
@@ -9165,7 +8918,7 @@ Class RelationalStrings from Object
 
 	Func getProjectionMappingCountMismatch
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:ProjectionMappingCountMismatch")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:ProjectionMappingCountMismatch",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setProjectionMappingCountMismatch P1
@@ -9173,7 +8926,7 @@ Class RelationalStrings from Object
 
 	Func getRelationalNotInUse
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s18:RelationalNotInUse")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s18:RelationalNotInUse",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRelationalNotInUse P1
@@ -9181,7 +8934,7 @@ Class RelationalStrings from Object
 
 	Func getSelectCanOnlyBeBuiltOnCollectionJsonQuery
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s41:SelectCanOnlyBeBuiltOnCollectionJsonQuery")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s41:SelectCanOnlyBeBuiltOnCollectionJsonQuery",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSelectCanOnlyBeBuiltOnCollectionJsonQuery P1
@@ -9189,7 +8942,7 @@ Class RelationalStrings from Object
 
 	Func getSelectExpressionUpdateNotSupportedWhileMutable
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s46:SelectExpressionUpdateNotSupportedWhileMutable")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s46:SelectExpressionUpdateNotSupportedWhileMutable",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSelectExpressionUpdateNotSupportedWhileMutable P1
@@ -9197,7 +8950,7 @@ Class RelationalStrings from Object
 
 	Func getSetOperationsNotAllowedAfterClientEvaluation
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:SetOperationsNotAllowedAfterClientEvaluation")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:SetOperationsNotAllowedAfterClientEvaluation",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSetOperationsNotAllowedAfterClientEvaluation P1
@@ -9205,7 +8958,7 @@ Class RelationalStrings from Object
 
 	Func getSplitQueryString
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s16:SplitQueryString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s16:SplitQueryString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSplitQueryString P1
@@ -9213,7 +8966,7 @@ Class RelationalStrings from Object
 
 	Func getTransactionAlreadyStarted
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:TransactionAlreadyStarted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:TransactionAlreadyStarted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTransactionAlreadyStarted P1
@@ -9221,7 +8974,7 @@ Class RelationalStrings from Object
 
 	Func getTransactionAssociatedWithDifferentConnection
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:TransactionAssociatedWithDifferentConnection")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:TransactionAssociatedWithDifferentConnection",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTransactionAssociatedWithDifferentConnection P1
@@ -9229,7 +8982,7 @@ Class RelationalStrings from Object
 
 	Func getTransactionSuppressedMigrationInUserTransaction
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s47:TransactionSuppressedMigrationInUserTransaction")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s47:TransactionSuppressedMigrationInUserTransaction",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTransactionSuppressedMigrationInUserTransaction P1
@@ -9237,7 +8990,7 @@ Class RelationalStrings from Object
 
 	Func getUpdateStoreException
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:UpdateStoreException")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:UpdateStoreException",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUpdateStoreException P1
@@ -9245,7 +8998,7 @@ Class RelationalStrings from Object
 
 	Func getVisitChildrenMustBeOverridden
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:VisitChildrenMustBeOverridden")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:VisitChildrenMustBeOverridden",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setVisitChildrenMustBeOverridden P1
@@ -9264,16 +9017,15 @@ Class SaveChangesInterceptor from Object
 		return self
 
 	Func SavingChanges P1,P2
-		return dnSend("s4:call",nHandle,"s13:SavingChanges",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SavingChanges",P1,P2))
 
 	Func SavedChanges P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s12:SavedChanges",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:SavedChanges",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SaveChangesFailed P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s17:SaveChangesFailed",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s17:SaveChangesFailed",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s17:SaveChangesFailed",P1)
 
 		return self
 
@@ -9293,11 +9045,10 @@ Class SaveChangesInterceptor from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s22:SaveChangesFailedAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s22:SaveChangesFailedAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:SaveChangesFailedAsync",P1))
 
 	Func SaveChangesCanceled P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s19:SaveChangesCanceled",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s19:SaveChangesCanceled",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s19:SaveChangesCanceled",P1)
 
 		return self
 
@@ -9305,10 +9056,10 @@ Class SaveChangesInterceptor from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s24:SaveChangesCanceledAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s24:SaveChangesCanceledAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SaveChangesCanceledAsync",P1))
 
 	Func ThrowingConcurrencyException P1,P2
-		return dnSend("s4:call",nHandle,"s28:ThrowingConcurrencyException",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:ThrowingConcurrencyException",P1,P2))
 
 	Func ThrowingConcurrencyExceptionAsync P1
 		if dnIsNamed(P1)
@@ -9318,7 +9069,7 @@ Class SaveChangesInterceptor from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -9354,113 +9105,113 @@ Class SqliteEventId from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getSchemaConfiguredWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s23:SchemaConfiguredWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s23:SchemaConfiguredWarning"))
 
 	Func setSchemaConfiguredWarning P1
 		raise("DotNet Error: SchemaConfiguredWarning is a read-only property")
 
 	Func getSequenceConfiguredWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s25:SequenceConfiguredWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s25:SequenceConfiguredWarning"))
 
 	Func setSequenceConfiguredWarning P1
 		raise("DotNet Error: SequenceConfiguredWarning is a read-only property")
 
 	Func getCompositeKeyWithValueGeneration
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s31:CompositeKeyWithValueGeneration","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s31:CompositeKeyWithValueGeneration"))
 
 	Func setCompositeKeyWithValueGeneration P1
 		raise("DotNet Error: CompositeKeyWithValueGeneration is a read-only property")
 
 	Func getUnexpectedConnectionTypeWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s31:UnexpectedConnectionTypeWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s31:UnexpectedConnectionTypeWarning"))
 
 	Func setUnexpectedConnectionTypeWarning P1
 		raise("DotNet Error: UnexpectedConnectionTypeWarning is a read-only property")
 
 	Func getTableRebuildPendingWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s26:TableRebuildPendingWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s26:TableRebuildPendingWarning"))
 
 	Func setTableRebuildPendingWarning P1
 		raise("DotNet Error: TableRebuildPendingWarning is a read-only property")
 
 	Func getColumnFound
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s11:ColumnFound","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s11:ColumnFound"))
 
 	Func setColumnFound P1
 		raise("DotNet Error: ColumnFound is a read-only property")
 
 	Func getSchemasNotSupportedWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s26:SchemasNotSupportedWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s26:SchemasNotSupportedWarning"))
 
 	Func setSchemasNotSupportedWarning P1
 		raise("DotNet Error: SchemasNotSupportedWarning is a read-only property")
 
 	Func getForeignKeyReferencesMissingTableWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s39:ForeignKeyReferencesMissingTableWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s39:ForeignKeyReferencesMissingTableWarning"))
 
 	Func setForeignKeyReferencesMissingTableWarning P1
 		raise("DotNet Error: ForeignKeyReferencesMissingTableWarning is a read-only property")
 
 	Func getTableFound
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s10:TableFound","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s10:TableFound"))
 
 	Func setTableFound P1
 		raise("DotNet Error: TableFound is a read-only property")
 
 	Func getMissingTableWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s19:MissingTableWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s19:MissingTableWarning"))
 
 	Func setMissingTableWarning P1
 		raise("DotNet Error: MissingTableWarning is a read-only property")
 
 	Func getForeignKeyPrincipalColumnMissingWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s39:ForeignKeyPrincipalColumnMissingWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s39:ForeignKeyPrincipalColumnMissingWarning"))
 
 	Func setForeignKeyPrincipalColumnMissingWarning P1
 		raise("DotNet Error: ForeignKeyPrincipalColumnMissingWarning is a read-only property")
 
 	Func getIndexFound
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s10:IndexFound","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s10:IndexFound"))
 
 	Func setIndexFound P1
 		raise("DotNet Error: IndexFound is a read-only property")
 
 	Func getForeignKeyFound
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s15:ForeignKeyFound","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s15:ForeignKeyFound"))
 
 	Func setForeignKeyFound P1
 		raise("DotNet Error: ForeignKeyFound is a read-only property")
 
 	Func getPrimaryKeyFound
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s15:PrimaryKeyFound","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s15:PrimaryKeyFound"))
 
 	Func setPrimaryKeyFound P1
 		raise("DotNet Error: PrimaryKeyFound is a read-only property")
 
 	Func getUniqueConstraintFound
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s21:UniqueConstraintFound","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s21:UniqueConstraintFound"))
 
 	Func setUniqueConstraintFound P1
 		raise("DotNet Error: UniqueConstraintFound is a read-only property")
 
 	Func getInferringTypes
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s14:InferringTypes","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s14:InferringTypes"))
 
 	Func setInferringTypes P1
 		raise("DotNet Error: InferringTypes is a read-only property")
 
 	Func getOutOfRangeWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s17:OutOfRangeWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s17:OutOfRangeWarning"))
 
 	Func setOutOfRangeWarning P1
 		raise("DotNet Error: OutOfRangeWarning is a read-only property")
 
 	Func getFormatWarning
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite'),"s13:FormatWarning","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.SqliteEventId, Microsoft.EntityFrameworkCore.Sqlite',"s13:FormatWarning"))
 
 	Func setFormatWarning P1
 		raise("DotNet Error: FormatWarning is a read-only property")
@@ -9503,14 +9254,13 @@ Class UpdatingIdentityResolutionInterceptor from Object
 		return self
 
 	Func UpdateTrackedInstance P1,P2,P3
-		dn_x = dotnet_callv("s4:call",nHandle,"s21:UpdateTrackedInstance",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s21:UpdateTrackedInstance",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",nHandle,"s21:UpdateTrackedInstance",P1,P2,P3)
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -9537,40 +9287,40 @@ Class WarningsConfiguration from Object
 		return self
 
 	Func WithDefaultBehavior P1
-		return dnSend("s4:call",nHandle,"s19:WithDefaultBehavior",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:WithDefaultBehavior",P1))
 
 	Func WithExplicit P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s12:WithExplicit",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s12:WithExplicit",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:WithExplicit",P1))
 
 	Func GetBehavior P1
-		return dnSend("s4:call",nHandle,"s11:GetBehavior",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetBehavior",P1))
 
 	Func GetLevel P1
-		return dnSend("s4:call",nHandle,"s8:GetLevel",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetLevel",P1))
 
 	Func TryWithExplicit P1,P2
-		return dnSend("s4:call",nHandle,"s15:TryWithExplicit",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TryWithExplicit",P1,P2))
 
 	Func ShouldUseSameServiceProvider P1
 		dn_x = dotnet_call("s4:call",nHandle,"s28:ShouldUseSameServiceProvider",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s28:ShouldUseSameServiceProvider",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetServiceProviderHashCode 
 		dn_x = dotnet_call("s4:call",nHandle,"s26:GetServiceProviderHashCode")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s26:GetServiceProviderHashCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getDefaultBehavior
-		return dnSend("s3:get",nHandle,"s15:DefaultBehavior","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:DefaultBehavior"))
 
 	Func setDefaultBehavior P1
 		raise("DotNet Error: DefaultBehavior is a read-only property")
@@ -9590,20 +9340,20 @@ Class WarningsConfigurationBuilder from Object
 		return self
 
 	Func Default P1
-		return dnSend("s4:call",nHandle,"s7:Default",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Default",P1))
 
 	Func Throw P1
-		return dnSend("s4:call",nHandle,"s5:Throw",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Throw",P1))
 
 	Func Log P1
-		return dnSend("s4:call",nHandle,"s3:Log",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Log",P1))
 
 	Func Ignore P1
-		return dnSend("s4:call",nHandle,"s6:Ignore",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Ignore",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -9623,7 +9373,7 @@ Class AssemblyEventData from EventData
 		return self
 
 	Func getAssembly
-		return dnSend("s3:get",nHandle,"s8:Assembly","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Assembly"))
 
 	Func setAssembly P1
 		raise("DotNet Error: Assembly is a read-only property")
@@ -9646,14 +9396,14 @@ Class BatchEventData from EventData
 		return self
 
 	Func getEntries
-		return dnSend("s3:get",nHandle,"s7:Entries","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Entries"))
 
 	Func setEntries P1
 		raise("DotNet Error: Entries is a read-only property")
 
 	Func getCommandCount
 		dn_x = dotnet_call("s3:get",nHandle,"s12:CommandCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:CommandCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCommandCount P1
@@ -9677,13 +9427,13 @@ Class BinaryExpressionEventData from EventData
 		return self
 
 	Func getLeft
-		return dnSend("s3:get",nHandle,"s4:Left","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Left"))
 
 	Func setLeft P1
 		raise("DotNet Error: Left is a read-only property")
 
 	Func getRight
-		return dnSend("s3:get",nHandle,"s5:Right","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Right"))
 
 	Func setRight P1
 		raise("DotNet Error: Right is a read-only property")
@@ -9706,13 +9456,13 @@ Class ColumnsEventData from EventData
 		return self
 
 	Func getStoreObject
-		return dnSend("s3:get",nHandle,"s11:StoreObject","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:StoreObject"))
 
 	Func setStoreObject P1
 		raise("DotNet Error: StoreObject is a read-only property")
 
 	Func getColumns
-		return dnSend("s3:get",nHandle,"s7:Columns","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Columns"))
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")
@@ -9734,7 +9484,7 @@ Class ComplexPropertyEventData from EventData
 		return self
 
 	Func getProperty
-		return dnSend("s3:get",nHandle,"s8:Property","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Property"))
 
 	Func setProperty P1
 		raise("DotNet Error: Property is a read-only property")
@@ -9757,13 +9507,13 @@ Class ContextInitializedEventData from EventData
 		return self
 
 	Func getContext
-		return dnSend("s3:get",nHandle,"s7:Context","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Context"))
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getContextOptions
-		return dnSend("s3:get",nHandle,"s14:ContextOptions","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ContextOptions"))
 
 	Func setContextOptions P1
 		raise("DotNet Error: ContextOptions is a read-only property")
@@ -9785,7 +9535,7 @@ Class DbContextEventData from EventData
 		return self
 
 	Func getContext
-		return dnSend("s3:get",nHandle,"s7:Context","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Context"))
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
@@ -9807,7 +9557,7 @@ Class DbContextTypeEventData from EventData
 		return self
 
 	Func getContextType
-		return dnSend("s3:get",nHandle,"s11:ContextType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ContextType"))
 
 	Func setContextType P1
 		raise("DotNet Error: ContextType is a read-only property")
@@ -9829,7 +9579,7 @@ Class EntityEntryEventData from EventData
 		return self
 
 	Func getEntityEntry
-		return dnSend("s3:get",nHandle,"s11:EntityEntry","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:EntityEntry"))
 
 	Func setEntityEntry P1
 		raise("DotNet Error: EntityEntry is a read-only property")
@@ -9851,7 +9601,7 @@ Class EntityTypeEventData from EventData
 		return self
 
 	Func getEntityType
-		return dnSend("s3:get",nHandle,"s10:EntityType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
@@ -9874,14 +9624,14 @@ Class EntityTypeSchemaEventData from EventData
 		return self
 
 	Func getEntityType
-		return dnSend("s3:get",nHandle,"s10:EntityType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getSchema
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Schema",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSchema P1
@@ -9903,7 +9653,7 @@ Class EventDefinition from EventDefinitionBase
 
 	Func GenerateMessage 
 		dn_x = dotnet_call("s4:call",nHandle,"s15:GenerateMessage")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GenerateMessage",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Log P1
@@ -9911,8 +9661,7 @@ Class EventDefinition from EventDefinitionBase
 			dnSend("s9:callnamed",nHandle,"s3:Log",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Log",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Log",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Log",P1)
 
 		return self
 
@@ -9935,20 +9684,20 @@ Class ExecutionStrategyEventData from EventData
 		return self
 
 	Func getExceptionsEncountered
-		return dnSend("s3:get",nHandle,"s21:ExceptionsEncountered","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:ExceptionsEncountered"))
 
 	Func setExceptionsEncountered P1
 		raise("DotNet Error: ExceptionsEncountered is a read-only property")
 
 	Func getDelay
-		return dnSend("s3:get",nHandle,"s5:Delay","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Delay"))
 
 	Func setDelay P1
 		raise("DotNet Error: Delay is a read-only property")
 
 	Func getIsAsync
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAsync")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsAsync",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAsync P1
@@ -9971,7 +9720,7 @@ Class ExpressionEventData from EventData
 		return self
 
 	Func getExpression
-		return dnSend("s3:get",nHandle,"s10:Expression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Expression"))
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
@@ -9994,18 +9743,17 @@ Class FallbackEventDefinition from EventDefinitionBase
 
 	Func GenerateMessage P1
 		dn_x = dotnet_call("s4:call",nHandle,"s15:GenerateMessage",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GenerateMessage",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Log P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Log",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Log",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Log",P1,P2)
 
 		return self
 
 	Func getMessageFormat
 		dn_x = dotnet_call("s3:get",nHandle,"s13:MessageFormat")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:MessageFormat",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMessageFormat P1
@@ -10028,7 +9776,7 @@ Class ForeignKeyEventData from EventData
 		return self
 
 	Func getForeignKey
-		return dnSend("s3:get",nHandle,"s10:ForeignKey","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ForeignKey"))
 
 	Func setForeignKey P1
 		raise("DotNet Error: ForeignKey is a read-only property")
@@ -10052,21 +9800,21 @@ Class IndexEventData from EventData
 		return self
 
 	Func getEntityType
-		return dnSend("s3:get",nHandle,"s10:EntityType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getPropertyNames
-		return dnSend("s3:get",nHandle,"s13:PropertyNames","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:PropertyNames"))
 
 	Func setPropertyNames P1
 		raise("DotNet Error: PropertyNames is a read-only property")
@@ -10094,49 +9842,49 @@ Class IndexWithPropertiesEventData from EventData
 		return self
 
 	Func getEntityType
-		return dnSend("s3:get",nHandle,"s10:EntityType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getPropertyNames
-		return dnSend("s3:get",nHandle,"s13:PropertyNames","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:PropertyNames"))
 
 	Func setPropertyNames P1
 		raise("DotNet Error: PropertyNames is a read-only property")
 
 	Func getProperty1Name
 		dn_x = dotnet_call("s3:get",nHandle,"s13:Property1Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:Property1Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setProperty1Name P1
 		raise("DotNet Error: Property1Name is a read-only property")
 
 	Func getTablesMappedToProperty1
-		return dnSend("s3:get",nHandle,"s23:TablesMappedToProperty1","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:TablesMappedToProperty1"))
 
 	Func setTablesMappedToProperty1 P1
 		raise("DotNet Error: TablesMappedToProperty1 is a read-only property")
 
 	Func getProperty2Name
 		dn_x = dotnet_call("s3:get",nHandle,"s13:Property2Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:Property2Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setProperty2Name P1
 		raise("DotNet Error: Property2Name is a read-only property")
 
 	Func getTablesMappedToProperty2
-		return dnSend("s3:get",nHandle,"s23:TablesMappedToProperty2","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:TablesMappedToProperty2"))
 
 	Func setTablesMappedToProperty2 P1
 		raise("DotNet Error: TablesMappedToProperty2 is a read-only property")
@@ -10161,28 +9909,28 @@ Class IndexWithPropertyEventData from EventData
 		return self
 
 	Func getEntityType
-		return dnSend("s3:get",nHandle,"s10:EntityType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getPropertyNames
-		return dnSend("s3:get",nHandle,"s13:PropertyNames","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:PropertyNames"))
 
 	Func setPropertyNames P1
 		raise("DotNet Error: PropertyNames is a read-only property")
 
 	Func getPropertyName
 		dn_x = dotnet_call("s3:get",nHandle,"s12:PropertyName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:PropertyName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPropertyName P1
@@ -10207,7 +9955,7 @@ Class InvalidIncludePathEventData from EventData
 
 	Func getNavigationChain
 		dn_x = dotnet_call("s3:get",nHandle,"s15:NavigationChain")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:NavigationChain",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNavigationChain P1
@@ -10215,7 +9963,7 @@ Class InvalidIncludePathEventData from EventData
 
 	Func getNavigationName
 		dn_x = dotnet_call("s3:get",nHandle,"s14:NavigationName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:NavigationName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNavigationName P1
@@ -10238,7 +9986,7 @@ Class KeyEventData from EventData
 		return self
 
 	Func getKey
-		return dnSend("s3:get",nHandle,"s3:Key","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s3:Key"))
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
@@ -10260,7 +10008,7 @@ Class MigrationColumnOperationEventData from EventData
 		return self
 
 	Func getColumnOperation
-		return dnSend("s3:get",nHandle,"s15:ColumnOperation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ColumnOperation"))
 
 	Func setColumnOperation P1
 		raise("DotNet Error: ColumnOperation is a read-only property")
@@ -10282,7 +10030,7 @@ Class MigrationTypeEventData from EventData
 		return self
 
 	Func getMigrationType
-		return dnSend("s3:get",nHandle,"s13:MigrationType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:MigrationType"))
 
 	Func setMigrationType P1
 		raise("DotNet Error: MigrationType is a read-only property")
@@ -10304,7 +10052,7 @@ Class MigratorEventData from EventData
 		return self
 
 	Func getMigrator
-		return dnSend("s3:get",nHandle,"s8:Migrator","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Migrator"))
 
 	Func setMigrator P1
 		raise("DotNet Error: Migrator is a read-only property")
@@ -10326,7 +10074,7 @@ Class NavigationBaseEventData from EventData
 		return self
 
 	Func getNavigationBase
-		return dnSend("s3:get",nHandle,"s14:NavigationBase","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:NavigationBase"))
 
 	Func setNavigationBase P1
 		raise("DotNet Error: NavigationBase is a read-only property")
@@ -10348,7 +10096,7 @@ Class NavigationEventData from EventData
 		return self
 
 	Func getNavigation
-		return dnSend("s3:get",nHandle,"s10:Navigation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Navigation"))
 
 	Func setNavigation P1
 		raise("DotNet Error: Navigation is a read-only property")
@@ -10370,7 +10118,7 @@ Class PropertyEventData from EventData
 		return self
 
 	Func getProperty
-		return dnSend("s3:get",nHandle,"s8:Property","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Property"))
 
 	Func setProperty P1
 		raise("DotNet Error: Property is a read-only property")
@@ -10469,643 +10217,563 @@ Class RelationalLoggingDefinitions from LoggingDefinitions
 		return self
 
 	Func getLogTransactionError
-		return dnSend("s3:get",nHandle,"s19:LogTransactionError","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:LogTransactionError"))
 
 	Func setLogTransactionError P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:LogTransactionError",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:LogTransactionError",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:LogTransactionError",P1)
 		return self
 
 	Func getLogBoolWithDefaultWarning
-		return dnSend("s3:get",nHandle,"s25:LogBoolWithDefaultWarning","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s25:LogBoolWithDefaultWarning"))
 
 	Func setLogBoolWithDefaultWarning P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s25:LogBoolWithDefaultWarning",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s25:LogBoolWithDefaultWarning",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s25:LogBoolWithDefaultWarning",P1)
 		return self
 
 	Func getLogConnectionCreating
-		return dnSend("s3:get",nHandle,"s21:LogConnectionCreating","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:LogConnectionCreating"))
 
 	Func setLogConnectionCreating P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:LogConnectionCreating",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:LogConnectionCreating",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:LogConnectionCreating",P1)
 		return self
 
 	Func getLogConnectionCreated
-		return dnSend("s3:get",nHandle,"s20:LogConnectionCreated","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:LogConnectionCreated"))
 
 	Func setLogConnectionCreated P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:LogConnectionCreated",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:LogConnectionCreated",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:LogConnectionCreated",P1)
 		return self
 
 	Func getLogConnectionDisposing
-		return dnSend("s3:get",nHandle,"s22:LogConnectionDisposing","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:LogConnectionDisposing"))
 
 	Func setLogConnectionDisposing P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:LogConnectionDisposing",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:LogConnectionDisposing",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:LogConnectionDisposing",P1)
 		return self
 
 	Func getLogConnectionDisposed
-		return dnSend("s3:get",nHandle,"s21:LogConnectionDisposed","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:LogConnectionDisposed"))
 
 	Func setLogConnectionDisposed P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:LogConnectionDisposed",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:LogConnectionDisposed",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:LogConnectionDisposed",P1)
 		return self
 
 	Func getLogOpeningConnection
-		return dnSend("s3:get",nHandle,"s20:LogOpeningConnection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:LogOpeningConnection"))
 
 	Func setLogOpeningConnection P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:LogOpeningConnection",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:LogOpeningConnection",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:LogOpeningConnection",P1)
 		return self
 
 	Func getLogOpenedConnection
-		return dnSend("s3:get",nHandle,"s19:LogOpenedConnection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:LogOpenedConnection"))
 
 	Func setLogOpenedConnection P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:LogOpenedConnection",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:LogOpenedConnection",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:LogOpenedConnection",P1)
 		return self
 
 	Func getLogClosingConnection
-		return dnSend("s3:get",nHandle,"s20:LogClosingConnection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:LogClosingConnection"))
 
 	Func setLogClosingConnection P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:LogClosingConnection",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:LogClosingConnection",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:LogClosingConnection",P1)
 		return self
 
 	Func getLogClosingDataReader
-		return dnSend("s3:get",nHandle,"s20:LogClosingDataReader","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:LogClosingDataReader"))
 
 	Func setLogClosingDataReader P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:LogClosingDataReader",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:LogClosingDataReader",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:LogClosingDataReader",P1)
 		return self
 
 	Func getLogClosedConnection
-		return dnSend("s3:get",nHandle,"s19:LogClosedConnection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:LogClosedConnection"))
 
 	Func setLogClosedConnection P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:LogClosedConnection",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:LogClosedConnection",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:LogClosedConnection",P1)
 		return self
 
 	Func getLogConnectionError
-		return dnSend("s3:get",nHandle,"s18:LogConnectionError","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:LogConnectionError"))
 
 	Func setLogConnectionError P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:LogConnectionError",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:LogConnectionError",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:LogConnectionError",P1)
 		return self
 
 	Func getLogBeginningTransaction
-		return dnSend("s3:get",nHandle,"s23:LogBeginningTransaction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:LogBeginningTransaction"))
 
 	Func setLogBeginningTransaction P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:LogBeginningTransaction",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:LogBeginningTransaction",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:LogBeginningTransaction",P1)
 		return self
 
 	Func getLogBeganTransaction
-		return dnSend("s3:get",nHandle,"s19:LogBeganTransaction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:LogBeganTransaction"))
 
 	Func setLogBeganTransaction P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:LogBeganTransaction",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:LogBeganTransaction",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:LogBeganTransaction",P1)
 		return self
 
 	Func getLogUsingTransaction
-		return dnSend("s3:get",nHandle,"s19:LogUsingTransaction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:LogUsingTransaction"))
 
 	Func setLogUsingTransaction P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:LogUsingTransaction",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:LogUsingTransaction",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:LogUsingTransaction",P1)
 		return self
 
 	Func getLogCommittingTransaction
-		return dnSend("s3:get",nHandle,"s24:LogCommittingTransaction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:LogCommittingTransaction"))
 
 	Func setLogCommittingTransaction P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:LogCommittingTransaction",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:LogCommittingTransaction",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:LogCommittingTransaction",P1)
 		return self
 
 	Func getLogRollingBackTransaction
-		return dnSend("s3:get",nHandle,"s25:LogRollingBackTransaction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s25:LogRollingBackTransaction"))
 
 	Func setLogRollingBackTransaction P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s25:LogRollingBackTransaction",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s25:LogRollingBackTransaction",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s25:LogRollingBackTransaction",P1)
 		return self
 
 	Func getLogCommittedTransaction
-		return dnSend("s3:get",nHandle,"s23:LogCommittedTransaction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:LogCommittedTransaction"))
 
 	Func setLogCommittedTransaction P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:LogCommittedTransaction",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:LogCommittedTransaction",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:LogCommittedTransaction",P1)
 		return self
 
 	Func getLogRolledBackTransaction
-		return dnSend("s3:get",nHandle,"s24:LogRolledBackTransaction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:LogRolledBackTransaction"))
 
 	Func setLogRolledBackTransaction P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:LogRolledBackTransaction",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:LogRolledBackTransaction",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:LogRolledBackTransaction",P1)
 		return self
 
 	Func getLogCreatingTransactionSavepoint
-		return dnSend("s3:get",nHandle,"s31:LogCreatingTransactionSavepoint","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s31:LogCreatingTransactionSavepoint"))
 
 	Func setLogCreatingTransactionSavepoint P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s31:LogCreatingTransactionSavepoint",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s31:LogCreatingTransactionSavepoint",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s31:LogCreatingTransactionSavepoint",P1)
 		return self
 
 	Func getLogRollingBackToTransactionSavepoint
-		return dnSend("s3:get",nHandle,"s36:LogRollingBackToTransactionSavepoint","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s36:LogRollingBackToTransactionSavepoint"))
 
 	Func setLogRollingBackToTransactionSavepoint P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s36:LogRollingBackToTransactionSavepoint",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s36:LogRollingBackToTransactionSavepoint",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s36:LogRollingBackToTransactionSavepoint",P1)
 		return self
 
 	Func getLogCreatedTransactionSavepoint
-		return dnSend("s3:get",nHandle,"s30:LogCreatedTransactionSavepoint","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s30:LogCreatedTransactionSavepoint"))
 
 	Func setLogCreatedTransactionSavepoint P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s30:LogCreatedTransactionSavepoint",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s30:LogCreatedTransactionSavepoint",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s30:LogCreatedTransactionSavepoint",P1)
 		return self
 
 	Func getLogRolledBackToTransactionSavepoint
-		return dnSend("s3:get",nHandle,"s35:LogRolledBackToTransactionSavepoint","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s35:LogRolledBackToTransactionSavepoint"))
 
 	Func setLogRolledBackToTransactionSavepoint P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s35:LogRolledBackToTransactionSavepoint",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s35:LogRolledBackToTransactionSavepoint",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s35:LogRolledBackToTransactionSavepoint",P1)
 		return self
 
 	Func getLogReleasingTransactionSavepoint
-		return dnSend("s3:get",nHandle,"s32:LogReleasingTransactionSavepoint","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s32:LogReleasingTransactionSavepoint"))
 
 	Func setLogReleasingTransactionSavepoint P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s32:LogReleasingTransactionSavepoint",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s32:LogReleasingTransactionSavepoint",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s32:LogReleasingTransactionSavepoint",P1)
 		return self
 
 	Func getLogReleasedTransactionSavepoint
-		return dnSend("s3:get",nHandle,"s31:LogReleasedTransactionSavepoint","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s31:LogReleasedTransactionSavepoint"))
 
 	Func setLogReleasedTransactionSavepoint P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s31:LogReleasedTransactionSavepoint",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s31:LogReleasedTransactionSavepoint",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s31:LogReleasedTransactionSavepoint",P1)
 		return self
 
 	Func getLogDisposingTransaction
-		return dnSend("s3:get",nHandle,"s23:LogDisposingTransaction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:LogDisposingTransaction"))
 
 	Func setLogDisposingTransaction P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:LogDisposingTransaction",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:LogDisposingTransaction",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:LogDisposingTransaction",P1)
 		return self
 
 	Func getLogDisposingDataReader
-		return dnSend("s3:get",nHandle,"s22:LogDisposingDataReader","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:LogDisposingDataReader"))
 
 	Func setLogDisposingDataReader P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:LogDisposingDataReader",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:LogDisposingDataReader",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:LogDisposingDataReader",P1)
 		return self
 
 	Func getLogAmbientTransaction
-		return dnSend("s3:get",nHandle,"s21:LogAmbientTransaction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:LogAmbientTransaction"))
 
 	Func setLogAmbientTransaction P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:LogAmbientTransaction",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:LogAmbientTransaction",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:LogAmbientTransaction",P1)
 		return self
 
 	Func getLogPossibleUnintendedUseOfEquals
-		return dnSend("s3:get",nHandle,"s32:LogPossibleUnintendedUseOfEquals","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s32:LogPossibleUnintendedUseOfEquals"))
 
 	Func setLogPossibleUnintendedUseOfEquals P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s32:LogPossibleUnintendedUseOfEquals",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s32:LogPossibleUnintendedUseOfEquals",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s32:LogPossibleUnintendedUseOfEquals",P1)
 		return self
 
 	Func getLogStoredProcedureConcurrencyTokenNotMapped
-		return dnSend("s3:get",nHandle,"s43:LogStoredProcedureConcurrencyTokenNotMapped","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s43:LogStoredProcedureConcurrencyTokenNotMapped"))
 
 	Func setLogStoredProcedureConcurrencyTokenNotMapped P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s43:LogStoredProcedureConcurrencyTokenNotMapped",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s43:LogStoredProcedureConcurrencyTokenNotMapped",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s43:LogStoredProcedureConcurrencyTokenNotMapped",P1)
 		return self
 
 	Func getLogGeneratingDown
-		return dnSend("s3:get",nHandle,"s17:LogGeneratingDown","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:LogGeneratingDown"))
 
 	Func setLogGeneratingDown P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:LogGeneratingDown",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:LogGeneratingDown",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:LogGeneratingDown",P1)
 		return self
 
 	Func getLogGeneratingUp
-		return dnSend("s3:get",nHandle,"s15:LogGeneratingUp","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:LogGeneratingUp"))
 
 	Func setLogGeneratingUp P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:LogGeneratingUp",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:LogGeneratingUp",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:LogGeneratingUp",P1)
 		return self
 
 	Func getLogApplyingMigration
-		return dnSend("s3:get",nHandle,"s20:LogApplyingMigration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:LogApplyingMigration"))
 
 	Func setLogApplyingMigration P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:LogApplyingMigration",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:LogApplyingMigration",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:LogApplyingMigration",P1)
 		return self
 
 	Func getLogRevertingMigration
-		return dnSend("s3:get",nHandle,"s21:LogRevertingMigration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:LogRevertingMigration"))
 
 	Func setLogRevertingMigration P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:LogRevertingMigration",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:LogRevertingMigration",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:LogRevertingMigration",P1)
 		return self
 
 	Func getLogMigrating
-		return dnSend("s3:get",nHandle,"s12:LogMigrating","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:LogMigrating"))
 
 	Func setLogMigrating P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:LogMigrating",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:LogMigrating",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:LogMigrating",P1)
 		return self
 
 	Func getLogNoMigrationsApplied
-		return dnSend("s3:get",nHandle,"s22:LogNoMigrationsApplied","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:LogNoMigrationsApplied"))
 
 	Func setLogNoMigrationsApplied P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:LogNoMigrationsApplied",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:LogNoMigrationsApplied",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:LogNoMigrationsApplied",P1)
 		return self
 
 	Func getLogNoMigrationsFound
-		return dnSend("s3:get",nHandle,"s20:LogNoMigrationsFound","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:LogNoMigrationsFound"))
 
 	Func setLogNoMigrationsFound P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:LogNoMigrationsFound",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:LogNoMigrationsFound",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:LogNoMigrationsFound",P1)
 		return self
 
 	Func getLogAcquiringMigrationLock
-		return dnSend("s3:get",nHandle,"s25:LogAcquiringMigrationLock","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s25:LogAcquiringMigrationLock"))
 
 	Func setLogAcquiringMigrationLock P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s25:LogAcquiringMigrationLock",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s25:LogAcquiringMigrationLock",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s25:LogAcquiringMigrationLock",P1)
 		return self
 
 	Func getLogMigrationsUserTransaction
-		return dnSend("s3:get",nHandle,"s28:LogMigrationsUserTransaction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s28:LogMigrationsUserTransaction"))
 
 	Func setLogMigrationsUserTransaction P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s28:LogMigrationsUserTransaction",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s28:LogMigrationsUserTransaction",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s28:LogMigrationsUserTransaction",P1)
 		return self
 
 	Func getLogKeyHasDefaultValue
-		return dnSend("s3:get",nHandle,"s21:LogKeyHasDefaultValue","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:LogKeyHasDefaultValue"))
 
 	Func setLogKeyHasDefaultValue P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:LogKeyHasDefaultValue",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:LogKeyHasDefaultValue",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:LogKeyHasDefaultValue",P1)
 		return self
 
 	Func getLogCommandCanceled
-		return dnSend("s3:get",nHandle,"s18:LogCommandCanceled","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:LogCommandCanceled"))
 
 	Func setLogCommandCanceled P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:LogCommandCanceled",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:LogCommandCanceled",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:LogCommandCanceled",P1)
 		return self
 
 	Func getLogCommandCreating
-		return dnSend("s3:get",nHandle,"s18:LogCommandCreating","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:LogCommandCreating"))
 
 	Func setLogCommandCreating P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:LogCommandCreating",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:LogCommandCreating",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:LogCommandCreating",P1)
 		return self
 
 	Func getLogCommandCreated
-		return dnSend("s3:get",nHandle,"s17:LogCommandCreated","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:LogCommandCreated"))
 
 	Func setLogCommandCreated P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:LogCommandCreated",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:LogCommandCreated",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:LogCommandCreated",P1)
 		return self
 
 	Func getLogCommandInitialized
-		return dnSend("s3:get",nHandle,"s21:LogCommandInitialized","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:LogCommandInitialized"))
 
 	Func setLogCommandInitialized P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:LogCommandInitialized",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:LogCommandInitialized",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:LogCommandInitialized",P1)
 		return self
 
 	Func getLogExecutingCommand
-		return dnSend("s3:get",nHandle,"s19:LogExecutingCommand","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:LogExecutingCommand"))
 
 	Func setLogExecutingCommand P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:LogExecutingCommand",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:LogExecutingCommand",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:LogExecutingCommand",P1)
 		return self
 
 	Func getLogExecutedCommand
-		return dnSend("s3:get",nHandle,"s18:LogExecutedCommand","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:LogExecutedCommand"))
 
 	Func setLogExecutedCommand P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:LogExecutedCommand",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:LogExecutedCommand",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:LogExecutedCommand",P1)
 		return self
 
 	Func getLogCommandFailed
-		return dnSend("s3:get",nHandle,"s16:LogCommandFailed","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:LogCommandFailed"))
 
 	Func setLogCommandFailed P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:LogCommandFailed",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:LogCommandFailed",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:LogCommandFailed",P1)
 		return self
 
 	Func getLogConnectionErrorAsDebug
-		return dnSend("s3:get",nHandle,"s25:LogConnectionErrorAsDebug","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s25:LogConnectionErrorAsDebug"))
 
 	Func setLogConnectionErrorAsDebug P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s25:LogConnectionErrorAsDebug",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s25:LogConnectionErrorAsDebug",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s25:LogConnectionErrorAsDebug",P1)
 		return self
 
 	Func getLogAmbientTransactionEnlisted
-		return dnSend("s3:get",nHandle,"s29:LogAmbientTransactionEnlisted","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s29:LogAmbientTransactionEnlisted"))
 
 	Func setLogAmbientTransactionEnlisted P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s29:LogAmbientTransactionEnlisted",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s29:LogAmbientTransactionEnlisted",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s29:LogAmbientTransactionEnlisted",P1)
 		return self
 
 	Func getLogExplicitTransactionEnlisted
-		return dnSend("s3:get",nHandle,"s30:LogExplicitTransactionEnlisted","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s30:LogExplicitTransactionEnlisted"))
 
 	Func setLogExplicitTransactionEnlisted P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s30:LogExplicitTransactionEnlisted",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s30:LogExplicitTransactionEnlisted",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s30:LogExplicitTransactionEnlisted",P1)
 		return self
 
 	Func getLogBatchSmallerThanMinBatchSize
-		return dnSend("s3:get",nHandle,"s31:LogBatchSmallerThanMinBatchSize","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s31:LogBatchSmallerThanMinBatchSize"))
 
 	Func setLogBatchSmallerThanMinBatchSize P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s31:LogBatchSmallerThanMinBatchSize",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s31:LogBatchSmallerThanMinBatchSize",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s31:LogBatchSmallerThanMinBatchSize",P1)
 		return self
 
 	Func getLogBatchReadyForExecution
-		return dnSend("s3:get",nHandle,"s25:LogBatchReadyForExecution","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s25:LogBatchReadyForExecution"))
 
 	Func setLogBatchReadyForExecution P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s25:LogBatchReadyForExecution",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s25:LogBatchReadyForExecution",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s25:LogBatchReadyForExecution",P1)
 		return self
 
 	Func getLogMigrationAttributeMissingWarning
-		return dnSend("s3:get",nHandle,"s35:LogMigrationAttributeMissingWarning","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s35:LogMigrationAttributeMissingWarning"))
 
 	Func setLogMigrationAttributeMissingWarning P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s35:LogMigrationAttributeMissingWarning",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s35:LogMigrationAttributeMissingWarning",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s35:LogMigrationAttributeMissingWarning",P1)
 		return self
 
 	Func getLogNamedIndexAllPropertiesNotToMappedToAnyTable
-		return dnSend("s3:get",nHandle,"s47:LogNamedIndexAllPropertiesNotToMappedToAnyTable","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s47:LogNamedIndexAllPropertiesNotToMappedToAnyTable"))
 
 	Func setLogNamedIndexAllPropertiesNotToMappedToAnyTable P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s47:LogNamedIndexAllPropertiesNotToMappedToAnyTable",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s47:LogNamedIndexAllPropertiesNotToMappedToAnyTable",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s47:LogNamedIndexAllPropertiesNotToMappedToAnyTable",P1)
 		return self
 
 	Func getLogUnnamedIndexAllPropertiesNotToMappedToAnyTable
-		return dnSend("s3:get",nHandle,"s49:LogUnnamedIndexAllPropertiesNotToMappedToAnyTable","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s49:LogUnnamedIndexAllPropertiesNotToMappedToAnyTable"))
 
 	Func setLogUnnamedIndexAllPropertiesNotToMappedToAnyTable P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s49:LogUnnamedIndexAllPropertiesNotToMappedToAnyTable",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s49:LogUnnamedIndexAllPropertiesNotToMappedToAnyTable",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s49:LogUnnamedIndexAllPropertiesNotToMappedToAnyTable",P1)
 		return self
 
 	Func getLogNamedIndexPropertiesBothMappedAndNotMappedToTable
-		return dnSend("s3:get",nHandle,"s52:LogNamedIndexPropertiesBothMappedAndNotMappedToTable","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s52:LogNamedIndexPropertiesBothMappedAndNotMappedToTable"))
 
 	Func setLogNamedIndexPropertiesBothMappedAndNotMappedToTable P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s52:LogNamedIndexPropertiesBothMappedAndNotMappedToTable",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s52:LogNamedIndexPropertiesBothMappedAndNotMappedToTable",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s52:LogNamedIndexPropertiesBothMappedAndNotMappedToTable",P1)
 		return self
 
 	Func getLogUnnamedIndexPropertiesBothMappedAndNotMappedToTable
-		return dnSend("s3:get",nHandle,"s54:LogUnnamedIndexPropertiesBothMappedAndNotMappedToTable","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s54:LogUnnamedIndexPropertiesBothMappedAndNotMappedToTable"))
 
 	Func setLogUnnamedIndexPropertiesBothMappedAndNotMappedToTable P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s54:LogUnnamedIndexPropertiesBothMappedAndNotMappedToTable",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s54:LogUnnamedIndexPropertiesBothMappedAndNotMappedToTable",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s54:LogUnnamedIndexPropertiesBothMappedAndNotMappedToTable",P1)
 		return self
 
 	Func getLogNamedIndexPropertiesMappedToNonOverlappingTables
-		return dnSend("s3:get",nHandle,"s51:LogNamedIndexPropertiesMappedToNonOverlappingTables","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s51:LogNamedIndexPropertiesMappedToNonOverlappingTables"))
 
 	Func setLogNamedIndexPropertiesMappedToNonOverlappingTables P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s51:LogNamedIndexPropertiesMappedToNonOverlappingTables",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s51:LogNamedIndexPropertiesMappedToNonOverlappingTables",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s51:LogNamedIndexPropertiesMappedToNonOverlappingTables",P1)
 		return self
 
 	Func getLogUnnamedIndexPropertiesMappedToNonOverlappingTables
-		return dnSend("s3:get",nHandle,"s53:LogUnnamedIndexPropertiesMappedToNonOverlappingTables","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s53:LogUnnamedIndexPropertiesMappedToNonOverlappingTables"))
 
 	Func setLogUnnamedIndexPropertiesMappedToNonOverlappingTables P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s53:LogUnnamedIndexPropertiesMappedToNonOverlappingTables",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s53:LogUnnamedIndexPropertiesMappedToNonOverlappingTables",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s53:LogUnnamedIndexPropertiesMappedToNonOverlappingTables",P1)
 		return self
 
 	Func getLogKeyPropertiesNotMappedToTable
-		return dnSend("s3:get",nHandle,"s32:LogKeyPropertiesNotMappedToTable","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s32:LogKeyPropertiesNotMappedToTable"))
 
 	Func setLogKeyPropertiesNotMappedToTable P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s32:LogKeyPropertiesNotMappedToTable",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s32:LogKeyPropertiesNotMappedToTable",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s32:LogKeyPropertiesNotMappedToTable",P1)
 		return self
 
 	Func getLogForeignKeyPropertiesMappedToUnrelatedTables
-		return dnSend("s3:get",nHandle,"s46:LogForeignKeyPropertiesMappedToUnrelatedTables","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s46:LogForeignKeyPropertiesMappedToUnrelatedTables"))
 
 	Func setLogForeignKeyPropertiesMappedToUnrelatedTables P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s46:LogForeignKeyPropertiesMappedToUnrelatedTables",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s46:LogForeignKeyPropertiesMappedToUnrelatedTables",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s46:LogForeignKeyPropertiesMappedToUnrelatedTables",P1)
 		return self
 
 	Func getLogForeignKeyTpcPrincipal
-		return dnSend("s3:get",nHandle,"s25:LogForeignKeyTpcPrincipal","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s25:LogForeignKeyTpcPrincipal"))
 
 	Func setLogForeignKeyTpcPrincipal P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s25:LogForeignKeyTpcPrincipal",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s25:LogForeignKeyTpcPrincipal",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s25:LogForeignKeyTpcPrincipal",P1)
 		return self
 
 	Func getLogTpcStoreGeneratedIdentity
-		return dnSend("s3:get",nHandle,"s28:LogTpcStoreGeneratedIdentity","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s28:LogTpcStoreGeneratedIdentity"))
 
 	Func setLogTpcStoreGeneratedIdentity P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s28:LogTpcStoreGeneratedIdentity",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s28:LogTpcStoreGeneratedIdentity",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s28:LogTpcStoreGeneratedIdentity",P1)
 		return self
 
 	Func getLogMultipleCollectionIncludeWarning
-		return dnSend("s3:get",nHandle,"s35:LogMultipleCollectionIncludeWarning","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s35:LogMultipleCollectionIncludeWarning"))
 
 	Func setLogMultipleCollectionIncludeWarning P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s35:LogMultipleCollectionIncludeWarning",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s35:LogMultipleCollectionIncludeWarning",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s35:LogMultipleCollectionIncludeWarning",P1)
 		return self
 
 	Func getLogBatchExecutorFailedToRollbackToSavepoint
-		return dnSend("s3:get",nHandle,"s43:LogBatchExecutorFailedToRollbackToSavepoint","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s43:LogBatchExecutorFailedToRollbackToSavepoint"))
 
 	Func setLogBatchExecutorFailedToRollbackToSavepoint P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s43:LogBatchExecutorFailedToRollbackToSavepoint",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s43:LogBatchExecutorFailedToRollbackToSavepoint",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s43:LogBatchExecutorFailedToRollbackToSavepoint",P1)
 		return self
 
 	Func getLogBatchExecutorFailedToReleaseSavepoint
-		return dnSend("s3:get",nHandle,"s40:LogBatchExecutorFailedToReleaseSavepoint","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s40:LogBatchExecutorFailedToReleaseSavepoint"))
 
 	Func setLogBatchExecutorFailedToReleaseSavepoint P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s40:LogBatchExecutorFailedToReleaseSavepoint",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s40:LogBatchExecutorFailedToReleaseSavepoint",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s40:LogBatchExecutorFailedToReleaseSavepoint",P1)
 		return self
 
 	Func getLogOptionalDependentWithoutIdentifyingProperty
-		return dnSend("s3:get",nHandle,"s46:LogOptionalDependentWithoutIdentifyingProperty","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s46:LogOptionalDependentWithoutIdentifyingProperty"))
 
 	Func setLogOptionalDependentWithoutIdentifyingProperty P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s46:LogOptionalDependentWithoutIdentifyingProperty",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s46:LogOptionalDependentWithoutIdentifyingProperty",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s46:LogOptionalDependentWithoutIdentifyingProperty",P1)
 		return self
 
 	Func getLogOptionalDependentWithAllNullProperties
-		return dnSend("s3:get",nHandle,"s41:LogOptionalDependentWithAllNullProperties","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s41:LogOptionalDependentWithAllNullProperties"))
 
 	Func setLogOptionalDependentWithAllNullProperties P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s41:LogOptionalDependentWithAllNullProperties",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s41:LogOptionalDependentWithAllNullProperties",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s41:LogOptionalDependentWithAllNullProperties",P1)
 		return self
 
 	Func getLogOptionalDependentWithAllNullPropertiesSensitive
-		return dnSend("s3:get",nHandle,"s50:LogOptionalDependentWithAllNullPropertiesSensitive","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s50:LogOptionalDependentWithAllNullPropertiesSensitive"))
 
 	Func setLogOptionalDependentWithAllNullPropertiesSensitive P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s50:LogOptionalDependentWithAllNullPropertiesSensitive",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s50:LogOptionalDependentWithAllNullPropertiesSensitive",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s50:LogOptionalDependentWithAllNullPropertiesSensitive",P1)
 		return self
 
 	Func getLogDuplicateColumnOrders
-		return dnSend("s3:get",nHandle,"s24:LogDuplicateColumnOrders","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:LogDuplicateColumnOrders"))
 
 	Func setLogDuplicateColumnOrders P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:LogDuplicateColumnOrders",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:LogDuplicateColumnOrders",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:LogDuplicateColumnOrders",P1)
 		return self
 
 	Func getLogColumnOrderIgnoredWarning
-		return dnSend("s3:get",nHandle,"s28:LogColumnOrderIgnoredWarning","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s28:LogColumnOrderIgnoredWarning"))
 
 	Func setLogColumnOrderIgnoredWarning P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s28:LogColumnOrderIgnoredWarning",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s28:LogColumnOrderIgnoredWarning",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s28:LogColumnOrderIgnoredWarning",P1)
 		return self
 
 	Func getLogPendingModelChanges
-		return dnSend("s3:get",nHandle,"s22:LogPendingModelChanges","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:LogPendingModelChanges"))
 
 	Func setLogPendingModelChanges P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:LogPendingModelChanges",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:LogPendingModelChanges",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:LogPendingModelChanges",P1)
 		return self
 
 	Func getLogNonDeterministicModel
-		return dnSend("s3:get",nHandle,"s24:LogNonDeterministicModel","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:LogNonDeterministicModel"))
 
 	Func setLogNonDeterministicModel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:LogNonDeterministicModel",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:LogNonDeterministicModel",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:LogNonDeterministicModel",P1)
 		return self
 
 	Func getLogNoModelSnapshotFound
-		return dnSend("s3:get",nHandle,"s23:LogNoModelSnapshotFound","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:LogNoModelSnapshotFound"))
 
 	Func setLogNoModelSnapshotFound P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:LogNoModelSnapshotFound",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:LogNoModelSnapshotFound",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:LogNoModelSnapshotFound",P1)
 		return self
 
 	Func getLogNonTransactionalMigrationOperationWarning
-		return dnSend("s3:get",nHandle,"s44:LogNonTransactionalMigrationOperationWarning","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s44:LogNonTransactionalMigrationOperationWarning"))
 
 	Func setLogNonTransactionalMigrationOperationWarning P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s44:LogNonTransactionalMigrationOperationWarning",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s44:LogNonTransactionalMigrationOperationWarning",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s44:LogNonTransactionalMigrationOperationWarning",P1)
 		return self
 
 	Func getLogExceptionDuringNonQueryOperation
-		return dnSend("s3:get",nHandle,"s35:LogExceptionDuringNonQueryOperation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s35:LogExceptionDuringNonQueryOperation"))
 
 	Func setLogExceptionDuringNonQueryOperation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s35:LogExceptionDuringNonQueryOperation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s35:LogExceptionDuringNonQueryOperation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s35:LogExceptionDuringNonQueryOperation",P1)
 		return self
 
 	Func getLogExceptionDuringExecuteDelete
-		return dnSend("s3:get",nHandle,"s31:LogExceptionDuringExecuteDelete","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s31:LogExceptionDuringExecuteDelete"))
 
 	Func setLogExceptionDuringExecuteDelete P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s31:LogExceptionDuringExecuteDelete",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s31:LogExceptionDuringExecuteDelete",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s31:LogExceptionDuringExecuteDelete",P1)
 		return self
 
 	Func getLogExceptionDuringExecuteUpdate
-		return dnSend("s3:get",nHandle,"s31:LogExceptionDuringExecuteUpdate","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s31:LogExceptionDuringExecuteUpdate"))
 
 	Func setLogExceptionDuringExecuteUpdate P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s31:LogExceptionDuringExecuteUpdate",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s31:LogExceptionDuringExecuteUpdate",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s31:LogExceptionDuringExecuteUpdate",P1)
 		return self
 
 	Func getLogUnexpectedTrailingResultSetWhenSaving
-		return dnSend("s3:get",nHandle,"s40:LogUnexpectedTrailingResultSetWhenSaving","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s40:LogUnexpectedTrailingResultSetWhenSaving"))
 
 	Func setLogUnexpectedTrailingResultSetWhenSaving P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s40:LogUnexpectedTrailingResultSetWhenSaving",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s40:LogUnexpectedTrailingResultSetWhenSaving",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s40:LogUnexpectedTrailingResultSetWhenSaving",P1)
 		return self
 
 	Func getLogTriggerOnNonRootTphEntity
-		return dnSend("s3:get",nHandle,"s28:LogTriggerOnNonRootTphEntity","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s28:LogTriggerOnNonRootTphEntity"))
 
 	Func setLogTriggerOnNonRootTphEntity P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s28:LogTriggerOnNonRootTphEntity",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s28:LogTriggerOnNonRootTphEntity",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s28:LogTriggerOnNonRootTphEntity",P1)
 		return self
 
 
@@ -11126,14 +10794,14 @@ Class SaveChangesEventData from EventData
 		return self
 
 	Func getEntries
-		return dnSend("s3:get",nHandle,"s7:Entries","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Entries"))
 
 	Func setEntries P1
 		raise("DotNet Error: Entries is a read-only property")
 
 	Func getRowsAffected
 		dn_x = dotnet_call("s3:get",nHandle,"s12:RowsAffected")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:RowsAffected",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRowsAffected P1
@@ -11156,7 +10824,7 @@ Class SequenceEventData from EventData
 		return self
 
 	Func getSequence
-		return dnSend("s3:get",nHandle,"s8:Sequence","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Sequence"))
 
 	Func setSequence P1
 		raise("DotNet Error: Sequence is a read-only property")
@@ -11179,13 +10847,13 @@ Class ServiceProviderDebugInfoEventData from EventData
 		return self
 
 	Func getNewDebugInfo
-		return dnSend("s3:get",nHandle,"s12:NewDebugInfo","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:NewDebugInfo"))
 
 	Func setNewDebugInfo P1
 		raise("DotNet Error: NewDebugInfo is a read-only property")
 
 	Func getCachedDebugInfos
-		return dnSend("s3:get",nHandle,"s16:CachedDebugInfos","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:CachedDebugInfos"))
 
 	Func setCachedDebugInfos P1
 		raise("DotNet Error: CachedDebugInfos is a read-only property")
@@ -11207,7 +10875,7 @@ Class ServiceProviderEventData from EventData
 		return self
 
 	Func getServiceProvider
-		return dnSend("s3:get",nHandle,"s15:ServiceProvider","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ServiceProvider"))
 
 	Func setServiceProvider P1
 		raise("DotNet Error: ServiceProvider is a read-only property")
@@ -11229,7 +10897,7 @@ Class ServiceProvidersEventData from EventData
 		return self
 
 	Func getServiceProviders
-		return dnSend("s3:get",nHandle,"s16:ServiceProviders","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ServiceProviders"))
 
 	Func setServiceProviders P1
 		raise("DotNet Error: ServiceProviders is a read-only property")
@@ -11252,13 +10920,13 @@ Class SharedDependentEntityEventData from EventData
 		return self
 
 	Func getFirstEntityType
-		return dnSend("s3:get",nHandle,"s15:FirstEntityType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:FirstEntityType"))
 
 	Func setFirstEntityType P1
 		raise("DotNet Error: FirstEntityType is a read-only property")
 
 	Func getSecondEntityType
-		return dnSend("s3:get",nHandle,"s16:SecondEntityType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:SecondEntityType"))
 
 	Func setSecondEntityType P1
 		raise("DotNet Error: SecondEntityType is a read-only property")
@@ -11280,7 +10948,7 @@ Class SkipNavigationEventData from EventData
 		return self
 
 	Func getNavigation
-		return dnSend("s3:get",nHandle,"s10:Navigation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Navigation"))
 
 	Func setNavigation P1
 		raise("DotNet Error: Navigation is a read-only property")
@@ -11304,19 +10972,19 @@ Class TransactionEnlistedEventData from EventData
 		return self
 
 	Func getTransaction
-		return dnSend("s3:get",nHandle,"s11:Transaction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Transaction"))
 
 	Func setTransaction P1
 		raise("DotNet Error: Transaction is a read-only property")
 
 	Func getConnection
-		return dnSend("s3:get",nHandle,"s10:Connection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Connection"))
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getConnectionId
-		return dnSend("s3:get",nHandle,"s12:ConnectionId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ConnectionId"))
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")
@@ -11339,13 +11007,13 @@ Class TwoPropertyBaseCollectionsEventData from EventData
 		return self
 
 	Func getFirstPropertyCollection
-		return dnSend("s3:get",nHandle,"s23:FirstPropertyCollection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:FirstPropertyCollection"))
 
 	Func setFirstPropertyCollection P1
 		raise("DotNet Error: FirstPropertyCollection is a read-only property")
 
 	Func getSecondPropertyCollection
-		return dnSend("s3:get",nHandle,"s24:SecondPropertyCollection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:SecondPropertyCollection"))
 
 	Func setSecondPropertyCollection P1
 		raise("DotNet Error: SecondPropertyCollection is a read-only property")
@@ -11368,13 +11036,13 @@ Class TwoSqlExpressionsEventData from EventData
 		return self
 
 	Func getLeft
-		return dnSend("s3:get",nHandle,"s4:Left","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Left"))
 
 	Func setLeft P1
 		raise("DotNet Error: Left is a read-only property")
 
 	Func getRight
-		return dnSend("s3:get",nHandle,"s5:Right","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Right"))
 
 	Func setRight P1
 		raise("DotNet Error: Right is a read-only property")
@@ -11397,13 +11065,13 @@ Class TwoUnmappedPropertyCollectionsEventData from EventData
 		return self
 
 	Func getFirstPropertyCollection
-		return dnSend("s3:get",nHandle,"s23:FirstPropertyCollection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:FirstPropertyCollection"))
 
 	Func setFirstPropertyCollection P1
 		raise("DotNet Error: FirstPropertyCollection is a read-only property")
 
 	Func getSecondPropertyCollection
-		return dnSend("s3:get",nHandle,"s24:SecondPropertyCollection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:SecondPropertyCollection"))
 
 	Func setSecondPropertyCollection P1
 		raise("DotNet Error: SecondPropertyCollection is a read-only property")
@@ -11425,7 +11093,7 @@ Class TypeEventData from EventData
 		return self
 
 	Func getClrType
-		return dnSend("s3:get",nHandle,"s7:ClrType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
 
 	Func setClrType P1
 		raise("DotNet Error: ClrType is a read-only property")
@@ -11448,13 +11116,13 @@ Class ValueConverterEventData from EventData
 		return self
 
 	Func getMappingClrType
-		return dnSend("s3:get",nHandle,"s14:MappingClrType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:MappingClrType"))
 
 	Func setMappingClrType P1
 		raise("DotNet Error: MappingClrType is a read-only property")
 
 	Func getValueConverter
-		return dnSend("s3:get",nHandle,"s14:ValueConverter","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ValueConverter"))
 
 	Func setValueConverter P1
 		raise("DotNet Error: ValueConverter is a read-only property")
@@ -11477,13 +11145,13 @@ Class CascadeDeleteEventData from EntityEntryEventData
 		return self
 
 	Func getState
-		return dnSend("s3:get",nHandle,"s5:State","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:State"))
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getParentEntityEntry
-		return dnSend("s3:get",nHandle,"s17:ParentEntityEntry","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ParentEntityEntry"))
 
 	Func setParentEntityEntry P1
 		raise("DotNet Error: ParentEntityEntry is a read-only property")
@@ -11506,13 +11174,13 @@ Class CascadeDeleteOrphanEventData from EntityEntryEventData
 		return self
 
 	Func getState
-		return dnSend("s3:get",nHandle,"s5:State","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:State"))
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getParentEntityType
-		return dnSend("s3:get",nHandle,"s16:ParentEntityType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ParentEntityType"))
 
 	Func setParentEntityType P1
 		raise("DotNet Error: ParentEntityType is a read-only property")
@@ -11536,19 +11204,19 @@ Class CollectionChangedEventData from NavigationEventData
 		return self
 
 	Func getEntityEntry
-		return dnSend("s3:get",nHandle,"s11:EntityEntry","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:EntityEntry"))
 
 	Func setEntityEntry P1
 		raise("DotNet Error: EntityEntry is a read-only property")
 
 	Func getAdded
-		return dnSend("s3:get",nHandle,"s5:Added","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Added"))
 
 	Func setAdded P1
 		raise("DotNet Error: Added is a read-only property")
 
 	Func getRemoved
-		return dnSend("s3:get",nHandle,"s7:Removed","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Removed"))
 
 	Func setRemoved P1
 		raise("DotNet Error: Removed is a read-only property")
@@ -11576,45 +11244,45 @@ Class CommandCorrelatedEventData from DbContextEventData
 		return self
 
 	Func getConnection
-		return dnSend("s3:get",nHandle,"s10:Connection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Connection"))
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getCommandId
-		return dnSend("s3:get",nHandle,"s9:CommandId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:CommandId"))
 
 	Func setCommandId P1
 		raise("DotNet Error: CommandId is a read-only property")
 
 	Func getConnectionId
-		return dnSend("s3:get",nHandle,"s12:ConnectionId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ConnectionId"))
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getExecuteMethod
-		return dnSend("s3:get",nHandle,"s13:ExecuteMethod","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ExecuteMethod"))
 
 	Func setExecuteMethod P1
 		raise("DotNet Error: ExecuteMethod is a read-only property")
 
 	Func getIsAsync
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAsync")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsAsync",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
 
 	Func getStartTime
-		return dnSend("s3:get",nHandle,"s9:StartTime","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:StartTime"))
 
 	Func setStartTime P1
 		raise("DotNet Error: StartTime is a read-only property")
 
 	Func getCommandSource
-		return dnSend("s3:get",nHandle,"s13:CommandSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:CommandSource"))
 
 	Func setCommandSource P1
 		raise("DotNet Error: CommandSource is a read-only property")
@@ -11639,25 +11307,25 @@ Class ConnectionCreatedEventData from DbContextEventData
 		return self
 
 	Func getConnection
-		return dnSend("s3:get",nHandle,"s10:Connection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Connection"))
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getConnectionId
-		return dnSend("s3:get",nHandle,"s12:ConnectionId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ConnectionId"))
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getStartTime
-		return dnSend("s3:get",nHandle,"s9:StartTime","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:StartTime"))
 
 	Func setStartTime P1
 		raise("DotNet Error: StartTime is a read-only property")
 
 	Func getDuration
-		return dnSend("s3:get",nHandle,"s8:Duration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Duration"))
 
 	Func setDuration P1
 		raise("DotNet Error: Duration is a read-only property")
@@ -11682,20 +11350,20 @@ Class ConnectionCreatingEventData from DbContextEventData
 
 	Func getConnectionString
 		dn_x = dotnet_call("s3:get",nHandle,"s16:ConnectionString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ConnectionString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setConnectionString P1
 		raise("DotNet Error: ConnectionString is a read-only property")
 
 	Func getConnectionId
-		return dnSend("s3:get",nHandle,"s12:ConnectionId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ConnectionId"))
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getStartTime
-		return dnSend("s3:get",nHandle,"s9:StartTime","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:StartTime"))
 
 	Func setStartTime P1
 		raise("DotNet Error: StartTime is a read-only property")
@@ -11720,27 +11388,27 @@ Class ConnectionEventData from DbContextEventData
 		return self
 
 	Func getConnection
-		return dnSend("s3:get",nHandle,"s10:Connection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Connection"))
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getConnectionId
-		return dnSend("s3:get",nHandle,"s12:ConnectionId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ConnectionId"))
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getIsAsync
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAsync")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsAsync",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
 
 	Func getStartTime
-		return dnSend("s3:get",nHandle,"s9:StartTime","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:StartTime"))
 
 	Func setStartTime P1
 		raise("DotNet Error: StartTime is a read-only property")
@@ -11768,32 +11436,32 @@ Class DataReaderEventData from DbContextEventData
 		return self
 
 	Func getCommand
-		return dnSend("s3:get",nHandle,"s7:Command","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Command"))
 
 	Func setCommand P1
 		raise("DotNet Error: Command is a read-only property")
 
 	Func getDataReader
-		return dnSend("s3:get",nHandle,"s10:DataReader","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:DataReader"))
 
 	Func setDataReader P1
 		raise("DotNet Error: DataReader is a read-only property")
 
 	Func getCommandId
-		return dnSend("s3:get",nHandle,"s9:CommandId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:CommandId"))
 
 	Func setCommandId P1
 		raise("DotNet Error: CommandId is a read-only property")
 
 	Func getConnectionId
-		return dnSend("s3:get",nHandle,"s12:ConnectionId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ConnectionId"))
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getRecordsAffected
 		dn_x = dotnet_call("s3:get",nHandle,"s15:RecordsAffected")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:RecordsAffected",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRecordsAffected P1
@@ -11801,14 +11469,14 @@ Class DataReaderEventData from DbContextEventData
 
 	Func getReadCount
 		dn_x = dotnet_call("s3:get",nHandle,"s9:ReadCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:ReadCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setReadCount P1
 		raise("DotNet Error: ReadCount is a read-only property")
 
 	Func getStartTime
-		return dnSend("s3:get",nHandle,"s9:StartTime","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:StartTime"))
 
 	Func setStartTime P1
 		raise("DotNet Error: StartTime is a read-only property")
@@ -11830,7 +11498,7 @@ Class DbContextErrorEventData from DbContextEventData
 		return self
 
 	Func getException
-		return dnSend("s3:get",nHandle,"s9:Exception","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Exception"))
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
@@ -11852,7 +11520,7 @@ Class DbContextTypeErrorEventData from DbContextTypeEventData
 		return self
 
 	Func getException
-		return dnSend("s3:get",nHandle,"s9:Exception","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Exception"))
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
@@ -11876,7 +11544,7 @@ Class ForeignKeyCandidateEventData from TwoPropertyBaseCollectionsEventData
 
 	Func getDependentToPrincipalNavigationSpecification
 		dn_x = dotnet_call("s3:get",nHandle,"s43:DependentToPrincipalNavigationSpecification")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s43:DependentToPrincipalNavigationSpecification",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDependentToPrincipalNavigationSpecification P1
@@ -11884,7 +11552,7 @@ Class ForeignKeyCandidateEventData from TwoPropertyBaseCollectionsEventData
 
 	Func getPrincipalToDependentNavigationSpecification
 		dn_x = dotnet_call("s3:get",nHandle,"s43:PrincipalToDependentNavigationSpecification")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s43:PrincipalToDependentNavigationSpecification",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPrincipalToDependentNavigationSpecification P1
@@ -11908,14 +11576,14 @@ Class LazyLoadingEventData from DbContextEventData
 		return self
 
 	Func getEntity
-		return dnSend("s3:get",nHandle,"s6:Entity","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Entity"))
 
 	Func setEntity P1
 		raise("DotNet Error: Entity is a read-only property")
 
 	Func getNavigationPropertyName
 		dn_x = dotnet_call("s3:get",nHandle,"s22:NavigationPropertyName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:NavigationPropertyName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNavigationPropertyName P1
@@ -11938,7 +11606,7 @@ Class MigrationAssemblyEventData from MigratorEventData
 		return self
 
 	Func getMigrationsAssembly
-		return dnSend("s3:get",nHandle,"s18:MigrationsAssembly","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:MigrationsAssembly"))
 
 	Func setMigrationsAssembly P1
 		raise("DotNet Error: MigrationsAssembly is a read-only property")
@@ -11961,13 +11629,13 @@ Class MigrationCommandEventData from MigratorEventData
 		return self
 
 	Func getMigration
-		return dnSend("s3:get",nHandle,"s9:Migration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Migration"))
 
 	Func setMigration P1
 		raise("DotNet Error: Migration is a read-only property")
 
 	Func getMigrationCommand
-		return dnSend("s3:get",nHandle,"s16:MigrationCommand","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:MigrationCommand"))
 
 	Func setMigrationCommand P1
 		raise("DotNet Error: MigrationCommand is a read-only property")
@@ -11989,7 +11657,7 @@ Class MigrationEventData from MigratorEventData
 		return self
 
 	Func getMigration
-		return dnSend("s3:get",nHandle,"s9:Migration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Migration"))
 
 	Func setMigration P1
 		raise("DotNet Error: Migration is a read-only property")
@@ -12012,13 +11680,13 @@ Class MigratorConnectionEventData from MigratorEventData
 		return self
 
 	Func getConnection
-		return dnSend("s3:get",nHandle,"s10:Connection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Connection"))
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getConnectionId
-		return dnSend("s3:get",nHandle,"s12:ConnectionId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ConnectionId"))
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")
@@ -12041,7 +11709,7 @@ Class MinBatchSizeEventData from BatchEventData
 
 	Func getMinBatchSize
 		dn_x = dotnet_call("s3:get",nHandle,"s12:MinBatchSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:MinBatchSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMinBatchSize P1
@@ -12066,19 +11734,19 @@ Class PropertyChangedEventData from PropertyEventData
 		return self
 
 	Func getEntityEntry
-		return dnSend("s3:get",nHandle,"s11:EntityEntry","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:EntityEntry"))
 
 	Func setEntityEntry P1
 		raise("DotNet Error: EntityEntry is a read-only property")
 
 	Func getOldValue
-		return dnSend("s3:get",nHandle,"s8:OldValue","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:OldValue"))
 
 	Func setOldValue P1
 		raise("DotNet Error: OldValue is a read-only property")
 
 	Func getNewValue
-		return dnSend("s3:get",nHandle,"s8:NewValue","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:NewValue"))
 
 	Func setNewValue P1
 		raise("DotNet Error: NewValue is a read-only property")
@@ -12101,13 +11769,13 @@ Class PropertyValueEventData from PropertyEventData
 		return self
 
 	Func getEntityEntry
-		return dnSend("s3:get",nHandle,"s11:EntityEntry","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:EntityEntry"))
 
 	Func setEntityEntry P1
 		raise("DotNet Error: EntityEntry is a read-only property")
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -12130,13 +11798,13 @@ Class QueryExpressionEventData from DbContextEventData
 		return self
 
 	Func getExpression
-		return dnSend("s3:get",nHandle,"s10:Expression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Expression"))
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getExpressionPrinter
-		return dnSend("s3:get",nHandle,"s17:ExpressionPrinter","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ExpressionPrinter"))
 
 	Func setExpressionPrinter P1
 		raise("DotNet Error: ExpressionPrinter is a read-only property")
@@ -12160,19 +11828,19 @@ Class ReferenceChangedEventData from NavigationEventData
 		return self
 
 	Func getEntityEntry
-		return dnSend("s3:get",nHandle,"s11:EntityEntry","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:EntityEntry"))
 
 	Func setEntityEntry P1
 		raise("DotNet Error: EntityEntry is a read-only property")
 
 	Func getOldReferencedEntity
-		return dnSend("s3:get",nHandle,"s19:OldReferencedEntity","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:OldReferencedEntity"))
 
 	Func setOldReferencedEntity P1
 		raise("DotNet Error: OldReferencedEntity is a read-only property")
 
 	Func getNewReferencedEntity
-		return dnSend("s3:get",nHandle,"s19:NewReferencedEntity","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:NewReferencedEntity"))
 
 	Func setNewReferencedEntity P1
 		raise("DotNet Error: NewReferencedEntity is a read-only property")
@@ -12195,7 +11863,7 @@ Class SaveChangesCompletedEventData from DbContextEventData
 
 	Func getEntitiesSavedCount
 		dn_x = dotnet_call("s3:get",nHandle,"s18:EntitiesSavedCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:EntitiesSavedCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEntitiesSavedCount P1
@@ -12220,19 +11888,19 @@ Class SkipCollectionChangedEventData from SkipNavigationEventData
 		return self
 
 	Func getEntityEntry
-		return dnSend("s3:get",nHandle,"s11:EntityEntry","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:EntityEntry"))
 
 	Func setEntityEntry P1
 		raise("DotNet Error: EntityEntry is a read-only property")
 
 	Func getAdded
-		return dnSend("s3:get",nHandle,"s5:Added","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Added"))
 
 	Func setAdded P1
 		raise("DotNet Error: Added is a read-only property")
 
 	Func getRemoved
-		return dnSend("s3:get",nHandle,"s7:Removed","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Removed"))
 
 	Func setRemoved P1
 		raise("DotNet Error: Removed is a read-only property")
@@ -12255,13 +11923,13 @@ Class StateChangedEventData from EntityEntryEventData
 		return self
 
 	Func getOldState
-		return dnSend("s3:get",nHandle,"s8:OldState","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:OldState"))
 
 	Func setOldState P1
 		raise("DotNet Error: OldState is a read-only property")
 
 	Func getNewState
-		return dnSend("s3:get",nHandle,"s8:NewState","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:NewState"))
 
 	Func setNewState P1
 		raise("DotNet Error: NewState is a read-only property")
@@ -12284,14 +11952,14 @@ Class StoredProcedurePropertyEventData from PropertyEventData
 		return self
 
 	Func getEntityType
-		return dnSend("s3:get",nHandle,"s10:EntityType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getStoredProcedureName
 		dn_x = dotnet_call("s3:get",nHandle,"s19:StoredProcedureName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:StoredProcedureName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setStoredProcedureName P1
@@ -12318,33 +11986,33 @@ Class TransactionEventData from DbContextEventData
 		return self
 
 	Func getTransaction
-		return dnSend("s3:get",nHandle,"s11:Transaction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Transaction"))
 
 	Func setTransaction P1
 		raise("DotNet Error: Transaction is a read-only property")
 
 	Func getTransactionId
-		return dnSend("s3:get",nHandle,"s13:TransactionId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TransactionId"))
 
 	Func setTransactionId P1
 		raise("DotNet Error: TransactionId is a read-only property")
 
 	Func getConnectionId
-		return dnSend("s3:get",nHandle,"s12:ConnectionId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ConnectionId"))
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getIsAsync
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAsync")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsAsync",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
 
 	Func getStartTime
-		return dnSend("s3:get",nHandle,"s9:StartTime","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:StartTime"))
 
 	Func setStartTime P1
 		raise("DotNet Error: StartTime is a read-only property")
@@ -12370,33 +12038,33 @@ Class TransactionStartingEventData from DbContextEventData
 		return self
 
 	Func getIsolationLevel
-		return dnSend("s3:get",nHandle,"s14:IsolationLevel","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:IsolationLevel"))
 
 	Func setIsolationLevel P1
 		raise("DotNet Error: IsolationLevel is a read-only property")
 
 	Func getTransactionId
-		return dnSend("s3:get",nHandle,"s13:TransactionId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TransactionId"))
 
 	Func setTransactionId P1
 		raise("DotNet Error: TransactionId is a read-only property")
 
 	Func getConnectionId
-		return dnSend("s3:get",nHandle,"s12:ConnectionId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ConnectionId"))
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getIsAsync
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAsync")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsAsync",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
 
 	Func getStartTime
-		return dnSend("s3:get",nHandle,"s9:StartTime","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:StartTime"))
 
 	Func setStartTime P1
 		raise("DotNet Error: StartTime is a read-only property")
@@ -12418,7 +12086,7 @@ Class TypeLoadingEventData from AssemblyEventData
 		return self
 
 	Func getException
-		return dnSend("s3:get",nHandle,"s9:Exception","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Exception"))
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
@@ -12441,7 +12109,7 @@ Class UniquifiedPropertyEventData from PropertyEventData
 
 	Func getBasePropertyName
 		dn_x = dotnet_call("s3:get",nHandle,"s16:BasePropertyName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:BasePropertyName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBasePropertyName P1
@@ -12464,7 +12132,7 @@ Class UpdateEntryEventData from DbContextEventData
 		return self
 
 	Func getEntityEntry
-		return dnSend("s3:get",nHandle,"s11:EntityEntry","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:EntityEntry"))
 
 	Func setEntityEntry P1
 		raise("DotNet Error: EntityEntry is a read-only property")
@@ -12487,14 +12155,14 @@ Class CommandEventData from CommandCorrelatedEventData
 		return self
 
 	Func getCommand
-		return dnSend("s3:get",nHandle,"s7:Command","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Command"))
 
 	Func setCommand P1
 		raise("DotNet Error: Command is a read-only property")
 
 	Func getLogParameterValues
 		dn_x = dotnet_call("s3:get",nHandle,"s18:LogParameterValues")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:LogParameterValues",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLogParameterValues P1
@@ -12517,7 +12185,7 @@ Class ConcurrencyExceptionEventData from DbContextErrorEventData
 		return self
 
 	Func getEntries
-		return dnSend("s3:get",nHandle,"s7:Entries","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Entries"))
 
 	Func setEntries P1
 		raise("DotNet Error: Entries is a read-only property")
@@ -12539,7 +12207,7 @@ Class ConnectionEndEventData from ConnectionEventData
 		return self
 
 	Func getDuration
-		return dnSend("s3:get",nHandle,"s8:Duration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Duration"))
 
 	Func setDuration P1
 		raise("DotNet Error: Duration is a read-only property")
@@ -12562,7 +12230,7 @@ Class DataReaderClosingEventData from DataReaderEventData
 
 	Func getIsAsync
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAsync")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsAsync",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAsync P1
@@ -12585,7 +12253,7 @@ Class DataReaderDisposingEventData from DataReaderEventData
 		return self
 
 	Func getDuration
-		return dnSend("s3:get",nHandle,"s8:Duration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Duration"))
 
 	Func setDuration P1
 		raise("DotNet Error: Duration is a read-only property")
@@ -12610,7 +12278,7 @@ Class MigrationScriptingEventData from MigrationEventData
 
 	Func getFromMigration
 		dn_x = dotnet_call("s3:get",nHandle,"s13:FromMigration")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:FromMigration",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFromMigration P1
@@ -12618,7 +12286,7 @@ Class MigrationScriptingEventData from MigrationEventData
 
 	Func getToMigration
 		dn_x = dotnet_call("s3:get",nHandle,"s11:ToMigration")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:ToMigration",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setToMigration P1
@@ -12626,7 +12294,7 @@ Class MigrationScriptingEventData from MigrationEventData
 
 	Func getIsIdempotent
 		dn_x = dotnet_call("s3:get",nHandle,"s12:IsIdempotent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsIdempotent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsIdempotent P1
@@ -12649,7 +12317,7 @@ Class TransactionEndEventData from TransactionEventData
 		return self
 
 	Func getDuration
-		return dnSend("s3:get",nHandle,"s8:Duration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Duration"))
 
 	Func setDuration P1
 		raise("DotNet Error: Duration is a read-only property")
@@ -12671,7 +12339,7 @@ Class CommandEndEventData from CommandEventData
 		return self
 
 	Func getDuration
-		return dnSend("s3:get",nHandle,"s8:Duration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Duration"))
 
 	Func setDuration P1
 		raise("DotNet Error: Duration is a read-only property")
@@ -12693,7 +12361,7 @@ Class ConnectionErrorEventData from ConnectionEndEventData
 		return self
 
 	Func getException
-		return dnSend("s3:get",nHandle,"s9:Exception","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Exception"))
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
@@ -12719,31 +12387,31 @@ Class RelationalConcurrencyExceptionEventData from ConcurrencyExceptionEventData
 		return self
 
 	Func getConnection
-		return dnSend("s3:get",nHandle,"s10:Connection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Connection"))
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getCommand
-		return dnSend("s3:get",nHandle,"s7:Command","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Command"))
 
 	Func setCommand P1
 		raise("DotNet Error: Command is a read-only property")
 
 	Func getDataReader
-		return dnSend("s3:get",nHandle,"s10:DataReader","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:DataReader"))
 
 	Func setDataReader P1
 		raise("DotNet Error: DataReader is a read-only property")
 
 	Func getCommandId
-		return dnSend("s3:get",nHandle,"s9:CommandId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:CommandId"))
 
 	Func setCommandId P1
 		raise("DotNet Error: CommandId is a read-only property")
 
 	Func getConnectionId
-		return dnSend("s3:get",nHandle,"s12:ConnectionId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ConnectionId"))
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")
@@ -12767,14 +12435,14 @@ Class TransactionErrorEventData from TransactionEndEventData
 
 	Func getAction
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Action")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Action",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
 
 	Func getException
-		return dnSend("s3:get",nHandle,"s9:Exception","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Exception"))
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
@@ -12796,7 +12464,7 @@ Class CommandErrorEventData from CommandEndEventData
 		return self
 
 	Func getException
-		return dnSend("s3:get",nHandle,"s9:Exception","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Exception"))
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
@@ -12818,7 +12486,7 @@ Class CommandExecutedEventData from CommandEndEventData
 		return self
 
 	Func getResult
-		return dnSend("s3:get",nHandle,"s6:Result","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Result"))
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")

@@ -102,24 +102,21 @@ Class Dispatcher from Object
 
 	Func CheckAccess 
 		dn_x = dotnet_call("s4:call",nHandle,"s11:CheckAccess")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:CheckAccess",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func VerifyAccess 
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:VerifyAccess")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:VerifyAccess","") ok
+		dotnet_callv("s4:call",nHandle,"s12:VerifyAccess")
 
 		return self
 
 	Func BeginInvokeShutdown P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s19:BeginInvokeShutdown",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s19:BeginInvokeShutdown",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s19:BeginInvokeShutdown",P1)
 
 		return self
 
 	Func InvokeShutdown 
-		dn_x = dotnet_callv("s4:call",nHandle,"s14:InvokeShutdown")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s14:InvokeShutdown","") ok
+		dotnet_callv("s4:call",nHandle,"s14:InvokeShutdown")
 
 		return self
 
@@ -133,8 +130,7 @@ Class Dispatcher from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s6:Invoke",dnPackItem(P1))
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Invoke",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Invoke",P1)
 
 		return self
 
@@ -142,34 +138,31 @@ Class Dispatcher from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s11:InvokeAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s11:InvokeAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:InvokeAsync",P1))
 
 	Func DisableProcessing 
-		return dnSend("s4:call",nHandle,"s17:DisableProcessing","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:DisableProcessing"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FromThread P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s10:FromThread",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s10:FromThread",P1))
 
 	Func Run 
-		dn_x = dotnet_callv("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s3:Run")
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s3:Run","") ok
+		dotnet_callv("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s3:Run")
 
 		return self
 
 	Func PushFrame P1
-		dn_x = dotnet_callv("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s9:PushFrame",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s9:PushFrame",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s9:PushFrame",P1)
 
 		return self
 
 	Func ExitAllFrames 
-		dn_x = dotnet_callv("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s13:ExitAllFrames")
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s13:ExitAllFrames","") ok
+		dotnet_callv("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s13:ExitAllFrames")
 
 		return self
 
@@ -178,13 +171,12 @@ Class Dispatcher from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s5:Yield",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s5:Yield","")
+			return dnObj(dotnet_callo("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s5:Yield"))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s5:Yield",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s5:Yield",P1))
 
 	Func ValidatePriority P1,P2
-		dn_x = dotnet_callv("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s16:ValidatePriority",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s16:ValidatePriority",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s16:ValidatePriority",P1,P2)
 
 		return self
 
@@ -221,14 +213,14 @@ Class Dispatcher from Object
 		return self
 
 	Func getThread
-		return dnSend("s3:get",nHandle,"s6:Thread","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Thread"))
 
 	Func setThread P1
 		raise("DotNet Error: Thread is a read-only property")
 
 	Func getHasShutdownStarted
 		dn_x = dotnet_call("s3:get",nHandle,"s18:HasShutdownStarted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:HasShutdownStarted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasShutdownStarted P1
@@ -236,20 +228,20 @@ Class Dispatcher from Object
 
 	Func getHasShutdownFinished
 		dn_x = dotnet_call("s3:get",nHandle,"s19:HasShutdownFinished")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:HasShutdownFinished",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasShutdownFinished P1
 		raise("DotNet Error: HasShutdownFinished is a read-only property")
 
 	Func getHooks
-		return dnSend("s3:get",nHandle,"s5:Hooks","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Hooks"))
 
 	Func setHooks P1
 		raise("DotNet Error: Hooks is a read-only property")
 
 	Func getCurrentDispatcher
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s17:CurrentDispatcher","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Threading.Dispatcher, WindowsBase',"s17:CurrentDispatcher"))
 
 	Func setCurrentDispatcher P1
 		raise("DotNet Error: CurrentDispatcher is a read-only property")
@@ -269,7 +261,7 @@ Class DispatcherEventArgs from EventArgs
 		return self
 
 	Func getDispatcher
-		return dnSend("s3:get",nHandle,"s10:Dispatcher","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Dispatcher"))
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")
@@ -292,13 +284,13 @@ Class DispatcherHookEventArgs from EventArgs
 		return self
 
 	Func getDispatcher
-		return dnSend("s3:get",nHandle,"s10:Dispatcher","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Dispatcher"))
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")
 
 	Func getOperation
-		return dnSend("s3:get",nHandle,"s9:Operation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Operation"))
 
 	Func setOperation P1
 		raise("DotNet Error: Operation is a read-only property")
@@ -317,7 +309,7 @@ Class DispatcherHooks from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDispatcherInactiveEvent P1
@@ -384,22 +376,21 @@ Class DispatcherObject from Object
 
 	Func CheckAccess 
 		dn_x = dotnet_call("s4:call",nHandle,"s11:CheckAccess")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:CheckAccess",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func VerifyAccess 
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:VerifyAccess")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:VerifyAccess","") ok
+		dotnet_callv("s4:call",nHandle,"s12:VerifyAccess")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getDispatcher
-		return dnSend("s3:get",nHandle,"s10:Dispatcher","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Dispatcher"))
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")
@@ -423,25 +414,25 @@ Class DispatcherOperation from Object
 		return self
 
 	Func GetAwaiter 
-		return dnSend("s4:call",nHandle,"s10:GetAwaiter","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetAwaiter"))
 
 	Func Wait P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s4:Wait",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s4:Wait","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Wait"))
 		ok
-		return dnSend("s4:call",nHandle,"s4:Wait",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Wait",P1))
 
 	Func Abort 
 		dn_x = dotnet_call("s4:call",nHandle,"s5:Abort")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s5:Abort",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAbortedEvent P1
@@ -461,33 +452,32 @@ Class DispatcherOperation from Object
 		return self
 
 	Func getDispatcher
-		return dnSend("s3:get",nHandle,"s10:Dispatcher","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Dispatcher"))
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")
 
 	Func getPriority
-		return dnSend("s3:get",nHandle,"s8:Priority","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Priority"))
 
 	Func setPriority P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Priority",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Priority",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Priority",P1)
 		return self
 
 	Func getStatus
-		return dnSend("s3:get",nHandle,"s6:Status","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Status"))
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
 
 	Func getTask
-		return dnSend("s3:get",nHandle,"s4:Task","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Task"))
 
 	Func setTask P1
 		raise("DotNet Error: Task is a read-only property")
 
 	Func getResult
-		return dnSend("s3:get",nHandle,"s6:Result","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Result"))
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
@@ -514,7 +504,7 @@ Class DispatcherPriorityAwaitable from ValueType
 		return self
 
 	Func GetAwaiter 
-		return dnSend("s4:call",nHandle,"s10:GetAwaiter","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetAwaiter"))
 
 
 Class DispatcherPriorityAwaiter from ValueType
@@ -540,20 +530,18 @@ Class DispatcherPriorityAwaiter from ValueType
 		return self
 
 	Func GetResult 
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:GetResult")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:GetResult","") ok
+		dotnet_callv("s4:call",nHandle,"s9:GetResult")
 
 		return self
 
 	Func OnCompleted P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:OnCompleted",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:OnCompleted",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s11:OnCompleted",P1)
 
 		return self
 
 	Func getIsCompleted
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsCompleted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsCompleted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsCompleted P1
@@ -581,8 +569,7 @@ Class DispatcherProcessingDisabled from ValueType
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
@@ -666,20 +653,18 @@ Class DispatcherTimer from Object
 		return self
 
 	Func Start 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Start")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Start","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Start")
 
 		return self
 
 	Func Stop 
-		dn_x = dotnet_callv("s4:call",nHandle,"s4:Stop")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Stop","") ok
+		dotnet_callv("s4:call",nHandle,"s4:Stop")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTickEvent P1
@@ -691,35 +676,32 @@ Class DispatcherTimer from Object
 		return self
 
 	Func getDispatcher
-		return dnSend("s3:get",nHandle,"s10:Dispatcher","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Dispatcher"))
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")
 
 	Func getIsEnabled
 		dn_x = dotnet_call("s3:get",nHandle,"s9:IsEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsEnabled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsEnabled P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:IsEnabled",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:IsEnabled",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:IsEnabled",P1)
 		return self
 
 	Func getInterval
-		return dnSend("s3:get",nHandle,"s8:Interval","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Interval"))
 
 	Func setInterval P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Interval",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Interval",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Interval",P1)
 		return self
 
 	Func getTag
-		return dnSend("s3:get",nHandle,"s3:Tag","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s3:Tag"))
 
 	Func setTag P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:Tag",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Tag",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:Tag",P1)
 		return self
 
 
@@ -761,12 +743,11 @@ Class DispatcherFrame from DispatcherObject
 
 	Func getContinue
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Continue")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Continue",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setContinue P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Continue",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Continue",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Continue",P1)
 		return self
 
 
@@ -785,19 +766,18 @@ Class DispatcherUnhandledExceptionEventArgs from DispatcherEventArgs
 		return self
 
 	Func getException
-		return dnSend("s3:get",nHandle,"s9:Exception","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Exception"))
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getHandled
 		dn_x = dotnet_call("s3:get",nHandle,"s7:Handled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Handled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHandled P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Handled",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Handled",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Handled",P1)
 		return self
 
 
@@ -816,19 +796,18 @@ Class DispatcherUnhandledExceptionFilterEventArgs from DispatcherEventArgs
 		return self
 
 	Func getException
-		return dnSend("s3:get",nHandle,"s9:Exception","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Exception"))
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getRequestCatch
 		dn_x = dotnet_call("s3:get",nHandle,"s12:RequestCatch")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:RequestCatch",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRequestCatch P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:RequestCatch",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:RequestCatch",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:RequestCatch",P1)
 		return self
 
 

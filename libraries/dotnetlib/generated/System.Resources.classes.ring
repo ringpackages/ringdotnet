@@ -35,13 +35,12 @@ Class IResourceReader from DotNetObject
 		return self
 
 	Func Close 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Close")
 
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 
 Class ResourceManager from Object
@@ -79,45 +78,44 @@ Class ResourceManager from Object
 		return self
 
 	Func ReleaseAllResources 
-		dn_x = dotnet_callv("s4:call",nHandle,"s19:ReleaseAllResources")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s19:ReleaseAllResources","") ok
+		dotnet_callv("s4:call",nHandle,"s19:ReleaseAllResources")
 
 		return self
 
 	Func GetResourceSet P1,P2,P3
-		return dnSend("s4:call",nHandle,"s14:GetResourceSet",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetResourceSet",P1,P2,P3))
 
 	Func GetString P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s9:GetString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetObject P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s9:GetObject",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s9:GetObject",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetObject",P1))
 
 	Func GetStream P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s9:GetStream",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s9:GetStream",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetStream",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CreateFileBasedResourceManager P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Resources.ResourceManager, System.Private.CoreLib'),"s30:CreateFileBasedResourceManager",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Resources.ResourceManager, System.Private.CoreLib',"s30:CreateFileBasedResourceManager",P1,P2,P3))
 
 	Func getBaseName
 		dn_x = dotnet_call("s3:get",nHandle,"s8:BaseName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:BaseName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBaseName P1
@@ -125,23 +123,22 @@ Class ResourceManager from Object
 
 	Func getIgnoreCase
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IgnoreCase")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IgnoreCase",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIgnoreCase P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:IgnoreCase",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IgnoreCase",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:IgnoreCase",P1)
 		return self
 
 	Func getResourceSetType
-		return dnSend("s3:get",nHandle,"s15:ResourceSetType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ResourceSetType"))
 
 	Func setResourceSetType P1
 		raise("DotNet Error: ResourceSetType is a read-only property")
 
 	Func getMagicNumber
 		dn_x = dotnet_call("s3:get",'System.Resources.ResourceManager, System.Private.CoreLib',"s11:MagicNumber")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Resources.ResourceManager, System.Private.CoreLib',"s11:MagicNumber",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMagicNumber P1
@@ -149,7 +146,7 @@ Class ResourceManager from Object
 
 	Func getHeaderVersionNumber
 		dn_x = dotnet_call("s3:get",'System.Resources.ResourceManager, System.Private.CoreLib',"s19:HeaderVersionNumber")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Resources.ResourceManager, System.Private.CoreLib',"s19:HeaderVersionNumber",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHeaderVersionNumber P1
@@ -173,23 +170,21 @@ Class ResourceReader from Object
 		return dnSend("s4:call",nHandle,"s15:GetResourceData",dnPackItem(P1))
 
 	Func Close 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Close")
 
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -207,43 +202,41 @@ Class ResourceSet from Object
 		return self
 
 	Func Close 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Close")
 
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func GetDefaultReader 
-		return dnSend("s4:call",nHandle,"s16:GetDefaultReader","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetDefaultReader"))
 
 	Func GetDefaultWriter 
-		return dnSend("s4:call",nHandle,"s16:GetDefaultWriter","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetDefaultWriter"))
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func GetString P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s9:GetString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetObject P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s9:GetObject",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s9:GetObject",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetObject",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 

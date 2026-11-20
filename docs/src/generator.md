@@ -84,23 +84,25 @@ Class StringBuilder from Object
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Append P1
-		return dnSend("s4:call",nHandle,"s6:Append",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Append",P1))
 
 	Func getLength
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Length",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 ```
 
-Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when you assign to it. A generated method does not make a target object or a list for the request: it passes the handle as a number and the parts that never change (the operation `call` and the name) as ready wire items.
+Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when you assign to it. A generated method does not make a target object or a list for the request: it passes the handle as a number and the parts that never change (the operation `call` and the name) as ready wire items, and a C function of the extension packs the arguments, calls .NET and reads the answer:
 
-- A method that returns a **text, a number, a yes/no or nothing** calls the C function `dotnet_call` (`dotnet_callv` for nothing). It packs the arguments (texts and numbers), calls .NET and reads the answer in C: about 2 to 3 µs for a call. When it cannot finish (an argument is an object or a list, or the answer is an object or null) it answers a list, and the Ring function `dnLate` does the rest.
-- Any other method (it returns an object, or has `out` parameters) uses `dnSend`, the same request made in Ring.
-- The calls with named arguments (`callnamed`) also use `dnSend`.
+- `dotnet_call` for a method that returns a **text, a number or a yes/no**: the answer is that Ring value, about 2 to 3 µs for a call.
+- `dotnet_callv` for a method that returns **nothing**.
+- `dotnet_callo` for a method that returns an **object**: it answers the type and the handle, and the Ring function `dnObj` makes the object of the generated class.
+- The arguments can be texts, numbers, lists, .NET objects and callbacks; an error of .NET is raised as a Ring error. An answer that the function does not expect (null, for example) comes back as a list that `dnFinish` reads.
+- A method with `out` or `ref` parameters, and the calls with named arguments (`callnamed`), use `dnSend`, the same request made in Ring.
 
 ## Wrapping your own assembly
 

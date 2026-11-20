@@ -35,7 +35,7 @@ Class MemoryMappedFile from Object
 			return dnSend("s9:callnamed",nHandle,"s16:CreateViewStream",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s16:CreateViewStream","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateViewStream"))
 		ok
 		raise("DotNet Error: CreateViewStream does not take one argument: use named arguments, CreateViewStream([ :parameter = value, ... ])")
 
@@ -44,32 +44,31 @@ Class MemoryMappedFile from Object
 			return dnSend("s9:callnamed",nHandle,"s18:CreateViewAccessor",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s18:CreateViewAccessor","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:CreateViewAccessor"))
 		ok
 		raise("DotNet Error: CreateViewAccessor does not take one argument: use named arguments, CreateViewAccessor([ :parameter = value, ... ])")
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func OpenExisting P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"s12:OpenExisting",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"s12:OpenExisting",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles',"s12:OpenExisting",P1))
 
 	Func CreateFromFile P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"s14:CreateFromFile",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"s14:CreateFromFile",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles',"s14:CreateFromFile",P1))
 
 	Func CreateNew P1
 		if dnIsNamed(P1)
@@ -84,7 +83,7 @@ Class MemoryMappedFile from Object
 		raise("DotNet Error: CreateOrOpen does not take one argument: use named arguments, CreateOrOpen([ :parameter = value, ... ])")
 
 	Func getSafeMemoryMappedFileHandle
-		return dnSend("s3:get",nHandle,"s26:SafeMemoryMappedFileHandle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s26:SafeMemoryMappedFileHandle"))
 
 	Func setSafeMemoryMappedFileHandle P1
 		raise("DotNet Error: SafeMemoryMappedFileHandle is a read-only property")
@@ -105,20 +104,19 @@ Class MemoryMappedViewAccessor from UnmanagedMemoryAccessor
 		return self
 
 	Func Flush 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Flush")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Flush","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Flush")
 
 		return self
 
 	Func getSafeMemoryMappedViewHandle
-		return dnSend("s3:get",nHandle,"s26:SafeMemoryMappedViewHandle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s26:SafeMemoryMappedViewHandle"))
 
 	Func setSafeMemoryMappedViewHandle P1
 		raise("DotNet Error: SafeMemoryMappedViewHandle is a read-only property")
 
 	Func getPointerOffset
 		dn_x = dotnet_call("s3:get",nHandle,"s13:PointerOffset")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:PointerOffset",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPointerOffset P1
@@ -140,14 +138,14 @@ Class MemoryMappedViewStream from UnmanagedMemoryStream
 		return self
 
 	Func getSafeMemoryMappedViewHandle
-		return dnSend("s3:get",nHandle,"s26:SafeMemoryMappedViewHandle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s26:SafeMemoryMappedViewHandle"))
 
 	Func setSafeMemoryMappedViewHandle P1
 		raise("DotNet Error: SafeMemoryMappedViewHandle is a read-only property")
 
 	Func getPointerOffset
 		dn_x = dotnet_call("s3:get",nHandle,"s13:PointerOffset")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:PointerOffset",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPointerOffset P1

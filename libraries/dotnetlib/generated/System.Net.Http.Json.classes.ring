@@ -30,7 +30,7 @@ Class HttpClientJsonExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetFromJsonAsAsyncEnumerable P1
@@ -83,20 +83,20 @@ Class HttpContentJsonExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReadFromJsonAsAsyncEnumerable P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json'),"s29:ReadFromJsonAsAsyncEnumerable",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json'),"s29:ReadFromJsonAsAsyncEnumerable",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json',"s29:ReadFromJsonAsAsyncEnumerable",P1))
 
 	Func ReadFromJsonAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json'),"s17:ReadFromJsonAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json'),"s17:ReadFromJsonAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json',"s17:ReadFromJsonAsync",P1))
 
 
 Class JsonContent from HttpContent
@@ -117,16 +117,16 @@ Class JsonContent from HttpContent
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Http.Json.JsonContent, System.Net.Http.Json'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Json.JsonContent, System.Net.Http.Json'),"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Net.Http.Json.JsonContent, System.Net.Http.Json',"s6:Create",P1))
 
 	Func getObjectType
-		return dnSend("s3:get",nHandle,"s10:ObjectType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ObjectType"))
 
 	Func setObjectType P1
 		raise("DotNet Error: ObjectType is a read-only property")
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

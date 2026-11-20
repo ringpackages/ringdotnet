@@ -27,7 +27,7 @@ Class ElapsedEventArgs from EventArgs
 		return self
 
 	Func getSignalTime
-		return dnSend("s3:get",nHandle,"s10:SignalTime","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:SignalTime"))
 
 	Func setSignalTime P1
 		raise("DotNet Error: SignalTime is a read-only property")
@@ -75,32 +75,27 @@ Class TimersTimer from Component
 		return self
 
 	Func BeginInit 
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:BeginInit","") ok
+		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
 
 		return self
 
 	Func Close 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Close")
 
 		return self
 
 	Func EndInit 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:EndInit")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:EndInit","") ok
+		dotnet_callv("s4:call",nHandle,"s7:EndInit")
 
 		return self
 
 	Func Start 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Start")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Start","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Start")
 
 		return self
 
 	Func Stop 
-		dn_x = dotnet_callv("s4:call",nHandle,"s4:Stop")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Stop","") ok
+		dotnet_callv("s4:call",nHandle,"s4:Stop")
 
 		return self
 
@@ -114,40 +109,36 @@ Class TimersTimer from Component
 
 	Func getAutoReset
 		dn_x = dotnet_call("s3:get",nHandle,"s9:AutoReset")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:AutoReset",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAutoReset P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:AutoReset",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:AutoReset",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:AutoReset",P1)
 		return self
 
 	Func getEnabled
 		dn_x = dotnet_call("s3:get",nHandle,"s7:Enabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Enabled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEnabled P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Enabled",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Enabled",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Enabled",P1)
 		return self
 
 	Func getInterval
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Interval")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Interval",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInterval P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Interval",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Interval",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Interval",P1)
 		return self
 
 	Func getSynchronizingObject
-		return dnSend("s3:get",nHandle,"s19:SynchronizingObject","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:SynchronizingObject"))
 
 	Func setSynchronizingObject P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:SynchronizingObject",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:SynchronizingObject",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:SynchronizingObject",P1)
 		return self
 
 

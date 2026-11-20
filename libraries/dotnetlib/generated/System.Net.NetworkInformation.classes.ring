@@ -182,11 +182,11 @@ Class GatewayIPAddressInformation from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getAddress
-		return dnSend("s3:get",nHandle,"s7:Address","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Address"))
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")
@@ -207,47 +207,44 @@ Class GatewayIPAddressInformationCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func Add P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -255,7 +252,7 @@ Class GatewayIPAddressInformationCollection from Object
 
 	Func getIsReadOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReadOnly P1
@@ -279,18 +276,18 @@ Class IPAddressInformation from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getAddress
-		return dnSend("s3:get",nHandle,"s7:Address","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Address"))
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")
 
 	Func getIsDnsEligible
 		dn_x = dotnet_call("s3:get",nHandle,"s13:IsDnsEligible")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IsDnsEligible",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsDnsEligible P1
@@ -298,7 +295,7 @@ Class IPAddressInformation from Object
 
 	Func getIsTransient
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsTransient")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsTransient",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsTransient P1
@@ -320,47 +317,44 @@ Class IPAddressInformationCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func Add P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -368,7 +362,7 @@ Class IPAddressInformationCollection from Object
 
 	Func getIsReadOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReadOnly P1
@@ -393,61 +387,61 @@ Class IPGlobalProperties from Object
 		return self
 
 	Func GetActiveUdpListeners 
-		return dnSend("s4:call",nHandle,"s21:GetActiveUdpListeners","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetActiveUdpListeners"))
 
 	Func GetActiveTcpListeners 
-		return dnSend("s4:call",nHandle,"s21:GetActiveTcpListeners","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetActiveTcpListeners"))
 
 	Func GetActiveTcpConnections 
-		return dnSend("s4:call",nHandle,"s23:GetActiveTcpConnections","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetActiveTcpConnections"))
 
 	Func BeginGetUnicastAddresses P1,P2
-		return dnSend("s4:call",nHandle,"s24:BeginGetUnicastAddresses",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:BeginGetUnicastAddresses",P1,P2))
 
 	Func EndGetUnicastAddresses P1
-		return dnSend("s4:call",nHandle,"s22:EndGetUnicastAddresses",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:EndGetUnicastAddresses",P1))
 
 	Func GetTcpIPv4Statistics 
-		return dnSend("s4:call",nHandle,"s20:GetTcpIPv4Statistics","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetTcpIPv4Statistics"))
 
 	Func GetTcpIPv6Statistics 
-		return dnSend("s4:call",nHandle,"s20:GetTcpIPv6Statistics","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetTcpIPv6Statistics"))
 
 	Func GetUdpIPv4Statistics 
-		return dnSend("s4:call",nHandle,"s20:GetUdpIPv4Statistics","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetUdpIPv4Statistics"))
 
 	Func GetUdpIPv6Statistics 
-		return dnSend("s4:call",nHandle,"s20:GetUdpIPv6Statistics","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetUdpIPv6Statistics"))
 
 	Func GetIcmpV4Statistics 
-		return dnSend("s4:call",nHandle,"s19:GetIcmpV4Statistics","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetIcmpV4Statistics"))
 
 	Func GetIcmpV6Statistics 
-		return dnSend("s4:call",nHandle,"s19:GetIcmpV6Statistics","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetIcmpV6Statistics"))
 
 	Func GetIPv4GlobalStatistics 
-		return dnSend("s4:call",nHandle,"s23:GetIPv4GlobalStatistics","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetIPv4GlobalStatistics"))
 
 	Func GetIPv6GlobalStatistics 
-		return dnSend("s4:call",nHandle,"s23:GetIPv6GlobalStatistics","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetIPv6GlobalStatistics"))
 
 	Func GetUnicastAddresses 
-		return dnSend("s4:call",nHandle,"s19:GetUnicastAddresses","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetUnicastAddresses"))
 
 	Func GetUnicastAddressesAsync 
-		return dnSend("s4:call",nHandle,"s24:GetUnicastAddressesAsync","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUnicastAddressesAsync"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetIPGlobalProperties 
-		return dnSend("s4:call",dnTypeHandle('System.Net.NetworkInformation.IPGlobalProperties, System.Net.NetworkInformation'),"s21:GetIPGlobalProperties","")
+		return dnObj(dotnet_callo("s4:call",'System.Net.NetworkInformation.IPGlobalProperties, System.Net.NetworkInformation',"s21:GetIPGlobalProperties"))
 
 	Func getDhcpScopeName
 		dn_x = dotnet_call("s3:get",nHandle,"s13:DhcpScopeName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:DhcpScopeName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDhcpScopeName P1
@@ -455,7 +449,7 @@ Class IPGlobalProperties from Object
 
 	Func getDomainName
 		dn_x = dotnet_call("s3:get",nHandle,"s10:DomainName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:DomainName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDomainName P1
@@ -463,7 +457,7 @@ Class IPGlobalProperties from Object
 
 	Func getHostName
 		dn_x = dotnet_call("s3:get",nHandle,"s8:HostName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:HostName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHostName P1
@@ -471,14 +465,14 @@ Class IPGlobalProperties from Object
 
 	Func getIsWinsProxy
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsWinsProxy")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsWinsProxy",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsWinsProxy P1
 		raise("DotNet Error: IsWinsProxy is a read-only property")
 
 	Func getNodeType
-		return dnSend("s3:get",nHandle,"s8:NodeType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:NodeType"))
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
@@ -520,12 +514,12 @@ Class IPGlobalStatistics from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getDefaultTtl
 		dn_x = dotnet_call("s3:get",nHandle,"s10:DefaultTtl")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:DefaultTtl",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultTtl P1
@@ -533,7 +527,7 @@ Class IPGlobalStatistics from Object
 
 	Func getForwardingEnabled
 		dn_x = dotnet_call("s3:get",nHandle,"s17:ForwardingEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:ForwardingEnabled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setForwardingEnabled P1
@@ -541,7 +535,7 @@ Class IPGlobalStatistics from Object
 
 	Func getNumberOfInterfaces
 		dn_x = dotnet_call("s3:get",nHandle,"s18:NumberOfInterfaces")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:NumberOfInterfaces",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNumberOfInterfaces P1
@@ -549,7 +543,7 @@ Class IPGlobalStatistics from Object
 
 	Func getNumberOfIPAddresses
 		dn_x = dotnet_call("s3:get",nHandle,"s19:NumberOfIPAddresses")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:NumberOfIPAddresses",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNumberOfIPAddresses P1
@@ -557,7 +551,7 @@ Class IPGlobalStatistics from Object
 
 	Func getOutputPacketRequests
 		dn_x = dotnet_call("s3:get",nHandle,"s20:OutputPacketRequests")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:OutputPacketRequests",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOutputPacketRequests P1
@@ -565,7 +559,7 @@ Class IPGlobalStatistics from Object
 
 	Func getOutputPacketRoutingDiscards
 		dn_x = dotnet_call("s3:get",nHandle,"s27:OutputPacketRoutingDiscards")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s27:OutputPacketRoutingDiscards",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOutputPacketRoutingDiscards P1
@@ -573,7 +567,7 @@ Class IPGlobalStatistics from Object
 
 	Func getOutputPacketsDiscarded
 		dn_x = dotnet_call("s3:get",nHandle,"s22:OutputPacketsDiscarded")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:OutputPacketsDiscarded",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOutputPacketsDiscarded P1
@@ -581,7 +575,7 @@ Class IPGlobalStatistics from Object
 
 	Func getOutputPacketsWithNoRoute
 		dn_x = dotnet_call("s3:get",nHandle,"s24:OutputPacketsWithNoRoute")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:OutputPacketsWithNoRoute",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOutputPacketsWithNoRoute P1
@@ -589,7 +583,7 @@ Class IPGlobalStatistics from Object
 
 	Func getPacketFragmentFailures
 		dn_x = dotnet_call("s3:get",nHandle,"s22:PacketFragmentFailures")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:PacketFragmentFailures",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPacketFragmentFailures P1
@@ -597,7 +591,7 @@ Class IPGlobalStatistics from Object
 
 	Func getPacketReassembliesRequired
 		dn_x = dotnet_call("s3:get",nHandle,"s26:PacketReassembliesRequired")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:PacketReassembliesRequired",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPacketReassembliesRequired P1
@@ -605,7 +599,7 @@ Class IPGlobalStatistics from Object
 
 	Func getPacketReassemblyFailures
 		dn_x = dotnet_call("s3:get",nHandle,"s24:PacketReassemblyFailures")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:PacketReassemblyFailures",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPacketReassemblyFailures P1
@@ -613,7 +607,7 @@ Class IPGlobalStatistics from Object
 
 	Func getPacketReassemblyTimeout
 		dn_x = dotnet_call("s3:get",nHandle,"s23:PacketReassemblyTimeout")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:PacketReassemblyTimeout",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPacketReassemblyTimeout P1
@@ -621,7 +615,7 @@ Class IPGlobalStatistics from Object
 
 	Func getPacketsFragmented
 		dn_x = dotnet_call("s3:get",nHandle,"s17:PacketsFragmented")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:PacketsFragmented",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPacketsFragmented P1
@@ -629,7 +623,7 @@ Class IPGlobalStatistics from Object
 
 	Func getPacketsReassembled
 		dn_x = dotnet_call("s3:get",nHandle,"s18:PacketsReassembled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:PacketsReassembled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPacketsReassembled P1
@@ -637,7 +631,7 @@ Class IPGlobalStatistics from Object
 
 	Func getReceivedPackets
 		dn_x = dotnet_call("s3:get",nHandle,"s15:ReceivedPackets")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:ReceivedPackets",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setReceivedPackets P1
@@ -645,7 +639,7 @@ Class IPGlobalStatistics from Object
 
 	Func getReceivedPacketsDelivered
 		dn_x = dotnet_call("s3:get",nHandle,"s24:ReceivedPacketsDelivered")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:ReceivedPacketsDelivered",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setReceivedPacketsDelivered P1
@@ -653,7 +647,7 @@ Class IPGlobalStatistics from Object
 
 	Func getReceivedPacketsDiscarded
 		dn_x = dotnet_call("s3:get",nHandle,"s24:ReceivedPacketsDiscarded")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:ReceivedPacketsDiscarded",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setReceivedPacketsDiscarded P1
@@ -661,7 +655,7 @@ Class IPGlobalStatistics from Object
 
 	Func getReceivedPacketsForwarded
 		dn_x = dotnet_call("s3:get",nHandle,"s24:ReceivedPacketsForwarded")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:ReceivedPacketsForwarded",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setReceivedPacketsForwarded P1
@@ -669,7 +663,7 @@ Class IPGlobalStatistics from Object
 
 	Func getReceivedPacketsWithAddressErrors
 		dn_x = dotnet_call("s3:get",nHandle,"s32:ReceivedPacketsWithAddressErrors")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s32:ReceivedPacketsWithAddressErrors",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setReceivedPacketsWithAddressErrors P1
@@ -677,7 +671,7 @@ Class IPGlobalStatistics from Object
 
 	Func getReceivedPacketsWithHeadersErrors
 		dn_x = dotnet_call("s3:get",nHandle,"s32:ReceivedPacketsWithHeadersErrors")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s32:ReceivedPacketsWithHeadersErrors",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setReceivedPacketsWithHeadersErrors P1
@@ -685,7 +679,7 @@ Class IPGlobalStatistics from Object
 
 	Func getReceivedPacketsWithUnknownProtocol
 		dn_x = dotnet_call("s3:get",nHandle,"s34:ReceivedPacketsWithUnknownProtocol")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s34:ReceivedPacketsWithUnknownProtocol",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setReceivedPacketsWithUnknownProtocol P1
@@ -693,7 +687,7 @@ Class IPGlobalStatistics from Object
 
 	Func getNumberOfRoutes
 		dn_x = dotnet_call("s3:get",nHandle,"s14:NumberOfRoutes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:NumberOfRoutes",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNumberOfRoutes P1
@@ -723,19 +717,19 @@ Class IPInterfaceProperties from Object
 		return self
 
 	Func GetIPv4Properties 
-		return dnSend("s4:call",nHandle,"s17:GetIPv4Properties","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIPv4Properties"))
 
 	Func GetIPv6Properties 
-		return dnSend("s4:call",nHandle,"s17:GetIPv6Properties","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIPv6Properties"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getIsDnsEnabled
 		dn_x = dotnet_call("s3:get",nHandle,"s12:IsDnsEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsDnsEnabled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsDnsEnabled P1
@@ -743,7 +737,7 @@ Class IPInterfaceProperties from Object
 
 	Func getDnsSuffix
 		dn_x = dotnet_call("s3:get",nHandle,"s9:DnsSuffix")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:DnsSuffix",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDnsSuffix P1
@@ -751,50 +745,50 @@ Class IPInterfaceProperties from Object
 
 	Func getIsDynamicDnsEnabled
 		dn_x = dotnet_call("s3:get",nHandle,"s19:IsDynamicDnsEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:IsDynamicDnsEnabled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsDynamicDnsEnabled P1
 		raise("DotNet Error: IsDynamicDnsEnabled is a read-only property")
 
 	Func getUnicastAddresses
-		return dnSend("s3:get",nHandle,"s16:UnicastAddresses","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:UnicastAddresses"))
 
 	Func setUnicastAddresses P1
 		raise("DotNet Error: UnicastAddresses is a read-only property")
 
 	Func getMulticastAddresses
-		return dnSend("s3:get",nHandle,"s18:MulticastAddresses","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:MulticastAddresses"))
 
 	Func setMulticastAddresses P1
 		raise("DotNet Error: MulticastAddresses is a read-only property")
 
 	Func getAnycastAddresses
-		return dnSend("s3:get",nHandle,"s16:AnycastAddresses","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:AnycastAddresses"))
 
 	Func setAnycastAddresses P1
 		raise("DotNet Error: AnycastAddresses is a read-only property")
 
 	Func getDnsAddresses
-		return dnSend("s3:get",nHandle,"s12:DnsAddresses","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:DnsAddresses"))
 
 	Func setDnsAddresses P1
 		raise("DotNet Error: DnsAddresses is a read-only property")
 
 	Func getGatewayAddresses
-		return dnSend("s3:get",nHandle,"s16:GatewayAddresses","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:GatewayAddresses"))
 
 	Func setGatewayAddresses P1
 		raise("DotNet Error: GatewayAddresses is a read-only property")
 
 	Func getDhcpServerAddresses
-		return dnSend("s3:get",nHandle,"s19:DhcpServerAddresses","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DhcpServerAddresses"))
 
 	Func setDhcpServerAddresses P1
 		raise("DotNet Error: DhcpServerAddresses is a read-only property")
 
 	Func getWinsServersAddresses
-		return dnSend("s3:get",nHandle,"s20:WinsServersAddresses","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:WinsServersAddresses"))
 
 	Func setWinsServersAddresses P1
 		raise("DotNet Error: WinsServersAddresses is a read-only property")
@@ -826,12 +820,12 @@ Class IPInterfaceStatistics from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getBytesReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s13:BytesReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:BytesReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBytesReceived P1
@@ -839,7 +833,7 @@ Class IPInterfaceStatistics from Object
 
 	Func getBytesSent
 		dn_x = dotnet_call("s3:get",nHandle,"s9:BytesSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:BytesSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBytesSent P1
@@ -847,7 +841,7 @@ Class IPInterfaceStatistics from Object
 
 	Func getIncomingPacketsDiscarded
 		dn_x = dotnet_call("s3:get",nHandle,"s24:IncomingPacketsDiscarded")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:IncomingPacketsDiscarded",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIncomingPacketsDiscarded P1
@@ -855,7 +849,7 @@ Class IPInterfaceStatistics from Object
 
 	Func getIncomingPacketsWithErrors
 		dn_x = dotnet_call("s3:get",nHandle,"s25:IncomingPacketsWithErrors")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:IncomingPacketsWithErrors",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIncomingPacketsWithErrors P1
@@ -863,7 +857,7 @@ Class IPInterfaceStatistics from Object
 
 	Func getIncomingUnknownProtocolPackets
 		dn_x = dotnet_call("s3:get",nHandle,"s30:IncomingUnknownProtocolPackets")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s30:IncomingUnknownProtocolPackets",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIncomingUnknownProtocolPackets P1
@@ -871,7 +865,7 @@ Class IPInterfaceStatistics from Object
 
 	Func getNonUnicastPacketsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s25:NonUnicastPacketsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:NonUnicastPacketsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNonUnicastPacketsReceived P1
@@ -879,7 +873,7 @@ Class IPInterfaceStatistics from Object
 
 	Func getNonUnicastPacketsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s21:NonUnicastPacketsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:NonUnicastPacketsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNonUnicastPacketsSent P1
@@ -887,7 +881,7 @@ Class IPInterfaceStatistics from Object
 
 	Func getOutgoingPacketsDiscarded
 		dn_x = dotnet_call("s3:get",nHandle,"s24:OutgoingPacketsDiscarded")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:OutgoingPacketsDiscarded",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOutgoingPacketsDiscarded P1
@@ -895,7 +889,7 @@ Class IPInterfaceStatistics from Object
 
 	Func getOutgoingPacketsWithErrors
 		dn_x = dotnet_call("s3:get",nHandle,"s25:OutgoingPacketsWithErrors")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:OutgoingPacketsWithErrors",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOutgoingPacketsWithErrors P1
@@ -903,7 +897,7 @@ Class IPInterfaceStatistics from Object
 
 	Func getOutputQueueLength
 		dn_x = dotnet_call("s3:get",nHandle,"s17:OutputQueueLength")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:OutputQueueLength",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOutputQueueLength P1
@@ -911,7 +905,7 @@ Class IPInterfaceStatistics from Object
 
 	Func getUnicastPacketsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s22:UnicastPacketsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:UnicastPacketsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUnicastPacketsReceived P1
@@ -919,7 +913,7 @@ Class IPInterfaceStatistics from Object
 
 	Func getUnicastPacketsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s18:UnicastPacketsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:UnicastPacketsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUnicastPacketsSent P1
@@ -947,12 +941,12 @@ Class IPv4InterfaceProperties from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getUsesWins
 		dn_x = dotnet_call("s3:get",nHandle,"s8:UsesWins")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:UsesWins",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUsesWins P1
@@ -960,7 +954,7 @@ Class IPv4InterfaceProperties from Object
 
 	Func getIsDhcpEnabled
 		dn_x = dotnet_call("s3:get",nHandle,"s13:IsDhcpEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IsDhcpEnabled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsDhcpEnabled P1
@@ -968,7 +962,7 @@ Class IPv4InterfaceProperties from Object
 
 	Func getIsAutomaticPrivateAddressingActive
 		dn_x = dotnet_call("s3:get",nHandle,"s34:IsAutomaticPrivateAddressingActive")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s34:IsAutomaticPrivateAddressingActive",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAutomaticPrivateAddressingActive P1
@@ -976,7 +970,7 @@ Class IPv4InterfaceProperties from Object
 
 	Func getIsAutomaticPrivateAddressingEnabled
 		dn_x = dotnet_call("s3:get",nHandle,"s35:IsAutomaticPrivateAddressingEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s35:IsAutomaticPrivateAddressingEnabled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAutomaticPrivateAddressingEnabled P1
@@ -984,7 +978,7 @@ Class IPv4InterfaceProperties from Object
 
 	Func getIndex
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Index")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Index",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIndex P1
@@ -992,7 +986,7 @@ Class IPv4InterfaceProperties from Object
 
 	Func getIsForwardingEnabled
 		dn_x = dotnet_call("s3:get",nHandle,"s19:IsForwardingEnabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:IsForwardingEnabled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsForwardingEnabled P1
@@ -1000,7 +994,7 @@ Class IPv4InterfaceProperties from Object
 
 	Func getMtu
 		dn_x = dotnet_call("s3:get",nHandle,"s3:Mtu")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Mtu",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMtu P1
@@ -1033,12 +1027,12 @@ Class IPv4InterfaceStatistics from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getBytesReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s13:BytesReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:BytesReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBytesReceived P1
@@ -1046,7 +1040,7 @@ Class IPv4InterfaceStatistics from Object
 
 	Func getBytesSent
 		dn_x = dotnet_call("s3:get",nHandle,"s9:BytesSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:BytesSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBytesSent P1
@@ -1054,7 +1048,7 @@ Class IPv4InterfaceStatistics from Object
 
 	Func getIncomingPacketsDiscarded
 		dn_x = dotnet_call("s3:get",nHandle,"s24:IncomingPacketsDiscarded")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:IncomingPacketsDiscarded",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIncomingPacketsDiscarded P1
@@ -1062,7 +1056,7 @@ Class IPv4InterfaceStatistics from Object
 
 	Func getIncomingPacketsWithErrors
 		dn_x = dotnet_call("s3:get",nHandle,"s25:IncomingPacketsWithErrors")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:IncomingPacketsWithErrors",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIncomingPacketsWithErrors P1
@@ -1070,7 +1064,7 @@ Class IPv4InterfaceStatistics from Object
 
 	Func getIncomingUnknownProtocolPackets
 		dn_x = dotnet_call("s3:get",nHandle,"s30:IncomingUnknownProtocolPackets")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s30:IncomingUnknownProtocolPackets",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIncomingUnknownProtocolPackets P1
@@ -1078,7 +1072,7 @@ Class IPv4InterfaceStatistics from Object
 
 	Func getNonUnicastPacketsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s25:NonUnicastPacketsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:NonUnicastPacketsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNonUnicastPacketsReceived P1
@@ -1086,7 +1080,7 @@ Class IPv4InterfaceStatistics from Object
 
 	Func getNonUnicastPacketsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s21:NonUnicastPacketsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:NonUnicastPacketsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNonUnicastPacketsSent P1
@@ -1094,7 +1088,7 @@ Class IPv4InterfaceStatistics from Object
 
 	Func getOutgoingPacketsDiscarded
 		dn_x = dotnet_call("s3:get",nHandle,"s24:OutgoingPacketsDiscarded")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:OutgoingPacketsDiscarded",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOutgoingPacketsDiscarded P1
@@ -1102,7 +1096,7 @@ Class IPv4InterfaceStatistics from Object
 
 	Func getOutgoingPacketsWithErrors
 		dn_x = dotnet_call("s3:get",nHandle,"s25:OutgoingPacketsWithErrors")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:OutgoingPacketsWithErrors",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOutgoingPacketsWithErrors P1
@@ -1110,7 +1104,7 @@ Class IPv4InterfaceStatistics from Object
 
 	Func getOutputQueueLength
 		dn_x = dotnet_call("s3:get",nHandle,"s17:OutputQueueLength")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:OutputQueueLength",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOutputQueueLength P1
@@ -1118,7 +1112,7 @@ Class IPv4InterfaceStatistics from Object
 
 	Func getUnicastPacketsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s22:UnicastPacketsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:UnicastPacketsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUnicastPacketsReceived P1
@@ -1126,7 +1120,7 @@ Class IPv4InterfaceStatistics from Object
 
 	Func getUnicastPacketsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s18:UnicastPacketsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:UnicastPacketsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUnicastPacketsSent P1
@@ -1149,17 +1143,17 @@ Class IPv6InterfaceProperties from Object
 
 	Func GetScopeId P1
 		dn_x = dotnet_call("s4:call",nHandle,"s10:GetScopeId",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:GetScopeId",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getIndex
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Index")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Index",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIndex P1
@@ -1167,7 +1161,7 @@ Class IPv6InterfaceProperties from Object
 
 	Func getMtu
 		dn_x = dotnet_call("s3:get",nHandle,"s3:Mtu")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Mtu",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMtu P1
@@ -1214,12 +1208,12 @@ Class IcmpV4Statistics from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getAddressMaskRepliesReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s26:AddressMaskRepliesReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:AddressMaskRepliesReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAddressMaskRepliesReceived P1
@@ -1227,7 +1221,7 @@ Class IcmpV4Statistics from Object
 
 	Func getAddressMaskRepliesSent
 		dn_x = dotnet_call("s3:get",nHandle,"s22:AddressMaskRepliesSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:AddressMaskRepliesSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAddressMaskRepliesSent P1
@@ -1235,7 +1229,7 @@ Class IcmpV4Statistics from Object
 
 	Func getAddressMaskRequestsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s27:AddressMaskRequestsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s27:AddressMaskRequestsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAddressMaskRequestsReceived P1
@@ -1243,7 +1237,7 @@ Class IcmpV4Statistics from Object
 
 	Func getAddressMaskRequestsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s23:AddressMaskRequestsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:AddressMaskRequestsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAddressMaskRequestsSent P1
@@ -1251,7 +1245,7 @@ Class IcmpV4Statistics from Object
 
 	Func getDestinationUnreachableMessagesReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s38:DestinationUnreachableMessagesReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s38:DestinationUnreachableMessagesReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDestinationUnreachableMessagesReceived P1
@@ -1259,7 +1253,7 @@ Class IcmpV4Statistics from Object
 
 	Func getDestinationUnreachableMessagesSent
 		dn_x = dotnet_call("s3:get",nHandle,"s34:DestinationUnreachableMessagesSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s34:DestinationUnreachableMessagesSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDestinationUnreachableMessagesSent P1
@@ -1267,7 +1261,7 @@ Class IcmpV4Statistics from Object
 
 	Func getEchoRepliesReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s19:EchoRepliesReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:EchoRepliesReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEchoRepliesReceived P1
@@ -1275,7 +1269,7 @@ Class IcmpV4Statistics from Object
 
 	Func getEchoRepliesSent
 		dn_x = dotnet_call("s3:get",nHandle,"s15:EchoRepliesSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:EchoRepliesSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEchoRepliesSent P1
@@ -1283,7 +1277,7 @@ Class IcmpV4Statistics from Object
 
 	Func getEchoRequestsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s20:EchoRequestsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:EchoRequestsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEchoRequestsReceived P1
@@ -1291,7 +1285,7 @@ Class IcmpV4Statistics from Object
 
 	Func getEchoRequestsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s16:EchoRequestsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:EchoRequestsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEchoRequestsSent P1
@@ -1299,7 +1293,7 @@ Class IcmpV4Statistics from Object
 
 	Func getErrorsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s14:ErrorsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:ErrorsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setErrorsReceived P1
@@ -1307,7 +1301,7 @@ Class IcmpV4Statistics from Object
 
 	Func getErrorsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s10:ErrorsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:ErrorsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setErrorsSent P1
@@ -1315,7 +1309,7 @@ Class IcmpV4Statistics from Object
 
 	Func getMessagesReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s16:MessagesReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:MessagesReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMessagesReceived P1
@@ -1323,7 +1317,7 @@ Class IcmpV4Statistics from Object
 
 	Func getMessagesSent
 		dn_x = dotnet_call("s3:get",nHandle,"s12:MessagesSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:MessagesSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMessagesSent P1
@@ -1331,7 +1325,7 @@ Class IcmpV4Statistics from Object
 
 	Func getParameterProblemsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s25:ParameterProblemsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:ParameterProblemsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setParameterProblemsReceived P1
@@ -1339,7 +1333,7 @@ Class IcmpV4Statistics from Object
 
 	Func getParameterProblemsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s21:ParameterProblemsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:ParameterProblemsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setParameterProblemsSent P1
@@ -1347,7 +1341,7 @@ Class IcmpV4Statistics from Object
 
 	Func getRedirectsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s17:RedirectsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:RedirectsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRedirectsReceived P1
@@ -1355,7 +1349,7 @@ Class IcmpV4Statistics from Object
 
 	Func getRedirectsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s13:RedirectsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:RedirectsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRedirectsSent P1
@@ -1363,7 +1357,7 @@ Class IcmpV4Statistics from Object
 
 	Func getSourceQuenchesReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s22:SourceQuenchesReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:SourceQuenchesReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSourceQuenchesReceived P1
@@ -1371,7 +1365,7 @@ Class IcmpV4Statistics from Object
 
 	Func getSourceQuenchesSent
 		dn_x = dotnet_call("s3:get",nHandle,"s18:SourceQuenchesSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:SourceQuenchesSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSourceQuenchesSent P1
@@ -1379,7 +1373,7 @@ Class IcmpV4Statistics from Object
 
 	Func getTimeExceededMessagesReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s28:TimeExceededMessagesReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s28:TimeExceededMessagesReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTimeExceededMessagesReceived P1
@@ -1387,7 +1381,7 @@ Class IcmpV4Statistics from Object
 
 	Func getTimeExceededMessagesSent
 		dn_x = dotnet_call("s3:get",nHandle,"s24:TimeExceededMessagesSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:TimeExceededMessagesSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTimeExceededMessagesSent P1
@@ -1395,7 +1389,7 @@ Class IcmpV4Statistics from Object
 
 	Func getTimestampRepliesReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s24:TimestampRepliesReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:TimestampRepliesReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTimestampRepliesReceived P1
@@ -1403,7 +1397,7 @@ Class IcmpV4Statistics from Object
 
 	Func getTimestampRepliesSent
 		dn_x = dotnet_call("s3:get",nHandle,"s20:TimestampRepliesSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:TimestampRepliesSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTimestampRepliesSent P1
@@ -1411,7 +1405,7 @@ Class IcmpV4Statistics from Object
 
 	Func getTimestampRequestsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s25:TimestampRequestsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:TimestampRequestsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTimestampRequestsReceived P1
@@ -1419,7 +1413,7 @@ Class IcmpV4Statistics from Object
 
 	Func getTimestampRequestsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s21:TimestampRequestsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:TimestampRequestsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTimestampRequestsSent P1
@@ -1472,12 +1466,12 @@ Class IcmpV6Statistics from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getDestinationUnreachableMessagesReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s38:DestinationUnreachableMessagesReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s38:DestinationUnreachableMessagesReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDestinationUnreachableMessagesReceived P1
@@ -1485,7 +1479,7 @@ Class IcmpV6Statistics from Object
 
 	Func getDestinationUnreachableMessagesSent
 		dn_x = dotnet_call("s3:get",nHandle,"s34:DestinationUnreachableMessagesSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s34:DestinationUnreachableMessagesSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDestinationUnreachableMessagesSent P1
@@ -1493,7 +1487,7 @@ Class IcmpV6Statistics from Object
 
 	Func getEchoRepliesReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s19:EchoRepliesReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:EchoRepliesReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEchoRepliesReceived P1
@@ -1501,7 +1495,7 @@ Class IcmpV6Statistics from Object
 
 	Func getEchoRepliesSent
 		dn_x = dotnet_call("s3:get",nHandle,"s15:EchoRepliesSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:EchoRepliesSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEchoRepliesSent P1
@@ -1509,7 +1503,7 @@ Class IcmpV6Statistics from Object
 
 	Func getEchoRequestsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s20:EchoRequestsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:EchoRequestsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEchoRequestsReceived P1
@@ -1517,7 +1511,7 @@ Class IcmpV6Statistics from Object
 
 	Func getEchoRequestsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s16:EchoRequestsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:EchoRequestsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEchoRequestsSent P1
@@ -1525,7 +1519,7 @@ Class IcmpV6Statistics from Object
 
 	Func getErrorsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s14:ErrorsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:ErrorsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setErrorsReceived P1
@@ -1533,7 +1527,7 @@ Class IcmpV6Statistics from Object
 
 	Func getErrorsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s10:ErrorsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:ErrorsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setErrorsSent P1
@@ -1541,7 +1535,7 @@ Class IcmpV6Statistics from Object
 
 	Func getMembershipQueriesReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s25:MembershipQueriesReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:MembershipQueriesReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMembershipQueriesReceived P1
@@ -1549,7 +1543,7 @@ Class IcmpV6Statistics from Object
 
 	Func getMembershipQueriesSent
 		dn_x = dotnet_call("s3:get",nHandle,"s21:MembershipQueriesSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:MembershipQueriesSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMembershipQueriesSent P1
@@ -1557,7 +1551,7 @@ Class IcmpV6Statistics from Object
 
 	Func getMembershipReductionsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s28:MembershipReductionsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s28:MembershipReductionsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMembershipReductionsReceived P1
@@ -1565,7 +1559,7 @@ Class IcmpV6Statistics from Object
 
 	Func getMembershipReductionsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s24:MembershipReductionsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:MembershipReductionsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMembershipReductionsSent P1
@@ -1573,7 +1567,7 @@ Class IcmpV6Statistics from Object
 
 	Func getMembershipReportsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s25:MembershipReportsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:MembershipReportsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMembershipReportsReceived P1
@@ -1581,7 +1575,7 @@ Class IcmpV6Statistics from Object
 
 	Func getMembershipReportsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s21:MembershipReportsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:MembershipReportsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMembershipReportsSent P1
@@ -1589,7 +1583,7 @@ Class IcmpV6Statistics from Object
 
 	Func getMessagesReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s16:MessagesReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:MessagesReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMessagesReceived P1
@@ -1597,7 +1591,7 @@ Class IcmpV6Statistics from Object
 
 	Func getMessagesSent
 		dn_x = dotnet_call("s3:get",nHandle,"s12:MessagesSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:MessagesSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMessagesSent P1
@@ -1605,7 +1599,7 @@ Class IcmpV6Statistics from Object
 
 	Func getNeighborAdvertisementsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s30:NeighborAdvertisementsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s30:NeighborAdvertisementsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNeighborAdvertisementsReceived P1
@@ -1613,7 +1607,7 @@ Class IcmpV6Statistics from Object
 
 	Func getNeighborAdvertisementsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s26:NeighborAdvertisementsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:NeighborAdvertisementsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNeighborAdvertisementsSent P1
@@ -1621,7 +1615,7 @@ Class IcmpV6Statistics from Object
 
 	Func getNeighborSolicitsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s24:NeighborSolicitsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:NeighborSolicitsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNeighborSolicitsReceived P1
@@ -1629,7 +1623,7 @@ Class IcmpV6Statistics from Object
 
 	Func getNeighborSolicitsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s20:NeighborSolicitsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:NeighborSolicitsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNeighborSolicitsSent P1
@@ -1637,7 +1631,7 @@ Class IcmpV6Statistics from Object
 
 	Func getPacketTooBigMessagesReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s28:PacketTooBigMessagesReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s28:PacketTooBigMessagesReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPacketTooBigMessagesReceived P1
@@ -1645,7 +1639,7 @@ Class IcmpV6Statistics from Object
 
 	Func getPacketTooBigMessagesSent
 		dn_x = dotnet_call("s3:get",nHandle,"s24:PacketTooBigMessagesSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:PacketTooBigMessagesSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPacketTooBigMessagesSent P1
@@ -1653,7 +1647,7 @@ Class IcmpV6Statistics from Object
 
 	Func getParameterProblemsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s25:ParameterProblemsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:ParameterProblemsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setParameterProblemsReceived P1
@@ -1661,7 +1655,7 @@ Class IcmpV6Statistics from Object
 
 	Func getParameterProblemsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s21:ParameterProblemsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:ParameterProblemsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setParameterProblemsSent P1
@@ -1669,7 +1663,7 @@ Class IcmpV6Statistics from Object
 
 	Func getRedirectsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s17:RedirectsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:RedirectsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRedirectsReceived P1
@@ -1677,7 +1671,7 @@ Class IcmpV6Statistics from Object
 
 	Func getRedirectsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s13:RedirectsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:RedirectsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRedirectsSent P1
@@ -1685,7 +1679,7 @@ Class IcmpV6Statistics from Object
 
 	Func getRouterAdvertisementsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s28:RouterAdvertisementsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s28:RouterAdvertisementsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRouterAdvertisementsReceived P1
@@ -1693,7 +1687,7 @@ Class IcmpV6Statistics from Object
 
 	Func getRouterAdvertisementsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s24:RouterAdvertisementsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:RouterAdvertisementsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRouterAdvertisementsSent P1
@@ -1701,7 +1695,7 @@ Class IcmpV6Statistics from Object
 
 	Func getRouterSolicitsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s22:RouterSolicitsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:RouterSolicitsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRouterSolicitsReceived P1
@@ -1709,7 +1703,7 @@ Class IcmpV6Statistics from Object
 
 	Func getRouterSolicitsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s18:RouterSolicitsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:RouterSolicitsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRouterSolicitsSent P1
@@ -1717,7 +1711,7 @@ Class IcmpV6Statistics from Object
 
 	Func getTimeExceededMessagesReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s28:TimeExceededMessagesReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s28:TimeExceededMessagesReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTimeExceededMessagesReceived P1
@@ -1725,7 +1719,7 @@ Class IcmpV6Statistics from Object
 
 	Func getTimeExceededMessagesSent
 		dn_x = dotnet_call("s3:get",nHandle,"s24:TimeExceededMessagesSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:TimeExceededMessagesSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTimeExceededMessagesSent P1
@@ -1747,47 +1741,44 @@ Class MulticastIPAddressInformationCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func Add P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -1795,7 +1786,7 @@ Class MulticastIPAddressInformationCollection from Object
 
 	Func getIsReadOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReadOnly P1
@@ -1817,7 +1808,7 @@ Class NetworkAvailabilityEventArgs from EventArgs
 
 	Func getIsAvailable
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsAvailable")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsAvailable",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAvailable P1
@@ -1846,12 +1837,11 @@ Class NetworkChange from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RegisterNetworkChange P1
-		dn_x = dotnet_callv("s4:call",'System.Net.NetworkInformation.NetworkChange, System.Net.NetworkInformation',"s21:RegisterNetworkChange",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Net.NetworkInformation.NetworkChange, System.Net.NetworkInformation'),"s21:RegisterNetworkChange",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Net.NetworkInformation.NetworkChange, System.Net.NetworkInformation',"s21:RegisterNetworkChange",P1)
 
 		return self
 
@@ -1895,38 +1885,38 @@ Class NetworkInterface from Object
 		return self
 
 	Func GetIPProperties 
-		return dnSend("s4:call",nHandle,"s15:GetIPProperties","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetIPProperties"))
 
 	Func GetIPStatistics 
-		return dnSend("s4:call",nHandle,"s15:GetIPStatistics","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetIPStatistics"))
 
 	Func GetIPv4Statistics 
-		return dnSend("s4:call",nHandle,"s17:GetIPv4Statistics","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIPv4Statistics"))
 
 	Func GetPhysicalAddress 
-		return dnSend("s4:call",nHandle,"s18:GetPhysicalAddress","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetPhysicalAddress"))
 
 	Func Supports P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Supports",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Supports",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetAllNetworkInterfaces 
-		return dnSend("s4:call",dnTypeHandle('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"s23:GetAllNetworkInterfaces","")
+		return dnObj(dotnet_callo("s4:call",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s23:GetAllNetworkInterfaces"))
 
 	Func GetIsNetworkAvailable 
 		dn_x = dotnet_call("s4:call",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s21:GetIsNetworkAvailable")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s21:GetIsNetworkAvailable",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getId
 		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Id",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setId P1
@@ -1934,7 +1924,7 @@ Class NetworkInterface from Object
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
@@ -1942,21 +1932,21 @@ Class NetworkInterface from Object
 
 	Func getDescription
 		dn_x = dotnet_call("s3:get",nHandle,"s11:Description")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:Description",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getOperationalStatus
-		return dnSend("s3:get",nHandle,"s17:OperationalStatus","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:OperationalStatus"))
 
 	Func setOperationalStatus P1
 		raise("DotNet Error: OperationalStatus is a read-only property")
 
 	Func getSpeed
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Speed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Speed",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSpeed P1
@@ -1964,7 +1954,7 @@ Class NetworkInterface from Object
 
 	Func getIsReceiveOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s13:IsReceiveOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IsReceiveOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReceiveOnly P1
@@ -1972,21 +1962,21 @@ Class NetworkInterface from Object
 
 	Func getSupportsMulticast
 		dn_x = dotnet_call("s3:get",nHandle,"s17:SupportsMulticast")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:SupportsMulticast",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSupportsMulticast P1
 		raise("DotNet Error: SupportsMulticast is a read-only property")
 
 	Func getNetworkInterfaceType
-		return dnSend("s3:get",nHandle,"s20:NetworkInterfaceType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:NetworkInterfaceType"))
 
 	Func setNetworkInterfaceType P1
 		raise("DotNet Error: NetworkInterfaceType is a read-only property")
 
 	Func getIPv6LoopbackInterfaceIndex
 		dn_x = dotnet_call("s3:get",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s26:IPv6LoopbackInterfaceIndex")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s26:IPv6LoopbackInterfaceIndex",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIPv6LoopbackInterfaceIndex P1
@@ -1994,7 +1984,7 @@ Class NetworkInterface from Object
 
 	Func getLoopbackInterfaceIndex
 		dn_x = dotnet_call("s3:get",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s22:LoopbackInterfaceIndex")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s22:LoopbackInterfaceIndex",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLoopbackInterfaceIndex P1
@@ -2018,20 +2008,20 @@ Class PhysicalAddress from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetAddressBytes 
-		return dnSend("s4:call",nHandle,"s15:GetAddressBytes","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetAddressBytes"))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeHandle('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation'),"s5:Parse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation',"s5:Parse",P1))
 
 	Func TryParse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation'),"s8:TryParse",dnPackItem(P1))
 
 	Func getNone
-		return dnSend("s3:get",dnTypeHandle('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation'),"s4:None","")
+		return dnObj(dotnet_callo("s3:get",'System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation',"s4:None"))
 
 	Func setNone P1
 		raise("DotNet Error: None is a read-only property")
@@ -2061,7 +2051,7 @@ Class Ping from Component
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s4:Send",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s4:Send",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Send",P1))
 
 	Func SendAsync P1
 		if dnIsNamed(P1)
@@ -2074,11 +2064,10 @@ Class Ping from Component
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s13:SendPingAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s13:SendPingAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SendPingAsync",P1))
 
 	Func SendAsyncCancel 
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:SendAsyncCancel")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:SendAsyncCancel","") ok
+		dotnet_callv("s4:call",nHandle,"s15:SendAsyncCancel")
 
 		return self
 
@@ -2105,7 +2094,7 @@ Class PingCompletedEventArgs from AsyncCompletedEventArgs
 		return self
 
 	Func getReply
-		return dnSend("s3:get",nHandle,"s5:Reply","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Reply"))
 
 	Func setReply P1
 		raise("DotNet Error: Reply is a read-only property")
@@ -2152,27 +2141,25 @@ Class PingOptions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getTtl
 		dn_x = dotnet_call("s3:get",nHandle,"s3:Ttl")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:Ttl",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTtl P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:Ttl",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Ttl",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:Ttl",P1)
 		return self
 
 	Func getDontFragment
 		dn_x = dotnet_call("s3:get",nHandle,"s12:DontFragment")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:DontFragment",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDontFragment P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:DontFragment",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:DontFragment",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:DontFragment",P1)
 		return self
 
 
@@ -2195,37 +2182,37 @@ Class PingReply from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getStatus
-		return dnSend("s3:get",nHandle,"s6:Status","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Status"))
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
 
 	Func getAddress
-		return dnSend("s3:get",nHandle,"s7:Address","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Address"))
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")
 
 	Func getRoundtripTime
 		dn_x = dotnet_call("s3:get",nHandle,"s13:RoundtripTime")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:RoundtripTime",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRoundtripTime P1
 		raise("DotNet Error: RoundtripTime is a read-only property")
 
 	Func getOptions
-		return dnSend("s3:get",nHandle,"s7:Options","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Options"))
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getBuffer
-		return dnSend("s3:get",nHandle,"s6:Buffer","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Buffer"))
 
 	Func setBuffer P1
 		raise("DotNet Error: Buffer is a read-only property")
@@ -2248,23 +2235,23 @@ Class TcpConnectionInformation from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getLocalEndPoint
-		return dnSend("s3:get",nHandle,"s13:LocalEndPoint","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:LocalEndPoint"))
 
 	Func setLocalEndPoint P1
 		raise("DotNet Error: LocalEndPoint is a read-only property")
 
 	Func getRemoteEndPoint
-		return dnSend("s3:get",nHandle,"s14:RemoteEndPoint","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:RemoteEndPoint"))
 
 	Func setRemoteEndPoint P1
 		raise("DotNet Error: RemoteEndPoint is a read-only property")
 
 	Func getState
-		return dnSend("s3:get",nHandle,"s5:State","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:State"))
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -2298,12 +2285,12 @@ Class TcpStatistics from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getConnectionsAccepted
 		dn_x = dotnet_call("s3:get",nHandle,"s19:ConnectionsAccepted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:ConnectionsAccepted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setConnectionsAccepted P1
@@ -2311,7 +2298,7 @@ Class TcpStatistics from Object
 
 	Func getConnectionsInitiated
 		dn_x = dotnet_call("s3:get",nHandle,"s20:ConnectionsInitiated")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:ConnectionsInitiated",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setConnectionsInitiated P1
@@ -2319,7 +2306,7 @@ Class TcpStatistics from Object
 
 	Func getCumulativeConnections
 		dn_x = dotnet_call("s3:get",nHandle,"s21:CumulativeConnections")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:CumulativeConnections",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCumulativeConnections P1
@@ -2327,7 +2314,7 @@ Class TcpStatistics from Object
 
 	Func getCurrentConnections
 		dn_x = dotnet_call("s3:get",nHandle,"s18:CurrentConnections")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:CurrentConnections",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCurrentConnections P1
@@ -2335,7 +2322,7 @@ Class TcpStatistics from Object
 
 	Func getErrorsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s14:ErrorsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:ErrorsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setErrorsReceived P1
@@ -2343,7 +2330,7 @@ Class TcpStatistics from Object
 
 	Func getFailedConnectionAttempts
 		dn_x = dotnet_call("s3:get",nHandle,"s24:FailedConnectionAttempts")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:FailedConnectionAttempts",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFailedConnectionAttempts P1
@@ -2351,7 +2338,7 @@ Class TcpStatistics from Object
 
 	Func getMaximumConnections
 		dn_x = dotnet_call("s3:get",nHandle,"s18:MaximumConnections")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:MaximumConnections",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaximumConnections P1
@@ -2359,7 +2346,7 @@ Class TcpStatistics from Object
 
 	Func getMaximumTransmissionTimeout
 		dn_x = dotnet_call("s3:get",nHandle,"s26:MaximumTransmissionTimeout")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:MaximumTransmissionTimeout",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaximumTransmissionTimeout P1
@@ -2367,7 +2354,7 @@ Class TcpStatistics from Object
 
 	Func getMinimumTransmissionTimeout
 		dn_x = dotnet_call("s3:get",nHandle,"s26:MinimumTransmissionTimeout")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:MinimumTransmissionTimeout",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMinimumTransmissionTimeout P1
@@ -2375,7 +2362,7 @@ Class TcpStatistics from Object
 
 	Func getResetConnections
 		dn_x = dotnet_call("s3:get",nHandle,"s16:ResetConnections")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ResetConnections",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setResetConnections P1
@@ -2383,7 +2370,7 @@ Class TcpStatistics from Object
 
 	Func getSegmentsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s16:SegmentsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:SegmentsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSegmentsReceived P1
@@ -2391,7 +2378,7 @@ Class TcpStatistics from Object
 
 	Func getSegmentsResent
 		dn_x = dotnet_call("s3:get",nHandle,"s14:SegmentsResent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:SegmentsResent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSegmentsResent P1
@@ -2399,7 +2386,7 @@ Class TcpStatistics from Object
 
 	Func getSegmentsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s12:SegmentsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:SegmentsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSegmentsSent P1
@@ -2407,7 +2394,7 @@ Class TcpStatistics from Object
 
 	Func getResetsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s10:ResetsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:ResetsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setResetsSent P1
@@ -2433,12 +2420,12 @@ Class UdpStatistics from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getDatagramsReceived
 		dn_x = dotnet_call("s3:get",nHandle,"s17:DatagramsReceived")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:DatagramsReceived",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDatagramsReceived P1
@@ -2446,7 +2433,7 @@ Class UdpStatistics from Object
 
 	Func getDatagramsSent
 		dn_x = dotnet_call("s3:get",nHandle,"s13:DatagramsSent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:DatagramsSent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDatagramsSent P1
@@ -2454,7 +2441,7 @@ Class UdpStatistics from Object
 
 	Func getIncomingDatagramsDiscarded
 		dn_x = dotnet_call("s3:get",nHandle,"s26:IncomingDatagramsDiscarded")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:IncomingDatagramsDiscarded",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIncomingDatagramsDiscarded P1
@@ -2462,7 +2449,7 @@ Class UdpStatistics from Object
 
 	Func getIncomingDatagramsWithErrors
 		dn_x = dotnet_call("s3:get",nHandle,"s27:IncomingDatagramsWithErrors")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s27:IncomingDatagramsWithErrors",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIncomingDatagramsWithErrors P1
@@ -2470,7 +2457,7 @@ Class UdpStatistics from Object
 
 	Func getUdpListeners
 		dn_x = dotnet_call("s3:get",nHandle,"s12:UdpListeners")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:UdpListeners",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUdpListeners P1
@@ -2492,47 +2479,44 @@ Class UnicastIPAddressInformationCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func Add P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -2540,7 +2524,7 @@ Class UnicastIPAddressInformationCollection from Object
 
 	Func getIsReadOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReadOnly P1
@@ -2567,7 +2551,7 @@ Class MulticastIPAddressInformation from IPAddressInformation
 
 	Func getAddressPreferredLifetime
 		dn_x = dotnet_call("s3:get",nHandle,"s24:AddressPreferredLifetime")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:AddressPreferredLifetime",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAddressPreferredLifetime P1
@@ -2575,7 +2559,7 @@ Class MulticastIPAddressInformation from IPAddressInformation
 
 	Func getAddressValidLifetime
 		dn_x = dotnet_call("s3:get",nHandle,"s20:AddressValidLifetime")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:AddressValidLifetime",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAddressValidLifetime P1
@@ -2583,26 +2567,26 @@ Class MulticastIPAddressInformation from IPAddressInformation
 
 	Func getDhcpLeaseLifetime
 		dn_x = dotnet_call("s3:get",nHandle,"s17:DhcpLeaseLifetime")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:DhcpLeaseLifetime",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDhcpLeaseLifetime P1
 		raise("DotNet Error: DhcpLeaseLifetime is a read-only property")
 
 	Func getDuplicateAddressDetectionState
-		return dnSend("s3:get",nHandle,"s30:DuplicateAddressDetectionState","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s30:DuplicateAddressDetectionState"))
 
 	Func setDuplicateAddressDetectionState P1
 		raise("DotNet Error: DuplicateAddressDetectionState is a read-only property")
 
 	Func getPrefixOrigin
-		return dnSend("s3:get",nHandle,"s12:PrefixOrigin","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PrefixOrigin"))
 
 	Func setPrefixOrigin P1
 		raise("DotNet Error: PrefixOrigin is a read-only property")
 
 	Func getSuffixOrigin
-		return dnSend("s3:get",nHandle,"s12:SuffixOrigin","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:SuffixOrigin"))
 
 	Func setSuffixOrigin P1
 		raise("DotNet Error: SuffixOrigin is a read-only property")
@@ -2630,7 +2614,7 @@ Class UnicastIPAddressInformation from IPAddressInformation
 
 	Func getAddressPreferredLifetime
 		dn_x = dotnet_call("s3:get",nHandle,"s24:AddressPreferredLifetime")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:AddressPreferredLifetime",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAddressPreferredLifetime P1
@@ -2638,7 +2622,7 @@ Class UnicastIPAddressInformation from IPAddressInformation
 
 	Func getAddressValidLifetime
 		dn_x = dotnet_call("s3:get",nHandle,"s20:AddressValidLifetime")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:AddressValidLifetime",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAddressValidLifetime P1
@@ -2646,39 +2630,39 @@ Class UnicastIPAddressInformation from IPAddressInformation
 
 	Func getDhcpLeaseLifetime
 		dn_x = dotnet_call("s3:get",nHandle,"s17:DhcpLeaseLifetime")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:DhcpLeaseLifetime",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDhcpLeaseLifetime P1
 		raise("DotNet Error: DhcpLeaseLifetime is a read-only property")
 
 	Func getDuplicateAddressDetectionState
-		return dnSend("s3:get",nHandle,"s30:DuplicateAddressDetectionState","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s30:DuplicateAddressDetectionState"))
 
 	Func setDuplicateAddressDetectionState P1
 		raise("DotNet Error: DuplicateAddressDetectionState is a read-only property")
 
 	Func getPrefixOrigin
-		return dnSend("s3:get",nHandle,"s12:PrefixOrigin","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PrefixOrigin"))
 
 	Func setPrefixOrigin P1
 		raise("DotNet Error: PrefixOrigin is a read-only property")
 
 	Func getSuffixOrigin
-		return dnSend("s3:get",nHandle,"s12:SuffixOrigin","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:SuffixOrigin"))
 
 	Func setSuffixOrigin P1
 		raise("DotNet Error: SuffixOrigin is a read-only property")
 
 	Func getIPv4Mask
-		return dnSend("s3:get",nHandle,"s8:IPv4Mask","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:IPv4Mask"))
 
 	Func setIPv4Mask P1
 		raise("DotNet Error: IPv4Mask is a read-only property")
 
 	Func getPrefixLength
 		dn_x = dotnet_call("s3:get",nHandle,"s12:PrefixLength")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:PrefixLength",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPrefixLength P1

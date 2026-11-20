@@ -426,19 +426,18 @@ Class Camera from Animatable
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getTransform
-		return dnSend("s3:get",nHandle,"s9:Transform","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Transform"))
 
 	Func setTransform P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Transform",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Transform",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Transform",P1)
 		return self
 
 	Func getTransformProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Camera, PresentationCore'),"s17:TransformProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Camera, PresentationCore',"s17:TransformProperty"))
 
 	Func setTransformProperty P1
 		raise("DotNet Error: TransformProperty is a read-only property")
@@ -467,7 +466,7 @@ Class ContainerUIElement3D from UIElement3D
 		return self
 
 	Func getChildren
-		return dnSend("s3:get",nHandle,"s8:Children","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Children"))
 
 	Func setChildren P1
 		raise("DotNet Error: Children is a read-only property")
@@ -488,7 +487,7 @@ Class GeneralTransform2DTo3D from Freezable
 		return dnSend("s4:call",nHandle,"s12:TryTransform",dnPackItem(P1))
 
 	Func Transform P1
-		return dnSend("s4:call",nHandle,"s9:Transform",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Transform",P1))
 
 
 Class GeneralTransform3D from Animatable
@@ -508,21 +507,21 @@ Class GeneralTransform3D from Animatable
 		return dnSend("s4:call",nHandle,"s12:TryTransform",dnPackItem(P1))
 
 	Func Transform P1
-		return dnSend("s4:call",nHandle,"s9:Transform",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Transform",P1))
 
 	Func TransformBounds P1
-		return dnSend("s4:call",nHandle,"s15:TransformBounds",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TransformBounds",P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getInverse
-		return dnSend("s3:get",nHandle,"s7:Inverse","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Inverse"))
 
 	Func setInverse P1
 		raise("DotNet Error: Inverse is a read-only property")
@@ -567,64 +566,58 @@ Class GeneralTransform3DCollection from Animatable
 		return self
 
 	Func Add P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Insert P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
 
 		return self
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RemoveAt P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
 
 		return self
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -646,10 +639,10 @@ Class GeneralTransform3DTo2D from Freezable
 		return dnSend("s4:call",nHandle,"s12:TryTransform",dnPackItem(P1))
 
 	Func Transform P1
-		return dnSend("s4:call",nHandle,"s9:Transform",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Transform",P1))
 
 	Func TransformBounds P1
-		return dnSend("s4:call",nHandle,"s15:TransformBounds",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TransformBounds",P1))
 
 
 Class Geometry3D from Animatable
@@ -666,7 +659,7 @@ Class Geometry3D from Animatable
 		return self
 
 	Func getBounds
-		return dnSend("s3:get",nHandle,"s6:Bounds","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Bounds"))
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
@@ -685,7 +678,7 @@ Class HitTestParameters3D from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -705,7 +698,7 @@ Class Material from Animatable
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -748,64 +741,58 @@ Class MaterialCollection from Animatable
 		return self
 
 	Func Add P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Insert P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
 
 		return self
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RemoveAt P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
 
 		return self
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -871,89 +858,75 @@ Class Matrix3D from ValueType
 		return self
 
 	Func SetIdentity 
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:SetIdentity")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:SetIdentity","") ok
+		dotnet_callv("s4:call",nHandle,"s11:SetIdentity")
 
 		return self
 
 	Func Prepend P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Prepend",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Prepend",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s7:Prepend",P1)
 
 		return self
 
 	Func Append P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Append",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Append",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Append",P1)
 
 		return self
 
 	Func Rotate P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Rotate",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Rotate",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Rotate",P1)
 
 		return self
 
 	Func RotatePrepend P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s13:RotatePrepend",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s13:RotatePrepend",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s13:RotatePrepend",P1)
 
 		return self
 
 	Func RotateAt P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:RotateAt",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RotateAt",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:RotateAt",P1,P2)
 
 		return self
 
 	Func RotateAtPrepend P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:RotateAtPrepend",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:RotateAtPrepend",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s15:RotateAtPrepend",P1,P2)
 
 		return self
 
 	Func Scale P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Scale",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Scale",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Scale",P1)
 
 		return self
 
 	Func ScalePrepend P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:ScalePrepend",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:ScalePrepend",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s12:ScalePrepend",P1)
 
 		return self
 
 	Func ScaleAt P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:ScaleAt",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:ScaleAt",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s7:ScaleAt",P1,P2)
 
 		return self
 
 	Func ScaleAtPrepend P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s14:ScaleAtPrepend",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s14:ScaleAtPrepend",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s14:ScaleAtPrepend",P1,P2)
 
 		return self
 
 	Func Translate P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:Translate",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:Translate",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s9:Translate",P1)
 
 		return self
 
 	Func TranslatePrepend P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:TranslatePrepend",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:TranslatePrepend",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s16:TranslatePrepend",P1)
 
 		return self
 
 	Func Transform P1
-		return dnSend("s4:call",nHandle,"s9:Transform",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Transform",P1))
 
 	Func Invert 
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Invert")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Invert","") ok
+		dotnet_callv("s4:call",nHandle,"s6:Invert")
 
 		return self
 
@@ -965,7 +938,7 @@ Class Matrix3D from ValueType
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
@@ -973,18 +946,18 @@ Class Matrix3D from ValueType
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Matrix3D, PresentationCore'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Matrix3D, PresentationCore',"s8:Multiply",P1,P2))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Matrix3D, PresentationCore'),"s5:Parse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Matrix3D, PresentationCore',"s5:Parse",P1))
 
 	Func getIsIdentity
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsIdentity")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsIdentity",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsIdentity P1
@@ -992,7 +965,7 @@ Class Matrix3D from ValueType
 
 	Func getIsAffine
 		dn_x = dotnet_call("s3:get",nHandle,"s8:IsAffine")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsAffine",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAffine P1
@@ -1000,7 +973,7 @@ Class Matrix3D from ValueType
 
 	Func getDeterminant
 		dn_x = dotnet_call("s3:get",nHandle,"s11:Determinant")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:Determinant",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDeterminant P1
@@ -1008,7 +981,7 @@ Class Matrix3D from ValueType
 
 	Func getHasInverse
 		dn_x = dotnet_call("s3:get",nHandle,"s10:HasInverse")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:HasInverse",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasInverse P1
@@ -1016,166 +989,150 @@ Class Matrix3D from ValueType
 
 	Func getM11
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M11")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M11",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM11 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M11",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M11",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M11",P1)
 		return self
 
 	Func getM12
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M12")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M12",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM12 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M12",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M12",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M12",P1)
 		return self
 
 	Func getM13
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M13")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M13",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM13 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M13",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M13",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M13",P1)
 		return self
 
 	Func getM14
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M14")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M14",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM14 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M14",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M14",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M14",P1)
 		return self
 
 	Func getM21
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M21")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M21",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM21 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M21",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M21",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M21",P1)
 		return self
 
 	Func getM22
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M22")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M22",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM22 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M22",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M22",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M22",P1)
 		return self
 
 	Func getM23
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M23")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M23",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM23 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M23",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M23",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M23",P1)
 		return self
 
 	Func getM24
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M24")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M24",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM24 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M24",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M24",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M24",P1)
 		return self
 
 	Func getM31
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M31")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M31",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM31 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M31",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M31",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M31",P1)
 		return self
 
 	Func getM32
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M32")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M32",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM32 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M32",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M32",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M32",P1)
 		return self
 
 	Func getM33
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M33")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M33",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM33 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M33",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M33",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M33",P1)
 		return self
 
 	Func getM34
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M34")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M34",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM34 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M34",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M34",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M34",P1)
 		return self
 
 	Func getOffsetX
 		dn_x = dotnet_call("s3:get",nHandle,"s7:OffsetX")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:OffsetX",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOffsetX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:OffsetX",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:OffsetX",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:OffsetX",P1)
 		return self
 
 	Func getOffsetY
 		dn_x = dotnet_call("s3:get",nHandle,"s7:OffsetY")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:OffsetY",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOffsetY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:OffsetY",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:OffsetY",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:OffsetY",P1)
 		return self
 
 	Func getOffsetZ
 		dn_x = dotnet_call("s3:get",nHandle,"s7:OffsetZ")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:OffsetZ",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOffsetZ P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:OffsetZ",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:OffsetZ",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:OffsetZ",P1)
 		return self
 
 	Func getM44
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M44")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M44",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM44 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M44",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M44",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M44",P1)
 		return self
 
 	Func getIdentity
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Matrix3D, PresentationCore'),"s8:Identity","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Matrix3D, PresentationCore',"s8:Identity"))
 
 
 Class Matrix3DConverter from TypeConverter
@@ -1219,25 +1176,24 @@ Class Model3D from Animatable
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getBounds
-		return dnSend("s3:get",nHandle,"s6:Bounds","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Bounds"))
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getTransform
-		return dnSend("s3:get",nHandle,"s9:Transform","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Transform"))
 
 	Func setTransform P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Transform",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Transform",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Transform",P1)
 		return self
 
 	Func getTransformProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Model3D, PresentationCore'),"s17:TransformProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Model3D, PresentationCore',"s17:TransformProperty"))
 
 	Func setTransformProperty P1
 		raise("DotNet Error: TransformProperty is a read-only property")
@@ -1282,64 +1238,58 @@ Class Model3DCollection from Animatable
 		return self
 
 	Func Add P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Insert P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
 
 		return self
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RemoveAt P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
 
 		return self
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -1370,15 +1320,14 @@ Class ModelUIElement3D from UIElement3D
 		return self
 
 	Func getModel
-		return dnSend("s3:get",nHandle,"s5:Model","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
 	Func setModel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Model",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Model",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Model",P1)
 		return self
 
 	Func getModelProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ModelUIElement3D, PresentationCore'),"s13:ModelProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.ModelUIElement3D, PresentationCore',"s13:ModelProperty"))
 
 	Func setModelProperty P1
 		raise("DotNet Error: ModelProperty is a read-only property")
@@ -1425,8 +1374,7 @@ Class Point3D from ValueType
 		return self
 
 	Func Offset P1,P2,P3
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Offset",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Offset",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Offset",P1,P2,P3)
 
 		return self
 
@@ -1438,7 +1386,7 @@ Class Point3D from ValueType
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
@@ -1446,49 +1394,46 @@ Class Point3D from ValueType
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point3D, PresentationCore'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Point3D, PresentationCore',"s3:Add",P1,P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point3D, PresentationCore'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Point3D, PresentationCore',"s8:Subtract",P1,P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point3D, PresentationCore'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Point3D, PresentationCore',"s8:Multiply",P1,P2))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point3D, PresentationCore'),"s5:Parse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Point3D, PresentationCore',"s5:Parse",P1))
 
 	Func getX
 		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:X",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Y",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
 
 	Func getZ
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Z")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Z",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setZ P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Z",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Z",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
 		return self
 
 
@@ -1531,75 +1476,69 @@ Class Point3DCollection from Freezable
 		return self
 
 	Func Add P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Insert P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
 
 		return self
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RemoveAt P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
 
 		return self
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Format P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point3DCollection, PresentationCore'),"s5:Parse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Point3DCollection, PresentationCore',"s5:Parse",P1))
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -1690,8 +1629,7 @@ Class Point4D from ValueType
 		return self
 
 	Func Offset P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Offset",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Offset",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Offset",P1,P2,P3,P4)
 
 		return self
 
@@ -1703,7 +1641,7 @@ Class Point4D from ValueType
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
@@ -1711,59 +1649,55 @@ Class Point4D from ValueType
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point4D, PresentationCore'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Point4D, PresentationCore',"s3:Add",P1,P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point4D, PresentationCore'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Point4D, PresentationCore',"s8:Subtract",P1,P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point4D, PresentationCore'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Point4D, PresentationCore',"s8:Multiply",P1,P2))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Point4D, PresentationCore'),"s5:Parse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Point4D, PresentationCore',"s5:Parse",P1))
 
 	Func getX
 		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:X",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Y",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
 
 	Func getZ
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Z")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Z",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setZ P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Z",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Z",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
 		return self
 
 	Func getW
 		dn_x = dotnet_call("s3:get",nHandle,"s1:W")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:W",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setW P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:W",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:W",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:W",P1)
 		return self
 
 
@@ -1835,20 +1769,17 @@ Class WpfQuaternion from ValueType
 		return self
 
 	Func Conjugate 
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:Conjugate")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:Conjugate","") ok
+		dotnet_callv("s4:call",nHandle,"s9:Conjugate")
 
 		return self
 
 	Func Invert 
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Invert")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Invert","") ok
+		dotnet_callv("s4:call",nHandle,"s6:Invert")
 
 		return self
 
 	Func Normalize 
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:Normalize")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:Normalize","") ok
+		dotnet_callv("s4:call",nHandle,"s9:Normalize")
 
 		return self
 
@@ -1860,7 +1791,7 @@ Class WpfQuaternion from ValueType
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
@@ -1868,17 +1799,17 @@ Class WpfQuaternion from ValueType
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Quaternion, PresentationCore',"s3:Add",P1,P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Quaternion, PresentationCore',"s8:Subtract",P1,P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Quaternion, PresentationCore',"s8:Multiply",P1,P2))
 
 	Func Slerp P1
 		if dnIsNamed(P1)
@@ -1887,17 +1818,17 @@ Class WpfQuaternion from ValueType
 		raise("DotNet Error: Slerp does not take one argument: use named arguments, Slerp([ :parameter = value, ... ])")
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"s5:Parse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Quaternion, PresentationCore',"s5:Parse",P1))
 
 	Func getAxis
-		return dnSend("s3:get",nHandle,"s4:Axis","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Axis"))
 
 	Func setAxis P1
 		raise("DotNet Error: Axis is a read-only property")
 
 	Func getAngle
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Angle")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Angle",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAngle P1
@@ -1905,7 +1836,7 @@ Class WpfQuaternion from ValueType
 
 	Func getIsNormalized
 		dn_x = dotnet_call("s3:get",nHandle,"s12:IsNormalized")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsNormalized",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsNormalized P1
@@ -1913,7 +1844,7 @@ Class WpfQuaternion from ValueType
 
 	Func getIsIdentity
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsIdentity")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsIdentity",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsIdentity P1
@@ -1921,46 +1852,42 @@ Class WpfQuaternion from ValueType
 
 	Func getX
 		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:X",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Y",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
 
 	Func getZ
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Z")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Z",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setZ P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Z",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Z",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
 		return self
 
 	Func getW
 		dn_x = dotnet_call("s3:get",nHandle,"s1:W")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:W",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setW P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:W",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:W",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:W",P1)
 		return self
 
 	Func getIdentity
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"s8:Identity","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Quaternion, PresentationCore',"s8:Identity"))
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
@@ -2003,20 +1930,20 @@ Class RayHitTestResult from HitTestResult
 		return self
 
 	Func getModelHit
-		return dnSend("s3:get",nHandle,"s8:ModelHit","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:ModelHit"))
 
 	Func setModelHit P1
 		raise("DotNet Error: ModelHit is a read-only property")
 
 	Func getPointHit
-		return dnSend("s3:get",nHandle,"s8:PointHit","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:PointHit"))
 
 	Func setPointHit P1
 		raise("DotNet Error: PointHit is a read-only property")
 
 	Func getDistanceToRayOrigin
 		dn_x = dotnet_call("s3:get",nHandle,"s19:DistanceToRayOrigin")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:DistanceToRayOrigin",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDistanceToRayOrigin P1
@@ -2075,12 +2002,12 @@ Class Rect3D from ValueType
 			return dnSend("s9:callnamed",nHandle,"s8:Contains",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IntersectsWith P1
 		dn_x = dotnet_call("s4:call",nHandle,"s14:IntersectsWith",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:IntersectsWith",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Intersect P1
@@ -2090,8 +2017,7 @@ Class Rect3D from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s9:Intersect",dnPackItem(P1))
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:Intersect",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:Intersect",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s9:Intersect",P1)
 
 		return self
 
@@ -2102,8 +2028,7 @@ Class Rect3D from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s5:Union",dnPackItem(P1))
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Union",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Union",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Union",P1)
 
 		return self
 
@@ -2114,8 +2039,7 @@ Class Rect3D from ValueType
 			ok
 			return dnSend("s9:callnamed",nHandle,"s6:Offset",dnPackItem(P1))
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Offset",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Offset",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Offset",P1)
 
 		return self
 
@@ -2127,7 +2051,7 @@ Class Rect3D from ValueType
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
@@ -2135,98 +2059,90 @@ Class Rect3D from ValueType
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"s5:Parse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Rect3D, PresentationCore',"s5:Parse",P1))
 
 	Func getIsEmpty
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsEmpty",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getLocation
-		return dnSend("s3:get",nHandle,"s8:Location","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Location"))
 
 	Func setLocation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Location",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Location",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Location",P1)
 		return self
 
 	Func getSize
-		return dnSend("s3:get",nHandle,"s4:Size","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Size"))
 
 	Func setSize P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Size",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Size",P1)
 		return self
 
 	Func getSizeX
 		dn_x = dotnet_call("s3:get",nHandle,"s5:SizeX")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:SizeX",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSizeX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:SizeX",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:SizeX",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:SizeX",P1)
 		return self
 
 	Func getSizeY
 		dn_x = dotnet_call("s3:get",nHandle,"s5:SizeY")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:SizeY",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSizeY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:SizeY",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:SizeY",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:SizeY",P1)
 		return self
 
 	Func getSizeZ
 		dn_x = dotnet_call("s3:get",nHandle,"s5:SizeZ")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:SizeZ",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSizeZ P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:SizeZ",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:SizeZ",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:SizeZ",P1)
 		return self
 
 	Func getX
 		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:X",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Y",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
 
 	Func getZ
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Z")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Z",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setZ P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Z",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Z",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
 		return self
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"s5:Empty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Rect3D, PresentationCore',"s5:Empty"))
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -2271,11 +2187,11 @@ Class Rotation3D from Animatable
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getIdentity
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Rotation3D, PresentationCore'),"s8:Identity","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Rotation3D, PresentationCore',"s8:Identity"))
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
@@ -2331,7 +2247,7 @@ Class Size3D from ValueType
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
@@ -2339,15 +2255,15 @@ Class Size3D from ValueType
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Size3D, PresentationCore'),"s5:Parse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Size3D, PresentationCore',"s5:Parse",P1))
 
 	Func getIsEmpty
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsEmpty",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsEmpty P1
@@ -2355,36 +2271,33 @@ Class Size3D from ValueType
 
 	Func getX
 		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:X",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Y",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
 
 	Func getZ
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Z")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Z",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setZ P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Z",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Z",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
 		return self
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Size3D, PresentationCore'),"s5:Empty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Size3D, PresentationCore',"s5:Empty"))
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -2450,64 +2363,58 @@ Class Transform3DCollection from Animatable
 		return self
 
 	Func Add P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Insert P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
 
 		return self
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RemoveAt P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
 
 		return self
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -2557,14 +2464,12 @@ Class Vector3D from ValueType
 		return self
 
 	Func Normalize 
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:Normalize")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:Normalize","") ok
+		dotnet_callv("s4:call",nHandle,"s9:Normalize")
 
 		return self
 
 	Func Negate 
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Negate")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Negate","") ok
+		dotnet_callv("s4:call",nHandle,"s6:Negate")
 
 		return self
 
@@ -2576,7 +2481,7 @@ Class Vector3D from ValueType
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
@@ -2584,40 +2489,40 @@ Class Vector3D from ValueType
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AngleBetween P1,P2
 		dn_x = dotnet_call("s4:call",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s12:AngleBetween",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s12:AngleBetween",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s3:Add",P1,P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s8:Subtract",P1,P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s8:Multiply",P1,P2))
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s6:Divide",P1,P2))
 
 	Func DotProduct P1,P2
 		dn_x = dotnet_call("s4:call",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s10:DotProduct",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s10:DotProduct",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CrossProduct P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s12:CrossProduct",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s12:CrossProduct",P1,P2))
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s5:Parse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s5:Parse",P1))
 
 	Func getLength
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Length",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLength P1
@@ -2625,7 +2530,7 @@ Class Vector3D from ValueType
 
 	Func getLengthSquared
 		dn_x = dotnet_call("s3:get",nHandle,"s13:LengthSquared")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:LengthSquared",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLengthSquared P1
@@ -2633,32 +2538,29 @@ Class Vector3D from ValueType
 
 	Func getX
 		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:X",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Y",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
 
 	Func getZ
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Z")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Z",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setZ P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Z",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Z",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
 		return self
 
 
@@ -2701,75 +2603,69 @@ Class Vector3DCollection from Freezable
 		return self
 
 	Func Add P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Insert P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
 
 		return self
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RemoveAt P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
 
 		return self
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Format P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Vector3DCollection, PresentationCore'),"s5:Parse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Vector3DCollection, PresentationCore',"s5:Parse",P1))
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -2858,114 +2754,105 @@ Class Viewport3DVisual from Visual
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s7:HitTest",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s7:HitTest",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HitTest",P1))
 
 	Func getParent
-		return dnSend("s3:get",nHandle,"s6:Parent","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Parent"))
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getClip
-		return dnSend("s3:get",nHandle,"s4:Clip","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Clip"))
 
 	Func setClip P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Clip",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Clip",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Clip",P1)
 		return self
 
 	Func getOpacity
 		dn_x = dotnet_call("s3:get",nHandle,"s7:Opacity")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Opacity",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOpacity P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Opacity",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)
 		return self
 
 	Func getOpacityMask
-		return dnSend("s3:get",nHandle,"s11:OpacityMask","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:OpacityMask"))
 
 	Func setOpacityMask P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:OpacityMask",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:OpacityMask",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:OpacityMask",P1)
 		return self
 
 	Func getBitmapEffect
-		return dnSend("s3:get",nHandle,"s12:BitmapEffect","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:BitmapEffect"))
 
 	Func setBitmapEffect P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:BitmapEffect",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:BitmapEffect",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:BitmapEffect",P1)
 		return self
 
 	Func getBitmapEffectInput
-		return dnSend("s3:get",nHandle,"s17:BitmapEffectInput","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:BitmapEffectInput"))
 
 	Func setBitmapEffectInput P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:BitmapEffectInput",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:BitmapEffectInput",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:BitmapEffectInput",P1)
 		return self
 
 	Func getContentBounds
-		return dnSend("s3:get",nHandle,"s13:ContentBounds","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ContentBounds"))
 
 	Func setContentBounds P1
 		raise("DotNet Error: ContentBounds is a read-only property")
 
 	Func getTransform
-		return dnSend("s3:get",nHandle,"s9:Transform","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Transform"))
 
 	Func setTransform P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Transform",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Transform",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Transform",P1)
 		return self
 
 	Func getOffset
-		return dnSend("s3:get",nHandle,"s6:Offset","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Offset"))
 
 	Func setOffset P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Offset",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Offset",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Offset",P1)
 		return self
 
 	Func getDescendantBounds
-		return dnSend("s3:get",nHandle,"s16:DescendantBounds","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:DescendantBounds"))
 
 	Func setDescendantBounds P1
 		raise("DotNet Error: DescendantBounds is a read-only property")
 
 	Func getCamera
-		return dnSend("s3:get",nHandle,"s6:Camera","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Camera"))
 
 	Func setCamera P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Camera",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Camera",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Camera",P1)
 		return self
 
 	Func getViewport
-		return dnSend("s3:get",nHandle,"s8:Viewport","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Viewport"))
 
 	Func setViewport P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Viewport",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Viewport",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Viewport",P1)
 		return self
 
 	Func getChildren
-		return dnSend("s3:get",nHandle,"s8:Children","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Children"))
 
 	Func setChildren P1
 		raise("DotNet Error: Children is a read-only property")
 
 	Func getCameraProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Viewport3DVisual, PresentationCore'),"s14:CameraProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Viewport3DVisual, PresentationCore',"s14:CameraProperty"))
 
 	Func setCameraProperty P1
 		raise("DotNet Error: CameraProperty is a read-only property")
 
 	Func getViewportProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Viewport3DVisual, PresentationCore'),"s16:ViewportProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Viewport3DVisual, PresentationCore',"s16:ViewportProperty"))
 
 	Func setViewportProperty P1
 		raise("DotNet Error: ViewportProperty is a read-only property")
@@ -2988,22 +2875,22 @@ Class Visual3D from DependencyObject
 
 	Func IsAncestorOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:IsAncestorOf",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:IsAncestorOf",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsDescendantOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s14:IsDescendantOf",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:IsDescendantOf",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FindCommonVisualAncestor P1
-		return dnSend("s4:call",nHandle,"s24:FindCommonVisualAncestor",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:FindCommonVisualAncestor",P1))
 
 	Func TransformToAncestor P1
-		return dnSend("s4:call",nHandle,"s19:TransformToAncestor",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TransformToAncestor",P1))
 
 	Func TransformToDescendant P1
-		return dnSend("s4:call",nHandle,"s21:TransformToDescendant",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:TransformToDescendant",P1))
 
 	Func ApplyAnimationClock P1
 		if dnIsNamed(P1)
@@ -3020,26 +2907,25 @@ Class Visual3D from DependencyObject
 		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
 
 	Func GetAnimationBaseValue P1
-		return dnSend("s4:call",nHandle,"s21:GetAnimationBaseValue",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetAnimationBaseValue",P1))
 
 	Func getTransform
-		return dnSend("s3:get",nHandle,"s9:Transform","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Transform"))
 
 	Func setTransform P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Transform",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Transform",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Transform",P1)
 		return self
 
 	Func getHasAnimatedProperties
 		dn_x = dotnet_call("s3:get",nHandle,"s21:HasAnimatedProperties")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:HasAnimatedProperties",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")
 
 	Func getTransformProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Visual3D, PresentationCore'),"s17:TransformProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Visual3D, PresentationCore',"s17:TransformProperty"))
 
 	Func setTransformProperty P1
 		raise("DotNet Error: TransformProperty is a read-only property")
@@ -3059,69 +2945,63 @@ Class Visual3DCollection from Object
 		return self
 
 	Func Add P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
 	Func Insert P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
 
 		return self
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RemoveAt P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
 
 		return self
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -3170,31 +3050,29 @@ Class AxisAngleRotation3D from Rotation3D
 		return self
 
 	Func getAxis
-		return dnSend("s3:get",nHandle,"s4:Axis","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Axis"))
 
 	Func setAxis P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Axis",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Axis",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Axis",P1)
 		return self
 
 	Func getAngle
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Angle")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Angle",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAngle P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Angle",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Angle",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Angle",P1)
 		return self
 
 	Func getAxisProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore'),"s12:AxisProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore',"s12:AxisProperty"))
 
 	Func setAxisProperty P1
 		raise("DotNet Error: AxisProperty is a read-only property")
 
 	Func getAngleProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore'),"s13:AngleProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore',"s13:AngleProperty"))
 
 	Func setAngleProperty P1
 		raise("DotNet Error: AngleProperty is a read-only property")
@@ -3244,43 +3122,40 @@ Class DiffuseMaterial from Material
 		return self
 
 	Func getColor
-		return dnSend("s3:get",nHandle,"s5:Color","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Color"))
 
 	Func setColor P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Color",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Color",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Color",P1)
 		return self
 
 	Func getAmbientColor
-		return dnSend("s3:get",nHandle,"s12:AmbientColor","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:AmbientColor"))
 
 	Func setAmbientColor P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:AmbientColor",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:AmbientColor",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:AmbientColor",P1)
 		return self
 
 	Func getBrush
-		return dnSend("s3:get",nHandle,"s5:Brush","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Brush"))
 
 	Func setBrush P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Brush",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Brush",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Brush",P1)
 		return self
 
 	Func getColorProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore'),"s13:ColorProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore',"s13:ColorProperty"))
 
 	Func setColorProperty P1
 		raise("DotNet Error: ColorProperty is a read-only property")
 
 	Func getAmbientColorProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore'),"s20:AmbientColorProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore',"s20:AmbientColorProperty"))
 
 	Func setAmbientColorProperty P1
 		raise("DotNet Error: AmbientColorProperty is a read-only property")
 
 	Func getBrushProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore'),"s13:BrushProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore',"s13:BrushProperty"))
 
 	Func setBrushProperty P1
 		raise("DotNet Error: BrushProperty is a read-only property")
@@ -3328,29 +3203,27 @@ Class EmissiveMaterial from Material
 		return self
 
 	Func getColor
-		return dnSend("s3:get",nHandle,"s5:Color","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Color"))
 
 	Func setColor P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Color",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Color",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Color",P1)
 		return self
 
 	Func getBrush
-		return dnSend("s3:get",nHandle,"s5:Brush","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Brush"))
 
 	Func setBrush P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Brush",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Brush",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Brush",P1)
 		return self
 
 	Func getColorProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore'),"s13:ColorProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore',"s13:ColorProperty"))
 
 	Func setColorProperty P1
 		raise("DotNet Error: ColorProperty is a read-only property")
 
 	Func getBrushProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore'),"s13:BrushProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore',"s13:BrushProperty"))
 
 	Func setBrushProperty P1
 		raise("DotNet Error: BrushProperty is a read-only property")
@@ -3380,15 +3253,14 @@ Class GeneralTransform3DGroup from GeneralTransform3D
 		return self
 
 	Func getChildren
-		return dnSend("s3:get",nHandle,"s8:Children","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Children"))
 
 	Func setChildren P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Children",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Children",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Children",P1)
 		return self
 
 	Func getChildrenProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.GeneralTransform3DGroup, PresentationCore'),"s16:ChildrenProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.GeneralTransform3DGroup, PresentationCore',"s16:ChildrenProperty"))
 
 	Func setChildrenProperty P1
 		raise("DotNet Error: ChildrenProperty is a read-only property")
@@ -3438,43 +3310,40 @@ Class GeometryModel3D from Model3D
 		return self
 
 	Func getGeometry
-		return dnSend("s3:get",nHandle,"s8:Geometry","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Geometry"))
 
 	Func setGeometry P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Geometry",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Geometry",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Geometry",P1)
 		return self
 
 	Func getMaterial
-		return dnSend("s3:get",nHandle,"s8:Material","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Material"))
 
 	Func setMaterial P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Material",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Material",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Material",P1)
 		return self
 
 	Func getBackMaterial
-		return dnSend("s3:get",nHandle,"s12:BackMaterial","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:BackMaterial"))
 
 	Func setBackMaterial P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:BackMaterial",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:BackMaterial",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:BackMaterial",P1)
 		return self
 
 	Func getGeometryProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore'),"s16:GeometryProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.GeometryModel3D, PresentationCore',"s16:GeometryProperty"))
 
 	Func setGeometryProperty P1
 		raise("DotNet Error: GeometryProperty is a read-only property")
 
 	Func getMaterialProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore'),"s16:MaterialProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.GeometryModel3D, PresentationCore',"s16:MaterialProperty"))
 
 	Func setMaterialProperty P1
 		raise("DotNet Error: MaterialProperty is a read-only property")
 
 	Func getBackMaterialProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore'),"s20:BackMaterialProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.GeometryModel3D, PresentationCore',"s20:BackMaterialProperty"))
 
 	Func setBackMaterialProperty P1
 		raise("DotNet Error: BackMaterialProperty is a read-only property")
@@ -3495,15 +3364,14 @@ Class Light from Model3D
 		return self
 
 	Func getColor
-		return dnSend("s3:get",nHandle,"s5:Color","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Color"))
 
 	Func setColor P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Color",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Color",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Color",P1)
 		return self
 
 	Func getColorProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Light, PresentationCore'),"s13:ColorProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Light, PresentationCore',"s13:ColorProperty"))
 
 	Func setColorProperty P1
 		raise("DotNet Error: ColorProperty is a read-only property")
@@ -3533,15 +3401,14 @@ Class MaterialGroup from Material
 		return self
 
 	Func getChildren
-		return dnSend("s3:get",nHandle,"s8:Children","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Children"))
 
 	Func setChildren P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Children",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Children",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Children",P1)
 		return self
 
 	Func getChildrenProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.MaterialGroup, PresentationCore'),"s16:ChildrenProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.MaterialGroup, PresentationCore',"s16:ChildrenProperty"))
 
 	Func setChildrenProperty P1
 		raise("DotNet Error: ChildrenProperty is a read-only property")
@@ -3589,29 +3456,27 @@ Class MatrixCamera from Camera
 		return self
 
 	Func getViewMatrix
-		return dnSend("s3:get",nHandle,"s10:ViewMatrix","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ViewMatrix"))
 
 	Func setViewMatrix P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:ViewMatrix",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:ViewMatrix",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:ViewMatrix",P1)
 		return self
 
 	Func getProjectionMatrix
-		return dnSend("s3:get",nHandle,"s16:ProjectionMatrix","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ProjectionMatrix"))
 
 	Func setProjectionMatrix P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:ProjectionMatrix",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ProjectionMatrix",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:ProjectionMatrix",P1)
 		return self
 
 	Func getViewMatrixProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.MatrixCamera, PresentationCore'),"s18:ViewMatrixProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.MatrixCamera, PresentationCore',"s18:ViewMatrixProperty"))
 
 	Func setViewMatrixProperty P1
 		raise("DotNet Error: ViewMatrixProperty is a read-only property")
 
 	Func getProjectionMatrixProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.MatrixCamera, PresentationCore'),"s24:ProjectionMatrixProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.MatrixCamera, PresentationCore',"s24:ProjectionMatrixProperty"))
 
 	Func setProjectionMatrixProperty P1
 		raise("DotNet Error: ProjectionMatrixProperty is a read-only property")
@@ -3647,57 +3512,53 @@ Class MeshGeometry3D from Geometry3D
 		return self
 
 	Func getPositions
-		return dnSend("s3:get",nHandle,"s9:Positions","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Positions"))
 
 	Func setPositions P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Positions",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Positions",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Positions",P1)
 		return self
 
 	Func getNormals
-		return dnSend("s3:get",nHandle,"s7:Normals","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Normals"))
 
 	Func setNormals P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Normals",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Normals",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Normals",P1)
 		return self
 
 	Func getTextureCoordinates
-		return dnSend("s3:get",nHandle,"s18:TextureCoordinates","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:TextureCoordinates"))
 
 	Func setTextureCoordinates P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:TextureCoordinates",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:TextureCoordinates",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:TextureCoordinates",P1)
 		return self
 
 	Func getTriangleIndices
-		return dnSend("s3:get",nHandle,"s15:TriangleIndices","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:TriangleIndices"))
 
 	Func setTriangleIndices P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:TriangleIndices",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:TriangleIndices",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:TriangleIndices",P1)
 		return self
 
 	Func getPositionsProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore'),"s17:PositionsProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore',"s17:PositionsProperty"))
 
 	Func setPositionsProperty P1
 		raise("DotNet Error: PositionsProperty is a read-only property")
 
 	Func getNormalsProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore'),"s15:NormalsProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore',"s15:NormalsProperty"))
 
 	Func setNormalsProperty P1
 		raise("DotNet Error: NormalsProperty is a read-only property")
 
 	Func getTextureCoordinatesProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore'),"s26:TextureCoordinatesProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore',"s26:TextureCoordinatesProperty"))
 
 	Func setTextureCoordinatesProperty P1
 		raise("DotNet Error: TextureCoordinatesProperty is a read-only property")
 
 	Func getTriangleIndicesProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore'),"s23:TriangleIndicesProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore',"s23:TriangleIndicesProperty"))
 
 	Func setTriangleIndicesProperty P1
 		raise("DotNet Error: TriangleIndicesProperty is a read-only property")
@@ -3727,15 +3588,14 @@ Class Model3DGroup from Model3D
 		return self
 
 	Func getChildren
-		return dnSend("s3:get",nHandle,"s8:Children","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Children"))
 
 	Func setChildren P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Children",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Children",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Children",P1)
 		return self
 
 	Func getChildrenProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Model3DGroup, PresentationCore'),"s16:ChildrenProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Model3DGroup, PresentationCore',"s16:ChildrenProperty"))
 
 	Func setChildrenProperty P1
 		raise("DotNet Error: ChildrenProperty is a read-only property")
@@ -3766,27 +3626,26 @@ Class ModelVisual3D from Visual3D
 		return self
 
 	Func getChildren
-		return dnSend("s3:get",nHandle,"s8:Children","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Children"))
 
 	Func setChildren P1
 		raise("DotNet Error: Children is a read-only property")
 
 	Func getContent
-		return dnSend("s3:get",nHandle,"s7:Content","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Content"))
 
 	Func setContent P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Content",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Content",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Content",P1)
 		return self
 
 	Func getContentProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ModelVisual3D, PresentationCore'),"s15:ContentProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.ModelVisual3D, PresentationCore',"s15:ContentProperty"))
 
 	Func setContentProperty P1
 		raise("DotNet Error: ContentProperty is a read-only property")
 
 	Func getTransformProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ModelVisual3D, PresentationCore'),"s17:TransformProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.ModelVisual3D, PresentationCore',"s17:TransformProperty"))
 
 
 Class ProjectionCamera from Camera
@@ -3813,74 +3672,69 @@ Class ProjectionCamera from Camera
 
 	Func getNearPlaneDistance
 		dn_x = dotnet_call("s3:get",nHandle,"s17:NearPlaneDistance")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:NearPlaneDistance",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNearPlaneDistance P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:NearPlaneDistance",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:NearPlaneDistance",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:NearPlaneDistance",P1)
 		return self
 
 	Func getFarPlaneDistance
 		dn_x = dotnet_call("s3:get",nHandle,"s16:FarPlaneDistance")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:FarPlaneDistance",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFarPlaneDistance P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:FarPlaneDistance",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:FarPlaneDistance",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:FarPlaneDistance",P1)
 		return self
 
 	Func getPosition
-		return dnSend("s3:get",nHandle,"s8:Position","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Position"))
 
 	Func setPosition P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Position",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Position",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Position",P1)
 		return self
 
 	Func getLookDirection
-		return dnSend("s3:get",nHandle,"s13:LookDirection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:LookDirection"))
 
 	Func setLookDirection P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:LookDirection",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:LookDirection",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:LookDirection",P1)
 		return self
 
 	Func getUpDirection
-		return dnSend("s3:get",nHandle,"s11:UpDirection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:UpDirection"))
 
 	Func setUpDirection P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:UpDirection",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:UpDirection",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:UpDirection",P1)
 		return self
 
 	Func getNearPlaneDistanceProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ProjectionCamera, PresentationCore'),"s25:NearPlaneDistanceProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.ProjectionCamera, PresentationCore',"s25:NearPlaneDistanceProperty"))
 
 	Func setNearPlaneDistanceProperty P1
 		raise("DotNet Error: NearPlaneDistanceProperty is a read-only property")
 
 	Func getFarPlaneDistanceProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ProjectionCamera, PresentationCore'),"s24:FarPlaneDistanceProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.ProjectionCamera, PresentationCore',"s24:FarPlaneDistanceProperty"))
 
 	Func setFarPlaneDistanceProperty P1
 		raise("DotNet Error: FarPlaneDistanceProperty is a read-only property")
 
 	Func getPositionProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ProjectionCamera, PresentationCore'),"s16:PositionProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.ProjectionCamera, PresentationCore',"s16:PositionProperty"))
 
 	Func setPositionProperty P1
 		raise("DotNet Error: PositionProperty is a read-only property")
 
 	Func getLookDirectionProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ProjectionCamera, PresentationCore'),"s21:LookDirectionProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.ProjectionCamera, PresentationCore',"s21:LookDirectionProperty"))
 
 	Func setLookDirectionProperty P1
 		raise("DotNet Error: LookDirectionProperty is a read-only property")
 
 	Func getUpDirectionProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ProjectionCamera, PresentationCore'),"s19:UpDirectionProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.ProjectionCamera, PresentationCore',"s19:UpDirectionProperty"))
 
 	Func setUpDirectionProperty P1
 		raise("DotNet Error: UpDirectionProperty is a read-only property")
@@ -3926,15 +3780,14 @@ Class QuaternionRotation3D from Rotation3D
 		return self
 
 	Func getQuaternion
-		return dnSend("s3:get",nHandle,"s10:Quaternion","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Quaternion"))
 
 	Func setQuaternion P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:Quaternion",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Quaternion",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:Quaternion",P1)
 		return self
 
 	Func getQuaternionProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.QuaternionRotation3D, PresentationCore'),"s18:QuaternionProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.QuaternionRotation3D, PresentationCore',"s18:QuaternionProperty"))
 
 	Func setQuaternionProperty P1
 		raise("DotNet Error: QuaternionProperty is a read-only property")
@@ -3957,13 +3810,13 @@ Class RayHitTestParameters from HitTestParameters3D
 		return self
 
 	Func getOrigin
-		return dnSend("s3:get",nHandle,"s6:Origin","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Origin"))
 
 	Func setOrigin P1
 		raise("DotNet Error: Origin is a read-only property")
 
 	Func getDirection
-		return dnSend("s3:get",nHandle,"s9:Direction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Direction"))
 
 	Func setDirection P1
 		raise("DotNet Error: Direction is a read-only property")
@@ -3990,7 +3843,7 @@ Class RayMeshGeometry3DHitTestResult from RayHitTestResult
 
 	Func getVertexIndex1
 		dn_x = dotnet_call("s3:get",nHandle,"s12:VertexIndex1")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:VertexIndex1",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setVertexIndex1 P1
@@ -3998,7 +3851,7 @@ Class RayMeshGeometry3DHitTestResult from RayHitTestResult
 
 	Func getVertexIndex2
 		dn_x = dotnet_call("s3:get",nHandle,"s12:VertexIndex2")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:VertexIndex2",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setVertexIndex2 P1
@@ -4006,7 +3859,7 @@ Class RayMeshGeometry3DHitTestResult from RayHitTestResult
 
 	Func getVertexIndex3
 		dn_x = dotnet_call("s3:get",nHandle,"s12:VertexIndex3")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:VertexIndex3",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setVertexIndex3 P1
@@ -4014,7 +3867,7 @@ Class RayMeshGeometry3DHitTestResult from RayHitTestResult
 
 	Func getVertexWeight1
 		dn_x = dotnet_call("s3:get",nHandle,"s13:VertexWeight1")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:VertexWeight1",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setVertexWeight1 P1
@@ -4022,7 +3875,7 @@ Class RayMeshGeometry3DHitTestResult from RayHitTestResult
 
 	Func getVertexWeight2
 		dn_x = dotnet_call("s3:get",nHandle,"s13:VertexWeight2")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:VertexWeight2",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setVertexWeight2 P1
@@ -4030,14 +3883,14 @@ Class RayMeshGeometry3DHitTestResult from RayHitTestResult
 
 	Func getVertexWeight3
 		dn_x = dotnet_call("s3:get",nHandle,"s13:VertexWeight3")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:VertexWeight3",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setVertexWeight3 P1
 		raise("DotNet Error: VertexWeight3 is a read-only property")
 
 	Func getMeshHit
-		return dnSend("s3:get",nHandle,"s7:MeshHit","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:MeshHit"))
 
 	Func setMeshHit P1
 		raise("DotNet Error: MeshHit is a read-only property")
@@ -4087,45 +3940,42 @@ Class SpecularMaterial from Material
 		return self
 
 	Func getColor
-		return dnSend("s3:get",nHandle,"s5:Color","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Color"))
 
 	Func setColor P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Color",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Color",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Color",P1)
 		return self
 
 	Func getBrush
-		return dnSend("s3:get",nHandle,"s5:Brush","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Brush"))
 
 	Func setBrush P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Brush",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Brush",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Brush",P1)
 		return self
 
 	Func getSpecularPower
 		dn_x = dotnet_call("s3:get",nHandle,"s13:SpecularPower")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:SpecularPower",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSpecularPower P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:SpecularPower",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:SpecularPower",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:SpecularPower",P1)
 		return self
 
 	Func getColorProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore'),"s13:ColorProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.SpecularMaterial, PresentationCore',"s13:ColorProperty"))
 
 	Func setColorProperty P1
 		raise("DotNet Error: ColorProperty is a read-only property")
 
 	Func getBrushProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore'),"s13:BrushProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.SpecularMaterial, PresentationCore',"s13:BrushProperty"))
 
 	Func setBrushProperty P1
 		raise("DotNet Error: BrushProperty is a read-only property")
 
 	Func getSpecularPowerProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore'),"s21:SpecularPowerProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.SpecularMaterial, PresentationCore',"s21:SpecularPowerProperty"))
 
 	Func setSpecularPowerProperty P1
 		raise("DotNet Error: SpecularPowerProperty is a read-only property")
@@ -4147,21 +3997,21 @@ Class Transform3D from GeneralTransform3D
 		return self
 
 	Func GetValue_ P1
-		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func getIsAffine
 		dn_x = dotnet_call("s3:get",nHandle,"s8:IsAffine")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsAffine",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAffine P1
 		raise("DotNet Error: IsAffine is a read-only property")
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
 
 	Func getIdentity
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Transform3D, PresentationCore'),"s8:Identity","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Transform3D, PresentationCore',"s8:Identity"))
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
@@ -4198,74 +4048,69 @@ Class Viewport2DVisual3D from Visual3D
 		return self
 
 	Func SetIsVisualHostMaterial P1,P2
-		dn_x = dotnet_callv("s4:call",'System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore',"s23:SetIsVisualHostMaterial",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s23:SetIsVisualHostMaterial",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore',"s23:SetIsVisualHostMaterial",P1,P2)
 
 		return self
 
 	Func GetIsVisualHostMaterial P1
 		dn_x = dotnet_call("s4:call",'System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore',"s23:GetIsVisualHostMaterial",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore',"s23:GetIsVisualHostMaterial",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getVisual
-		return dnSend("s3:get",nHandle,"s6:Visual","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Visual"))
 
 	Func setVisual P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Visual",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Visual",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Visual",P1)
 		return self
 
 	Func getGeometry
-		return dnSend("s3:get",nHandle,"s8:Geometry","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Geometry"))
 
 	Func setGeometry P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Geometry",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Geometry",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Geometry",P1)
 		return self
 
 	Func getMaterial
-		return dnSend("s3:get",nHandle,"s8:Material","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Material"))
 
 	Func setMaterial P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Material",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Material",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Material",P1)
 		return self
 
 	Func getCacheMode
-		return dnSend("s3:get",nHandle,"s9:CacheMode","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:CacheMode"))
 
 	Func setCacheMode P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:CacheMode",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:CacheMode",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:CacheMode",P1)
 		return self
 
 	Func getVisualProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s14:VisualProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore',"s14:VisualProperty"))
 
 	Func setVisualProperty P1
 		raise("DotNet Error: VisualProperty is a read-only property")
 
 	Func getGeometryProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s16:GeometryProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore',"s16:GeometryProperty"))
 
 	Func setGeometryProperty P1
 		raise("DotNet Error: GeometryProperty is a read-only property")
 
 	Func getMaterialProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s16:MaterialProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore',"s16:MaterialProperty"))
 
 	Func setMaterialProperty P1
 		raise("DotNet Error: MaterialProperty is a read-only property")
 
 	Func getIsVisualHostMaterialProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s28:IsVisualHostMaterialProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore',"s28:IsVisualHostMaterialProperty"))
 
 	Func setIsVisualHostMaterialProperty P1
 		raise("DotNet Error: IsVisualHostMaterialProperty is a read-only property")
 
 	Func getCacheModeProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"s17:CacheModeProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore',"s17:CacheModeProperty"))
 
 	Func setCacheModeProperty P1
 		raise("DotNet Error: CacheModeProperty is a read-only property")
@@ -4360,15 +4205,14 @@ Class DirectionalLight from Light
 		return self
 
 	Func getDirection
-		return dnSend("s3:get",nHandle,"s9:Direction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Direction"))
 
 	Func setDirection P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Direction",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Direction",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Direction",P1)
 		return self
 
 	Func getDirectionProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.DirectionalLight, PresentationCore'),"s17:DirectionProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.DirectionalLight, PresentationCore',"s17:DirectionProperty"))
 
 	Func setDirectionProperty P1
 		raise("DotNet Error: DirectionProperty is a read-only property")
@@ -4414,15 +4258,14 @@ Class MatrixTransform3D from Transform3D
 		return self
 
 	Func getMatrix
-		return dnSend("s3:get",nHandle,"s6:Matrix","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Matrix"))
 
 	Func setMatrix P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Matrix",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Matrix",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Matrix",P1)
 		return self
 
 	Func getMatrixProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.MatrixTransform3D, PresentationCore'),"s14:MatrixProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.MatrixTransform3D, PresentationCore',"s14:MatrixProperty"))
 
 	Func setMatrixProperty P1
 		raise("DotNet Error: MatrixProperty is a read-only property")
@@ -4469,16 +4312,15 @@ Class OrthographicCamera from ProjectionCamera
 
 	Func getWidth
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Width",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setWidth P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Width",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
 		return self
 
 	Func getWidthProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.OrthographicCamera, PresentationCore'),"s13:WidthProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.OrthographicCamera, PresentationCore',"s13:WidthProperty"))
 
 	Func setWidthProperty P1
 		raise("DotNet Error: WidthProperty is a read-only property")
@@ -4525,16 +4367,15 @@ Class PerspectiveCamera from ProjectionCamera
 
 	Func getFieldOfView
 		dn_x = dotnet_call("s3:get",nHandle,"s11:FieldOfView")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:FieldOfView",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFieldOfView P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:FieldOfView",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:FieldOfView",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:FieldOfView",P1)
 		return self
 
 	Func getFieldOfViewProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.PerspectiveCamera, PresentationCore'),"s19:FieldOfViewProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.PerspectiveCamera, PresentationCore',"s19:FieldOfViewProperty"))
 
 	Func setFieldOfViewProperty P1
 		raise("DotNet Error: FieldOfViewProperty is a read-only property")
@@ -4563,79 +4404,74 @@ Class PointLightBase from Light
 		return self
 
 	Func getPosition
-		return dnSend("s3:get",nHandle,"s8:Position","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Position"))
 
 	Func setPosition P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Position",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Position",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Position",P1)
 		return self
 
 	Func getRange
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Range")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Range",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRange P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Range",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Range",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Range",P1)
 		return self
 
 	Func getConstantAttenuation
 		dn_x = dotnet_call("s3:get",nHandle,"s19:ConstantAttenuation")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:ConstantAttenuation",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setConstantAttenuation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:ConstantAttenuation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:ConstantAttenuation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:ConstantAttenuation",P1)
 		return self
 
 	Func getLinearAttenuation
 		dn_x = dotnet_call("s3:get",nHandle,"s17:LinearAttenuation")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:LinearAttenuation",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLinearAttenuation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:LinearAttenuation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:LinearAttenuation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:LinearAttenuation",P1)
 		return self
 
 	Func getQuadraticAttenuation
 		dn_x = dotnet_call("s3:get",nHandle,"s20:QuadraticAttenuation")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:QuadraticAttenuation",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setQuadraticAttenuation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:QuadraticAttenuation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:QuadraticAttenuation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:QuadraticAttenuation",P1)
 		return self
 
 	Func getPositionProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.PointLightBase, PresentationCore'),"s16:PositionProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.PointLightBase, PresentationCore',"s16:PositionProperty"))
 
 	Func setPositionProperty P1
 		raise("DotNet Error: PositionProperty is a read-only property")
 
 	Func getRangeProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.PointLightBase, PresentationCore'),"s13:RangeProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.PointLightBase, PresentationCore',"s13:RangeProperty"))
 
 	Func setRangeProperty P1
 		raise("DotNet Error: RangeProperty is a read-only property")
 
 	Func getConstantAttenuationProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.PointLightBase, PresentationCore'),"s27:ConstantAttenuationProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.PointLightBase, PresentationCore',"s27:ConstantAttenuationProperty"))
 
 	Func setConstantAttenuationProperty P1
 		raise("DotNet Error: ConstantAttenuationProperty is a read-only property")
 
 	Func getLinearAttenuationProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.PointLightBase, PresentationCore'),"s25:LinearAttenuationProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.PointLightBase, PresentationCore',"s25:LinearAttenuationProperty"))
 
 	Func setLinearAttenuationProperty P1
 		raise("DotNet Error: LinearAttenuationProperty is a read-only property")
 
 	Func getQuadraticAttenuationProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.PointLightBase, PresentationCore'),"s28:QuadraticAttenuationProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.PointLightBase, PresentationCore',"s28:QuadraticAttenuationProperty"))
 
 	Func setQuadraticAttenuationProperty P1
 		raise("DotNet Error: QuadraticAttenuationProperty is a read-only property")
@@ -4665,15 +4501,14 @@ Class Transform3DGroup from Transform3D
 		return self
 
 	Func getChildren
-		return dnSend("s3:get",nHandle,"s8:Children","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Children"))
 
 	Func setChildren P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Children",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Children",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Children",P1)
 		return self
 
 	Func getChildrenProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.Transform3DGroup, PresentationCore'),"s16:ChildrenProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Transform3DGroup, PresentationCore',"s16:ChildrenProperty"))
 
 	Func setChildrenProperty P1
 		raise("DotNet Error: ChildrenProperty is a read-only property")
@@ -4763,62 +4598,58 @@ Class RotateTransform3D from AffineTransform3D
 
 	Func getCenterX
 		dn_x = dotnet_call("s3:get",nHandle,"s7:CenterX")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:CenterX",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCenterX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:CenterX",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:CenterX",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:CenterX",P1)
 		return self
 
 	Func getCenterY
 		dn_x = dotnet_call("s3:get",nHandle,"s7:CenterY")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:CenterY",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCenterY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:CenterY",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:CenterY",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:CenterY",P1)
 		return self
 
 	Func getCenterZ
 		dn_x = dotnet_call("s3:get",nHandle,"s7:CenterZ")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:CenterZ",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCenterZ P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:CenterZ",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:CenterZ",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:CenterZ",P1)
 		return self
 
 	Func getRotation
-		return dnSend("s3:get",nHandle,"s8:Rotation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Rotation"))
 
 	Func setRotation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Rotation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Rotation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Rotation",P1)
 		return self
 
 	Func getCenterXProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore'),"s15:CenterXProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.RotateTransform3D, PresentationCore',"s15:CenterXProperty"))
 
 	Func setCenterXProperty P1
 		raise("DotNet Error: CenterXProperty is a read-only property")
 
 	Func getCenterYProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore'),"s15:CenterYProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.RotateTransform3D, PresentationCore',"s15:CenterYProperty"))
 
 	Func setCenterYProperty P1
 		raise("DotNet Error: CenterYProperty is a read-only property")
 
 	Func getCenterZProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore'),"s15:CenterZProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.RotateTransform3D, PresentationCore',"s15:CenterZProperty"))
 
 	Func setCenterZProperty P1
 		raise("DotNet Error: CenterZProperty is a read-only property")
 
 	Func getRotationProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore'),"s16:RotationProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.RotateTransform3D, PresentationCore',"s16:RotationProperty"))
 
 	Func setRotationProperty P1
 		raise("DotNet Error: RotationProperty is a read-only property")
@@ -4875,96 +4706,90 @@ Class ScaleTransform3D from AffineTransform3D
 
 	Func getScaleX
 		dn_x = dotnet_call("s3:get",nHandle,"s6:ScaleX")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:ScaleX",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setScaleX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:ScaleX",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:ScaleX",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:ScaleX",P1)
 		return self
 
 	Func getScaleY
 		dn_x = dotnet_call("s3:get",nHandle,"s6:ScaleY")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:ScaleY",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setScaleY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:ScaleY",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:ScaleY",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:ScaleY",P1)
 		return self
 
 	Func getScaleZ
 		dn_x = dotnet_call("s3:get",nHandle,"s6:ScaleZ")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:ScaleZ",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setScaleZ P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:ScaleZ",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:ScaleZ",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:ScaleZ",P1)
 		return self
 
 	Func getCenterX
 		dn_x = dotnet_call("s3:get",nHandle,"s7:CenterX")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:CenterX",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCenterX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:CenterX",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:CenterX",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:CenterX",P1)
 		return self
 
 	Func getCenterY
 		dn_x = dotnet_call("s3:get",nHandle,"s7:CenterY")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:CenterY",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCenterY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:CenterY",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:CenterY",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:CenterY",P1)
 		return self
 
 	Func getCenterZ
 		dn_x = dotnet_call("s3:get",nHandle,"s7:CenterZ")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:CenterZ",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCenterZ P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:CenterZ",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:CenterZ",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:CenterZ",P1)
 		return self
 
 	Func getScaleXProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore'),"s14:ScaleXProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',"s14:ScaleXProperty"))
 
 	Func setScaleXProperty P1
 		raise("DotNet Error: ScaleXProperty is a read-only property")
 
 	Func getScaleYProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore'),"s14:ScaleYProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',"s14:ScaleYProperty"))
 
 	Func setScaleYProperty P1
 		raise("DotNet Error: ScaleYProperty is a read-only property")
 
 	Func getScaleZProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore'),"s14:ScaleZProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',"s14:ScaleZProperty"))
 
 	Func setScaleZProperty P1
 		raise("DotNet Error: ScaleZProperty is a read-only property")
 
 	Func getCenterXProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore'),"s15:CenterXProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',"s15:CenterXProperty"))
 
 	Func setCenterXProperty P1
 		raise("DotNet Error: CenterXProperty is a read-only property")
 
 	Func getCenterYProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore'),"s15:CenterYProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',"s15:CenterYProperty"))
 
 	Func setCenterYProperty P1
 		raise("DotNet Error: CenterYProperty is a read-only property")
 
 	Func getCenterZProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore'),"s15:CenterZProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',"s15:CenterZProperty"))
 
 	Func setCenterZProperty P1
 		raise("DotNet Error: CenterZProperty is a read-only property")
@@ -5014,47 +4839,44 @@ Class SpotLight from PointLightBase
 		return self
 
 	Func getDirection
-		return dnSend("s3:get",nHandle,"s9:Direction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Direction"))
 
 	Func setDirection P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Direction",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Direction",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Direction",P1)
 		return self
 
 	Func getOuterConeAngle
 		dn_x = dotnet_call("s3:get",nHandle,"s14:OuterConeAngle")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:OuterConeAngle",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOuterConeAngle P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:OuterConeAngle",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:OuterConeAngle",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:OuterConeAngle",P1)
 		return self
 
 	Func getInnerConeAngle
 		dn_x = dotnet_call("s3:get",nHandle,"s14:InnerConeAngle")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:InnerConeAngle",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInnerConeAngle P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:InnerConeAngle",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:InnerConeAngle",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:InnerConeAngle",P1)
 		return self
 
 	Func getDirectionProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.SpotLight, PresentationCore'),"s17:DirectionProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.SpotLight, PresentationCore',"s17:DirectionProperty"))
 
 	Func setDirectionProperty P1
 		raise("DotNet Error: DirectionProperty is a read-only property")
 
 	Func getOuterConeAngleProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.SpotLight, PresentationCore'),"s22:OuterConeAngleProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.SpotLight, PresentationCore',"s22:OuterConeAngleProperty"))
 
 	Func setOuterConeAngleProperty P1
 		raise("DotNet Error: OuterConeAngleProperty is a read-only property")
 
 	Func getInnerConeAngleProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.SpotLight, PresentationCore'),"s22:InnerConeAngleProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.SpotLight, PresentationCore',"s22:InnerConeAngleProperty"))
 
 	Func setInnerConeAngleProperty P1
 		raise("DotNet Error: InnerConeAngleProperty is a read-only property")
@@ -5105,48 +4927,45 @@ Class TranslateTransform3D from AffineTransform3D
 
 	Func getOffsetX
 		dn_x = dotnet_call("s3:get",nHandle,"s7:OffsetX")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:OffsetX",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOffsetX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:OffsetX",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:OffsetX",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:OffsetX",P1)
 		return self
 
 	Func getOffsetY
 		dn_x = dotnet_call("s3:get",nHandle,"s7:OffsetY")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:OffsetY",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOffsetY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:OffsetY",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:OffsetY",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:OffsetY",P1)
 		return self
 
 	Func getOffsetZ
 		dn_x = dotnet_call("s3:get",nHandle,"s7:OffsetZ")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:OffsetZ",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOffsetZ P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:OffsetZ",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:OffsetZ",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:OffsetZ",P1)
 		return self
 
 	Func getOffsetXProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore'),"s15:OffsetXProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore',"s15:OffsetXProperty"))
 
 	Func setOffsetXProperty P1
 		raise("DotNet Error: OffsetXProperty is a read-only property")
 
 	Func getOffsetYProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore'),"s15:OffsetYProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore',"s15:OffsetYProperty"))
 
 	Func setOffsetYProperty P1
 		raise("DotNet Error: OffsetYProperty is a read-only property")
 
 	Func getOffsetZProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore'),"s15:OffsetZProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore',"s15:OffsetZProperty"))
 
 	Func setOffsetZProperty P1
 		raise("DotNet Error: OffsetZProperty is a read-only property")

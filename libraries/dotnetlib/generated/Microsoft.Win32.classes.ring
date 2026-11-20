@@ -31,11 +31,11 @@ Class Registry from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetValue P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s8:GetValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Win32.Registry, Microsoft.Win32.Registry',"s8:GetValue",P1,P2,P3))
 
 	Func SetValue P1
 		if dnIsNamed(P1)
@@ -45,37 +45,37 @@ Class Registry from Object
 		raise("DotNet Error: SetValue does not take one argument: use named arguments, SetValue([ :parameter = value, ... ])")
 
 	Func getCurrentUser
-		return dnSend("s3:get",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s11:CurrentUser","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.Win32.Registry, Microsoft.Win32.Registry',"s11:CurrentUser"))
 
 	Func setCurrentUser P1
 		raise("DotNet Error: CurrentUser is a read-only property")
 
 	Func getLocalMachine
-		return dnSend("s3:get",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s12:LocalMachine","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.Win32.Registry, Microsoft.Win32.Registry',"s12:LocalMachine"))
 
 	Func setLocalMachine P1
 		raise("DotNet Error: LocalMachine is a read-only property")
 
 	Func getClassesRoot
-		return dnSend("s3:get",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s11:ClassesRoot","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.Win32.Registry, Microsoft.Win32.Registry',"s11:ClassesRoot"))
 
 	Func setClassesRoot P1
 		raise("DotNet Error: ClassesRoot is a read-only property")
 
 	Func getUsers
-		return dnSend("s3:get",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s5:Users","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.Win32.Registry, Microsoft.Win32.Registry',"s5:Users"))
 
 	Func setUsers P1
 		raise("DotNet Error: Users is a read-only property")
 
 	Func getPerformanceData
-		return dnSend("s3:get",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s15:PerformanceData","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.Win32.Registry, Microsoft.Win32.Registry',"s15:PerformanceData"))
 
 	Func setPerformanceData P1
 		raise("DotNet Error: PerformanceData is a read-only property")
 
 	Func getCurrentConfig
-		return dnSend("s3:get",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s13:CurrentConfig","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.Win32.Registry, Microsoft.Win32.Registry',"s13:CurrentConfig"))
 
 	Func setCurrentConfig P1
 		raise("DotNet Error: CurrentConfig is a read-only property")
@@ -99,20 +99,17 @@ Class RegistryKey from MarshalByRefObject
 		return self
 
 	Func Flush 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Flush")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Flush","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Flush")
 
 		return self
 
 	Func Close 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Close")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Close","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Close")
 
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
@@ -120,15 +117,14 @@ Class RegistryKey from MarshalByRefObject
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s12:CreateSubKey",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s12:CreateSubKey",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateSubKey",P1))
 
 	Func DeleteSubKey P1
 		if dnIsNamed(P1)
 			dnSend("s9:callnamed",nHandle,"s12:DeleteSubKey",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:DeleteSubKey",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:DeleteSubKey",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s12:DeleteSubKey",P1)
 
 		return self
 
@@ -137,8 +133,7 @@ Class RegistryKey from MarshalByRefObject
 			dnSend("s9:callnamed",nHandle,"s16:DeleteSubKeyTree",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:DeleteSubKeyTree",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:DeleteSubKeyTree",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s16:DeleteSubKeyTree",P1)
 
 		return self
 
@@ -147,8 +142,7 @@ Class RegistryKey from MarshalByRefObject
 			dnSend("s9:callnamed",nHandle,"s11:DeleteValue",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:DeleteValue",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:DeleteValue",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s11:DeleteValue",P1)
 
 		return self
 
@@ -156,37 +150,36 @@ Class RegistryKey from MarshalByRefObject
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s10:OpenSubKey",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s10:OpenSubKey",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:OpenSubKey",P1))
 
 	Func GetAccessControl P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s16:GetAccessControl",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s16:GetAccessControl","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetAccessControl"))
 		ok
-		return dnSend("s4:call",nHandle,"s16:GetAccessControl",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetAccessControl",P1))
 
 	Func SetAccessControl P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:SetAccessControl",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:SetAccessControl",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s16:SetAccessControl",P1)
 
 		return self
 
 	Func GetSubKeyNames 
-		return dnSend("s4:call",nHandle,"s14:GetSubKeyNames","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetSubKeyNames"))
 
 	Func GetValueNames 
-		return dnSend("s4:call",nHandle,"s13:GetValueNames","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetValueNames"))
 
 	Func GetValue P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:GetValue",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func GetValueKind P1
-		return dnSend("s4:call",nHandle,"s12:GetValueKind",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetValueKind",P1))
 
 	Func SetValue P1
 		if dnIsNamed(P1)
@@ -196,7 +189,7 @@ Class RegistryKey from MarshalByRefObject
 		raise("DotNet Error: SetValue does not take one argument: use named arguments, SetValue([ :parameter = value, ... ])")
 
 	Func OpenBaseKey P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"s11:OpenBaseKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry',"s11:OpenBaseKey",P1,P2))
 
 	Func OpenRemoteBaseKey P1
 		if dnIsNamed(P1)
@@ -208,31 +201,31 @@ Class RegistryKey from MarshalByRefObject
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"s10:FromHandle",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"s10:FromHandle",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry',"s10:FromHandle",P1))
 
 	Func getSubKeyCount
 		dn_x = dotnet_call("s3:get",nHandle,"s11:SubKeyCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:SubKeyCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSubKeyCount P1
 		raise("DotNet Error: SubKeyCount is a read-only property")
 
 	Func getView
-		return dnSend("s3:get",nHandle,"s4:View","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:View"))
 
 	Func setView P1
 		raise("DotNet Error: View is a read-only property")
 
 	Func getHandle
-		return dnSend("s3:get",nHandle,"s6:Handle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Handle"))
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getValueCount
 		dn_x = dotnet_call("s3:get",nHandle,"s10:ValueCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:ValueCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValueCount P1
@@ -240,7 +233,7 @@ Class RegistryKey from MarshalByRefObject
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1

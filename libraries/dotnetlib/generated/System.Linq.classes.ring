@@ -18,7 +18,7 @@ Class Enumerable from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Aggregate P1
@@ -32,36 +32,36 @@ Class Enumerable from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Any",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Linq.Enumerable, System.Linq',"s3:Any",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Linq.Enumerable, System.Linq',"s3:Any",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func All P1,P2
 		dn_x = dotnet_call("s4:call",'System.Linq.Enumerable, System.Linq',"s3:All",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Linq.Enumerable, System.Linq',"s3:All",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Append P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s6:Append",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s6:Append",P1,P2))
 
 	Func Prepend P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s7:Prepend",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s7:Prepend",P1,P2))
 
 	Func Average P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s7:Average",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Linq.Enumerable, System.Linq',"s7:Average",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Linq.Enumerable, System.Linq',"s7:Average",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Cast P1
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s4:Cast",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s4:Cast",P1))
 
 	Func Chunk P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s5:Chunk",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s5:Chunk",P1,P2))
 
 	Func Concat P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s6:Concat",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s6:Concat",P1,P2))
 
 	Func Contains P1
 		if dnIsNamed(P1)
@@ -86,7 +86,7 @@ Class Enumerable from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s5:Count",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Linq.Enumerable, System.Linq',"s5:Count",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Linq.Enumerable, System.Linq',"s5:Count",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryGetNonEnumeratedCount P1
@@ -97,20 +97,20 @@ Class Enumerable from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s9:LongCount",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Linq.Enumerable, System.Linq',"s9:LongCount",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Linq.Enumerable, System.Linq',"s9:LongCount",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DefaultIfEmpty P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s14:DefaultIfEmpty",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s14:DefaultIfEmpty",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s14:DefaultIfEmpty",P1))
 
 	Func Distinct P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s8:Distinct",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s8:Distinct",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s8:Distinct",P1))
 
 	Func DistinctBy P1
 		if dnIsNamed(P1)
@@ -119,16 +119,16 @@ Class Enumerable from Object
 		raise("DotNet Error: DistinctBy does not take one argument: use named arguments, DistinctBy([ :parameter = value, ... ])")
 
 	Func ElementAt P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s9:ElementAt",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s9:ElementAt",P1,P2))
 
 	Func ElementAtOrDefault P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s18:ElementAtOrDefault",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s18:ElementAtOrDefault",P1,P2))
 
 	Func AsEnumerable P1
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s12:AsEnumerable",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s12:AsEnumerable",P1))
 
 	Func Empty 
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s5:Empty","")
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s5:Empty"))
 
 	Func Except P1
 		if dnIsNamed(P1)
@@ -146,13 +146,13 @@ Class Enumerable from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s5:First",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s5:First",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s5:First",P1))
 
 	Func FirstOrDefault P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s14:FirstOrDefault",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s14:FirstOrDefault",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s14:FirstOrDefault",P1))
 
 	Func GroupBy P1
 		if dnIsNamed(P1)
@@ -167,7 +167,7 @@ Class Enumerable from Object
 		raise("DotNet Error: GroupJoin does not take one argument: use named arguments, GroupJoin([ :parameter = value, ... ])")
 
 	Func Index P1
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s5:Index",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s5:Index",P1))
 
 	Func Intersect P1
 		if dnIsNamed(P1)
@@ -191,13 +191,13 @@ Class Enumerable from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s4:Last",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s4:Last",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s4:Last",P1))
 
 	Func LastOrDefault P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s13:LastOrDefault",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s13:LastOrDefault",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s13:LastOrDefault",P1))
 
 	Func ToLookup P1
 		if dnIsNamed(P1)
@@ -210,7 +210,7 @@ Class Enumerable from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Max",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Linq.Enumerable, System.Linq',"s3:Max",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Linq.Enumerable, System.Linq',"s3:Max",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MaxBy P1
@@ -224,7 +224,7 @@ Class Enumerable from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Min",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Linq.Enumerable, System.Linq',"s3:Min",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Linq.Enumerable, System.Linq',"s3:Min",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MinBy P1
@@ -234,13 +234,13 @@ Class Enumerable from Object
 		raise("DotNet Error: MinBy does not take one argument: use named arguments, MinBy([ :parameter = value, ... ])")
 
 	Func OfType P1
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s6:OfType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s6:OfType",P1))
 
 	Func Order P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s5:Order",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s5:Order",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s5:Order",P1))
 
 	Func OrderBy P1
 		if dnIsNamed(P1)
@@ -252,7 +252,7 @@ Class Enumerable from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s15:OrderDescending",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s15:OrderDescending",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s15:OrderDescending",P1))
 
 	Func OrderByDescending P1
 		if dnIsNamed(P1)
@@ -273,16 +273,16 @@ Class Enumerable from Object
 		raise("DotNet Error: ThenByDescending does not take one argument: use named arguments, ThenByDescending([ :parameter = value, ... ])")
 
 	Func Range P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s5:Range",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s5:Range",P1,P2))
 
 	Func Repeat P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s6:Repeat",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s6:Repeat",P1,P2))
 
 	Func Reverse P1
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s7:Reverse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s7:Reverse",P1))
 
 	Func Select P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s6:Select",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s6:Select",P1,P2))
 
 	Func SelectMany P1
 		if dnIsNamed(P1)
@@ -300,54 +300,54 @@ Class Enumerable from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s6:Single",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s6:Single",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s6:Single",P1))
 
 	Func SingleOrDefault P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s15:SingleOrDefault",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s15:SingleOrDefault",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s15:SingleOrDefault",P1))
 
 	Func Skip P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s4:Skip",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s4:Skip",P1,P2))
 
 	Func SkipWhile P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s9:SkipWhile",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s9:SkipWhile",P1,P2))
 
 	Func SkipLast P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s8:SkipLast",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s8:SkipLast",P1,P2))
 
 	Func Sum P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s3:Sum",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Linq.Enumerable, System.Linq',"s3:Sum",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Linq.Enumerable, System.Linq',"s3:Sum",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Take P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s4:Take",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s4:Take",P1,P2))
 
 	Func TakeWhile P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s9:TakeWhile",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s9:TakeWhile",P1,P2))
 
 	Func TakeLast P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s8:TakeLast",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s8:TakeLast",P1,P2))
 
 	Func ToArray P1
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s7:ToArray",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s7:ToArray",P1))
 
 	Func ToDictionary P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s12:ToDictionary",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s12:ToDictionary",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s12:ToDictionary",P1))
 
 	Func ToHashSet P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s9:ToHashSet",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s9:ToHashSet",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s9:ToHashSet",P1))
 
 	Func Union P1
 		if dnIsNamed(P1)
@@ -362,7 +362,7 @@ Class Enumerable from Object
 		raise("DotNet Error: UnionBy does not take one argument: use named arguments, UnionBy([ :parameter = value, ... ])")
 
 	Func Where P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Enumerable, System.Linq'),"s5:Where",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Enumerable, System.Linq',"s5:Where",P1,P2))
 
 	Func Zip P1
 		if dnIsNamed(P1)

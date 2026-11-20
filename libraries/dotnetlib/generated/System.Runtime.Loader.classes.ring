@@ -26,17 +26,17 @@ Class AssemblyDependencyResolver from Object
 
 	Func ResolveAssemblyToPath P1
 		dn_x = dotnet_call("s4:call",nHandle,"s21:ResolveAssemblyToPath",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s21:ResolveAssemblyToPath",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ResolveUnmanagedDllToPath P1
 		dn_x = dotnet_call("s4:call",nHandle,"s25:ResolveUnmanagedDllToPath",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s25:ResolveUnmanagedDllToPath",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -76,35 +76,32 @@ Class AssemblyLoadContext from Object
 		return self
 
 	Func SetProfileOptimizationRoot P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s26:SetProfileOptimizationRoot",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s26:SetProfileOptimizationRoot",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s26:SetProfileOptimizationRoot",P1)
 
 		return self
 
 	Func StartProfileOptimization P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s24:StartProfileOptimization",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s24:StartProfileOptimization",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s24:StartProfileOptimization",P1)
 
 		return self
 
 	Func LoadFromAssemblyName P1
-		return dnSend("s4:call",nHandle,"s20:LoadFromAssemblyName",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:LoadFromAssemblyName",P1))
 
 	Func LoadFromAssemblyPath P1
-		return dnSend("s4:call",nHandle,"s20:LoadFromAssemblyPath",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:LoadFromAssemblyPath",P1))
 
 	Func LoadFromNativeImagePath P1,P2
-		return dnSend("s4:call",nHandle,"s23:LoadFromNativeImagePath",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:LoadFromNativeImagePath",P1,P2))
 
 	Func LoadFromStream P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s14:LoadFromStream",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s14:LoadFromStream",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:LoadFromStream",P1))
 
 	Func Unload 
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Unload")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Unload","") ok
+		dotnet_callv("s4:call",nHandle,"s6:Unload")
 
 		return self
 
@@ -116,20 +113,20 @@ Class AssemblyLoadContext from Object
 			return dnSend("s9:callnamed",nHandle,"s25:EnterContextualReflection",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s25:EnterContextualReflection","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:EnterContextualReflection"))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"s25:EnterContextualReflection",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib',"s25:EnterContextualReflection",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetLoadContext P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"s14:GetLoadContext",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib',"s14:GetLoadContext",P1))
 
 	Func GetAssemblyName P1
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"s15:GetAssemblyName",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib',"s15:GetAssemblyName",P1))
 
 	Func setResolvingUnmanagedDllEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ResolvingUnmanagedDll",dnCallback(P1)])
@@ -156,14 +153,14 @@ Class AssemblyLoadContext from Object
 		return self
 
 	Func getAssemblies
-		return dnSend("s3:get",nHandle,"s10:Assemblies","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Assemblies"))
 
 	Func setAssemblies P1
 		raise("DotNet Error: Assemblies is a read-only property")
 
 	Func getIsCollectible
 		dn_x = dotnet_call("s3:get",nHandle,"s13:IsCollectible")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IsCollectible",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsCollectible P1
@@ -171,26 +168,26 @@ Class AssemblyLoadContext from Object
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"s7:Default","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib',"s7:Default"))
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getAll
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"s3:All","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib',"s3:All"))
 
 	Func setAll P1
 		raise("DotNet Error: All is a read-only property")
 
 	Func getCurrentContextualReflectionContext
-		return dnSend("s3:get",dnTypeHandle('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"s34:CurrentContextualReflectionContext","")
+		return dnObj(dotnet_callo("s3:get",'System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib',"s34:CurrentContextualReflectionContext"))
 
 	Func setCurrentContextualReflectionContext P1
 		raise("DotNet Error: CurrentContextualReflectionContext is a read-only property")

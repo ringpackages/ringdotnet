@@ -125,14 +125,13 @@ Class Enlistment from Object
 		return self
 
 	Func Done 
-		dn_x = dotnet_callv("s4:call",nHandle,"s4:Done")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Done","") ok
+		dotnet_callv("s4:call",nHandle,"s4:Done")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -148,20 +147,17 @@ Class IDtcTransaction from DotNetObject
 		return self
 
 	Func Commit P1,P2,P3
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Commit",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Commit",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Commit",P1,P2,P3)
 
 		return self
 
 	Func Abort P1,P2,P3
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Abort",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Abort",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Abort",P1,P2,P3)
 
 		return self
 
 	Func GetTransactionInfo P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s18:GetTransactionInfo",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s18:GetTransactionInfo",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s18:GetTransactionInfo",P1)
 
 		return self
 
@@ -178,26 +174,22 @@ Class IEnlistmentNotification from DotNetObject
 		return self
 
 	Func Prepare P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Prepare",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Prepare",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s7:Prepare",P1)
 
 		return self
 
 	Func Commit P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Commit",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Commit",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Commit",P1)
 
 		return self
 
 	Func Rollback P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:Rollback",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Rollback",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:Rollback",P1)
 
 		return self
 
 	Func InDoubt P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:InDoubt",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:InDoubt",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s7:InDoubt",P1)
 
 		return self
 
@@ -214,20 +206,17 @@ Class IPromotableSinglePhaseNotification from DotNetObject
 		return self
 
 	Func Initialize 
-		dn_x = dotnet_callv("s4:call",nHandle,"s10:Initialize")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s10:Initialize","") ok
+		dotnet_callv("s4:call",nHandle,"s10:Initialize")
 
 		return self
 
 	Func SinglePhaseCommit P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s17:SinglePhaseCommit",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s17:SinglePhaseCommit",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s17:SinglePhaseCommit",P1)
 
 		return self
 
 	Func Rollback P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:Rollback",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Rollback",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:Rollback",P1)
 
 		return self
 
@@ -244,8 +233,7 @@ Class ISimpleTransactionSuperior from DotNetObject
 		return self
 
 	Func Rollback 
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:Rollback")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Rollback","") ok
+		dotnet_callv("s4:call",nHandle,"s8:Rollback")
 
 		return self
 
@@ -262,8 +250,7 @@ Class ISinglePhaseNotification from DotNetObject
 		return self
 
 	Func SinglePhaseCommit P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s17:SinglePhaseCommit",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s17:SinglePhaseCommit",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s17:SinglePhaseCommit",P1)
 
 		return self
 
@@ -280,7 +267,7 @@ Class ITransactionPromoter from DotNetObject
 		return self
 
 	Func Promote 
-		return dnSend("s4:call",nHandle,"s7:Promote","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Promote"))
 
 
 Class Transaction from Object
@@ -301,14 +288,14 @@ Class Transaction from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetPromotedToken 
-		return dnSend("s4:call",nHandle,"s16:GetPromotedToken","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetPromotedToken"))
 
 	Func EnlistDurable P1,P2,P3
-		return dnSend("s4:call",nHandle,"s13:EnlistDurable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:EnlistDurable",P1,P2,P3))
 
 	Func Rollback P1
 		if dnIsNamed(P1)
@@ -316,28 +303,25 @@ Class Transaction from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_callv("s4:call",nHandle,"s8:Rollback")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Rollback","") ok
+			dotnet_callv("s4:call",nHandle,"s8:Rollback")
 
 		return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:Rollback",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Rollback",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:Rollback",P1)
 
 		return self
 
 	Func EnlistVolatile P1,P2
-		return dnSend("s4:call",nHandle,"s14:EnlistVolatile",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:EnlistVolatile",P1,P2))
 
 	Func Clone 
-		return dnSend("s4:call",nHandle,"s5:Clone","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func DependentClone P1
-		return dnSend("s4:call",nHandle,"s14:DependentClone",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:DependentClone",P1))
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
@@ -346,15 +330,14 @@ Class Transaction from Object
 			return dnSend("s9:callnamed",nHandle,"s27:EnlistPromotableSinglePhase",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s27:EnlistPromotableSinglePhase",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s27:EnlistPromotableSinglePhase",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PromoteAndEnlistDurable P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s23:PromoteAndEnlistDurable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:PromoteAndEnlistDurable",P1,P2,P3,P4))
 
 	Func SetDistributedTransactionIdentifier P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s35:SetDistributedTransactionIdentifier",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s35:SetDistributedTransactionIdentifier",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s35:SetDistributedTransactionIdentifier",P1,P2)
 
 		return self
 
@@ -367,29 +350,28 @@ Class Transaction from Object
 		return self
 
 	Func getTransactionInformation
-		return dnSend("s3:get",nHandle,"s22:TransactionInformation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:TransactionInformation"))
 
 	Func setTransactionInformation P1
 		raise("DotNet Error: TransactionInformation is a read-only property")
 
 	Func getIsolationLevel
-		return dnSend("s3:get",nHandle,"s14:IsolationLevel","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:IsolationLevel"))
 
 	Func setIsolationLevel P1
 		raise("DotNet Error: IsolationLevel is a read-only property")
 
 	Func getPromoterType
-		return dnSend("s3:get",nHandle,"s12:PromoterType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PromoterType"))
 
 	Func setPromoterType P1
 		raise("DotNet Error: PromoterType is a read-only property")
 
 	Func getCurrent
-		return dnSend("s3:get",dnTypeHandle('System.Transactions.Transaction, System.Transactions.Local'),"s7:Current","")
+		return dnObj(dotnet_callo("s3:get",'System.Transactions.Transaction, System.Transactions.Local',"s7:Current"))
 
 	Func setCurrent P1
-		dn_x = dotnet_callv("s3:set",'System.Transactions.Transaction, System.Transactions.Local',"s7:Current",P1)
-		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Transactions.Transaction, System.Transactions.Local'),"s7:Current",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",'System.Transactions.Transaction, System.Transactions.Local',"s7:Current",P1)
 		return self
 
 
@@ -416,7 +398,7 @@ Class TransactionEventArgs from EventArgs
 		return self
 
 	Func getTransaction
-		return dnSend("s3:get",nHandle,"s11:Transaction","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Transaction"))
 
 	Func setTransaction P1
 		raise("DotNet Error: Transaction is a read-only property")
@@ -440,31 +422,31 @@ Class TransactionInformation from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getLocalIdentifier
 		dn_x = dotnet_call("s3:get",nHandle,"s15:LocalIdentifier")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:LocalIdentifier",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLocalIdentifier P1
 		raise("DotNet Error: LocalIdentifier is a read-only property")
 
 	Func getDistributedIdentifier
-		return dnSend("s3:get",nHandle,"s21:DistributedIdentifier","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:DistributedIdentifier"))
 
 	Func setDistributedIdentifier P1
 		raise("DotNet Error: DistributedIdentifier is a read-only property")
 
 	Func getCreationTime
-		return dnSend("s3:get",nHandle,"s12:CreationTime","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:CreationTime"))
 
 	Func setCreationTime P1
 		raise("DotNet Error: CreationTime is a read-only property")
 
 	Func getStatus
-		return dnSend("s3:get",nHandle,"s6:Status","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Status"))
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
@@ -485,32 +467,32 @@ Class TransactionInterop from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetExportCookie P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionInterop, System.Transactions.Local'),"s15:GetExportCookie",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Transactions.TransactionInterop, System.Transactions.Local',"s15:GetExportCookie",P1,P2))
 
 	Func GetTransactionFromExportCookie P1
-		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionInterop, System.Transactions.Local'),"s30:GetTransactionFromExportCookie",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Transactions.TransactionInterop, System.Transactions.Local',"s30:GetTransactionFromExportCookie",P1))
 
 	Func GetTransmitterPropagationToken P1
-		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionInterop, System.Transactions.Local'),"s30:GetTransmitterPropagationToken",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Transactions.TransactionInterop, System.Transactions.Local',"s30:GetTransmitterPropagationToken",P1))
 
 	Func GetTransactionFromTransmitterPropagationToken P1
-		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionInterop, System.Transactions.Local'),"s45:GetTransactionFromTransmitterPropagationToken",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Transactions.TransactionInterop, System.Transactions.Local',"s45:GetTransactionFromTransmitterPropagationToken",P1))
 
 	Func GetDtcTransaction P1
-		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionInterop, System.Transactions.Local'),"s17:GetDtcTransaction",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Transactions.TransactionInterop, System.Transactions.Local',"s17:GetDtcTransaction",P1))
 
 	Func GetTransactionFromDtcTransaction P1
-		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionInterop, System.Transactions.Local'),"s32:GetTransactionFromDtcTransaction",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Transactions.TransactionInterop, System.Transactions.Local',"s32:GetTransactionFromDtcTransaction",P1))
 
 	Func GetWhereabouts 
-		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionInterop, System.Transactions.Local'),"s14:GetWhereabouts","")
+		return dnObj(dotnet_callo("s4:call",'System.Transactions.TransactionInterop, System.Transactions.Local',"s14:GetWhereabouts"))
 
 	Func getPromoterTypeDtc
-		return dnSend("s3:get",dnTypeHandle('System.Transactions.TransactionInterop, System.Transactions.Local'),"s15:PromoterTypeDtc","")
+		return dnObj(dotnet_callo("s3:get",'System.Transactions.TransactionInterop, System.Transactions.Local',"s15:PromoterTypeDtc"))
 
 	Func setPromoterTypeDtc P1
 		raise("DotNet Error: PromoterTypeDtc is a read-only property")
@@ -534,15 +516,14 @@ Class TransactionManager from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Reenlist P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s8:Reenlist",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Transactions.TransactionManager, System.Transactions.Local',"s8:Reenlist",P1,P2,P3))
 
 	Func RecoveryComplete P1
-		dn_x = dotnet_callv("s4:call",'System.Transactions.TransactionManager, System.Transactions.Local',"s16:RecoveryComplete",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s16:RecoveryComplete",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Transactions.TransactionManager, System.Transactions.Local',"s16:RecoveryComplete",P1)
 
 		return self
 
@@ -555,37 +536,33 @@ Class TransactionManager from Object
 		return self
 
 	Func getHostCurrentCallback
-		return dnSend("s3:get",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s19:HostCurrentCallback","")
+		return dnObj(dotnet_callo("s3:get",'System.Transactions.TransactionManager, System.Transactions.Local',"s19:HostCurrentCallback"))
 
 	Func setHostCurrentCallback P1
-		dn_x = dotnet_callv("s3:set",'System.Transactions.TransactionManager, System.Transactions.Local',"s19:HostCurrentCallback",P1)
-		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s19:HostCurrentCallback",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",'System.Transactions.TransactionManager, System.Transactions.Local',"s19:HostCurrentCallback",P1)
 		return self
 
 	Func getDefaultTimeout
-		return dnSend("s3:get",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s14:DefaultTimeout","")
+		return dnObj(dotnet_callo("s3:get",'System.Transactions.TransactionManager, System.Transactions.Local',"s14:DefaultTimeout"))
 
 	Func setDefaultTimeout P1
-		dn_x = dotnet_callv("s3:set",'System.Transactions.TransactionManager, System.Transactions.Local',"s14:DefaultTimeout",P1)
-		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s14:DefaultTimeout",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",'System.Transactions.TransactionManager, System.Transactions.Local',"s14:DefaultTimeout",P1)
 		return self
 
 	Func getMaximumTimeout
-		return dnSend("s3:get",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s14:MaximumTimeout","")
+		return dnObj(dotnet_callo("s3:get",'System.Transactions.TransactionManager, System.Transactions.Local',"s14:MaximumTimeout"))
 
 	Func setMaximumTimeout P1
-		dn_x = dotnet_callv("s3:set",'System.Transactions.TransactionManager, System.Transactions.Local',"s14:MaximumTimeout",P1)
-		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s14:MaximumTimeout",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",'System.Transactions.TransactionManager, System.Transactions.Local',"s14:MaximumTimeout",P1)
 		return self
 
 	Func getImplicitDistributedTransactions
 		dn_x = dotnet_call("s3:get",'System.Transactions.TransactionManager, System.Transactions.Local',"s31:ImplicitDistributedTransactions")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Transactions.TransactionManager, System.Transactions.Local',"s31:ImplicitDistributedTransactions",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setImplicitDistributedTransactions P1
-		dn_x = dotnet_callv("s3:set",'System.Transactions.TransactionManager, System.Transactions.Local',"s31:ImplicitDistributedTransactions",P1)
-		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Transactions.TransactionManager, System.Transactions.Local'),"s31:ImplicitDistributedTransactions",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",'System.Transactions.TransactionManager, System.Transactions.Local',"s31:ImplicitDistributedTransactions",P1)
 		return self
 
 
@@ -613,19 +590,17 @@ Class TransactionOptions from ValueType
 		return self
 
 	Func getTimeout
-		return dnSend("s3:get",nHandle,"s7:Timeout","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Timeout"))
 
 	Func setTimeout P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Timeout",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Timeout",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Timeout",P1)
 		return self
 
 	Func getIsolationLevel
-		return dnSend("s3:get",nHandle,"s14:IsolationLevel","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:IsolationLevel"))
 
 	Func setIsolationLevel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:IsolationLevel",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:IsolationLevel",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:IsolationLevel",P1)
 		return self
 
 
@@ -666,20 +641,18 @@ Class TransactionScope from Object
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func Complete 
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:Complete")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Complete","") ok
+		dotnet_callv("s4:call",nHandle,"s8:Complete")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -720,17 +693,15 @@ Class CommittableTransaction from Transaction
 		return self
 
 	Func BeginCommit P1,P2
-		return dnSend("s4:call",nHandle,"s11:BeginCommit",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:BeginCommit",P1,P2))
 
 	Func Commit 
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Commit")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Commit","") ok
+		dotnet_callv("s4:call",nHandle,"s6:Commit")
 
 		return self
 
 	Func EndCommit P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:EndCommit",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:EndCommit",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s9:EndCommit",P1)
 
 		return self
 
@@ -747,8 +718,7 @@ Class DependentTransaction from Transaction
 		return self
 
 	Func Complete 
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:Complete")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Complete","") ok
+		dotnet_callv("s4:call",nHandle,"s8:Complete")
 
 		return self
 
@@ -765,8 +735,7 @@ Class PreparingEnlistment from Enlistment
 		return self
 
 	Func Prepared 
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:Prepared")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Prepared","") ok
+		dotnet_callv("s4:call",nHandle,"s8:Prepared")
 
 		return self
 
@@ -776,18 +745,16 @@ Class PreparingEnlistment from Enlistment
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_callv("s4:call",nHandle,"s13:ForceRollback")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s13:ForceRollback","") ok
+			dotnet_callv("s4:call",nHandle,"s13:ForceRollback")
 
 		return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s13:ForceRollback",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s13:ForceRollback",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s13:ForceRollback",P1)
 
 		return self
 
 	Func RecoveryInformation 
-		return dnSend("s4:call",nHandle,"s19:RecoveryInformation","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:RecoveryInformation"))
 
 
 Class SinglePhaseEnlistment from Enlistment
@@ -807,19 +774,16 @@ Class SinglePhaseEnlistment from Enlistment
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_callv("s4:call",nHandle,"s7:Aborted")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Aborted","") ok
+			dotnet_callv("s4:call",nHandle,"s7:Aborted")
 
 		return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Aborted",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Aborted",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s7:Aborted",P1)
 
 		return self
 
 	Func Committed 
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:Committed")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:Committed","") ok
+		dotnet_callv("s4:call",nHandle,"s9:Committed")
 
 		return self
 
@@ -829,13 +793,11 @@ Class SinglePhaseEnlistment from Enlistment
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_callv("s4:call",nHandle,"s7:InDoubt")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:InDoubt","") ok
+			dotnet_callv("s4:call",nHandle,"s7:InDoubt")
 
 		return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:InDoubt",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:InDoubt",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s7:InDoubt",P1)
 
 		return self
 

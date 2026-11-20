@@ -160,30 +160,29 @@ Class ConcurrentExclusiveSchedulerPair from Object
 		return self
 
 	Func Complete 
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:Complete")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:Complete","") ok
+		dotnet_callv("s4:call",nHandle,"s8:Complete")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCompletion
-		return dnSend("s3:get",nHandle,"s10:Completion","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Completion"))
 
 	Func setCompletion P1
 		raise("DotNet Error: Completion is a read-only property")
 
 	Func getConcurrentScheduler
-		return dnSend("s3:get",nHandle,"s19:ConcurrentScheduler","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ConcurrentScheduler"))
 
 	Func setConcurrentScheduler P1
 		raise("DotNet Error: ConcurrentScheduler is a read-only property")
 
 	Func getExclusiveScheduler
-		return dnSend("s3:get",nHandle,"s18:ExclusiveScheduler","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:ExclusiveScheduler"))
 
 	Func setExclusiveScheduler P1
 		raise("DotNet Error: ExclusiveScheduler is a read-only property")
@@ -202,7 +201,7 @@ Class Parallel from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Invoke P1
@@ -210,8 +209,7 @@ Class Parallel from Object
 			dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"s6:Invoke",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",'System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel',"s6:Invoke",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"s6:Invoke",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel',"s6:Invoke",P1)
 
 		return self
 
@@ -265,14 +263,14 @@ Class ParallelLoopResult from ValueType
 
 	Func getIsCompleted
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsCompleted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsCompleted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")
 
 	Func getLowestBreakIteration
-		return dnSend("s3:get",nHandle,"s20:LowestBreakIteration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:LowestBreakIteration"))
 
 	Func setLowestBreakIteration P1
 		raise("DotNet Error: LowestBreakIteration is a read-only property")
@@ -295,25 +293,23 @@ Class ParallelLoopState from Object
 		return self
 
 	Func Stop 
-		dn_x = dotnet_callv("s4:call",nHandle,"s4:Stop")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Stop","") ok
+		dotnet_callv("s4:call",nHandle,"s4:Stop")
 
 		return self
 
 	Func Break_ 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Break")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Break","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Break")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getShouldExitCurrentIteration
 		dn_x = dotnet_call("s3:get",nHandle,"s26:ShouldExitCurrentIteration")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:ShouldExitCurrentIteration",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setShouldExitCurrentIteration P1
@@ -321,7 +317,7 @@ Class ParallelLoopState from Object
 
 	Func getIsStopped
 		dn_x = dotnet_call("s3:get",nHandle,"s9:IsStopped")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsStopped",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsStopped P1
@@ -329,14 +325,14 @@ Class ParallelLoopState from Object
 
 	Func getIsExceptional
 		dn_x = dotnet_call("s3:get",nHandle,"s13:IsExceptional")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IsExceptional",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsExceptional P1
 		raise("DotNet Error: IsExceptional is a read-only property")
 
 	Func getLowestBreakIteration
-		return dnSend("s3:get",nHandle,"s20:LowestBreakIteration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:LowestBreakIteration"))
 
 	Func setLowestBreakIteration P1
 		raise("DotNet Error: LowestBreakIteration is a read-only property")
@@ -368,33 +364,30 @@ Class ParallelOptions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getTaskScheduler
-		return dnSend("s3:get",nHandle,"s13:TaskScheduler","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TaskScheduler"))
 
 	Func setTaskScheduler P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:TaskScheduler",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:TaskScheduler",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:TaskScheduler",P1)
 		return self
 
 	Func getMaxDegreeOfParallelism
 		dn_x = dotnet_call("s3:get",nHandle,"s22:MaxDegreeOfParallelism")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:MaxDegreeOfParallelism",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaxDegreeOfParallelism P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:MaxDegreeOfParallelism",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:MaxDegreeOfParallelism",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:MaxDegreeOfParallelism",P1)
 		return self
 
 	Func getCancellationToken
-		return dnSend("s3:get",nHandle,"s17:CancellationToken","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:CancellationToken"))
 
 	Func setCancellationToken P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:CancellationToken",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:CancellationToken",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:CancellationToken",P1)
 		return self
 
 
@@ -443,13 +436,11 @@ Class Task from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_callv("s4:call",nHandle,"s5:Start")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Start","") ok
+			dotnet_callv("s4:call",nHandle,"s5:Start")
 
 		return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Start",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Start",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Start",P1)
 
 		return self
 
@@ -459,68 +450,63 @@ Class Task from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_callv("s4:call",nHandle,"s16:RunSynchronously")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:RunSynchronously","") ok
+			dotnet_callv("s4:call",nHandle,"s16:RunSynchronously")
 
 		return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:RunSynchronously",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:RunSynchronously",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s16:RunSynchronously",P1)
 
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func GetAwaiter 
-		return dnSend("s4:call",nHandle,"s10:GetAwaiter","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetAwaiter"))
 
 	Func ConfigureAwait P1
-		return dnSend("s4:call",nHandle,"s14:ConfigureAwait",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func Wait P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s4:Wait",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_callv("s4:call",nHandle,"s4:Wait")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Wait","") ok
+			dotnet_callv("s4:call",nHandle,"s4:Wait")
 
 		return self
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s4:Wait",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s4:Wait",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func WaitAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s9:WaitAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s9:WaitAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:WaitAsync",P1))
 
 	Func ContinueWith P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s12:ContinueWith",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s12:ContinueWith",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ContinueWith",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Yield 
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s5:Yield","")
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s5:Yield"))
 
 	Func WaitAll P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WaitAll",dnPackItem(P1))
 		ok
-		dn_x = dotnet_callv("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:WaitAll",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WaitAll",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:WaitAll",P1)
 
 		return self
 
@@ -529,65 +515,65 @@ Class Task from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WaitAny",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:WaitAny",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:WaitAny",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FromResult P1
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s10:FromResult",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s10:FromResult",P1))
 
 	Func FromException P1
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s13:FromException",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s13:FromException",P1))
 
 	Func FromCanceled P1
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s12:FromCanceled",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s12:FromCanceled",P1))
 
 	Func Run P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s3:Run",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s3:Run",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s3:Run",P1))
 
 	Func Delay P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s5:Delay",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s5:Delay",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s5:Delay",P1))
 
 	Func WhenAll P1
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WhenAll",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:WhenAll",P1))
 
 	Func WhenAny P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WhenAny",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WhenAny",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:WhenAny",P1))
 
 	Func WhenEach P1
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s8:WhenEach",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s8:WhenEach",P1))
 
 	Func getId
 		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Id",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getException
-		return dnSend("s3:get",nHandle,"s9:Exception","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Exception"))
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getStatus
-		return dnSend("s3:get",nHandle,"s6:Status","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Status"))
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
 
 	Func getIsCanceled
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsCanceled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsCanceled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsCanceled P1
@@ -595,7 +581,7 @@ Class Task from Object
 
 	Func getIsCompleted
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsCompleted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsCompleted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsCompleted P1
@@ -603,46 +589,46 @@ Class Task from Object
 
 	Func getIsCompletedSuccessfully
 		dn_x = dotnet_call("s3:get",nHandle,"s23:IsCompletedSuccessfully")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:IsCompletedSuccessfully",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsCompletedSuccessfully P1
 		raise("DotNet Error: IsCompletedSuccessfully is a read-only property")
 
 	Func getCreationOptions
-		return dnSend("s3:get",nHandle,"s15:CreationOptions","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:CreationOptions"))
 
 	Func setCreationOptions P1
 		raise("DotNet Error: CreationOptions is a read-only property")
 
 	Func getAsyncState
-		return dnSend("s3:get",nHandle,"s10:AsyncState","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:AsyncState"))
 
 	Func setAsyncState P1
 		raise("DotNet Error: AsyncState is a read-only property")
 
 	Func getIsFaulted
 		dn_x = dotnet_call("s3:get",nHandle,"s9:IsFaulted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsFaulted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsFaulted P1
 		raise("DotNet Error: IsFaulted is a read-only property")
 
 	Func getCurrentId
-		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s9:CurrentId","")
+		return dnObj(dotnet_callo("s3:get",'System.Threading.Tasks.Task, System.Private.CoreLib',"s9:CurrentId"))
 
 	Func setCurrentId P1
 		raise("DotNet Error: CurrentId is a read-only property")
 
 	Func getFactory
-		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:Factory","")
+		return dnObj(dotnet_callo("s3:get",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:Factory"))
 
 	Func setFactory P1
 		raise("DotNet Error: Factory is a read-only property")
 
 	Func getCompletedTask
-		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s13:CompletedTask","")
+		return dnObj(dotnet_callo("s3:get",'System.Threading.Tasks.Task, System.Private.CoreLib',"s13:CompletedTask"))
 
 	Func setCompletedTask P1
 		raise("DotNet Error: CompletedTask is a read-only property")
@@ -661,20 +647,20 @@ Class TaskAsyncEnumerableExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConfigureAwait P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"s14:ConfigureAwait",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib',"s14:ConfigureAwait",P1,P2))
 
 	Func WithCancellation P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"s16:WithCancellation",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib',"s16:WithCancellation",P1,P2))
 
 	Func ToBlockingEnumerable P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"s20:ToBlockingEnumerable",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"s20:ToBlockingEnumerable",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib',"s20:ToBlockingEnumerable",P1))
 
 
 Class TaskCompletionSource from Object
@@ -716,25 +702,23 @@ Class TaskCompletionSource from Object
 		return self
 
 	Func SetException P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:SetException",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:SetException",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s12:SetException",P1)
 
 		return self
 
 	Func TrySetException P1
 		dn_x = dotnet_call("s4:call",nHandle,"s15:TrySetException",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:TrySetException",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetResult 
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:SetResult")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:SetResult","") ok
+		dotnet_callv("s4:call",nHandle,"s9:SetResult")
 
 		return self
 
 	Func TrySetResult 
 		dn_x = dotnet_call("s4:call",nHandle,"s12:TrySetResult")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:TrySetResult",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetCanceled P1
@@ -743,13 +727,11 @@ Class TaskCompletionSource from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_callv("s4:call",nHandle,"s11:SetCanceled")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:SetCanceled","") ok
+			dotnet_callv("s4:call",nHandle,"s11:SetCanceled")
 
 		return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:SetCanceled",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:SetCanceled",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s11:SetCanceled",P1)
 
 		return self
 
@@ -759,31 +741,30 @@ Class TaskCompletionSource from Object
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s14:TrySetCanceled")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:TrySetCanceled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s14:TrySetCanceled",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:TrySetCanceled",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetFromTask P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:SetFromTask",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:SetFromTask",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s11:SetFromTask",P1)
 
 		return self
 
 	Func TrySetFromTask P1
 		dn_x = dotnet_call("s4:call",nHandle,"s14:TrySetFromTask",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:TrySetFromTask",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getTask
-		return dnSend("s3:get",nHandle,"s4:Task","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Task"))
 
 	Func setTask P1
 		raise("DotNet Error: Task is a read-only property")
@@ -802,11 +783,11 @@ Class TaskExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Unwrap P1
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskExtensions, System.Private.CoreLib'),"s6:Unwrap",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.TaskExtensions, System.Private.CoreLib',"s6:Unwrap",P1))
 
 
 Class TaskFactory from Object
@@ -854,7 +835,7 @@ Class TaskFactory from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:StartNew",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s8:StartNew",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:StartNew",P1))
 
 	Func FromAsync P1
 		if dnIsNamed(P1)
@@ -876,29 +857,29 @@ Class TaskFactory from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCancellationToken
-		return dnSend("s3:get",nHandle,"s17:CancellationToken","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:CancellationToken"))
 
 	Func setCancellationToken P1
 		raise("DotNet Error: CancellationToken is a read-only property")
 
 	Func getScheduler
-		return dnSend("s3:get",nHandle,"s9:Scheduler","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Scheduler"))
 
 	Func setScheduler P1
 		raise("DotNet Error: Scheduler is a read-only property")
 
 	Func getCreationOptions
-		return dnSend("s3:get",nHandle,"s15:CreationOptions","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:CreationOptions"))
 
 	Func setCreationOptions P1
 		raise("DotNet Error: CreationOptions is a read-only property")
 
 	Func getContinuationOptions
-		return dnSend("s3:get",nHandle,"s19:ContinuationOptions","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ContinuationOptions"))
 
 	Func setContinuationOptions P1
 		raise("DotNet Error: ContinuationOptions is a read-only property")
@@ -922,11 +903,11 @@ Class TaskScheduler from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FromCurrentSynchronizationContext 
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskScheduler, System.Private.CoreLib'),"s33:FromCurrentSynchronizationContext","")
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.TaskScheduler, System.Private.CoreLib',"s33:FromCurrentSynchronizationContext"))
 
 	Func setUnobservedTaskExceptionEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Threading.Tasks.TaskScheduler, System.Private.CoreLib'),"UnobservedTaskException",dnCallback(P1)])
@@ -938,7 +919,7 @@ Class TaskScheduler from Object
 
 	Func getMaximumConcurrencyLevel
 		dn_x = dotnet_call("s3:get",nHandle,"s23:MaximumConcurrencyLevel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:MaximumConcurrencyLevel",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaximumConcurrencyLevel P1
@@ -946,20 +927,20 @@ Class TaskScheduler from Object
 
 	Func getId
 		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Id",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.TaskScheduler, System.Private.CoreLib'),"s7:Default","")
+		return dnObj(dotnet_callo("s3:get",'System.Threading.Tasks.TaskScheduler, System.Private.CoreLib',"s7:Default"))
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getCurrent
-		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.TaskScheduler, System.Private.CoreLib'),"s7:Current","")
+		return dnObj(dotnet_callo("s3:get",'System.Threading.Tasks.TaskScheduler, System.Private.CoreLib',"s7:Current"))
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -978,20 +959,19 @@ Class TaskToAsyncResult from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Begin P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib'),"s5:Begin",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib',"s5:Begin",P1,P2,P3))
 
 	Func End_ P1
-		dn_x = dotnet_callv("s4:call",'System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib',"s3:End",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib'),"s3:End",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib',"s3:End",P1)
 
 		return self
 
 	Func Unwrap P1
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib'),"s6:Unwrap",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib',"s6:Unwrap",P1))
 
 
 Class UnobservedTaskExceptionEventArgs from EventArgs
@@ -1011,18 +991,17 @@ Class UnobservedTaskExceptionEventArgs from EventArgs
 		return self
 
 	Func SetObserved 
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:SetObserved")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:SetObserved","") ok
+		dotnet_callv("s4:call",nHandle,"s11:SetObserved")
 
 		return self
 
 	Func getObserved
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Observed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Observed",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getException
-		return dnSend("s3:get",nHandle,"s9:Exception","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Exception"))
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
@@ -1071,29 +1050,29 @@ Class ValueTask from ValueType
 		return self
 
 	Func AsTask 
-		return dnSend("s4:call",nHandle,"s6:AsTask","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AsTask"))
 
 	Func Preserve 
-		return dnSend("s4:call",nHandle,"s8:Preserve","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Preserve"))
 
 	Func GetAwaiter 
-		return dnSend("s4:call",nHandle,"s10:GetAwaiter","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetAwaiter"))
 
 	Func ConfigureAwait P1
-		return dnSend("s4:call",nHandle,"s14:ConfigureAwait",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func FromResult P1
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.ValueTask, System.Private.CoreLib'),"s10:FromResult",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.ValueTask, System.Private.CoreLib',"s10:FromResult",P1))
 
 	Func FromCanceled P1
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.ValueTask, System.Private.CoreLib'),"s12:FromCanceled",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.ValueTask, System.Private.CoreLib',"s12:FromCanceled",P1))
 
 	Func FromException P1
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Tasks.ValueTask, System.Private.CoreLib'),"s13:FromException",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.ValueTask, System.Private.CoreLib',"s13:FromException",P1))
 
 	Func getIsCompleted
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsCompleted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsCompleted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsCompleted P1
@@ -1101,7 +1080,7 @@ Class ValueTask from ValueType
 
 	Func getIsCompletedSuccessfully
 		dn_x = dotnet_call("s3:get",nHandle,"s23:IsCompletedSuccessfully")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:IsCompletedSuccessfully",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsCompletedSuccessfully P1
@@ -1109,7 +1088,7 @@ Class ValueTask from ValueType
 
 	Func getIsFaulted
 		dn_x = dotnet_call("s3:get",nHandle,"s9:IsFaulted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsFaulted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsFaulted P1
@@ -1117,14 +1096,14 @@ Class ValueTask from ValueType
 
 	Func getIsCanceled
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsCanceled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsCanceled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsCanceled P1
 		raise("DotNet Error: IsCanceled is a read-only property")
 
 	Func getCompletedTask
-		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.ValueTask, System.Private.CoreLib'),"s13:CompletedTask","")
+		return dnObj(dotnet_callo("s3:get",'System.Threading.Tasks.ValueTask, System.Private.CoreLib',"s13:CompletedTask"))
 
 	Func setCompletedTask P1
 		raise("DotNet Error: CompletedTask is a read-only property")
@@ -1162,14 +1141,14 @@ Class StringTask from Task
 
 	Func getResult
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Result")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Result",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getFactory
-		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"s7:Factory","")
+		return dnObj(dotnet_callo("s3:get",'System.Threading.Tasks.Task`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',"s7:Factory"))
 
 
 Class ObjectTask from Task
@@ -1203,13 +1182,13 @@ Class ObjectTask from Task
 		return self
 
 	Func getResult
-		return dnSend("s3:get",nHandle,"s6:Result","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Result"))
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getFactory
-		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"s7:Factory","")
+		return dnObj(dotnet_callo("s3:get",'System.Threading.Tasks.Task`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',"s7:Factory"))
 
 
 Class NumberTask from Task
@@ -1244,14 +1223,14 @@ Class NumberTask from Task
 
 	Func getResult
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Result")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Result",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getFactory
-		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"s7:Factory","")
+		return dnObj(dotnet_callo("s3:get",'System.Threading.Tasks.Task`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',"s7:Factory"))
 
 
 Class IntTask from Task
@@ -1286,14 +1265,14 @@ Class IntTask from Task
 
 	Func getResult
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Result")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Result",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getFactory
-		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"s7:Factory","")
+		return dnObj(dotnet_callo("s3:get",'System.Threading.Tasks.Task`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',"s7:Factory"))
 
 
 Class BoolTask from Task
@@ -1328,14 +1307,14 @@ Class BoolTask from Task
 
 	Func getResult
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Result")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Result",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getFactory
-		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task`1[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"s7:Factory","")
+		return dnObj(dotnet_callo("s3:get",'System.Threading.Tasks.Task`1[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',"s7:Factory"))
 
 
 Class BytesTask from Task
@@ -1369,12 +1348,12 @@ Class BytesTask from Task
 		return self
 
 	Func getResult
-		return dnSend("s3:get",nHandle,"s6:Result","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Result"))
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getFactory
-		return dnSend("s3:get",dnTypeHandle('System.Threading.Tasks.Task`1[[System.Byte[], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"s7:Factory","")
+		return dnObj(dotnet_callo("s3:get",'System.Threading.Tasks.Task`1[[System.Byte[], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',"s7:Factory"))
 
 

@@ -205,43 +205,43 @@ Class Calendar from Object
 		return self
 
 	Func Clone 
-		return dnSend("s4:call",nHandle,"s5:Clone","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func AddMilliseconds P1,P2
-		return dnSend("s4:call",nHandle,"s15:AddMilliseconds",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddMilliseconds",P1,P2))
 
 	Func AddDays P1,P2
-		return dnSend("s4:call",nHandle,"s7:AddDays",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddDays",P1,P2))
 
 	Func AddHours P1,P2
-		return dnSend("s4:call",nHandle,"s8:AddHours",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddHours",P1,P2))
 
 	Func AddMinutes P1,P2
-		return dnSend("s4:call",nHandle,"s10:AddMinutes",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddMinutes",P1,P2))
 
 	Func AddMonths P1,P2
-		return dnSend("s4:call",nHandle,"s9:AddMonths",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddMonths",P1,P2))
 
 	Func AddSeconds P1,P2
-		return dnSend("s4:call",nHandle,"s10:AddSeconds",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSeconds",P1,P2))
 
 	Func AddWeeks P1,P2
-		return dnSend("s4:call",nHandle,"s8:AddWeeks",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddWeeks",P1,P2))
 
 	Func AddYears P1,P2
-		return dnSend("s4:call",nHandle,"s8:AddYears",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddYears",P1,P2))
 
 	Func GetDayOfMonth P1
 		dn_x = dotnet_call("s4:call",nHandle,"s13:GetDayOfMonth",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:GetDayOfMonth",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetDayOfWeek P1
-		return dnSend("s4:call",nHandle,"s12:GetDayOfWeek",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetDayOfWeek",P1))
 
 	Func GetDayOfYear P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetDayOfYear",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:GetDayOfYear",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetDaysInMonth P1
@@ -255,32 +255,32 @@ Class Calendar from Object
 			return dnSend("s9:callnamed",nHandle,"s13:GetDaysInYear",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:GetDaysInYear",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:GetDaysInYear",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetEra P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:GetEra",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:GetEra",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHour P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:GetHour",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:GetHour",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetMilliseconds P1
 		dn_x = dotnet_call("s4:call",nHandle,"s15:GetMilliseconds",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GetMilliseconds",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetMinute P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetMinute",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetMinute",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetMonth P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:GetMonth",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetMonth",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetMonthsInYear P1
@@ -288,22 +288,22 @@ Class Calendar from Object
 			return dnSend("s9:callnamed",nHandle,"s15:GetMonthsInYear",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s15:GetMonthsInYear",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GetMonthsInYear",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetSecond P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSecond",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetSecond",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetWeekOfYear P1,P2,P3
 		dn_x = dotnet_call("s4:call",nHandle,"s13:GetWeekOfYear",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:GetWeekOfYear",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetYear P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:GetYear",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:GetYear",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsLeapDay P1
@@ -323,7 +323,7 @@ Class Calendar from Object
 			return dnSend("s9:callnamed",nHandle,"s12:GetLeapMonth",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetLeapMonth",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:GetLeapMonth",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsLeapYear P1
@@ -331,7 +331,7 @@ Class Calendar from Object
 			return dnSend("s9:callnamed",nHandle,"s10:IsLeapYear",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s10:IsLeapYear",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:IsLeapYear",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToDateTime P1
@@ -342,62 +342,61 @@ Class Calendar from Object
 
 	Func ToFourDigitYear P1
 		dn_x = dotnet_call("s4:call",nHandle,"s15:ToFourDigitYear",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:ToFourDigitYear",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReadOnly P1
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.Calendar, System.Private.CoreLib'),"s8:ReadOnly",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.Calendar, System.Private.CoreLib',"s8:ReadOnly",P1))
 
 	Func getMinSupportedDateTime
-		return dnSend("s3:get",nHandle,"s20:MinSupportedDateTime","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:MinSupportedDateTime"))
 
 	Func setMinSupportedDateTime P1
 		raise("DotNet Error: MinSupportedDateTime is a read-only property")
 
 	Func getMaxSupportedDateTime
-		return dnSend("s3:get",nHandle,"s20:MaxSupportedDateTime","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:MaxSupportedDateTime"))
 
 	Func setMaxSupportedDateTime P1
 		raise("DotNet Error: MaxSupportedDateTime is a read-only property")
 
 	Func getAlgorithmType
-		return dnSend("s3:get",nHandle,"s13:AlgorithmType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:AlgorithmType"))
 
 	Func setAlgorithmType P1
 		raise("DotNet Error: AlgorithmType is a read-only property")
 
 	Func getIsReadOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEras
-		return dnSend("s3:get",nHandle,"s4:Eras","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Eras"))
 
 	Func setEras P1
 		raise("DotNet Error: Eras is a read-only property")
 
 	Func getTwoDigitYearMax
 		dn_x = dotnet_call("s3:get",nHandle,"s15:TwoDigitYearMax")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:TwoDigitYearMax",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTwoDigitYearMax P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:TwoDigitYearMax",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:TwoDigitYearMax",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:TwoDigitYearMax",P1)
 		return self
 
 	Func getCurrentEra
 		dn_x = dotnet_call("s3:get",'System.Globalization.Calendar, System.Private.CoreLib',"s10:CurrentEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.Calendar, System.Private.CoreLib',"s10:CurrentEra",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCurrentEra P1
@@ -417,7 +416,7 @@ Class CharUnicodeInfo from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetDecimalDigitValue P1
@@ -425,7 +424,7 @@ Class CharUnicodeInfo from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s20:GetDecimalDigitValue",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s20:GetDecimalDigitValue",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s20:GetDecimalDigitValue",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetDigitValue P1
@@ -433,7 +432,7 @@ Class CharUnicodeInfo from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s13:GetDigitValue",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s13:GetDigitValue",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s13:GetDigitValue",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetNumericValue P1
@@ -441,14 +440,14 @@ Class CharUnicodeInfo from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s15:GetNumericValue",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s15:GetNumericValue",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s15:GetNumericValue",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetUnicodeCategory P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s18:GetUnicodeCategory",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s18:GetUnicodeCategory",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s18:GetUnicodeCategory",P1))
 
 
 Class CompareInfo from Object
@@ -500,11 +499,11 @@ Class CompareInfo from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s10:GetSortKey",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s10:GetSortKey",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetSortKey",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode P1
@@ -513,7 +512,7 @@ Class CompareInfo from Object
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 		ok
 		raise("DotNet Error: GetHashCode does not take one argument: use named arguments, GetHashCode([ :parameter = value, ... ])")
@@ -522,30 +521,30 @@ Class CompareInfo from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CompareInfo, System.Private.CoreLib'),"s14:GetCompareInfo",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.CompareInfo, System.Private.CoreLib'),"s14:GetCompareInfo",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.CompareInfo, System.Private.CoreLib',"s14:GetCompareInfo",P1))
 
 	Func IsSortable P1
 		dn_x = dotnet_call("s4:call",'System.Globalization.CompareInfo, System.Private.CoreLib',"s10:IsSortable",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.CompareInfo, System.Private.CoreLib',"s10:IsSortable",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getVersion
-		return dnSend("s3:get",nHandle,"s7:Version","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Version"))
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getLCID
 		dn_x = dotnet_call("s3:get",nHandle,"s4:LCID")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:LCID",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLCID P1
@@ -610,51 +609,50 @@ Class CultureInfo from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetFormat P1
-		return dnSend("s4:call",nHandle,"s9:GetFormat",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetFormat",P1))
 
 	Func ClearCachedData 
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:ClearCachedData")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:ClearCachedData","") ok
+		dotnet_callv("s4:call",nHandle,"s15:ClearCachedData")
 
 		return self
 
 	Func GetConsoleFallbackUICulture 
-		return dnSend("s4:call",nHandle,"s27:GetConsoleFallbackUICulture","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetConsoleFallbackUICulture"))
 
 	Func Clone 
-		return dnSend("s4:call",nHandle,"s5:Clone","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func CreateSpecificCulture P1
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s21:CreateSpecificCulture",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.CultureInfo, System.Private.CoreLib',"s21:CreateSpecificCulture",P1))
 
 	Func GetCultures P1
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s11:GetCultures",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.CultureInfo, System.Private.CoreLib',"s11:GetCultures",P1))
 
 	Func ReadOnly P1
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s8:ReadOnly",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.CultureInfo, System.Private.CoreLib',"s8:ReadOnly",P1))
 
 	Func GetCultureInfo P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s14:GetCultureInfo",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s14:GetCultureInfo",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.CultureInfo, System.Private.CoreLib',"s14:GetCultureInfo",P1))
 
 	Func GetCultureInfoByIetfLanguageTag P1
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s31:GetCultureInfoByIetfLanguageTag",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.CultureInfo, System.Private.CoreLib',"s31:GetCultureInfoByIetfLanguageTag",P1))
 
 	Func getParent
-		return dnSend("s3:get",nHandle,"s6:Parent","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Parent"))
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getLCID
 		dn_x = dotnet_call("s3:get",nHandle,"s4:LCID")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:LCID",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLCID P1
@@ -662,7 +660,7 @@ Class CultureInfo from Object
 
 	Func getKeyboardLayoutId
 		dn_x = dotnet_call("s3:get",nHandle,"s16:KeyboardLayoutId")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:KeyboardLayoutId",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setKeyboardLayoutId P1
@@ -670,7 +668,7 @@ Class CultureInfo from Object
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
@@ -678,7 +676,7 @@ Class CultureInfo from Object
 
 	Func getIetfLanguageTag
 		dn_x = dotnet_call("s3:get",nHandle,"s15:IetfLanguageTag")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:IetfLanguageTag",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIetfLanguageTag P1
@@ -686,7 +684,7 @@ Class CultureInfo from Object
 
 	Func getDisplayName
 		dn_x = dotnet_call("s3:get",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:DisplayName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDisplayName P1
@@ -694,7 +692,7 @@ Class CultureInfo from Object
 
 	Func getNativeName
 		dn_x = dotnet_call("s3:get",nHandle,"s10:NativeName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:NativeName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNativeName P1
@@ -702,7 +700,7 @@ Class CultureInfo from Object
 
 	Func getEnglishName
 		dn_x = dotnet_call("s3:get",nHandle,"s11:EnglishName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:EnglishName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEnglishName P1
@@ -710,7 +708,7 @@ Class CultureInfo from Object
 
 	Func getTwoLetterISOLanguageName
 		dn_x = dotnet_call("s3:get",nHandle,"s24:TwoLetterISOLanguageName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:TwoLetterISOLanguageName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTwoLetterISOLanguageName P1
@@ -718,7 +716,7 @@ Class CultureInfo from Object
 
 	Func getThreeLetterISOLanguageName
 		dn_x = dotnet_call("s3:get",nHandle,"s26:ThreeLetterISOLanguageName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:ThreeLetterISOLanguageName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setThreeLetterISOLanguageName P1
@@ -726,69 +724,67 @@ Class CultureInfo from Object
 
 	Func getThreeLetterWindowsLanguageName
 		dn_x = dotnet_call("s3:get",nHandle,"s30:ThreeLetterWindowsLanguageName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s30:ThreeLetterWindowsLanguageName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setThreeLetterWindowsLanguageName P1
 		raise("DotNet Error: ThreeLetterWindowsLanguageName is a read-only property")
 
 	Func getCompareInfo
-		return dnSend("s3:get",nHandle,"s11:CompareInfo","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:CompareInfo"))
 
 	Func setCompareInfo P1
 		raise("DotNet Error: CompareInfo is a read-only property")
 
 	Func getTextInfo
-		return dnSend("s3:get",nHandle,"s8:TextInfo","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:TextInfo"))
 
 	Func setTextInfo P1
 		raise("DotNet Error: TextInfo is a read-only property")
 
 	Func getIsNeutralCulture
 		dn_x = dotnet_call("s3:get",nHandle,"s16:IsNeutralCulture")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:IsNeutralCulture",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsNeutralCulture P1
 		raise("DotNet Error: IsNeutralCulture is a read-only property")
 
 	Func getCultureTypes
-		return dnSend("s3:get",nHandle,"s12:CultureTypes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:CultureTypes"))
 
 	Func setCultureTypes P1
 		raise("DotNet Error: CultureTypes is a read-only property")
 
 	Func getNumberFormat
-		return dnSend("s3:get",nHandle,"s12:NumberFormat","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:NumberFormat"))
 
 	Func setNumberFormat P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:NumberFormat",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:NumberFormat",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:NumberFormat",P1)
 		return self
 
 	Func getDateTimeFormat
-		return dnSend("s3:get",nHandle,"s14:DateTimeFormat","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:DateTimeFormat"))
 
 	Func setDateTimeFormat P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:DateTimeFormat",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:DateTimeFormat",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:DateTimeFormat",P1)
 		return self
 
 	Func getCalendar
-		return dnSend("s3:get",nHandle,"s8:Calendar","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Calendar"))
 
 	Func setCalendar P1
 		raise("DotNet Error: Calendar is a read-only property")
 
 	Func getOptionalCalendars
-		return dnSend("s3:get",nHandle,"s17:OptionalCalendars","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:OptionalCalendars"))
 
 	Func setOptionalCalendars P1
 		raise("DotNet Error: OptionalCalendars is a read-only property")
 
 	Func getUseUserOverride
 		dn_x = dotnet_call("s3:get",nHandle,"s15:UseUserOverride")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:UseUserOverride",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUseUserOverride P1
@@ -796,52 +792,48 @@ Class CultureInfo from Object
 
 	Func getIsReadOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCurrentCulture
-		return dnSend("s3:get",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s14:CurrentCulture","")
+		return dnObj(dotnet_callo("s3:get",'System.Globalization.CultureInfo, System.Private.CoreLib',"s14:CurrentCulture"))
 
 	Func setCurrentCulture P1
-		dn_x = dotnet_callv("s3:set",'System.Globalization.CultureInfo, System.Private.CoreLib',"s14:CurrentCulture",P1)
-		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s14:CurrentCulture",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",'System.Globalization.CultureInfo, System.Private.CoreLib',"s14:CurrentCulture",P1)
 		return self
 
 	Func getCurrentUICulture
-		return dnSend("s3:get",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s16:CurrentUICulture","")
+		return dnObj(dotnet_callo("s3:get",'System.Globalization.CultureInfo, System.Private.CoreLib',"s16:CurrentUICulture"))
 
 	Func setCurrentUICulture P1
-		dn_x = dotnet_callv("s3:set",'System.Globalization.CultureInfo, System.Private.CoreLib',"s16:CurrentUICulture",P1)
-		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s16:CurrentUICulture",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",'System.Globalization.CultureInfo, System.Private.CoreLib',"s16:CurrentUICulture",P1)
 		return self
 
 	Func getInstalledUICulture
-		return dnSend("s3:get",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s18:InstalledUICulture","")
+		return dnObj(dotnet_callo("s3:get",'System.Globalization.CultureInfo, System.Private.CoreLib',"s18:InstalledUICulture"))
 
 	Func setInstalledUICulture P1
 		raise("DotNet Error: InstalledUICulture is a read-only property")
 
 	Func getDefaultThreadCurrentCulture
-		return dnSend("s3:get",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s27:DefaultThreadCurrentCulture","")
+		return dnObj(dotnet_callo("s3:get",'System.Globalization.CultureInfo, System.Private.CoreLib',"s27:DefaultThreadCurrentCulture"))
 
 	Func setDefaultThreadCurrentCulture P1
-		dn_x = dotnet_callv("s3:set",'System.Globalization.CultureInfo, System.Private.CoreLib',"s27:DefaultThreadCurrentCulture",P1)
-		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s27:DefaultThreadCurrentCulture",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",'System.Globalization.CultureInfo, System.Private.CoreLib',"s27:DefaultThreadCurrentCulture",P1)
 		return self
 
 	Func getDefaultThreadCurrentUICulture
-		return dnSend("s3:get",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s29:DefaultThreadCurrentUICulture","")
+		return dnObj(dotnet_callo("s3:get",'System.Globalization.CultureInfo, System.Private.CoreLib',"s29:DefaultThreadCurrentUICulture"))
 
 	Func setDefaultThreadCurrentUICulture P1
-		dn_x = dotnet_callv("s3:set",'System.Globalization.CultureInfo, System.Private.CoreLib',"s29:DefaultThreadCurrentUICulture",P1)
-		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s29:DefaultThreadCurrentUICulture",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",'System.Globalization.CultureInfo, System.Private.CoreLib',"s29:DefaultThreadCurrentUICulture",P1)
 		return self
 
 	Func getInvariantCulture
-		return dnSend("s3:get",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s16:InvariantCulture","")
+		return dnObj(dotnet_callo("s3:get",'System.Globalization.CultureInfo, System.Private.CoreLib',"s16:InvariantCulture"))
 
 	Func setInvariantCulture P1
 		raise("DotNet Error: InvariantCulture is a read-only property")
@@ -897,34 +889,34 @@ Class DateTimeFormatInfo from Object
 		return self
 
 	Func GetFormat P1
-		return dnSend("s4:call",nHandle,"s9:GetFormat",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetFormat",P1))
 
 	Func Clone 
-		return dnSend("s4:call",nHandle,"s5:Clone","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func GetEra P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:GetEra",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:GetEra",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetEraName P1
 		dn_x = dotnet_call("s4:call",nHandle,"s10:GetEraName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:GetEraName",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetAbbreviatedEraName P1
 		dn_x = dotnet_call("s4:call",nHandle,"s21:GetAbbreviatedEraName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s21:GetAbbreviatedEraName",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetAbbreviatedDayName P1
 		dn_x = dotnet_call("s4:call",nHandle,"s21:GetAbbreviatedDayName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s21:GetAbbreviatedDayName",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetShortestDayName P1
 		dn_x = dotnet_call("s4:call",nHandle,"s18:GetShortestDayName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s18:GetShortestDayName",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetAllDateTimePatterns P1
@@ -932,139 +924,128 @@ Class DateTimeFormatInfo from Object
 			return dnSend("s9:callnamed",nHandle,"s22:GetAllDateTimePatterns",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s22:GetAllDateTimePatterns","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetAllDateTimePatterns"))
 		ok
-		return dnSend("s4:call",nHandle,"s22:GetAllDateTimePatterns",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetAllDateTimePatterns",P1))
 
 	Func GetDayName P1
 		dn_x = dotnet_call("s4:call",nHandle,"s10:GetDayName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:GetDayName",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetAbbreviatedMonthName P1
 		dn_x = dotnet_call("s4:call",nHandle,"s23:GetAbbreviatedMonthName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s23:GetAbbreviatedMonthName",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetMonthName P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetMonthName",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:GetMonthName",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetAllDateTimePatterns P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s22:SetAllDateTimePatterns",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s22:SetAllDateTimePatterns",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s22:SetAllDateTimePatterns",P1,P2)
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetInstance P1
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"s11:GetInstance",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.DateTimeFormatInfo, System.Private.CoreLib',"s11:GetInstance",P1))
 
 	Func ReadOnly P1
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"s8:ReadOnly",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.DateTimeFormatInfo, System.Private.CoreLib',"s8:ReadOnly",P1))
 
 	Func getAMDesignator
 		dn_x = dotnet_call("s3:get",nHandle,"s12:AMDesignator")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:AMDesignator",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAMDesignator P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:AMDesignator",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:AMDesignator",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:AMDesignator",P1)
 		return self
 
 	Func getCalendar
-		return dnSend("s3:get",nHandle,"s8:Calendar","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Calendar"))
 
 	Func setCalendar P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Calendar",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Calendar",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Calendar",P1)
 		return self
 
 	Func getDateSeparator
 		dn_x = dotnet_call("s3:get",nHandle,"s13:DateSeparator")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:DateSeparator",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDateSeparator P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:DateSeparator",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:DateSeparator",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:DateSeparator",P1)
 		return self
 
 	Func getFirstDayOfWeek
-		return dnSend("s3:get",nHandle,"s14:FirstDayOfWeek","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:FirstDayOfWeek"))
 
 	Func setFirstDayOfWeek P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:FirstDayOfWeek",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:FirstDayOfWeek",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:FirstDayOfWeek",P1)
 		return self
 
 	Func getCalendarWeekRule
-		return dnSend("s3:get",nHandle,"s16:CalendarWeekRule","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:CalendarWeekRule"))
 
 	Func setCalendarWeekRule P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:CalendarWeekRule",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:CalendarWeekRule",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:CalendarWeekRule",P1)
 		return self
 
 	Func getFullDateTimePattern
 		dn_x = dotnet_call("s3:get",nHandle,"s19:FullDateTimePattern")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:FullDateTimePattern",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFullDateTimePattern P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:FullDateTimePattern",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:FullDateTimePattern",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:FullDateTimePattern",P1)
 		return self
 
 	Func getLongDatePattern
 		dn_x = dotnet_call("s3:get",nHandle,"s15:LongDatePattern")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:LongDatePattern",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLongDatePattern P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:LongDatePattern",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:LongDatePattern",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:LongDatePattern",P1)
 		return self
 
 	Func getLongTimePattern
 		dn_x = dotnet_call("s3:get",nHandle,"s15:LongTimePattern")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:LongTimePattern",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLongTimePattern P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:LongTimePattern",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:LongTimePattern",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:LongTimePattern",P1)
 		return self
 
 	Func getMonthDayPattern
 		dn_x = dotnet_call("s3:get",nHandle,"s15:MonthDayPattern")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:MonthDayPattern",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMonthDayPattern P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:MonthDayPattern",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:MonthDayPattern",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:MonthDayPattern",P1)
 		return self
 
 	Func getPMDesignator
 		dn_x = dotnet_call("s3:get",nHandle,"s12:PMDesignator")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:PMDesignator",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPMDesignator P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:PMDesignator",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:PMDesignator",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:PMDesignator",P1)
 		return self
 
 	Func getRFC1123Pattern
 		dn_x = dotnet_call("s3:get",nHandle,"s14:RFC1123Pattern")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:RFC1123Pattern",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRFC1123Pattern P1
@@ -1072,27 +1053,25 @@ Class DateTimeFormatInfo from Object
 
 	Func getShortDatePattern
 		dn_x = dotnet_call("s3:get",nHandle,"s16:ShortDatePattern")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ShortDatePattern",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setShortDatePattern P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:ShortDatePattern",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ShortDatePattern",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:ShortDatePattern",P1)
 		return self
 
 	Func getShortTimePattern
 		dn_x = dotnet_call("s3:get",nHandle,"s16:ShortTimePattern")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ShortTimePattern",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setShortTimePattern P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:ShortTimePattern",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ShortTimePattern",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:ShortTimePattern",P1)
 		return self
 
 	Func getSortableDateTimePattern
 		dn_x = dotnet_call("s3:get",nHandle,"s23:SortableDateTimePattern")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:SortableDateTimePattern",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSortableDateTimePattern P1
@@ -1100,17 +1079,16 @@ Class DateTimeFormatInfo from Object
 
 	Func getTimeSeparator
 		dn_x = dotnet_call("s3:get",nHandle,"s13:TimeSeparator")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:TimeSeparator",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTimeSeparator P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:TimeSeparator",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:TimeSeparator",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:TimeSeparator",P1)
 		return self
 
 	Func getUniversalSortableDateTimePattern
 		dn_x = dotnet_call("s3:get",nHandle,"s32:UniversalSortableDateTimePattern")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s32:UniversalSortableDateTimePattern",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUniversalSortableDateTimePattern P1
@@ -1118,57 +1096,51 @@ Class DateTimeFormatInfo from Object
 
 	Func getYearMonthPattern
 		dn_x = dotnet_call("s3:get",nHandle,"s16:YearMonthPattern")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:YearMonthPattern",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setYearMonthPattern P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:YearMonthPattern",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:YearMonthPattern",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:YearMonthPattern",P1)
 		return self
 
 	Func getAbbreviatedDayNames
-		return dnSend("s3:get",nHandle,"s19:AbbreviatedDayNames","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:AbbreviatedDayNames"))
 
 	Func setAbbreviatedDayNames P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:AbbreviatedDayNames",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:AbbreviatedDayNames",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:AbbreviatedDayNames",P1)
 		return self
 
 	Func getShortestDayNames
-		return dnSend("s3:get",nHandle,"s16:ShortestDayNames","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ShortestDayNames"))
 
 	Func setShortestDayNames P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:ShortestDayNames",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ShortestDayNames",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:ShortestDayNames",P1)
 		return self
 
 	Func getDayNames
-		return dnSend("s3:get",nHandle,"s8:DayNames","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:DayNames"))
 
 	Func setDayNames P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:DayNames",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:DayNames",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:DayNames",P1)
 		return self
 
 	Func getAbbreviatedMonthNames
-		return dnSend("s3:get",nHandle,"s21:AbbreviatedMonthNames","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:AbbreviatedMonthNames"))
 
 	Func setAbbreviatedMonthNames P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:AbbreviatedMonthNames",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:AbbreviatedMonthNames",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:AbbreviatedMonthNames",P1)
 		return self
 
 	Func getMonthNames
-		return dnSend("s3:get",nHandle,"s10:MonthNames","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:MonthNames"))
 
 	Func setMonthNames P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:MonthNames",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:MonthNames",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:MonthNames",P1)
 		return self
 
 	Func getIsReadOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReadOnly P1
@@ -1176,36 +1148,34 @@ Class DateTimeFormatInfo from Object
 
 	Func getNativeCalendarName
 		dn_x = dotnet_call("s3:get",nHandle,"s18:NativeCalendarName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:NativeCalendarName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNativeCalendarName P1
 		raise("DotNet Error: NativeCalendarName is a read-only property")
 
 	Func getAbbreviatedMonthGenitiveNames
-		return dnSend("s3:get",nHandle,"s29:AbbreviatedMonthGenitiveNames","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s29:AbbreviatedMonthGenitiveNames"))
 
 	Func setAbbreviatedMonthGenitiveNames P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s29:AbbreviatedMonthGenitiveNames",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s29:AbbreviatedMonthGenitiveNames",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s29:AbbreviatedMonthGenitiveNames",P1)
 		return self
 
 	Func getMonthGenitiveNames
-		return dnSend("s3:get",nHandle,"s18:MonthGenitiveNames","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:MonthGenitiveNames"))
 
 	Func setMonthGenitiveNames P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:MonthGenitiveNames",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:MonthGenitiveNames",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:MonthGenitiveNames",P1)
 		return self
 
 	Func getInvariantInfo
-		return dnSend("s3:get",dnTypeHandle('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"s13:InvariantInfo","")
+		return dnObj(dotnet_callo("s3:get",'System.Globalization.DateTimeFormatInfo, System.Private.CoreLib',"s13:InvariantInfo"))
 
 	Func setInvariantInfo P1
 		raise("DotNet Error: InvariantInfo is a read-only property")
 
 	Func getCurrentInfo
-		return dnSend("s3:get",dnTypeHandle('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"s11:CurrentInfo","")
+		return dnObj(dotnet_callo("s3:get",'System.Globalization.DateTimeFormatInfo, System.Private.CoreLib',"s11:CurrentInfo"))
 
 	Func setCurrentInfo P1
 		raise("DotNet Error: CurrentInfo is a read-only property")
@@ -1229,20 +1199,20 @@ Class DaylightTime from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getStart
-		return dnSend("s3:get",nHandle,"s5:Start","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Start"))
 
 	Func setStart P1
 		raise("DotNet Error: Start is a read-only property")
 
 	Func getEnd
-		return dnSend("s3:get",nHandle,"s3:End","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s3:End"))
 
 	Func getDelta
-		return dnSend("s3:get",nHandle,"s5:Delta","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Delta"))
 
 	Func setDelta P1
 		raise("DotNet Error: Delta is a read-only property")
@@ -1261,11 +1231,11 @@ Class GlobalizationExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetStringComparer P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.GlobalizationExtensions, System.Private.CoreLib'),"s17:GetStringComparer",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.GlobalizationExtensions, System.Private.CoreLib',"s17:GetStringComparer",P1,P2))
 
 
 Class ISOWeek from Object
@@ -1281,32 +1251,32 @@ Class ISOWeek from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetWeekOfYear P1
 		dn_x = dotnet_call("s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s13:GetWeekOfYear",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s13:GetWeekOfYear",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetYear P1
 		dn_x = dotnet_call("s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s7:GetYear",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s7:GetYear",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetYearStart P1
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.ISOWeek, System.Private.CoreLib'),"s12:GetYearStart",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s12:GetYearStart",P1))
 
 	Func GetYearEnd P1
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.ISOWeek, System.Private.CoreLib'),"s10:GetYearEnd",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s10:GetYearEnd",P1))
 
 	Func GetWeeksInYear P1
 		dn_x = dotnet_call("s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s14:GetWeeksInYear",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s14:GetWeeksInYear",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToDateTime P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.ISOWeek, System.Private.CoreLib'),"s10:ToDateTime",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s10:ToDateTime",P1,P2,P3))
 
 
 Class IdnMapping from Object
@@ -1337,7 +1307,7 @@ Class IdnMapping from Object
 			return dnSend("s9:callnamed",nHandle,"s8:GetAscii",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:GetAscii",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetAscii",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetUnicode P1
@@ -1345,32 +1315,30 @@ Class IdnMapping from Object
 			return dnSend("s9:callnamed",nHandle,"s10:GetUnicode",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s10:GetUnicode",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:GetUnicode",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getAllowUnassigned
 		dn_x = dotnet_call("s3:get",nHandle,"s15:AllowUnassigned")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:AllowUnassigned",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAllowUnassigned P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:AllowUnassigned",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:AllowUnassigned",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:AllowUnassigned",P1)
 		return self
 
 	Func getUseStd3AsciiRules
 		dn_x = dotnet_call("s3:get",nHandle,"s17:UseStd3AsciiRules")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:UseStd3AsciiRules",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUseStd3AsciiRules P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:UseStd3AsciiRules",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:UseStd3AsciiRules",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:UseStd3AsciiRules",P1)
 		return self
 
 
@@ -1426,298 +1394,271 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func Clone 
-		return dnSend("s4:call",nHandle,"s5:Clone","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func GetFormat P1
-		return dnSend("s4:call",nHandle,"s9:GetFormat",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetFormat",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetInstance P1
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.NumberFormatInfo, System.Private.CoreLib'),"s11:GetInstance",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.NumberFormatInfo, System.Private.CoreLib',"s11:GetInstance",P1))
 
 	Func ReadOnly P1
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.NumberFormatInfo, System.Private.CoreLib'),"s8:ReadOnly",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.NumberFormatInfo, System.Private.CoreLib',"s8:ReadOnly",P1))
 
 	Func getCurrencyDecimalDigits
 		dn_x = dotnet_call("s3:get",nHandle,"s21:CurrencyDecimalDigits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:CurrencyDecimalDigits",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCurrencyDecimalDigits P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:CurrencyDecimalDigits",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:CurrencyDecimalDigits",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:CurrencyDecimalDigits",P1)
 		return self
 
 	Func getCurrencyDecimalSeparator
 		dn_x = dotnet_call("s3:get",nHandle,"s24:CurrencyDecimalSeparator")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:CurrencyDecimalSeparator",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCurrencyDecimalSeparator P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:CurrencyDecimalSeparator",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:CurrencyDecimalSeparator",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:CurrencyDecimalSeparator",P1)
 		return self
 
 	Func getIsReadOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCurrencyGroupSizes
-		return dnSend("s3:get",nHandle,"s18:CurrencyGroupSizes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:CurrencyGroupSizes"))
 
 	Func setCurrencyGroupSizes P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:CurrencyGroupSizes",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:CurrencyGroupSizes",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:CurrencyGroupSizes",P1)
 		return self
 
 	Func getNumberGroupSizes
-		return dnSend("s3:get",nHandle,"s16:NumberGroupSizes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:NumberGroupSizes"))
 
 	Func setNumberGroupSizes P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:NumberGroupSizes",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:NumberGroupSizes",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:NumberGroupSizes",P1)
 		return self
 
 	Func getPercentGroupSizes
-		return dnSend("s3:get",nHandle,"s17:PercentGroupSizes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:PercentGroupSizes"))
 
 	Func setPercentGroupSizes P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:PercentGroupSizes",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:PercentGroupSizes",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:PercentGroupSizes",P1)
 		return self
 
 	Func getCurrencyGroupSeparator
 		dn_x = dotnet_call("s3:get",nHandle,"s22:CurrencyGroupSeparator")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:CurrencyGroupSeparator",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCurrencyGroupSeparator P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:CurrencyGroupSeparator",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:CurrencyGroupSeparator",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:CurrencyGroupSeparator",P1)
 		return self
 
 	Func getCurrencySymbol
 		dn_x = dotnet_call("s3:get",nHandle,"s14:CurrencySymbol")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:CurrencySymbol",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCurrencySymbol P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:CurrencySymbol",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:CurrencySymbol",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:CurrencySymbol",P1)
 		return self
 
 	Func getNaNSymbol
 		dn_x = dotnet_call("s3:get",nHandle,"s9:NaNSymbol")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:NaNSymbol",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNaNSymbol P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:NaNSymbol",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:NaNSymbol",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:NaNSymbol",P1)
 		return self
 
 	Func getCurrencyNegativePattern
 		dn_x = dotnet_call("s3:get",nHandle,"s23:CurrencyNegativePattern")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:CurrencyNegativePattern",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCurrencyNegativePattern P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:CurrencyNegativePattern",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:CurrencyNegativePattern",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:CurrencyNegativePattern",P1)
 		return self
 
 	Func getNumberNegativePattern
 		dn_x = dotnet_call("s3:get",nHandle,"s21:NumberNegativePattern")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:NumberNegativePattern",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNumberNegativePattern P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:NumberNegativePattern",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:NumberNegativePattern",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:NumberNegativePattern",P1)
 		return self
 
 	Func getPercentPositivePattern
 		dn_x = dotnet_call("s3:get",nHandle,"s22:PercentPositivePattern")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:PercentPositivePattern",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPercentPositivePattern P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:PercentPositivePattern",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:PercentPositivePattern",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:PercentPositivePattern",P1)
 		return self
 
 	Func getPercentNegativePattern
 		dn_x = dotnet_call("s3:get",nHandle,"s22:PercentNegativePattern")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:PercentNegativePattern",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPercentNegativePattern P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:PercentNegativePattern",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:PercentNegativePattern",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:PercentNegativePattern",P1)
 		return self
 
 	Func getNegativeInfinitySymbol
 		dn_x = dotnet_call("s3:get",nHandle,"s22:NegativeInfinitySymbol")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:NegativeInfinitySymbol",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNegativeInfinitySymbol P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:NegativeInfinitySymbol",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:NegativeInfinitySymbol",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:NegativeInfinitySymbol",P1)
 		return self
 
 	Func getNegativeSign
 		dn_x = dotnet_call("s3:get",nHandle,"s12:NegativeSign")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:NegativeSign",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNegativeSign P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:NegativeSign",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:NegativeSign",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:NegativeSign",P1)
 		return self
 
 	Func getNumberDecimalDigits
 		dn_x = dotnet_call("s3:get",nHandle,"s19:NumberDecimalDigits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:NumberDecimalDigits",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNumberDecimalDigits P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:NumberDecimalDigits",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:NumberDecimalDigits",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:NumberDecimalDigits",P1)
 		return self
 
 	Func getNumberDecimalSeparator
 		dn_x = dotnet_call("s3:get",nHandle,"s22:NumberDecimalSeparator")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:NumberDecimalSeparator",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNumberDecimalSeparator P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:NumberDecimalSeparator",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:NumberDecimalSeparator",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:NumberDecimalSeparator",P1)
 		return self
 
 	Func getNumberGroupSeparator
 		dn_x = dotnet_call("s3:get",nHandle,"s20:NumberGroupSeparator")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:NumberGroupSeparator",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNumberGroupSeparator P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:NumberGroupSeparator",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:NumberGroupSeparator",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:NumberGroupSeparator",P1)
 		return self
 
 	Func getCurrencyPositivePattern
 		dn_x = dotnet_call("s3:get",nHandle,"s23:CurrencyPositivePattern")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:CurrencyPositivePattern",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCurrencyPositivePattern P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:CurrencyPositivePattern",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:CurrencyPositivePattern",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:CurrencyPositivePattern",P1)
 		return self
 
 	Func getPositiveInfinitySymbol
 		dn_x = dotnet_call("s3:get",nHandle,"s22:PositiveInfinitySymbol")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:PositiveInfinitySymbol",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPositiveInfinitySymbol P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:PositiveInfinitySymbol",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:PositiveInfinitySymbol",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:PositiveInfinitySymbol",P1)
 		return self
 
 	Func getPositiveSign
 		dn_x = dotnet_call("s3:get",nHandle,"s12:PositiveSign")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:PositiveSign",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPositiveSign P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:PositiveSign",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:PositiveSign",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:PositiveSign",P1)
 		return self
 
 	Func getPercentDecimalDigits
 		dn_x = dotnet_call("s3:get",nHandle,"s20:PercentDecimalDigits")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:PercentDecimalDigits",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPercentDecimalDigits P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:PercentDecimalDigits",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:PercentDecimalDigits",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:PercentDecimalDigits",P1)
 		return self
 
 	Func getPercentDecimalSeparator
 		dn_x = dotnet_call("s3:get",nHandle,"s23:PercentDecimalSeparator")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:PercentDecimalSeparator",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPercentDecimalSeparator P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:PercentDecimalSeparator",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:PercentDecimalSeparator",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:PercentDecimalSeparator",P1)
 		return self
 
 	Func getPercentGroupSeparator
 		dn_x = dotnet_call("s3:get",nHandle,"s21:PercentGroupSeparator")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:PercentGroupSeparator",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPercentGroupSeparator P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:PercentGroupSeparator",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:PercentGroupSeparator",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:PercentGroupSeparator",P1)
 		return self
 
 	Func getPercentSymbol
 		dn_x = dotnet_call("s3:get",nHandle,"s13:PercentSymbol")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:PercentSymbol",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPercentSymbol P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:PercentSymbol",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:PercentSymbol",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:PercentSymbol",P1)
 		return self
 
 	Func getPerMilleSymbol
 		dn_x = dotnet_call("s3:get",nHandle,"s14:PerMilleSymbol")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:PerMilleSymbol",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPerMilleSymbol P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:PerMilleSymbol",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:PerMilleSymbol",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:PerMilleSymbol",P1)
 		return self
 
 	Func getNativeDigits
-		return dnSend("s3:get",nHandle,"s12:NativeDigits","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:NativeDigits"))
 
 	Func setNativeDigits P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:NativeDigits",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:NativeDigits",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:NativeDigits",P1)
 		return self
 
 	Func getDigitSubstitution
-		return dnSend("s3:get",nHandle,"s17:DigitSubstitution","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:DigitSubstitution"))
 
 	Func setDigitSubstitution P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:DigitSubstitution",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:DigitSubstitution",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:DigitSubstitution",P1)
 		return self
 
 	Func getInvariantInfo
-		return dnSend("s3:get",dnTypeHandle('System.Globalization.NumberFormatInfo, System.Private.CoreLib'),"s13:InvariantInfo","")
+		return dnObj(dotnet_callo("s3:get",'System.Globalization.NumberFormatInfo, System.Private.CoreLib',"s13:InvariantInfo"))
 
 	Func setInvariantInfo P1
 		raise("DotNet Error: InvariantInfo is a read-only property")
 
 	Func getCurrentInfo
-		return dnSend("s3:get",dnTypeHandle('System.Globalization.NumberFormatInfo, System.Private.CoreLib'),"s11:CurrentInfo","")
+		return dnObj(dotnet_callo("s3:get",'System.Globalization.NumberFormatInfo, System.Private.CoreLib',"s11:CurrentInfo"))
 
 	Func setCurrentInfo P1
 		raise("DotNet Error: CurrentInfo is a read-only property")
@@ -1753,12 +1694,12 @@ Class RegionInfo from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
@@ -1766,7 +1707,7 @@ Class RegionInfo from Object
 
 	Func getEnglishName
 		dn_x = dotnet_call("s3:get",nHandle,"s11:EnglishName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:EnglishName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEnglishName P1
@@ -1774,7 +1715,7 @@ Class RegionInfo from Object
 
 	Func getDisplayName
 		dn_x = dotnet_call("s3:get",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:DisplayName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDisplayName P1
@@ -1782,7 +1723,7 @@ Class RegionInfo from Object
 
 	Func getNativeName
 		dn_x = dotnet_call("s3:get",nHandle,"s10:NativeName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:NativeName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNativeName P1
@@ -1790,7 +1731,7 @@ Class RegionInfo from Object
 
 	Func getTwoLetterISORegionName
 		dn_x = dotnet_call("s3:get",nHandle,"s22:TwoLetterISORegionName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:TwoLetterISORegionName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTwoLetterISORegionName P1
@@ -1798,7 +1739,7 @@ Class RegionInfo from Object
 
 	Func getThreeLetterISORegionName
 		dn_x = dotnet_call("s3:get",nHandle,"s24:ThreeLetterISORegionName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:ThreeLetterISORegionName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setThreeLetterISORegionName P1
@@ -1806,7 +1747,7 @@ Class RegionInfo from Object
 
 	Func getThreeLetterWindowsRegionName
 		dn_x = dotnet_call("s3:get",nHandle,"s28:ThreeLetterWindowsRegionName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s28:ThreeLetterWindowsRegionName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setThreeLetterWindowsRegionName P1
@@ -1814,7 +1755,7 @@ Class RegionInfo from Object
 
 	Func getIsMetric
 		dn_x = dotnet_call("s3:get",nHandle,"s8:IsMetric")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsMetric",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsMetric P1
@@ -1822,7 +1763,7 @@ Class RegionInfo from Object
 
 	Func getGeoId
 		dn_x = dotnet_call("s3:get",nHandle,"s5:GeoId")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:GeoId",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setGeoId P1
@@ -1830,7 +1771,7 @@ Class RegionInfo from Object
 
 	Func getCurrencyEnglishName
 		dn_x = dotnet_call("s3:get",nHandle,"s19:CurrencyEnglishName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:CurrencyEnglishName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCurrencyEnglishName P1
@@ -1838,7 +1779,7 @@ Class RegionInfo from Object
 
 	Func getCurrencyNativeName
 		dn_x = dotnet_call("s3:get",nHandle,"s18:CurrencyNativeName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:CurrencyNativeName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCurrencyNativeName P1
@@ -1846,7 +1787,7 @@ Class RegionInfo from Object
 
 	Func getCurrencySymbol
 		dn_x = dotnet_call("s3:get",nHandle,"s14:CurrencySymbol")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:CurrencySymbol",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCurrencySymbol P1
@@ -1854,14 +1795,14 @@ Class RegionInfo from Object
 
 	Func getISOCurrencySymbol
 		dn_x = dotnet_call("s3:get",nHandle,"s17:ISOCurrencySymbol")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:ISOCurrencySymbol",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setISOCurrencySymbol P1
 		raise("DotNet Error: ISOCurrencySymbol is a read-only property")
 
 	Func getCurrentRegion
-		return dnSend("s3:get",dnTypeHandle('System.Globalization.RegionInfo, System.Private.CoreLib'),"s13:CurrentRegion","")
+		return dnObj(dotnet_callo("s3:get",'System.Globalization.RegionInfo, System.Private.CoreLib',"s13:CurrentRegion"))
 
 	Func setCurrentRegion P1
 		raise("DotNet Error: CurrentRegion is a read-only property")
@@ -1883,24 +1824,24 @@ Class SortKey from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Compare P1,P2
 		dn_x = dotnet_call("s4:call",'System.Globalization.SortKey, System.Private.CoreLib',"s7:Compare",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.SortKey, System.Private.CoreLib',"s7:Compare",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getOriginalString
 		dn_x = dotnet_call("s3:get",nHandle,"s14:OriginalString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:OriginalString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOriginalString P1
 		raise("DotNet Error: OriginalString is a read-only property")
 
 	Func getKeyData
-		return dnSend("s3:get",nHandle,"s7:KeyData","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:KeyData"))
 
 	Func setKeyData P1
 		raise("DotNet Error: KeyData is a read-only property")
@@ -1924,19 +1865,19 @@ Class SortVersion from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getFullVersion
 		dn_x = dotnet_call("s3:get",nHandle,"s11:FullVersion")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:FullVersion",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFullVersion P1
 		raise("DotNet Error: FullVersion is a read-only property")
 
 	Func getSortId
-		return dnSend("s3:get",nHandle,"s6:SortId","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:SortId"))
 
 	Func setSortId P1
 		raise("DotNet Error: SortId is a read-only property")
@@ -1983,7 +1924,7 @@ Class StringInfo from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SubstringByTextElements P1
@@ -1991,7 +1932,7 @@ Class StringInfo from Object
 			return dnSend("s9:callnamed",nHandle,"s23:SubstringByTextElements",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s23:SubstringByTextElements",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s23:SubstringByTextElements",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetNextTextElement P1
@@ -1999,7 +1940,7 @@ Class StringInfo from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s18:GetNextTextElement",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Globalization.StringInfo, System.Private.CoreLib',"s18:GetNextTextElement",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.StringInfo, System.Private.CoreLib',"s18:GetNextTextElement",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetNextTextElementLength P1
@@ -2007,31 +1948,30 @@ Class StringInfo from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s24:GetNextTextElementLength",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Globalization.StringInfo, System.Private.CoreLib',"s24:GetNextTextElementLength",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Globalization.StringInfo, System.Private.CoreLib',"s24:GetNextTextElementLength",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetTextElementEnumerator P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s24:GetTextElementEnumerator",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s24:GetTextElementEnumerator",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.StringInfo, System.Private.CoreLib',"s24:GetTextElementEnumerator",P1))
 
 	Func ParseCombiningCharacters P1
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s24:ParseCombiningCharacters",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.StringInfo, System.Private.CoreLib',"s24:ParseCombiningCharacters",P1))
 
 	Func getString
 		dn_x = dotnet_call("s3:get",nHandle,"s6:String")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:String",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setString P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:String",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:String",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:String",P1)
 		return self
 
 	Func getLengthInTextElements
 		dn_x = dotnet_call("s3:get",nHandle,"s20:LengthInTextElements")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:LengthInTextElements",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLengthInTextElements P1
@@ -2054,34 +1994,33 @@ Class TextElementEnumerator from Object
 
 	Func MoveNext 
 		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:MoveNext",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetTextElement 
 		dn_x = dotnet_call("s4:call",nHandle,"s14:GetTextElement")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:GetTextElement",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Reset 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Reset")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCurrent
-		return dnSend("s3:get",nHandle,"s7:Current","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Current"))
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getElementIndex
 		dn_x = dotnet_call("s3:get",nHandle,"s12:ElementIndex")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ElementIndex",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setElementIndex P1
@@ -2110,30 +2049,30 @@ Class TextInfo from Object
 		return self
 
 	Func Clone 
-		return dnSend("s4:call",nHandle,"s5:Clone","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func ToLower P1
-		return dnSend("s4:call",nHandle,"s7:ToLower",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToLower",P1))
 
 	Func ToUpper P1
-		return dnSend("s4:call",nHandle,"s7:ToUpper",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToUpper",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToTitleCase P1
 		dn_x = dotnet_call("s4:call",nHandle,"s11:ToTitleCase",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:ToTitleCase",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReadOnly P1
-		return dnSend("s4:call",dnTypeHandle('System.Globalization.TextInfo, System.Private.CoreLib'),"s8:ReadOnly",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Globalization.TextInfo, System.Private.CoreLib',"s8:ReadOnly",P1))
 
 	Func getANSICodePage
 		dn_x = dotnet_call("s3:get",nHandle,"s12:ANSICodePage")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ANSICodePage",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setANSICodePage P1
@@ -2141,7 +2080,7 @@ Class TextInfo from Object
 
 	Func getOEMCodePage
 		dn_x = dotnet_call("s3:get",nHandle,"s11:OEMCodePage")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:OEMCodePage",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOEMCodePage P1
@@ -2149,7 +2088,7 @@ Class TextInfo from Object
 
 	Func getMacCodePage
 		dn_x = dotnet_call("s3:get",nHandle,"s11:MacCodePage")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:MacCodePage",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMacCodePage P1
@@ -2157,7 +2096,7 @@ Class TextInfo from Object
 
 	Func getEBCDICCodePage
 		dn_x = dotnet_call("s3:get",nHandle,"s14:EBCDICCodePage")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:EBCDICCodePage",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEBCDICCodePage P1
@@ -2165,7 +2104,7 @@ Class TextInfo from Object
 
 	Func getLCID
 		dn_x = dotnet_call("s3:get",nHandle,"s4:LCID")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:LCID",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLCID P1
@@ -2173,7 +2112,7 @@ Class TextInfo from Object
 
 	Func getCultureName
 		dn_x = dotnet_call("s3:get",nHandle,"s11:CultureName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:CultureName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCultureName P1
@@ -2181,7 +2120,7 @@ Class TextInfo from Object
 
 	Func getIsReadOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReadOnly P1
@@ -2189,17 +2128,16 @@ Class TextInfo from Object
 
 	Func getListSeparator
 		dn_x = dotnet_call("s3:get",nHandle,"s13:ListSeparator")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ListSeparator",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setListSeparator P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:ListSeparator",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:ListSeparator",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:ListSeparator",P1)
 		return self
 
 	Func getIsRightToLeft
 		dn_x = dotnet_call("s3:get",nHandle,"s13:IsRightToLeft")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IsRightToLeft",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsRightToLeft P1
@@ -2219,17 +2157,17 @@ Class EastAsianLunisolarCalendar from Calendar
 
 	Func GetSexagenaryYear P1
 		dn_x = dotnet_call("s4:call",nHandle,"s17:GetSexagenaryYear",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s17:GetSexagenaryYear",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetCelestialStem P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:GetCelestialStem",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:GetCelestialStem",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetTerrestrialBranch P1
 		dn_x = dotnet_call("s4:call",nHandle,"s20:GetTerrestrialBranch",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:GetTerrestrialBranch",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -2273,16 +2211,15 @@ Class GregorianCalendar from Calendar
 		return self
 
 	Func getCalendarType
-		return dnSend("s3:get",nHandle,"s12:CalendarType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:CalendarType"))
 
 	Func setCalendarType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:CalendarType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:CalendarType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:CalendarType",P1)
 		return self
 
 	Func getADEra
 		dn_x = dotnet_call("s3:get",'System.Globalization.GregorianCalendar, System.Private.CoreLib',"s5:ADEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.GregorianCalendar, System.Private.CoreLib',"s5:ADEra",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setADEra P1
@@ -2313,7 +2250,7 @@ Class HebrewCalendar from Calendar
 
 	Func getHebrewEra
 		dn_x = dotnet_call("s3:get",'System.Globalization.HebrewCalendar, System.Private.CoreLib',"s9:HebrewEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.HebrewCalendar, System.Private.CoreLib',"s9:HebrewEra",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHebrewEra P1
@@ -2345,17 +2282,16 @@ Class HijriCalendar from Calendar
 
 	Func getHijriAdjustment
 		dn_x = dotnet_call("s3:get",nHandle,"s15:HijriAdjustment")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:HijriAdjustment",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHijriAdjustment P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:HijriAdjustment",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:HijriAdjustment",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:HijriAdjustment",P1)
 		return self
 
 	Func getHijriEra
 		dn_x = dotnet_call("s3:get",'System.Globalization.HijriCalendar, System.Private.CoreLib',"s8:HijriEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.HijriCalendar, System.Private.CoreLib',"s8:HijriEra",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHijriEra P1
@@ -2407,7 +2343,7 @@ Class JulianCalendar from Calendar
 
 	Func getJulianEra
 		dn_x = dotnet_call("s3:get",'System.Globalization.JulianCalendar, System.Private.CoreLib',"s9:JulianEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.JulianCalendar, System.Private.CoreLib',"s9:JulianEra",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setJulianEra P1
@@ -2438,7 +2374,7 @@ Class KoreanCalendar from Calendar
 
 	Func getKoreanEra
 		dn_x = dotnet_call("s3:get",'System.Globalization.KoreanCalendar, System.Private.CoreLib',"s9:KoreanEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.KoreanCalendar, System.Private.CoreLib',"s9:KoreanEra",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setKoreanEra P1
@@ -2469,7 +2405,7 @@ Class PersianCalendar from Calendar
 
 	Func getPersianEra
 		dn_x = dotnet_call("s3:get",'System.Globalization.PersianCalendar, System.Private.CoreLib',"s10:PersianEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.PersianCalendar, System.Private.CoreLib',"s10:PersianEra",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPersianEra P1
@@ -2521,7 +2457,7 @@ Class ThaiBuddhistCalendar from Calendar
 
 	Func getThaiBuddhistEra
 		dn_x = dotnet_call("s3:get",'System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib',"s15:ThaiBuddhistEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib',"s15:ThaiBuddhistEra",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setThaiBuddhistEra P1
@@ -2552,7 +2488,7 @@ Class UmAlQuraCalendar from Calendar
 
 	Func getUmAlQuraEra
 		dn_x = dotnet_call("s3:get",'System.Globalization.UmAlQuraCalendar, System.Private.CoreLib',"s11:UmAlQuraEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.UmAlQuraCalendar, System.Private.CoreLib',"s11:UmAlQuraEra",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUmAlQuraEra P1
@@ -2583,7 +2519,7 @@ Class ChineseLunisolarCalendar from EastAsianLunisolarCalendar
 
 	Func getChineseEra
 		dn_x = dotnet_call("s3:get",'System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib',"s10:ChineseEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib',"s10:ChineseEra",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setChineseEra P1
@@ -2614,7 +2550,7 @@ Class JapaneseLunisolarCalendar from EastAsianLunisolarCalendar
 
 	Func getJapaneseEra
 		dn_x = dotnet_call("s3:get",'System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib',"s11:JapaneseEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib',"s11:JapaneseEra",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setJapaneseEra P1
@@ -2645,7 +2581,7 @@ Class KoreanLunisolarCalendar from EastAsianLunisolarCalendar
 
 	Func getGregorianEra
 		dn_x = dotnet_call("s3:get",'System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib',"s12:GregorianEra")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib',"s12:GregorianEra",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setGregorianEra P1

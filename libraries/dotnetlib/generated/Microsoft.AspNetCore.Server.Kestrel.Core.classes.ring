@@ -72,83 +72,75 @@ Class Http2Limits from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getMaxStreamsPerConnection
 		dn_x = dotnet_call("s3:get",nHandle,"s23:MaxStreamsPerConnection")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:MaxStreamsPerConnection",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaxStreamsPerConnection P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:MaxStreamsPerConnection",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:MaxStreamsPerConnection",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:MaxStreamsPerConnection",P1)
 		return self
 
 	Func getHeaderTableSize
 		dn_x = dotnet_call("s3:get",nHandle,"s15:HeaderTableSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:HeaderTableSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHeaderTableSize P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:HeaderTableSize",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:HeaderTableSize",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:HeaderTableSize",P1)
 		return self
 
 	Func getMaxFrameSize
 		dn_x = dotnet_call("s3:get",nHandle,"s12:MaxFrameSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:MaxFrameSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaxFrameSize P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:MaxFrameSize",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:MaxFrameSize",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:MaxFrameSize",P1)
 		return self
 
 	Func getMaxRequestHeaderFieldSize
 		dn_x = dotnet_call("s3:get",nHandle,"s25:MaxRequestHeaderFieldSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:MaxRequestHeaderFieldSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaxRequestHeaderFieldSize P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s25:MaxRequestHeaderFieldSize",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s25:MaxRequestHeaderFieldSize",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s25:MaxRequestHeaderFieldSize",P1)
 		return self
 
 	Func getInitialConnectionWindowSize
 		dn_x = dotnet_call("s3:get",nHandle,"s27:InitialConnectionWindowSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s27:InitialConnectionWindowSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInitialConnectionWindowSize P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s27:InitialConnectionWindowSize",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s27:InitialConnectionWindowSize",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s27:InitialConnectionWindowSize",P1)
 		return self
 
 	Func getInitialStreamWindowSize
 		dn_x = dotnet_call("s3:get",nHandle,"s23:InitialStreamWindowSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:InitialStreamWindowSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInitialStreamWindowSize P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:InitialStreamWindowSize",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:InitialStreamWindowSize",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:InitialStreamWindowSize",P1)
 		return self
 
 	Func getKeepAlivePingDelay
-		return dnSend("s3:get",nHandle,"s18:KeepAlivePingDelay","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:KeepAlivePingDelay"))
 
 	Func setKeepAlivePingDelay P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:KeepAlivePingDelay",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:KeepAlivePingDelay",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:KeepAlivePingDelay",P1)
 		return self
 
 	Func getKeepAlivePingTimeout
-		return dnSend("s3:get",nHandle,"s20:KeepAlivePingTimeout","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:KeepAlivePingTimeout"))
 
 	Func setKeepAlivePingTimeout P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:KeepAlivePingTimeout",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:KeepAlivePingTimeout",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:KeepAlivePingTimeout",P1)
 		return self
 
 
@@ -176,17 +168,16 @@ Class Http3Limits from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getMaxRequestHeaderFieldSize
 		dn_x = dotnet_call("s3:get",nHandle,"s25:MaxRequestHeaderFieldSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:MaxRequestHeaderFieldSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaxRequestHeaderFieldSize P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s25:MaxRequestHeaderFieldSize",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s25:MaxRequestHeaderFieldSize",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s25:MaxRequestHeaderFieldSize",P1)
 		return self
 
 
@@ -207,30 +198,29 @@ Class KestrelServer from Object
 		return self
 
 	Func StartAsync P1,P2
-		return dnSend("s4:call",nHandle,"s10:StartAsync",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1,P2))
 
 	Func StopAsync P1
-		return dnSend("s4:call",nHandle,"s9:StopAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync",P1))
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getFeatures
-		return dnSend("s3:get",nHandle,"s8:Features","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Features"))
 
 	Func setFeatures P1
 		raise("DotNet Error: Features is a read-only property")
 
 	Func getOptions
-		return dnSend("s3:get",nHandle,"s7:Options","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Options"))
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
@@ -273,121 +263,109 @@ Class KestrelServerLimits from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getMaxResponseBufferSize
-		return dnSend("s3:get",nHandle,"s21:MaxResponseBufferSize","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:MaxResponseBufferSize"))
 
 	Func setMaxResponseBufferSize P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:MaxResponseBufferSize",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:MaxResponseBufferSize",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:MaxResponseBufferSize",P1)
 		return self
 
 	Func getMaxRequestBufferSize
-		return dnSend("s3:get",nHandle,"s20:MaxRequestBufferSize","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:MaxRequestBufferSize"))
 
 	Func setMaxRequestBufferSize P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:MaxRequestBufferSize",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:MaxRequestBufferSize",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:MaxRequestBufferSize",P1)
 		return self
 
 	Func getMaxRequestLineSize
 		dn_x = dotnet_call("s3:get",nHandle,"s18:MaxRequestLineSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:MaxRequestLineSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaxRequestLineSize P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:MaxRequestLineSize",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:MaxRequestLineSize",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:MaxRequestLineSize",P1)
 		return self
 
 	Func getMaxRequestHeadersTotalSize
 		dn_x = dotnet_call("s3:get",nHandle,"s26:MaxRequestHeadersTotalSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:MaxRequestHeadersTotalSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaxRequestHeadersTotalSize P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s26:MaxRequestHeadersTotalSize",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s26:MaxRequestHeadersTotalSize",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s26:MaxRequestHeadersTotalSize",P1)
 		return self
 
 	Func getMaxRequestHeaderCount
 		dn_x = dotnet_call("s3:get",nHandle,"s21:MaxRequestHeaderCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:MaxRequestHeaderCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaxRequestHeaderCount P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:MaxRequestHeaderCount",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:MaxRequestHeaderCount",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:MaxRequestHeaderCount",P1)
 		return self
 
 	Func getMaxRequestBodySize
-		return dnSend("s3:get",nHandle,"s18:MaxRequestBodySize","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:MaxRequestBodySize"))
 
 	Func setMaxRequestBodySize P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:MaxRequestBodySize",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:MaxRequestBodySize",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:MaxRequestBodySize",P1)
 		return self
 
 	Func getKeepAliveTimeout
-		return dnSend("s3:get",nHandle,"s16:KeepAliveTimeout","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:KeepAliveTimeout"))
 
 	Func setKeepAliveTimeout P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:KeepAliveTimeout",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:KeepAliveTimeout",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:KeepAliveTimeout",P1)
 		return self
 
 	Func getRequestHeadersTimeout
-		return dnSend("s3:get",nHandle,"s21:RequestHeadersTimeout","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:RequestHeadersTimeout"))
 
 	Func setRequestHeadersTimeout P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:RequestHeadersTimeout",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:RequestHeadersTimeout",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:RequestHeadersTimeout",P1)
 		return self
 
 	Func getMaxConcurrentConnections
-		return dnSend("s3:get",nHandle,"s24:MaxConcurrentConnections","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:MaxConcurrentConnections"))
 
 	Func setMaxConcurrentConnections P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:MaxConcurrentConnections",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:MaxConcurrentConnections",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:MaxConcurrentConnections",P1)
 		return self
 
 	Func getMaxConcurrentUpgradedConnections
-		return dnSend("s3:get",nHandle,"s32:MaxConcurrentUpgradedConnections","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s32:MaxConcurrentUpgradedConnections"))
 
 	Func setMaxConcurrentUpgradedConnections P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s32:MaxConcurrentUpgradedConnections",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s32:MaxConcurrentUpgradedConnections",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s32:MaxConcurrentUpgradedConnections",P1)
 		return self
 
 	Func getHttp2
-		return dnSend("s3:get",nHandle,"s5:Http2","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Http2"))
 
 	Func setHttp2 P1
 		raise("DotNet Error: Http2 is a read-only property")
 
 	Func getHttp3
-		return dnSend("s3:get",nHandle,"s5:Http3","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Http3"))
 
 	Func setHttp3 P1
 		raise("DotNet Error: Http3 is a read-only property")
 
 	Func getMinRequestBodyDataRate
-		return dnSend("s3:get",nHandle,"s22:MinRequestBodyDataRate","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:MinRequestBodyDataRate"))
 
 	Func setMinRequestBodyDataRate P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:MinRequestBodyDataRate",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:MinRequestBodyDataRate",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:MinRequestBodyDataRate",P1)
 		return self
 
 	Func getMinResponseDataRate
-		return dnSend("s3:get",nHandle,"s19:MinResponseDataRate","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:MinResponseDataRate"))
 
 	Func setMinResponseDataRate P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:MinResponseDataRate",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:MinResponseDataRate",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:MinResponseDataRate",P1)
 		return self
 
 
@@ -425,14 +403,12 @@ Class KestrelServerOptions from Object
 		return self
 
 	Func ConfigureEndpointDefaults P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s25:ConfigureEndpointDefaults",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s25:ConfigureEndpointDefaults",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s25:ConfigureEndpointDefaults",P1)
 
 		return self
 
 	Func ConfigureHttpsDefaults P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s22:ConfigureHttpsDefaults",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s22:ConfigureHttpsDefaults",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s22:ConfigureHttpsDefaults",P1)
 
 		return self
 
@@ -441,17 +417,16 @@ Class KestrelServerOptions from Object
 			return dnSend("s9:callnamed",nHandle,"s9:Configure",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s9:Configure","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure"))
 		ok
-		return dnSend("s4:call",nHandle,"s9:Configure",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
 
 	Func Listen P1
 		if dnIsNamed(P1)
 			dnSend("s9:callnamed",nHandle,"s6:Listen",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Listen",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Listen",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Listen",P1)
 
 		return self
 
@@ -460,8 +435,7 @@ Class KestrelServerOptions from Object
 			dnSend("s9:callnamed",nHandle,"s15:ListenLocalhost",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:ListenLocalhost",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:ListenLocalhost",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s15:ListenLocalhost",P1)
 
 		return self
 
@@ -470,8 +444,7 @@ Class KestrelServerOptions from Object
 			dnSend("s9:callnamed",nHandle,"s11:ListenAnyIP",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:ListenAnyIP",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:ListenAnyIP",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s11:ListenAnyIP",P1)
 
 		return self
 
@@ -480,8 +453,7 @@ Class KestrelServerOptions from Object
 			dnSend("s9:callnamed",nHandle,"s16:ListenUnixSocket",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:ListenUnixSocket",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ListenUnixSocket",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s16:ListenUnixSocket",P1)
 
 		return self
 
@@ -490,8 +462,7 @@ Class KestrelServerOptions from Object
 			dnSend("s9:callnamed",nHandle,"s12:ListenHandle",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:ListenHandle",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:ListenHandle",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s12:ListenHandle",P1)
 
 		return self
 
@@ -500,122 +471,110 @@ Class KestrelServerOptions from Object
 			dnSend("s9:callnamed",nHandle,"s15:ListenNamedPipe",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:ListenNamedPipe",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:ListenNamedPipe",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s15:ListenNamedPipe",P1)
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getAllowHostHeaderOverride
 		dn_x = dotnet_call("s3:get",nHandle,"s23:AllowHostHeaderOverride")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:AllowHostHeaderOverride",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAllowHostHeaderOverride P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:AllowHostHeaderOverride",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:AllowHostHeaderOverride",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:AllowHostHeaderOverride",P1)
 		return self
 
 	Func getAddServerHeader
 		dn_x = dotnet_call("s3:get",nHandle,"s15:AddServerHeader")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:AddServerHeader",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAddServerHeader P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:AddServerHeader",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:AddServerHeader",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:AddServerHeader",P1)
 		return self
 
 	Func getAllowResponseHeaderCompression
 		dn_x = dotnet_call("s3:get",nHandle,"s30:AllowResponseHeaderCompression")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s30:AllowResponseHeaderCompression",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAllowResponseHeaderCompression P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s30:AllowResponseHeaderCompression",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s30:AllowResponseHeaderCompression",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s30:AllowResponseHeaderCompression",P1)
 		return self
 
 	Func getAllowSynchronousIO
 		dn_x = dotnet_call("s3:get",nHandle,"s18:AllowSynchronousIO")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:AllowSynchronousIO",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAllowSynchronousIO P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:AllowSynchronousIO",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:AllowSynchronousIO",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:AllowSynchronousIO",P1)
 		return self
 
 	Func getAllowAlternateSchemes
 		dn_x = dotnet_call("s3:get",nHandle,"s21:AllowAlternateSchemes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:AllowAlternateSchemes",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAllowAlternateSchemes P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:AllowAlternateSchemes",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:AllowAlternateSchemes",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:AllowAlternateSchemes",P1)
 		return self
 
 	Func getDisableStringReuse
 		dn_x = dotnet_call("s3:get",nHandle,"s18:DisableStringReuse")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:DisableStringReuse",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDisableStringReuse P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:DisableStringReuse",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:DisableStringReuse",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:DisableStringReuse",P1)
 		return self
 
 	Func getEnableAltSvc
 		dn_x = dotnet_call("s3:get",nHandle,"s12:EnableAltSvc")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:EnableAltSvc",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEnableAltSvc P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:EnableAltSvc",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:EnableAltSvc",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:EnableAltSvc",P1)
 		return self
 
 	Func getRequestHeaderEncodingSelector
-		return dnSend("s3:get",nHandle,"s29:RequestHeaderEncodingSelector","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s29:RequestHeaderEncodingSelector"))
 
 	Func setRequestHeaderEncodingSelector P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s29:RequestHeaderEncodingSelector",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s29:RequestHeaderEncodingSelector",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s29:RequestHeaderEncodingSelector",P1)
 		return self
 
 	Func getResponseHeaderEncodingSelector
-		return dnSend("s3:get",nHandle,"s30:ResponseHeaderEncodingSelector","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s30:ResponseHeaderEncodingSelector"))
 
 	Func setResponseHeaderEncodingSelector P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s30:ResponseHeaderEncodingSelector",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s30:ResponseHeaderEncodingSelector",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s30:ResponseHeaderEncodingSelector",P1)
 		return self
 
 	Func getApplicationServices
-		return dnSend("s3:get",nHandle,"s19:ApplicationServices","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ApplicationServices"))
 
 	Func setApplicationServices P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:ApplicationServices",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:ApplicationServices",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:ApplicationServices",P1)
 		return self
 
 	Func getLimits
-		return dnSend("s3:get",nHandle,"s6:Limits","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Limits"))
 
 	Func setLimits P1
 		raise("DotNet Error: Limits is a read-only property")
 
 	Func getConfigurationLoader
-		return dnSend("s3:get",nHandle,"s19:ConfigurationLoader","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ConfigurationLoader"))
 
 	Func setConfigurationLoader P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:ConfigurationLoader",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:ConfigurationLoader",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:ConfigurationLoader",P1)
 		return self
 
 
@@ -641,31 +600,31 @@ Class ListenOptions from Object
 		return self
 
 	Func Use P1
-		return dnSend("s4:call",nHandle,"s3:Use",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Use",P1))
 
 	Func Build 
-		return dnSend("s4:call",nHandle,"s5:Build","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getEndPoint
-		return dnSend("s3:get",nHandle,"s8:EndPoint","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:EndPoint"))
 
 	Func setEndPoint P1
 		raise("DotNet Error: EndPoint is a read-only property")
 
 	Func getIPEndPoint
-		return dnSend("s3:get",nHandle,"s10:IPEndPoint","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:IPEndPoint"))
 
 	Func setIPEndPoint P1
 		raise("DotNet Error: IPEndPoint is a read-only property")
 
 	Func getSocketPath
 		dn_x = dotnet_call("s3:get",nHandle,"s10:SocketPath")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:SocketPath",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSocketPath P1
@@ -673,7 +632,7 @@ Class ListenOptions from Object
 
 	Func getPipeName
 		dn_x = dotnet_call("s3:get",nHandle,"s8:PipeName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:PipeName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPipeName P1
@@ -681,38 +640,36 @@ Class ListenOptions from Object
 
 	Func getFileHandle
 		dn_x = dotnet_call("s3:get",nHandle,"s10:FileHandle")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:FileHandle",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFileHandle P1
 		raise("DotNet Error: FileHandle is a read-only property")
 
 	Func getKestrelServerOptions
-		return dnSend("s3:get",nHandle,"s20:KestrelServerOptions","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:KestrelServerOptions"))
 
 	Func setKestrelServerOptions P1
 		raise("DotNet Error: KestrelServerOptions is a read-only property")
 
 	Func getProtocols
-		return dnSend("s3:get",nHandle,"s9:Protocols","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Protocols"))
 
 	Func setProtocols P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Protocols",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Protocols",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Protocols",P1)
 		return self
 
 	Func getDisableAltSvcHeader
 		dn_x = dotnet_call("s3:get",nHandle,"s19:DisableAltSvcHeader")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:DisableAltSvcHeader",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDisableAltSvcHeader P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:DisableAltSvcHeader",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:DisableAltSvcHeader",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:DisableAltSvcHeader",P1)
 		return self
 
 	Func getApplicationServices
-		return dnSend("s3:get",nHandle,"s19:ApplicationServices","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ApplicationServices"))
 
 	Func setApplicationServices P1
 		raise("DotNet Error: ApplicationServices is a read-only property")
@@ -736,19 +693,19 @@ Class MinDataRate from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getBytesPerSecond
 		dn_x = dotnet_call("s3:get",nHandle,"s14:BytesPerSecond")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:BytesPerSecond",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBytesPerSecond P1
 		raise("DotNet Error: BytesPerSecond is a read-only property")
 
 	Func getGracePeriod
-		return dnSend("s3:get",nHandle,"s11:GracePeriod","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:GracePeriod"))
 
 	Func setGracePeriod P1
 		raise("DotNet Error: GracePeriod is a read-only property")

@@ -112,7 +112,7 @@ Class BigInteger from ValueType
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToByteArray P1
@@ -120,9 +120,9 @@ Class BigInteger from ValueType
 			return dnSend("s9:callnamed",nHandle,"s11:ToByteArray",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s11:ToByteArray","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToByteArray"))
 		ok
-		return dnSend("s4:call",nHandle,"s11:ToByteArray",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToByteArray",P1))
 
 	Func GetByteCount P1
 		if dnIsNamed(P1)
@@ -130,11 +130,11 @@ Class BigInteger from ValueType
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s12:GetByteCount")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:GetByteCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetByteCount",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:GetByteCount",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
@@ -142,19 +142,19 @@ Class BigInteger from ValueType
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetBitLength 
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetBitLength")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:GetBitLength",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Parse P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s5:Parse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s5:Parse",P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
@@ -164,128 +164,128 @@ Class BigInteger from ValueType
 
 	Func Compare P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s7:Compare",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s7:Compare",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s3:Abs",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s3:Abs",P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s3:Add",P1,P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s8:Subtract",P1,P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s8:Multiply",P1,P2))
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s6:Divide",P1,P2))
 
 	Func Remainder P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s9:Remainder",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s9:Remainder",P1,P2))
 
 	Func DivRem P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s6:Negate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s6:Negate",P1))
 
 	Func Log P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s3:Log",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s3:Log",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s3:Log",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Log10 P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s5:Log10",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s5:Log10",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GreatestCommonDivisor P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s21:GreatestCommonDivisor",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s21:GreatestCommonDivisor",P1,P2))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s3:Max",P1,P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s3:Min",P1,P2))
 
 	Func ModPow P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s6:ModPow",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s6:ModPow",P1,P2,P3))
 
 	Func Pow P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s3:Pow",P1,P2))
 
 	Func LeadingZeroCount P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s16:LeadingZeroCount",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s16:LeadingZeroCount",P1))
 
 	Func PopCount P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s8:PopCount",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s8:PopCount",P1))
 
 	Func RotateLeft P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s10:RotateLeft",P1,P2))
 
 	Func RotateRight P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s11:RotateRight",P1,P2))
 
 	Func TrailingZeroCount P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s17:TrailingZeroCount",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s17:TrailingZeroCount",P1))
 
 	Func IsPow2 P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s6:IsPow2",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s6:IsPow2",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s4:Log2",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s4:Log2",P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s5:Clamp",P1,P2,P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s8:CopySign",P1,P2))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s13:CreateChecked",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s13:CreateChecked",P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s16:CreateSaturating",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s16:CreateSaturating",P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s16:CreateTruncating",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s16:CreateTruncating",P1))
 
 	Func IsEvenInteger P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s13:IsEvenInteger",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s13:IsEvenInteger",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsNegative P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s10:IsNegative",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s10:IsNegative",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsOddInteger P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s12:IsOddInteger",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s12:IsOddInteger",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsPositive P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s10:IsPositive",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s10:IsPositive",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s12:MaxMagnitude",P1,P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s12:MinMagnitude",P1,P2))
 
 	Func getIsPowerOfTwo
 		dn_x = dotnet_call("s3:get",nHandle,"s12:IsPowerOfTwo")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsPowerOfTwo",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsPowerOfTwo P1
@@ -293,7 +293,7 @@ Class BigInteger from ValueType
 
 	Func getIsZero
 		dn_x = dotnet_call("s3:get",nHandle,"s6:IsZero")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsZero",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsZero P1
@@ -301,7 +301,7 @@ Class BigInteger from ValueType
 
 	Func getIsOne
 		dn_x = dotnet_call("s3:get",nHandle,"s5:IsOne")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:IsOne",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsOne P1
@@ -309,7 +309,7 @@ Class BigInteger from ValueType
 
 	Func getIsEven
 		dn_x = dotnet_call("s3:get",nHandle,"s6:IsEven")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsEven",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsEven P1
@@ -317,26 +317,26 @@ Class BigInteger from ValueType
 
 	Func getSign
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Sign")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Sign",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSign P1
 		raise("DotNet Error: Sign is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s4:Zero","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.BigInteger, System.Runtime.Numerics',"s4:Zero"))
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getOne
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s3:One","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.BigInteger, System.Runtime.Numerics',"s3:One"))
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getMinusOne
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s8:MinusOne","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.BigInteger, System.Runtime.Numerics',"s8:MinusOne"))
 
 	Func setMinusOne P1
 		raise("DotNet Error: MinusOne is a read-only property")
@@ -355,52 +355,52 @@ Class BitOperations from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsPow2 P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s6:IsPow2",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s6:IsPow2",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RoundUpToPowerOf2 P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s17:RoundUpToPowerOf2",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s17:RoundUpToPowerOf2",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LeadingZeroCount P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s16:LeadingZeroCount",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s16:LeadingZeroCount",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Log2 P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s4:Log2",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s4:Log2",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PopCount P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s8:PopCount",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s8:PopCount",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TrailingZeroCount P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s17:TrailingZeroCount",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s17:TrailingZeroCount",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RotateLeft P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s10:RotateLeft",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s10:RotateLeft",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RotateRight P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s11:RotateRight",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s11:RotateRight",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Crc32C P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s6:Crc32C",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s6:Crc32C",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -455,172 +455,172 @@ Class Complex from ValueType
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FromPolarCoordinates P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s20:FromPolarCoordinates",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s20:FromPolarCoordinates",P1,P2))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s6:Negate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s6:Negate",P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s3:Add",P1,P2))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s8:Subtract",P1,P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s8:Multiply",P1,P2))
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s6:Divide",P1,P2))
 
 	Func Abs P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s3:Abs",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s3:Abs",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Conjugate P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s9:Conjugate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s9:Conjugate",P1))
 
 	Func Reciprocal P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s10:Reciprocal",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s10:Reciprocal",P1))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Sin",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s3:Sin",P1))
 
 	Func Sinh P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s4:Sinh",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s4:Sinh",P1))
 
 	Func Asin P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s4:Asin",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s4:Asin",P1))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Cos",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s3:Cos",P1))
 
 	Func Cosh P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s4:Cosh",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s4:Cosh",P1))
 
 	Func Acos P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s4:Acos",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s4:Acos",P1))
 
 	Func Tan P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Tan",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s3:Tan",P1))
 
 	Func Tanh P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s4:Tanh",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s4:Tanh",P1))
 
 	Func Atan P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s4:Atan",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s4:Atan",P1))
 
 	Func IsFinite P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s8:IsFinite",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s8:IsFinite",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsInfinity P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s10:IsInfinity",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s10:IsInfinity",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsNaN P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s5:IsNaN",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s5:IsNaN",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Log P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Log",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Log",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s3:Log",P1))
 
 	Func Log10 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s5:Log10",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s5:Log10",P1))
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Exp",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s3:Exp",P1))
 
 	Func Sqrt P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s4:Sqrt",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s4:Sqrt",P1))
 
 	Func Pow P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s3:Pow",P1,P2))
 
 	Func CreateChecked P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s13:CreateChecked",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s13:CreateChecked",P1))
 
 	Func CreateSaturating P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s16:CreateSaturating",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s16:CreateSaturating",P1))
 
 	Func CreateTruncating P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s16:CreateTruncating",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s16:CreateTruncating",P1))
 
 	Func IsComplexNumber P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s15:IsComplexNumber",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s15:IsComplexNumber",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsEvenInteger P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s13:IsEvenInteger",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s13:IsEvenInteger",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsImaginaryNumber P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s17:IsImaginaryNumber",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s17:IsImaginaryNumber",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsInteger P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s9:IsInteger",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s9:IsInteger",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsNegative P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s10:IsNegative",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s10:IsNegative",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsNegativeInfinity P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s18:IsNegativeInfinity",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s18:IsNegativeInfinity",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsNormal P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s8:IsNormal",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s8:IsNormal",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsOddInteger P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s12:IsOddInteger",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s12:IsOddInteger",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsPositive P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s10:IsPositive",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s10:IsPositive",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsPositiveInfinity P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s18:IsPositiveInfinity",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s18:IsPositiveInfinity",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsRealNumber P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s12:IsRealNumber",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s12:IsRealNumber",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsSubnormal P1
 		dn_x = dotnet_call("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s11:IsSubnormal",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s11:IsSubnormal",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s12:MaxMagnitude",P1,P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s12:MinMagnitude",P1,P2))
 
 	Func Parse P1
 		if dnIsNamed(P1)
@@ -636,7 +636,7 @@ Class Complex from ValueType
 
 	Func getReal
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Real")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Real",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setReal P1
@@ -644,7 +644,7 @@ Class Complex from ValueType
 
 	Func getImaginary
 		dn_x = dotnet_call("s3:get",nHandle,"s9:Imaginary")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Imaginary",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setImaginary P1
@@ -652,7 +652,7 @@ Class Complex from ValueType
 
 	Func getMagnitude
 		dn_x = dotnet_call("s3:get",nHandle,"s9:Magnitude")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Magnitude",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMagnitude P1
@@ -660,38 +660,38 @@ Class Complex from ValueType
 
 	Func getPhase
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Phase")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Phase",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPhase P1
 		raise("DotNet Error: Phase is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s4:Zero","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Complex, System.Runtime.Numerics',"s4:Zero"))
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getOne
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:One","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Complex, System.Runtime.Numerics',"s3:One"))
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getImaginaryOne
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s12:ImaginaryOne","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Complex, System.Runtime.Numerics',"s12:ImaginaryOne"))
 
 	Func setImaginaryOne P1
 		raise("DotNet Error: ImaginaryOne is a read-only property")
 
 	Func getNaN
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:NaN","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Complex, System.Runtime.Numerics',"s3:NaN"))
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getInfinity
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s8:Infinity","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Complex, System.Runtime.Numerics',"s8:Infinity"))
 
 	Func setInfinity P1
 		raise("DotNet Error: Infinity is a read-only property")
@@ -745,23 +745,23 @@ Class Matrix3x2 from ValueType
 
 	Func GetDeterminant 
 		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDeterminant")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:GetDeterminant",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s3:Add",P1,P2))
 
 	Func CreateRotation P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s14:CreateRotation",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s14:CreateRotation",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s14:CreateRotation",P1))
 
 	Func CreateScale P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s11:CreateScale",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s11:CreateScale",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s11:CreateScale",P1))
 
 	Func CreateSkew P1
 		if dnIsNamed(P1)
@@ -773,101 +773,94 @@ Class Matrix3x2 from ValueType
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s17:CreateTranslation",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s17:CreateTranslation",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s17:CreateTranslation",P1))
 
 	Func Invert P1
 		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s6:Invert",dnPackItem(P1))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s4:Lerp",P1,P2,P3))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s8:Multiply",P1,P2))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s6:Negate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s6:Negate",P1))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s8:Subtract",P1,P2))
 
 	Func getIsIdentity
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsIdentity")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsIdentity",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
 
 	Func getTranslation
-		return dnSend("s3:get",nHandle,"s11:Translation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Translation"))
 
 	Func setTranslation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:Translation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:Translation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:Translation",P1)
 		return self
 
 	Func getM11
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M11")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M11",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM11 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M11",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M11",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M11",P1)
 		return self
 
 	Func getM12
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M12")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M12",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM12 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M12",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M12",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M12",P1)
 		return self
 
 	Func getM21
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M21")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M21",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM21 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M21",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M21",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M21",P1)
 		return self
 
 	Func getM22
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M22")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M22",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM22 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M22",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M22",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M22",P1)
 		return self
 
 	Func getM31
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M31")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M31",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM31 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M31",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M31",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M31",P1)
 		return self
 
 	Func getM32
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M32")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M32",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM32 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M32",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M32",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M32",P1)
 		return self
 
 	Func getIdentity
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s8:Identity","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s8:Identity"))
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
@@ -931,113 +924,113 @@ Class Matrix4x4 from ValueType
 
 	Func GetDeterminant 
 		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDeterminant")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:GetDeterminant",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s3:Add",P1,P2))
 
 	Func CreateBillboard P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateBillboard",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s15:CreateBillboard",P1,P2,P3,P4))
 
 	Func CreateConstrainedBillboard P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s26:CreateConstrainedBillboard",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s26:CreateConstrainedBillboard",P1,P2,P3,P4,P5))
 
 	Func CreateFromAxisAngle P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s19:CreateFromAxisAngle",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s19:CreateFromAxisAngle",P1,P2))
 
 	Func CreateFromQuaternion P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s20:CreateFromQuaternion",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s20:CreateFromQuaternion",P1))
 
 	Func CreateFromYawPitchRoll P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s22:CreateFromYawPitchRoll",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s22:CreateFromYawPitchRoll",P1,P2,P3))
 
 	Func CreateLookAt P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s12:CreateLookAt",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s12:CreateLookAt",P1,P2,P3))
 
 	Func CreateLookAtLeftHanded P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s22:CreateLookAtLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s22:CreateLookAtLeftHanded",P1,P2,P3))
 
 	Func CreateLookTo P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s12:CreateLookTo",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s12:CreateLookTo",P1,P2,P3))
 
 	Func CreateLookToLeftHanded P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s22:CreateLookToLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s22:CreateLookToLeftHanded",P1,P2,P3))
 
 	Func CreateOrthographic P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s18:CreateOrthographic",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s18:CreateOrthographic",P1,P2,P3,P4))
 
 	Func CreateOrthographicLeftHanded P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s28:CreateOrthographicLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s28:CreateOrthographicLeftHanded",P1,P2,P3,P4))
 
 	Func CreateOrthographicOffCenter P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s27:CreateOrthographicOffCenter",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s27:CreateOrthographicOffCenter",P1,P2,P3,P4,P5,P6))
 
 	Func CreateOrthographicOffCenterLeftHanded P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s37:CreateOrthographicOffCenterLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s37:CreateOrthographicOffCenterLeftHanded",P1,P2,P3,P4,P5,P6))
 
 	Func CreatePerspective P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s17:CreatePerspective",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s17:CreatePerspective",P1,P2,P3,P4))
 
 	Func CreatePerspectiveLeftHanded P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s27:CreatePerspectiveLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s27:CreatePerspectiveLeftHanded",P1,P2,P3,P4))
 
 	Func CreatePerspectiveFieldOfView P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s28:CreatePerspectiveFieldOfView",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s28:CreatePerspectiveFieldOfView",P1,P2,P3,P4))
 
 	Func CreatePerspectiveFieldOfViewLeftHanded P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s38:CreatePerspectiveFieldOfViewLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s38:CreatePerspectiveFieldOfViewLeftHanded",P1,P2,P3,P4))
 
 	Func CreatePerspectiveOffCenter P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s26:CreatePerspectiveOffCenter",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s26:CreatePerspectiveOffCenter",P1,P2,P3,P4,P5,P6))
 
 	Func CreatePerspectiveOffCenterLeftHanded P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s36:CreatePerspectiveOffCenterLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s36:CreatePerspectiveOffCenterLeftHanded",P1,P2,P3,P4,P5,P6))
 
 	Func CreateReflection P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s16:CreateReflection",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s16:CreateReflection",P1))
 
 	Func CreateRotationX P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateRotationX",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateRotationX",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s15:CreateRotationX",P1))
 
 	Func CreateRotationY P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateRotationY",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateRotationY",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s15:CreateRotationY",P1))
 
 	Func CreateRotationZ P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateRotationZ",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateRotationZ",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s15:CreateRotationZ",P1))
 
 	Func CreateScale P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s11:CreateScale",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s11:CreateScale",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s11:CreateScale",P1))
 
 	Func CreateShadow P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s12:CreateShadow",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s12:CreateShadow",P1,P2))
 
 	Func CreateTranslation P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s17:CreateTranslation",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s17:CreateTranslation",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s17:CreateTranslation",P1))
 
 	Func CreateViewport P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s14:CreateViewport",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s14:CreateViewport",P1,P2,P3,P4,P5,P6))
 
 	Func CreateViewportLeftHanded P1,P2,P3,P4,P5,P6
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s24:CreateViewportLeftHanded",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s24:CreateViewportLeftHanded",P1,P2,P3,P4,P5,P6))
 
 	Func CreateWorld P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s11:CreateWorld",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s11:CreateWorld",P1,P2,P3))
 
 	Func Decompose P1
 		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s9:Decompose",dnPackItem(P1))
@@ -1046,201 +1039,184 @@ Class Matrix4x4 from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s6:Invert",dnPackItem(P1))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s4:Lerp",P1,P2,P3))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s8:Multiply",P1,P2))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s6:Negate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s6:Negate",P1))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s8:Subtract",P1,P2))
 
 	Func Transform P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s9:Transform",P1,P2))
 
 	Func Transpose P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s9:Transpose",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s9:Transpose",P1))
 
 	Func getIsIdentity
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsIdentity")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsIdentity",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
 
 	Func getTranslation
-		return dnSend("s3:get",nHandle,"s11:Translation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Translation"))
 
 	Func setTranslation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:Translation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:Translation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:Translation",P1)
 		return self
 
 	Func getM11
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M11")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M11",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM11 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M11",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M11",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M11",P1)
 		return self
 
 	Func getM12
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M12")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M12",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM12 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M12",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M12",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M12",P1)
 		return self
 
 	Func getM13
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M13")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M13",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM13 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M13",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M13",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M13",P1)
 		return self
 
 	Func getM14
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M14")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M14",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM14 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M14",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M14",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M14",P1)
 		return self
 
 	Func getM21
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M21")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M21",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM21 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M21",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M21",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M21",P1)
 		return self
 
 	Func getM22
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M22")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M22",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM22 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M22",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M22",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M22",P1)
 		return self
 
 	Func getM23
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M23")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M23",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM23 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M23",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M23",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M23",P1)
 		return self
 
 	Func getM24
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M24")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M24",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM24 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M24",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M24",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M24",P1)
 		return self
 
 	Func getM31
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M31")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M31",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM31 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M31",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M31",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M31",P1)
 		return self
 
 	Func getM32
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M32")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M32",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM32 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M32",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M32",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M32",P1)
 		return self
 
 	Func getM33
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M33")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M33",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM33 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M33",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M33",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M33",P1)
 		return self
 
 	Func getM34
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M34")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M34",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM34 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M34",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M34",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M34",P1)
 		return self
 
 	Func getM41
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M41")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M41",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM41 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M41",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M41",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M41",P1)
 		return self
 
 	Func getM42
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M42")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M42",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM42 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M42",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M42",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M42",P1)
 		return self
 
 	Func getM43
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M43")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M43",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM43 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M43",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M43",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M43",P1)
 		return self
 
 	Func getM44
 		dn_x = dotnet_call("s3:get",nHandle,"s3:M44")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s3:M44",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setM44 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:M44",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:M44",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:M44",P1)
 		return self
 
 	Func getIdentity
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s8:Identity","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s8:Identity"))
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
@@ -1286,45 +1262,43 @@ Class Plane from ValueType
 		return self
 
 	Func CreateFromVertices P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Plane, System.Private.CoreLib'),"s18:CreateFromVertices",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Plane, System.Private.CoreLib',"s18:CreateFromVertices",P1,P2,P3))
 
 	Func Dot P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Plane, System.Private.CoreLib',"s3:Dot",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Plane, System.Private.CoreLib',"s3:Dot",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DotCoordinate P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Plane, System.Private.CoreLib',"s13:DotCoordinate",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Plane, System.Private.CoreLib',"s13:DotCoordinate",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DotNormal P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Plane, System.Private.CoreLib',"s9:DotNormal",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Plane, System.Private.CoreLib',"s9:DotNormal",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Normalize P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Plane, System.Private.CoreLib'),"s9:Normalize",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Plane, System.Private.CoreLib',"s9:Normalize",P1))
 
 	Func Transform P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Plane, System.Private.CoreLib'),"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Plane, System.Private.CoreLib',"s9:Transform",P1,P2))
 
 	Func getNormal
-		return dnSend("s3:get",nHandle,"s6:Normal","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Normal"))
 
 	Func setNormal P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Normal",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Normal",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Normal",P1)
 		return self
 
 	Func getD
 		dn_x = dotnet_call("s3:get",nHandle,"s1:D")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:D",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setD P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:D",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:D",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:D",P1)
 		return self
 
 
@@ -1374,74 +1348,73 @@ Class Quaternion from ValueType
 
 	Func Length 
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Length")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Length",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LengthSquared 
 		dn_x = dotnet_call("s4:call",nHandle,"s13:LengthSquared")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:LengthSquared",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s3:Add",P1,P2))
 
 	Func Concatenate P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s11:Concatenate",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s11:Concatenate",P1,P2))
 
 	Func Conjugate P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s9:Conjugate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s9:Conjugate",P1))
 
 	Func CreateFromAxisAngle P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s19:CreateFromAxisAngle",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s19:CreateFromAxisAngle",P1,P2))
 
 	Func CreateFromRotationMatrix P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s24:CreateFromRotationMatrix",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s24:CreateFromRotationMatrix",P1))
 
 	Func CreateFromYawPitchRoll P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s22:CreateFromYawPitchRoll",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s22:CreateFromYawPitchRoll",P1,P2,P3))
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s6:Divide",P1,P2))
 
 	Func Dot P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s3:Dot",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s3:Dot",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Inverse P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s7:Inverse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s7:Inverse",P1))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s4:Lerp",P1,P2,P3))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s8:Multiply",P1,P2))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s6:Negate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s6:Negate",P1))
 
 	Func Normalize P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s9:Normalize",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s9:Normalize",P1))
 
 	Func Slerp P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s5:Slerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s5:Slerp",P1,P2,P3))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s8:Subtract",P1,P2))
 
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:get_Item",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getIsIdentity
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsIdentity")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsIdentity",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsIdentity P1
@@ -1449,52 +1422,48 @@ Class Quaternion from ValueType
 
 	Func getX
 		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:X",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Y",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
 
 	Func getZ
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Z")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Z",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setZ P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Z",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Z",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
 		return self
 
 	Func getW
 		dn_x = dotnet_call("s3:get",nHandle,"s1:W")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:W",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setW P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:W",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:W",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:W",P1)
 		return self
 
 	Func getZero
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s4:Zero","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Quaternion, System.Private.CoreLib',"s4:Zero"))
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getIdentity
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Quaternion, System.Private.CoreLib'),"s8:Identity","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Quaternion, System.Private.CoreLib',"s8:Identity"))
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
@@ -1521,222 +1490,222 @@ Class Vector from Object
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AsVector4 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:AsVector4",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s9:AsVector4",P1))
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s3:Abs",P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s3:Add",P1,P2))
 
 	Func AndNot P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s6:AndNot",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s6:AndNot",P1,P2))
 
 	Func As P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s2:As",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s2:As",P1))
 
 	Func AsVectorByte P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s12:AsVectorByte",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s12:AsVectorByte",P1))
 
 	Func AsVectorDouble P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:AsVectorDouble",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s14:AsVectorDouble",P1))
 
 	Func AsVectorInt16 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s13:AsVectorInt16",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s13:AsVectorInt16",P1))
 
 	Func AsVectorInt32 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s13:AsVectorInt32",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s13:AsVectorInt32",P1))
 
 	Func AsVectorInt64 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s13:AsVectorInt64",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s13:AsVectorInt64",P1))
 
 	Func AsVectorNInt P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s12:AsVectorNInt",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s12:AsVectorNInt",P1))
 
 	Func AsVectorNUInt P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s13:AsVectorNUInt",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s13:AsVectorNUInt",P1))
 
 	Func AsVectorSByte P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s13:AsVectorSByte",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s13:AsVectorSByte",P1))
 
 	Func AsVectorSingle P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:AsVectorSingle",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s14:AsVectorSingle",P1))
 
 	Func AsVectorUInt16 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:AsVectorUInt16",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s14:AsVectorUInt16",P1))
 
 	Func AsVectorUInt32 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:AsVectorUInt32",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s14:AsVectorUInt32",P1))
 
 	Func AsVectorUInt64 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:AsVectorUInt64",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s14:AsVectorUInt64",P1))
 
 	Func BitwiseAnd P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:BitwiseAnd",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s10:BitwiseAnd",P1,P2))
 
 	Func BitwiseOr P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:BitwiseOr",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s9:BitwiseOr",P1,P2))
 
 	Func Ceiling P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s7:Ceiling",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s7:Ceiling",P1))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s5:Clamp",P1,P2,P3))
 
 	Func ClampNative P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s11:ClampNative",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s11:ClampNative",P1,P2,P3))
 
 	Func ConditionalSelect P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s17:ConditionalSelect",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s17:ConditionalSelect",P1,P2,P3))
 
 	Func ConvertToDouble P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s15:ConvertToDouble",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s15:ConvertToDouble",P1))
 
 	Func ConvertToInt32 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:ConvertToInt32",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s14:ConvertToInt32",P1))
 
 	Func ConvertToInt32Native P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s20:ConvertToInt32Native",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s20:ConvertToInt32Native",P1))
 
 	Func ConvertToInt64 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:ConvertToInt64",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s14:ConvertToInt64",P1))
 
 	Func ConvertToInt64Native P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s20:ConvertToInt64Native",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s20:ConvertToInt64Native",P1))
 
 	Func ConvertToSingle P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s15:ConvertToSingle",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s15:ConvertToSingle",P1))
 
 	Func ConvertToUInt32 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s15:ConvertToUInt32",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s15:ConvertToUInt32",P1))
 
 	Func ConvertToUInt32Native P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s21:ConvertToUInt32Native",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s21:ConvertToUInt32Native",P1))
 
 	Func ConvertToUInt64 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s15:ConvertToUInt64",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s15:ConvertToUInt64",P1))
 
 	Func ConvertToUInt64Native P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s21:ConvertToUInt64Native",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s21:ConvertToUInt64Native",P1))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Cos",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s3:Cos",P1))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s8:CopySign",P1,P2))
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s6:Create",P1))
 
 	Func CreateSequence P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:CreateSequence",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s14:CreateSequence",P1,P2))
 
 	Func DegreesToRadians P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s16:DegreesToRadians",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s16:DegreesToRadians",P1))
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s6:Divide",P1,P2))
 
 	Func Dot P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Dot",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s3:Dot",P1,P2))
 
 	Func EqualsAll P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s9:EqualsAll",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s9:EqualsAll",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EqualsAny P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s9:EqualsAny",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s9:EqualsAny",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Exp",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s3:Exp",P1))
 
 	Func Floor P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s5:Floor",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s5:Floor",P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s16:FusedMultiplyAdd",P1,P2,P3))
 
 	Func GetElement P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:GetElement",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s10:GetElement",P1,P2))
 
 	Func GreaterThan P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s11:GreaterThan",P1,P2))
 
 	Func GreaterThanAll P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s14:GreaterThanAll",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s14:GreaterThanAll",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GreaterThanAny P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s14:GreaterThanAny",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s14:GreaterThanAny",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GreaterThanOrEqual P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s18:GreaterThanOrEqual",P1,P2))
 
 	Func GreaterThanOrEqualAll P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s21:GreaterThanOrEqualAll",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s21:GreaterThanOrEqualAll",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GreaterThanOrEqualAny P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s21:GreaterThanOrEqualAny",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s21:GreaterThanOrEqualAny",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Hypot P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s5:Hypot",P1,P2))
 
 	Func IsNaN P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s5:IsNaN",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s5:IsNaN",P1))
 
 	Func IsNegative P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:IsNegative",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s10:IsNegative",P1))
 
 	Func IsPositive P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:IsPositive",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s10:IsPositive",P1))
 
 	Func IsPositiveInfinity P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s18:IsPositiveInfinity",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s18:IsPositiveInfinity",P1))
 
 	Func IsZero P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s6:IsZero",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s6:IsZero",P1))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s4:Lerp",P1,P2,P3))
 
 	Func LessThan P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s8:LessThan",P1,P2))
 
 	Func LessThanAll P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s11:LessThanAll",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s11:LessThanAll",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LessThanAny P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s11:LessThanAny",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s11:LessThanAny",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LessThanOrEqual P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s15:LessThanOrEqual",P1,P2))
 
 	Func LessThanOrEqualAll P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s18:LessThanOrEqualAll",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s18:LessThanOrEqualAll",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LessThanOrEqualAny P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s18:LessThanOrEqualAny",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s18:LessThanOrEqualAny",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LoadUnsafe P1
@@ -1746,82 +1715,82 @@ Class Vector from Object
 		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:LoadUnsafe",dnPackItem(P1))
 
 	Func Log P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s3:Log",P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s4:Log2",P1))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s3:Max",P1,P2))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s12:MaxMagnitude",P1,P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s18:MaxMagnitudeNumber",P1,P2))
 
 	Func MaxNative P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:MaxNative",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s9:MaxNative",P1,P2))
 
 	Func MaxNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s9:MaxNumber",P1,P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s3:Min",P1,P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s12:MinMagnitude",P1,P2))
 
 	Func MinMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s18:MinMagnitudeNumber",P1,P2))
 
 	Func MinNative P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:MinNative",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s9:MinNative",P1,P2))
 
 	Func MinNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s9:MinNumber",P1,P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s8:Multiply",P1,P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s19:MultiplyAddEstimate",P1,P2,P3))
 
 	Func Narrow P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s6:Narrow",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s6:Narrow",P1,P2))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s6:Negate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s6:Negate",P1))
 
 	Func OnesComplement P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s14:OnesComplement",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s14:OnesComplement",P1))
 
 	Func RadiansToDegrees P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s16:RadiansToDegrees",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s16:RadiansToDegrees",P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s5:Round",P1))
 
 	Func ShiftLeft P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:ShiftLeft",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s9:ShiftLeft",P1,P2))
 
 	Func ShiftRightArithmetic P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s20:ShiftRightArithmetic",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s20:ShiftRightArithmetic",P1,P2))
 
 	Func ShiftRightLogical P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s17:ShiftRightLogical",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s17:ShiftRightLogical",P1,P2))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Sin",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s3:Sin",P1))
 
 	Func SinCos P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s6:SinCos",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s6:SinCos",P1))
 
 	Func SquareRoot P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:SquareRoot",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s10:SquareRoot",P1))
 
 	Func StoreUnsafe P1
 		if dnIsNamed(P1)
@@ -1830,50 +1799,50 @@ Class Vector from Object
 		raise("DotNet Error: StoreUnsafe does not take one argument: use named arguments, StoreUnsafe([ :parameter = value, ... ])")
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s8:Subtract",P1,P2))
 
 	Func Sum P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Sum",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s3:Sum",P1))
 
 	Func ToScalar P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s8:ToScalar",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s8:ToScalar",P1))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s8:Truncate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s8:Truncate",P1))
 
 	Func Widen P1
 		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s5:Widen",dnPackItem(P1))
 
 	Func WidenLower P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:WidenLower",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s10:WidenLower",P1))
 
 	Func WidenUpper P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:WidenUpper",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s10:WidenUpper",P1))
 
 	Func WithElement P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s11:WithElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s11:WithElement",P1,P2,P3))
 
 	Func Xor P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s3:Xor",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s3:Xor",P1,P2))
 
 	Func AsVector4Unsafe P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s15:AsVector4Unsafe",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s15:AsVector4Unsafe",P1))
 
 	Func AsPlane P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s7:AsPlane",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s7:AsPlane",P1))
 
 	Func AsQuaternion P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s12:AsQuaternion",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s12:AsQuaternion",P1))
 
 	Func AsVector2 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:AsVector2",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s9:AsVector2",P1))
 
 	Func AsVector3 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s9:AsVector3",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s9:AsVector3",P1))
 
 	Func getIsHardwareAccelerated
 		dn_x = dotnet_call("s3:get",'System.Numerics.Vector, System.Private.CoreLib',"s21:IsHardwareAccelerated")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Numerics.Vector, System.Private.CoreLib',"s21:IsHardwareAccelerated",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsHardwareAccelerated P1
@@ -1936,19 +1905,18 @@ Class Vector2 from ValueType
 			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
 
 		return self
 
 	Func Length 
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Length")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Length",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LengthSquared 
 		dn_x = dotnet_call("s4:call",nHandle,"s13:LengthSquared")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:LengthSquared",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
@@ -1956,245 +1924,242 @@ Class Vector2 from ValueType
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s3:Abs",P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s3:Add",P1,P2))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s5:Clamp",P1,P2,P3))
 
 	Func ClampNative P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s11:ClampNative",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s11:ClampNative",P1,P2,P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s8:CopySign",P1,P2))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Cos",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s3:Cos",P1))
 
 	Func Create P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s6:Create",P1))
 
 	Func DegreesToRadians P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s16:DegreesToRadians",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s16:DegreesToRadians",P1))
 
 	Func Distance P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s8:Distance",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s8:Distance",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DistanceSquared P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s15:DistanceSquared",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s15:DistanceSquared",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s6:Divide",P1,P2))
 
 	Func Dot P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s3:Dot",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s3:Dot",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Exp",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s3:Exp",P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s16:FusedMultiplyAdd",P1,P2,P3))
 
 	Func Hypot P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s5:Hypot",P1,P2))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s4:Lerp",P1,P2,P3))
 
 	Func Log P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s3:Log",P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s4:Log2",P1))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s3:Max",P1,P2))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s12:MaxMagnitude",P1,P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s18:MaxMagnitudeNumber",P1,P2))
 
 	Func MaxNative P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s9:MaxNative",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s9:MaxNative",P1,P2))
 
 	Func MaxNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s9:MaxNumber",P1,P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s3:Min",P1,P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s12:MinMagnitude",P1,P2))
 
 	Func MinMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s18:MinMagnitudeNumber",P1,P2))
 
 	Func MinNative P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s9:MinNative",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s9:MinNative",P1,P2))
 
 	Func MinNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s9:MinNumber",P1,P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s8:Multiply",P1,P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s19:MultiplyAddEstimate",P1,P2,P3))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s6:Negate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s6:Negate",P1))
 
 	Func Normalize P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s9:Normalize",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s9:Normalize",P1))
 
 	Func RadiansToDegrees P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s16:RadiansToDegrees",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s16:RadiansToDegrees",P1))
 
 	Func Reflect P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s7:Reflect",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s7:Reflect",P1,P2))
 
 	Func Round P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s5:Round",P1))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Sin",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s3:Sin",P1))
 
 	Func SinCos P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s6:SinCos",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s6:SinCos",P1))
 
 	Func SquareRoot P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s10:SquareRoot",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s10:SquareRoot",P1))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s8:Subtract",P1,P2))
 
 	Func Transform P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s9:Transform",P1,P2))
 
 	Func TransformNormal P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s15:TransformNormal",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s15:TransformNormal",P1,P2))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s8:Truncate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s8:Truncate",P1))
 
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:get_Item",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getX
 		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:X",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Y",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
 
 	Func getE
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s1:E","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector2, System.Private.CoreLib',"s1:E"))
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getEpsilon
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s7:Epsilon","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector2, System.Private.CoreLib',"s7:Epsilon"))
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getNaN
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:NaN","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector2, System.Private.CoreLib',"s3:NaN"))
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getNegativeInfinity
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s16:NegativeInfinity","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector2, System.Private.CoreLib',"s16:NegativeInfinity"))
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getNegativeZero
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s12:NegativeZero","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector2, System.Private.CoreLib',"s12:NegativeZero"))
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
 	Func getOne
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:One","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector2, System.Private.CoreLib',"s3:One"))
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getPi
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s2:Pi","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector2, System.Private.CoreLib',"s2:Pi"))
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getPositiveInfinity
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s16:PositiveInfinity","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector2, System.Private.CoreLib',"s16:PositiveInfinity"))
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getTau
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s3:Tau","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector2, System.Private.CoreLib',"s3:Tau"))
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
 
 	Func getUnitX
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s5:UnitX","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector2, System.Private.CoreLib',"s5:UnitX"))
 
 	Func setUnitX P1
 		raise("DotNet Error: UnitX is a read-only property")
 
 	Func getUnitY
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s5:UnitY","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector2, System.Private.CoreLib',"s5:UnitY"))
 
 	Func setUnitY P1
 		raise("DotNet Error: UnitY is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s4:Zero","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector2, System.Private.CoreLib',"s4:Zero"))
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
@@ -2258,19 +2223,18 @@ Class Vector3 from ValueType
 			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
 
 		return self
 
 	Func Length 
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Length")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Length",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LengthSquared 
 		dn_x = dotnet_call("s4:call",nHandle,"s13:LengthSquared")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:LengthSquared",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
@@ -2278,264 +2242,260 @@ Class Vector3 from ValueType
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s3:Abs",P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s3:Add",P1,P2))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s5:Clamp",P1,P2,P3))
 
 	Func ClampNative P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s11:ClampNative",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s11:ClampNative",P1,P2,P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s8:CopySign",P1,P2))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Cos",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s3:Cos",P1))
 
 	Func Create P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s6:Create",P1))
 
 	Func Cross P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:Cross",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s5:Cross",P1,P2))
 
 	Func DegreesToRadians P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s16:DegreesToRadians",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s16:DegreesToRadians",P1))
 
 	Func Distance P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s8:Distance",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s8:Distance",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DistanceSquared P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s15:DistanceSquared",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s15:DistanceSquared",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s6:Divide",P1,P2))
 
 	Func Dot P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s3:Dot",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s3:Dot",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Exp",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s3:Exp",P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s16:FusedMultiplyAdd",P1,P2,P3))
 
 	Func Hypot P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s5:Hypot",P1,P2))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s4:Lerp",P1,P2,P3))
 
 	Func Log P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s3:Log",P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s4:Log2",P1))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s3:Max",P1,P2))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s12:MaxMagnitude",P1,P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s18:MaxMagnitudeNumber",P1,P2))
 
 	Func MaxNative P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s9:MaxNative",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s9:MaxNative",P1,P2))
 
 	Func MaxNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s9:MaxNumber",P1,P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s3:Min",P1,P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s12:MinMagnitude",P1,P2))
 
 	Func MinMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s18:MinMagnitudeNumber",P1,P2))
 
 	Func MinNative P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s9:MinNative",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s9:MinNative",P1,P2))
 
 	Func MinNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s9:MinNumber",P1,P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s8:Multiply",P1,P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s19:MultiplyAddEstimate",P1,P2,P3))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s6:Negate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s6:Negate",P1))
 
 	Func Normalize P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s9:Normalize",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s9:Normalize",P1))
 
 	Func RadiansToDegrees P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s16:RadiansToDegrees",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s16:RadiansToDegrees",P1))
 
 	Func Reflect P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s7:Reflect",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s7:Reflect",P1,P2))
 
 	Func Round P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s5:Round",P1))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Sin",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s3:Sin",P1))
 
 	Func SinCos P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s6:SinCos",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s6:SinCos",P1))
 
 	Func SquareRoot P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s10:SquareRoot",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s10:SquareRoot",P1))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s8:Subtract",P1,P2))
 
 	Func Transform P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s9:Transform",P1,P2))
 
 	Func TransformNormal P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s15:TransformNormal",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s15:TransformNormal",P1,P2))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s8:Truncate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s8:Truncate",P1))
 
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:get_Item",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getX
 		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:X",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Y",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
 
 	Func getZ
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Z")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Z",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setZ P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Z",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Z",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
 		return self
 
 	Func getE
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s1:E","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector3, System.Private.CoreLib',"s1:E"))
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getEpsilon
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s7:Epsilon","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector3, System.Private.CoreLib',"s7:Epsilon"))
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getNaN
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:NaN","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector3, System.Private.CoreLib',"s3:NaN"))
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getNegativeInfinity
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s16:NegativeInfinity","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector3, System.Private.CoreLib',"s16:NegativeInfinity"))
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getNegativeZero
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s12:NegativeZero","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector3, System.Private.CoreLib',"s12:NegativeZero"))
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
 	Func getOne
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:One","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector3, System.Private.CoreLib',"s3:One"))
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getPi
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s2:Pi","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector3, System.Private.CoreLib',"s2:Pi"))
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getPositiveInfinity
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s16:PositiveInfinity","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector3, System.Private.CoreLib',"s16:PositiveInfinity"))
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getTau
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s3:Tau","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector3, System.Private.CoreLib',"s3:Tau"))
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
 
 	Func getUnitX
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:UnitX","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector3, System.Private.CoreLib',"s5:UnitX"))
 
 	Func setUnitX P1
 		raise("DotNet Error: UnitX is a read-only property")
 
 	Func getUnitY
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:UnitY","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector3, System.Private.CoreLib',"s5:UnitY"))
 
 	Func setUnitY P1
 		raise("DotNet Error: UnitY is a read-only property")
 
 	Func getUnitZ
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:UnitZ","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector3, System.Private.CoreLib',"s5:UnitZ"))
 
 	Func setUnitZ P1
 		raise("DotNet Error: UnitZ is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s4:Zero","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector3, System.Private.CoreLib',"s4:Zero"))
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
@@ -2601,19 +2561,18 @@ Class Vector4 from ValueType
 			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
 
 		return self
 
 	Func Length 
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Length")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Length",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LengthSquared 
 		dn_x = dotnet_call("s4:call",nHandle,"s13:LengthSquared")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:LengthSquared",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
@@ -2621,271 +2580,266 @@ Class Vector4 from ValueType
 			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Abs P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Abs",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s3:Abs",P1))
 
 	Func Add P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s3:Add",P1,P2))
 
 	Func Clamp P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s5:Clamp",P1,P2,P3))
 
 	Func ClampNative P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s11:ClampNative",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s11:ClampNative",P1,P2,P3))
 
 	Func CopySign P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s8:CopySign",P1,P2))
 
 	Func Cos P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Cos",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s3:Cos",P1))
 
 	Func Create P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s6:Create",P1))
 
 	Func DegreesToRadians P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s16:DegreesToRadians",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s16:DegreesToRadians",P1))
 
 	Func Distance P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s8:Distance",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s8:Distance",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DistanceSquared P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s15:DistanceSquared",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s15:DistanceSquared",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Divide P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s6:Divide",P1,P2))
 
 	Func Dot P1,P2
 		dn_x = dotnet_call("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s3:Dot",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s3:Dot",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Exp P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Exp",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s3:Exp",P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s16:FusedMultiplyAdd",P1,P2,P3))
 
 	Func Hypot P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s5:Hypot",P1,P2))
 
 	Func Lerp P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s4:Lerp",P1,P2,P3))
 
 	Func Log P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s3:Log",P1))
 
 	Func Log2 P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s4:Log2",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s4:Log2",P1))
 
 	Func Max P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Max",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s3:Max",P1,P2))
 
 	Func MaxMagnitude P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s12:MaxMagnitude",P1,P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s18:MaxMagnitudeNumber",P1,P2))
 
 	Func MaxNative P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s9:MaxNative",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s9:MaxNative",P1,P2))
 
 	Func MaxNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s9:MaxNumber",P1,P2))
 
 	Func Min P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Min",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s3:Min",P1,P2))
 
 	Func MinMagnitude P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s12:MinMagnitude",P1,P2))
 
 	Func MinMagnitudeNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s18:MinMagnitudeNumber",P1,P2))
 
 	Func MinNative P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s9:MinNative",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s9:MinNative",P1,P2))
 
 	Func MinNumber P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s9:MinNumber",P1,P2))
 
 	Func Multiply P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s8:Multiply",P1,P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s19:MultiplyAddEstimate",P1,P2,P3))
 
 	Func Negate P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s6:Negate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s6:Negate",P1))
 
 	Func Normalize P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s9:Normalize",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s9:Normalize",P1))
 
 	Func RadiansToDegrees P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s16:RadiansToDegrees",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s16:RadiansToDegrees",P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s5:Round",P1))
 
 	Func Sin P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Sin",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s3:Sin",P1))
 
 	Func SinCos P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s6:SinCos",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s6:SinCos",P1))
 
 	Func SquareRoot P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s10:SquareRoot",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s10:SquareRoot",P1))
 
 	Func Subtract P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s8:Subtract",P1,P2))
 
 	Func Transform P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s9:Transform",P1,P2))
 
 	Func Truncate P1
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s8:Truncate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s8:Truncate",P1))
 
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:get_Item",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getX
 		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:X",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:X",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Y",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Y",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
 
 	Func getZ
 		dn_x = dotnet_call("s3:get",nHandle,"s1:Z")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:Z",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setZ P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:Z",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:Z",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
 		return self
 
 	Func getW
 		dn_x = dotnet_call("s3:get",nHandle,"s1:W")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s1:W",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setW P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s1:W",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s1:W",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s1:W",P1)
 		return self
 
 	Func getE
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s1:E","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector4, System.Private.CoreLib',"s1:E"))
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getEpsilon
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s7:Epsilon","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector4, System.Private.CoreLib',"s7:Epsilon"))
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getNaN
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:NaN","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector4, System.Private.CoreLib',"s3:NaN"))
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getNegativeInfinity
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s16:NegativeInfinity","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector4, System.Private.CoreLib',"s16:NegativeInfinity"))
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getNegativeZero
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s12:NegativeZero","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector4, System.Private.CoreLib',"s12:NegativeZero"))
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
 	Func getOne
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:One","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector4, System.Private.CoreLib',"s3:One"))
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getPi
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s2:Pi","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector4, System.Private.CoreLib',"s2:Pi"))
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getPositiveInfinity
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s16:PositiveInfinity","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector4, System.Private.CoreLib',"s16:PositiveInfinity"))
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getTau
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s3:Tau","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector4, System.Private.CoreLib',"s3:Tau"))
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
 
 	Func getUnitX
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:UnitX","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector4, System.Private.CoreLib',"s5:UnitX"))
 
 	Func setUnitX P1
 		raise("DotNet Error: UnitX is a read-only property")
 
 	Func getUnitY
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:UnitY","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector4, System.Private.CoreLib',"s5:UnitY"))
 
 	Func setUnitY P1
 		raise("DotNet Error: UnitY is a read-only property")
 
 	Func getUnitZ
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:UnitZ","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector4, System.Private.CoreLib',"s5:UnitZ"))
 
 	Func setUnitZ P1
 		raise("DotNet Error: UnitZ is a read-only property")
 
 	Func getUnitW
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:UnitW","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector4, System.Private.CoreLib',"s5:UnitW"))
 
 	Func setUnitW P1
 		raise("DotNet Error: UnitW is a read-only property")
 
 	Func getZero
-		return dnSend("s3:get",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s4:Zero","")
+		return dnObj(dotnet_callo("s3:get",'System.Numerics.Vector4, System.Private.CoreLib',"s4:Zero"))
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")

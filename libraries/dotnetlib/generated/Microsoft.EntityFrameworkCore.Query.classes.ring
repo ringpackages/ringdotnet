@@ -803,28 +803,27 @@ Class CollectionResultExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func Print P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Print",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Print",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Print",P1)
 
 		return self
 
 	Func getProjectionBindingExpression
-		return dnSend("s3:get",nHandle,"s27:ProjectionBindingExpression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s27:ProjectionBindingExpression"))
 
 	Func setProjectionBindingExpression P1
 		raise("DotNet Error: ProjectionBindingExpression is a read-only property")
 
 	Func getNavigation
-		return dnSend("s3:get",nHandle,"s10:Navigation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Navigation"))
 
 	Func setNavigation P1
 		raise("DotNet Error: Navigation is a read-only property")
 
 	Func getElementType
-		return dnSend("s3:get",nHandle,"s11:ElementType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ElementType"))
 
 	Func setElementType P1
 		raise("DotNet Error: ElementType is a read-only property")
@@ -844,11 +843,11 @@ Class CompiledQueryCacheKeyGenerator from Object
 		return self
 
 	Func GenerateCacheKey P1,P2
-		return dnSend("s4:call",nHandle,"s16:GenerateCacheKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GenerateCacheKey",P1,P2))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -871,33 +870,30 @@ Class CompiledQueryCacheKeyGeneratorDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getModel
-		return dnSend("s3:get",nHandle,"s5:Model","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
 	Func setModel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Model",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Model",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Model",P1)
 		return self
 
 	Func getCurrentContext
-		return dnSend("s3:get",nHandle,"s14:CurrentContext","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:CurrentContext"))
 
 	Func setCurrentContext P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:CurrentContext",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:CurrentContext",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:CurrentContext",P1)
 		return self
 
 	Func getIsRetryingExecutionStrategy
 		dn_x = dotnet_call("s3:get",nHandle,"s27:IsRetryingExecutionStrategy")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s27:IsRetryingExecutionStrategy",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsRetryingExecutionStrategy P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s27:IsRetryingExecutionStrategy",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s27:IsRetryingExecutionStrategy",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s27:IsRetryingExecutionStrategy",P1)
 		return self
 
 
@@ -945,29 +941,26 @@ Class EntityMaterializerSourceParameters from ValueType
 		return dnSend("s4:call",nHandle,"s11:Deconstruct","")
 
 	Func getStructuralType
-		return dnSend("s3:get",nHandle,"s14:StructuralType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:StructuralType"))
 
 	Func setStructuralType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:StructuralType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:StructuralType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:StructuralType",P1)
 		return self
 
 	Func getInstanceName
 		dn_x = dotnet_call("s3:get",nHandle,"s12:InstanceName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:InstanceName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInstanceName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:InstanceName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:InstanceName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:InstanceName",P1)
 		return self
 
 	Func getQueryTrackingBehavior
-		return dnSend("s3:get",nHandle,"s21:QueryTrackingBehavior","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:QueryTrackingBehavior"))
 
 	Func setQueryTrackingBehavior P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:QueryTrackingBehavior",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:QueryTrackingBehavior",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:QueryTrackingBehavior",P1)
 		return self
 
 
@@ -990,48 +983,47 @@ Class EnumerableExpression from ExpressionsExpression
 		return self
 
 	Func ApplySelector P1
-		return dnSend("s4:call",nHandle,"s13:ApplySelector",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ApplySelector",P1))
 
 	Func ApplyDistinct 
-		return dnSend("s4:call",nHandle,"s13:ApplyDistinct","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ApplyDistinct"))
 
 	Func ApplyPredicate P1
-		return dnSend("s4:call",nHandle,"s14:ApplyPredicate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ApplyPredicate",P1))
 
 	Func ApplyOrdering P1
-		return dnSend("s4:call",nHandle,"s13:ApplyOrdering",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ApplyOrdering",P1))
 
 	Func AppendOrdering P1
-		return dnSend("s4:call",nHandle,"s14:AppendOrdering",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AppendOrdering",P1))
 
 	Func Print P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Print",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Print",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Print",P1)
 
 		return self
 
 	Func getSelector
-		return dnSend("s3:get",nHandle,"s8:Selector","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Selector"))
 
 	Func setSelector P1
 		raise("DotNet Error: Selector is a read-only property")
 
 	Func getIsDistinct
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsDistinct")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsDistinct",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsDistinct P1
 		raise("DotNet Error: IsDistinct is a read-only property")
 
 	Func getPredicate
-		return dnSend("s3:get",nHandle,"s9:Predicate","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Predicate"))
 
 	Func setPredicate P1
 		raise("DotNet Error: Predicate is a read-only property")
 
 	Func getOrderings
-		return dnSend("s3:get",nHandle,"s9:Orderings","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Orderings"))
 
 	Func setOrderings P1
 		raise("DotNet Error: Orderings is a read-only property")
@@ -1052,12 +1044,12 @@ Class EvaluatableExpressionFilter from Object
 
 	Func IsEvaluatableExpression P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s23:IsEvaluatableExpression",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s23:IsEvaluatableExpression",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -1078,15 +1070,14 @@ Class EvaluatableExpressionFilterDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getPlugins
-		return dnSend("s3:get",nHandle,"s7:Plugins","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Plugins"))
 
 	Func setPlugins P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Plugins",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Plugins",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Plugins",P1)
 		return self
 
 
@@ -1109,11 +1100,11 @@ Class ExpressionEqualityComparer from Object
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
@@ -1121,11 +1112,11 @@ Class ExpressionEqualityComparer from Object
 			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getInstance
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ExpressionEqualityComparer, Microsoft.EntityFrameworkCore'),"s8:Instance","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.ExpressionEqualityComparer, Microsoft.EntityFrameworkCore',"s8:Instance"))
 
 	Func setInstance P1
 		raise("DotNet Error: Instance is a read-only property")
@@ -1144,11 +1135,11 @@ Class EfExpressionExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func InferTypeMapping P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ExpressionExtensions, Microsoft.EntityFrameworkCore.Relational'),"s16:InferTypeMapping",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.ExpressionExtensions, Microsoft.EntityFrameworkCore.Relational',"s16:InferTypeMapping",P1))
 
 
 Class ExpressionPrinter from ExpressionVisitor
@@ -1176,38 +1167,38 @@ Class ExpressionPrinter from ExpressionVisitor
 			return dnSend("s9:callnamed",nHandle,"s10:AppendLine",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s10:AppendLine","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendLine"))
 		ok
-		return dnSend("s4:call",nHandle,"s10:AppendLine",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendLine",P1))
 
 	Func AppendLines P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s11:AppendLines",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s11:AppendLines",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AppendLines",P1))
 
 	Func Indent 
-		return dnSend("s4:call",nHandle,"s6:Indent","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Indent"))
 
 	Func Append P1
-		return dnSend("s4:call",nHandle,"s6:Append",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Append",P1))
 
 	Func PrintExpression P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s15:PrintExpression",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s15:PrintExpression",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:PrintExpression",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PrintExpressionDebug P1
 		dn_x = dotnet_call("s4:call",nHandle,"s20:PrintExpressionDebug",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:PrintExpressionDebug",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GenerateBinaryOperator P1
 		dn_x = dotnet_call("s4:call",nHandle,"s22:GenerateBinaryOperator",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s22:GenerateBinaryOperator",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func VisitCollection P1
@@ -1215,22 +1206,21 @@ Class ExpressionPrinter from ExpressionVisitor
 			dnSend("s9:callnamed",nHandle,"s15:VisitCollection",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:VisitCollection",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:VisitCollection",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s15:VisitCollection",P1)
 
 		return self
 
 	Func Visit P1
-		return dnSend("s4:call",nHandle,"s5:Visit",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
 
 	Func Print P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore',"s5:Print",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore',"s5:Print",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PrintDebug P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore',"s10:PrintDebug",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore',"s10:PrintDebug",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -1251,22 +1241,21 @@ Class GroupByShaperExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
 
 	Func Print P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Print",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Print",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Print",P1)
 
 		return self
 
 	Func getKeySelector
-		return dnSend("s3:get",nHandle,"s11:KeySelector","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:KeySelector"))
 
 	Func setKeySelector P1
 		raise("DotNet Error: KeySelector is a read-only property")
 
 	Func getGroupingEnumerable
-		return dnSend("s3:get",nHandle,"s18:GroupingEnumerable","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:GroupingEnumerable"))
 
 	Func setGroupingEnumerable P1
 		raise("DotNet Error: GroupingEnumerable is a read-only property")
@@ -1284,7 +1273,7 @@ Class IAggregateMethodCallTranslator from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s9:Translate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4))
 
 
 Class IAggregateMethodCallTranslatorPlugin from DotNetObject
@@ -1301,7 +1290,7 @@ Class IAggregateMethodCallTranslatorPlugin from DotNetObject
 		return self
 
 	Func getTranslators
-		return dnSend("s3:get",nHandle,"s11:Translators","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Translators"))
 
 	Func setTranslators P1
 		raise("DotNet Error: Translators is a read-only property")
@@ -1319,7 +1308,7 @@ Class IAggregateMethodCallTranslatorProvider from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4,P5
-		return dnSend("s4:call",nHandle,"s9:Translate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4,P5))
 
 
 Class IAsyncQueryProvider from DotNetObject
@@ -1337,7 +1326,7 @@ Class IAsyncQueryProvider from DotNetObject
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s12:ExecuteAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s12:ExecuteAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ExecuteAsync",P1))
 
 
 Class ICompiledQueryCacheKeyGenerator from DotNetObject
@@ -1352,7 +1341,7 @@ Class ICompiledQueryCacheKeyGenerator from DotNetObject
 		return self
 
 	Func GenerateCacheKey P1,P2
-		return dnSend("s4:call",nHandle,"s16:GenerateCacheKey",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GenerateCacheKey",P1,P2))
 
 
 Class IEntityMaterializerSource from DotNetObject
@@ -1373,10 +1362,10 @@ Class IEntityMaterializerSource from DotNetObject
 		raise("DotNet Error: CreateMaterializeExpression does not take one argument: use named arguments, CreateMaterializeExpression([ :parameter = value, ... ])")
 
 	Func GetMaterializer P1
-		return dnSend("s4:call",nHandle,"s15:GetMaterializer",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetMaterializer",P1))
 
 	Func GetEmptyMaterializer P1
-		return dnSend("s4:call",nHandle,"s20:GetEmptyMaterializer",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetEmptyMaterializer",P1))
 
 
 Class IEvaluatableExpressionFilter from DotNetObject
@@ -1392,7 +1381,7 @@ Class IEvaluatableExpressionFilter from DotNetObject
 
 	Func IsEvaluatableExpression P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s23:IsEvaluatableExpression",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s23:IsEvaluatableExpression",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -1409,7 +1398,7 @@ Class IEvaluatableExpressionFilterPlugin from DotNetObject
 
 	Func IsEvaluatableExpression P1
 		dn_x = dotnet_call("s4:call",nHandle,"s23:IsEvaluatableExpression",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s23:IsEvaluatableExpression",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -1425,7 +1414,7 @@ Class ILiftableConstantFactory from DotNetObject
 		return self
 
 	Func CreateLiftableConstant P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s22:CreateLiftableConstant",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CreateLiftableConstant",P1,P2,P3,P4))
 
 
 Class ILiftableConstantProcessor from DotNetObject
@@ -1442,13 +1431,13 @@ Class ILiftableConstantProcessor from DotNetObject
 		return self
 
 	Func InlineConstants P1,P2
-		return dnSend("s4:call",nHandle,"s15:InlineConstants",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:InlineConstants",P1,P2))
 
 	Func LiftConstants P1,P2,P3
-		return dnSend("s4:call",nHandle,"s13:LiftConstants",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:LiftConstants",P1,P2,P3))
 
 	Func getLiftedConstants
-		return dnSend("s3:get",nHandle,"s15:LiftedConstants","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:LiftedConstants"))
 
 	Func setLiftedConstants P1
 		raise("DotNet Error: LiftedConstants is a read-only property")
@@ -1466,7 +1455,7 @@ Class IMemberTranslator from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s9:Translate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4))
 
 
 Class IMemberTranslatorPlugin from DotNetObject
@@ -1483,7 +1472,7 @@ Class IMemberTranslatorPlugin from DotNetObject
 		return self
 
 	Func getTranslators
-		return dnSend("s3:get",nHandle,"s11:Translators","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Translators"))
 
 	Func setTranslators P1
 		raise("DotNet Error: Translators is a read-only property")
@@ -1501,7 +1490,7 @@ Class IMemberTranslatorProvider from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s9:Translate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4))
 
 
 Class IMethodCallTranslator from DotNetObject
@@ -1516,7 +1505,7 @@ Class IMethodCallTranslator from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s9:Translate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4))
 
 
 Class IMethodCallTranslatorPlugin from DotNetObject
@@ -1533,7 +1522,7 @@ Class IMethodCallTranslatorPlugin from DotNetObject
 		return self
 
 	Func getTranslators
-		return dnSend("s3:get",nHandle,"s11:Translators","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Translators"))
 
 	Func setTranslators P1
 		raise("DotNet Error: Translators is a read-only property")
@@ -1551,7 +1540,7 @@ Class IMethodCallTranslatorProvider from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4,P5
-		return dnSend("s4:call",nHandle,"s9:Translate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4,P5))
 
 
 Class INavigationExpansionExtensibilityHelper from DotNetObject
@@ -1566,17 +1555,16 @@ Class INavigationExpansionExtensibilityHelper from DotNetObject
 		return self
 
 	Func CreateQueryRoot P1,P2
-		return dnSend("s4:call",nHandle,"s15:CreateQueryRoot",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateQueryRoot",P1,P2))
 
 	Func ValidateQueryRootCreation P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s25:ValidateQueryRootCreation",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s25:ValidateQueryRootCreation",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s25:ValidateQueryRootCreation",P1,P2)
 
 		return self
 
 	Func AreQueryRootsCompatible P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s23:AreQueryRootsCompatible",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s23:AreQueryRootsCompatible",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -1592,8 +1580,7 @@ Class IPrintableExpression from DotNetObject
 		return self
 
 	Func Print P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Print",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Print",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Print",P1)
 
 		return self
 
@@ -1610,10 +1597,10 @@ Class IQueryCompilationContextFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",nHandle,"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
 
 	Func CreatePrecompiled P1,P2
-		return dnSend("s4:call",nHandle,"s17:CreatePrecompiled",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:CreatePrecompiled",P1,P2))
 
 
 Class IQueryContextFactory from DotNetObject
@@ -1628,7 +1615,7 @@ Class IQueryContextFactory from DotNetObject
 		return self
 
 	Func Create 
-		return dnSend("s4:call",nHandle,"s6:Create","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create"))
 
 
 Class IQuerySqlGeneratorFactory from DotNetObject
@@ -1643,7 +1630,7 @@ Class IQuerySqlGeneratorFactory from DotNetObject
 		return self
 
 	Func Create 
-		return dnSend("s4:call",nHandle,"s6:Create","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create"))
 
 
 Class IQueryTranslationPostprocessorFactory from DotNetObject
@@ -1658,7 +1645,7 @@ Class IQueryTranslationPostprocessorFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",nHandle,"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
 
 
 Class IQueryTranslationPreprocessorFactory from DotNetObject
@@ -1673,7 +1660,7 @@ Class IQueryTranslationPreprocessorFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",nHandle,"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
 
 
 Class IQueryableMethodTranslatingExpressionVisitorFactory from DotNetObject
@@ -1688,7 +1675,7 @@ Class IQueryableMethodTranslatingExpressionVisitorFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",nHandle,"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
 
 
 Class IQueryingEnumerable from DotNetObject
@@ -1704,7 +1691,7 @@ Class IQueryingEnumerable from DotNetObject
 
 	Func ToQueryString 
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ToQueryString")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:ToQueryString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -1720,7 +1707,7 @@ Class IRelationalLiftableConstantFactory from DotNetObject
 		return self
 
 	Func CreateLiftableConstant P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s22:CreateLiftableConstant",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CreateLiftableConstant",P1,P2,P3,P4))
 
 
 Class IRelationalParameterBasedSqlProcessorFactory from DotNetObject
@@ -1735,7 +1722,7 @@ Class IRelationalParameterBasedSqlProcessorFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",nHandle,"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
 
 
 Class IRelationalQueryStringFactory from DotNetObject
@@ -1751,7 +1738,7 @@ Class IRelationalQueryStringFactory from DotNetObject
 
 	Func Create P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Create",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Create",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -1767,7 +1754,7 @@ Class IRelationalQuotableExpression from DotNetObject
 		return self
 
 	Func Quote 
-		return dnSend("s4:call",nHandle,"s5:Quote","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Quote"))
 
 
 Class IRelationalSqlTranslatingExpressionVisitorFactory from DotNetObject
@@ -1782,7 +1769,7 @@ Class IRelationalSqlTranslatingExpressionVisitorFactory from DotNetObject
 		return self
 
 	Func Create P1,P2
-		return dnSend("s4:call",nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1,P2))
 
 
 Class IShapedQueryCompilingExpressionVisitorFactory from DotNetObject
@@ -1797,7 +1784,7 @@ Class IShapedQueryCompilingExpressionVisitorFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",nHandle,"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
 
 
 Class ISqlAliasManagerFactory from DotNetObject
@@ -1812,7 +1799,7 @@ Class ISqlAliasManagerFactory from DotNetObject
 		return self
 
 	Func Create 
-		return dnSend("s4:call",nHandle,"s6:Create","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create"))
 
 
 Class ISqlExpressionFactory from DotNetObject
@@ -1827,10 +1814,10 @@ Class ISqlExpressionFactory from DotNetObject
 		return self
 
 	Func ApplyTypeMapping P1,P2
-		return dnSend("s4:call",nHandle,"s16:ApplyTypeMapping",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ApplyTypeMapping",P1,P2))
 
 	Func ApplyDefaultTypeMapping P1
-		return dnSend("s4:call",nHandle,"s23:ApplyDefaultTypeMapping",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ApplyDefaultTypeMapping",P1))
 
 	Func MakeUnary P1
 		if dnIsNamed(P1)
@@ -1845,28 +1832,28 @@ Class ISqlExpressionFactory from DotNetObject
 		raise("DotNet Error: MakeBinary does not take one argument: use named arguments, MakeBinary([ :parameter = value, ... ])")
 
 	Func Equal P1,P2
-		return dnSend("s4:call",nHandle,"s5:Equal",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Equal",P1,P2))
 
 	Func NotEqual P1,P2
-		return dnSend("s4:call",nHandle,"s8:NotEqual",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:NotEqual",P1,P2))
 
 	Func GreaterThan P1,P2
-		return dnSend("s4:call",nHandle,"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GreaterThan",P1,P2))
 
 	Func GreaterThanOrEqual P1,P2
-		return dnSend("s4:call",nHandle,"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GreaterThanOrEqual",P1,P2))
 
 	Func LessThan P1,P2
-		return dnSend("s4:call",nHandle,"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:LessThan",P1,P2))
 
 	Func LessThanOrEqual P1,P2
-		return dnSend("s4:call",nHandle,"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:LessThanOrEqual",P1,P2))
 
 	Func AndAlso P1,P2
-		return dnSend("s4:call",nHandle,"s7:AndAlso",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AndAlso",P1,P2))
 
 	Func OrElse P1,P2
-		return dnSend("s4:call",nHandle,"s6:OrElse",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:OrElse",P1,P2))
 
 	Func Add P1
 		if dnIsNamed(P1)
@@ -1917,7 +1904,7 @@ Class ISqlExpressionFactory from DotNetObject
 		raise("DotNet Error: Coalesce does not take one argument: use named arguments, Coalesce([ :parameter = value, ... ])")
 
 	Func IsNotNull P1
-		return dnSend("s4:call",nHandle,"s9:IsNotNull",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:IsNotNull",P1))
 
 	Func Convert P1
 		if dnIsNamed(P1)
@@ -1926,10 +1913,10 @@ Class ISqlExpressionFactory from DotNetObject
 		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
 	Func Not_ P1
-		return dnSend("s4:call",nHandle,"s3:Not",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Not",P1))
 
 	Func Negate P1
-		return dnSend("s4:call",nHandle,"s6:Negate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Negate",P1))
 
 	Func Case_ P1
 		if dnIsNamed(P1)
@@ -1950,10 +1937,10 @@ Class ISqlExpressionFactory from DotNetObject
 		raise("DotNet Error: NiladicFunction does not take one argument: use named arguments, NiladicFunction([ :parameter = value, ... ])")
 
 	Func Exists P1
-		return dnSend("s4:call",nHandle,"s6:Exists",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Exists",P1))
 
 	Func In P1,P2
-		return dnSend("s4:call",nHandle,"s2:In",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s2:In",P1,P2))
 
 	Func Like P1
 		if dnIsNamed(P1)
@@ -1965,10 +1952,10 @@ Class ISqlExpressionFactory from DotNetObject
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:Constant",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s8:Constant",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Constant",P1))
 
 	Func Fragment P1
-		return dnSend("s4:call",nHandle,"s8:Fragment",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Fragment",P1))
 
 
 Class IncludeExpression from ExpressionsExpression
@@ -2005,29 +1992,29 @@ Class IncludeExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
 
 	Func getEntityExpression
-		return dnSend("s3:get",nHandle,"s16:EntityExpression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:EntityExpression"))
 
 	Func setEntityExpression P1
 		raise("DotNet Error: EntityExpression is a read-only property")
 
 	Func getNavigationExpression
-		return dnSend("s3:get",nHandle,"s20:NavigationExpression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:NavigationExpression"))
 
 	Func setNavigationExpression P1
 		raise("DotNet Error: NavigationExpression is a read-only property")
 
 	Func getNavigation
-		return dnSend("s3:get",nHandle,"s10:Navigation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Navigation"))
 
 	Func setNavigation P1
 		raise("DotNet Error: Navigation is a read-only property")
 
 	Func getSetLoaded
 		dn_x = dotnet_call("s3:get",nHandle,"s9:SetLoaded")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:SetLoaded",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSetLoaded P1
@@ -2055,62 +2042,61 @@ Class JsonQueryExpression from ExpressionsExpression
 		return self
 
 	Func BindProperty P1
-		return dnSend("s4:call",nHandle,"s12:BindProperty",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:BindProperty",P1))
 
 	Func BindNavigation P1
-		return dnSend("s4:call",nHandle,"s14:BindNavigation",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:BindNavigation",P1))
 
 	Func BindCollectionElement P1
-		return dnSend("s4:call",nHandle,"s21:BindCollectionElement",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:BindCollectionElement",P1))
 
 	Func MakeNullable 
-		return dnSend("s4:call",nHandle,"s12:MakeNullable","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:MakeNullable"))
 
 	Func Print P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Print",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Print",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Print",P1)
 
 		return self
 
 	Func Update P1,P2
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
 
 	Func getEntityType
-		return dnSend("s3:get",nHandle,"s10:EntityType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getJsonColumn
-		return dnSend("s3:get",nHandle,"s10:JsonColumn","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:JsonColumn"))
 
 	Func setJsonColumn P1
 		raise("DotNet Error: JsonColumn is a read-only property")
 
 	Func getIsCollection
 		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCollection")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsCollection",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsCollection P1
 		raise("DotNet Error: IsCollection is a read-only property")
 
 	Func getPath
-		return dnSend("s3:get",nHandle,"s4:Path","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Path"))
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getIsNullable
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsNullable",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getKeyPropertyMap
-		return dnSend("s3:get",nHandle,"s14:KeyPropertyMap","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:KeyPropertyMap"))
 
 	Func setKeyPropertyMap P1
 		raise("DotNet Error: KeyPropertyMap is a read-only property")
@@ -2134,29 +2120,28 @@ Class LiftableConstantExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func Print P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Print",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Print",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Print",P1)
 
 		return self
 
 	Func getOriginalExpression
-		return dnSend("s3:get",nHandle,"s18:OriginalExpression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:OriginalExpression"))
 
 	Func setOriginalExpression P1
 		raise("DotNet Error: OriginalExpression is a read-only property")
 
 	Func getResolverExpression
-		return dnSend("s3:get",nHandle,"s18:ResolverExpression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:ResolverExpression"))
 
 	Func setResolverExpression P1
 		raise("DotNet Error: ResolverExpression is a read-only property")
 
 	Func getVariableName
 		dn_x = dotnet_call("s3:get",nHandle,"s12:VariableName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:VariableName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setVariableName P1
@@ -2185,7 +2170,7 @@ Class LiftableConstantExpressionDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -2202,37 +2187,37 @@ Class LiftableConstantExpressionHelpers from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsLiteral P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore',"s9:IsLiteral",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore',"s9:IsLiteral",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func BuildMemberAccessForEntityOrComplexType P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s39:BuildMemberAccessForEntityOrComplexType",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore',"s39:BuildMemberAccessForEntityOrComplexType",P1,P2))
 
 	Func BuildMemberAccessLambdaForEntityOrComplexType P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s45:BuildMemberAccessLambdaForEntityOrComplexType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore',"s45:BuildMemberAccessLambdaForEntityOrComplexType",P1))
 
 	Func BuildMemberAccessForProperty P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s28:BuildMemberAccessForProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore',"s28:BuildMemberAccessForProperty",P1,P2))
 
 	Func BuildMemberAccessLambdaForProperty P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s34:BuildMemberAccessLambdaForProperty",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore',"s34:BuildMemberAccessLambdaForProperty",P1))
 
 	Func BuildNavigationAccess P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s21:BuildNavigationAccess",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore',"s21:BuildNavigationAccess",P1,P2))
 
 	Func BuildNavigationAccessLambda P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s27:BuildNavigationAccessLambda",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore',"s27:BuildNavigationAccessLambda",P1))
 
 	Func BuildClrCollectionAccessor P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s26:BuildClrCollectionAccessor",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore',"s26:BuildClrCollectionAccessor",P1,P2))
 
 	Func BuildClrCollectionAccessorLambda P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"s32:BuildClrCollectionAccessorLambda",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore',"s32:BuildClrCollectionAccessorLambda",P1))
 
 
 Class LiftableConstantFactory from Object
@@ -2251,15 +2236,15 @@ Class LiftableConstantFactory from Object
 		return self
 
 	Func CreateLiftableConstant P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s22:CreateLiftableConstant",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CreateLiftableConstant",P1,P2,P3,P4))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getDependencies
-		return dnSend("s3:get",nHandle,"s12:Dependencies","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:Dependencies"))
 
 	Func setDependencies P1
 		raise("DotNet Error: Dependencies is a read-only property")
@@ -2281,16 +2266,16 @@ Class LiftableConstantProcessor from ExpressionVisitor
 		return self
 
 	Func InlineConstants P1,P2
-		return dnSend("s4:call",nHandle,"s15:InlineConstants",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:InlineConstants",P1,P2))
 
 	Func LiftConstants P1,P2,P3
-		return dnSend("s4:call",nHandle,"s13:LiftConstants",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:LiftConstants",P1,P2,P3))
 
 	Func Visit P1
-		return dnSend("s4:call",nHandle,"s5:Visit",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
 
 	Func getLiftedConstants
-		return dnSend("s3:get",nHandle,"s15:LiftedConstants","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:LiftedConstants"))
 
 	Func setLiftedConstants P1
 		raise("DotNet Error: LiftedConstants is a read-only property")
@@ -2313,16 +2298,16 @@ Class MaterializeCollectionNavigationExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func getSubquery
-		return dnSend("s3:get",nHandle,"s8:Subquery","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Subquery"))
 
 	Func setSubquery P1
 		raise("DotNet Error: Subquery is a read-only property")
 
 	Func getNavigation
-		return dnSend("s3:get",nHandle,"s10:Navigation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Navigation"))
 
 	Func setNavigation P1
 		raise("DotNet Error: Navigation is a read-only property")
@@ -2345,18 +2330,17 @@ Class MaterializerLiftableConstantContext from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Deconstruct 
 		return dnSend("s4:call",nHandle,"s11:Deconstruct","")
 
 	Func getDependencies
-		return dnSend("s3:get",nHandle,"s12:Dependencies","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:Dependencies"))
 
 	Func setDependencies P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:Dependencies",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:Dependencies",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:Dependencies",P1)
 		return self
 
 
@@ -2374,22 +2358,21 @@ Class NavigationExpansionExtensibilityHelper from Object
 		return self
 
 	Func CreateQueryRoot P1,P2
-		return dnSend("s4:call",nHandle,"s15:CreateQueryRoot",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateQueryRoot",P1,P2))
 
 	Func ValidateQueryRootCreation P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s25:ValidateQueryRootCreation",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s25:ValidateQueryRootCreation",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s25:ValidateQueryRootCreation",P1,P2)
 
 		return self
 
 	Func AreQueryRootsCompatible P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s23:AreQueryRootsCompatible",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s23:AreQueryRootsCompatible",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -2415,7 +2398,7 @@ Class NavigationExpansionExtensibilityHelperDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -2451,22 +2434,21 @@ Class NonQueryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func Print P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Print",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Print",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Print",P1)
 
 		return self
 
 	Func getExpression
-		return dnSend("s3:get",nHandle,"s10:Expression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Expression"))
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getCommandSource
-		return dnSend("s3:get",nHandle,"s13:CommandSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:CommandSource"))
 
 	Func setCommandSource P1
 		raise("DotNet Error: CommandSource is a read-only property")
@@ -2512,18 +2494,18 @@ Class EfPathSegment from ValueType
 		return self
 
 	Func Quote 
-		return dnSend("s4:call",nHandle,"s5:Quote","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Quote"))
 
 	Func getPropertyName
 		dn_x = dotnet_call("s3:get",nHandle,"s12:PropertyName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:PropertyName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
 
 	Func getArrayIndex
-		return dnSend("s3:get",nHandle,"s10:ArrayIndex","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ArrayIndex"))
 
 	Func setArrayIndex P1
 		raise("DotNet Error: ArrayIndex is a read-only property")
@@ -2547,19 +2529,19 @@ Class ProjectionBindingExpression from ExpressionsExpression
 		return self
 
 	Func getQueryExpression
-		return dnSend("s3:get",nHandle,"s15:QueryExpression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:QueryExpression"))
 
 	Func setQueryExpression P1
 		raise("DotNet Error: QueryExpression is a read-only property")
 
 	Func getProjectionMember
-		return dnSend("s3:get",nHandle,"s16:ProjectionMember","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ProjectionMember"))
 
 	Func setProjectionMember P1
 		raise("DotNet Error: ProjectionMember is a read-only property")
 
 	Func getIndex
-		return dnSend("s3:get",nHandle,"s5:Index","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Index"))
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
@@ -2588,18 +2570,18 @@ Class ProjectionMember from Object
 		return self
 
 	Func Append P1
-		return dnSend("s4:call",nHandle,"s6:Append",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Append",P1))
 
 	Func Prepend P1
-		return dnSend("s4:call",nHandle,"s7:Prepend",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Prepend",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getLast
-		return dnSend("s3:get",nHandle,"s4:Last","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Last"))
 
 	Func setLast P1
 		raise("DotNet Error: Last is a read-only property")
@@ -2653,66 +2635,65 @@ Class QueryCompilationContext from Object
 		return self
 
 	Func AddTag P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:AddTag",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:AddTag",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s6:AddTag",P1)
 
 		return self
 
 	Func CreateQueryExecutor P1
-		return dnSend("s4:call",nHandle,"s19:CreateQueryExecutor",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:CreateQueryExecutor",P1))
 
 	Func CreateQueryExecutorExpression P1
-		return dnSend("s4:call",nHandle,"s29:CreateQueryExecutorExpression",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:CreateQueryExecutorExpression",P1))
 
 	Func RegisterRuntimeParameter P1,P2
-		return dnSend("s4:call",nHandle,"s24:RegisterRuntimeParameter",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:RegisterRuntimeParameter",P1,P2))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getParametersToConstantize
-		return dnSend("s3:get",nHandle,"s23:ParametersToConstantize","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:ParametersToConstantize"))
 
 	Func setParametersToConstantize P1
 		raise("DotNet Error: ParametersToConstantize is a read-only property")
 
 	Func getParametersToNotConstantize
-		return dnSend("s3:get",nHandle,"s26:ParametersToNotConstantize","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s26:ParametersToNotConstantize"))
 
 	Func setParametersToNotConstantize P1
 		raise("DotNet Error: ParametersToNotConstantize is a read-only property")
 
 	Func getIsAsync
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAsync")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsAsync",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
 
 	Func getModel
-		return dnSend("s3:get",nHandle,"s5:Model","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getContextOptions
-		return dnSend("s3:get",nHandle,"s14:ContextOptions","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ContextOptions"))
 
 	Func setContextOptions P1
 		raise("DotNet Error: ContextOptions is a read-only property")
 
 	Func getQueryTrackingBehavior
-		return dnSend("s3:get",nHandle,"s21:QueryTrackingBehavior","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:QueryTrackingBehavior"))
 
 	Func setQueryTrackingBehavior P1
 		raise("DotNet Error: QueryTrackingBehavior is a read-only property")
 
 	Func getIsBuffering
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsBuffering")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsBuffering",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsBuffering P1
@@ -2720,7 +2701,7 @@ Class QueryCompilationContext from Object
 
 	Func getIsPrecompiling
 		dn_x = dotnet_call("s3:get",nHandle,"s14:IsPrecompiling")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsPrecompiling",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsPrecompiling P1
@@ -2728,7 +2709,7 @@ Class QueryCompilationContext from Object
 
 	Func getIgnoreQueryFilters
 		dn_x = dotnet_call("s3:get",nHandle,"s18:IgnoreQueryFilters")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:IgnoreQueryFilters",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIgnoreQueryFilters P1
@@ -2736,59 +2717,59 @@ Class QueryCompilationContext from Object
 
 	Func getIgnoreAutoIncludes
 		dn_x = dotnet_call("s3:get",nHandle,"s18:IgnoreAutoIncludes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:IgnoreAutoIncludes",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIgnoreAutoIncludes P1
 		raise("DotNet Error: IgnoreAutoIncludes is a read-only property")
 
 	Func getTags
-		return dnSend("s3:get",nHandle,"s4:Tags","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Tags"))
 
 	Func setTags P1
 		raise("DotNet Error: Tags is a read-only property")
 
 	Func getLogger
-		return dnSend("s3:get",nHandle,"s6:Logger","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Logger"))
 
 	Func setLogger P1
 		raise("DotNet Error: Logger is a read-only property")
 
 	Func getContextType
-		return dnSend("s3:get",nHandle,"s11:ContextType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ContextType"))
 
 	Func setContextType P1
 		raise("DotNet Error: ContextType is a read-only property")
 
 	Func getNonNullableReferenceTypeParameters
-		return dnSend("s3:get",nHandle,"s34:NonNullableReferenceTypeParameters","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s34:NonNullableReferenceTypeParameters"))
 
 	Func setNonNullableReferenceTypeParameters P1
 		raise("DotNet Error: NonNullableReferenceTypeParameters is a read-only property")
 
 	Func getSupportsPrecompiledQuery
 		dn_x = dotnet_call("s3:get",nHandle,"s24:SupportsPrecompiledQuery")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:SupportsPrecompiledQuery",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSupportsPrecompiledQuery P1
 		raise("DotNet Error: SupportsPrecompiledQuery is a read-only property")
 
 	Func getQueryContextParameter
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore'),"s21:QueryContextParameter","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore',"s21:QueryContextParameter"))
 
 	Func setQueryContextParameter P1
 		raise("DotNet Error: QueryContextParameter is a read-only property")
 
 	Func getNotTranslatedExpression
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore'),"s23:NotTranslatedExpression","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore',"s23:NotTranslatedExpression"))
 
 	Func setNotTranslatedExpression P1
 		raise("DotNet Error: NotTranslatedExpression is a read-only property")
 
 	Func getQueryParameterPrefix
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore',"s20:QueryParameterPrefix")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore',"s20:QueryParameterPrefix",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setQueryParameterPrefix P1
@@ -2825,111 +2806,101 @@ Class QueryCompilationContextDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getContext
-		return dnSend("s3:get",nHandle,"s7:Context","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Context"))
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getContextType
-		return dnSend("s3:get",nHandle,"s11:ContextType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ContextType"))
 
 	Func setContextType P1
 		raise("DotNet Error: ContextType is a read-only property")
 
 	Func getQueryTrackingBehavior
-		return dnSend("s3:get",nHandle,"s21:QueryTrackingBehavior","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:QueryTrackingBehavior"))
 
 	Func setQueryTrackingBehavior P1
 		raise("DotNet Error: QueryTrackingBehavior is a read-only property")
 
 	Func getModel
-		return dnSend("s3:get",nHandle,"s5:Model","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
 	Func setModel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Model",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Model",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Model",P1)
 		return self
 
 	Func getQueryTranslationPreprocessorFactory
-		return dnSend("s3:get",nHandle,"s35:QueryTranslationPreprocessorFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s35:QueryTranslationPreprocessorFactory"))
 
 	Func setQueryTranslationPreprocessorFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s35:QueryTranslationPreprocessorFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s35:QueryTranslationPreprocessorFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s35:QueryTranslationPreprocessorFactory",P1)
 		return self
 
 	Func getQueryableMethodTranslatingExpressionVisitorFactory
-		return dnSend("s3:get",nHandle,"s50:QueryableMethodTranslatingExpressionVisitorFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s50:QueryableMethodTranslatingExpressionVisitorFactory"))
 
 	Func setQueryableMethodTranslatingExpressionVisitorFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s50:QueryableMethodTranslatingExpressionVisitorFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s50:QueryableMethodTranslatingExpressionVisitorFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s50:QueryableMethodTranslatingExpressionVisitorFactory",P1)
 		return self
 
 	Func getQueryTranslationPostprocessorFactory
-		return dnSend("s3:get",nHandle,"s36:QueryTranslationPostprocessorFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s36:QueryTranslationPostprocessorFactory"))
 
 	Func setQueryTranslationPostprocessorFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s36:QueryTranslationPostprocessorFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s36:QueryTranslationPostprocessorFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s36:QueryTranslationPostprocessorFactory",P1)
 		return self
 
 	Func getShapedQueryCompilingExpressionVisitorFactory
-		return dnSend("s3:get",nHandle,"s44:ShapedQueryCompilingExpressionVisitorFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s44:ShapedQueryCompilingExpressionVisitorFactory"))
 
 	Func setShapedQueryCompilingExpressionVisitorFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s44:ShapedQueryCompilingExpressionVisitorFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s44:ShapedQueryCompilingExpressionVisitorFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s44:ShapedQueryCompilingExpressionVisitorFactory",P1)
 		return self
 
 	Func getLiftableConstantFactory
-		return dnSend("s3:get",nHandle,"s23:LiftableConstantFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:LiftableConstantFactory"))
 
 	Func setLiftableConstantFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:LiftableConstantFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:LiftableConstantFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:LiftableConstantFactory",P1)
 		return self
 
 	Func getLiftableConstantProcessor
-		return dnSend("s3:get",nHandle,"s25:LiftableConstantProcessor","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s25:LiftableConstantProcessor"))
 
 	Func setLiftableConstantProcessor P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s25:LiftableConstantProcessor",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s25:LiftableConstantProcessor",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s25:LiftableConstantProcessor",P1)
 		return self
 
 	Func getIsRetryingExecutionStrategy
 		dn_x = dotnet_call("s3:get",nHandle,"s27:IsRetryingExecutionStrategy")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s27:IsRetryingExecutionStrategy",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsRetryingExecutionStrategy P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s27:IsRetryingExecutionStrategy",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s27:IsRetryingExecutionStrategy",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s27:IsRetryingExecutionStrategy",P1)
 		return self
 
 	Func getContextOptions
-		return dnSend("s3:get",nHandle,"s14:ContextOptions","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ContextOptions"))
 
 	Func setContextOptions P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:ContextOptions",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:ContextOptions",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:ContextOptions",P1)
 		return self
 
 	Func getLogger
-		return dnSend("s3:get",nHandle,"s6:Logger","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Logger"))
 
 	Func setLogger P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Logger",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Logger",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Logger",P1)
 		return self
 
 	Func getInterceptors
-		return dnSend("s3:get",nHandle,"s12:Interceptors","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:Interceptors"))
 
 	Func setInterceptors P1
 		raise("DotNet Error: Interceptors is a read-only property")
@@ -2956,14 +2927,12 @@ Class QueryContext from Object
 		return self
 
 	Func SetNavigationIsLoaded P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s21:SetNavigationIsLoaded",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s21:SetNavigationIsLoaded",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s21:SetNavigationIsLoaded",P1,P2)
 
 		return self
 
 	Func AddParameter P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:AddParameter",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:AddParameter",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s12:AddParameter",P1,P2)
 
 		return self
 
@@ -2973,13 +2942,11 @@ Class QueryContext from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_callv("s4:call",nHandle,"s22:InitializeStateManager")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s22:InitializeStateManager","") ok
+			dotnet_callv("s4:call",nHandle,"s22:InitializeStateManager")
 
 		return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s22:InitializeStateManager",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s22:InitializeStateManager",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s22:InitializeStateManager",P1)
 
 		return self
 
@@ -2991,55 +2958,54 @@ Class QueryContext from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getContext
-		return dnSend("s3:get",nHandle,"s7:Context","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Context"))
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getExecutionStrategy
-		return dnSend("s3:get",nHandle,"s17:ExecutionStrategy","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ExecutionStrategy"))
 
 	Func setExecutionStrategy P1
 		raise("DotNet Error: ExecutionStrategy is a read-only property")
 
 	Func getConcurrencyDetector
-		return dnSend("s3:get",nHandle,"s19:ConcurrencyDetector","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ConcurrencyDetector"))
 
 	Func setConcurrencyDetector P1
 		raise("DotNet Error: ConcurrencyDetector is a read-only property")
 
 	Func getExceptionDetector
-		return dnSend("s3:get",nHandle,"s17:ExceptionDetector","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ExceptionDetector"))
 
 	Func setExceptionDetector P1
 		raise("DotNet Error: ExceptionDetector is a read-only property")
 
 	Func getCancellationToken
-		return dnSend("s3:get",nHandle,"s17:CancellationToken","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:CancellationToken"))
 
 	Func setCancellationToken P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:CancellationToken",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:CancellationToken",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:CancellationToken",P1)
 		return self
 
 	Func getCommandLogger
-		return dnSend("s3:get",nHandle,"s13:CommandLogger","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:CommandLogger"))
 
 	Func setCommandLogger P1
 		raise("DotNet Error: CommandLogger is a read-only property")
 
 	Func getQueryLogger
-		return dnSend("s3:get",nHandle,"s11:QueryLogger","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:QueryLogger"))
 
 	Func setQueryLogger P1
 		raise("DotNet Error: QueryLogger is a read-only property")
 
 	Func getParameterValues
-		return dnSend("s3:get",nHandle,"s15:ParameterValues","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ParameterValues"))
 
 	Func setParameterValues P1
 		raise("DotNet Error: ParameterValues is a read-only property")
@@ -3068,61 +3034,55 @@ Class QueryContextDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCurrentContext
-		return dnSend("s3:get",nHandle,"s14:CurrentContext","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:CurrentContext"))
 
 	Func setCurrentContext P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:CurrentContext",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:CurrentContext",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:CurrentContext",P1)
 		return self
 
 	Func getStateManager
-		return dnSend("s3:get",nHandle,"s12:StateManager","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:StateManager"))
 
 	Func setStateManager P1
 		raise("DotNet Error: StateManager is a read-only property")
 
 	Func getExecutionStrategy
-		return dnSend("s3:get",nHandle,"s17:ExecutionStrategy","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ExecutionStrategy"))
 
 	Func setExecutionStrategy P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:ExecutionStrategy",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:ExecutionStrategy",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:ExecutionStrategy",P1)
 		return self
 
 	Func getConcurrencyDetector
-		return dnSend("s3:get",nHandle,"s19:ConcurrencyDetector","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ConcurrencyDetector"))
 
 	Func setConcurrencyDetector P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:ConcurrencyDetector",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:ConcurrencyDetector",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:ConcurrencyDetector",P1)
 		return self
 
 	Func getExceptionDetector
-		return dnSend("s3:get",nHandle,"s17:ExceptionDetector","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ExceptionDetector"))
 
 	Func setExceptionDetector P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:ExceptionDetector",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:ExceptionDetector",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:ExceptionDetector",P1)
 		return self
 
 	Func getCommandLogger
-		return dnSend("s3:get",nHandle,"s13:CommandLogger","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:CommandLogger"))
 
 	Func setCommandLogger P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:CommandLogger",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:CommandLogger",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:CommandLogger",P1)
 		return self
 
 	Func getQueryLogger
-		return dnSend("s3:get",nHandle,"s11:QueryLogger","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:QueryLogger"))
 
 	Func setQueryLogger P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:QueryLogger",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:QueryLogger",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:QueryLogger",P1)
 		return self
 
 
@@ -3141,16 +3101,16 @@ Class QueryRootExpression from ExpressionsExpression
 		return self
 
 	Func DetachQueryProvider 
-		return dnSend("s4:call",nHandle,"s19:DetachQueryProvider","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:DetachQueryProvider"))
 
 	Func getQueryProvider
-		return dnSend("s3:get",nHandle,"s13:QueryProvider","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:QueryProvider"))
 
 	Func setQueryProvider P1
 		raise("DotNet Error: QueryProvider is a read-only property")
 
 	Func getElementType
-		return dnSend("s3:get",nHandle,"s11:ElementType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ElementType"))
 
 	Func setElementType P1
 		raise("DotNet Error: ElementType is a read-only property")
@@ -3170,7 +3130,7 @@ Class QueryRootProcessor from ExpressionVisitor
 		return self
 
 	Func Visit P1
-		return dnSend("s4:call",nHandle,"s5:Visit",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
 
 
 Class QuerySqlGeneratorDependencies from Object
@@ -3191,23 +3151,21 @@ Class QuerySqlGeneratorDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getRelationalCommandBuilderFactory
-		return dnSend("s3:get",nHandle,"s31:RelationalCommandBuilderFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s31:RelationalCommandBuilderFactory"))
 
 	Func setRelationalCommandBuilderFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s31:RelationalCommandBuilderFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s31:RelationalCommandBuilderFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s31:RelationalCommandBuilderFactory",P1)
 		return self
 
 	Func getSqlGenerationHelper
-		return dnSend("s3:get",nHandle,"s19:SqlGenerationHelper","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:SqlGenerationHelper"))
 
 	Func setSqlGenerationHelper P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:SqlGenerationHelper",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:SqlGenerationHelper",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:SqlGenerationHelper",P1)
 		return self
 
 
@@ -3225,11 +3183,11 @@ Class QueryTranslationPostprocessor from Object
 		return self
 
 	Func Process P1
-		return dnSend("s4:call",nHandle,"s7:Process",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Process",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -3255,7 +3213,7 @@ Class QueryTranslationPostprocessorDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -3273,14 +3231,14 @@ Class QueryTranslationPreprocessor from Object
 		return self
 
 	Func Process P1
-		return dnSend("s4:call",nHandle,"s7:Process",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Process",P1))
 
 	Func NormalizeQueryableMethod P1
-		return dnSend("s4:call",nHandle,"s24:NormalizeQueryableMethod",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:NormalizeQueryableMethod",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -3303,31 +3261,28 @@ Class QueryTranslationPreprocessorDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getTypeMappingSource
-		return dnSend("s3:get",nHandle,"s17:TypeMappingSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:TypeMappingSource"))
 
 	Func setTypeMappingSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:TypeMappingSource",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
 		return self
 
 	Func getEvaluatableExpressionFilter
-		return dnSend("s3:get",nHandle,"s27:EvaluatableExpressionFilter","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s27:EvaluatableExpressionFilter"))
 
 	Func setEvaluatableExpressionFilter P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s27:EvaluatableExpressionFilter",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s27:EvaluatableExpressionFilter",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s27:EvaluatableExpressionFilter",P1)
 		return self
 
 	Func getNavigationExpansionExtensibilityHelper
-		return dnSend("s3:get",nHandle,"s38:NavigationExpansionExtensibilityHelper","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s38:NavigationExpansionExtensibilityHelper"))
 
 	Func setNavigationExpansionExtensibilityHelper P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s38:NavigationExpansionExtensibilityHelper",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s38:NavigationExpansionExtensibilityHelper",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s38:NavigationExpansionExtensibilityHelper",P1)
 		return self
 
 
@@ -3345,17 +3300,17 @@ Class QueryableMethodTranslatingExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Translate P1
-		return dnSend("s4:call",nHandle,"s9:Translate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1))
 
 	Func TranslateSubquery P1
-		return dnSend("s4:call",nHandle,"s17:TranslateSubquery",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:TranslateSubquery",P1))
 
 	Func Visit P1
-		return dnSend("s4:call",nHandle,"s5:Visit",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
 
 	Func getTranslationErrorDetails
 		dn_x = dotnet_call("s3:get",nHandle,"s23:TranslationErrorDetails")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:TranslationErrorDetails",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTranslationErrorDetails P1
@@ -3384,7 +3339,7 @@ Class QueryableMethodTranslatingExpressionVisitorDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -3459,379 +3414,379 @@ Class QueryableMethods from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsAverageWithoutSelector P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s24:IsAverageWithoutSelector",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s24:IsAverageWithoutSelector",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsAverageWithSelector P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s21:IsAverageWithSelector",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s21:IsAverageWithSelector",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsSumWithoutSelector P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s20:IsSumWithoutSelector",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s20:IsSumWithoutSelector",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsSumWithSelector P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s17:IsSumWithSelector",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s17:IsSumWithSelector",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetAverageWithoutSelector P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s25:GetAverageWithoutSelector",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s25:GetAverageWithoutSelector",P1))
 
 	Func GetAverageWithSelector P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s22:GetAverageWithSelector",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s22:GetAverageWithSelector",P1))
 
 	Func GetSumWithoutSelector P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s21:GetSumWithoutSelector",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s21:GetSumWithoutSelector",P1))
 
 	Func GetSumWithSelector P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s18:GetSumWithSelector",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s18:GetSumWithSelector",P1))
 
 	Func getAll
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s3:All","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s3:All"))
 
 	Func setAll P1
 		raise("DotNet Error: All is a read-only property")
 
 	Func getAnyWithoutPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s19:AnyWithoutPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s19:AnyWithoutPredicate"))
 
 	Func setAnyWithoutPredicate P1
 		raise("DotNet Error: AnyWithoutPredicate is a read-only property")
 
 	Func getAnyWithPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s16:AnyWithPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s16:AnyWithPredicate"))
 
 	Func setAnyWithPredicate P1
 		raise("DotNet Error: AnyWithPredicate is a read-only property")
 
 	Func getAsQueryable
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s11:AsQueryable","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s11:AsQueryable"))
 
 	Func setAsQueryable P1
 		raise("DotNet Error: AsQueryable is a read-only property")
 
 	Func getCast
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s4:Cast","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s4:Cast"))
 
 	Func setCast P1
 		raise("DotNet Error: Cast is a read-only property")
 
 	Func getConcat
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s6:Concat","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s6:Concat"))
 
 	Func setConcat P1
 		raise("DotNet Error: Concat is a read-only property")
 
 	Func getContains
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s8:Contains","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s8:Contains"))
 
 	Func setContains P1
 		raise("DotNet Error: Contains is a read-only property")
 
 	Func getCountWithoutPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s21:CountWithoutPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s21:CountWithoutPredicate"))
 
 	Func setCountWithoutPredicate P1
 		raise("DotNet Error: CountWithoutPredicate is a read-only property")
 
 	Func getCountWithPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s18:CountWithPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s18:CountWithPredicate"))
 
 	Func setCountWithPredicate P1
 		raise("DotNet Error: CountWithPredicate is a read-only property")
 
 	Func getDefaultIfEmptyWithoutArgument
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s29:DefaultIfEmptyWithoutArgument","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s29:DefaultIfEmptyWithoutArgument"))
 
 	Func setDefaultIfEmptyWithoutArgument P1
 		raise("DotNet Error: DefaultIfEmptyWithoutArgument is a read-only property")
 
 	Func getDefaultIfEmptyWithArgument
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s26:DefaultIfEmptyWithArgument","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s26:DefaultIfEmptyWithArgument"))
 
 	Func setDefaultIfEmptyWithArgument P1
 		raise("DotNet Error: DefaultIfEmptyWithArgument is a read-only property")
 
 	Func getDistinct
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s8:Distinct","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s8:Distinct"))
 
 	Func setDistinct P1
 		raise("DotNet Error: Distinct is a read-only property")
 
 	Func getElementAt
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s9:ElementAt","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s9:ElementAt"))
 
 	Func setElementAt P1
 		raise("DotNet Error: ElementAt is a read-only property")
 
 	Func getElementAtOrDefault
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s18:ElementAtOrDefault","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s18:ElementAtOrDefault"))
 
 	Func setElementAtOrDefault P1
 		raise("DotNet Error: ElementAtOrDefault is a read-only property")
 
 	Func getExcept
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s6:Except","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s6:Except"))
 
 	Func setExcept P1
 		raise("DotNet Error: Except is a read-only property")
 
 	Func getFirstWithoutPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s21:FirstWithoutPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s21:FirstWithoutPredicate"))
 
 	Func setFirstWithoutPredicate P1
 		raise("DotNet Error: FirstWithoutPredicate is a read-only property")
 
 	Func getFirstWithPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s18:FirstWithPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s18:FirstWithPredicate"))
 
 	Func setFirstWithPredicate P1
 		raise("DotNet Error: FirstWithPredicate is a read-only property")
 
 	Func getFirstOrDefaultWithoutPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s30:FirstOrDefaultWithoutPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s30:FirstOrDefaultWithoutPredicate"))
 
 	Func setFirstOrDefaultWithoutPredicate P1
 		raise("DotNet Error: FirstOrDefaultWithoutPredicate is a read-only property")
 
 	Func getFirstOrDefaultWithPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s27:FirstOrDefaultWithPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s27:FirstOrDefaultWithPredicate"))
 
 	Func setFirstOrDefaultWithPredicate P1
 		raise("DotNet Error: FirstOrDefaultWithPredicate is a read-only property")
 
 	Func getGroupByWithKeySelector
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s22:GroupByWithKeySelector","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s22:GroupByWithKeySelector"))
 
 	Func setGroupByWithKeySelector P1
 		raise("DotNet Error: GroupByWithKeySelector is a read-only property")
 
 	Func getGroupByWithKeyElementSelector
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s29:GroupByWithKeyElementSelector","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s29:GroupByWithKeyElementSelector"))
 
 	Func setGroupByWithKeyElementSelector P1
 		raise("DotNet Error: GroupByWithKeyElementSelector is a read-only property")
 
 	Func getGroupByWithKeyElementResultSelector
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s35:GroupByWithKeyElementResultSelector","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s35:GroupByWithKeyElementResultSelector"))
 
 	Func setGroupByWithKeyElementResultSelector P1
 		raise("DotNet Error: GroupByWithKeyElementResultSelector is a read-only property")
 
 	Func getGroupByWithKeyResultSelector
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s28:GroupByWithKeyResultSelector","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s28:GroupByWithKeyResultSelector"))
 
 	Func setGroupByWithKeyResultSelector P1
 		raise("DotNet Error: GroupByWithKeyResultSelector is a read-only property")
 
 	Func getGroupJoin
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s9:GroupJoin","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s9:GroupJoin"))
 
 	Func setGroupJoin P1
 		raise("DotNet Error: GroupJoin is a read-only property")
 
 	Func getIntersect
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s9:Intersect","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s9:Intersect"))
 
 	Func setIntersect P1
 		raise("DotNet Error: Intersect is a read-only property")
 
 	Func getJoin
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s4:Join","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s4:Join"))
 
 	Func setJoin P1
 		raise("DotNet Error: Join is a read-only property")
 
 	Func getLastWithoutPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s20:LastWithoutPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s20:LastWithoutPredicate"))
 
 	Func setLastWithoutPredicate P1
 		raise("DotNet Error: LastWithoutPredicate is a read-only property")
 
 	Func getLastWithPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s17:LastWithPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s17:LastWithPredicate"))
 
 	Func setLastWithPredicate P1
 		raise("DotNet Error: LastWithPredicate is a read-only property")
 
 	Func getLastOrDefaultWithoutPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s29:LastOrDefaultWithoutPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s29:LastOrDefaultWithoutPredicate"))
 
 	Func setLastOrDefaultWithoutPredicate P1
 		raise("DotNet Error: LastOrDefaultWithoutPredicate is a read-only property")
 
 	Func getLastOrDefaultWithPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s26:LastOrDefaultWithPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s26:LastOrDefaultWithPredicate"))
 
 	Func setLastOrDefaultWithPredicate P1
 		raise("DotNet Error: LastOrDefaultWithPredicate is a read-only property")
 
 	Func getLongCountWithoutPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s25:LongCountWithoutPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s25:LongCountWithoutPredicate"))
 
 	Func setLongCountWithoutPredicate P1
 		raise("DotNet Error: LongCountWithoutPredicate is a read-only property")
 
 	Func getLongCountWithPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s22:LongCountWithPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s22:LongCountWithPredicate"))
 
 	Func setLongCountWithPredicate P1
 		raise("DotNet Error: LongCountWithPredicate is a read-only property")
 
 	Func getMaxWithoutSelector
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s18:MaxWithoutSelector","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s18:MaxWithoutSelector"))
 
 	Func setMaxWithoutSelector P1
 		raise("DotNet Error: MaxWithoutSelector is a read-only property")
 
 	Func getMaxWithSelector
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s15:MaxWithSelector","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s15:MaxWithSelector"))
 
 	Func setMaxWithSelector P1
 		raise("DotNet Error: MaxWithSelector is a read-only property")
 
 	Func getMinWithoutSelector
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s18:MinWithoutSelector","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s18:MinWithoutSelector"))
 
 	Func setMinWithoutSelector P1
 		raise("DotNet Error: MinWithoutSelector is a read-only property")
 
 	Func getMinWithSelector
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s15:MinWithSelector","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s15:MinWithSelector"))
 
 	Func setMinWithSelector P1
 		raise("DotNet Error: MinWithSelector is a read-only property")
 
 	Func getOfType
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s6:OfType","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s6:OfType"))
 
 	Func setOfType P1
 		raise("DotNet Error: OfType is a read-only property")
 
 	Func getOrder
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s5:Order","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s5:Order"))
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
 
 	Func getOrderBy
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s7:OrderBy","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s7:OrderBy"))
 
 	Func setOrderBy P1
 		raise("DotNet Error: OrderBy is a read-only property")
 
 	Func getOrderByDescending
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s17:OrderByDescending","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s17:OrderByDescending"))
 
 	Func setOrderByDescending P1
 		raise("DotNet Error: OrderByDescending is a read-only property")
 
 	Func getOrderDescending
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s15:OrderDescending","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s15:OrderDescending"))
 
 	Func setOrderDescending P1
 		raise("DotNet Error: OrderDescending is a read-only property")
 
 	Func getReverse
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s7:Reverse","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s7:Reverse"))
 
 	Func setReverse P1
 		raise("DotNet Error: Reverse is a read-only property")
 
 	Func getSelect
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s6:Select","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s6:Select"))
 
 	Func setSelect P1
 		raise("DotNet Error: Select is a read-only property")
 
 	Func getSelectManyWithoutCollectionSelector
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s35:SelectManyWithoutCollectionSelector","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s35:SelectManyWithoutCollectionSelector"))
 
 	Func setSelectManyWithoutCollectionSelector P1
 		raise("DotNet Error: SelectManyWithoutCollectionSelector is a read-only property")
 
 	Func getSelectManyWithCollectionSelector
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s32:SelectManyWithCollectionSelector","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s32:SelectManyWithCollectionSelector"))
 
 	Func setSelectManyWithCollectionSelector P1
 		raise("DotNet Error: SelectManyWithCollectionSelector is a read-only property")
 
 	Func getSingleWithoutPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s22:SingleWithoutPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s22:SingleWithoutPredicate"))
 
 	Func setSingleWithoutPredicate P1
 		raise("DotNet Error: SingleWithoutPredicate is a read-only property")
 
 	Func getSingleWithPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s19:SingleWithPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s19:SingleWithPredicate"))
 
 	Func setSingleWithPredicate P1
 		raise("DotNet Error: SingleWithPredicate is a read-only property")
 
 	Func getSingleOrDefaultWithoutPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s31:SingleOrDefaultWithoutPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s31:SingleOrDefaultWithoutPredicate"))
 
 	Func setSingleOrDefaultWithoutPredicate P1
 		raise("DotNet Error: SingleOrDefaultWithoutPredicate is a read-only property")
 
 	Func getSingleOrDefaultWithPredicate
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s28:SingleOrDefaultWithPredicate","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s28:SingleOrDefaultWithPredicate"))
 
 	Func setSingleOrDefaultWithPredicate P1
 		raise("DotNet Error: SingleOrDefaultWithPredicate is a read-only property")
 
 	Func getSkip
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s4:Skip","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s4:Skip"))
 
 	Func setSkip P1
 		raise("DotNet Error: Skip is a read-only property")
 
 	Func getSkipWhile
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s9:SkipWhile","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s9:SkipWhile"))
 
 	Func setSkipWhile P1
 		raise("DotNet Error: SkipWhile is a read-only property")
 
 	Func getTake
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s4:Take","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s4:Take"))
 
 	Func setTake P1
 		raise("DotNet Error: Take is a read-only property")
 
 	Func getTakeWhile
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s9:TakeWhile","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s9:TakeWhile"))
 
 	Func setTakeWhile P1
 		raise("DotNet Error: TakeWhile is a read-only property")
 
 	Func getThenBy
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s6:ThenBy","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s6:ThenBy"))
 
 	Func setThenBy P1
 		raise("DotNet Error: ThenBy is a read-only property")
 
 	Func getThenByDescending
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s16:ThenByDescending","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s16:ThenByDescending"))
 
 	Func setThenByDescending P1
 		raise("DotNet Error: ThenByDescending is a read-only property")
 
 	Func getUnion
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s5:Union","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s5:Union"))
 
 	Func setUnion P1
 		raise("DotNet Error: Union is a read-only property")
 
 	Func getWhere
-		return dnSend("s3:get",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"s5:Where","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore',"s5:Where"))
 
 	Func setWhere P1
 		raise("DotNet Error: Where is a read-only property")
@@ -3851,11 +3806,11 @@ Class RelationalAggregateMethodCallTranslatorProvider from Object
 		return self
 
 	Func Translate P1,P2,P3,P4,P5
-		return dnSend("s4:call",nHandle,"s9:Translate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4,P5))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -3878,31 +3833,28 @@ Class RelationalAggregateMethodCallTranslatorProviderDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getSqlExpressionFactory
-		return dnSend("s3:get",nHandle,"s20:SqlExpressionFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:SqlExpressionFactory"))
 
 	Func setSqlExpressionFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:SqlExpressionFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:SqlExpressionFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:SqlExpressionFactory",P1)
 		return self
 
 	Func getPlugins
-		return dnSend("s3:get",nHandle,"s7:Plugins","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Plugins"))
 
 	Func setPlugins P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Plugins",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Plugins",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Plugins",P1)
 		return self
 
 	Func getRelationalTypeMappingSource
-		return dnSend("s3:get",nHandle,"s27:RelationalTypeMappingSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s27:RelationalTypeMappingSource"))
 
 	Func setRelationalTypeMappingSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s27:RelationalTypeMappingSource",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s27:RelationalTypeMappingSource",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s27:RelationalTypeMappingSource",P1)
 		return self
 
 
@@ -3930,58 +3882,58 @@ Class RelationalCollectionShaperExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3,P4))
 
 	Func getParentIdentifier
-		return dnSend("s3:get",nHandle,"s16:ParentIdentifier","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ParentIdentifier"))
 
 	Func setParentIdentifier P1
 		raise("DotNet Error: ParentIdentifier is a read-only property")
 
 	Func getOuterIdentifier
-		return dnSend("s3:get",nHandle,"s15:OuterIdentifier","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:OuterIdentifier"))
 
 	Func setOuterIdentifier P1
 		raise("DotNet Error: OuterIdentifier is a read-only property")
 
 	Func getSelfIdentifier
-		return dnSend("s3:get",nHandle,"s14:SelfIdentifier","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:SelfIdentifier"))
 
 	Func setSelfIdentifier P1
 		raise("DotNet Error: SelfIdentifier is a read-only property")
 
 	Func getParentIdentifierValueComparers
-		return dnSend("s3:get",nHandle,"s30:ParentIdentifierValueComparers","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s30:ParentIdentifierValueComparers"))
 
 	Func setParentIdentifierValueComparers P1
 		raise("DotNet Error: ParentIdentifierValueComparers is a read-only property")
 
 	Func getOuterIdentifierValueComparers
-		return dnSend("s3:get",nHandle,"s29:OuterIdentifierValueComparers","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s29:OuterIdentifierValueComparers"))
 
 	Func setOuterIdentifierValueComparers P1
 		raise("DotNet Error: OuterIdentifierValueComparers is a read-only property")
 
 	Func getSelfIdentifierValueComparers
-		return dnSend("s3:get",nHandle,"s28:SelfIdentifierValueComparers","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s28:SelfIdentifierValueComparers"))
 
 	Func setSelfIdentifierValueComparers P1
 		raise("DotNet Error: SelfIdentifierValueComparers is a read-only property")
 
 	Func getInnerShaper
-		return dnSend("s3:get",nHandle,"s11:InnerShaper","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:InnerShaper"))
 
 	Func setInnerShaper P1
 		raise("DotNet Error: InnerShaper is a read-only property")
 
 	Func getNavigation
-		return dnSend("s3:get",nHandle,"s10:Navigation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Navigation"))
 
 	Func setNavigation P1
 		raise("DotNet Error: Navigation is a read-only property")
 
 	Func getElementType
-		return dnSend("s3:get",nHandle,"s11:ElementType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ElementType"))
 
 	Func setElementType P1
 		raise("DotNet Error: ElementType is a read-only property")
@@ -4004,15 +3956,14 @@ Class RelationalCompiledQueryCacheKeyGeneratorDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getContextOptions
-		return dnSend("s3:get",nHandle,"s14:ContextOptions","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ContextOptions"))
 
 	Func setContextOptions P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:ContextOptions",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:ContextOptions",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:ContextOptions",P1)
 		return self
 
 
@@ -4038,7 +3989,7 @@ Class RelationalEvaluatableExpressionFilterDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -4055,23 +4006,23 @@ Class RelationalExpressionQuotingUtilities from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func QuoteOrNull P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational'),"s11:QuoteOrNull",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational',"s11:QuoteOrNull",P1))
 
 	Func QuoteTypeMapping P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational'),"s16:QuoteTypeMapping",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational',"s16:QuoteTypeMapping",P1))
 
 	Func QuoteTableBase P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational'),"s14:QuoteTableBase",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational',"s14:QuoteTableBase",P1))
 
 	Func QuoteTags P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational'),"s9:QuoteTags",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational',"s9:QuoteTags",P1))
 
 	Func QuoteAnnotations P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational'),"s16:QuoteAnnotations",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational',"s16:QuoteAnnotations",P1))
 
 
 Class RelationalGroupByResultExpression from ExpressionsExpression
@@ -4093,28 +4044,28 @@ Class RelationalGroupByResultExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3))
 
 	Func getKeyIdentifier
-		return dnSend("s3:get",nHandle,"s13:KeyIdentifier","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:KeyIdentifier"))
 
 	Func setKeyIdentifier P1
 		raise("DotNet Error: KeyIdentifier is a read-only property")
 
 	Func getKeyIdentifierValueComparers
-		return dnSend("s3:get",nHandle,"s27:KeyIdentifierValueComparers","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s27:KeyIdentifierValueComparers"))
 
 	Func setKeyIdentifierValueComparers P1
 		raise("DotNet Error: KeyIdentifierValueComparers is a read-only property")
 
 	Func getKeyShaper
-		return dnSend("s3:get",nHandle,"s9:KeyShaper","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyShaper"))
 
 	Func setKeyShaper P1
 		raise("DotNet Error: KeyShaper is a read-only property")
 
 	Func getElementShaper
-		return dnSend("s3:get",nHandle,"s13:ElementShaper","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ElementShaper"))
 
 	Func setElementShaper P1
 		raise("DotNet Error: ElementShaper is a read-only property")
@@ -4142,7 +4093,7 @@ Class RelationalLiftableConstantExpressionDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -4160,11 +4111,11 @@ Class RelationalMemberTranslatorProvider from Object
 		return self
 
 	Func Translate P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s9:Translate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -4186,23 +4137,21 @@ Class RelationalMemberTranslatorProviderDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getSqlExpressionFactory
-		return dnSend("s3:get",nHandle,"s20:SqlExpressionFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:SqlExpressionFactory"))
 
 	Func setSqlExpressionFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:SqlExpressionFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:SqlExpressionFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:SqlExpressionFactory",P1)
 		return self
 
 	Func getPlugins
-		return dnSend("s3:get",nHandle,"s7:Plugins","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Plugins"))
 
 	Func setPlugins P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Plugins",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Plugins",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Plugins",P1)
 		return self
 
 
@@ -4220,11 +4169,11 @@ Class RelationalMethodCallTranslatorProvider from Object
 		return self
 
 	Func Translate P1,P2,P3,P4,P5
-		return dnSend("s4:call",nHandle,"s9:Translate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4,P5))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -4247,31 +4196,28 @@ Class RelationalMethodCallTranslatorProviderDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getSqlExpressionFactory
-		return dnSend("s3:get",nHandle,"s20:SqlExpressionFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:SqlExpressionFactory"))
 
 	Func setSqlExpressionFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:SqlExpressionFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:SqlExpressionFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:SqlExpressionFactory",P1)
 		return self
 
 	Func getPlugins
-		return dnSend("s3:get",nHandle,"s7:Plugins","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Plugins"))
 
 	Func setPlugins P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Plugins",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Plugins",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Plugins",P1)
 		return self
 
 	Func getRelationalTypeMappingSource
-		return dnSend("s3:get",nHandle,"s27:RelationalTypeMappingSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s27:RelationalTypeMappingSource"))
 
 	Func setRelationalTypeMappingSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s27:RelationalTypeMappingSource",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s27:RelationalTypeMappingSource",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s27:RelationalTypeMappingSource",P1)
 		return self
 
 
@@ -4293,7 +4239,7 @@ Class RelationalParameterBasedSqlProcessor from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -4316,31 +4262,28 @@ Class RelationalParameterBasedSqlProcessorDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getSqlExpressionFactory
-		return dnSend("s3:get",nHandle,"s20:SqlExpressionFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:SqlExpressionFactory"))
 
 	Func setSqlExpressionFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:SqlExpressionFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:SqlExpressionFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:SqlExpressionFactory",P1)
 		return self
 
 	Func getTypeMappingSource
-		return dnSend("s3:get",nHandle,"s17:TypeMappingSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:TypeMappingSource"))
 
 	Func setTypeMappingSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:TypeMappingSource",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
 		return self
 
 	Func getParameterNameGeneratorFactory
-		return dnSend("s3:get",nHandle,"s29:ParameterNameGeneratorFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s29:ParameterNameGeneratorFactory"))
 
 	Func setParameterNameGeneratorFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s29:ParameterNameGeneratorFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s29:ParameterNameGeneratorFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s29:ParameterNameGeneratorFactory",P1)
 		return self
 
 
@@ -4362,25 +4305,23 @@ Class RelationalParameterBasedSqlProcessorParameters from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getUseRelationalNulls
 		dn_x = dotnet_call("s3:get",nHandle,"s18:UseRelationalNulls")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:UseRelationalNulls",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUseRelationalNulls P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:UseRelationalNulls",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:UseRelationalNulls",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:UseRelationalNulls",P1)
 		return self
 
 	Func getParametersToConstantize
-		return dnSend("s3:get",nHandle,"s23:ParametersToConstantize","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:ParametersToConstantize"))
 
 	Func setParametersToConstantize P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:ParametersToConstantize",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:ParametersToConstantize",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:ParametersToConstantize",P1)
 		return self
 
 
@@ -4401,15 +4342,14 @@ Class RelationalQueryCompilationContextDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getSqlAliasManagerFactory
-		return dnSend("s3:get",nHandle,"s22:SqlAliasManagerFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:SqlAliasManagerFactory"))
 
 	Func setSqlAliasManagerFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:SqlAliasManagerFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:SqlAliasManagerFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:SqlAliasManagerFactory",P1)
 		return self
 
 
@@ -4431,23 +4371,21 @@ Class RelationalQueryContextDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getRelationalConnection
-		return dnSend("s3:get",nHandle,"s20:RelationalConnection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:RelationalConnection"))
 
 	Func setRelationalConnection P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:RelationalConnection",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:RelationalConnection",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:RelationalConnection",P1)
 		return self
 
 	Func getRelationalQueryStringFactory
-		return dnSend("s3:get",nHandle,"s28:RelationalQueryStringFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s28:RelationalQueryStringFactory"))
 
 	Func setRelationalQueryStringFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s28:RelationalQueryStringFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s28:RelationalQueryStringFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s28:RelationalQueryStringFactory",P1)
 		return self
 
 
@@ -4469,23 +4407,21 @@ Class RelationalQueryTranslationPostprocessorDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getSqlExpressionFactory
-		return dnSend("s3:get",nHandle,"s20:SqlExpressionFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:SqlExpressionFactory"))
 
 	Func setSqlExpressionFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:SqlExpressionFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:SqlExpressionFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:SqlExpressionFactory",P1)
 		return self
 
 	Func getTypeMappingSource
-		return dnSend("s3:get",nHandle,"s17:TypeMappingSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:TypeMappingSource"))
 
 	Func setTypeMappingSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:TypeMappingSource",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
 		return self
 
 
@@ -4506,15 +4442,14 @@ Class RelationalQueryTranslationPreprocessorDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getRelationalTypeMappingSource
-		return dnSend("s3:get",nHandle,"s27:RelationalTypeMappingSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s27:RelationalTypeMappingSource"))
 
 	Func setRelationalTypeMappingSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s27:RelationalTypeMappingSource",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s27:RelationalTypeMappingSource",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s27:RelationalTypeMappingSource",P1)
 		return self
 
 
@@ -4538,39 +4473,35 @@ Class RelationalQueryableMethodTranslatingExpressionVisitorDependencies from Obj
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getRelationalSqlTranslatingExpressionVisitorFactory
-		return dnSend("s3:get",nHandle,"s48:RelationalSqlTranslatingExpressionVisitorFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s48:RelationalSqlTranslatingExpressionVisitorFactory"))
 
 	Func setRelationalSqlTranslatingExpressionVisitorFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s48:RelationalSqlTranslatingExpressionVisitorFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s48:RelationalSqlTranslatingExpressionVisitorFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s48:RelationalSqlTranslatingExpressionVisitorFactory",P1)
 		return self
 
 	Func getSqlExpressionFactory
-		return dnSend("s3:get",nHandle,"s20:SqlExpressionFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:SqlExpressionFactory"))
 
 	Func setSqlExpressionFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:SqlExpressionFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:SqlExpressionFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:SqlExpressionFactory",P1)
 		return self
 
 	Func getTypeMappingSource
-		return dnSend("s3:get",nHandle,"s17:TypeMappingSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:TypeMappingSource"))
 
 	Func setTypeMappingSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:TypeMappingSource",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
 		return self
 
 	Func getModel
-		return dnSend("s3:get",nHandle,"s5:Model","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
 	Func setModel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Model",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Model",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Model",P1)
 		return self
 
 
@@ -4593,31 +4524,28 @@ Class RelationalShapedQueryCompilingExpressionVisitorDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getQuerySqlGeneratorFactory
-		return dnSend("s3:get",nHandle,"s24:QuerySqlGeneratorFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:QuerySqlGeneratorFactory"))
 
 	Func setQuerySqlGeneratorFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:QuerySqlGeneratorFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:QuerySqlGeneratorFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:QuerySqlGeneratorFactory",P1)
 		return self
 
 	Func getRelationalParameterBasedSqlProcessorFactory
-		return dnSend("s3:get",nHandle,"s43:RelationalParameterBasedSqlProcessorFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s43:RelationalParameterBasedSqlProcessorFactory"))
 
 	Func setRelationalParameterBasedSqlProcessorFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s43:RelationalParameterBasedSqlProcessorFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s43:RelationalParameterBasedSqlProcessorFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s43:RelationalParameterBasedSqlProcessorFactory",P1)
 		return self
 
 	Func getRelationalLiftableConstantFactory
-		return dnSend("s3:get",nHandle,"s33:RelationalLiftableConstantFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s33:RelationalLiftableConstantFactory"))
 
 	Func setRelationalLiftableConstantFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s33:RelationalLiftableConstantFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s33:RelationalLiftableConstantFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s33:RelationalLiftableConstantFactory",P1)
 		return self
 
 
@@ -4643,46 +4571,46 @@ Class RelationalSplitCollectionShaperExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3,P4))
 
 	Func getParentIdentifier
-		return dnSend("s3:get",nHandle,"s16:ParentIdentifier","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ParentIdentifier"))
 
 	Func setParentIdentifier P1
 		raise("DotNet Error: ParentIdentifier is a read-only property")
 
 	Func getChildIdentifier
-		return dnSend("s3:get",nHandle,"s15:ChildIdentifier","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ChildIdentifier"))
 
 	Func setChildIdentifier P1
 		raise("DotNet Error: ChildIdentifier is a read-only property")
 
 	Func getIdentifierValueComparers
-		return dnSend("s3:get",nHandle,"s24:IdentifierValueComparers","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:IdentifierValueComparers"))
 
 	Func setIdentifierValueComparers P1
 		raise("DotNet Error: IdentifierValueComparers is a read-only property")
 
 	Func getSelectExpression
-		return dnSend("s3:get",nHandle,"s16:SelectExpression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:SelectExpression"))
 
 	Func setSelectExpression P1
 		raise("DotNet Error: SelectExpression is a read-only property")
 
 	Func getInnerShaper
-		return dnSend("s3:get",nHandle,"s11:InnerShaper","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:InnerShaper"))
 
 	Func setInnerShaper P1
 		raise("DotNet Error: InnerShaper is a read-only property")
 
 	Func getNavigation
-		return dnSend("s3:get",nHandle,"s10:Navigation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Navigation"))
 
 	Func setNavigation P1
 		raise("DotNet Error: Navigation is a read-only property")
 
 	Func getElementType
-		return dnSend("s3:get",nHandle,"s11:ElementType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ElementType"))
 
 	Func setElementType P1
 		raise("DotNet Error: ElementType is a read-only property")
@@ -4707,35 +4635,35 @@ Class RelationalSqlTranslatingExpressionVisitor from ExpressionVisitor
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s9:Translate",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s9:Translate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1))
 
 	Func TranslateProjection P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s19:TranslateProjection",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s19:TranslateProjection",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TranslateProjection",P1))
 
 	Func TryBindMember P1,P2
 		return dnSend("s4:call",nHandle,"s13:TryBindMember",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GenerateGreatest P1,P2
-		return dnSend("s4:call",nHandle,"s16:GenerateGreatest",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GenerateGreatest",P1,P2))
 
 	Func GenerateLeast P1,P2
-		return dnSend("s4:call",nHandle,"s13:GenerateLeast",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GenerateLeast",P1,P2))
 
 	Func Visit P1
-		return dnSend("s4:call",nHandle,"s5:Visit",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
 
 	Func ParameterValueExtractor P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"s23:ParameterValueExtractor",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s23:ParameterValueExtractor",P1,P2,P3,P4))
 
 	Func ParameterListValueExtractor P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"s27:ParameterListValueExtractor",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s27:ParameterListValueExtractor",P1,P2,P3))
 
 	Func getTranslationErrorDetails
 		dn_x = dotnet_call("s3:get",nHandle,"s23:TranslationErrorDetails")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:TranslationErrorDetails",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTranslationErrorDetails P1
@@ -4764,51 +4692,46 @@ Class RelationalSqlTranslatingExpressionVisitorDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getSqlExpressionFactory
-		return dnSend("s3:get",nHandle,"s20:SqlExpressionFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:SqlExpressionFactory"))
 
 	Func setSqlExpressionFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:SqlExpressionFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:SqlExpressionFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:SqlExpressionFactory",P1)
 		return self
 
 	Func getModel
-		return dnSend("s3:get",nHandle,"s5:Model","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
 	Func setModel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Model",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Model",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Model",P1)
 		return self
 
 	Func getTypeMappingSource
-		return dnSend("s3:get",nHandle,"s17:TypeMappingSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:TypeMappingSource"))
 
 	Func setTypeMappingSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:TypeMappingSource",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
 		return self
 
 	Func getMemberTranslatorProvider
-		return dnSend("s3:get",nHandle,"s24:MemberTranslatorProvider","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:MemberTranslatorProvider"))
 
 	Func setMemberTranslatorProvider P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:MemberTranslatorProvider",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:MemberTranslatorProvider",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:MemberTranslatorProvider",P1)
 		return self
 
 	Func getMethodCallTranslatorProvider
-		return dnSend("s3:get",nHandle,"s28:MethodCallTranslatorProvider","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s28:MethodCallTranslatorProvider"))
 
 	Func setMethodCallTranslatorProvider P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s28:MethodCallTranslatorProvider",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s28:MethodCallTranslatorProvider",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s28:MethodCallTranslatorProvider",P1)
 		return self
 
 	Func getAggregateMethodCallTranslatorProvider
-		return dnSend("s3:get",nHandle,"s37:AggregateMethodCallTranslatorProvider","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s37:AggregateMethodCallTranslatorProvider"))
 
 	Func setAggregateMethodCallTranslatorProvider P1
 		raise("DotNet Error: AggregateMethodCallTranslatorProvider is a read-only property")
@@ -4828,11 +4751,11 @@ Class RelationalSqlTranslatingExpressionVisitorFactory from Object
 		return self
 
 	Func Create P1,P2
-		return dnSend("s4:call",nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1,P2))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -4850,10 +4773,10 @@ Class RelationalTypeMappingPostprocessor from ExpressionVisitor
 		return self
 
 	Func Process P1
-		return dnSend("s4:call",nHandle,"s7:Process",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Process",P1))
 
 	Func Visit P1
-		return dnSend("s4:call",nHandle,"s5:Visit",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
 
 
 Class ReplacingExpressionVisitor from ExpressionVisitor
@@ -4870,10 +4793,10 @@ Class ReplacingExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Visit P1
-		return dnSend("s4:call",nHandle,"s5:Visit",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
 
 	Func Replace P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ReplacingExpressionVisitor, Microsoft.EntityFrameworkCore'),"s7:Replace",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.ReplacingExpressionVisitor, Microsoft.EntityFrameworkCore',"s7:Replace",P1,P2,P3))
 
 
 Class ShapedQueryCompilingExpressionVisitor from ExpressionVisitor
@@ -4888,22 +4811,22 @@ Class ShapedQueryCompilingExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Visit P1
-		return dnSend("s4:call",nHandle,"s5:Visit",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
 
 	Func SingleAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"s11:SingleAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"s11:SingleAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore',"s11:SingleAsync",P1))
 
 	Func SingleOrDefaultAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"s20:SingleOrDefaultAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"s20:SingleOrDefaultAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore',"s20:SingleOrDefaultAsync",P1))
 
 	Func CreateNullKeyValueInNoTrackingQuery P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"s35:CreateNullKeyValueInNoTrackingQuery",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore',"s35:CreateNullKeyValueInNoTrackingQuery",P1,P2,P3))
 
 
 Class ShapedQueryCompilingExpressionVisitorDependencies from Object
@@ -4931,79 +4854,70 @@ Class ShapedQueryCompilingExpressionVisitorDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getEntityMaterializerSource
-		return dnSend("s3:get",nHandle,"s24:EntityMaterializerSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:EntityMaterializerSource"))
 
 	Func setEntityMaterializerSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:EntityMaterializerSource",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:EntityMaterializerSource",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:EntityMaterializerSource",P1)
 		return self
 
 	Func getTypeMappingSource
-		return dnSend("s3:get",nHandle,"s17:TypeMappingSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:TypeMappingSource"))
 
 	Func setTypeMappingSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:TypeMappingSource",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
 		return self
 
 	Func getMemoryCache
-		return dnSend("s3:get",nHandle,"s11:MemoryCache","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:MemoryCache"))
 
 	Func setMemoryCache P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:MemoryCache",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:MemoryCache",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:MemoryCache",P1)
 		return self
 
 	Func getCoreSingletonOptions
-		return dnSend("s3:get",nHandle,"s20:CoreSingletonOptions","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:CoreSingletonOptions"))
 
 	Func setCoreSingletonOptions P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:CoreSingletonOptions",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:CoreSingletonOptions",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:CoreSingletonOptions",P1)
 		return self
 
 	Func getModel
-		return dnSend("s3:get",nHandle,"s5:Model","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
 	Func setModel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Model",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Model",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Model",P1)
 		return self
 
 	Func getLiftableConstantFactory
-		return dnSend("s3:get",nHandle,"s23:LiftableConstantFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:LiftableConstantFactory"))
 
 	Func setLiftableConstantFactory P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:LiftableConstantFactory",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:LiftableConstantFactory",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:LiftableConstantFactory",P1)
 		return self
 
 	Func getQueryLogger
-		return dnSend("s3:get",nHandle,"s11:QueryLogger","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:QueryLogger"))
 
 	Func setQueryLogger P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:QueryLogger",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:QueryLogger",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:QueryLogger",P1)
 		return self
 
 	Func getSingletonInterceptors
-		return dnSend("s3:get",nHandle,"s21:SingletonInterceptors","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:SingletonInterceptors"))
 
 	Func setSingletonInterceptors P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:SingletonInterceptors",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:SingletonInterceptors",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:SingletonInterceptors",P1)
 		return self
 
 	Func getContextServices
-		return dnSend("s3:get",nHandle,"s15:ContextServices","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ContextServices"))
 
 	Func setContextServices P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:ContextServices",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ContextServices",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:ContextServices",P1)
 		return self
 
 
@@ -5025,31 +4939,31 @@ Class ShapedQueryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
 
 	Func UpdateQueryExpression P1
-		return dnSend("s4:call",nHandle,"s21:UpdateQueryExpression",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UpdateQueryExpression",P1))
 
 	Func UpdateShaperExpression P1
-		return dnSend("s4:call",nHandle,"s22:UpdateShaperExpression",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:UpdateShaperExpression",P1))
 
 	Func UpdateResultCardinality P1
-		return dnSend("s4:call",nHandle,"s23:UpdateResultCardinality",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:UpdateResultCardinality",P1))
 
 	Func getQueryExpression
-		return dnSend("s3:get",nHandle,"s15:QueryExpression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:QueryExpression"))
 
 	Func setQueryExpression P1
 		raise("DotNet Error: QueryExpression is a read-only property")
 
 	Func getResultCardinality
-		return dnSend("s3:get",nHandle,"s17:ResultCardinality","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ResultCardinality"))
 
 	Func setResultCardinality P1
 		raise("DotNet Error: ResultCardinality is a read-only property")
 
 	Func getShaperExpression
-		return dnSend("s3:get",nHandle,"s16:ShaperExpression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ShaperExpression"))
 
 	Func setShaperExpression P1
 		raise("DotNet Error: ShaperExpression is a read-only property")
@@ -5077,15 +4991,15 @@ Class SqlAliasManager from Object
 
 	Func GenerateTableAlias P1
 		dn_x = dotnet_call("s4:call",nHandle,"s18:GenerateTableAlias",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s18:GenerateTableAlias",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PostprocessAliases P1
-		return dnSend("s4:call",nHandle,"s18:PostprocessAliases",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:PostprocessAliases",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -5110,11 +5024,11 @@ Class SqlAliasManagerFactory from Object
 		return self
 
 	Func Create 
-		return dnSend("s4:call",nHandle,"s6:Create","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -5132,10 +5046,10 @@ Class SqlExpressionFactory from Object
 		return self
 
 	Func ApplyDefaultTypeMapping P1
-		return dnSend("s4:call",nHandle,"s23:ApplyDefaultTypeMapping",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ApplyDefaultTypeMapping",P1))
 
 	Func ApplyTypeMapping P1,P2
-		return dnSend("s4:call",nHandle,"s16:ApplyTypeMapping",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ApplyTypeMapping",P1,P2))
 
 	Func MakeBinary P1
 		if dnIsNamed(P1)
@@ -5144,28 +5058,28 @@ Class SqlExpressionFactory from Object
 		raise("DotNet Error: MakeBinary does not take one argument: use named arguments, MakeBinary([ :parameter = value, ... ])")
 
 	Func Equal P1,P2
-		return dnSend("s4:call",nHandle,"s5:Equal",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Equal",P1,P2))
 
 	Func NotEqual P1,P2
-		return dnSend("s4:call",nHandle,"s8:NotEqual",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:NotEqual",P1,P2))
 
 	Func GreaterThan P1,P2
-		return dnSend("s4:call",nHandle,"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GreaterThan",P1,P2))
 
 	Func GreaterThanOrEqual P1,P2
-		return dnSend("s4:call",nHandle,"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GreaterThanOrEqual",P1,P2))
 
 	Func LessThan P1,P2
-		return dnSend("s4:call",nHandle,"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:LessThan",P1,P2))
 
 	Func LessThanOrEqual P1,P2
-		return dnSend("s4:call",nHandle,"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:LessThanOrEqual",P1,P2))
 
 	Func AndAlso P1,P2
-		return dnSend("s4:call",nHandle,"s7:AndAlso",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AndAlso",P1,P2))
 
 	Func OrElse P1,P2
-		return dnSend("s4:call",nHandle,"s6:OrElse",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:OrElse",P1,P2))
 
 	Func Add P1
 		if dnIsNamed(P1)
@@ -5222,7 +5136,7 @@ Class SqlExpressionFactory from Object
 		raise("DotNet Error: MakeUnary does not take one argument: use named arguments, MakeUnary([ :parameter = value, ... ])")
 
 	Func IsNotNull P1
-		return dnSend("s4:call",nHandle,"s9:IsNotNull",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:IsNotNull",P1))
 
 	Func Convert P1
 		if dnIsNamed(P1)
@@ -5231,10 +5145,10 @@ Class SqlExpressionFactory from Object
 		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
 	Func Not_ P1
-		return dnSend("s4:call",nHandle,"s3:Not",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Not",P1))
 
 	Func Negate P1
-		return dnSend("s4:call",nHandle,"s6:Negate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Negate",P1))
 
 	Func Case_ P1
 		if dnIsNamed(P1)
@@ -5255,10 +5169,10 @@ Class SqlExpressionFactory from Object
 		raise("DotNet Error: NiladicFunction does not take one argument: use named arguments, NiladicFunction([ :parameter = value, ... ])")
 
 	Func Exists P1
-		return dnSend("s4:call",nHandle,"s6:Exists",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Exists",P1))
 
 	Func In P1,P2
-		return dnSend("s4:call",nHandle,"s2:In",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s2:In",P1,P2))
 
 	Func Like P1
 		if dnIsNamed(P1)
@@ -5267,17 +5181,17 @@ Class SqlExpressionFactory from Object
 		raise("DotNet Error: Like does not take one argument: use named arguments, Like([ :parameter = value, ... ])")
 
 	Func Fragment P1
-		return dnSend("s4:call",nHandle,"s8:Fragment",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Fragment",P1))
 
 	Func Constant P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:Constant",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s8:Constant",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Constant",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -5299,23 +5213,21 @@ Class SqlExpressionFactoryDependencies from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getTypeMappingSource
-		return dnSend("s3:get",nHandle,"s17:TypeMappingSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:TypeMappingSource"))
 
 	Func setTypeMappingSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:TypeMappingSource",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
 		return self
 
 	Func getModel
-		return dnSend("s3:get",nHandle,"s5:Model","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
 	Func setModel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Model",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Model",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Model",P1)
 		return self
 
 
@@ -5331,7 +5243,7 @@ Class SqlExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Visit P1
-		return dnSend("s4:call",nHandle,"s5:Visit",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
 
 
 Class SqlNullabilityProcessor from Object
@@ -5352,7 +5264,7 @@ Class SqlNullabilityProcessor from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -5377,10 +5289,10 @@ Class SqlTreePruner from ExpressionVisitor
 		return self
 
 	Func Prune P1
-		return dnSend("s4:call",nHandle,"s5:Prune",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Prune",P1))
 
 	Func Visit P1
-		return dnSend("s4:call",nHandle,"s5:Visit",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
 
 
 Class StructuralTypeProjectionExpression from ExpressionsExpression
@@ -5417,51 +5329,50 @@ Class StructuralTypeProjectionExpression from ExpressionsExpression
 		return self
 
 	Func MakeNullable 
-		return dnSend("s4:call",nHandle,"s12:MakeNullable","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:MakeNullable"))
 
 	Func UpdateEntityType P1
-		return dnSend("s4:call",nHandle,"s16:UpdateEntityType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:UpdateEntityType",P1))
 
 	Func UpdateTableMap P1
-		return dnSend("s4:call",nHandle,"s14:UpdateTableMap",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UpdateTableMap",P1))
 
 	Func BindProperty P1
-		return dnSend("s4:call",nHandle,"s12:BindProperty",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:BindProperty",P1))
 
 	Func BindComplexProperty P1
-		return dnSend("s4:call",nHandle,"s19:BindComplexProperty",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:BindComplexProperty",P1))
 
 	Func AddNavigationBinding P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s20:AddNavigationBinding",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s20:AddNavigationBinding",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s20:AddNavigationBinding",P1,P2)
 
 		return self
 
 	Func BindNavigation P1
-		return dnSend("s4:call",nHandle,"s14:BindNavigation",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:BindNavigation",P1))
 
 	Func getStructuralType
-		return dnSend("s3:get",nHandle,"s14:StructuralType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:StructuralType"))
 
 	Func setStructuralType P1
 		raise("DotNet Error: StructuralType is a read-only property")
 
 	Func getTableMap
-		return dnSend("s3:get",nHandle,"s8:TableMap","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:TableMap"))
 
 	Func setTableMap P1
 		raise("DotNet Error: TableMap is a read-only property")
 
 	Func getIsNullable
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsNullable",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getDiscriminatorExpression
-		return dnSend("s3:get",nHandle,"s23:DiscriminatorExpression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:DiscriminatorExpression"))
 
 	Func setDiscriminatorExpression P1
 		raise("DotNet Error: DiscriminatorExpression is a read-only property")
@@ -5486,50 +5397,50 @@ Class StructuralTypeShaperExpression from ExpressionsExpression
 		return self
 
 	Func WithType P1
-		return dnSend("s4:call",nHandle,"s8:WithType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:WithType",P1))
 
 	Func MakeNullable P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s12:MakeNullable",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s12:MakeNullable","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:MakeNullable"))
 		ok
-		return dnSend("s4:call",nHandle,"s12:MakeNullable",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:MakeNullable",P1))
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func DebuggerDisplay 
 		dn_x = dotnet_call("s4:call",nHandle,"s15:DebuggerDisplay")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:DebuggerDisplay",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CreateUnableToDiscriminateException P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.StructuralTypeShaperExpression, Microsoft.EntityFrameworkCore'),"s35:CreateUnableToDiscriminateException",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.StructuralTypeShaperExpression, Microsoft.EntityFrameworkCore',"s35:CreateUnableToDiscriminateException",P1,P2))
 
 	Func getStructuralType
-		return dnSend("s3:get",nHandle,"s14:StructuralType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:StructuralType"))
 
 	Func setStructuralType P1
 		raise("DotNet Error: StructuralType is a read-only property")
 
 	Func getValueBufferExpression
-		return dnSend("s3:get",nHandle,"s21:ValueBufferExpression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:ValueBufferExpression"))
 
 	Func setValueBufferExpression P1
 		raise("DotNet Error: ValueBufferExpression is a read-only property")
 
 	Func getIsNullable
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsNullable",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getMaterializationCondition
-		return dnSend("s3:get",nHandle,"s24:MaterializationCondition","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:MaterializationCondition"))
 
 	Func setMaterializationCondition P1
 		raise("DotNet Error: MaterializationCondition is a read-only property")
@@ -5548,11 +5459,11 @@ Class TransparentIdentifierFactory from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Create P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.TransparentIdentifierFactory, Microsoft.EntityFrameworkCore'),"s6:Create",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.TransparentIdentifierFactory, Microsoft.EntityFrameworkCore',"s6:Create",P1,P2))
 
 
 Class EntityQueryRootExpression from QueryRootExpression
@@ -5586,10 +5497,10 @@ Class EntityQueryRootExpression from QueryRootExpression
 		return self
 
 	Func UpdateEntityType P1
-		return dnSend("s4:call",nHandle,"s16:UpdateEntityType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:UpdateEntityType",P1))
 
 	Func getEntityType
-		return dnSend("s3:get",nHandle,"s10:EntityType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
@@ -5626,10 +5537,10 @@ Class InlineQueryRootExpression from QueryRootExpression
 		return self
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func getValues
-		return dnSend("s3:get",nHandle,"s6:Values","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Values"))
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
@@ -5666,7 +5577,7 @@ Class ParameterQueryRootExpression from QueryRootExpression
 		return self
 
 	Func getParameterExpression
-		return dnSend("s3:get",nHandle,"s19:ParameterExpression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ParameterExpression"))
 
 	Func setParameterExpression P1
 		raise("DotNet Error: ParameterExpression is a read-only property")
@@ -5686,7 +5597,7 @@ Class QuerySqlGenerator from SqlExpressionVisitor
 		return self
 
 	Func GetCommand P1
-		return dnSend("s4:call",nHandle,"s10:GetCommand",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetCommand",P1))
 
 
 Class RelationalCompiledQueryCacheKeyGenerator from CompiledQueryCacheKeyGenerator
@@ -5733,7 +5644,7 @@ Class RelationalGroupByShaperExpression from GroupByShaperExpression
 		return self
 
 	Func getElementSelector
-		return dnSend("s3:get",nHandle,"s15:ElementSelector","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ElementSelector"))
 
 	Func setElementSelector P1
 		raise("DotNet Error: ElementSelector is a read-only property")
@@ -5755,7 +5666,7 @@ Class RelationalLiftableConstantFactory from LiftableConstantFactory
 		return self
 
 	Func getRelationalDependencies
-		return dnSend("s3:get",nHandle,"s22:RelationalDependencies","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:RelationalDependencies"))
 
 	Func setRelationalDependencies P1
 		raise("DotNet Error: RelationalDependencies is a read-only property")
@@ -5792,19 +5703,17 @@ Class RelationalMaterializerLiftableConstantContext from MaterializerLiftableCon
 		return self
 
 	Func getRelationalDependencies
-		return dnSend("s3:get",nHandle,"s22:RelationalDependencies","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:RelationalDependencies"))
 
 	Func setRelationalDependencies P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:RelationalDependencies",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:RelationalDependencies",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:RelationalDependencies",P1)
 		return self
 
 	Func getCommandBuilderDependencies
-		return dnSend("s3:get",nHandle,"s26:CommandBuilderDependencies","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s26:CommandBuilderDependencies"))
 
 	Func setCommandBuilderDependencies P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s26:CommandBuilderDependencies",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s26:CommandBuilderDependencies",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s26:CommandBuilderDependencies",P1)
 		return self
 
 
@@ -5840,13 +5749,13 @@ Class RelationalQueryCompilationContext from QueryCompilationContext
 		return self
 
 	Func getQuerySplittingBehavior
-		return dnSend("s3:get",nHandle,"s22:QuerySplittingBehavior","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:QuerySplittingBehavior"))
 
 	Func setQuerySplittingBehavior P1
 		raise("DotNet Error: QuerySplittingBehavior is a read-only property")
 
 	Func getSqlAliasManager
-		return dnSend("s3:get",nHandle,"s15:SqlAliasManager","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:SqlAliasManager"))
 
 	Func setSqlAliasManager P1
 		raise("DotNet Error: SqlAliasManager is a read-only property")
@@ -5869,13 +5778,13 @@ Class RelationalQueryContext from QueryContext
 		return self
 
 	Func getRelationalQueryStringFactory
-		return dnSend("s3:get",nHandle,"s28:RelationalQueryStringFactory","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s28:RelationalQueryStringFactory"))
 
 	Func setRelationalQueryStringFactory P1
 		raise("DotNet Error: RelationalQueryStringFactory is a read-only property")
 
 	Func getConnection
-		return dnSend("s3:get",nHandle,"s10:Connection","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Connection"))
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
@@ -5941,7 +5850,7 @@ Class RelationalQueryableMethodTranslatingExpressionVisitor from QueryableMethod
 
 	Func getValuesOrderingColumnName
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s24:ValuesOrderingColumnName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s24:ValuesOrderingColumnName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValuesOrderingColumnName P1
@@ -5949,7 +5858,7 @@ Class RelationalQueryableMethodTranslatingExpressionVisitor from QueryableMethod
 
 	Func getValuesValueColumnName
 		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s21:ValuesValueColumnName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s21:ValuesValueColumnName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValuesValueColumnName P1
@@ -5971,11 +5880,11 @@ Class RelationalShapedQueryCompilingExpressionVisitor from ShapedQueryCompilingE
 
 	Func NonQueryResult P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s14:NonQueryResult",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s14:NonQueryResult",[P1,P2,P3,P4,P5]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func NonQueryResultAsync P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"s19:NonQueryResultAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s19:NonQueryResultAsync",P1,P2,P3,P4,P5))
 
 
 Class RelationalStructuralTypeShaperExpression from StructuralTypeShaperExpression

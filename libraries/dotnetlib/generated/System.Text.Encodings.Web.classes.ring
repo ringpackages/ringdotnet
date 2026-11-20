@@ -44,7 +44,7 @@ Class TextEncoder from Object
 
 	Func WillEncode P1
 		dn_x = dotnet_call("s4:call",nHandle,"s10:WillEncode",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:WillEncode",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Encode P1
@@ -52,17 +52,17 @@ Class TextEncoder from Object
 			return dnSend("s9:callnamed",nHandle,"s6:Encode",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Encode",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Encode",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getMaxOutputCharactersPerInputCharacter
 		dn_x = dotnet_call("s3:get",nHandle,"s36:MaxOutputCharactersPerInputCharacter")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s36:MaxOutputCharactersPerInputCharacter",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaxOutputCharactersPerInputCharacter P1
@@ -106,71 +106,61 @@ Class TextEncoderSettings from Object
 		return self
 
 	Func AllowCharacter P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s14:AllowCharacter",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s14:AllowCharacter",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s14:AllowCharacter",P1)
 
 		return self
 
 	Func AllowCharacters P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:AllowCharacters",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:AllowCharacters",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s15:AllowCharacters",P1)
 
 		return self
 
 	Func AllowCodePoints P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:AllowCodePoints",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:AllowCodePoints",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s15:AllowCodePoints",P1)
 
 		return self
 
 	Func AllowRange P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s10:AllowRange",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s10:AllowRange",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s10:AllowRange",P1)
 
 		return self
 
 	Func AllowRanges P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:AllowRanges",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:AllowRanges",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s11:AllowRanges",P1)
 
 		return self
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func ForbidCharacter P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:ForbidCharacter",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:ForbidCharacter",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s15:ForbidCharacter",P1)
 
 		return self
 
 	Func ForbidCharacters P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:ForbidCharacters",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:ForbidCharacters",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s16:ForbidCharacters",P1)
 
 		return self
 
 	Func ForbidRange P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:ForbidRange",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:ForbidRange",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s11:ForbidRange",P1)
 
 		return self
 
 	Func ForbidRanges P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:ForbidRanges",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:ForbidRanges",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s12:ForbidRanges",P1)
 
 		return self
 
 	Func GetAllowedCodePoints 
-		return dnSend("s4:call",nHandle,"s20:GetAllowedCodePoints","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetAllowedCodePoints"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -188,10 +178,10 @@ Class HtmlEncoder from TextEncoder
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeHandle('System.Text.Encodings.Web.HtmlEncoder, System.Text.Encodings.Web'),"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Text.Encodings.Web.HtmlEncoder, System.Text.Encodings.Web',"s6:Create",P1))
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeHandle('System.Text.Encodings.Web.HtmlEncoder, System.Text.Encodings.Web'),"s7:Default","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.Encodings.Web.HtmlEncoder, System.Text.Encodings.Web',"s7:Default"))
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -212,16 +202,16 @@ Class JavaScriptEncoder from TextEncoder
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeHandle('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web'),"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web',"s6:Create",P1))
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeHandle('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web'),"s7:Default","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web',"s7:Default"))
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getUnsafeRelaxedJsonEscaping
-		return dnSend("s3:get",dnTypeHandle('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web'),"s25:UnsafeRelaxedJsonEscaping","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web',"s25:UnsafeRelaxedJsonEscaping"))
 
 	Func setUnsafeRelaxedJsonEscaping P1
 		raise("DotNet Error: UnsafeRelaxedJsonEscaping is a read-only property")
@@ -241,10 +231,10 @@ Class UrlEncoder from TextEncoder
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeHandle('System.Text.Encodings.Web.UrlEncoder, System.Text.Encodings.Web'),"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Text.Encodings.Web.UrlEncoder, System.Text.Encodings.Web',"s6:Create",P1))
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeHandle('System.Text.Encodings.Web.UrlEncoder, System.Text.Encodings.Web'),"s7:Default","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.Encodings.Web.UrlEncoder, System.Text.Encodings.Web',"s7:Default"))
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")

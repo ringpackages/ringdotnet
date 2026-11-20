@@ -70,77 +70,70 @@ Class ContentDisposition from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getDispositionType
 		dn_x = dotnet_call("s3:get",nHandle,"s15:DispositionType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:DispositionType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDispositionType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:DispositionType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:DispositionType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:DispositionType",P1)
 		return self
 
 	Func getParameters
-		return dnSend("s3:get",nHandle,"s10:Parameters","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Parameters"))
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getFileName
 		dn_x = dotnet_call("s3:get",nHandle,"s8:FileName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:FileName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFileName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:FileName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:FileName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:FileName",P1)
 		return self
 
 	Func getCreationDate
-		return dnSend("s3:get",nHandle,"s12:CreationDate","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:CreationDate"))
 
 	Func setCreationDate P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:CreationDate",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:CreationDate",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:CreationDate",P1)
 		return self
 
 	Func getModificationDate
-		return dnSend("s3:get",nHandle,"s16:ModificationDate","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ModificationDate"))
 
 	Func setModificationDate P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:ModificationDate",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ModificationDate",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:ModificationDate",P1)
 		return self
 
 	Func getInline
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Inline")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Inline",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInline P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Inline",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Inline",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Inline",P1)
 		return self
 
 	Func getReadDate
-		return dnSend("s3:get",nHandle,"s8:ReadDate","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:ReadDate"))
 
 	Func setReadDate P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:ReadDate",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:ReadDate",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:ReadDate",P1)
 		return self
 
 	Func getSize
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Size")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Size",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSize P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Size",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Size",P1)
 		return self
 
 
@@ -188,51 +181,47 @@ Class ContentType from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getBoundary
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Boundary")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Boundary",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBoundary P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Boundary",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Boundary",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Boundary",P1)
 		return self
 
 	Func getCharSet
 		dn_x = dotnet_call("s3:get",nHandle,"s7:CharSet")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:CharSet",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCharSet P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:CharSet",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:CharSet",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:CharSet",P1)
 		return self
 
 	Func getMediaType
 		dn_x = dotnet_call("s3:get",nHandle,"s9:MediaType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:MediaType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMediaType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:MediaType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:MediaType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:MediaType",P1)
 		return self
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
 		return self
 
 	Func getParameters
-		return dnSend("s3:get",nHandle,"s10:Parameters","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Parameters"))
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
@@ -254,12 +243,12 @@ Class DispositionTypeNames from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getInline
 		dn_x = dotnet_call("s3:get",'System.Net.Mime.DispositionTypeNames, System.Net.Mail',"s6:Inline")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.Mime.DispositionTypeNames, System.Net.Mail',"s6:Inline",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInline P1
@@ -267,7 +256,7 @@ Class DispositionTypeNames from Object
 
 	Func getAttachment
 		dn_x = dotnet_call("s3:get",'System.Net.Mime.DispositionTypeNames, System.Net.Mail',"s10:Attachment")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Net.Mime.DispositionTypeNames, System.Net.Mail',"s10:Attachment",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAttachment P1
@@ -287,7 +276,7 @@ Class MediaTypeNames from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 

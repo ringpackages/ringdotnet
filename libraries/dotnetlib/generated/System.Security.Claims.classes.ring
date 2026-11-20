@@ -70,27 +70,26 @@ Class Claim from Object
 			return dnSend("s9:callnamed",nHandle,"s5:Clone",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s5:Clone","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 		ok
-		return dnSend("s4:call",nHandle,"s5:Clone",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone",P1))
 
 	Func WriteTo P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:WriteTo",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
 
 		return self
 
 	Func GetType_ 
-		return dnSend("s4:call",nHandle,"s7:GetType","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getIssuer
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Issuer")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Issuer",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIssuer P1
@@ -98,27 +97,27 @@ Class Claim from Object
 
 	Func getOriginalIssuer
 		dn_x = dotnet_call("s3:get",nHandle,"s14:OriginalIssuer")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:OriginalIssuer",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOriginalIssuer P1
 		raise("DotNet Error: OriginalIssuer is a read-only property")
 
 	Func getProperties
-		return dnSend("s3:get",nHandle,"s10:Properties","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getSubject
-		return dnSend("s3:get",nHandle,"s7:Subject","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Subject"))
 
 	Func setSubject P1
 		raise("DotNet Error: Subject is a read-only property")
 
 	Func getType
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Type")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Type",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setType P1
@@ -126,7 +125,7 @@ Class Claim from Object
 
 	Func getValue
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValue P1
@@ -134,7 +133,7 @@ Class Claim from Object
 
 	Func getValueType
 		dn_x = dotnet_call("s3:get",nHandle,"s9:ValueType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:ValueType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValueType P1
@@ -209,12 +208,12 @@ Class ClaimTypes from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getAuthenticationInstant
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s21:AuthenticationInstant")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s21:AuthenticationInstant",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAuthenticationInstant P1
@@ -222,7 +221,7 @@ Class ClaimTypes from Object
 
 	Func getAuthenticationMethod
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s20:AuthenticationMethod")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s20:AuthenticationMethod",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAuthenticationMethod P1
@@ -230,7 +229,7 @@ Class ClaimTypes from Object
 
 	Func getCookiePath
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s10:CookiePath")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s10:CookiePath",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCookiePath P1
@@ -238,7 +237,7 @@ Class ClaimTypes from Object
 
 	Func getDenyOnlyPrimarySid
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s18:DenyOnlyPrimarySid")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s18:DenyOnlyPrimarySid",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDenyOnlyPrimarySid P1
@@ -246,7 +245,7 @@ Class ClaimTypes from Object
 
 	Func getDenyOnlyPrimaryGroupSid
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s23:DenyOnlyPrimaryGroupSid")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s23:DenyOnlyPrimaryGroupSid",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDenyOnlyPrimaryGroupSid P1
@@ -254,7 +253,7 @@ Class ClaimTypes from Object
 
 	Func getDenyOnlyWindowsDeviceGroup
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s26:DenyOnlyWindowsDeviceGroup")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s26:DenyOnlyWindowsDeviceGroup",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDenyOnlyWindowsDeviceGroup P1
@@ -262,7 +261,7 @@ Class ClaimTypes from Object
 
 	Func getDsa
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s3:Dsa")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s3:Dsa",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDsa P1
@@ -270,7 +269,7 @@ Class ClaimTypes from Object
 
 	Func getExpiration
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s10:Expiration")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s10:Expiration",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setExpiration P1
@@ -278,7 +277,7 @@ Class ClaimTypes from Object
 
 	Func getExpired
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s7:Expired")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s7:Expired",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setExpired P1
@@ -286,7 +285,7 @@ Class ClaimTypes from Object
 
 	Func getGroupSid
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s8:GroupSid")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s8:GroupSid",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setGroupSid P1
@@ -294,7 +293,7 @@ Class ClaimTypes from Object
 
 	Func getIsPersistent
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s12:IsPersistent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s12:IsPersistent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsPersistent P1
@@ -302,7 +301,7 @@ Class ClaimTypes from Object
 
 	Func getPrimaryGroupSid
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s15:PrimaryGroupSid")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s15:PrimaryGroupSid",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPrimaryGroupSid P1
@@ -310,7 +309,7 @@ Class ClaimTypes from Object
 
 	Func getPrimarySid
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s10:PrimarySid")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s10:PrimarySid",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPrimarySid P1
@@ -318,7 +317,7 @@ Class ClaimTypes from Object
 
 	Func getRole
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s4:Role")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s4:Role",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRole P1
@@ -326,7 +325,7 @@ Class ClaimTypes from Object
 
 	Func getSerialNumber
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s12:SerialNumber")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s12:SerialNumber",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSerialNumber P1
@@ -334,7 +333,7 @@ Class ClaimTypes from Object
 
 	Func getUserData
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s8:UserData")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s8:UserData",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUserData P1
@@ -342,7 +341,7 @@ Class ClaimTypes from Object
 
 	Func getVersion
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s7:Version")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s7:Version",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setVersion P1
@@ -350,7 +349,7 @@ Class ClaimTypes from Object
 
 	Func getWindowsAccountName
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s18:WindowsAccountName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s18:WindowsAccountName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setWindowsAccountName P1
@@ -358,7 +357,7 @@ Class ClaimTypes from Object
 
 	Func getWindowsDeviceClaim
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s18:WindowsDeviceClaim")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s18:WindowsDeviceClaim",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setWindowsDeviceClaim P1
@@ -366,7 +365,7 @@ Class ClaimTypes from Object
 
 	Func getWindowsDeviceGroup
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s18:WindowsDeviceGroup")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s18:WindowsDeviceGroup",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setWindowsDeviceGroup P1
@@ -374,7 +373,7 @@ Class ClaimTypes from Object
 
 	Func getWindowsUserClaim
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s16:WindowsUserClaim")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s16:WindowsUserClaim",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setWindowsUserClaim P1
@@ -382,7 +381,7 @@ Class ClaimTypes from Object
 
 	Func getWindowsFqbnVersion
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s18:WindowsFqbnVersion")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s18:WindowsFqbnVersion",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setWindowsFqbnVersion P1
@@ -390,7 +389,7 @@ Class ClaimTypes from Object
 
 	Func getWindowsSubAuthority
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s19:WindowsSubAuthority")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s19:WindowsSubAuthority",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setWindowsSubAuthority P1
@@ -398,7 +397,7 @@ Class ClaimTypes from Object
 
 	Func getAnonymous
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s9:Anonymous")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s9:Anonymous",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAnonymous P1
@@ -406,7 +405,7 @@ Class ClaimTypes from Object
 
 	Func getAuthentication
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s14:Authentication")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s14:Authentication",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAuthentication P1
@@ -414,7 +413,7 @@ Class ClaimTypes from Object
 
 	Func getAuthorizationDecision
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s21:AuthorizationDecision")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s21:AuthorizationDecision",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAuthorizationDecision P1
@@ -422,7 +421,7 @@ Class ClaimTypes from Object
 
 	Func getCountry
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s7:Country")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s7:Country",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCountry P1
@@ -430,7 +429,7 @@ Class ClaimTypes from Object
 
 	Func getDateOfBirth
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s11:DateOfBirth")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s11:DateOfBirth",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDateOfBirth P1
@@ -438,7 +437,7 @@ Class ClaimTypes from Object
 
 	Func getDns
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s3:Dns")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s3:Dns",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDns P1
@@ -446,7 +445,7 @@ Class ClaimTypes from Object
 
 	Func getDenyOnlySid
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s11:DenyOnlySid")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s11:DenyOnlySid",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDenyOnlySid P1
@@ -454,7 +453,7 @@ Class ClaimTypes from Object
 
 	Func getEmail
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s5:Email")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s5:Email",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEmail P1
@@ -462,7 +461,7 @@ Class ClaimTypes from Object
 
 	Func getGender
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s6:Gender")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s6:Gender",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setGender P1
@@ -470,7 +469,7 @@ Class ClaimTypes from Object
 
 	Func getGivenName
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s9:GivenName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s9:GivenName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setGivenName P1
@@ -478,7 +477,7 @@ Class ClaimTypes from Object
 
 	Func getHash
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s4:Hash")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s4:Hash",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHash P1
@@ -486,7 +485,7 @@ Class ClaimTypes from Object
 
 	Func getHomePhone
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s9:HomePhone")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s9:HomePhone",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHomePhone P1
@@ -494,7 +493,7 @@ Class ClaimTypes from Object
 
 	Func getLocality
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s8:Locality")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s8:Locality",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLocality P1
@@ -502,7 +501,7 @@ Class ClaimTypes from Object
 
 	Func getMobilePhone
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s11:MobilePhone")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s11:MobilePhone",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMobilePhone P1
@@ -510,7 +509,7 @@ Class ClaimTypes from Object
 
 	Func getName
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
@@ -518,7 +517,7 @@ Class ClaimTypes from Object
 
 	Func getNameIdentifier
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s14:NameIdentifier")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s14:NameIdentifier",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNameIdentifier P1
@@ -526,7 +525,7 @@ Class ClaimTypes from Object
 
 	Func getOtherPhone
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s10:OtherPhone")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s10:OtherPhone",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOtherPhone P1
@@ -534,7 +533,7 @@ Class ClaimTypes from Object
 
 	Func getPostalCode
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s10:PostalCode")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s10:PostalCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPostalCode P1
@@ -542,7 +541,7 @@ Class ClaimTypes from Object
 
 	Func getRsa
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s3:Rsa")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s3:Rsa",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRsa P1
@@ -550,7 +549,7 @@ Class ClaimTypes from Object
 
 	Func getSid
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s3:Sid")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s3:Sid",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSid P1
@@ -558,7 +557,7 @@ Class ClaimTypes from Object
 
 	Func getSpn
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s3:Spn")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s3:Spn",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSpn P1
@@ -566,7 +565,7 @@ Class ClaimTypes from Object
 
 	Func getStateOrProvince
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s15:StateOrProvince")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s15:StateOrProvince",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setStateOrProvince P1
@@ -574,7 +573,7 @@ Class ClaimTypes from Object
 
 	Func getStreetAddress
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s13:StreetAddress")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s13:StreetAddress",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setStreetAddress P1
@@ -582,7 +581,7 @@ Class ClaimTypes from Object
 
 	Func getSurname
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s7:Surname")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s7:Surname",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSurname P1
@@ -590,7 +589,7 @@ Class ClaimTypes from Object
 
 	Func getSystem
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s6:System")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s6:System",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSystem P1
@@ -598,7 +597,7 @@ Class ClaimTypes from Object
 
 	Func getThumbprint
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s10:Thumbprint")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s10:Thumbprint",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setThumbprint P1
@@ -606,7 +605,7 @@ Class ClaimTypes from Object
 
 	Func getUpn
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s3:Upn")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s3:Upn",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUpn P1
@@ -614,7 +613,7 @@ Class ClaimTypes from Object
 
 	Func getUri
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s3:Uri")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s3:Uri",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUri P1
@@ -622,7 +621,7 @@ Class ClaimTypes from Object
 
 	Func getWebpage
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s7:Webpage")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s7:Webpage",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setWebpage P1
@@ -630,7 +629,7 @@ Class ClaimTypes from Object
 
 	Func getX500DistinguishedName
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s21:X500DistinguishedName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s21:X500DistinguishedName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setX500DistinguishedName P1
@@ -638,7 +637,7 @@ Class ClaimTypes from Object
 
 	Func getActor
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s5:Actor")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimTypes, System.Security.Claims',"s5:Actor",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setActor P1
@@ -686,12 +685,12 @@ Class ClaimValueTypes from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getBase64Binary
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s12:Base64Binary")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s12:Base64Binary",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBase64Binary P1
@@ -699,7 +698,7 @@ Class ClaimValueTypes from Object
 
 	Func getBase64Octet
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s11:Base64Octet")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s11:Base64Octet",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBase64Octet P1
@@ -707,7 +706,7 @@ Class ClaimValueTypes from Object
 
 	Func getBoolean
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s7:Boolean")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s7:Boolean",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBoolean P1
@@ -715,7 +714,7 @@ Class ClaimValueTypes from Object
 
 	Func getDate
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s4:Date")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s4:Date",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDate P1
@@ -723,7 +722,7 @@ Class ClaimValueTypes from Object
 
 	Func getDateTime
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s8:DateTime")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s8:DateTime",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDateTime P1
@@ -731,7 +730,7 @@ Class ClaimValueTypes from Object
 
 	Func getDouble
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s6:Double")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s6:Double",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDouble P1
@@ -739,7 +738,7 @@ Class ClaimValueTypes from Object
 
 	Func getFqbn
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s4:Fqbn")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s4:Fqbn",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFqbn P1
@@ -747,7 +746,7 @@ Class ClaimValueTypes from Object
 
 	Func getHexBinary
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s9:HexBinary")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s9:HexBinary",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHexBinary P1
@@ -755,7 +754,7 @@ Class ClaimValueTypes from Object
 
 	Func getInteger
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s7:Integer")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s7:Integer",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInteger P1
@@ -763,7 +762,7 @@ Class ClaimValueTypes from Object
 
 	Func getInteger32
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s9:Integer32")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s9:Integer32",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInteger32 P1
@@ -771,7 +770,7 @@ Class ClaimValueTypes from Object
 
 	Func getInteger64
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s9:Integer64")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s9:Integer64",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInteger64 P1
@@ -779,7 +778,7 @@ Class ClaimValueTypes from Object
 
 	Func getSid
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s3:Sid")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s3:Sid",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSid P1
@@ -787,7 +786,7 @@ Class ClaimValueTypes from Object
 
 	Func getString
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s6:String")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s6:String",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setString P1
@@ -795,7 +794,7 @@ Class ClaimValueTypes from Object
 
 	Func getTime
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s4:Time")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s4:Time",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTime P1
@@ -803,7 +802,7 @@ Class ClaimValueTypes from Object
 
 	Func getUInteger32
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s10:UInteger32")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s10:UInteger32",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUInteger32 P1
@@ -811,7 +810,7 @@ Class ClaimValueTypes from Object
 
 	Func getUInteger64
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s10:UInteger64")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s10:UInteger64",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUInteger64 P1
@@ -819,7 +818,7 @@ Class ClaimValueTypes from Object
 
 	Func getDnsName
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s7:DnsName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s7:DnsName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDnsName P1
@@ -827,7 +826,7 @@ Class ClaimValueTypes from Object
 
 	Func getEmail
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s5:Email")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s5:Email",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEmail P1
@@ -835,7 +834,7 @@ Class ClaimValueTypes from Object
 
 	Func getRsa
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s3:Rsa")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s3:Rsa",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRsa P1
@@ -843,7 +842,7 @@ Class ClaimValueTypes from Object
 
 	Func getUpnName
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s7:UpnName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s7:UpnName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUpnName P1
@@ -851,7 +850,7 @@ Class ClaimValueTypes from Object
 
 	Func getDsaKeyValue
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s11:DsaKeyValue")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s11:DsaKeyValue",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDsaKeyValue P1
@@ -859,7 +858,7 @@ Class ClaimValueTypes from Object
 
 	Func getKeyInfo
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s7:KeyInfo")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s7:KeyInfo",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setKeyInfo P1
@@ -867,7 +866,7 @@ Class ClaimValueTypes from Object
 
 	Func getRsaKeyValue
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s11:RsaKeyValue")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s11:RsaKeyValue",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRsaKeyValue P1
@@ -875,7 +874,7 @@ Class ClaimValueTypes from Object
 
 	Func getDaytimeDuration
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s15:DaytimeDuration")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s15:DaytimeDuration",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDaytimeDuration P1
@@ -883,7 +882,7 @@ Class ClaimValueTypes from Object
 
 	Func getYearMonthDuration
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s17:YearMonthDuration")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s17:YearMonthDuration",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setYearMonthDuration P1
@@ -891,7 +890,7 @@ Class ClaimValueTypes from Object
 
 	Func getRfc822Name
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s10:Rfc822Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s10:Rfc822Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRfc822Name P1
@@ -899,7 +898,7 @@ Class ClaimValueTypes from Object
 
 	Func getX500Name
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s8:X500Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimValueTypes, System.Security.Claims',"s8:X500Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setX500Name P1
@@ -956,59 +955,55 @@ Class ClaimsIdentity from Object
 		return self
 
 	Func Clone 
-		return dnSend("s4:call",nHandle,"s5:Clone","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func AddClaim P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:AddClaim",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:AddClaim",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:AddClaim",P1)
 
 		return self
 
 	Func AddClaims P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:AddClaims",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:AddClaims",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s9:AddClaims",P1)
 
 		return self
 
 	Func TryRemoveClaim P1
 		dn_x = dotnet_call("s4:call",nHandle,"s14:TryRemoveClaim",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:TryRemoveClaim",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RemoveClaim P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:RemoveClaim",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:RemoveClaim",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s11:RemoveClaim",P1)
 
 		return self
 
 	Func FindAll P1
-		return dnSend("s4:call",nHandle,"s7:FindAll",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:FindAll",P1))
 
 	Func FindFirst P1
-		return dnSend("s4:call",nHandle,"s9:FindFirst",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:FindFirst",P1))
 
 	Func HasClaim P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:HasClaim",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:HasClaim",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:HasClaim",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func WriteTo P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:WriteTo",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getAuthenticationType
 		dn_x = dotnet_call("s3:get",nHandle,"s18:AuthenticationType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:AuthenticationType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAuthenticationType P1
@@ -1016,47 +1011,44 @@ Class ClaimsIdentity from Object
 
 	Func getIsAuthenticated
 		dn_x = dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:IsAuthenticated",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
 
 	Func getActor
-		return dnSend("s3:get",nHandle,"s5:Actor","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Actor"))
 
 	Func setActor P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Actor",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Actor",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Actor",P1)
 		return self
 
 	Func getBootstrapContext
-		return dnSend("s3:get",nHandle,"s16:BootstrapContext","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:BootstrapContext"))
 
 	Func setBootstrapContext P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:BootstrapContext",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:BootstrapContext",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:BootstrapContext",P1)
 		return self
 
 	Func getClaims
-		return dnSend("s3:get",nHandle,"s6:Claims","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Claims"))
 
 	Func setClaims P1
 		raise("DotNet Error: Claims is a read-only property")
 
 	Func getLabel
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Label")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Label",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLabel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Label",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Label",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Label",P1)
 		return self
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
@@ -1064,7 +1056,7 @@ Class ClaimsIdentity from Object
 
 	Func getNameClaimType
 		dn_x = dotnet_call("s3:get",nHandle,"s13:NameClaimType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:NameClaimType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNameClaimType P1
@@ -1072,7 +1064,7 @@ Class ClaimsIdentity from Object
 
 	Func getRoleClaimType
 		dn_x = dotnet_call("s3:get",nHandle,"s13:RoleClaimType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:RoleClaimType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRoleClaimType P1
@@ -1080,7 +1072,7 @@ Class ClaimsIdentity from Object
 
 	Func getDefaultIssuer
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimsIdentity, System.Security.Claims',"s13:DefaultIssuer")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimsIdentity, System.Security.Claims',"s13:DefaultIssuer",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultIssuer P1
@@ -1088,7 +1080,7 @@ Class ClaimsIdentity from Object
 
 	Func getDefaultNameClaimType
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimsIdentity, System.Security.Claims',"s20:DefaultNameClaimType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimsIdentity, System.Security.Claims',"s20:DefaultNameClaimType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultNameClaimType P1
@@ -1096,7 +1088,7 @@ Class ClaimsIdentity from Object
 
 	Func getDefaultRoleClaimType
 		dn_x = dotnet_call("s3:get",'System.Security.Claims.ClaimsIdentity, System.Security.Claims',"s20:DefaultRoleClaimType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Security.Claims.ClaimsIdentity, System.Security.Claims',"s20:DefaultRoleClaimType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultRoleClaimType P1
@@ -1147,86 +1139,81 @@ Class ClaimsPrincipal from Object
 		return self
 
 	Func AddIdentity P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:AddIdentity",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:AddIdentity",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s11:AddIdentity",P1)
 
 		return self
 
 	Func AddIdentities P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s13:AddIdentities",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s13:AddIdentities",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s13:AddIdentities",P1)
 
 		return self
 
 	Func Clone 
-		return dnSend("s4:call",nHandle,"s5:Clone","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func FindAll P1
-		return dnSend("s4:call",nHandle,"s7:FindAll",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:FindAll",P1))
 
 	Func FindFirst P1
-		return dnSend("s4:call",nHandle,"s9:FindFirst",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:FindFirst",P1))
 
 	Func HasClaim P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:HasClaim",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:HasClaim",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:HasClaim",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsInRole P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:IsInRole",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:IsInRole",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func WriteTo P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:WriteTo",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getClaims
-		return dnSend("s3:get",nHandle,"s6:Claims","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Claims"))
 
 	Func setClaims P1
 		raise("DotNet Error: Claims is a read-only property")
 
 	Func getIdentities
-		return dnSend("s3:get",nHandle,"s10:Identities","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Identities"))
 
 	Func setIdentities P1
 		raise("DotNet Error: Identities is a read-only property")
 
 	Func getIdentity
-		return dnSend("s3:get",nHandle,"s8:Identity","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Identity"))
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
 
 	Func getPrimaryIdentitySelector
-		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimsPrincipal, System.Security.Claims'),"s23:PrimaryIdentitySelector","")
+		return dnObj(dotnet_callo("s3:get",'System.Security.Claims.ClaimsPrincipal, System.Security.Claims',"s23:PrimaryIdentitySelector"))
 
 	Func setPrimaryIdentitySelector P1
-		dn_x = dotnet_callv("s3:set",'System.Security.Claims.ClaimsPrincipal, System.Security.Claims',"s23:PrimaryIdentitySelector",P1)
-		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Security.Claims.ClaimsPrincipal, System.Security.Claims'),"s23:PrimaryIdentitySelector",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",'System.Security.Claims.ClaimsPrincipal, System.Security.Claims',"s23:PrimaryIdentitySelector",P1)
 		return self
 
 	Func getClaimsPrincipalSelector
-		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimsPrincipal, System.Security.Claims'),"s23:ClaimsPrincipalSelector","")
+		return dnObj(dotnet_callo("s3:get",'System.Security.Claims.ClaimsPrincipal, System.Security.Claims',"s23:ClaimsPrincipalSelector"))
 
 	Func setClaimsPrincipalSelector P1
-		dn_x = dotnet_callv("s3:set",'System.Security.Claims.ClaimsPrincipal, System.Security.Claims',"s23:ClaimsPrincipalSelector",P1)
-		if islist(dn_x) dnSend("s3:set",dnTypeHandle('System.Security.Claims.ClaimsPrincipal, System.Security.Claims'),"s23:ClaimsPrincipalSelector",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",'System.Security.Claims.ClaimsPrincipal, System.Security.Claims',"s23:ClaimsPrincipalSelector",P1)
 		return self
 
 	Func getCurrent
-		return dnSend("s3:get",dnTypeHandle('System.Security.Claims.ClaimsPrincipal, System.Security.Claims'),"s7:Current","")
+		return dnObj(dotnet_callo("s3:get",'System.Security.Claims.ClaimsPrincipal, System.Security.Claims',"s7:Current"))
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")

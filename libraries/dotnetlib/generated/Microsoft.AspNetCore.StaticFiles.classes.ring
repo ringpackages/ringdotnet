@@ -61,11 +61,11 @@ Class DefaultFilesMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Invoke",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -98,11 +98,11 @@ Class DirectoryBrowserMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Invoke",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -149,11 +149,11 @@ Class FileExtensionContentTypeProvider from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getMappings
-		return dnSend("s3:get",nHandle,"s8:Mappings","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Mappings"))
 
 	Func setMappings P1
 		raise("DotNet Error: Mappings is a read-only property")
@@ -173,11 +173,11 @@ Class HtmlDirectoryFormatter from Object
 		return self
 
 	Func GenerateContentAsync P1,P2
-		return dnSend("s4:call",nHandle,"s20:GenerateContentAsync",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GenerateContentAsync",P1,P2))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -208,7 +208,7 @@ Class IDirectoryFormatter from DotNetObject
 		return self
 
 	Func GenerateContentAsync P1,P2
-		return dnSend("s4:call",nHandle,"s20:GenerateContentAsync",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GenerateContentAsync",P1,P2))
 
 
 Class StaticFileMiddleware from Object
@@ -225,11 +225,11 @@ Class StaticFileMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Invoke",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -251,17 +251,17 @@ Class StaticFileResponseContext from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getContext
-		return dnSend("s3:get",nHandle,"s7:Context","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Context"))
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getFile
-		return dnSend("s3:get",nHandle,"s4:File","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:File"))
 
 	Func setFile P1
 		raise("DotNet Error: File is a read-only property")

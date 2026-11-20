@@ -174,12 +174,12 @@ Class Ascii from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsValid P1
 		dn_x = dotnet_call("s4:call",'System.Text.Ascii, System.Private.CoreLib',"s7:IsValid",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Ascii, System.Private.CoreLib',"s7:IsValid",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -199,15 +199,15 @@ Class CompositeFormat from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Parse P1
-		return dnSend("s4:call",dnTypeHandle('System.Text.CompositeFormat, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Text.CompositeFormat, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func getFormat
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Format")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Format",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFormat P1
@@ -215,7 +215,7 @@ Class CompositeFormat from Object
 
 	Func getMinimumArgumentCount
 		dn_x = dotnet_call("s3:get",nHandle,"s20:MinimumArgumentCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:MinimumArgumentCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMinimumArgumentCount P1
@@ -237,8 +237,7 @@ Class Decoder from Object
 		return self
 
 	Func Reset 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Reset")
 
 		return self
 
@@ -259,19 +258,18 @@ Class Decoder from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getFallback
-		return dnSend("s3:get",nHandle,"s8:Fallback","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Fallback"))
 
 	Func setFallback P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Fallback",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Fallback",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Fallback",P1)
 		return self
 
 	Func getFallbackBuffer
-		return dnSend("s3:get",nHandle,"s14:FallbackBuffer","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:FallbackBuffer"))
 
 	Func setFallbackBuffer P1
 		raise("DotNet Error: FallbackBuffer is a read-only property")
@@ -293,29 +291,29 @@ Class DecoderFallback from Object
 		return self
 
 	Func CreateFallbackBuffer 
-		return dnSend("s4:call",nHandle,"s20:CreateFallbackBuffer","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CreateFallbackBuffer"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getMaxCharCount
 		dn_x = dotnet_call("s3:get",nHandle,"s12:MaxCharCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:MaxCharCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaxCharCount P1
 		raise("DotNet Error: MaxCharCount is a read-only property")
 
 	Func getReplacementFallback
-		return dnSend("s3:get",dnTypeHandle('System.Text.DecoderFallback, System.Private.CoreLib'),"s19:ReplacementFallback","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.DecoderFallback, System.Private.CoreLib',"s19:ReplacementFallback"))
 
 	Func setReplacementFallback P1
 		raise("DotNet Error: ReplacementFallback is a read-only property")
 
 	Func getExceptionFallback
-		return dnSend("s3:get",dnTypeHandle('System.Text.DecoderFallback, System.Private.CoreLib'),"s17:ExceptionFallback","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.DecoderFallback, System.Private.CoreLib',"s17:ExceptionFallback"))
 
 	Func setExceptionFallback P1
 		raise("DotNet Error: ExceptionFallback is a read-only property")
@@ -336,31 +334,30 @@ Class DecoderFallbackBuffer from Object
 
 	Func Fallback P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Fallback",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Fallback",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetNextChar 
-		return dnSend("s4:call",nHandle,"s11:GetNextChar","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetNextChar"))
 
 	Func MovePrevious 
 		dn_x = dotnet_call("s4:call",nHandle,"s12:MovePrevious")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:MovePrevious",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Reset 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Reset")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getRemaining
 		dn_x = dotnet_call("s3:get",nHandle,"s9:Remaining")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Remaining",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRemaining P1
@@ -382,19 +379,18 @@ Class Encoder from Object
 		return self
 
 	Func Reset 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Reset")
 
 		return self
 
 	Func GetByteCount P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetByteCount",P1,P2,P3,P4)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:GetByteCount",[P1,P2,P3,P4]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetBytes P1,P2,P3,P4,P5,P6
 		dn_x = dotnet_call("s4:call",nHandle,"s8:GetBytes",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:GetBytes",[P1,P2,P3,P4,P5,P6]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Convert P1,P2,P3,P4,P5,P6,P7
@@ -402,19 +398,18 @@ Class Encoder from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getFallback
-		return dnSend("s3:get",nHandle,"s8:Fallback","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Fallback"))
 
 	Func setFallback P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Fallback",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Fallback",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Fallback",P1)
 		return self
 
 	Func getFallbackBuffer
-		return dnSend("s3:get",nHandle,"s14:FallbackBuffer","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:FallbackBuffer"))
 
 	Func setFallbackBuffer P1
 		raise("DotNet Error: FallbackBuffer is a read-only property")
@@ -436,29 +431,29 @@ Class EncoderFallback from Object
 		return self
 
 	Func CreateFallbackBuffer 
-		return dnSend("s4:call",nHandle,"s20:CreateFallbackBuffer","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CreateFallbackBuffer"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getMaxCharCount
 		dn_x = dotnet_call("s3:get",nHandle,"s12:MaxCharCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:MaxCharCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaxCharCount P1
 		raise("DotNet Error: MaxCharCount is a read-only property")
 
 	Func getReplacementFallback
-		return dnSend("s3:get",dnTypeHandle('System.Text.EncoderFallback, System.Private.CoreLib'),"s19:ReplacementFallback","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.EncoderFallback, System.Private.CoreLib',"s19:ReplacementFallback"))
 
 	Func setReplacementFallback P1
 		raise("DotNet Error: ReplacementFallback is a read-only property")
 
 	Func getExceptionFallback
-		return dnSend("s3:get",dnTypeHandle('System.Text.EncoderFallback, System.Private.CoreLib'),"s17:ExceptionFallback","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.EncoderFallback, System.Private.CoreLib',"s17:ExceptionFallback"))
 
 	Func setExceptionFallback P1
 		raise("DotNet Error: ExceptionFallback is a read-only property")
@@ -484,27 +479,26 @@ Class EncoderFallbackBuffer from Object
 		raise("DotNet Error: Fallback does not take one argument: use named arguments, Fallback([ :parameter = value, ... ])")
 
 	Func GetNextChar 
-		return dnSend("s4:call",nHandle,"s11:GetNextChar","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetNextChar"))
 
 	Func MovePrevious 
 		dn_x = dotnet_call("s4:call",nHandle,"s12:MovePrevious")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:MovePrevious",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Reset 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Reset")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getRemaining
 		dn_x = dotnet_call("s3:get",nHandle,"s9:Remaining")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Remaining",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRemaining P1
@@ -547,38 +541,38 @@ Class Encoding from Object
 		return self
 
 	Func GetPreamble_ 
-		return dnSend("s4:call",nHandle,"s11:GetPreamble","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetPreamble"))
 
 	Func Clone 
-		return dnSend("s4:call",nHandle,"s5:Clone","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func GetByteCount P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s12:GetByteCount",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetByteCount",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:GetByteCount",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetBytes P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:GetBytes",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s8:GetBytes",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetBytes",P1))
 
 	Func GetCharCount P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s12:GetCharCount",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetCharCount",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:GetCharCount",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetChars P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:GetChars",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s8:GetChars",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetChars",P1))
 
 	Func IsAlwaysNormalized P1
 		if dnIsNamed(P1)
@@ -586,27 +580,27 @@ Class Encoding from Object
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s18:IsAlwaysNormalized")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s18:IsAlwaysNormalized",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s18:IsAlwaysNormalized",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s18:IsAlwaysNormalized",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetDecoder 
-		return dnSend("s4:call",nHandle,"s10:GetDecoder","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetDecoder"))
 
 	Func GetEncoder 
-		return dnSend("s4:call",nHandle,"s10:GetEncoder","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetEncoder"))
 
 	Func GetMaxByteCount P1
 		dn_x = dotnet_call("s4:call",nHandle,"s15:GetMaxByteCount",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GetMaxByteCount",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetMaxCharCount P1
 		dn_x = dotnet_call("s4:call",nHandle,"s15:GetMaxCharCount",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:GetMaxCharCount",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetString P1
@@ -614,12 +608,12 @@ Class Encoding from Object
 			return dnSend("s9:callnamed",nHandle,"s9:GetString",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Convert P1
@@ -629,8 +623,7 @@ Class Encoding from Object
 		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
 	Func RegisterProvider P1
-		dn_x = dotnet_callv("s4:call",'System.Text.Encoding, System.Private.CoreLib',"s16:RegisterProvider",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s16:RegisterProvider",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'System.Text.Encoding, System.Private.CoreLib',"s16:RegisterProvider",P1)
 
 		return self
 
@@ -638,10 +631,10 @@ Class Encoding from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s11:GetEncoding",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s11:GetEncoding",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Text.Encoding, System.Private.CoreLib',"s11:GetEncoding",P1))
 
 	Func GetEncodings 
-		return dnSend("s4:call",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s12:GetEncodings","")
+		return dnObj(dotnet_callo("s4:call",'System.Text.Encoding, System.Private.CoreLib',"s12:GetEncodings"))
 
 	Func CreateTranscodingStream P1
 		if dnIsNamed(P1)
@@ -650,14 +643,14 @@ Class Encoding from Object
 		raise("DotNet Error: CreateTranscodingStream does not take one argument: use named arguments, CreateTranscodingStream([ :parameter = value, ... ])")
 
 	Func getPreamble
-		return dnSend("s3:get",nHandle,"s8:Preamble","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Preamble"))
 
 	Func setPreamble P1
 		raise("DotNet Error: Preamble is a read-only property")
 
 	Func getBodyName
 		dn_x = dotnet_call("s3:get",nHandle,"s8:BodyName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:BodyName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBodyName P1
@@ -665,7 +658,7 @@ Class Encoding from Object
 
 	Func getEncodingName
 		dn_x = dotnet_call("s3:get",nHandle,"s12:EncodingName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:EncodingName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEncodingName P1
@@ -673,7 +666,7 @@ Class Encoding from Object
 
 	Func getHeaderName
 		dn_x = dotnet_call("s3:get",nHandle,"s10:HeaderName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:HeaderName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHeaderName P1
@@ -681,7 +674,7 @@ Class Encoding from Object
 
 	Func getWebName
 		dn_x = dotnet_call("s3:get",nHandle,"s7:WebName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:WebName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setWebName P1
@@ -689,7 +682,7 @@ Class Encoding from Object
 
 	Func getWindowsCodePage
 		dn_x = dotnet_call("s3:get",nHandle,"s15:WindowsCodePage")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:WindowsCodePage",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setWindowsCodePage P1
@@ -697,7 +690,7 @@ Class Encoding from Object
 
 	Func getIsBrowserDisplay
 		dn_x = dotnet_call("s3:get",nHandle,"s16:IsBrowserDisplay")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:IsBrowserDisplay",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsBrowserDisplay P1
@@ -705,7 +698,7 @@ Class Encoding from Object
 
 	Func getIsBrowserSave
 		dn_x = dotnet_call("s3:get",nHandle,"s13:IsBrowserSave")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IsBrowserSave",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsBrowserSave P1
@@ -713,7 +706,7 @@ Class Encoding from Object
 
 	Func getIsMailNewsDisplay
 		dn_x = dotnet_call("s3:get",nHandle,"s17:IsMailNewsDisplay")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:IsMailNewsDisplay",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsMailNewsDisplay P1
@@ -721,7 +714,7 @@ Class Encoding from Object
 
 	Func getIsMailNewsSave
 		dn_x = dotnet_call("s3:get",nHandle,"s14:IsMailNewsSave")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsMailNewsSave",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsMailNewsSave P1
@@ -729,31 +722,29 @@ Class Encoding from Object
 
 	Func getIsSingleByte
 		dn_x = dotnet_call("s3:get",nHandle,"s12:IsSingleByte")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:IsSingleByte",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsSingleByte P1
 		raise("DotNet Error: IsSingleByte is a read-only property")
 
 	Func getEncoderFallback
-		return dnSend("s3:get",nHandle,"s15:EncoderFallback","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:EncoderFallback"))
 
 	Func setEncoderFallback P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:EncoderFallback",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:EncoderFallback",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:EncoderFallback",P1)
 		return self
 
 	Func getDecoderFallback
-		return dnSend("s3:get",nHandle,"s15:DecoderFallback","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:DecoderFallback"))
 
 	Func setDecoderFallback P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:DecoderFallback",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:DecoderFallback",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:DecoderFallback",P1)
 		return self
 
 	Func getIsReadOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReadOnly P1
@@ -761,56 +752,56 @@ Class Encoding from Object
 
 	Func getCodePage
 		dn_x = dotnet_call("s3:get",nHandle,"s8:CodePage")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:CodePage",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCodePage P1
 		raise("DotNet Error: CodePage is a read-only property")
 
 	Func getDefault
-		return dnSend("s3:get",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s7:Default","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.Encoding, System.Private.CoreLib',"s7:Default"))
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getASCII
-		return dnSend("s3:get",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s5:ASCII","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.Encoding, System.Private.CoreLib',"s5:ASCII"))
 
 	Func setASCII P1
 		raise("DotNet Error: ASCII is a read-only property")
 
 	Func getLatin1
-		return dnSend("s3:get",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s6:Latin1","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.Encoding, System.Private.CoreLib',"s6:Latin1"))
 
 	Func setLatin1 P1
 		raise("DotNet Error: Latin1 is a read-only property")
 
 	Func getUnicode
-		return dnSend("s3:get",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s7:Unicode","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.Encoding, System.Private.CoreLib',"s7:Unicode"))
 
 	Func setUnicode P1
 		raise("DotNet Error: Unicode is a read-only property")
 
 	Func getBigEndianUnicode
-		return dnSend("s3:get",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s16:BigEndianUnicode","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.Encoding, System.Private.CoreLib',"s16:BigEndianUnicode"))
 
 	Func setBigEndianUnicode P1
 		raise("DotNet Error: BigEndianUnicode is a read-only property")
 
 	Func getUTF7
-		return dnSend("s3:get",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s4:UTF7","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.Encoding, System.Private.CoreLib',"s4:UTF7"))
 
 	Func setUTF7 P1
 		raise("DotNet Error: UTF7 is a read-only property")
 
 	Func getUTF8
-		return dnSend("s3:get",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s4:UTF8","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.Encoding, System.Private.CoreLib',"s4:UTF8"))
 
 	Func setUTF8 P1
 		raise("DotNet Error: UTF8 is a read-only property")
 
 	Func getUTF32
-		return dnSend("s3:get",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s5:UTF32","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.Encoding, System.Private.CoreLib',"s5:UTF32"))
 
 	Func setUTF32 P1
 		raise("DotNet Error: UTF32 is a read-only property")
@@ -834,16 +825,16 @@ Class EncodingInfo from Object
 		return self
 
 	Func GetEncoding 
-		return dnSend("s4:call",nHandle,"s11:GetEncoding","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetEncoding"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCodePage
 		dn_x = dotnet_call("s3:get",nHandle,"s8:CodePage")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:CodePage",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCodePage P1
@@ -851,7 +842,7 @@ Class EncodingInfo from Object
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
@@ -859,7 +850,7 @@ Class EncodingInfo from Object
 
 	Func getDisplayName
 		dn_x = dotnet_call("s3:get",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:DisplayName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDisplayName P1
@@ -881,14 +872,14 @@ Class EncodingProvider from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s11:GetEncoding",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s11:GetEncoding",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetEncoding",P1))
 
 	Func GetEncodings 
-		return dnSend("s4:call",nHandle,"s12:GetEncodings","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetEncodings"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -938,15 +929,15 @@ Class Rune from ValueType
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:CompareTo",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetRuneAt P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s9:GetRuneAt",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Text.Rune, System.Private.CoreLib',"s9:GetRuneAt",P1,P2))
 
 	Func IsValid P1
 		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsValid",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsValid",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryCreate P1
@@ -960,82 +951,82 @@ Class Rune from ValueType
 
 	Func GetNumericValue P1
 		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s15:GetNumericValue",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s15:GetNumericValue",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetUnicodeCategory P1
-		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s18:GetUnicodeCategory",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Text.Rune, System.Private.CoreLib',"s18:GetUnicodeCategory",P1))
 
 	Func IsControl P1
 		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s9:IsControl",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s9:IsControl",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsDigit P1
 		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsDigit",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsDigit",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsLetter P1
 		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s8:IsLetter",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s8:IsLetter",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsLetterOrDigit P1
 		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s15:IsLetterOrDigit",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s15:IsLetterOrDigit",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsLower P1
 		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsLower",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsLower",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsNumber P1
 		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s8:IsNumber",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s8:IsNumber",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsPunctuation P1
 		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s13:IsPunctuation",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s13:IsPunctuation",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsSeparator P1
 		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s11:IsSeparator",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s11:IsSeparator",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsSymbol P1
 		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s8:IsSymbol",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s8:IsSymbol",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsUpper P1
 		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsUpper",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsUpper",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsWhiteSpace P1
 		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s12:IsWhiteSpace",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Text.Rune, System.Private.CoreLib',"s12:IsWhiteSpace",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToLower P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s7:ToLower",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:ToLower",P1,P2))
 
 	Func ToLowerInvariant P1
-		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s16:ToLowerInvariant",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Text.Rune, System.Private.CoreLib',"s16:ToLowerInvariant",P1))
 
 	Func ToUpper P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s7:ToUpper",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:ToUpper",P1,P2))
 
 	Func ToUpperInvariant P1
-		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s16:ToUpperInvariant",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Text.Rune, System.Private.CoreLib',"s16:ToUpperInvariant",P1))
 
 	Func getIsAscii
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAscii")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsAscii",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAscii P1
@@ -1043,7 +1034,7 @@ Class Rune from ValueType
 
 	Func getIsBmp
 		dn_x = dotnet_call("s3:get",nHandle,"s5:IsBmp")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:IsBmp",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsBmp P1
@@ -1051,7 +1042,7 @@ Class Rune from ValueType
 
 	Func getPlane
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Plane")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Plane",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPlane P1
@@ -1059,7 +1050,7 @@ Class Rune from ValueType
 
 	Func getUtf16SequenceLength
 		dn_x = dotnet_call("s3:get",nHandle,"s19:Utf16SequenceLength")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:Utf16SequenceLength",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUtf16SequenceLength P1
@@ -1067,7 +1058,7 @@ Class Rune from ValueType
 
 	Func getUtf8SequenceLength
 		dn_x = dotnet_call("s3:get",nHandle,"s18:Utf8SequenceLength")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:Utf8SequenceLength",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUtf8SequenceLength P1
@@ -1075,14 +1066,14 @@ Class Rune from ValueType
 
 	Func getValue
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getReplacementChar
-		return dnSend("s3:get",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s15:ReplacementChar","")
+		return dnObj(dotnet_callo("s3:get",'System.Text.Rune, System.Private.CoreLib',"s15:ReplacementChar"))
 
 	Func setReplacementChar P1
 		raise("DotNet Error: ReplacementChar is a read-only property")
@@ -1134,7 +1125,7 @@ Class StringBuilder from Object
 
 	Func EnsureCapacity P1
 		dn_x = dotnet_call("s4:call",nHandle,"s14:EnsureCapacity",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:EnsureCapacity",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
@@ -1144,29 +1135,28 @@ Class StringBuilder from Object
 		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
 	Func Clear 
-		return dnSend("s4:call",nHandle,"s5:Clear","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clear"))
 
 	Func GetChunks 
-		return dnSend("s4:call",nHandle,"s9:GetChunks","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetChunks"))
 
 	Func Append P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s6:Append",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Append",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Append",P1))
 
 	Func AppendLine P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s10:AppendLine",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s10:AppendLine","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendLine"))
 		ok
-		return dnSend("s4:call",nHandle,"s10:AppendLine",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendLine",P1))
 
 	Func CopyTo P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2,P3,P4)
 
 		return self
 
@@ -1177,10 +1167,10 @@ Class StringBuilder from Object
 		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
 
 	Func Remove P1,P2
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Remove",P1,P2))
 
 	Func AppendJoin P1,P2
-		return dnSend("s4:call",nHandle,"s10:AppendJoin",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendJoin",P1,P2))
 
 	Func AppendFormat P1
 		if dnIsNamed(P1)
@@ -1196,30 +1186,28 @@ Class StringBuilder from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getCapacity
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Capacity")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Capacity",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCapacity P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Capacity",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Capacity",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Capacity",P1)
 		return self
 
 	Func getMaxCapacity
 		dn_x = dotnet_call("s3:get",nHandle,"s11:MaxCapacity")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:MaxCapacity",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaxCapacity P1
@@ -1227,12 +1215,11 @@ Class StringBuilder from Object
 
 	Func getLength
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Length",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLength P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Length",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Length",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Length",P1)
 		return self
 
 
@@ -1259,15 +1246,15 @@ Class StringRuneEnumerator from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func MoveNext 
 		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:MoveNext",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCurrent
-		return dnSend("s3:get",nHandle,"s7:Current","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Current"))
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -1376,7 +1363,7 @@ Class DecoderReplacementFallback from DecoderFallback
 
 	Func getDefaultString
 		dn_x = dotnet_call("s3:get",nHandle,"s13:DefaultString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:DefaultString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultString P1
@@ -1479,7 +1466,7 @@ Class EncoderReplacementFallback from EncoderFallback
 
 	Func getDefaultString
 		dn_x = dotnet_call("s3:get",nHandle,"s13:DefaultString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:DefaultString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultString P1
@@ -1651,7 +1638,7 @@ Class UnicodeEncoding from Encoding
 
 	Func getCharSize
 		dn_x = dotnet_call("s3:get",'System.Text.UnicodeEncoding, System.Private.CoreLib',"s8:CharSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Text.UnicodeEncoding, System.Private.CoreLib',"s8:CharSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCharSize P1

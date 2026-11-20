@@ -60,14 +60,14 @@ Class Partitioner from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Create P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Collections.Concurrent.Partitioner, System.Collections.Concurrent'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Collections.Concurrent.Partitioner, System.Collections.Concurrent'),"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Collections.Concurrent.Partitioner, System.Collections.Concurrent',"s6:Create",P1))
 
 
 Class ConcurrentStringQueue from Object
@@ -110,20 +110,18 @@ Class ConcurrentStringQueue from Object
 		return self
 
 	Func ToArray 
-		return dnSend("s4:call",nHandle,"s7:ToArray","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Enqueue P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Enqueue",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Enqueue",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s7:Enqueue",P1)
 
 		return self
 
@@ -134,19 +132,18 @@ Class ConcurrentStringQueue from Object
 		return dnSend("s4:call",nHandle,"s7:TryPeek","")
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getIsEmpty
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsEmpty",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsEmpty P1
@@ -154,7 +151,7 @@ Class ConcurrentStringQueue from Object
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -201,20 +198,18 @@ Class ConcurrentObjectQueue from Object
 		return self
 
 	Func ToArray 
-		return dnSend("s4:call",nHandle,"s7:ToArray","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Enqueue P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Enqueue",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Enqueue",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s7:Enqueue",P1)
 
 		return self
 
@@ -225,19 +220,18 @@ Class ConcurrentObjectQueue from Object
 		return dnSend("s4:call",nHandle,"s7:TryPeek","")
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getIsEmpty
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsEmpty",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsEmpty P1
@@ -245,7 +239,7 @@ Class ConcurrentObjectQueue from Object
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -292,20 +286,17 @@ Class ConcurrentObjectStack from Object
 		return self
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func Push P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s4:Push",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Push",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s4:Push",P1)
 
 		return self
 
@@ -314,8 +305,7 @@ Class ConcurrentObjectStack from Object
 			dnSend("s9:callnamed",nHandle,"s9:PushRange",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:PushRange",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:PushRange",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s9:PushRange",P1)
 
 		return self
 
@@ -330,23 +320,23 @@ Class ConcurrentObjectStack from Object
 			return dnSend("s9:callnamed",nHandle,"s11:TryPopRange",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s11:TryPopRange",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:TryPopRange",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToArray 
-		return dnSend("s4:call",nHandle,"s7:ToArray","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getIsEmpty
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsEmpty",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsEmpty P1
@@ -354,7 +344,7 @@ Class ConcurrentObjectStack from Object
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -401,8 +391,7 @@ Class ConcurrentObjectBag from Object
 		return self
 
 	Func Add P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
@@ -413,31 +402,29 @@ Class ConcurrentObjectBag from Object
 		return dnSend("s4:call",nHandle,"s7:TryPeek","")
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func ToArray 
-		return dnSend("s4:call",nHandle,"s7:ToArray","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -445,7 +432,7 @@ Class ConcurrentObjectBag from Object
 
 	Func getIsEmpty
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsEmpty",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsEmpty P1
@@ -495,19 +482,19 @@ Class ConcurrentObjectDictionary from Object
 		return self
 
 	Func GetAlternateLookup 
-		return dnSend("s4:call",nHandle,"s18:GetAlternateLookup","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetAlternateLookup"))
 
 	Func TryGetAlternateLookup 
 		return dnSend("s4:call",nHandle,"s21:TryGetAlternateLookup","")
 
 	Func TryAdd P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s6:TryAdd",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:TryAdd",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ContainsKey P1
 		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:ContainsKey",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryRemove P1
@@ -518,20 +505,19 @@ Class ConcurrentObjectDictionary from Object
 
 	Func TryUpdate P1,P2,P3
 		dn_x = dotnet_call("s4:call",nHandle,"s9:TryUpdate",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:TryUpdate",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func ToArray 
-		return dnSend("s4:call",nHandle,"s7:ToArray","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func GetOrAdd P1
 		if dnIsNamed(P1)
@@ -547,26 +533,25 @@ Class ConcurrentObjectDictionary from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getComparer
-		return dnSend("s3:get",nHandle,"s8:Comparer","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Comparer"))
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -574,20 +559,20 @@ Class ConcurrentObjectDictionary from Object
 
 	Func getIsEmpty
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsEmpty",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getKeys
-		return dnSend("s3:get",nHandle,"s4:Keys","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Keys"))
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnSend("s3:get",nHandle,"s6:Values","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Values"))
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
@@ -636,19 +621,19 @@ Class ConcurrentStringDictionary from Object
 		return self
 
 	Func GetAlternateLookup 
-		return dnSend("s4:call",nHandle,"s18:GetAlternateLookup","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetAlternateLookup"))
 
 	Func TryGetAlternateLookup 
 		return dnSend("s4:call",nHandle,"s21:TryGetAlternateLookup","")
 
 	Func TryAdd P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s6:TryAdd",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:TryAdd",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ContainsKey P1
 		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:ContainsKey",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryRemove P1
@@ -659,20 +644,19 @@ Class ConcurrentStringDictionary from Object
 
 	Func TryUpdate P1,P2,P3
 		dn_x = dotnet_call("s4:call",nHandle,"s9:TryUpdate",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:TryUpdate",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func ToArray 
-		return dnSend("s4:call",nHandle,"s7:ToArray","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func GetOrAdd P1
 		if dnIsNamed(P1)
@@ -688,28 +672,27 @@ Class ConcurrentStringDictionary from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:get_Item",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getComparer
-		return dnSend("s3:get",nHandle,"s8:Comparer","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Comparer"))
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -717,20 +700,20 @@ Class ConcurrentStringDictionary from Object
 
 	Func getIsEmpty
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsEmpty",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getKeys
-		return dnSend("s3:get",nHandle,"s4:Keys","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Keys"))
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnSend("s3:get",nHandle,"s6:Values","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Values"))
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
@@ -782,8 +765,7 @@ Class BlockingObjectCollection from Object
 			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
@@ -792,7 +774,7 @@ Class BlockingObjectCollection from Object
 			return dnSend("s9:callnamed",nHandle,"s6:TryAdd",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:TryAdd",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:TryAdd",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Take P1
@@ -800,9 +782,9 @@ Class BlockingObjectCollection from Object
 			return dnSend("s9:callnamed",nHandle,"s4:Take",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s4:Take","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Take"))
 		ok
-		return dnSend("s4:call",nHandle,"s4:Take",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Take",P1))
 
 	Func TryTake P1
 		if dnIsNamed(P1)
@@ -814,23 +796,20 @@ Class BlockingObjectCollection from Object
 		return dnSend("s4:call",nHandle,"s7:TryTake",dnPackItem(P1))
 
 	Func CompleteAdding 
-		dn_x = dotnet_callv("s4:call",nHandle,"s14:CompleteAdding")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s14:CompleteAdding","") ok
+		dotnet_callv("s4:call",nHandle,"s14:CompleteAdding")
 
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func ToArray 
-		return dnSend("s4:call",nHandle,"s7:ToArray","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
@@ -839,13 +818,13 @@ Class BlockingObjectCollection from Object
 			return dnSend("s9:callnamed",nHandle,"s22:GetConsumingEnumerable",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s22:GetConsumingEnumerable","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConsumingEnumerable"))
 		ok
-		return dnSend("s4:call",nHandle,"s22:GetConsumingEnumerable",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConsumingEnumerable",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AddToAny P1
@@ -874,7 +853,7 @@ Class BlockingObjectCollection from Object
 
 	Func getBoundedCapacity
 		dn_x = dotnet_call("s3:get",nHandle,"s15:BoundedCapacity")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:BoundedCapacity",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBoundedCapacity P1
@@ -882,7 +861,7 @@ Class BlockingObjectCollection from Object
 
 	Func getIsAddingCompleted
 		dn_x = dotnet_call("s3:get",nHandle,"s17:IsAddingCompleted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:IsAddingCompleted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAddingCompleted P1
@@ -890,7 +869,7 @@ Class BlockingObjectCollection from Object
 
 	Func getIsCompleted
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsCompleted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsCompleted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsCompleted P1
@@ -898,7 +877,7 @@ Class BlockingObjectCollection from Object
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1

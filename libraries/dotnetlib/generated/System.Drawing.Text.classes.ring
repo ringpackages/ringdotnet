@@ -31,18 +31,17 @@ Class FontCollection from Object
 		return self
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getFamilies
-		return dnSend("s3:get",nHandle,"s8:Families","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Families"))
 
 	Func setFamilies P1
 		raise("DotNet Error: Families is a read-only property")
@@ -90,14 +89,12 @@ Class PrivateFontCollection from FontCollection
 		return self
 
 	Func AddFontFile P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:AddFontFile",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:AddFontFile",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s11:AddFontFile",P1)
 
 		return self
 
 	Func AddMemoryFont P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s13:AddMemoryFont",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s13:AddMemoryFont",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s13:AddMemoryFont",P1,P2)
 
 		return self
 

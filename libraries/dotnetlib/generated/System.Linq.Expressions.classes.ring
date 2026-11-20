@@ -250,33 +250,33 @@ Class CatchBlock from Object
 		return self
 
 	Func Update P1,P2,P3
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getVariable
-		return dnSend("s3:get",nHandle,"s8:Variable","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Variable"))
 
 	Func setVariable P1
 		raise("DotNet Error: Variable is a read-only property")
 
 	Func getTest
-		return dnSend("s3:get",nHandle,"s4:Test","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Test"))
 
 	Func setTest P1
 		raise("DotNet Error: Test is a read-only property")
 
 	Func getBody
-		return dnSend("s3:get",nHandle,"s4:Body","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Body"))
 
 	Func setBody P1
 		raise("DotNet Error: Body is a read-only property")
 
 	Func getFilter
-		return dnSend("s3:get",nHandle,"s6:Filter","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Filter"))
 
 	Func setFilter P1
 		raise("DotNet Error: Filter is a read-only property")
@@ -298,31 +298,31 @@ Class ElementInit from Object
 		return self
 
 	Func GetArgument P1
-		return dnSend("s4:call",nHandle,"s11:GetArgument",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getAddMethod
-		return dnSend("s3:get",nHandle,"s9:AddMethod","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:AddMethod"))
 
 	Func setAddMethod P1
 		raise("DotNet Error: AddMethod is a read-only property")
 
 	Func getArguments
-		return dnSend("s3:get",nHandle,"s9:Arguments","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Arguments"))
 
 	Func setArguments P1
 		raise("DotNet Error: Arguments is a read-only property")
 
 	Func getArgumentCount
 		dn_x = dotnet_call("s3:get",nHandle,"s13:ArgumentCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ArgumentCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setArgumentCount P1
@@ -345,24 +345,24 @@ Class ExpressionsExpression from Object
 		return self
 
 	Func Reduce 
-		return dnSend("s4:call",nHandle,"s6:Reduce","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Reduce"))
 
 	Func ReduceAndCheck 
-		return dnSend("s4:call",nHandle,"s14:ReduceAndCheck","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ReduceAndCheck"))
 
 	Func ReduceExtensions 
-		return dnSend("s4:call",nHandle,"s16:ReduceExtensions","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ReduceExtensions"))
 
 	Func GetType_ 
-		return dnSend("s4:call",nHandle,"s7:GetType","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Assign P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:Assign",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Assign",P1,P2))
 
 	Func MakeBinary P1
 		if dnIsNamed(P1)
@@ -377,7 +377,7 @@ Class ExpressionsExpression from Object
 		raise("DotNet Error: Equal does not take one argument: use named arguments, Equal([ :parameter = value, ... ])")
 
 	Func ReferenceEqual P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s14:ReferenceEqual",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s14:ReferenceEqual",P1,P2))
 
 	Func NotEqual P1
 		if dnIsNamed(P1)
@@ -386,7 +386,7 @@ Class ExpressionsExpression from Object
 		raise("DotNet Error: NotEqual does not take one argument: use named arguments, NotEqual([ :parameter = value, ... ])")
 
 	Func ReferenceNotEqual P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s17:ReferenceNotEqual",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s17:ReferenceNotEqual",P1,P2))
 
 	Func GreaterThan P1
 		if dnIsNamed(P1)
@@ -599,13 +599,13 @@ Class ExpressionsExpression from Object
 		raise("DotNet Error: PowerAssign does not take one argument: use named arguments, PowerAssign([ :parameter = value, ... ])")
 
 	Func ArrayIndex P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s10:ArrayIndex",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s10:ArrayIndex",P1,P2))
 
 	Func Block P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Block",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Block",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Block",P1))
 
 	Func Catch_ P1
 		if dnIsNamed(P1)
@@ -614,7 +614,7 @@ Class ExpressionsExpression from Object
 		raise("DotNet Error: Catch does not take one argument: use named arguments, Catch([ :parameter = value, ... ])")
 
 	Func MakeCatchBlock P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s14:MakeCatchBlock",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s14:MakeCatchBlock",P1,P2,P3,P4))
 
 	Func Condition P1
 		if dnIsNamed(P1)
@@ -623,31 +623,31 @@ Class ExpressionsExpression from Object
 		raise("DotNet Error: Condition does not take one argument: use named arguments, Condition([ :parameter = value, ... ])")
 
 	Func IfThen P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:IfThen",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:IfThen",P1,P2))
 
 	Func IfThenElse P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s10:IfThenElse",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s10:IfThenElse",P1,P2,P3))
 
 	Func Constant P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:Constant",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:Constant",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:Constant",P1))
 
 	Func DebugInfo P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:DebugInfo",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:DebugInfo",P1,P2,P3,P4,P5))
 
 	Func ClearDebugInfo P1
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s14:ClearDebugInfo",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s14:ClearDebugInfo",P1))
 
 	Func Empty 
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Empty","")
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Empty"))
 
 	Func Default P1
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s7:Default",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s7:Default",P1))
 
 	Func ElementInit P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s11:ElementInit",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s11:ElementInit",P1,P2))
 
 	Func Dynamic P1
 		if dnIsNamed(P1)
@@ -665,34 +665,34 @@ Class ExpressionsExpression from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Break",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Break",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Break",P1))
 
 	Func Continue_ P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:Continue",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:Continue",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:Continue",P1))
 
 	Func Return_ P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:Return",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:Return",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Return",P1))
 
 	Func Goto P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s4:Goto",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s4:Goto",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s4:Goto",P1))
 
 	Func MakeGoto P1,P2,P3,P4
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:MakeGoto",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:MakeGoto",P1,P2,P3,P4))
 
 	Func MakeIndex P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:MakeIndex",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:MakeIndex",P1,P2,P3))
 
 	Func ArrayAccess P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s11:ArrayAccess",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s11:ArrayAccess",P1,P2))
 
 	Func Property P1
 		if dnIsNamed(P1)
@@ -701,16 +701,16 @@ Class ExpressionsExpression from Object
 		raise("DotNet Error: Property does not take one argument: use named arguments, Property([ :parameter = value, ... ])")
 
 	Func Invoke P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:Invoke",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Invoke",P1,P2))
 
 	Func Label P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Label",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Label","")
+			return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Label"))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Label",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Label",P1))
 
 	Func Lambda P1
 		if dnIsNamed(P1)
@@ -719,19 +719,19 @@ Class ExpressionsExpression from Object
 		raise("DotNet Error: Lambda does not take one argument: use named arguments, Lambda([ :parameter = value, ... ])")
 
 	Func GetFuncType P1
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s11:GetFuncType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s11:GetFuncType",P1))
 
 	Func TryGetFuncType P1
 		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s14:TryGetFuncType",dnPackItem(P1))
 
 	Func GetActionType P1
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s13:GetActionType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s13:GetActionType",P1))
 
 	Func TryGetActionType P1
 		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s16:TryGetActionType",dnPackItem(P1))
 
 	Func GetDelegateType P1
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s15:GetDelegateType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s15:GetDelegateType",P1))
 
 	Func ListInit P1
 		if dnIsNamed(P1)
@@ -743,10 +743,10 @@ Class ExpressionsExpression from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s4:Loop",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s4:Loop",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s4:Loop",P1))
 
 	Func Bind P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s4:Bind",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s4:Bind",P1,P2))
 
 	Func Field P1
 		if dnIsNamed(P1)
@@ -755,19 +755,19 @@ Class ExpressionsExpression from Object
 		raise("DotNet Error: Field does not take one argument: use named arguments, Field([ :parameter = value, ... ])")
 
 	Func PropertyOrField P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s15:PropertyOrField",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s15:PropertyOrField",P1,P2))
 
 	Func MakeMemberAccess P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s16:MakeMemberAccess",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s16:MakeMemberAccess",P1,P2))
 
 	Func MemberInit P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s10:MemberInit",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s10:MemberInit",P1,P2))
 
 	Func ListBind P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:ListBind",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:ListBind",P1,P2))
 
 	Func MemberBind P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s10:MemberBind",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s10:MemberBind",P1,P2))
 
 	Func Call_ P1
 		if dnIsNamed(P1)
@@ -776,28 +776,28 @@ Class ExpressionsExpression from Object
 		raise("DotNet Error: Call does not take one argument: use named arguments, Call([ :parameter = value, ... ])")
 
 	Func NewArrayInit P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s12:NewArrayInit",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s12:NewArrayInit",P1,P2))
 
 	Func NewArrayBounds P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s14:NewArrayBounds",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s14:NewArrayBounds",P1,P2))
 
 	Func Parameter P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:Parameter",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:Parameter",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:Parameter",P1))
 
 	Func Variable P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:Variable",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:Variable",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:Variable",P1))
 
 	Func RuntimeVariables P1
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s16:RuntimeVariables",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s16:RuntimeVariables",P1))
 
 	Func SwitchCase P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s10:SwitchCase",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s10:SwitchCase",P1,P2))
 
 	Func Switch_ P1
 		if dnIsNamed(P1)
@@ -809,28 +809,28 @@ Class ExpressionsExpression from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s14:SymbolDocument",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s14:SymbolDocument",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s14:SymbolDocument",P1))
 
 	Func TryFault P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:TryFault",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:TryFault",P1,P2))
 
 	Func TryFinally P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s10:TryFinally",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s10:TryFinally",P1,P2))
 
 	Func TryCatch P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:TryCatch",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:TryCatch",P1,P2))
 
 	Func TryCatchFinally P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s15:TryCatchFinally",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s15:TryCatchFinally",P1,P2,P3))
 
 	Func MakeTry P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s7:MakeTry",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s7:MakeTry",P1,P2,P3,P4,P5))
 
 	Func TypeIs P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:TypeIs",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:TypeIs",P1,P2))
 
 	Func TypeEqual P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:TypeEqual",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:TypeEqual",P1,P2))
 
 	Func MakeUnary P1
 		if dnIsNamed(P1)
@@ -842,49 +842,49 @@ Class ExpressionsExpression from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:Negate",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:Negate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Negate",P1))
 
 	Func UnaryPlus P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:UnaryPlus",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:UnaryPlus",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:UnaryPlus",P1))
 
 	Func NegateChecked P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s13:NegateChecked",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s13:NegateChecked",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s13:NegateChecked",P1))
 
 	Func Not_ P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s3:Not",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s3:Not",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s3:Not",P1))
 
 	Func IsFalse P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s7:IsFalse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s7:IsFalse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s7:IsFalse",P1))
 
 	Func IsTrue P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:IsTrue",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:IsTrue",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:IsTrue",P1))
 
 	Func OnesComplement P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s14:OnesComplement",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s14:OnesComplement",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s14:OnesComplement",P1))
 
 	Func TypeAs P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:TypeAs",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:TypeAs",P1,P2))
 
 	Func Unbox P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Unbox",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Unbox",P1,P2))
 
 	Func Convert P1
 		if dnIsNamed(P1)
@@ -899,77 +899,77 @@ Class ExpressionsExpression from Object
 		raise("DotNet Error: ConvertChecked does not take one argument: use named arguments, ConvertChecked([ :parameter = value, ... ])")
 
 	Func ArrayLength P1
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s11:ArrayLength",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s11:ArrayLength",P1))
 
 	Func Quote P1
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Quote",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Quote",P1))
 
 	Func Rethrow P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s7:Rethrow",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s7:Rethrow","")
+			return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s7:Rethrow"))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s7:Rethrow",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s7:Rethrow",P1))
 
 	Func Throw P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Throw",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Throw",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Throw",P1))
 
 	Func Increment P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:Increment",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:Increment",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:Increment",P1))
 
 	Func Decrement P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:Decrement",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:Decrement",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:Decrement",P1))
 
 	Func PreIncrementAssign P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s18:PreIncrementAssign",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s18:PreIncrementAssign",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s18:PreIncrementAssign",P1))
 
 	Func PreDecrementAssign P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s18:PreDecrementAssign",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s18:PreDecrementAssign",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s18:PreDecrementAssign",P1))
 
 	Func PostIncrementAssign P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s19:PostIncrementAssign",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s19:PostIncrementAssign",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s19:PostIncrementAssign",P1))
 
 	Func PostDecrementAssign P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s19:PostDecrementAssign",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s19:PostDecrementAssign",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s19:PostDecrementAssign",P1))
 
 	Func getNodeType
-		return dnSend("s3:get",nHandle,"s8:NodeType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:NodeType"))
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getType
-		return dnSend("s3:get",nHandle,"s4:Type","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getCanReduce
 		dn_x = dotnet_call("s3:get",nHandle,"s9:CanReduce")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:CanReduce",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCanReduce P1
@@ -994,14 +994,14 @@ Class ExpressionVisitor from Object
 			ok
 			return dnSend("s9:callnamed",nHandle,"s5:Visit",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s5:Visit",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
 
 	Func VisitAndConvert P1,P2
-		return dnSend("s4:call",nHandle,"s15:VisitAndConvert",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:VisitAndConvert",P1,P2))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -1019,11 +1019,11 @@ Class IArgumentProvider from DotNetObject
 		return self
 
 	Func GetArgument P1
-		return dnSend("s4:call",nHandle,"s11:GetArgument",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
 
 	Func getArgumentCount
 		dn_x = dotnet_call("s3:get",nHandle,"s13:ArgumentCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ArgumentCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setArgumentCount P1
@@ -1044,13 +1044,13 @@ Class IDynamicExpression from DotNetObject
 		return self
 
 	Func Rewrite P1
-		return dnSend("s4:call",nHandle,"s7:Rewrite",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Rewrite",P1))
 
 	Func CreateCallSite 
-		return dnSend("s4:call",nHandle,"s14:CreateCallSite","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateCallSite"))
 
 	Func getDelegateType
-		return dnSend("s3:get",nHandle,"s12:DelegateType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:DelegateType"))
 
 	Func setDelegateType P1
 		raise("DotNet Error: DelegateType is a read-only property")
@@ -1071,23 +1071,23 @@ Class LabelTarget from Object
 		return self
 
 	Func GetType_ 
-		return dnSend("s4:call",nHandle,"s7:GetType","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getType
-		return dnSend("s3:get",nHandle,"s4:Type","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
@@ -1109,17 +1109,17 @@ Class MemberBinding from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getBindingType
-		return dnSend("s3:get",nHandle,"s11:BindingType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:BindingType"))
 
 	Func setBindingType P1
 		raise("DotNet Error: BindingType is a read-only property")
 
 	Func getMember
-		return dnSend("s3:get",nHandle,"s6:Member","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Member"))
 
 	Func setMember P1
 		raise("DotNet Error: Member is a read-only property")
@@ -1140,21 +1140,21 @@ Class SwitchCase from Object
 		return self
 
 	Func Update P1,P2
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getTestValues
-		return dnSend("s3:get",nHandle,"s10:TestValues","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:TestValues"))
 
 	Func setTestValues P1
 		raise("DotNet Error: TestValues is a read-only property")
 
 	Func getBody
-		return dnSend("s3:get",nHandle,"s4:Body","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Body"))
 
 	Func setBody P1
 		raise("DotNet Error: Body is a read-only property")
@@ -1178,31 +1178,31 @@ Class SymbolDocumentInfo from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getFileName
 		dn_x = dotnet_call("s3:get",nHandle,"s8:FileName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:FileName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
 
 	Func getLanguage
-		return dnSend("s3:get",nHandle,"s8:Language","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Language"))
 
 	Func setLanguage P1
 		raise("DotNet Error: Language is a read-only property")
 
 	Func getLanguageVendor
-		return dnSend("s3:get",nHandle,"s14:LanguageVendor","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:LanguageVendor"))
 
 	Func setLanguageVendor P1
 		raise("DotNet Error: LanguageVendor is a read-only property")
 
 	Func getDocumentType
-		return dnSend("s3:get",nHandle,"s12:DocumentType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:DocumentType"))
 
 	Func setDocumentType P1
 		raise("DotNet Error: DocumentType is a read-only property")
@@ -1227,35 +1227,35 @@ Class BinaryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3))
 
 	Func getRight
-		return dnSend("s3:get",nHandle,"s5:Right","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Right"))
 
 	Func setRight P1
 		raise("DotNet Error: Right is a read-only property")
 
 	Func getLeft
-		return dnSend("s3:get",nHandle,"s4:Left","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Left"))
 
 	Func setLeft P1
 		raise("DotNet Error: Left is a read-only property")
 
 	Func getMethod
-		return dnSend("s3:get",nHandle,"s6:Method","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Method"))
 
 	Func setMethod P1
 		raise("DotNet Error: Method is a read-only property")
 
 	Func getConversion
-		return dnSend("s3:get",nHandle,"s10:Conversion","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Conversion"))
 
 	Func setConversion P1
 		raise("DotNet Error: Conversion is a read-only property")
 
 	Func getIsLifted
 		dn_x = dotnet_call("s3:get",nHandle,"s8:IsLifted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsLifted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsLifted P1
@@ -1263,7 +1263,7 @@ Class BinaryExpression from ExpressionsExpression
 
 	Func getIsLiftedToNull
 		dn_x = dotnet_call("s3:get",nHandle,"s14:IsLiftedToNull")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsLiftedToNull",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsLiftedToNull P1
@@ -1286,22 +1286,22 @@ Class BlockExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
 
 	Func getExpressions
-		return dnSend("s3:get",nHandle,"s11:Expressions","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Expressions"))
 
 	Func setExpressions P1
 		raise("DotNet Error: Expressions is a read-only property")
 
 	Func getVariables
-		return dnSend("s3:get",nHandle,"s9:Variables","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Variables"))
 
 	Func setVariables P1
 		raise("DotNet Error: Variables is a read-only property")
 
 	Func getResult
-		return dnSend("s3:get",nHandle,"s6:Result","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Result"))
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
@@ -1323,22 +1323,22 @@ Class ConditionalExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3))
 
 	Func getTest
-		return dnSend("s3:get",nHandle,"s4:Test","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Test"))
 
 	Func setTest P1
 		raise("DotNet Error: Test is a read-only property")
 
 	Func getIfTrue
-		return dnSend("s3:get",nHandle,"s6:IfTrue","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:IfTrue"))
 
 	Func setIfTrue P1
 		raise("DotNet Error: IfTrue is a read-only property")
 
 	Func getIfFalse
-		return dnSend("s3:get",nHandle,"s7:IfFalse","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:IfFalse"))
 
 	Func setIfFalse P1
 		raise("DotNet Error: IfFalse is a read-only property")
@@ -1358,7 +1358,7 @@ Class ConstantExpression from ExpressionsExpression
 		return self
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1384,7 +1384,7 @@ Class DebugInfoExpression from ExpressionsExpression
 
 	Func getStartLine
 		dn_x = dotnet_call("s3:get",nHandle,"s9:StartLine")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:StartLine",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setStartLine P1
@@ -1392,7 +1392,7 @@ Class DebugInfoExpression from ExpressionsExpression
 
 	Func getStartColumn
 		dn_x = dotnet_call("s3:get",nHandle,"s11:StartColumn")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:StartColumn",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setStartColumn P1
@@ -1400,7 +1400,7 @@ Class DebugInfoExpression from ExpressionsExpression
 
 	Func getEndLine
 		dn_x = dotnet_call("s3:get",nHandle,"s7:EndLine")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:EndLine",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEndLine P1
@@ -1408,21 +1408,21 @@ Class DebugInfoExpression from ExpressionsExpression
 
 	Func getEndColumn
 		dn_x = dotnet_call("s3:get",nHandle,"s9:EndColumn")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:EndColumn",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEndColumn P1
 		raise("DotNet Error: EndColumn is a read-only property")
 
 	Func getDocument
-		return dnSend("s3:get",nHandle,"s8:Document","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Document"))
 
 	Func setDocument P1
 		raise("DotNet Error: Document is a read-only property")
 
 	Func getIsClear
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsClear")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsClear",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsClear P1
@@ -1457,7 +1457,7 @@ Class DynamicExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func Dynamic P1
 		if dnIsNamed(P1)
@@ -1472,19 +1472,19 @@ Class DynamicExpression from ExpressionsExpression
 		raise("DotNet Error: MakeDynamic does not take one argument: use named arguments, MakeDynamic([ :parameter = value, ... ])")
 
 	Func getBinder
-		return dnSend("s3:get",nHandle,"s6:Binder","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Binder"))
 
 	Func setBinder P1
 		raise("DotNet Error: Binder is a read-only property")
 
 	Func getDelegateType
-		return dnSend("s3:get",nHandle,"s12:DelegateType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:DelegateType"))
 
 	Func setDelegateType P1
 		raise("DotNet Error: DelegateType is a read-only property")
 
 	Func getArguments
-		return dnSend("s3:get",nHandle,"s9:Arguments","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Arguments"))
 
 	Func setArguments P1
 		raise("DotNet Error: Arguments is a read-only property")
@@ -1511,7 +1511,7 @@ Class DynamicExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Visit P1
-		return dnSend("s4:call",nHandle,"s5:Visit",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
 
 
 Class GotoExpression from ExpressionsExpression
@@ -1530,22 +1530,22 @@ Class GotoExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getTarget
-		return dnSend("s3:get",nHandle,"s6:Target","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Target"))
 
 	Func setTarget P1
 		raise("DotNet Error: Target is a read-only property")
 
 	Func getKind
-		return dnSend("s3:get",nHandle,"s4:Kind","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Kind"))
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")
@@ -1568,32 +1568,32 @@ Class IndexExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
 
 	Func GetArgument P1
-		return dnSend("s4:call",nHandle,"s11:GetArgument",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
 
 	Func getObject
-		return dnSend("s3:get",nHandle,"s6:Object","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Object"))
 
 	Func setObject P1
 		raise("DotNet Error: Object is a read-only property")
 
 	Func getIndexer
-		return dnSend("s3:get",nHandle,"s7:Indexer","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Indexer"))
 
 	Func setIndexer P1
 		raise("DotNet Error: Indexer is a read-only property")
 
 	Func getArguments
-		return dnSend("s3:get",nHandle,"s9:Arguments","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Arguments"))
 
 	Func setArguments P1
 		raise("DotNet Error: Arguments is a read-only property")
 
 	Func getArgumentCount
 		dn_x = dotnet_call("s3:get",nHandle,"s13:ArgumentCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ArgumentCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setArgumentCount P1
@@ -1616,26 +1616,26 @@ Class InvocationExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
 
 	Func GetArgument P1
-		return dnSend("s4:call",nHandle,"s11:GetArgument",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
 
 	Func getExpression
-		return dnSend("s3:get",nHandle,"s10:Expression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Expression"))
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getArguments
-		return dnSend("s3:get",nHandle,"s9:Arguments","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Arguments"))
 
 	Func setArguments P1
 		raise("DotNet Error: Arguments is a read-only property")
 
 	Func getArgumentCount
 		dn_x = dotnet_call("s3:get",nHandle,"s13:ArgumentCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ArgumentCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setArgumentCount P1
@@ -1657,16 +1657,16 @@ Class LabelExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
 
 	Func getTarget
-		return dnSend("s3:get",nHandle,"s6:Target","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Target"))
 
 	Func setTarget P1
 		raise("DotNet Error: Target is a read-only property")
 
 	Func getDefaultValue
-		return dnSend("s3:get",nHandle,"s12:DefaultValue","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:DefaultValue"))
 
 	Func setDefaultValue P1
 		raise("DotNet Error: DefaultValue is a read-only property")
@@ -1696,39 +1696,39 @@ Class LambdaExpression from ExpressionsExpression
 			return dnSend("s9:callnamed",nHandle,"s7:Compile",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s7:Compile","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s7:Compile"))
 		ok
-		return dnSend("s4:call",nHandle,"s7:Compile",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Compile",P1))
 
 	Func getParameters
-		return dnSend("s3:get",nHandle,"s10:Parameters","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Parameters"))
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getBody
-		return dnSend("s3:get",nHandle,"s4:Body","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Body"))
 
 	Func setBody P1
 		raise("DotNet Error: Body is a read-only property")
 
 	Func getReturnType
-		return dnSend("s3:get",nHandle,"s10:ReturnType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ReturnType"))
 
 	Func setReturnType P1
 		raise("DotNet Error: ReturnType is a read-only property")
 
 	Func getTailCall
 		dn_x = dotnet_call("s3:get",nHandle,"s8:TailCall")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:TailCall",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTailCall P1
@@ -1736,7 +1736,7 @@ Class LambdaExpression from ExpressionsExpression
 
 	Func getCanCompileToIL
 		dn_x = dotnet_call("s3:get",'System.Linq.Expressions.LambdaExpression, System.Linq.Expressions',"s14:CanCompileToIL")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Linq.Expressions.LambdaExpression, System.Linq.Expressions',"s14:CanCompileToIL",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCanCompileToIL P1
@@ -1744,7 +1744,7 @@ Class LambdaExpression from ExpressionsExpression
 
 	Func getCanInterpret
 		dn_x = dotnet_call("s3:get",'System.Linq.Expressions.LambdaExpression, System.Linq.Expressions',"s12:CanInterpret")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Linq.Expressions.LambdaExpression, System.Linq.Expressions',"s12:CanInterpret",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCanInterpret P1
@@ -1766,16 +1766,16 @@ Class ListInitExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
 
 	Func getNewExpression
-		return dnSend("s3:get",nHandle,"s13:NewExpression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:NewExpression"))
 
 	Func setNewExpression P1
 		raise("DotNet Error: NewExpression is a read-only property")
 
 	Func getInitializers
-		return dnSend("s3:get",nHandle,"s12:Initializers","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:Initializers"))
 
 	Func setInitializers P1
 		raise("DotNet Error: Initializers is a read-only property")
@@ -1797,22 +1797,22 @@ Class LoopExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3))
 
 	Func getBody
-		return dnSend("s3:get",nHandle,"s4:Body","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Body"))
 
 	Func setBody P1
 		raise("DotNet Error: Body is a read-only property")
 
 	Func getBreakLabel
-		return dnSend("s3:get",nHandle,"s10:BreakLabel","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:BreakLabel"))
 
 	Func setBreakLabel P1
 		raise("DotNet Error: BreakLabel is a read-only property")
 
 	Func getContinueLabel
-		return dnSend("s3:get",nHandle,"s13:ContinueLabel","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ContinueLabel"))
 
 	Func setContinueLabel P1
 		raise("DotNet Error: ContinueLabel is a read-only property")
@@ -1832,10 +1832,10 @@ Class MemberAssignment from MemberBinding
 		return self
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func getExpression
-		return dnSend("s3:get",nHandle,"s10:Expression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Expression"))
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
@@ -1856,16 +1856,16 @@ Class MemberExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func getMember
-		return dnSend("s3:get",nHandle,"s6:Member","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Member"))
 
 	Func setMember P1
 		raise("DotNet Error: Member is a read-only property")
 
 	Func getExpression
-		return dnSend("s3:get",nHandle,"s10:Expression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Expression"))
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
@@ -1886,16 +1886,16 @@ Class MemberInitExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
 
 	Func getNewExpression
-		return dnSend("s3:get",nHandle,"s13:NewExpression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:NewExpression"))
 
 	Func setNewExpression P1
 		raise("DotNet Error: NewExpression is a read-only property")
 
 	Func getBindings
-		return dnSend("s3:get",nHandle,"s8:Bindings","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Bindings"))
 
 	Func setBindings P1
 		raise("DotNet Error: Bindings is a read-only property")
@@ -1915,10 +1915,10 @@ Class MemberListBinding from MemberBinding
 		return self
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func getInitializers
-		return dnSend("s3:get",nHandle,"s12:Initializers","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:Initializers"))
 
 	Func setInitializers P1
 		raise("DotNet Error: Initializers is a read-only property")
@@ -1938,10 +1938,10 @@ Class MemberMemberBinding from MemberBinding
 		return self
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func getBindings
-		return dnSend("s3:get",nHandle,"s8:Bindings","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Bindings"))
 
 	Func setBindings P1
 		raise("DotNet Error: Bindings is a read-only property")
@@ -1964,32 +1964,32 @@ Class MethodCallExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
 
 	Func GetArgument P1
-		return dnSend("s4:call",nHandle,"s11:GetArgument",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
 
 	Func getMethod
-		return dnSend("s3:get",nHandle,"s6:Method","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Method"))
 
 	Func setMethod P1
 		raise("DotNet Error: Method is a read-only property")
 
 	Func getObject
-		return dnSend("s3:get",nHandle,"s6:Object","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Object"))
 
 	Func setObject P1
 		raise("DotNet Error: Object is a read-only property")
 
 	Func getArguments
-		return dnSend("s3:get",nHandle,"s9:Arguments","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Arguments"))
 
 	Func setArguments P1
 		raise("DotNet Error: Arguments is a read-only property")
 
 	Func getArgumentCount
 		dn_x = dotnet_call("s3:get",nHandle,"s13:ArgumentCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ArgumentCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setArgumentCount P1
@@ -2010,10 +2010,10 @@ Class NewArrayExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func getExpressions
-		return dnSend("s3:get",nHandle,"s11:Expressions","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Expressions"))
 
 	Func setExpressions P1
 		raise("DotNet Error: Expressions is a read-only property")
@@ -2036,33 +2036,33 @@ Class NewExpression from ExpressionsExpression
 		return self
 
 	Func GetArgument P1
-		return dnSend("s4:call",nHandle,"s11:GetArgument",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func getConstructor
-		return dnSend("s3:get",nHandle,"s11:Constructor","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Constructor"))
 
 	Func setConstructor P1
 		raise("DotNet Error: Constructor is a read-only property")
 
 	Func getArguments
-		return dnSend("s3:get",nHandle,"s9:Arguments","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Arguments"))
 
 	Func setArguments P1
 		raise("DotNet Error: Arguments is a read-only property")
 
 	Func getArgumentCount
 		dn_x = dotnet_call("s3:get",nHandle,"s13:ArgumentCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ArgumentCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setArgumentCount P1
 		raise("DotNet Error: ArgumentCount is a read-only property")
 
 	Func getMembers
-		return dnSend("s3:get",nHandle,"s7:Members","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Members"))
 
 	Func setMembers P1
 		raise("DotNet Error: Members is a read-only property")
@@ -2084,7 +2084,7 @@ Class ParameterExpression from ExpressionsExpression
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
@@ -2092,7 +2092,7 @@ Class ParameterExpression from ExpressionsExpression
 
 	Func getIsByRef
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsByRef")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsByRef",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsByRef P1
@@ -2113,10 +2113,10 @@ Class RuntimeVariablesExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func getVariables
-		return dnSend("s3:get",nHandle,"s9:Variables","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Variables"))
 
 	Func setVariables P1
 		raise("DotNet Error: Variables is a read-only property")
@@ -2139,28 +2139,28 @@ Class SwitchExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3))
 
 	Func getSwitchValue
-		return dnSend("s3:get",nHandle,"s11:SwitchValue","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:SwitchValue"))
 
 	Func setSwitchValue P1
 		raise("DotNet Error: SwitchValue is a read-only property")
 
 	Func getCases
-		return dnSend("s3:get",nHandle,"s5:Cases","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Cases"))
 
 	Func setCases P1
 		raise("DotNet Error: Cases is a read-only property")
 
 	Func getDefaultBody
-		return dnSend("s3:get",nHandle,"s11:DefaultBody","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:DefaultBody"))
 
 	Func setDefaultBody P1
 		raise("DotNet Error: DefaultBody is a read-only property")
 
 	Func getComparison
-		return dnSend("s3:get",nHandle,"s10:Comparison","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Comparison"))
 
 	Func setComparison P1
 		raise("DotNet Error: Comparison is a read-only property")
@@ -2183,28 +2183,28 @@ Class TryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3,P4))
 
 	Func getBody
-		return dnSend("s3:get",nHandle,"s4:Body","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Body"))
 
 	Func setBody P1
 		raise("DotNet Error: Body is a read-only property")
 
 	Func getHandlers
-		return dnSend("s3:get",nHandle,"s8:Handlers","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Handlers"))
 
 	Func setHandlers P1
 		raise("DotNet Error: Handlers is a read-only property")
 
 	Func getFinally
-		return dnSend("s3:get",nHandle,"s7:Finally","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Finally"))
 
 	Func setFinally P1
 		raise("DotNet Error: Finally is a read-only property")
 
 	Func getFault
-		return dnSend("s3:get",nHandle,"s5:Fault","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Fault"))
 
 	Func setFault P1
 		raise("DotNet Error: Fault is a read-only property")
@@ -2225,16 +2225,16 @@ Class TypeBinaryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func getExpression
-		return dnSend("s3:get",nHandle,"s10:Expression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Expression"))
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getTypeOperand
-		return dnSend("s3:get",nHandle,"s11:TypeOperand","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:TypeOperand"))
 
 	Func setTypeOperand P1
 		raise("DotNet Error: TypeOperand is a read-only property")
@@ -2257,23 +2257,23 @@ Class UnaryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnSend("s4:call",nHandle,"s6:Update",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func getOperand
-		return dnSend("s3:get",nHandle,"s7:Operand","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Operand"))
 
 	Func setOperand P1
 		raise("DotNet Error: Operand is a read-only property")
 
 	Func getMethod
-		return dnSend("s3:get",nHandle,"s6:Method","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Method"))
 
 	Func setMethod P1
 		raise("DotNet Error: Method is a read-only property")
 
 	Func getIsLifted
 		dn_x = dotnet_call("s3:get",nHandle,"s8:IsLifted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsLifted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsLifted P1
@@ -2281,7 +2281,7 @@ Class UnaryExpression from ExpressionsExpression
 
 	Func getIsLiftedToNull
 		dn_x = dotnet_call("s3:get",nHandle,"s14:IsLiftedToNull")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsLiftedToNull",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsLiftedToNull P1

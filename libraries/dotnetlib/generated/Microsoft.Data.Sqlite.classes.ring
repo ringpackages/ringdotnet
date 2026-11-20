@@ -185,13 +185,11 @@ Class SqliteConnection from DbConnection
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_callv("s4:call",nHandle,"s16:EnableExtensions")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:EnableExtensions","") ok
+			dotnet_callv("s4:call",nHandle,"s16:EnableExtensions")
 
 		return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:EnableExtensions",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:EnableExtensions",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s16:EnableExtensions",P1)
 
 		return self
 
@@ -200,8 +198,7 @@ Class SqliteConnection from DbConnection
 			dnSend("s9:callnamed",nHandle,"s13:LoadExtension",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s13:LoadExtension",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s13:LoadExtension",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s13:LoadExtension",P1)
 
 		return self
 
@@ -210,37 +207,33 @@ Class SqliteConnection from DbConnection
 			dnSend("s9:callnamed",nHandle,"s14:BackupDatabase",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s14:BackupDatabase",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s14:BackupDatabase",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s14:BackupDatabase",P1)
 
 		return self
 
 	Func ClearAllPools 
-		dn_x = dotnet_callv("s4:call",'Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',"s13:ClearAllPools")
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite'),"s13:ClearAllPools","") ok
+		dotnet_callv("s4:call",'Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',"s13:ClearAllPools")
 
 		return self
 
 	Func ClearPool P1
-		dn_x = dotnet_callv("s4:call",'Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',"s9:ClearPool",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite'),"s9:ClearPool",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',"s9:ClearPool",P1)
 
 		return self
 
 	Func getHandle
-		return dnSend("s3:get",nHandle,"s6:Handle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Handle"))
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getDefaultTimeout
 		dn_x = dotnet_call("s3:get",nHandle,"s14:DefaultTimeout")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:DefaultTimeout",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultTimeout P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:DefaultTimeout",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:DefaultTimeout",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:DefaultTimeout",P1)
 		return self
 
 
@@ -291,76 +284,68 @@ Class SqliteConnectionStringBuilder from DbConnectionStringBuilder
 
 	Func getDataSource
 		dn_x = dotnet_call("s3:get",nHandle,"s10:DataSource")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:DataSource",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDataSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:DataSource",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:DataSource",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:DataSource",P1)
 		return self
 
 	Func getMode
-		return dnSend("s3:get",nHandle,"s4:Mode","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Mode"))
 
 	Func setMode P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Mode",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Mode",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Mode",P1)
 		return self
 
 	Func getCache
-		return dnSend("s3:get",nHandle,"s5:Cache","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Cache"))
 
 	Func setCache P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Cache",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Cache",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Cache",P1)
 		return self
 
 	Func getPassword
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Password")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Password",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPassword P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Password",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Password",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Password",P1)
 		return self
 
 	Func getForeignKeys
-		return dnSend("s3:get",nHandle,"s11:ForeignKeys","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ForeignKeys"))
 
 	Func setForeignKeys P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:ForeignKeys",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:ForeignKeys",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:ForeignKeys",P1)
 		return self
 
 	Func getRecursiveTriggers
 		dn_x = dotnet_call("s3:get",nHandle,"s17:RecursiveTriggers")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:RecursiveTriggers",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRecursiveTriggers P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:RecursiveTriggers",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:RecursiveTriggers",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:RecursiveTriggers",P1)
 		return self
 
 	Func getDefaultTimeout
 		dn_x = dotnet_call("s3:get",nHandle,"s14:DefaultTimeout")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:DefaultTimeout",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultTimeout P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:DefaultTimeout",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:DefaultTimeout",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:DefaultTimeout",P1)
 		return self
 
 	Func getPooling
 		dn_x = dotnet_call("s3:get",nHandle,"s7:Pooling")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Pooling",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPooling P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Pooling",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Pooling",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Pooling",P1)
 		return self
 
 
@@ -378,13 +363,13 @@ Class SqliteDataReader from DbDataReader
 		return self
 
 	Func GetDateTimeOffset P1
-		return dnSend("s4:call",nHandle,"s17:GetDateTimeOffset",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetDateTimeOffset",P1))
 
 	Func GetTimeSpan P1
-		return dnSend("s4:call",nHandle,"s11:GetTimeSpan",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTimeSpan",P1))
 
 	Func getHandle
-		return dnSend("s3:get",nHandle,"s6:Handle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Handle"))
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
@@ -404,7 +389,7 @@ Class SqliteFactory from DbProviderFactory
 		return self
 
 	Func getInstance
-		return dnSend("s3:get",dnTypeHandle('Microsoft.Data.Sqlite.SqliteFactory, Microsoft.Data.Sqlite'),"s8:Instance","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.Data.Sqlite.SqliteFactory, Microsoft.Data.Sqlite',"s8:Instance"))
 
 	Func setInstance P1
 		raise("DotNet Error: Instance is a read-only property")
@@ -449,17 +434,15 @@ Class SqliteParameter from DbParameter
 		return self
 
 	Func ResetSqliteType 
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:ResetSqliteType")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:ResetSqliteType","") ok
+		dotnet_callv("s4:call",nHandle,"s15:ResetSqliteType")
 
 		return self
 
 	Func getSqliteType
-		return dnSend("s3:get",nHandle,"s10:SqliteType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:SqliteType"))
 
 	Func setSqliteType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:SqliteType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:SqliteType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:SqliteType",P1)
 		return self
 
 
@@ -479,11 +462,11 @@ Class SqliteParameterCollection from DbParameterCollection
 			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AddWithValue P1,P2
-		return dnSend("s4:call",nHandle,"s12:AddWithValue",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddWithValue",P1,P2))
 
 
 Class SqliteTransaction from DbTransaction

@@ -169,24 +169,23 @@ Class BackgroundService from Object
 		return self
 
 	Func StartAsync P1
-		return dnSend("s4:call",nHandle,"s10:StartAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1))
 
 	Func StopAsync P1
-		return dnSend("s4:call",nHandle,"s9:StopAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync",P1))
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getExecuteTask
-		return dnSend("s3:get",nHandle,"s11:ExecuteTask","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ExecuteTask"))
 
 	Func setExecuteTask P1
 		raise("DotNet Error: ExecuteTask is a read-only property")
@@ -216,17 +215,16 @@ Class ConsoleLifetimeOptions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getSuppressStatusMessages
 		dn_x = dotnet_call("s3:get",nHandle,"s22:SuppressStatusMessages")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:SuppressStatusMessages",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSuppressStatusMessages P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:SuppressStatusMessages",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:SuppressStatusMessages",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:SuppressStatusMessages",P1)
 		return self
 
 
@@ -247,12 +245,12 @@ Class Environments from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getDevelopment
 		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions',"s11:Development")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions',"s11:Development",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDevelopment P1
@@ -260,7 +258,7 @@ Class Environments from Object
 
 	Func getStaging
 		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions',"s7:Staging")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions',"s7:Staging",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setStaging P1
@@ -268,7 +266,7 @@ Class Environments from Object
 
 	Func getProduction
 		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions',"s10:Production")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions',"s10:Production",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setProduction P1
@@ -288,7 +286,7 @@ Class GenericHostBuilderExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConfigureWebHostDefaults P1
@@ -311,7 +309,7 @@ Class GenericHostWebHostBuilderExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConfigureWebHost P1
@@ -321,7 +319,7 @@ Class GenericHostWebHostBuilderExtensions from Object
 		raise("DotNet Error: ConfigureWebHost does not take one argument: use named arguments, ConfigureWebHost([ :parameter = value, ... ])")
 
 	Func ConfigureSlimWebHost P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"s20:ConfigureSlimWebHost",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting',"s20:ConfigureSlimWebHost",P1,P2,P3))
 
 
 Class Host from Object
@@ -337,7 +335,7 @@ Class Host from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CreateDefaultBuilder P1
@@ -345,21 +343,21 @@ Class Host from Object
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"s20:CreateDefaultBuilder",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"s20:CreateDefaultBuilder","")
+			return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting',"s20:CreateDefaultBuilder"))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"s20:CreateDefaultBuilder",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting',"s20:CreateDefaultBuilder",P1))
 
 	Func CreateApplicationBuilder P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"s24:CreateApplicationBuilder",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"s24:CreateApplicationBuilder","")
+			return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting',"s24:CreateApplicationBuilder"))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"s24:CreateApplicationBuilder",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting',"s24:CreateApplicationBuilder",P1))
 
 	Func CreateEmptyApplicationBuilder P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"s29:CreateEmptyApplicationBuilder",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting',"s29:CreateEmptyApplicationBuilder",P1))
 
 
 Class HostApplicationBuilder from Object
@@ -409,45 +407,44 @@ Class HostApplicationBuilder from Object
 			dnSend("s9:callnamed",nHandle,"s18:ConfigureContainer",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s18:ConfigureContainer",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s18:ConfigureContainer",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s18:ConfigureContainer",P1)
 
 		return self
 
 	Func Build 
-		return dnSend("s4:call",nHandle,"s5:Build","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getEnvironment
-		return dnSend("s3:get",nHandle,"s11:Environment","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Environment"))
 
 	Func setEnvironment P1
 		raise("DotNet Error: Environment is a read-only property")
 
 	Func getConfiguration
-		return dnSend("s3:get",nHandle,"s13:Configuration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:Configuration"))
 
 	Func setConfiguration P1
 		raise("DotNet Error: Configuration is a read-only property")
 
 	Func getServices
-		return dnSend("s3:get",nHandle,"s8:Services","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
 
 	Func getLogging
-		return dnSend("s3:get",nHandle,"s7:Logging","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Logging"))
 
 	Func setLogging P1
 		raise("DotNet Error: Logging is a read-only property")
 
 	Func getMetrics
-		return dnSend("s3:get",nHandle,"s7:Metrics","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Metrics"))
 
 	Func setMetrics P1
 		raise("DotNet Error: Metrics is a read-only property")
@@ -482,63 +479,57 @@ Class HostApplicationBuilderSettings from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getDisableDefaults
 		dn_x = dotnet_call("s3:get",nHandle,"s15:DisableDefaults")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:DisableDefaults",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDisableDefaults P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:DisableDefaults",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:DisableDefaults",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:DisableDefaults",P1)
 		return self
 
 	Func getArgs
-		return dnSend("s3:get",nHandle,"s4:Args","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Args"))
 
 	Func setArgs P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Args",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Args",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Args",P1)
 		return self
 
 	Func getConfiguration
-		return dnSend("s3:get",nHandle,"s13:Configuration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:Configuration"))
 
 	Func setConfiguration P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:Configuration",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:Configuration",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:Configuration",P1)
 		return self
 
 	Func getEnvironmentName
 		dn_x = dotnet_call("s3:get",nHandle,"s15:EnvironmentName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:EnvironmentName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEnvironmentName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:EnvironmentName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:EnvironmentName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:EnvironmentName",P1)
 		return self
 
 	Func getApplicationName
 		dn_x = dotnet_call("s3:get",nHandle,"s15:ApplicationName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:ApplicationName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setApplicationName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:ApplicationName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ApplicationName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:ApplicationName",P1)
 		return self
 
 	Func getContentRootPath
 		dn_x = dotnet_call("s3:get",nHandle,"s15:ContentRootPath")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:ContentRootPath",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setContentRootPath P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:ContentRootPath",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ContentRootPath",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:ContentRootPath",P1)
 		return self
 
 
@@ -565,30 +556,30 @@ Class HostBuilder from Object
 		return self
 
 	Func ConfigureHostConfiguration P1
-		return dnSend("s4:call",nHandle,"s26:ConfigureHostConfiguration",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:ConfigureHostConfiguration",P1))
 
 	Func ConfigureAppConfiguration P1
-		return dnSend("s4:call",nHandle,"s25:ConfigureAppConfiguration",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:ConfigureAppConfiguration",P1))
 
 	Func ConfigureServices P1
-		return dnSend("s4:call",nHandle,"s17:ConfigureServices",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConfigureServices",P1))
 
 	Func UseServiceProviderFactory P1
-		return dnSend("s4:call",nHandle,"s25:UseServiceProviderFactory",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseServiceProviderFactory",P1))
 
 	Func ConfigureContainer P1
-		return dnSend("s4:call",nHandle,"s18:ConfigureContainer",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ConfigureContainer",P1))
 
 	Func Build 
-		return dnSend("s4:call",nHandle,"s5:Build","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getProperties
-		return dnSend("s3:get",nHandle,"s10:Properties","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
@@ -613,27 +604,25 @@ Class HostBuilderContext from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getHostingEnvironment
-		return dnSend("s3:get",nHandle,"s18:HostingEnvironment","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:HostingEnvironment"))
 
 	Func setHostingEnvironment P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:HostingEnvironment",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:HostingEnvironment",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:HostingEnvironment",P1)
 		return self
 
 	Func getConfiguration
-		return dnSend("s3:get",nHandle,"s13:Configuration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:Configuration"))
 
 	Func setConfiguration P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:Configuration",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:Configuration",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:Configuration",P1)
 		return self
 
 	Func getProperties
-		return dnSend("s3:get",nHandle,"s10:Properties","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
@@ -656,12 +645,12 @@ Class HostDefaults from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getApplicationKey
 		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions',"s14:ApplicationKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions',"s14:ApplicationKey",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setApplicationKey P1
@@ -669,7 +658,7 @@ Class HostDefaults from Object
 
 	Func getEnvironmentKey
 		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions',"s14:EnvironmentKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions',"s14:EnvironmentKey",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEnvironmentKey P1
@@ -677,7 +666,7 @@ Class HostDefaults from Object
 
 	Func getContentRootKey
 		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions',"s14:ContentRootKey")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions',"s14:ContentRootKey",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setContentRootKey P1
@@ -697,27 +686,27 @@ Class HostEnvironmentEnvExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsDevelopment P1
 		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions',"s13:IsDevelopment",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions',"s13:IsDevelopment",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsStaging P1
 		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions',"s9:IsStaging",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions',"s9:IsStaging",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsProduction P1
 		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions',"s12:IsProduction",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions',"s12:IsProduction",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsEnvironment P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions',"s13:IsEnvironment",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions',"s13:IsEnvironment",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -749,51 +738,46 @@ Class HostOptions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getShutdownTimeout
-		return dnSend("s3:get",nHandle,"s15:ShutdownTimeout","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ShutdownTimeout"))
 
 	Func setShutdownTimeout P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:ShutdownTimeout",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ShutdownTimeout",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:ShutdownTimeout",P1)
 		return self
 
 	Func getStartupTimeout
-		return dnSend("s3:get",nHandle,"s14:StartupTimeout","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:StartupTimeout"))
 
 	Func setStartupTimeout P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:StartupTimeout",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:StartupTimeout",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:StartupTimeout",P1)
 		return self
 
 	Func getServicesStartConcurrently
 		dn_x = dotnet_call("s3:get",nHandle,"s25:ServicesStartConcurrently")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:ServicesStartConcurrently",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setServicesStartConcurrently P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s25:ServicesStartConcurrently",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s25:ServicesStartConcurrently",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s25:ServicesStartConcurrently",P1)
 		return self
 
 	Func getServicesStopConcurrently
 		dn_x = dotnet_call("s3:get",nHandle,"s24:ServicesStopConcurrently")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:ServicesStopConcurrently",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setServicesStopConcurrently P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:ServicesStopConcurrently",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:ServicesStopConcurrently",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:ServicesStopConcurrently",P1)
 		return self
 
 	Func getBackgroundServiceExceptionBehavior
-		return dnSend("s3:get",nHandle,"s34:BackgroundServiceExceptionBehavior","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s34:BackgroundServiceExceptionBehavior"))
 
 	Func setBackgroundServiceExceptionBehavior P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s34:BackgroundServiceExceptionBehavior",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s34:BackgroundServiceExceptionBehavior",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s34:BackgroundServiceExceptionBehavior",P1)
 		return self
 
 
@@ -810,17 +794,17 @@ Class HostingAbstractionsHostBuilderExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Start P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s5:Start",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions',"s5:Start",P1))
 
 	Func StartAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s10:StartAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s10:StartAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions',"s10:StartAsync",P1))
 
 
 Class HostingAbstractionsHostExtensions from Object
@@ -836,27 +820,24 @@ Class HostingAbstractionsHostExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Start P1
-		dn_x = dotnet_callv("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions',"s5:Start",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s5:Start",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions',"s5:Start",P1)
 
 		return self
 
 	Func StopAsync P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s9:StopAsync",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions',"s9:StopAsync",P1,P2))
 
 	Func WaitForShutdown P1
-		dn_x = dotnet_callv("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions',"s15:WaitForShutdown",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s15:WaitForShutdown",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions',"s15:WaitForShutdown",P1)
 
 		return self
 
 	Func Run P1
-		dn_x = dotnet_callv("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions',"s3:Run",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s3:Run",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions',"s3:Run",P1)
 
 		return self
 
@@ -864,13 +845,13 @@ Class HostingAbstractionsHostExtensions from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s8:RunAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s8:RunAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions',"s8:RunAsync",P1))
 
 	Func WaitForShutdownAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s20:WaitForShutdownAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s20:WaitForShutdownAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions',"s20:WaitForShutdownAsync",P1))
 
 
 Class AspHostingEnvironmentExtensions from Object
@@ -886,27 +867,27 @@ Class AspHostingEnvironmentExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsDevelopment P1
 		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions',"s13:IsDevelopment",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions',"s13:IsDevelopment",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsStaging P1
 		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions',"s9:IsStaging",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions',"s9:IsStaging",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsProduction P1
 		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions',"s12:IsProduction",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions',"s12:IsProduction",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsEnvironment P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions',"s13:IsEnvironment",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions',"s13:IsEnvironment",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -923,50 +904,50 @@ Class HostingHostBuilderExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UseEnvironment P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s14:UseEnvironment",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s14:UseEnvironment",P1,P2))
 
 	Func UseContentRoot P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s14:UseContentRoot",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s14:UseContentRoot",P1,P2))
 
 	Func UseDefaultServiceProvider P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s25:UseDefaultServiceProvider",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s25:UseDefaultServiceProvider",P1,P2))
 
 	Func ConfigureLogging P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s16:ConfigureLogging",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s16:ConfigureLogging",P1,P2))
 
 	Func ConfigureHostOptions P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s20:ConfigureHostOptions",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s20:ConfigureHostOptions",P1,P2))
 
 	Func ConfigureAppConfiguration P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s25:ConfigureAppConfiguration",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s25:ConfigureAppConfiguration",P1,P2))
 
 	Func ConfigureServices P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s17:ConfigureServices",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s17:ConfigureServices",P1,P2))
 
 	Func ConfigureContainer P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s18:ConfigureContainer",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s18:ConfigureContainer",P1,P2))
 
 	Func ConfigureDefaults P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s17:ConfigureDefaults",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s17:ConfigureDefaults",P1,P2))
 
 	Func UseConsoleLifetime P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s18:UseConsoleLifetime",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s18:UseConsoleLifetime",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s18:UseConsoleLifetime",P1))
 
 	Func RunConsoleAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s15:RunConsoleAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s15:RunConsoleAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s15:RunConsoleAsync",P1))
 
 	Func ConfigureMetrics P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s16:ConfigureMetrics",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s16:ConfigureMetrics",P1,P2))
 
 
 Class IHost from DotNetObject
@@ -987,21 +968,21 @@ Class IHost from DotNetObject
 			return dnSend("s9:callnamed",nHandle,"s10:StartAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s10:StartAsync","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync"))
 		ok
-		return dnSend("s4:call",nHandle,"s10:StartAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1))
 
 	Func StopAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s9:StopAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s9:StopAsync","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync"))
 		ok
-		return dnSend("s4:call",nHandle,"s9:StopAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync",P1))
 
 	Func getServices
-		return dnSend("s3:get",nHandle,"s8:Services","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
@@ -1030,43 +1011,42 @@ Class IHostApplicationBuilder from DotNetObject
 			dnSend("s9:callnamed",nHandle,"s18:ConfigureContainer",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s18:ConfigureContainer",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s18:ConfigureContainer",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s18:ConfigureContainer",P1)
 
 		return self
 
 	Func getProperties
-		return dnSend("s3:get",nHandle,"s10:Properties","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getConfiguration
-		return dnSend("s3:get",nHandle,"s13:Configuration","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:Configuration"))
 
 	Func setConfiguration P1
 		raise("DotNet Error: Configuration is a read-only property")
 
 	Func getEnvironment
-		return dnSend("s3:get",nHandle,"s11:Environment","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Environment"))
 
 	Func setEnvironment P1
 		raise("DotNet Error: Environment is a read-only property")
 
 	Func getLogging
-		return dnSend("s3:get",nHandle,"s7:Logging","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Logging"))
 
 	Func setLogging P1
 		raise("DotNet Error: Logging is a read-only property")
 
 	Func getMetrics
-		return dnSend("s3:get",nHandle,"s7:Metrics","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Metrics"))
 
 	Func setMetrics P1
 		raise("DotNet Error: Metrics is a read-only property")
 
 	Func getServices
-		return dnSend("s3:get",nHandle,"s8:Services","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
@@ -1088,25 +1068,24 @@ Class IHostApplicationLifetime from DotNetObject
 		return self
 
 	Func StopApplication 
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:StopApplication")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:StopApplication","") ok
+		dotnet_callv("s4:call",nHandle,"s15:StopApplication")
 
 		return self
 
 	Func getApplicationStarted
-		return dnSend("s3:get",nHandle,"s18:ApplicationStarted","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:ApplicationStarted"))
 
 	Func setApplicationStarted P1
 		raise("DotNet Error: ApplicationStarted is a read-only property")
 
 	Func getApplicationStopping
-		return dnSend("s3:get",nHandle,"s19:ApplicationStopping","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ApplicationStopping"))
 
 	Func setApplicationStopping P1
 		raise("DotNet Error: ApplicationStopping is a read-only property")
 
 	Func getApplicationStopped
-		return dnSend("s3:get",nHandle,"s18:ApplicationStopped","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:ApplicationStopped"))
 
 	Func setApplicationStopped P1
 		raise("DotNet Error: ApplicationStopped is a read-only property")
@@ -1126,25 +1105,25 @@ Class IHostBuilder from DotNetObject
 		return self
 
 	Func ConfigureHostConfiguration P1
-		return dnSend("s4:call",nHandle,"s26:ConfigureHostConfiguration",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:ConfigureHostConfiguration",P1))
 
 	Func ConfigureAppConfiguration P1
-		return dnSend("s4:call",nHandle,"s25:ConfigureAppConfiguration",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:ConfigureAppConfiguration",P1))
 
 	Func ConfigureServices P1
-		return dnSend("s4:call",nHandle,"s17:ConfigureServices",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConfigureServices",P1))
 
 	Func UseServiceProviderFactory P1
-		return dnSend("s4:call",nHandle,"s25:UseServiceProviderFactory",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseServiceProviderFactory",P1))
 
 	Func ConfigureContainer P1
-		return dnSend("s4:call",nHandle,"s18:ConfigureContainer",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ConfigureContainer",P1))
 
 	Func Build 
-		return dnSend("s4:call",nHandle,"s5:Build","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
 
 	Func getProperties
-		return dnSend("s3:get",nHandle,"s10:Properties","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
@@ -1168,40 +1147,36 @@ Class IHostEnvironment from DotNetObject
 
 	Func getEnvironmentName
 		dn_x = dotnet_call("s3:get",nHandle,"s15:EnvironmentName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:EnvironmentName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEnvironmentName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:EnvironmentName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:EnvironmentName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:EnvironmentName",P1)
 		return self
 
 	Func getApplicationName
 		dn_x = dotnet_call("s3:get",nHandle,"s15:ApplicationName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:ApplicationName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setApplicationName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:ApplicationName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ApplicationName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:ApplicationName",P1)
 		return self
 
 	Func getContentRootPath
 		dn_x = dotnet_call("s3:get",nHandle,"s15:ContentRootPath")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:ContentRootPath",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setContentRootPath P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:ContentRootPath",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ContentRootPath",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:ContentRootPath",P1)
 		return self
 
 	Func getContentRootFileProvider
-		return dnSend("s3:get",nHandle,"s23:ContentRootFileProvider","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:ContentRootFileProvider"))
 
 	Func setContentRootFileProvider P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:ContentRootFileProvider",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:ContentRootFileProvider",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:ContentRootFileProvider",P1)
 		return self
 
 
@@ -1217,10 +1192,10 @@ Class IHostLifetime from DotNetObject
 		return self
 
 	Func WaitForStartAsync P1
-		return dnSend("s4:call",nHandle,"s17:WaitForStartAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:WaitForStartAsync",P1))
 
 	Func StopAsync P1
-		return dnSend("s4:call",nHandle,"s9:StopAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync",P1))
 
 
 Class IHostedLifecycleService from DotNetObject
@@ -1235,16 +1210,16 @@ Class IHostedLifecycleService from DotNetObject
 		return self
 
 	Func StartingAsync P1
-		return dnSend("s4:call",nHandle,"s13:StartingAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:StartingAsync",P1))
 
 	Func StartedAsync P1
-		return dnSend("s4:call",nHandle,"s12:StartedAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:StartedAsync",P1))
 
 	Func StoppingAsync P1
-		return dnSend("s4:call",nHandle,"s13:StoppingAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:StoppingAsync",P1))
 
 	Func StoppedAsync P1
-		return dnSend("s4:call",nHandle,"s12:StoppedAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:StoppedAsync",P1))
 
 
 Class IHostedService from DotNetObject
@@ -1259,10 +1234,10 @@ Class IHostedService from DotNetObject
 		return self
 
 	Func StartAsync P1
-		return dnSend("s4:call",nHandle,"s10:StartAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1))
 
 	Func StopAsync P1
-		return dnSend("s4:call",nHandle,"s9:StopAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync",P1))
 
 
 Class WebHostBuilderOptions from Object
@@ -1289,17 +1264,16 @@ Class WebHostBuilderOptions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getSuppressEnvironmentConfiguration
 		dn_x = dotnet_call("s3:get",nHandle,"s32:SuppressEnvironmentConfiguration")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s32:SuppressEnvironmentConfiguration",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSuppressEnvironmentConfiguration P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s32:SuppressEnvironmentConfiguration",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s32:SuppressEnvironmentConfiguration",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s32:SuppressEnvironmentConfiguration",P1)
 		return self
 
 

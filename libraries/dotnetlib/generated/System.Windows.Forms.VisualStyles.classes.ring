@@ -66,190 +66,170 @@ Class TextMetrics from ValueType
 
 	Func getHeight
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Height",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHeight P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Height",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
 		return self
 
 	Func getAscent
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Ascent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Ascent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAscent P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Ascent",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Ascent",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Ascent",P1)
 		return self
 
 	Func getDescent
 		dn_x = dotnet_call("s3:get",nHandle,"s7:Descent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Descent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDescent P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Descent",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Descent",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Descent",P1)
 		return self
 
 	Func getInternalLeading
 		dn_x = dotnet_call("s3:get",nHandle,"s15:InternalLeading")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:InternalLeading",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInternalLeading P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:InternalLeading",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:InternalLeading",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:InternalLeading",P1)
 		return self
 
 	Func getExternalLeading
 		dn_x = dotnet_call("s3:get",nHandle,"s15:ExternalLeading")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:ExternalLeading",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setExternalLeading P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:ExternalLeading",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ExternalLeading",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:ExternalLeading",P1)
 		return self
 
 	Func getAverageCharWidth
 		dn_x = dotnet_call("s3:get",nHandle,"s16:AverageCharWidth")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:AverageCharWidth",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAverageCharWidth P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:AverageCharWidth",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:AverageCharWidth",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:AverageCharWidth",P1)
 		return self
 
 	Func getMaxCharWidth
 		dn_x = dotnet_call("s3:get",nHandle,"s12:MaxCharWidth")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:MaxCharWidth",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaxCharWidth P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:MaxCharWidth",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:MaxCharWidth",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:MaxCharWidth",P1)
 		return self
 
 	Func getWeight
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Weight")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Weight",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setWeight P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Weight",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Weight",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Weight",P1)
 		return self
 
 	Func getOverhang
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Overhang")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Overhang",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOverhang P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Overhang",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Overhang",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Overhang",P1)
 		return self
 
 	Func getDigitizedAspectX
 		dn_x = dotnet_call("s3:get",nHandle,"s16:DigitizedAspectX")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:DigitizedAspectX",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDigitizedAspectX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:DigitizedAspectX",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:DigitizedAspectX",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:DigitizedAspectX",P1)
 		return self
 
 	Func getDigitizedAspectY
 		dn_x = dotnet_call("s3:get",nHandle,"s16:DigitizedAspectY")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:DigitizedAspectY",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDigitizedAspectY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:DigitizedAspectY",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:DigitizedAspectY",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:DigitizedAspectY",P1)
 		return self
 
 	Func getFirstChar
-		return dnSend("s3:get",nHandle,"s9:FirstChar","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:FirstChar"))
 
 	Func setFirstChar P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:FirstChar",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:FirstChar",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:FirstChar",P1)
 		return self
 
 	Func getLastChar
-		return dnSend("s3:get",nHandle,"s8:LastChar","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:LastChar"))
 
 	Func setLastChar P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:LastChar",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:LastChar",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:LastChar",P1)
 		return self
 
 	Func getDefaultChar
-		return dnSend("s3:get",nHandle,"s11:DefaultChar","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:DefaultChar"))
 
 	Func setDefaultChar P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:DefaultChar",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:DefaultChar",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:DefaultChar",P1)
 		return self
 
 	Func getBreakChar
-		return dnSend("s3:get",nHandle,"s9:BreakChar","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:BreakChar"))
 
 	Func setBreakChar P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:BreakChar",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:BreakChar",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:BreakChar",P1)
 		return self
 
 	Func getItalic
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Italic")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Italic",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setItalic P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Italic",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Italic",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Italic",P1)
 		return self
 
 	Func getUnderlined
 		dn_x = dotnet_call("s3:get",nHandle,"s10:Underlined")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:Underlined",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUnderlined P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:Underlined",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Underlined",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:Underlined",P1)
 		return self
 
 	Func getStruckOut
 		dn_x = dotnet_call("s3:get",nHandle,"s9:StruckOut")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:StruckOut",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setStruckOut P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:StruckOut",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:StruckOut",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:StruckOut",P1)
 		return self
 
 	Func getPitchAndFamily
-		return dnSend("s3:get",nHandle,"s14:PitchAndFamily","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:PitchAndFamily"))
 
 	Func setPitchAndFamily P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:PitchAndFamily",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:PitchAndFamily",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:PitchAndFamily",P1)
 		return self
 
 	Func getCharSet
-		return dnSend("s3:get",nHandle,"s7:CharSet","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:CharSet"))
 
 	Func setCharSet P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:CharSet",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:CharSet",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:CharSet",P1)
 		return self
 
 
@@ -270,15 +250,15 @@ Class VisualStyleElement from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CreateElement P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleElement, System.Windows.Forms'),"s13:CreateElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.VisualStyles.VisualStyleElement, System.Windows.Forms',"s13:CreateElement",P1,P2,P3))
 
 	Func getClassName
 		dn_x = dotnet_call("s3:get",nHandle,"s9:ClassName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:ClassName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setClassName P1
@@ -286,7 +266,7 @@ Class VisualStyleElement from Object
 
 	Func getPart
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Part")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Part",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPart P1
@@ -294,7 +274,7 @@ Class VisualStyleElement from Object
 
 	Func getState
 		dn_x = dotnet_call("s3:get",nHandle,"s5:State")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:State",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setState P1
@@ -330,12 +310,12 @@ Class VisualStyleInformation from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getIsSupportedByOS
 		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s15:IsSupportedByOS")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s15:IsSupportedByOS",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsSupportedByOS P1
@@ -343,7 +323,7 @@ Class VisualStyleInformation from Object
 
 	Func getIsEnabledByUser
 		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s15:IsEnabledByUser")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s15:IsEnabledByUser",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsEnabledByUser P1
@@ -351,7 +331,7 @@ Class VisualStyleInformation from Object
 
 	Func getColorScheme
 		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s11:ColorScheme")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s11:ColorScheme",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setColorScheme P1
@@ -359,7 +339,7 @@ Class VisualStyleInformation from Object
 
 	Func getSize
 		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s4:Size")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s4:Size",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSize P1
@@ -367,7 +347,7 @@ Class VisualStyleInformation from Object
 
 	Func getDisplayName
 		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s11:DisplayName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s11:DisplayName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDisplayName P1
@@ -375,7 +355,7 @@ Class VisualStyleInformation from Object
 
 	Func getCompany
 		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s7:Company")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s7:Company",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCompany P1
@@ -383,7 +363,7 @@ Class VisualStyleInformation from Object
 
 	Func getAuthor
 		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s6:Author")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s6:Author",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAuthor P1
@@ -391,7 +371,7 @@ Class VisualStyleInformation from Object
 
 	Func getCopyright
 		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s9:Copyright")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s9:Copyright",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCopyright P1
@@ -399,7 +379,7 @@ Class VisualStyleInformation from Object
 
 	Func getUrl
 		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s3:Url")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s3:Url",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUrl P1
@@ -407,7 +387,7 @@ Class VisualStyleInformation from Object
 
 	Func getVersion
 		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s7:Version")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s7:Version",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setVersion P1
@@ -415,7 +395,7 @@ Class VisualStyleInformation from Object
 
 	Func getDescription
 		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s11:Description")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s11:Description",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDescription P1
@@ -423,7 +403,7 @@ Class VisualStyleInformation from Object
 
 	Func getSupportsFlatMenus
 		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s17:SupportsFlatMenus")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s17:SupportsFlatMenus",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSupportsFlatMenus P1
@@ -431,20 +411,20 @@ Class VisualStyleInformation from Object
 
 	Func getMinimumColorDepth
 		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s17:MinimumColorDepth")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s17:MinimumColorDepth",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMinimumColorDepth P1
 		raise("DotNet Error: MinimumColorDepth is a read-only property")
 
 	Func getTextControlBorder
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s17:TextControlBorder","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s17:TextControlBorder"))
 
 	Func setTextControlBorder P1
 		raise("DotNet Error: TextControlBorder is a read-only property")
 
 	Func getControlHighlightHot
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"s19:ControlHighlightHot","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s19:ControlHighlightHot"))
 
 	Func setControlHighlightHot P1
 		raise("DotNet Error: ControlHighlightHot is a read-only property")
@@ -489,8 +469,7 @@ Class VisualStyleRenderer from Object
 			dnSend("s9:callnamed",nHandle,"s13:SetParameters",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s13:SetParameters",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s13:SetParameters",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s13:SetParameters",P1)
 
 		return self
 
@@ -502,7 +481,7 @@ Class VisualStyleRenderer from Object
 		raise("DotNet Error: DrawBackground does not take one argument: use named arguments, DrawBackground([ :parameter = value, ... ])")
 
 	Func DrawEdge P1,P2,P3,P4,P5
-		return dnSend("s4:call",nHandle,"s8:DrawEdge",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:DrawEdge",P1,P2,P3,P4,P5))
 
 	Func DrawImage P1
 		if dnIsNamed(P1)
@@ -512,8 +491,7 @@ Class VisualStyleRenderer from Object
 		raise("DotNet Error: DrawImage does not take one argument: use named arguments, DrawImage([ :parameter = value, ... ])")
 
 	Func DrawParentBackground P1,P2,P3
-		dn_x = dotnet_callv("s4:call",nHandle,"s20:DrawParentBackground",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s20:DrawParentBackground",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",nHandle,"s20:DrawParentBackground",P1,P2,P3)
 
 		return self
 
@@ -525,38 +503,38 @@ Class VisualStyleRenderer from Object
 		raise("DotNet Error: DrawText does not take one argument: use named arguments, DrawText([ :parameter = value, ... ])")
 
 	Func GetBackgroundContentRectangle P1,P2
-		return dnSend("s4:call",nHandle,"s29:GetBackgroundContentRectangle",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetBackgroundContentRectangle",P1,P2))
 
 	Func GetBackgroundExtent P1,P2
-		return dnSend("s4:call",nHandle,"s19:GetBackgroundExtent",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetBackgroundExtent",P1,P2))
 
 	Func GetBackgroundRegion P1,P2
-		return dnSend("s4:call",nHandle,"s19:GetBackgroundRegion",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetBackgroundRegion",P1,P2))
 
 	Func GetBoolean P1
 		dn_x = dotnet_call("s4:call",nHandle,"s10:GetBoolean",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:GetBoolean",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetColor P1
-		return dnSend("s4:call",nHandle,"s8:GetColor",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetColor",P1))
 
 	Func GetEnumValue P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetEnumValue",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:GetEnumValue",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetFilename P1
 		dn_x = dotnet_call("s4:call",nHandle,"s11:GetFilename",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetFilename",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetFont P1,P2
-		return dnSend("s4:call",nHandle,"s7:GetFont",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetFont",P1,P2))
 
 	Func GetInteger P1
 		dn_x = dotnet_call("s4:call",nHandle,"s10:GetInteger",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:GetInteger",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetPartSize P1
@@ -566,14 +544,14 @@ Class VisualStyleRenderer from Object
 		raise("DotNet Error: GetPartSize does not take one argument: use named arguments, GetPartSize([ :parameter = value, ... ])")
 
 	Func GetPoint P1
-		return dnSend("s4:call",nHandle,"s8:GetPoint",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetPoint",P1))
 
 	Func GetMargins P1,P2
-		return dnSend("s4:call",nHandle,"s10:GetMargins",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetMargins",P1,P2))
 
 	Func GetString P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s9:GetString",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetTextExtent P1
@@ -583,7 +561,7 @@ Class VisualStyleRenderer from Object
 		raise("DotNet Error: GetTextExtent does not take one argument: use named arguments, GetTextExtent([ :parameter = value, ... ])")
 
 	Func GetTextMetrics P1
-		return dnSend("s4:call",nHandle,"s14:GetTextMetrics",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetTextMetrics",P1))
 
 	Func HitTestBackground P1
 		if dnIsNamed(P1)
@@ -593,27 +571,27 @@ Class VisualStyleRenderer from Object
 
 	Func IsBackgroundPartiallyTransparent 
 		dn_x = dotnet_call("s4:call",nHandle,"s32:IsBackgroundPartiallyTransparent")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s32:IsBackgroundPartiallyTransparent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsElementDefined P1
 		dn_x = dotnet_call("s4:call",'System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms',"s16:IsElementDefined",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms',"s16:IsElementDefined",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getClass
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Class")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Class",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getPart
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Part")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Part",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPart P1
@@ -621,21 +599,21 @@ Class VisualStyleRenderer from Object
 
 	Func getState
 		dn_x = dotnet_call("s3:get",nHandle,"s5:State")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:State",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getHandle
-		return dnSend("s3:get",nHandle,"s6:Handle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Handle"))
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getLastHResult
 		dn_x = dotnet_call("s3:get",nHandle,"s11:LastHResult")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:LastHResult",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLastHResult P1
@@ -643,7 +621,7 @@ Class VisualStyleRenderer from Object
 
 	Func getIsSupported
 		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms',"s11:IsSupported")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms',"s11:IsSupported",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsSupported P1

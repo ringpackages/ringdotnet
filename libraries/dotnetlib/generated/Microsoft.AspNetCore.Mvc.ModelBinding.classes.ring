@@ -411,76 +411,69 @@ Class BindingInfo from Object
 
 	Func TryApplyBindingInfo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s19:TryApplyBindingInfo",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s19:TryApplyBindingInfo",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetBindingInfo P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions'),"s14:GetBindingInfo",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions'),"s14:GetBindingInfo",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',"s14:GetBindingInfo",P1))
 
 	Func getBindingSource
-		return dnSend("s3:get",nHandle,"s13:BindingSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:BindingSource"))
 
 	Func setBindingSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:BindingSource",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:BindingSource",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:BindingSource",P1)
 		return self
 
 	Func getBinderModelName
 		dn_x = dotnet_call("s3:get",nHandle,"s15:BinderModelName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:BinderModelName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBinderModelName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:BinderModelName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:BinderModelName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:BinderModelName",P1)
 		return self
 
 	Func getBinderType
-		return dnSend("s3:get",nHandle,"s10:BinderType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:BinderType"))
 
 	Func setBinderType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:BinderType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:BinderType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:BinderType",P1)
 		return self
 
 	Func getPropertyFilterProvider
-		return dnSend("s3:get",nHandle,"s22:PropertyFilterProvider","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:PropertyFilterProvider"))
 
 	Func setPropertyFilterProvider P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s22:PropertyFilterProvider",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s22:PropertyFilterProvider",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s22:PropertyFilterProvider",P1)
 		return self
 
 	Func getRequestPredicate
-		return dnSend("s3:get",nHandle,"s16:RequestPredicate","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:RequestPredicate"))
 
 	Func setRequestPredicate P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:RequestPredicate",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:RequestPredicate",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:RequestPredicate",P1)
 		return self
 
 	Func getEmptyBodyBehavior
-		return dnSend("s3:get",nHandle,"s17:EmptyBodyBehavior","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:EmptyBodyBehavior"))
 
 	Func setEmptyBodyBehavior P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:EmptyBodyBehavior",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:EmptyBodyBehavior",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:EmptyBodyBehavior",P1)
 		return self
 
 	Func getServiceKey
-		return dnSend("s3:get",nHandle,"s10:ServiceKey","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ServiceKey"))
 
 	Func setServiceKey P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:ServiceKey",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:ServiceKey",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:ServiceKey",P1)
 		return self
 
 
@@ -514,17 +507,17 @@ Class AspBindingSource from Object
 
 	Func CanAcceptDataFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s17:CanAcceptDataFrom",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s17:CanAcceptDataFrom",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getDisplayName
 		dn_x = dotnet_call("s3:get",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:DisplayName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDisplayName P1
@@ -532,7 +525,7 @@ Class AspBindingSource from Object
 
 	Func getId
 		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Id",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setId P1
@@ -540,7 +533,7 @@ Class AspBindingSource from Object
 
 	Func getIsGreedy
 		dn_x = dotnet_call("s3:get",nHandle,"s8:IsGreedy")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:IsGreedy",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsGreedy P1
@@ -548,68 +541,68 @@ Class AspBindingSource from Object
 
 	Func getIsFromRequest
 		dn_x = dotnet_call("s3:get",nHandle,"s13:IsFromRequest")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IsFromRequest",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsFromRequest P1
 		raise("DotNet Error: IsFromRequest is a read-only property")
 
 	Func getBody
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions'),"s4:Body","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions',"s4:Body"))
 
 	Func setBody P1
 		raise("DotNet Error: Body is a read-only property")
 
 	Func getCustom
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions'),"s6:Custom","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions',"s6:Custom"))
 
 	Func setCustom P1
 		raise("DotNet Error: Custom is a read-only property")
 
 	Func getForm
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions'),"s4:Form","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions',"s4:Form"))
 
 	Func setForm P1
 		raise("DotNet Error: Form is a read-only property")
 
 	Func getHeader
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions'),"s6:Header","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions',"s6:Header"))
 
 	Func setHeader P1
 		raise("DotNet Error: Header is a read-only property")
 
 	Func getModelBinding
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions'),"s12:ModelBinding","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions',"s12:ModelBinding"))
 
 	Func setModelBinding P1
 		raise("DotNet Error: ModelBinding is a read-only property")
 
 	Func getPath
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions'),"s4:Path","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions',"s4:Path"))
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getQuery
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions'),"s5:Query","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions',"s5:Query"))
 
 	Func setQuery P1
 		raise("DotNet Error: Query is a read-only property")
 
 	Func getServices
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions'),"s8:Services","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions',"s8:Services"))
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
 
 	Func getSpecial
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions'),"s7:Special","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions',"s7:Special"))
 
 	Func setSpecial P1
 		raise("DotNet Error: Special is a read-only property")
 
 	Func getFormFile
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions'),"s8:FormFile","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource, Microsoft.AspNetCore.Mvc.Abstractions',"s8:FormFile"))
 
 	Func setFormFile P1
 		raise("DotNet Error: FormFile is a read-only property")
@@ -628,18 +621,18 @@ Class BindingSourceValueProvider from Object
 
 	Func ContainsPrefix P1
 		dn_x = dotnet_call("s4:call",nHandle,"s14:ContainsPrefix",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:ContainsPrefix",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetValue P1
-		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func Filter P1
-		return dnSend("s4:call",nHandle,"s6:Filter",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -683,107 +676,101 @@ Class CompositeValueProvider from DotNetObject
 
 	Func ContainsPrefix P1
 		dn_x = dotnet_call("s4:call",nHandle,"s14:ContainsPrefix",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:ContainsPrefix",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetValue P1
-		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func GetKeysFromPrefix P1
-		return dnSend("s4:call",nHandle,"s17:GetKeysFromPrefix",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
 
 	Func Filter P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s6:Filter",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s6:Filter","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter"))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Filter",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter",P1))
 
 	Func Add P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Insert P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
 
 		return self
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RemoveAt P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
 
 		return self
 
 	Func GetType 
-		return dnSend("s4:call",nHandle,"s7:GetType","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode 
 		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CreateAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core'),"s11:CreateAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core'),"s11:CreateAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',"s11:CreateAsync",P1))
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -811,39 +798,39 @@ Class EmptyModelMetadataProvider from DotNetObject
 		return self
 
 	Func GetMetadataForProperties P1
-		return dnSend("s4:call",nHandle,"s24:GetMetadataForProperties",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetMetadataForProperties",P1))
 
 	Func GetMetadataForParameter P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s23:GetMetadataForParameter",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s23:GetMetadataForParameter",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetMetadataForParameter",P1))
 
 	Func GetMetadataForType P1
-		return dnSend("s4:call",nHandle,"s18:GetMetadataForType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetMetadataForType",P1))
 
 	Func GetMetadataForProperty P1,P2
-		return dnSend("s4:call",nHandle,"s22:GetMetadataForProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetMetadataForProperty",P1,P2))
 
 	Func GetMetadataForConstructor P1,P2
-		return dnSend("s4:call",nHandle,"s25:GetMetadataForConstructor",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetMetadataForConstructor",P1,P2))
 
 	Func GetType 
-		return dnSend("s4:call",nHandle,"s7:GetType","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode 
 		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -888,7 +875,7 @@ Class EnumGroupAndName from ValueType
 
 	Func getGroup
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Group")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Group",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setGroup P1
@@ -896,7 +883,7 @@ Class EnumGroupAndName from ValueType
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
@@ -918,15 +905,15 @@ Class FormFileValueProvider from Object
 
 	Func ContainsPrefix P1
 		dn_x = dotnet_call("s4:call",nHandle,"s14:ContainsPrefix",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:ContainsPrefix",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetValue P1
-		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -951,11 +938,11 @@ Class FormFileValueProviderFactory from Object
 		return self
 
 	Func CreateValueProviderAsync P1
-		return dnSend("s4:call",nHandle,"s24:CreateValueProviderAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateValueProviderAsync",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -980,11 +967,11 @@ Class FormValueProviderFactory from Object
 		return self
 
 	Func CreateValueProviderAsync P1
-		return dnSend("s4:call",nHandle,"s24:CreateValueProviderAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateValueProviderAsync",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -1002,7 +989,7 @@ Class IBinderTypeProviderMetadata from DotNetObject
 		return self
 
 	Func getBinderType
-		return dnSend("s3:get",nHandle,"s10:BinderType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:BinderType"))
 
 	Func setBinderType P1
 		raise("DotNet Error: BinderType is a read-only property")
@@ -1022,7 +1009,7 @@ Class IBindingSourceMetadata from DotNetObject
 		return self
 
 	Func getBindingSource
-		return dnSend("s3:get",nHandle,"s13:BindingSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:BindingSource"))
 
 	Func setBindingSource P1
 		raise("DotNet Error: BindingSource is a read-only property")
@@ -1040,7 +1027,7 @@ Class IBindingSourceValueProvider from DotNetObject
 		return self
 
 	Func Filter P1
-		return dnSend("s4:call",nHandle,"s6:Filter",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter",P1))
 
 
 Class ICollectionModelBinder from DotNetObject
@@ -1056,7 +1043,7 @@ Class ICollectionModelBinder from DotNetObject
 
 	Func CanCreateInstance P1
 		dn_x = dotnet_call("s4:call",nHandle,"s17:CanCreateInstance",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s17:CanCreateInstance",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -1072,7 +1059,7 @@ Class IEnumerableValueProvider from DotNetObject
 		return self
 
 	Func GetKeysFromPrefix P1
-		return dnSend("s4:call",nHandle,"s17:GetKeysFromPrefix",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
 
 
 Class IKeyRewriterValueProvider from DotNetObject
@@ -1087,7 +1074,7 @@ Class IKeyRewriterValueProvider from DotNetObject
 		return self
 
 	Func Filter 
-		return dnSend("s4:call",nHandle,"s6:Filter","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter"))
 
 
 Class IModelBinder from DotNetObject
@@ -1102,7 +1089,7 @@ Class IModelBinder from DotNetObject
 		return self
 
 	Func BindModelAsync P1
-		return dnSend("s4:call",nHandle,"s14:BindModelAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:BindModelAsync",P1))
 
 
 Class IModelBinderFactory from DotNetObject
@@ -1117,7 +1104,7 @@ Class IModelBinderFactory from DotNetObject
 		return self
 
 	Func CreateBinder P1
-		return dnSend("s4:call",nHandle,"s12:CreateBinder",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateBinder",P1))
 
 
 Class IModelBinderProvider from DotNetObject
@@ -1132,7 +1119,7 @@ Class IModelBinderProvider from DotNetObject
 		return self
 
 	Func GetBinder P1
-		return dnSend("s4:call",nHandle,"s9:GetBinder",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBinder",P1))
 
 
 Class IModelMetadataProvider from DotNetObject
@@ -1147,10 +1134,10 @@ Class IModelMetadataProvider from DotNetObject
 		return self
 
 	Func GetMetadataForType P1
-		return dnSend("s4:call",nHandle,"s18:GetMetadataForType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetMetadataForType",P1))
 
 	Func GetMetadataForProperties P1
-		return dnSend("s4:call",nHandle,"s24:GetMetadataForProperties",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetMetadataForProperties",P1))
 
 
 Class IModelNameProvider from DotNetObject
@@ -1168,7 +1155,7 @@ Class IModelNameProvider from DotNetObject
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
@@ -1189,7 +1176,7 @@ Class IPropertyFilterProvider from DotNetObject
 		return self
 
 	Func getPropertyFilter
-		return dnSend("s3:get",nHandle,"s14:PropertyFilter","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:PropertyFilter"))
 
 	Func setPropertyFilter P1
 		raise("DotNet Error: PropertyFilter is a read-only property")
@@ -1209,7 +1196,7 @@ Class IRequestPredicateProvider from DotNetObject
 		return self
 
 	Func getRequestPredicate
-		return dnSend("s3:get",nHandle,"s16:RequestPredicate","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:RequestPredicate"))
 
 	Func setRequestPredicate P1
 		raise("DotNet Error: RequestPredicate is a read-only property")
@@ -1228,11 +1215,11 @@ Class IValueProvider from DotNetObject
 
 	Func ContainsPrefix P1
 		dn_x = dotnet_call("s4:call",nHandle,"s14:ContainsPrefix",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:ContainsPrefix",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetValue P1
-		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 
 Class IValueProviderFactory from DotNetObject
@@ -1247,7 +1234,7 @@ Class IValueProviderFactory from DotNetObject
 		return self
 
 	Func CreateValueProviderAsync P1
-		return dnSend("s4:call",nHandle,"s24:CreateValueProviderAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateValueProviderAsync",P1))
 
 
 Class JQueryFormValueProviderFactory from Object
@@ -1271,11 +1258,11 @@ Class JQueryFormValueProviderFactory from Object
 		return self
 
 	Func CreateValueProviderAsync P1
-		return dnSend("s4:call",nHandle,"s24:CreateValueProviderAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateValueProviderAsync",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -1300,11 +1287,11 @@ Class JQueryQueryStringValueProviderFactory from Object
 		return self
 
 	Func CreateValueProviderAsync P1
-		return dnSend("s4:call",nHandle,"s24:CreateValueProviderAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateValueProviderAsync",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -1326,7 +1313,7 @@ Class ModelAttributes from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetAttributesForProperty P1
@@ -1336,34 +1323,34 @@ Class ModelAttributes from Object
 		raise("DotNet Error: GetAttributesForProperty does not take one argument: use named arguments, GetAttributesForProperty([ :parameter = value, ... ])")
 
 	Func GetAttributesForType P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"s20:GetAttributesForType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core',"s20:GetAttributesForType",P1))
 
 	Func GetAttributesForParameter P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"s25:GetAttributesForParameter",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"s25:GetAttributesForParameter",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core',"s25:GetAttributesForParameter",P1))
 
 	Func getAttributes
-		return dnSend("s3:get",nHandle,"s10:Attributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Attributes"))
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getPropertyAttributes
-		return dnSend("s3:get",nHandle,"s18:PropertyAttributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:PropertyAttributes"))
 
 	Func setPropertyAttributes P1
 		raise("DotNet Error: PropertyAttributes is a read-only property")
 
 	Func getParameterAttributes
-		return dnSend("s3:get",nHandle,"s19:ParameterAttributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ParameterAttributes"))
 
 	Func setParameterAttributes P1
 		raise("DotNet Error: ParameterAttributes is a read-only property")
 
 	Func getTypeAttributes
-		return dnSend("s3:get",nHandle,"s14:TypeAttributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:TypeAttributes"))
 
 	Func setTypeAttributes P1
 		raise("DotNet Error: TypeAttributes is a read-only property")
@@ -1383,11 +1370,11 @@ Class ModelBinderFactory from Object
 		return self
 
 	Func CreateBinder P1
-		return dnSend("s4:call",nHandle,"s12:CreateBinder",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateBinder",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -1417,31 +1404,28 @@ Class ModelBinderFactoryContext from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getBindingInfo
-		return dnSend("s3:get",nHandle,"s11:BindingInfo","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:BindingInfo"))
 
 	Func setBindingInfo P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:BindingInfo",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:BindingInfo",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:BindingInfo",P1)
 		return self
 
 	Func getMetadata
-		return dnSend("s3:get",nHandle,"s8:Metadata","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Metadata",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Metadata",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Metadata",P1)
 		return self
 
 	Func getCacheToken
-		return dnSend("s3:get",nHandle,"s10:CacheToken","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:CacheToken"))
 
 	Func setCacheToken P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:CacheToken",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:CacheToken",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:CacheToken",P1)
 		return self
 
 
@@ -1465,33 +1449,33 @@ Class ModelBinderProviderContext from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s12:CreateBinder",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s12:CreateBinder",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateBinder",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getBindingInfo
-		return dnSend("s3:get",nHandle,"s11:BindingInfo","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:BindingInfo"))
 
 	Func setBindingInfo P1
 		raise("DotNet Error: BindingInfo is a read-only property")
 
 	Func getMetadata
-		return dnSend("s3:get",nHandle,"s8:Metadata","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
 	Func getMetadataProvider
-		return dnSend("s3:get",nHandle,"s16:MetadataProvider","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:MetadataProvider"))
 
 	Func setMetadataProvider P1
 		raise("DotNet Error: MetadataProvider is a read-only property")
 
 	Func getServices
-		return dnSend("s3:get",nHandle,"s8:Services","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
@@ -1510,7 +1494,7 @@ Class ModelBinderProviderExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RemoveType P1
@@ -1518,8 +1502,7 @@ Class ModelBinderProviderExtensions from Object
 			dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderProviderExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderProviderExtensions, Microsoft.AspNetCore.Mvc.Core',"s10:RemoveType",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderProviderExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderProviderExtensions, Microsoft.AspNetCore.Mvc.Core',"s10:RemoveType",P1)
 
 		return self
 
@@ -1557,145 +1540,132 @@ Class ModelBindingContext from Object
 			return dnSend("s9:callnamed",nHandle,"s16:EnterNestedScope",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s16:EnterNestedScope","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s16:EnterNestedScope"))
 		ok
 		raise("DotNet Error: EnterNestedScope does not take one argument: use named arguments, EnterNestedScope([ :parameter = value, ... ])")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getActionContext
-		return dnSend("s3:get",nHandle,"s13:ActionContext","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ActionContext"))
 
 	Func setActionContext P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:ActionContext",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:ActionContext",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:ActionContext",P1)
 		return self
 
 	Func getBinderModelName
 		dn_x = dotnet_call("s3:get",nHandle,"s15:BinderModelName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:BinderModelName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBinderModelName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:BinderModelName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:BinderModelName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:BinderModelName",P1)
 		return self
 
 	Func getBindingSource
-		return dnSend("s3:get",nHandle,"s13:BindingSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:BindingSource"))
 
 	Func setBindingSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:BindingSource",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:BindingSource",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:BindingSource",P1)
 		return self
 
 	Func getFieldName
 		dn_x = dotnet_call("s3:get",nHandle,"s9:FieldName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:FieldName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFieldName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:FieldName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:FieldName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:FieldName",P1)
 		return self
 
 	Func getHttpContext
-		return dnSend("s3:get",nHandle,"s11:HttpContext","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:HttpContext"))
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getIsTopLevelObject
 		dn_x = dotnet_call("s3:get",nHandle,"s16:IsTopLevelObject")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:IsTopLevelObject",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsTopLevelObject P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:IsTopLevelObject",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:IsTopLevelObject",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:IsTopLevelObject",P1)
 		return self
 
 	Func getModel
-		return dnSend("s3:get",nHandle,"s5:Model","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
 	Func setModel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Model",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Model",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Model",P1)
 		return self
 
 	Func getModelMetadata
-		return dnSend("s3:get",nHandle,"s13:ModelMetadata","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ModelMetadata"))
 
 	Func setModelMetadata P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:ModelMetadata",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:ModelMetadata",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:ModelMetadata",P1)
 		return self
 
 	Func getModelName
 		dn_x = dotnet_call("s3:get",nHandle,"s9:ModelName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:ModelName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setModelName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:ModelName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:ModelName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:ModelName",P1)
 		return self
 
 	Func getOriginalModelName
 		dn_x = dotnet_call("s3:get",nHandle,"s17:OriginalModelName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:OriginalModelName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOriginalModelName P1
 		raise("DotNet Error: OriginalModelName is a read-only property")
 
 	Func getModelState
-		return dnSend("s3:get",nHandle,"s10:ModelState","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ModelState"))
 
 	Func setModelState P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:ModelState",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:ModelState",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:ModelState",P1)
 		return self
 
 	Func getModelType
-		return dnSend("s3:get",nHandle,"s9:ModelType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:ModelType"))
 
 	Func setModelType P1
 		raise("DotNet Error: ModelType is a read-only property")
 
 	Func getPropertyFilter
-		return dnSend("s3:get",nHandle,"s14:PropertyFilter","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:PropertyFilter"))
 
 	Func setPropertyFilter P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:PropertyFilter",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:PropertyFilter",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:PropertyFilter",P1)
 		return self
 
 	Func getValidationState
-		return dnSend("s3:get",nHandle,"s15:ValidationState","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ValidationState"))
 
 	Func setValidationState P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:ValidationState",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ValidationState",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:ValidationState",P1)
 		return self
 
 	Func getValueProvider
-		return dnSend("s3:get",nHandle,"s13:ValueProvider","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ValueProvider"))
 
 	Func setValueProvider P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:ValueProvider",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:ValueProvider",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:ValueProvider",P1)
 		return self
 
 	Func getResult
-		return dnSend("s3:get",nHandle,"s6:Result","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Result"))
 
 	Func setResult P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Result",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Result",P1)
 		return self
 
 
@@ -1723,20 +1693,20 @@ Class ModelBindingResult from ValueType
 		return self
 
 	Func Failed 
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult, Microsoft.AspNetCore.Mvc.Abstractions'),"s6:Failed","")
+		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult, Microsoft.AspNetCore.Mvc.Abstractions',"s6:Failed"))
 
 	Func Success P1
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult, Microsoft.AspNetCore.Mvc.Abstractions'),"s7:Success",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult, Microsoft.AspNetCore.Mvc.Abstractions',"s7:Success",P1))
 
 	Func getModel
-		return dnSend("s3:get",nHandle,"s5:Model","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getIsModelSet
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsModelSet")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsModelSet",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsModelSet P1
@@ -1776,18 +1746,18 @@ Class ModelError from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getException
-		return dnSend("s3:get",nHandle,"s9:Exception","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Exception"))
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getErrorMessage
 		dn_x = dotnet_call("s3:get",nHandle,"s12:ErrorMessage")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ErrorMessage",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setErrorMessage P1
@@ -1817,82 +1787,76 @@ Class ModelErrorCollection from DotNetObject
 		return self
 
 	Func Add P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Insert P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
 
 		return self
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RemoveAt P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
 
 		return self
 
 	Func GetType 
-		return dnSend("s4:call",nHandle,"s7:GetType","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode 
 		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -1969,47 +1933,47 @@ Class ModelMetadata from Object
 
 	Func GetDisplayName_ 
 		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDisplayName")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:GetDisplayName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetMetadataForType P1
-		return dnSend("s4:call",nHandle,"s18:GetMetadataForType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetMetadataForType",P1))
 
 	Func GetMetadataForProperties P1
-		return dnSend("s4:call",nHandle,"s24:GetMetadataForProperties",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetMetadataForProperties",P1))
 
 	Func getContainerType
-		return dnSend("s3:get",nHandle,"s13:ContainerType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ContainerType"))
 
 	Func setContainerType P1
 		raise("DotNet Error: ContainerType is a read-only property")
 
 	Func getContainerMetadata
-		return dnSend("s3:get",nHandle,"s17:ContainerMetadata","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ContainerMetadata"))
 
 	Func setContainerMetadata P1
 		raise("DotNet Error: ContainerMetadata is a read-only property")
 
 	Func getMetadataKind
-		return dnSend("s3:get",nHandle,"s12:MetadataKind","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:MetadataKind"))
 
 	Func setMetadataKind P1
 		raise("DotNet Error: MetadataKind is a read-only property")
 
 	Func getModelType
-		return dnSend("s3:get",nHandle,"s9:ModelType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:ModelType"))
 
 	Func setModelType P1
 		raise("DotNet Error: ModelType is a read-only property")
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
@@ -2017,7 +1981,7 @@ Class ModelMetadata from Object
 
 	Func getParameterName
 		dn_x = dotnet_call("s3:get",nHandle,"s13:ParameterName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ParameterName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setParameterName P1
@@ -2025,59 +1989,59 @@ Class ModelMetadata from Object
 
 	Func getPropertyName
 		dn_x = dotnet_call("s3:get",nHandle,"s12:PropertyName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:PropertyName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
 
 	Func getAdditionalValues
-		return dnSend("s3:get",nHandle,"s16:AdditionalValues","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:AdditionalValues"))
 
 	Func setAdditionalValues P1
 		raise("DotNet Error: AdditionalValues is a read-only property")
 
 	Func getProperties
-		return dnSend("s3:get",nHandle,"s10:Properties","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getBoundConstructor
-		return dnSend("s3:get",nHandle,"s16:BoundConstructor","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:BoundConstructor"))
 
 	Func setBoundConstructor P1
 		raise("DotNet Error: BoundConstructor is a read-only property")
 
 	Func getBoundConstructorParameters
-		return dnSend("s3:get",nHandle,"s26:BoundConstructorParameters","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s26:BoundConstructorParameters"))
 
 	Func setBoundConstructorParameters P1
 		raise("DotNet Error: BoundConstructorParameters is a read-only property")
 
 	Func getBinderModelName
 		dn_x = dotnet_call("s3:get",nHandle,"s15:BinderModelName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:BinderModelName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBinderModelName P1
 		raise("DotNet Error: BinderModelName is a read-only property")
 
 	Func getBinderType
-		return dnSend("s3:get",nHandle,"s10:BinderType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:BinderType"))
 
 	Func setBinderType P1
 		raise("DotNet Error: BinderType is a read-only property")
 
 	Func getBindingSource
-		return dnSend("s3:get",nHandle,"s13:BindingSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:BindingSource"))
 
 	Func setBindingSource P1
 		raise("DotNet Error: BindingSource is a read-only property")
 
 	Func getConvertEmptyStringToNull
 		dn_x = dotnet_call("s3:get",nHandle,"s24:ConvertEmptyStringToNull")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:ConvertEmptyStringToNull",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setConvertEmptyStringToNull P1
@@ -2085,7 +2049,7 @@ Class ModelMetadata from Object
 
 	Func getDataTypeName
 		dn_x = dotnet_call("s3:get",nHandle,"s12:DataTypeName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:DataTypeName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDataTypeName P1
@@ -2093,7 +2057,7 @@ Class ModelMetadata from Object
 
 	Func getDescription
 		dn_x = dotnet_call("s3:get",nHandle,"s11:Description")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:Description",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDescription P1
@@ -2101,7 +2065,7 @@ Class ModelMetadata from Object
 
 	Func getDisplayFormatString
 		dn_x = dotnet_call("s3:get",nHandle,"s19:DisplayFormatString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:DisplayFormatString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDisplayFormatString P1
@@ -2109,7 +2073,7 @@ Class ModelMetadata from Object
 
 	Func getDisplayName
 		dn_x = dotnet_call("s3:get",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:DisplayName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDisplayName P1
@@ -2117,33 +2081,33 @@ Class ModelMetadata from Object
 
 	Func getEditFormatString
 		dn_x = dotnet_call("s3:get",nHandle,"s16:EditFormatString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:EditFormatString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEditFormatString P1
 		raise("DotNet Error: EditFormatString is a read-only property")
 
 	Func getElementMetadata
-		return dnSend("s3:get",nHandle,"s15:ElementMetadata","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ElementMetadata"))
 
 	Func setElementMetadata P1
 		raise("DotNet Error: ElementMetadata is a read-only property")
 
 	Func getEnumGroupedDisplayNamesAndValues
-		return dnSend("s3:get",nHandle,"s32:EnumGroupedDisplayNamesAndValues","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s32:EnumGroupedDisplayNamesAndValues"))
 
 	Func setEnumGroupedDisplayNamesAndValues P1
 		raise("DotNet Error: EnumGroupedDisplayNamesAndValues is a read-only property")
 
 	Func getEnumNamesAndValues
-		return dnSend("s3:get",nHandle,"s18:EnumNamesAndValues","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:EnumNamesAndValues"))
 
 	Func setEnumNamesAndValues P1
 		raise("DotNet Error: EnumNamesAndValues is a read-only property")
 
 	Func getHasNonDefaultEditFormat
 		dn_x = dotnet_call("s3:get",nHandle,"s23:HasNonDefaultEditFormat")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s23:HasNonDefaultEditFormat",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasNonDefaultEditFormat P1
@@ -2151,7 +2115,7 @@ Class ModelMetadata from Object
 
 	Func getHtmlEncode
 		dn_x = dotnet_call("s3:get",nHandle,"s10:HtmlEncode")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:HtmlEncode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHtmlEncode P1
@@ -2159,7 +2123,7 @@ Class ModelMetadata from Object
 
 	Func getHideSurroundingHtml
 		dn_x = dotnet_call("s3:get",nHandle,"s19:HideSurroundingHtml")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:HideSurroundingHtml",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHideSurroundingHtml P1
@@ -2167,7 +2131,7 @@ Class ModelMetadata from Object
 
 	Func getIsBindingAllowed
 		dn_x = dotnet_call("s3:get",nHandle,"s16:IsBindingAllowed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:IsBindingAllowed",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsBindingAllowed P1
@@ -2175,7 +2139,7 @@ Class ModelMetadata from Object
 
 	Func getIsBindingRequired
 		dn_x = dotnet_call("s3:get",nHandle,"s17:IsBindingRequired")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:IsBindingRequired",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsBindingRequired P1
@@ -2183,7 +2147,7 @@ Class ModelMetadata from Object
 
 	Func getIsEnum
 		dn_x = dotnet_call("s3:get",nHandle,"s6:IsEnum")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsEnum",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsEnum P1
@@ -2191,7 +2155,7 @@ Class ModelMetadata from Object
 
 	Func getIsFlagsEnum
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFlagsEnum")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFlagsEnum",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsFlagsEnum P1
@@ -2199,7 +2163,7 @@ Class ModelMetadata from Object
 
 	Func getIsReadOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReadOnly P1
@@ -2207,21 +2171,21 @@ Class ModelMetadata from Object
 
 	Func getIsRequired
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsRequired")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsRequired",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsRequired P1
 		raise("DotNet Error: IsRequired is a read-only property")
 
 	Func getModelBindingMessageProvider
-		return dnSend("s3:get",nHandle,"s27:ModelBindingMessageProvider","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s27:ModelBindingMessageProvider"))
 
 	Func setModelBindingMessageProvider P1
 		raise("DotNet Error: ModelBindingMessageProvider is a read-only property")
 
 	Func getOrder
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Order",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOrder P1
@@ -2229,7 +2193,7 @@ Class ModelMetadata from Object
 
 	Func getPlaceholder
 		dn_x = dotnet_call("s3:get",nHandle,"s11:Placeholder")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:Placeholder",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPlaceholder P1
@@ -2237,21 +2201,21 @@ Class ModelMetadata from Object
 
 	Func getNullDisplayText
 		dn_x = dotnet_call("s3:get",nHandle,"s15:NullDisplayText")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:NullDisplayText",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNullDisplayText P1
 		raise("DotNet Error: NullDisplayText is a read-only property")
 
 	Func getPropertyFilterProvider
-		return dnSend("s3:get",nHandle,"s22:PropertyFilterProvider","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s22:PropertyFilterProvider"))
 
 	Func setPropertyFilterProvider P1
 		raise("DotNet Error: PropertyFilterProvider is a read-only property")
 
 	Func getShowForDisplay
 		dn_x = dotnet_call("s3:get",nHandle,"s14:ShowForDisplay")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:ShowForDisplay",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setShowForDisplay P1
@@ -2259,7 +2223,7 @@ Class ModelMetadata from Object
 
 	Func getShowForEdit
 		dn_x = dotnet_call("s3:get",nHandle,"s11:ShowForEdit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:ShowForEdit",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setShowForEdit P1
@@ -2267,7 +2231,7 @@ Class ModelMetadata from Object
 
 	Func getSimpleDisplayProperty
 		dn_x = dotnet_call("s3:get",nHandle,"s21:SimpleDisplayProperty")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:SimpleDisplayProperty",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSimpleDisplayProperty P1
@@ -2275,47 +2239,47 @@ Class ModelMetadata from Object
 
 	Func getTemplateHint
 		dn_x = dotnet_call("s3:get",nHandle,"s12:TemplateHint")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:TemplateHint",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTemplateHint P1
 		raise("DotNet Error: TemplateHint is a read-only property")
 
 	Func getPropertyValidationFilter
-		return dnSend("s3:get",nHandle,"s24:PropertyValidationFilter","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s24:PropertyValidationFilter"))
 
 	Func setPropertyValidationFilter P1
 		raise("DotNet Error: PropertyValidationFilter is a read-only property")
 
 	Func getValidateChildren
 		dn_x = dotnet_call("s3:get",nHandle,"s16:ValidateChildren")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ValidateChildren",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValidateChildren P1
 		raise("DotNet Error: ValidateChildren is a read-only property")
 
 	Func getHasValidators
-		return dnSend("s3:get",nHandle,"s13:HasValidators","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:HasValidators"))
 
 	Func setHasValidators P1
 		raise("DotNet Error: HasValidators is a read-only property")
 
 	Func getValidatorMetadata
-		return dnSend("s3:get",nHandle,"s17:ValidatorMetadata","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ValidatorMetadata"))
 
 	Func setValidatorMetadata P1
 		raise("DotNet Error: ValidatorMetadata is a read-only property")
 
 	Func getElementType
-		return dnSend("s3:get",nHandle,"s11:ElementType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ElementType"))
 
 	Func setElementType P1
 		raise("DotNet Error: ElementType is a read-only property")
 
 	Func getIsComplexType
 		dn_x = dotnet_call("s3:get",nHandle,"s13:IsComplexType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IsComplexType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsComplexType P1
@@ -2323,7 +2287,7 @@ Class ModelMetadata from Object
 
 	Func getIsNullableValueType
 		dn_x = dotnet_call("s3:get",nHandle,"s19:IsNullableValueType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:IsNullableValueType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsNullableValueType P1
@@ -2331,7 +2295,7 @@ Class ModelMetadata from Object
 
 	Func getIsCollectionType
 		dn_x = dotnet_call("s3:get",nHandle,"s16:IsCollectionType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:IsCollectionType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsCollectionType P1
@@ -2339,7 +2303,7 @@ Class ModelMetadata from Object
 
 	Func getIsEnumerableType
 		dn_x = dotnet_call("s3:get",nHandle,"s16:IsEnumerableType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:IsEnumerableType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsEnumerableType P1
@@ -2347,39 +2311,39 @@ Class ModelMetadata from Object
 
 	Func getIsReferenceOrNullableType
 		dn_x = dotnet_call("s3:get",nHandle,"s25:IsReferenceOrNullableType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:IsReferenceOrNullableType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReferenceOrNullableType P1
 		raise("DotNet Error: IsReferenceOrNullableType is a read-only property")
 
 	Func getUnderlyingOrModelType
-		return dnSend("s3:get",nHandle,"s21:UnderlyingOrModelType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:UnderlyingOrModelType"))
 
 	Func setUnderlyingOrModelType P1
 		raise("DotNet Error: UnderlyingOrModelType is a read-only property")
 
 	Func getPropertyGetter
-		return dnSend("s3:get",nHandle,"s14:PropertyGetter","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:PropertyGetter"))
 
 	Func setPropertyGetter P1
 		raise("DotNet Error: PropertyGetter is a read-only property")
 
 	Func getPropertySetter
-		return dnSend("s3:get",nHandle,"s14:PropertySetter","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:PropertySetter"))
 
 	Func setPropertySetter P1
 		raise("DotNet Error: PropertySetter is a read-only property")
 
 	Func getBoundConstructorInvoker
-		return dnSend("s3:get",nHandle,"s23:BoundConstructorInvoker","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:BoundConstructorInvoker"))
 
 	Func setBoundConstructorInvoker P1
 		raise("DotNet Error: BoundConstructorInvoker is a read-only property")
 
 	Func getDefaultOrder
 		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadata, Microsoft.AspNetCore.Mvc.Abstractions',"s12:DefaultOrder")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadata, Microsoft.AspNetCore.Mvc.Abstractions',"s12:DefaultOrder",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultOrder P1
@@ -2398,26 +2362,26 @@ Class ModelMetadataProvider from Object
 		return self
 
 	Func GetMetadataForProperties P1
-		return dnSend("s4:call",nHandle,"s24:GetMetadataForProperties",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetMetadataForProperties",P1))
 
 	Func GetMetadataForType P1
-		return dnSend("s4:call",nHandle,"s18:GetMetadataForType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetMetadataForType",P1))
 
 	Func GetMetadataForParameter P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s23:GetMetadataForParameter",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s23:GetMetadataForParameter",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetMetadataForParameter",P1))
 
 	Func GetMetadataForProperty P1,P2
-		return dnSend("s4:call",nHandle,"s22:GetMetadataForProperty",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetMetadataForProperty",P1,P2))
 
 	Func GetMetadataForConstructor P1,P2
-		return dnSend("s4:call",nHandle,"s25:GetMetadataForConstructor",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetMetadataForConstructor",P1,P2))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -2434,11 +2398,11 @@ Class ModelMetadataProviderExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetMetadataForProperty P1,P2,P3
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadataProviderExtensions, Microsoft.AspNetCore.Mvc.Core'),"s22:GetMetadataForProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadataProviderExtensions, Microsoft.AspNetCore.Mvc.Core',"s22:GetMetadataForProperty",P1,P2,P3))
 
 
 Class ModelNames from Object
@@ -2454,17 +2418,17 @@ Class ModelNames from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CreateIndexModelName P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core',"s20:CreateIndexModelName",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core',"s20:CreateIndexModelName",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CreatePropertyModelName P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core',"s23:CreatePropertyModelName",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core',"s23:CreatePropertyModelName",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -2485,47 +2449,46 @@ Class ModelPropertyCollection from DotNetObject
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetType 
-		return dnSend("s4:call",nHandle,"s7:GetType","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:ToString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode 
 		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:GetHashCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -2581,7 +2544,7 @@ Class ModelStateDictionary from Object
 
 	Func TryAddModelException P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s20:TryAddModelException",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:TryAddModelException",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AddModelError P1
@@ -2598,26 +2561,23 @@ Class ModelStateDictionary from Object
 		raise("DotNet Error: TryAddModelError does not take one argument: use named arguments, TryAddModelError([ :parameter = value, ... ])")
 
 	Func GetFieldValidationState P1
-		return dnSend("s4:call",nHandle,"s23:GetFieldValidationState",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetFieldValidationState",P1))
 
 	Func GetValidationState_ P1
-		return dnSend("s4:call",nHandle,"s18:GetValidationState",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetValidationState",P1))
 
 	Func MarkFieldValid P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s14:MarkFieldValid",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s14:MarkFieldValid",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s14:MarkFieldValid",P1)
 
 		return self
 
 	Func MarkFieldSkipped P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:MarkFieldSkipped",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:MarkFieldSkipped",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s16:MarkFieldSkipped",P1)
 
 		return self
 
 	Func Merge P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Merge",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Merge",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Merge",P1)
 
 		return self
 
@@ -2629,68 +2589,65 @@ Class ModelStateDictionary from Object
 		raise("DotNet Error: SetModelValue does not take one argument: use named arguments, SetModelValue([ :parameter = value, ... ])")
 
 	Func ClearValidationState P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s20:ClearValidationState",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s20:ClearValidationState",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s20:ClearValidationState",P1)
 
 		return self
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func ContainsKey P1
 		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:ContainsKey",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Remove",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryGetValue P1
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func FindKeysWithPrefix P1
-		return dnSend("s4:call",nHandle,"s18:FindKeysWithPrefix",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:FindKeysWithPrefix",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func StartsWithPrefix P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',"s16:StartsWithPrefix",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',"s16:StartsWithPrefix",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getRoot
-		return dnSend("s3:get",nHandle,"s4:Root","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Root"))
 
 	Func setRoot P1
 		raise("DotNet Error: Root is a read-only property")
 
 	Func getMaxAllowedErrors
 		dn_x = dotnet_call("s3:get",nHandle,"s16:MaxAllowedErrors")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:MaxAllowedErrors",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaxAllowedErrors P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:MaxAllowedErrors",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:MaxAllowedErrors",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:MaxAllowedErrors",P1)
 		return self
 
 	Func getHasReachedMaxErrors
 		dn_x = dotnet_call("s3:get",nHandle,"s19:HasReachedMaxErrors")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:HasReachedMaxErrors",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasReachedMaxErrors P1
@@ -2698,7 +2655,7 @@ Class ModelStateDictionary from Object
 
 	Func getErrorCount
 		dn_x = dotnet_call("s3:get",nHandle,"s10:ErrorCount")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:ErrorCount",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setErrorCount P1
@@ -2706,41 +2663,41 @@ Class ModelStateDictionary from Object
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getKeys
-		return dnSend("s3:get",nHandle,"s4:Keys","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Keys"))
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnSend("s3:get",nHandle,"s6:Values","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Values"))
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getIsValid
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsValid")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsValid",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")
 
 	Func getValidationState
-		return dnSend("s3:get",nHandle,"s15:ValidationState","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ValidationState"))
 
 	Func setValidationState P1
 		raise("DotNet Error: ValidationState is a read-only property")
 
 	Func getDefaultMaxAllowedErrors
 		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',"s23:DefaultMaxAllowedErrors")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',"s23:DefaultMaxAllowedErrors",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultMaxAllowedErrors P1
@@ -2760,7 +2717,7 @@ Class ModelStateDictionaryExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AddModelError P1
@@ -2771,19 +2728,17 @@ Class ModelStateDictionaryExtensions from Object
 		raise("DotNet Error: AddModelError does not take one argument: use named arguments, AddModelError([ :parameter = value, ... ])")
 
 	Func TryAddModelException P1,P2,P3
-		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures',"s20:TryAddModelException",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"s20:TryAddModelException",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures',"s20:TryAddModelException",P1,P2,P3)
 
 		return self
 
 	Func Remove P1,P2
 		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures',"s6:Remove",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures',"s6:Remove",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RemoveAll P1,P2
-		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures',"s9:RemoveAll",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"s9:RemoveAll",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures',"s9:RemoveAll",P1,P2)
 
 		return self
 
@@ -2807,55 +2762,52 @@ Class ModelStateEntry from Object
 		return self
 
 	Func GetModelStateForProperty P1
-		return dnSend("s4:call",nHandle,"s24:GetModelStateForProperty",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetModelStateForProperty",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getRawValue
-		return dnSend("s3:get",nHandle,"s8:RawValue","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:RawValue"))
 
 	Func setRawValue P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:RawValue",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:RawValue",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:RawValue",P1)
 		return self
 
 	Func getAttemptedValue
 		dn_x = dotnet_call("s3:get",nHandle,"s14:AttemptedValue")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:AttemptedValue",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAttemptedValue P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:AttemptedValue",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:AttemptedValue",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:AttemptedValue",P1)
 		return self
 
 	Func getErrors
-		return dnSend("s3:get",nHandle,"s6:Errors","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Errors"))
 
 	Func setErrors P1
 		raise("DotNet Error: Errors is a read-only property")
 
 	Func getValidationState
-		return dnSend("s3:get",nHandle,"s15:ValidationState","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ValidationState"))
 
 	Func setValidationState P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:ValidationState",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ValidationState",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:ValidationState",P1)
 		return self
 
 	Func getIsContainerNode
 		dn_x = dotnet_call("s3:get",nHandle,"s15:IsContainerNode")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:IsContainerNode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsContainerNode P1
 		raise("DotNet Error: IsContainerNode is a read-only property")
 
 	Func getChildren
-		return dnSend("s3:get",nHandle,"s8:Children","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Children"))
 
 	Func setChildren P1
 		raise("DotNet Error: Children is a read-only property")
@@ -2880,11 +2832,11 @@ Class ObjectModelValidator from Object
 		raise("DotNet Error: Validate does not take one argument: use named arguments, Validate([ :parameter = value, ... ])")
 
 	Func GetValidationVisitor P1,P2,P3,P4,P5
-		return dnSend("s4:call",nHandle,"s20:GetValidationVisitor",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetValidationVisitor",P1,P2,P3,P4,P5))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -2909,7 +2861,7 @@ Class ParameterBinder from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -2928,15 +2880,15 @@ Class PrefixContainer from Object
 
 	Func ContainsPrefix P1
 		dn_x = dotnet_call("s4:call",nHandle,"s14:ContainsPrefix",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:ContainsPrefix",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetKeysFromPrefix P1
-		return dnSend("s4:call",nHandle,"s17:GetKeysFromPrefix",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -2961,11 +2913,11 @@ Class QueryStringValueProviderFactory from Object
 		return self
 
 	Func CreateValueProviderAsync P1
-		return dnSend("s4:call",nHandle,"s24:CreateValueProviderAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateValueProviderAsync",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -2990,11 +2942,11 @@ Class RouteValueProviderFactory from Object
 		return self
 
 	Func CreateValueProviderAsync P1
-		return dnSend("s4:call",nHandle,"s24:CreateValueProviderAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateValueProviderAsync",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -3015,28 +2967,27 @@ Class SuppressChildValidationMetadataProvider from Object
 		return self
 
 	Func CreateValidationMetadata P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s24:CreateValidationMetadata",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s24:CreateValidationMetadata",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s24:CreateValidationMetadata",P1)
 
 		return self
 
 	Func GetType_ 
-		return dnSend("s4:call",nHandle,"s7:GetType","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getType
-		return dnSend("s3:get",nHandle,"s4:Type","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getFullTypeName
 		dn_x = dotnet_call("s3:get",nHandle,"s12:FullTypeName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:FullTypeName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFullTypeName P1
@@ -3066,30 +3017,27 @@ Class UnsupportedContentTypeFilter from Object
 		return self
 
 	Func OnActionExecuting P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s17:OnActionExecuting",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s17:OnActionExecuting",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s17:OnActionExecuting",P1)
 
 		return self
 
 	Func OnActionExecuted P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:OnActionExecuted",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:OnActionExecuted",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s16:OnActionExecuted",P1)
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getOrder
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Order",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOrder P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Order",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Order",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
 		return self
 
 
@@ -3111,17 +3059,17 @@ Class ValueProviderFactoryContext from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getActionContext
-		return dnSend("s3:get",nHandle,"s13:ActionContext","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ActionContext"))
 
 	Func setActionContext P1
 		raise("DotNet Error: ActionContext is a read-only property")
 
 	Func getValueProviders
-		return dnSend("s3:get",nHandle,"s14:ValueProviders","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ValueProviders"))
 
 	Func setValueProviders P1
 		raise("DotNet Error: ValueProviders is a read-only property")
@@ -3140,7 +3088,7 @@ Class ValueProviderFactoryExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RemoveType P1
@@ -3148,8 +3096,7 @@ Class ValueProviderFactoryExtensions from Object
 			dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryExtensions, Microsoft.AspNetCore.Mvc.Core',"s10:RemoveType",P1)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryExtensions, Microsoft.AspNetCore.Mvc.Core',"s10:RemoveType",P1)
 
 		return self
 
@@ -3197,23 +3144,23 @@ Class ValueProviderResult from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func getCulture
-		return dnSend("s3:get",nHandle,"s7:Culture","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Culture"))
 
 	Func setCulture P1
 		raise("DotNet Error: Culture is a read-only property")
 
 	Func getValues
-		return dnSend("s3:get",nHandle,"s6:Values","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Values"))
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getFirstValue
 		dn_x = dotnet_call("s3:get",nHandle,"s10:FirstValue")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:FirstValue",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFirstValue P1
@@ -3221,18 +3168,17 @@ Class ValueProviderResult from ValueType
 
 	Func getLength
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Length",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getNone
-		return dnSend("s3:get",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions'),"s4:None","")
+		return dnObj(dotnet_callo("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',"s4:None"))
 
 	Func setNone P1
-		dn_x = dotnet_callv("s3:set",'Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',"s4:None",P1)
-		if islist(dn_x) dnSend("s3:set",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions'),"s4:None",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",'Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',"s4:None",P1)
 		return self
 
 
@@ -3250,10 +3196,10 @@ Class CompositeBindingSource from AspBindingSource
 		return self
 
 	Func Create P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeBindingSource, Microsoft.AspNetCore.Mvc.Abstractions'),"s6:Create",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.CompositeBindingSource, Microsoft.AspNetCore.Mvc.Abstractions',"s6:Create",P1,P2))
 
 	Func getBindingSources
-		return dnSend("s3:get",nHandle,"s14:BindingSources","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:BindingSources"))
 
 	Func setBindingSources P1
 		raise("DotNet Error: BindingSources is a read-only property")
@@ -3282,14 +3228,13 @@ Class DefaultModelBindingContext from ModelBindingContext
 		return self
 
 	Func CreateBindingContext P1,P2,P3,P4,P5
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.DefaultModelBindingContext, Microsoft.AspNetCore.Mvc.Core'),"s20:CreateBindingContext",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.DefaultModelBindingContext, Microsoft.AspNetCore.Mvc.Core',"s20:CreateBindingContext",P1,P2,P3,P4,P5))
 
 	Func getOriginalValueProvider
-		return dnSend("s3:get",nHandle,"s21:OriginalValueProvider","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:OriginalValueProvider"))
 
 	Func setOriginalValueProvider P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:OriginalValueProvider",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:OriginalValueProvider",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:OriginalValueProvider",P1)
 		return self
 
 
@@ -3309,10 +3254,10 @@ Class FormValueProvider from BindingSourceValueProvider
 		return self
 
 	Func GetKeysFromPrefix P1
-		return dnSend("s4:call",nHandle,"s17:GetKeysFromPrefix",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
 
 	Func getCulture
-		return dnSend("s3:get",nHandle,"s7:Culture","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Culture"))
 
 	Func setCulture P1
 		raise("DotNet Error: Culture is a read-only property")
@@ -3332,19 +3277,19 @@ Class JQueryValueProvider from BindingSourceValueProvider
 		return self
 
 	Func GetKeysFromPrefix P1
-		return dnSend("s4:call",nHandle,"s17:GetKeysFromPrefix",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
 
 	Func Filter P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s6:Filter",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s6:Filter","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter"))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Filter",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter",P1))
 
 	Func getCulture
-		return dnSend("s3:get",nHandle,"s7:Culture","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Culture"))
 
 	Func setCulture P1
 		raise("DotNet Error: Culture is a read-only property")
@@ -3366,10 +3311,10 @@ Class QueryStringValueProvider from BindingSourceValueProvider
 		return self
 
 	Func GetKeysFromPrefix P1
-		return dnSend("s4:call",nHandle,"s17:GetKeysFromPrefix",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
 
 	Func getCulture
-		return dnSend("s3:get",nHandle,"s7:Culture","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Culture"))
 
 	Func setCulture P1
 		raise("DotNet Error: Culture is a read-only property")

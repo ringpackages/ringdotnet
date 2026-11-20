@@ -344,14 +344,12 @@ Class IAddChild from DotNetObject
 		return self
 
 	Func AddChild P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:AddChild",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:AddChild",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:AddChild",P1)
 
 		return self
 
 	Func AddText P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:AddText",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:AddText",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s7:AddText",P1)
 
 		return self
 
@@ -368,14 +366,12 @@ Class IComponentConnector from DotNetObject
 		return self
 
 	Func Connect P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Connect",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Connect",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s7:Connect",P1,P2)
 
 		return self
 
 	Func InitializeComponent 
-		dn_x = dotnet_callv("s4:call",nHandle,"s19:InitializeComponent")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s19:InitializeComponent","") ok
+		dotnet_callv("s4:call",nHandle,"s19:InitializeComponent")
 
 		return self
 
@@ -392,19 +388,17 @@ Class INameScope from DotNetObject
 		return self
 
 	Func RegisterName P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:RegisterName",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:RegisterName",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s12:RegisterName",P1,P2)
 
 		return self
 
 	Func UnregisterName P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s14:UnregisterName",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s14:UnregisterName",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s14:UnregisterName",P1)
 
 		return self
 
 	Func FindName P1
-		return dnSend("s4:call",nHandle,"s8:FindName",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:FindName",P1))
 
 
 Class INameScopeDictionary from DotNetObject
@@ -434,13 +428,13 @@ Class IProvideValueTarget from DotNetObject
 		return self
 
 	Func getTargetObject
-		return dnSend("s3:get",nHandle,"s12:TargetObject","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:TargetObject"))
 
 	Func setTargetObject P1
 		raise("DotNet Error: TargetObject is a read-only property")
 
 	Func getTargetProperty
-		return dnSend("s3:get",nHandle,"s14:TargetProperty","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:TargetProperty"))
 
 	Func setTargetProperty P1
 		raise("DotNet Error: TargetProperty is a read-only property")
@@ -459,7 +453,7 @@ Class IQueryAmbient from DotNetObject
 
 	Func IsAmbientPropertyAvailable P1
 		dn_x = dotnet_call("s4:call",nHandle,"s26:IsAmbientPropertyAvailable",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s26:IsAmbientPropertyAvailable",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -475,8 +469,7 @@ Class IStyleConnector from DotNetObject
 		return self
 
 	Func Connect P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Connect",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Connect",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s7:Connect",P1,P2)
 
 		return self
 
@@ -495,11 +488,10 @@ Class IUriContext from DotNetObject
 		return self
 
 	Func getBaseUri
-		return dnSend("s3:get",nHandle,"s7:BaseUri","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:BaseUri"))
 
 	Func setBaseUri P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:BaseUri",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:BaseUri",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:BaseUri",P1)
 		return self
 
 
@@ -515,7 +507,7 @@ Class IValueSerializerContext from DotNetObject
 		return self
 
 	Func GetValueSerializerFor P1
-		return dnSend("s4:call",nHandle,"s21:GetValueSerializerFor",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetValueSerializerFor",P1))
 
 
 Class IXamlTypeResolver from DotNetObject
@@ -530,7 +522,7 @@ Class IXamlTypeResolver from DotNetObject
 		return self
 
 	Func Resolve P1
-		return dnSend("s4:call",nHandle,"s7:Resolve",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Resolve",P1))
 
 
 Class InternalTypeHelper from Object
@@ -546,7 +538,7 @@ Class InternalTypeHelper from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -562,11 +554,11 @@ Class MarkupExtension from Object
 		return self
 
 	Func ProvideValue P1
-		return dnSend("s4:call",nHandle,"s12:ProvideValue",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ProvideValue",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -585,17 +577,16 @@ Class MemberDefinition from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
 		return self
 
 
@@ -662,37 +653,34 @@ Class NamespaceMapEntry from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getXmlNamespace
 		dn_x = dotnet_call("s3:get",nHandle,"s12:XmlNamespace")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:XmlNamespace",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setXmlNamespace P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:XmlNamespace",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:XmlNamespace",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:XmlNamespace",P1)
 		return self
 
 	Func getAssemblyName
 		dn_x = dotnet_call("s3:get",nHandle,"s12:AssemblyName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:AssemblyName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAssemblyName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:AssemblyName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:AssemblyName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:AssemblyName",P1)
 		return self
 
 	Func getClrNamespace
 		dn_x = dotnet_call("s3:get",nHandle,"s12:ClrNamespace")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ClrNamespace",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setClrNamespace P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:ClrNamespace",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:ClrNamespace",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:ClrNamespace",P1)
 		return self
 
 
@@ -740,52 +728,48 @@ Class ParserContext from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToXmlParserContext P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.ParserContext, PresentationFramework'),"s18:ToXmlParserContext",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Markup.ParserContext, PresentationFramework',"s18:ToXmlParserContext",P1))
 
 	Func getXmlnsDictionary
-		return dnSend("s3:get",nHandle,"s15:XmlnsDictionary","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:XmlnsDictionary"))
 
 	Func setXmlnsDictionary P1
 		raise("DotNet Error: XmlnsDictionary is a read-only property")
 
 	Func getXmlLang
 		dn_x = dotnet_call("s3:get",nHandle,"s7:XmlLang")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:XmlLang",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setXmlLang P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:XmlLang",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:XmlLang",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:XmlLang",P1)
 		return self
 
 	Func getXmlSpace
 		dn_x = dotnet_call("s3:get",nHandle,"s8:XmlSpace")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:XmlSpace",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setXmlSpace P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:XmlSpace",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:XmlSpace",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:XmlSpace",P1)
 		return self
 
 	Func getXamlTypeMapper
-		return dnSend("s3:get",nHandle,"s14:XamlTypeMapper","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:XamlTypeMapper"))
 
 	Func setXamlTypeMapper P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:XamlTypeMapper",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:XamlTypeMapper",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:XamlTypeMapper",P1)
 		return self
 
 	Func getBaseUri
-		return dnSend("s3:get",nHandle,"s7:BaseUri","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:BaseUri"))
 
 	Func setBaseUri P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:BaseUri",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:BaseUri",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:BaseUri",P1)
 		return self
 
 
@@ -852,17 +836,16 @@ Class ServiceProviders from Object
 		return self
 
 	Func GetService P1
-		return dnSend("s4:call",nHandle,"s10:GetService",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService",P1))
 
 	Func AddService P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s10:AddService",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s10:AddService",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s10:AddService",P1,P2)
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -921,35 +904,35 @@ Class ValueSerializer from Object
 
 	Func CanConvertToString P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s18:CanConvertToString",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s18:CanConvertToString",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CanConvertFromString P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s20:CanConvertFromString",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:CanConvertFromString",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConvertToString P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s15:ConvertToString",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:ConvertToString",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConvertFromString P1,P2
-		return dnSend("s4:call",nHandle,"s17:ConvertFromString",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConvertFromString",P1,P2))
 
 	Func TypeReferences P1,P2
-		return dnSend("s4:call",nHandle,"s14:TypeReferences",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:TypeReferences",P1,P2))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetSerializerFor P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Markup.ValueSerializer, System.Xaml'),"s16:GetSerializerFor",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.ValueSerializer, System.Xaml'),"s16:GetSerializerFor",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Markup.ValueSerializer, System.Xaml',"s16:GetSerializerFor",P1))
 
 
 Class XData from Object
@@ -977,25 +960,23 @@ Class XData from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getText
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Text")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Text",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setText P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Text",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Text",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Text",P1)
 		return self
 
 	Func getXmlReader
-		return dnSend("s3:get",nHandle,"s9:XmlReader","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:XmlReader"))
 
 	Func setXmlReader P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:XmlReader",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:XmlReader",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:XmlReader",P1)
 		return self
 
 
@@ -1011,11 +992,11 @@ Class XamlInstanceCreator from Object
 		return self
 
 	Func CreateObject 
-		return dnSend("s4:call",nHandle,"s12:CreateObject","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateObject"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -1043,33 +1024,32 @@ Class XamlReader from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s9:LoadAsync",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s9:LoadAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:LoadAsync",P1))
 
 	Func CancelAsync 
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:CancelAsync")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:CancelAsync","") ok
+		dotnet_callv("s4:call",nHandle,"s11:CancelAsync")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Parse P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Markup.XamlReader, PresentationFramework'),"s5:Parse",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XamlReader, PresentationFramework'),"s5:Parse",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Markup.XamlReader, PresentationFramework',"s5:Parse",P1))
 
 	Func Load_ P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Markup.XamlReader, PresentationFramework'),"s4:Load",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XamlReader, PresentationFramework'),"s4:Load",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Markup.XamlReader, PresentationFramework',"s4:Load",P1))
 
 	Func GetWpfSchemaContext 
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XamlReader, PresentationFramework'),"s19:GetWpfSchemaContext","")
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Markup.XamlReader, PresentationFramework',"s19:GetWpfSchemaContext"))
 
 	Func setLoadCompletedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"LoadCompleted",dnCallback(P1)])
@@ -1098,31 +1078,29 @@ Class XamlSetValueEventArgs from EventArgs
 		return self
 
 	Func CallBase 
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:CallBase")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:CallBase","") ok
+		dotnet_callv("s4:call",nHandle,"s8:CallBase")
 
 		return self
 
 	Func getMember
-		return dnSend("s3:get",nHandle,"s6:Member","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Member"))
 
 	Func setMember P1
 		raise("DotNet Error: Member is a read-only property")
 
 	Func getValue
-		return dnSend("s3:get",nHandle,"s5:Value","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHandled
 		dn_x = dotnet_call("s3:get",nHandle,"s7:Handled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Handled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHandled P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Handled",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Handled",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Handled",P1)
 		return self
 
 
@@ -1161,29 +1139,27 @@ Class XamlTypeMapper from Object
 			return dnSend("s9:callnamed",nHandle,"s7:GetType",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s7:GetType","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 		ok
 		raise("DotNet Error: GetType does not take one argument: use named arguments, GetType([ :parameter = value, ... ])")
 
 	Func AddMappingProcessingInstruction P1,P2,P3
-		dn_x = dotnet_callv("s4:call",nHandle,"s31:AddMappingProcessingInstruction",P1,P2,P3)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s31:AddMappingProcessingInstruction",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3)) ok
+		dotnet_callv("s4:call",nHandle,"s31:AddMappingProcessingInstruction",P1,P2,P3)
 
 		return self
 
 	Func SetAssemblyPath P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:SetAssemblyPath",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:SetAssemblyPath",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s15:SetAssemblyPath",P1,P2)
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getDefaultMapper
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Markup.XamlTypeMapper, PresentationFramework'),"s13:DefaultMapper","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Markup.XamlTypeMapper, PresentationFramework',"s13:DefaultMapper"))
 
 	Func setDefaultMapper P1
 		raise("DotNet Error: DefaultMapper is a read-only property")
@@ -1202,7 +1178,7 @@ Class XamlWriter from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Save P1
@@ -1210,7 +1186,7 @@ Class XamlWriter from Object
 			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Markup.XamlWriter, PresentationFramework'),"s4:Save",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",'System.Windows.Markup.XamlWriter, PresentationFramework',"s4:Save",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Markup.XamlWriter, PresentationFramework',"s4:Save",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -1232,69 +1208,65 @@ Class XmlAttributeProperties from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetXmlSpace P1
 		dn_x = dotnet_call("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s11:GetXmlSpace",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s11:GetXmlSpace",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetXmlSpace P1,P2
-		dn_x = dotnet_callv("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s11:SetXmlSpace",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s11:SetXmlSpace",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s11:SetXmlSpace",P1,P2)
 
 		return self
 
 	Func GetXmlnsDictionary P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s18:GetXmlnsDictionary",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s18:GetXmlnsDictionary",P1))
 
 	Func SetXmlnsDictionary P1,P2
-		dn_x = dotnet_callv("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s18:SetXmlnsDictionary",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s18:SetXmlnsDictionary",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s18:SetXmlnsDictionary",P1,P2)
 
 		return self
 
 	Func GetXmlnsDefinition P1
 		dn_x = dotnet_call("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s18:GetXmlnsDefinition",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s18:GetXmlnsDefinition",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetXmlnsDefinition P1,P2
-		dn_x = dotnet_callv("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s18:SetXmlnsDefinition",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s18:SetXmlnsDefinition",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s18:SetXmlnsDefinition",P1,P2)
 
 		return self
 
 	Func GetXmlNamespaceMaps P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s19:GetXmlNamespaceMaps",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s19:GetXmlNamespaceMaps",P1))
 
 	Func SetXmlNamespaceMaps P1,P2
-		dn_x = dotnet_callv("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s19:SetXmlNamespaceMaps",P1,P2)
-		if islist(dn_x) dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s19:SetXmlNamespaceMaps",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s19:SetXmlNamespaceMaps",P1,P2)
 
 		return self
 
 	Func getXmlSpaceProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s16:XmlSpaceProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s16:XmlSpaceProperty"))
 
 	Func setXmlSpaceProperty P1
 		raise("DotNet Error: XmlSpaceProperty is a read-only property")
 
 	Func getXmlnsDictionaryProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s23:XmlnsDictionaryProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s23:XmlnsDictionaryProperty"))
 
 	Func setXmlnsDictionaryProperty P1
 		raise("DotNet Error: XmlnsDictionaryProperty is a read-only property")
 
 	Func getXmlnsDefinitionProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s23:XmlnsDefinitionProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s23:XmlnsDefinitionProperty"))
 
 	Func setXmlnsDefinitionProperty P1
 		raise("DotNet Error: XmlnsDefinitionProperty is a read-only property")
 
 	Func getXmlNamespaceMapsProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"s24:XmlNamespaceMapsProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Markup.XmlAttributeProperties, PresentationFramework',"s24:XmlNamespaceMapsProperty"))
 
 	Func setXmlNamespaceMapsProperty P1
 		raise("DotNet Error: XmlNamespaceMapsProperty is a read-only property")
@@ -1315,29 +1287,29 @@ Class XmlLanguage from Object
 		return self
 
 	Func GetEquivalentCulture 
-		return dnSend("s4:call",nHandle,"s20:GetEquivalentCulture","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetEquivalentCulture"))
 
 	Func GetSpecificCulture 
-		return dnSend("s4:call",nHandle,"s18:GetSpecificCulture","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetSpecificCulture"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetLanguage P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Markup.XmlLanguage, PresentationCore'),"s11:GetLanguage",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Markup.XmlLanguage, PresentationCore',"s11:GetLanguage",P1))
 
 	Func getIetfLanguageTag
 		dn_x = dotnet_call("s3:get",nHandle,"s15:IetfLanguageTag")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:IetfLanguageTag",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIetfLanguageTag P1
 		raise("DotNet Error: IetfLanguageTag is a read-only property")
 
 	Func getEmpty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Markup.XmlLanguage, PresentationCore'),"s5:Empty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Markup.XmlLanguage, PresentationCore',"s5:Empty"))
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -1410,93 +1382,85 @@ Class XmlnsDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1,P2)
 
 		return self
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Remove P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
 
 		return self
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func GetNamespace P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetNamespace",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:GetNamespace",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetNamespacePrefixes 
-		return dnSend("s4:call",nHandle,"s20:GetNamespacePrefixes","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetNamespacePrefixes"))
 
 	Func Seal 
-		dn_x = dotnet_callv("s4:call",nHandle,"s4:Seal")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Seal","") ok
+		dotnet_callv("s4:call",nHandle,"s4:Seal")
 
 		return self
 
 	Func LookupNamespace P1
 		dn_x = dotnet_call("s4:call",nHandle,"s15:LookupNamespace",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:LookupNamespace",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LookupPrefix P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:LookupPrefix",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:LookupPrefix",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DefaultNamespace 
 		dn_x = dotnet_call("s4:call",nHandle,"s16:DefaultNamespace")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:DefaultNamespace",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PushScope 
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:PushScope")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:PushScope","") ok
+		dotnet_callv("s4:call",nHandle,"s9:PushScope")
 
 		return self
 
 	Func PopScope 
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:PopScope")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:PopScope","") ok
+		dotnet_callv("s4:call",nHandle,"s8:PopScope")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:get_Item",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getIsFixedSize
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsFixedSize P1
@@ -1504,27 +1468,27 @@ Class XmlnsDictionary from Object
 
 	Func getIsReadOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getKeys
-		return dnSend("s3:get",nHandle,"s4:Keys","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Keys"))
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnSend("s3:get",nHandle,"s6:Values","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Values"))
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -1532,21 +1496,21 @@ Class XmlnsDictionary from Object
 
 	Func getIsSynchronized
 		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsSynchronized",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:SyncRoot"))
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getSealed
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Sealed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Sealed",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSealed P1
@@ -1593,30 +1557,27 @@ Class ArrayExtension from MarkupExtension
 		return self
 
 	Func AddChild P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:AddChild",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:AddChild",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:AddChild",P1)
 
 		return self
 
 	Func AddText P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:AddText",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:AddText",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s7:AddText",P1)
 
 		return self
 
 	Func GetType_ 
-		return dnSend("s4:call",nHandle,"s7:GetType","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getType
-		return dnSend("s3:get",nHandle,"s4:Type","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
 
 	Func setType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Type",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Type",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Type",P1)
 		return self
 
 	Func getItems
-		return dnSend("s3:get",nHandle,"s5:Items","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Items"))
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
@@ -1689,28 +1650,26 @@ Class PropertyDefinition from MemberDefinition
 		return self
 
 	Func GetType_ 
-		return dnSend("s4:call",nHandle,"s7:GetType","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getType
-		return dnSend("s3:get",nHandle,"s4:Type","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
 
 	Func setType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Type",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Type",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Type",P1)
 		return self
 
 	Func getModifier
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Modifier")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Modifier",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setModifier P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Modifier",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Modifier",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Modifier",P1)
 		return self
 
 	Func getAttributes
-		return dnSend("s3:get",nHandle,"s10:Attributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Attributes"))
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
@@ -1756,12 +1715,11 @@ Class Reference from MarkupExtension
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
 		return self
 
 
@@ -1806,20 +1764,18 @@ Class StaticExtension from MarkupExtension
 
 	Func getMember
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Member")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Member",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMember P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Member",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Member",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Member",P1)
 		return self
 
 	Func getMemberType
-		return dnSend("s3:get",nHandle,"s10:MemberType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:MemberType"))
 
 	Func setMemberType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:MemberType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:MemberType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:MemberType",P1)
 		return self
 
 
@@ -1862,24 +1818,22 @@ Class TypeExtension from MarkupExtension
 		return self
 
 	Func GetType_ 
-		return dnSend("s4:call",nHandle,"s7:GetType","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getTypeName
 		dn_x = dotnet_call("s3:get",nHandle,"s8:TypeName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:TypeName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTypeName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:TypeName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:TypeName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:TypeName",P1)
 		return self
 
 	Func getType
-		return dnSend("s3:get",nHandle,"s4:Type","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
 
 	Func setType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Type",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Type",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Type",P1)
 		return self
 
 
@@ -1899,11 +1853,10 @@ Class XamlDesignerSerializationManager from ServiceProviders
 		return self
 
 	Func getXamlWriterMode
-		return dnSend("s3:get",nHandle,"s14:XamlWriterMode","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:XamlWriterMode"))
 
 	Func setXamlWriterMode P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:XamlWriterMode",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:XamlWriterMode",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:XamlWriterMode",P1)
 		return self
 
 
@@ -1924,13 +1877,13 @@ Class XamlSetMarkupExtensionEventArgs from XamlSetValueEventArgs
 		return self
 
 	Func getMarkupExtension
-		return dnSend("s3:get",nHandle,"s15:MarkupExtension","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:MarkupExtension"))
 
 	Func setMarkupExtension P1
 		raise("DotNet Error: MarkupExtension is a read-only property")
 
 	Func getServiceProvider
-		return dnSend("s3:get",nHandle,"s15:ServiceProvider","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ServiceProvider"))
 
 	Func setServiceProvider P1
 		raise("DotNet Error: ServiceProvider is a read-only property")
@@ -1954,19 +1907,19 @@ Class XamlSetTypeConverterEventArgs from XamlSetValueEventArgs
 		return self
 
 	Func getTypeConverter
-		return dnSend("s3:get",nHandle,"s13:TypeConverter","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TypeConverter"))
 
 	Func setTypeConverter P1
 		raise("DotNet Error: TypeConverter is a read-only property")
 
 	Func getServiceProvider
-		return dnSend("s3:get",nHandle,"s15:ServiceProvider","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ServiceProvider"))
 
 	Func setServiceProvider P1
 		raise("DotNet Error: ServiceProvider is a read-only property")
 
 	Func getCultureInfo
-		return dnSend("s3:get",nHandle,"s11:CultureInfo","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:CultureInfo"))
 
 	Func setCultureInfo P1
 		raise("DotNet Error: CultureInfo is a read-only property")

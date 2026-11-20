@@ -47,7 +47,7 @@ Class IXPathNavigable from DotNetObject
 		return self
 
 	Func CreateNavigator 
-		return dnSend("s4:call",nHandle,"s15:CreateNavigator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateNavigator"))
 
 
 Class XPathDocument from Object
@@ -79,11 +79,11 @@ Class XPathDocument from Object
 		return self
 
 	Func CreateNavigator 
-		return dnSend("s4:call",nHandle,"s15:CreateNavigator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateNavigator"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -109,35 +109,34 @@ Class XPathExpression from Object
 		raise("DotNet Error: AddSort does not take one argument: use named arguments, AddSort([ :parameter = value, ... ])")
 
 	Func Clone 
-		return dnSend("s4:call",nHandle,"s5:Clone","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func SetContext P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s10:SetContext",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s10:SetContext",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s10:SetContext",P1)
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Compile P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.XPath.XPathExpression, System.Private.Xml'),"s7:Compile",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Xml.XPath.XPathExpression, System.Private.Xml'),"s7:Compile",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Xml.XPath.XPathExpression, System.Private.Xml',"s7:Compile",P1))
 
 	Func getExpression
 		dn_x = dotnet_call("s3:get",nHandle,"s10:Expression")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:Expression",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getReturnType
-		return dnSend("s3:get",nHandle,"s10:ReturnType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ReturnType"))
 
 	Func setReturnType P1
 		raise("DotNet Error: ReturnType is a read-only property")
@@ -169,64 +168,64 @@ Class XPathItem from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s7:ValueAs",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s7:ValueAs",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ValueAs",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getIsNode
 		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNode")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:IsNode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsNode P1
 		raise("DotNet Error: IsNode is a read-only property")
 
 	Func getXmlType
-		return dnSend("s3:get",nHandle,"s7:XmlType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:XmlType"))
 
 	Func setXmlType P1
 		raise("DotNet Error: XmlType is a read-only property")
 
 	Func getValue
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getTypedValue
-		return dnSend("s3:get",nHandle,"s10:TypedValue","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:TypedValue"))
 
 	Func setTypedValue P1
 		raise("DotNet Error: TypedValue is a read-only property")
 
 	Func getValueType
-		return dnSend("s3:get",nHandle,"s9:ValueType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:ValueType"))
 
 	Func setValueType P1
 		raise("DotNet Error: ValueType is a read-only property")
 
 	Func getValueAsBoolean
 		dn_x = dotnet_call("s3:get",nHandle,"s14:ValueAsBoolean")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:ValueAsBoolean",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValueAsBoolean P1
 		raise("DotNet Error: ValueAsBoolean is a read-only property")
 
 	Func getValueAsDateTime
-		return dnSend("s3:get",nHandle,"s15:ValueAsDateTime","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ValueAsDateTime"))
 
 	Func setValueAsDateTime P1
 		raise("DotNet Error: ValueAsDateTime is a read-only property")
 
 	Func getValueAsDouble
 		dn_x = dotnet_call("s3:get",nHandle,"s13:ValueAsDouble")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:ValueAsDouble",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValueAsDouble P1
@@ -234,7 +233,7 @@ Class XPathItem from Object
 
 	Func getValueAsInt
 		dn_x = dotnet_call("s3:get",nHandle,"s10:ValueAsInt")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:ValueAsInt",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValueAsInt P1
@@ -242,7 +241,7 @@ Class XPathItem from Object
 
 	Func getValueAsLong
 		dn_x = dotnet_call("s3:get",nHandle,"s11:ValueAsLong")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:ValueAsLong",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValueAsLong P1
@@ -265,30 +264,30 @@ Class XPathNodeIterator from Object
 		return self
 
 	Func Clone 
-		return dnSend("s4:call",nHandle,"s5:Clone","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func MoveNext 
 		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:MoveNext",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCurrent
-		return dnSend("s3:get",nHandle,"s7:Current","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Current"))
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getCurrentPosition
 		dn_x = dotnet_call("s3:get",nHandle,"s15:CurrentPosition")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:CurrentPosition",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCurrentPosition P1
@@ -296,7 +295,7 @@ Class XPathNodeIterator from Object
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
@@ -333,73 +332,70 @@ Class XPathNavigator from XPathItem
 		return self
 
 	Func SetValue P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetValue",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s8:SetValue",P1)
 
 		return self
 
 	Func SetTypedValue P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s13:SetTypedValue",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s13:SetTypedValue",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s13:SetTypedValue",P1)
 
 		return self
 
 	Func CreateNavigator 
-		return dnSend("s4:call",nHandle,"s15:CreateNavigator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateNavigator"))
 
 	Func LookupNamespace P1
 		dn_x = dotnet_call("s4:call",nHandle,"s15:LookupNamespace",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:LookupNamespace",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LookupPrefix P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:LookupPrefix",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:LookupPrefix",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetNamespacesInScope P1
-		return dnSend("s4:call",nHandle,"s20:GetNamespacesInScope",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetNamespacesInScope",P1))
 
 	Func Clone 
-		return dnSend("s4:call",nHandle,"s5:Clone","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func ReadSubtree 
-		return dnSend("s4:call",nHandle,"s11:ReadSubtree","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ReadSubtree"))
 
 	Func WriteSubtree P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:WriteSubtree",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:WriteSubtree",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s12:WriteSubtree",P1)
 
 		return self
 
 	Func GetAttribute P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetAttribute",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:GetAttribute",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToAttribute P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s15:MoveToAttribute",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:MoveToAttribute",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToFirstAttribute 
 		dn_x = dotnet_call("s4:call",nHandle,"s20:MoveToFirstAttribute")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:MoveToFirstAttribute",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToNextAttribute 
 		dn_x = dotnet_call("s4:call",nHandle,"s19:MoveToNextAttribute")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s19:MoveToNextAttribute",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetNamespace P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetNamespace",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:GetNamespace",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToNamespace P1
 		dn_x = dotnet_call("s4:call",nHandle,"s15:MoveToNamespace",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:MoveToNamespace",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToFirstNamespace P1
@@ -408,11 +404,11 @@ Class XPathNavigator from XPathItem
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s20:MoveToFirstNamespace")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:MoveToFirstNamespace",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s20:MoveToFirstNamespace",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s20:MoveToFirstNamespace",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToNextNamespace P1
@@ -421,11 +417,11 @@ Class XPathNavigator from XPathItem
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s19:MoveToNextNamespace")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s19:MoveToNextNamespace",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s19:MoveToNextNamespace",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s19:MoveToNextNamespace",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToNext P1
@@ -434,47 +430,46 @@ Class XPathNavigator from XPathItem
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s10:MoveToNext")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:MoveToNext",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s10:MoveToNext",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s10:MoveToNext",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToPrevious 
 		dn_x = dotnet_call("s4:call",nHandle,"s14:MoveToPrevious")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:MoveToPrevious",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToFirst 
 		dn_x = dotnet_call("s4:call",nHandle,"s11:MoveToFirst")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:MoveToFirst",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToFirstChild 
 		dn_x = dotnet_call("s4:call",nHandle,"s16:MoveToFirstChild")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s16:MoveToFirstChild",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToParent 
 		dn_x = dotnet_call("s4:call",nHandle,"s12:MoveToParent")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:MoveToParent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToRoot 
-		dn_x = dotnet_callv("s4:call",nHandle,"s10:MoveToRoot")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s10:MoveToRoot","") ok
+		dotnet_callv("s4:call",nHandle,"s10:MoveToRoot")
 
 		return self
 
 	Func MoveTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:MoveTo",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:MoveTo",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToId P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveToId",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:MoveToId",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToChild P1
@@ -482,7 +477,7 @@ Class XPathNavigator from XPathItem
 			return dnSend("s9:callnamed",nHandle,"s11:MoveToChild",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s11:MoveToChild",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s11:MoveToChild",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToFollowing P1
@@ -490,58 +485,58 @@ Class XPathNavigator from XPathItem
 			return dnSend("s9:callnamed",nHandle,"s15:MoveToFollowing",dnPackItem(P1))
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s15:MoveToFollowing",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:MoveToFollowing",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsSamePosition P1
 		dn_x = dotnet_call("s4:call",nHandle,"s14:IsSamePosition",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s14:IsSamePosition",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsDescendant P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:IsDescendant",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s12:IsDescendant",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ComparePosition P1
-		return dnSend("s4:call",nHandle,"s15:ComparePosition",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ComparePosition",P1))
 
 	Func CheckValidity P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s13:CheckValidity",P1,P2)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:CheckValidity",[P1,P2]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Compile P1
-		return dnSend("s4:call",nHandle,"s7:Compile",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Compile",P1))
 
 	Func SelectSingleNode P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s16:SelectSingleNode",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s16:SelectSingleNode",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SelectSingleNode",P1))
 
 	Func Select P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s6:Select",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s6:Select",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Select",P1))
 
 	Func Evaluate P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s8:Evaluate",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s8:Evaluate",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Evaluate",P1))
 
 	Func Matches P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:Matches",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:Matches",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SelectChildren P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s14:SelectChildren",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s14:SelectChildren",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SelectChildren",P1))
 
 	Func SelectAncestors P1
 		if dnIsNamed(P1)
@@ -560,10 +555,9 @@ Class XPathNavigator from XPathItem
 			return dnSend("s9:callnamed",nHandle,"s12:PrependChild",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s12:PrependChild","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:PrependChild"))
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:PrependChild",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:PrependChild",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s12:PrependChild",P1)
 
 		return self
 
@@ -572,10 +566,9 @@ Class XPathNavigator from XPathItem
 			return dnSend("s9:callnamed",nHandle,"s11:AppendChild",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s11:AppendChild","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:AppendChild"))
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:AppendChild",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:AppendChild",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s11:AppendChild",P1)
 
 		return self
 
@@ -584,10 +577,9 @@ Class XPathNavigator from XPathItem
 			return dnSend("s9:callnamed",nHandle,"s11:InsertAfter",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s11:InsertAfter","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:InsertAfter"))
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:InsertAfter",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:InsertAfter",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s11:InsertAfter",P1)
 
 		return self
 
@@ -596,82 +588,73 @@ Class XPathNavigator from XPathItem
 			return dnSend("s9:callnamed",nHandle,"s12:InsertBefore",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s12:InsertBefore","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:InsertBefore"))
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:InsertBefore",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:InsertBefore",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s12:InsertBefore",P1)
 
 		return self
 
 	Func CreateAttributes 
-		return dnSend("s4:call",nHandle,"s16:CreateAttributes","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAttributes"))
 
 	Func ReplaceRange P1
-		return dnSend("s4:call",nHandle,"s12:ReplaceRange",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReplaceRange",P1))
 
 	Func ReplaceSelf P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:ReplaceSelf",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:ReplaceSelf",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s11:ReplaceSelf",P1)
 
 		return self
 
 	Func DeleteRange P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:DeleteRange",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:DeleteRange",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s11:DeleteRange",P1)
 
 		return self
 
 	Func DeleteSelf 
-		dn_x = dotnet_callv("s4:call",nHandle,"s10:DeleteSelf")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s10:DeleteSelf","") ok
+		dotnet_callv("s4:call",nHandle,"s10:DeleteSelf")
 
 		return self
 
 	Func PrependChildElement P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",nHandle,"s19:PrependChildElement",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s19:PrependChildElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",nHandle,"s19:PrependChildElement",P1,P2,P3,P4)
 
 		return self
 
 	Func AppendChildElement P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",nHandle,"s18:AppendChildElement",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s18:AppendChildElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",nHandle,"s18:AppendChildElement",P1,P2,P3,P4)
 
 		return self
 
 	Func InsertElementBefore P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",nHandle,"s19:InsertElementBefore",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s19:InsertElementBefore",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",nHandle,"s19:InsertElementBefore",P1,P2,P3,P4)
 
 		return self
 
 	Func InsertElementAfter P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",nHandle,"s18:InsertElementAfter",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s18:InsertElementAfter",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",nHandle,"s18:InsertElementAfter",P1,P2,P3,P4)
 
 		return self
 
 	Func CreateAttribute P1,P2,P3,P4
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:CreateAttribute",P1,P2,P3,P4)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:CreateAttribute",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4)) ok
+		dotnet_callv("s4:call",nHandle,"s15:CreateAttribute",P1,P2,P3,P4)
 
 		return self
 
 	Func getNameTable
-		return dnSend("s3:get",nHandle,"s9:NameTable","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:NameTable"))
 
 	Func setNameTable P1
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getNodeType
-		return dnSend("s3:get",nHandle,"s8:NodeType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:NodeType"))
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getLocalName
 		dn_x = dotnet_call("s3:get",nHandle,"s9:LocalName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:LocalName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLocalName P1
@@ -679,7 +662,7 @@ Class XPathNavigator from XPathItem
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
@@ -687,7 +670,7 @@ Class XPathNavigator from XPathItem
 
 	Func getNamespaceURI
 		dn_x = dotnet_call("s3:get",nHandle,"s12:NamespaceURI")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:NamespaceURI",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNamespaceURI P1
@@ -695,7 +678,7 @@ Class XPathNavigator from XPathItem
 
 	Func getPrefix
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Prefix")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Prefix",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPrefix P1
@@ -703,7 +686,7 @@ Class XPathNavigator from XPathItem
 
 	Func getBaseURI
 		dn_x = dotnet_call("s3:get",nHandle,"s7:BaseURI")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:BaseURI",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBaseURI P1
@@ -711,7 +694,7 @@ Class XPathNavigator from XPathItem
 
 	Func getIsEmptyElement
 		dn_x = dotnet_call("s3:get",nHandle,"s14:IsEmptyElement")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:IsEmptyElement",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsEmptyElement P1
@@ -719,21 +702,21 @@ Class XPathNavigator from XPathItem
 
 	Func getXmlLang
 		dn_x = dotnet_call("s3:get",nHandle,"s7:XmlLang")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:XmlLang",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setXmlLang P1
 		raise("DotNet Error: XmlLang is a read-only property")
 
 	Func getUnderlyingObject
-		return dnSend("s3:get",nHandle,"s16:UnderlyingObject","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:UnderlyingObject"))
 
 	Func setUnderlyingObject P1
 		raise("DotNet Error: UnderlyingObject is a read-only property")
 
 	Func getHasAttributes
 		dn_x = dotnet_call("s3:get",nHandle,"s13:HasAttributes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:HasAttributes",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasAttributes P1
@@ -741,21 +724,21 @@ Class XPathNavigator from XPathItem
 
 	Func getHasChildren
 		dn_x = dotnet_call("s3:get",nHandle,"s11:HasChildren")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:HasChildren",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasChildren P1
 		raise("DotNet Error: HasChildren is a read-only property")
 
 	Func getSchemaInfo
-		return dnSend("s3:get",nHandle,"s10:SchemaInfo","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:SchemaInfo"))
 
 	Func setSchemaInfo P1
 		raise("DotNet Error: SchemaInfo is a read-only property")
 
 	Func getCanEdit
 		dn_x = dotnet_call("s3:get",nHandle,"s7:CanEdit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:CanEdit",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCanEdit P1
@@ -763,26 +746,24 @@ Class XPathNavigator from XPathItem
 
 	Func getOuterXml
 		dn_x = dotnet_call("s3:get",nHandle,"s8:OuterXml")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:OuterXml",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOuterXml P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:OuterXml",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:OuterXml",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:OuterXml",P1)
 		return self
 
 	Func getInnerXml
 		dn_x = dotnet_call("s3:get",nHandle,"s8:InnerXml")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:InnerXml",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInnerXml P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:InnerXml",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:InnerXml",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:InnerXml",P1)
 		return self
 
 	Func getNavigatorComparer
-		return dnSend("s3:get",dnTypeHandle('System.Xml.XPath.XPathNavigator, System.Private.Xml'),"s17:NavigatorComparer","")
+		return dnObj(dotnet_callo("s3:get",'System.Xml.XPath.XPathNavigator, System.Private.Xml',"s17:NavigatorComparer"))
 
 	Func setNavigatorComparer P1
 		raise("DotNet Error: NavigatorComparer is a read-only property")

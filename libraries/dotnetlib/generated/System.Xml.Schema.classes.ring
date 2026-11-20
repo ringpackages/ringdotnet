@@ -445,14 +445,14 @@ Class IXmlSchemaInfo from DotNetObject
 		return self
 
 	Func getValidity
-		return dnSend("s3:get",nHandle,"s8:Validity","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Validity"))
 
 	Func setValidity P1
 		raise("DotNet Error: Validity is a read-only property")
 
 	Func getIsDefault
 		dn_x = dotnet_call("s3:get",nHandle,"s9:IsDefault")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsDefault",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsDefault P1
@@ -460,32 +460,32 @@ Class IXmlSchemaInfo from DotNetObject
 
 	Func getIsNil
 		dn_x = dotnet_call("s3:get",nHandle,"s5:IsNil")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:IsNil",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsNil P1
 		raise("DotNet Error: IsNil is a read-only property")
 
 	Func getMemberType
-		return dnSend("s3:get",nHandle,"s10:MemberType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:MemberType"))
 
 	Func setMemberType P1
 		raise("DotNet Error: MemberType is a read-only property")
 
 	Func getSchemaType
-		return dnSend("s3:get",nHandle,"s10:SchemaType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:SchemaType"))
 
 	Func setSchemaType P1
 		raise("DotNet Error: SchemaType is a read-only property")
 
 	Func getSchemaElement
-		return dnSend("s3:get",nHandle,"s13:SchemaElement","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:SchemaElement"))
 
 	Func setSchemaElement P1
 		raise("DotNet Error: SchemaElement is a read-only property")
 
 	Func getSchemaAttribute
-		return dnSend("s3:get",nHandle,"s15:SchemaAttribute","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:SchemaAttribute"))
 
 	Func setSchemaAttribute P1
 		raise("DotNet Error: SchemaAttribute is a read-only property")
@@ -507,20 +507,20 @@ Class ValidationEventArgs from EventArgs
 		return self
 
 	Func getSeverity
-		return dnSend("s3:get",nHandle,"s8:Severity","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Severity"))
 
 	Func setSeverity P1
 		raise("DotNet Error: Severity is a read-only property")
 
 	Func getException
-		return dnSend("s3:get",nHandle,"s9:Exception","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Exception"))
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getMessage
 		dn_x = dotnet_call("s3:get",nHandle,"s7:Message")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Message",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMessage P1
@@ -539,7 +539,7 @@ Class XmlAtomicValue from XPathItem
 		return self
 
 	Func Clone 
-		return dnSend("s4:call",nHandle,"s5:Clone","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 
 Class XmlSchemaCollectionEnumerator from Object
@@ -557,16 +557,16 @@ Class XmlSchemaCollectionEnumerator from Object
 
 	Func MoveNext 
 		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:MoveNext",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCurrent
-		return dnSend("s3:get",nHandle,"s7:Current","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Current"))
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -596,17 +596,16 @@ Class XmlSchemaCompilationSettings from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getEnableUpaCheck
 		dn_x = dotnet_call("s3:get",nHandle,"s14:EnableUpaCheck")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:EnableUpaCheck",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setEnableUpaCheck P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:EnableUpaCheck",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:EnableUpaCheck",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:EnableUpaCheck",P1)
 		return self
 
 
@@ -627,7 +626,7 @@ Class XmlSchemaDatatype from Object
 		return self
 
 	Func ParseValue P1,P2,P3
-		return dnSend("s4:call",nHandle,"s10:ParseValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ParseValue",P1,P2,P3))
 
 	Func ChangeType P1
 		if dnIsNamed(P1)
@@ -637,34 +636,34 @@ Class XmlSchemaDatatype from Object
 
 	Func IsDerivedFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s13:IsDerivedFrom",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:IsDerivedFrom",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getValueType
-		return dnSend("s3:get",nHandle,"s9:ValueType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:ValueType"))
 
 	Func setValueType P1
 		raise("DotNet Error: ValueType is a read-only property")
 
 	Func getTokenizedType
-		return dnSend("s3:get",nHandle,"s13:TokenizedType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TokenizedType"))
 
 	Func setTokenizedType P1
 		raise("DotNet Error: TokenizedType is a read-only property")
 
 	Func getVariety
-		return dnSend("s3:get",nHandle,"s7:Variety","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Variety"))
 
 	Func setVariety P1
 		raise("DotNet Error: Variety is a read-only property")
 
 	Func getTypeCode
-		return dnSend("s3:get",nHandle,"s8:TypeCode","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:TypeCode"))
 
 	Func setTypeCode P1
 		raise("DotNet Error: TypeCode is a read-only property")
@@ -697,27 +696,25 @@ Class XmlSchemaInference from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s11:InferSchema",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s11:InferSchema",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:InferSchema",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getOccurrence
-		return dnSend("s3:get",nHandle,"s10:Occurrence","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Occurrence"))
 
 	Func setOccurrence P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:Occurrence",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Occurrence",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:Occurrence",P1)
 		return self
 
 	Func getTypeInference
-		return dnSend("s3:get",nHandle,"s13:TypeInference","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TypeInference"))
 
 	Func setTypeInference P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:TypeInference",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:TypeInference",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:TypeInference",P1)
 		return self
 
 
@@ -752,75 +749,67 @@ Class XmlSchemaInfo from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getValidity
-		return dnSend("s3:get",nHandle,"s8:Validity","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Validity"))
 
 	Func setValidity P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Validity",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Validity",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Validity",P1)
 		return self
 
 	Func getIsDefault
 		dn_x = dotnet_call("s3:get",nHandle,"s9:IsDefault")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:IsDefault",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsDefault P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:IsDefault",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:IsDefault",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:IsDefault",P1)
 		return self
 
 	Func getIsNil
 		dn_x = dotnet_call("s3:get",nHandle,"s5:IsNil")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:IsNil",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsNil P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:IsNil",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:IsNil",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:IsNil",P1)
 		return self
 
 	Func getMemberType
-		return dnSend("s3:get",nHandle,"s10:MemberType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:MemberType"))
 
 	Func setMemberType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:MemberType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:MemberType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:MemberType",P1)
 		return self
 
 	Func getSchemaType
-		return dnSend("s3:get",nHandle,"s10:SchemaType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:SchemaType"))
 
 	Func setSchemaType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:SchemaType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:SchemaType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:SchemaType",P1)
 		return self
 
 	Func getSchemaElement
-		return dnSend("s3:get",nHandle,"s13:SchemaElement","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:SchemaElement"))
 
 	Func setSchemaElement P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:SchemaElement",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:SchemaElement",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:SchemaElement",P1)
 		return self
 
 	Func getSchemaAttribute
-		return dnSend("s3:get",nHandle,"s15:SchemaAttribute","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:SchemaAttribute"))
 
 	Func setSchemaAttribute P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:SchemaAttribute",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:SchemaAttribute",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:SchemaAttribute",P1)
 		return self
 
 	Func getContentType
-		return dnSend("s3:get",nHandle,"s11:ContentType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ContentType"))
 
 	Func setContentType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:ContentType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:ContentType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:ContentType",P1)
 		return self
 
 
@@ -843,53 +832,48 @@ Class XmlSchemaObject from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getLineNumber
 		dn_x = dotnet_call("s3:get",nHandle,"s10:LineNumber")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:LineNumber",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLineNumber P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:LineNumber",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:LineNumber",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:LineNumber",P1)
 		return self
 
 	Func getLinePosition
 		dn_x = dotnet_call("s3:get",nHandle,"s12:LinePosition")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:LinePosition",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLinePosition P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:LinePosition",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:LinePosition",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:LinePosition",P1)
 		return self
 
 	Func getSourceUri
 		dn_x = dotnet_call("s3:get",nHandle,"s9:SourceUri")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:SourceUri",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSourceUri P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:SourceUri",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:SourceUri",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:SourceUri",P1)
 		return self
 
 	Func getParent
-		return dnSend("s3:get",nHandle,"s6:Parent","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Parent"))
 
 	Func setParent P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Parent",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Parent",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Parent",P1)
 		return self
 
 	Func getNamespaces
-		return dnSend("s3:get",nHandle,"s10:Namespaces","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Namespaces"))
 
 	Func setNamespaces P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:Namespaces",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Namespaces",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:Namespaces",P1)
 		return self
 
 
@@ -931,43 +915,39 @@ Class XmlSchemaObjectCollection from CollectionBase
 
 	Func Add P1
 		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s3:Add",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Insert P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
 
 		return self
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:IndexOf",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Remove P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
 
 		return self
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 
@@ -985,23 +965,22 @@ Class XmlSchemaObjectEnumerator from Object
 		return self
 
 	Func Reset 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Reset")
 
 		return self
 
 	Func MoveNext 
 		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:MoveNext",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCurrent
-		return dnSend("s3:get",nHandle,"s7:Current","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Current"))
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -1024,36 +1003,36 @@ Class XmlSchemaObjectTable from Object
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getNames
-		return dnSend("s3:get",nHandle,"s5:Names","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Names"))
 
 	Func setNames P1
 		raise("DotNet Error: Names is a read-only property")
 
 	Func getValues
-		return dnSend("s3:get",nHandle,"s6:Values","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Values"))
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
@@ -1108,36 +1087,33 @@ Class XmlSchemaSet from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
 	Func Remove P1
-		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Remove",P1))
 
 	Func RemoveRecursive P1
 		dn_x = dotnet_call("s4:call",nHandle,"s15:RemoveRecursive",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s15:RemoveRecursive",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:Contains",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Compile 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Compile")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Compile","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Compile")
 
 		return self
 
 	Func Reprocess P1
-		return dnSend("s4:call",nHandle,"s9:Reprocess",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Reprocess",P1))
 
 	Func CopyTo P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
 
 		return self
 
@@ -1146,13 +1122,13 @@ Class XmlSchemaSet from Object
 			return dnSend("s9:callnamed",nHandle,"s7:Schemas",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s7:Schemas","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s7:Schemas"))
 		ok
-		return dnSend("s4:call",nHandle,"s7:Schemas",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Schemas",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValidationEventHandlerEvent P1
@@ -1164,54 +1140,52 @@ Class XmlSchemaSet from Object
 		return self
 
 	Func getNameTable
-		return dnSend("s3:get",nHandle,"s9:NameTable","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:NameTable"))
 
 	Func setNameTable P1
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getIsCompiled
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsCompiled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsCompiled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsCompiled P1
 		raise("DotNet Error: IsCompiled is a read-only property")
 
 	Func setXmlResolver P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:XmlResolver",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:XmlResolver",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:XmlResolver",P1)
 		return self
 
 	Func getCompilationSettings
-		return dnSend("s3:get",nHandle,"s19:CompilationSettings","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:CompilationSettings"))
 
 	Func setCompilationSettings P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:CompilationSettings",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:CompilationSettings",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:CompilationSettings",P1)
 		return self
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Count",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getGlobalElements
-		return dnSend("s3:get",nHandle,"s14:GlobalElements","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:GlobalElements"))
 
 	Func setGlobalElements P1
 		raise("DotNet Error: GlobalElements is a read-only property")
 
 	Func getGlobalAttributes
-		return dnSend("s3:get",nHandle,"s16:GlobalAttributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:GlobalAttributes"))
 
 	Func setGlobalAttributes P1
 		raise("DotNet Error: GlobalAttributes is a read-only property")
 
 	Func getGlobalTypes
-		return dnSend("s3:get",nHandle,"s11:GlobalTypes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:GlobalTypes"))
 
 	Func setGlobalTypes P1
 		raise("DotNet Error: GlobalTypes is a read-only property")
@@ -1236,8 +1210,7 @@ Class XmlSchemaValidator from Object
 		return self
 
 	Func AddSchema P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:AddSchema",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:AddSchema",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s9:AddSchema",P1)
 
 		return self
 
@@ -1247,13 +1220,11 @@ Class XmlSchemaValidator from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dn_x = dotnet_callv("s4:call",nHandle,"s10:Initialize")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s10:Initialize","") ok
+			dotnet_callv("s4:call",nHandle,"s10:Initialize")
 
 		return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s10:Initialize",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s10:Initialize",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s10:Initialize",P1)
 
 		return self
 
@@ -1265,29 +1236,25 @@ Class XmlSchemaValidator from Object
 		raise("DotNet Error: ValidateElement does not take one argument: use named arguments, ValidateElement([ :parameter = value, ... ])")
 
 	Func ValidateAttribute P1,P2,P3,P4
-		return dnSend("s4:call",nHandle,"s17:ValidateAttribute",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ValidateAttribute",P1,P2,P3,P4))
 
 	Func GetUnspecifiedDefaultAttributes P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s31:GetUnspecifiedDefaultAttributes",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s31:GetUnspecifiedDefaultAttributes",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s31:GetUnspecifiedDefaultAttributes",P1)
 
 		return self
 
 	Func ValidateEndOfAttributes P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s23:ValidateEndOfAttributes",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s23:ValidateEndOfAttributes",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s23:ValidateEndOfAttributes",P1)
 
 		return self
 
 	Func ValidateText P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:ValidateText",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:ValidateText",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s12:ValidateText",P1)
 
 		return self
 
 	Func ValidateWhitespace P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s18:ValidateWhitespace",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s18:ValidateWhitespace",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s18:ValidateWhitespace",P1)
 
 		return self
 
@@ -1295,29 +1262,27 @@ Class XmlSchemaValidator from Object
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s18:ValidateEndElement",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",nHandle,"s18:ValidateEndElement",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ValidateEndElement",P1))
 
 	Func SkipToEndElement P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:SkipToEndElement",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:SkipToEndElement",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s16:SkipToEndElement",P1)
 
 		return self
 
 	Func EndValidation 
-		dn_x = dotnet_callv("s4:call",nHandle,"s13:EndValidation")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s13:EndValidation","") ok
+		dotnet_callv("s4:call",nHandle,"s13:EndValidation")
 
 		return self
 
 	Func GetExpectedParticles 
-		return dnSend("s4:call",nHandle,"s20:GetExpectedParticles","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetExpectedParticles"))
 
 	Func GetExpectedAttributes 
-		return dnSend("s4:call",nHandle,"s21:GetExpectedAttributes","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetExpectedAttributes"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValidationEventHandlerEvent P1
@@ -1329,32 +1294,28 @@ Class XmlSchemaValidator from Object
 		return self
 
 	Func setXmlResolver P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:XmlResolver",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:XmlResolver",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:XmlResolver",P1)
 		return self
 
 	Func getLineInfoProvider
-		return dnSend("s3:get",nHandle,"s16:LineInfoProvider","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:LineInfoProvider"))
 
 	Func setLineInfoProvider P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:LineInfoProvider",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:LineInfoProvider",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:LineInfoProvider",P1)
 		return self
 
 	Func getSourceUri
-		return dnSend("s3:get",nHandle,"s9:SourceUri","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:SourceUri"))
 
 	Func setSourceUri P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:SourceUri",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:SourceUri",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:SourceUri",P1)
 		return self
 
 	Func getValidationEventSender
-		return dnSend("s3:get",nHandle,"s21:ValidationEventSender","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s21:ValidationEventSender"))
 
 	Func setValidationEventSender P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:ValidationEventSender",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:ValidationEventSender",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:ValidationEventSender",P1)
 		return self
 
 
@@ -1403,8 +1364,7 @@ Class XmlSchema from XmlSchemaObject
 			dnSend("s9:callnamed",nHandle,"s5:Write",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Write",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Write",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Write",P1)
 
 		return self
 
@@ -1413,143 +1373,134 @@ Class XmlSchema from XmlSchemaObject
 			dnSend("s9:callnamed",nHandle,"s7:Compile",dnPackItem(P1))
 			return self
 		ok
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Compile",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Compile",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s7:Compile",P1)
 
 		return self
 
 	Func Read P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Xml.Schema.XmlSchema, System.Private.Xml'),"s4:Read",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Xml.Schema.XmlSchema, System.Private.Xml',"s4:Read",P1,P2))
 
 	Func getAttributeFormDefault
-		return dnSend("s3:get",nHandle,"s20:AttributeFormDefault","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:AttributeFormDefault"))
 
 	Func setAttributeFormDefault P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:AttributeFormDefault",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:AttributeFormDefault",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:AttributeFormDefault",P1)
 		return self
 
 	Func getBlockDefault
-		return dnSend("s3:get",nHandle,"s12:BlockDefault","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:BlockDefault"))
 
 	Func setBlockDefault P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:BlockDefault",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:BlockDefault",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:BlockDefault",P1)
 		return self
 
 	Func getFinalDefault
-		return dnSend("s3:get",nHandle,"s12:FinalDefault","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:FinalDefault"))
 
 	Func setFinalDefault P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:FinalDefault",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:FinalDefault",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:FinalDefault",P1)
 		return self
 
 	Func getElementFormDefault
-		return dnSend("s3:get",nHandle,"s18:ElementFormDefault","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:ElementFormDefault"))
 
 	Func setElementFormDefault P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:ElementFormDefault",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:ElementFormDefault",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:ElementFormDefault",P1)
 		return self
 
 	Func getTargetNamespace
 		dn_x = dotnet_call("s3:get",nHandle,"s15:TargetNamespace")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:TargetNamespace",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTargetNamespace P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:TargetNamespace",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:TargetNamespace",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:TargetNamespace",P1)
 		return self
 
 	Func getVersion
 		dn_x = dotnet_call("s3:get",nHandle,"s7:Version")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Version",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setVersion P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Version",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Version",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Version",P1)
 		return self
 
 	Func getIncludes
-		return dnSend("s3:get",nHandle,"s8:Includes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Includes"))
 
 	Func setIncludes P1
 		raise("DotNet Error: Includes is a read-only property")
 
 	Func getItems
-		return dnSend("s3:get",nHandle,"s5:Items","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Items"))
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getIsCompiled
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsCompiled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsCompiled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsCompiled P1
 		raise("DotNet Error: IsCompiled is a read-only property")
 
 	Func getAttributes
-		return dnSend("s3:get",nHandle,"s10:Attributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Attributes"))
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAttributeGroups
-		return dnSend("s3:get",nHandle,"s15:AttributeGroups","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:AttributeGroups"))
 
 	Func setAttributeGroups P1
 		raise("DotNet Error: AttributeGroups is a read-only property")
 
 	Func getSchemaTypes
-		return dnSend("s3:get",nHandle,"s11:SchemaTypes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:SchemaTypes"))
 
 	Func setSchemaTypes P1
 		raise("DotNet Error: SchemaTypes is a read-only property")
 
 	Func getElements
-		return dnSend("s3:get",nHandle,"s8:Elements","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Elements"))
 
 	Func setElements P1
 		raise("DotNet Error: Elements is a read-only property")
 
 	Func getId
 		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Id",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setId P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s2:Id",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s2:Id",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s2:Id",P1)
 		return self
 
 	Func getUnhandledAttributes
-		return dnSend("s3:get",nHandle,"s19:UnhandledAttributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:UnhandledAttributes"))
 
 	Func setUnhandledAttributes P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:UnhandledAttributes",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:UnhandledAttributes",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:UnhandledAttributes",P1)
 		return self
 
 	Func getGroups
-		return dnSend("s3:get",nHandle,"s6:Groups","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Groups"))
 
 	Func setGroups P1
 		raise("DotNet Error: Groups is a read-only property")
 
 	Func getNotations
-		return dnSend("s3:get",nHandle,"s9:Notations","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Notations"))
 
 	Func setNotations P1
 		raise("DotNet Error: Notations is a read-only property")
 
 	Func getNamespace
 		dn_x = dotnet_call("s3:get",'System.Xml.Schema.XmlSchema, System.Private.Xml',"s9:Namespace")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Xml.Schema.XmlSchema, System.Private.Xml',"s9:Namespace",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNamespace P1
@@ -1557,7 +1508,7 @@ Class XmlSchema from XmlSchemaObject
 
 	Func getInstanceNamespace
 		dn_x = dotnet_call("s3:get",'System.Xml.Schema.XmlSchema, System.Private.Xml',"s17:InstanceNamespace")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'System.Xml.Schema.XmlSchema, System.Private.Xml',"s17:InstanceNamespace",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInstanceNamespace P1
@@ -1590,28 +1541,25 @@ Class XmlSchemaAnnotated from XmlSchemaObject
 
 	Func getId
 		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Id",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setId P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s2:Id",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s2:Id",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s2:Id",P1)
 		return self
 
 	Func getAnnotation
-		return dnSend("s3:get",nHandle,"s10:Annotation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Annotation"))
 
 	Func setAnnotation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:Annotation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Annotation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:Annotation",P1)
 		return self
 
 	Func getUnhandledAttributes
-		return dnSend("s3:get",nHandle,"s19:UnhandledAttributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:UnhandledAttributes"))
 
 	Func setUnhandledAttributes P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:UnhandledAttributes",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:UnhandledAttributes",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:UnhandledAttributes",P1)
 		return self
 
 
@@ -1641,26 +1589,24 @@ Class XmlSchemaAnnotation from XmlSchemaObject
 
 	Func getId
 		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Id",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setId P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s2:Id",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s2:Id",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s2:Id",P1)
 		return self
 
 	Func getItems
-		return dnSend("s3:get",nHandle,"s5:Items","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Items"))
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getUnhandledAttributes
-		return dnSend("s3:get",nHandle,"s19:UnhandledAttributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:UnhandledAttributes"))
 
 	Func setUnhandledAttributes P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:UnhandledAttributes",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:UnhandledAttributes",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:UnhandledAttributes",P1)
 		return self
 
 
@@ -1689,20 +1635,18 @@ Class XmlSchemaAppInfo from XmlSchemaObject
 
 	Func getSource
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Source")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Source",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Source",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Source",P1)
 		return self
 
 	Func getMarkup
-		return dnSend("s3:get",nHandle,"s6:Markup","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Markup"))
 
 	Func setMarkup P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Markup",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Markup",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Markup",P1)
 		return self
 
 
@@ -1732,30 +1676,27 @@ Class XmlSchemaDocumentation from XmlSchemaObject
 
 	Func getSource
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Source")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Source",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Source",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Source",P1)
 		return self
 
 	Func getLanguage
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Language")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Language",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLanguage P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Language",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Language",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Language",P1)
 		return self
 
 	Func getMarkup
-		return dnSend("s3:get",nHandle,"s6:Markup","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Markup"))
 
 	Func setMarkup P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Markup",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Markup",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Markup",P1)
 		return self
 
 
@@ -1777,38 +1718,34 @@ Class XmlSchemaExternal from XmlSchemaObject
 
 	Func getSchemaLocation
 		dn_x = dotnet_call("s3:get",nHandle,"s14:SchemaLocation")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:SchemaLocation",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSchemaLocation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:SchemaLocation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:SchemaLocation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:SchemaLocation",P1)
 		return self
 
 	Func getSchema
-		return dnSend("s3:get",nHandle,"s6:Schema","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Schema"))
 
 	Func setSchema P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Schema",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Schema",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Schema",P1)
 		return self
 
 	Func getId
 		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Id",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setId P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s2:Id",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s2:Id",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s2:Id",P1)
 		return self
 
 	Func getUnhandledAttributes
-		return dnSend("s3:get",nHandle,"s19:UnhandledAttributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:UnhandledAttributes"))
 
 	Func setUnhandledAttributes P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s19:UnhandledAttributes",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s19:UnhandledAttributes",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s19:UnhandledAttributes",P1)
 		return self
 
 
@@ -1837,20 +1774,18 @@ Class XmlSchemaAnyAttribute from XmlSchemaAnnotated
 
 	Func getNamespace
 		dn_x = dotnet_call("s3:get",nHandle,"s9:Namespace")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Namespace",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNamespace P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Namespace",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Namespace",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Namespace",P1)
 		return self
 
 	Func getProcessContents
-		return dnSend("s3:get",nHandle,"s15:ProcessContents","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ProcessContents"))
 
 	Func setProcessContents P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:ProcessContents",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ProcessContents",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:ProcessContents",P1)
 		return self
 
 
@@ -1888,88 +1823,80 @@ Class XmlSchemaAttribute from XmlSchemaAnnotated
 
 	Func getDefaultValue
 		dn_x = dotnet_call("s3:get",nHandle,"s12:DefaultValue")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:DefaultValue",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultValue P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:DefaultValue",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:DefaultValue",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:DefaultValue",P1)
 		return self
 
 	Func getFixedValue
 		dn_x = dotnet_call("s3:get",nHandle,"s10:FixedValue")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:FixedValue",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFixedValue P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:FixedValue",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:FixedValue",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:FixedValue",P1)
 		return self
 
 	Func getForm
-		return dnSend("s3:get",nHandle,"s4:Form","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Form"))
 
 	Func setForm P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Form",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Form",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Form",P1)
 		return self
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
 		return self
 
 	Func getRefName
-		return dnSend("s3:get",nHandle,"s7:RefName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:RefName"))
 
 	Func setRefName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:RefName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:RefName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:RefName",P1)
 		return self
 
 	Func getSchemaTypeName
-		return dnSend("s3:get",nHandle,"s14:SchemaTypeName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:SchemaTypeName"))
 
 	Func setSchemaTypeName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:SchemaTypeName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:SchemaTypeName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:SchemaTypeName",P1)
 		return self
 
 	Func getSchemaType
-		return dnSend("s3:get",nHandle,"s10:SchemaType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:SchemaType"))
 
 	Func setSchemaType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:SchemaType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:SchemaType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:SchemaType",P1)
 		return self
 
 	Func getUse
-		return dnSend("s3:get",nHandle,"s3:Use","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s3:Use"))
 
 	Func setUse P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s3:Use",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s3:Use",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s3:Use",P1)
 		return self
 
 	Func getQualifiedName
-		return dnSend("s3:get",nHandle,"s13:QualifiedName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:QualifiedName"))
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")
 
 	Func getAttributeType
-		return dnSend("s3:get",nHandle,"s13:AttributeType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:AttributeType"))
 
 	Func setAttributeType P1
 		raise("DotNet Error: AttributeType is a read-only property")
 
 	Func getAttributeSchemaType
-		return dnSend("s3:get",nHandle,"s19:AttributeSchemaType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:AttributeSchemaType"))
 
 	Func setAttributeSchemaType P1
 		raise("DotNet Error: AttributeSchemaType is a read-only property")
@@ -2003,36 +1930,34 @@ Class XmlSchemaAttributeGroup from XmlSchemaAnnotated
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
 		return self
 
 	Func getAttributes
-		return dnSend("s3:get",nHandle,"s10:Attributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Attributes"))
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAnyAttribute
-		return dnSend("s3:get",nHandle,"s12:AnyAttribute","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:AnyAttribute"))
 
 	Func setAnyAttribute P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:AnyAttribute",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:AnyAttribute",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:AnyAttribute",P1)
 		return self
 
 	Func getQualifiedName
-		return dnSend("s3:get",nHandle,"s13:QualifiedName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:QualifiedName"))
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")
 
 	Func getRedefinedAttributeGroup
-		return dnSend("s3:get",nHandle,"s23:RedefinedAttributeGroup","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:RedefinedAttributeGroup"))
 
 	Func setRedefinedAttributeGroup P1
 		raise("DotNet Error: RedefinedAttributeGroup is a read-only property")
@@ -2061,11 +1986,10 @@ Class XmlSchemaAttributeGroupRef from XmlSchemaAnnotated
 		return self
 
 	Func getRefName
-		return dnSend("s3:get",nHandle,"s7:RefName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:RefName"))
 
 	Func setRefName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:RefName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:RefName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:RefName",P1)
 		return self
 
 
@@ -2095,11 +2019,10 @@ Class XmlSchemaContentModel from XmlSchemaAnnotated
 		return self
 
 	Func getContent
-		return dnSend("s3:get",nHandle,"s7:Content","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Content"))
 
 	Func setContent P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Content",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Content",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Content",P1)
 		return self
 
 
@@ -2119,22 +2042,20 @@ Class XmlSchemaFacet from XmlSchemaAnnotated
 
 	Func getValue
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Value",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValue P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Value",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
 		return self
 
 	Func getIsFixed
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsFixed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsFixed",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsFixed P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:IsFixed",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:IsFixed",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:IsFixed",P1)
 		return self
 
 
@@ -2164,24 +2085,22 @@ Class XmlSchemaGroup from XmlSchemaAnnotated
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
 		return self
 
 	Func getParticle
-		return dnSend("s3:get",nHandle,"s8:Particle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Particle"))
 
 	Func setParticle P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Particle",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Particle",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Particle",P1)
 		return self
 
 	Func getQualifiedName
-		return dnSend("s3:get",nHandle,"s13:QualifiedName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:QualifiedName"))
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")
@@ -2214,30 +2133,28 @@ Class XmlSchemaIdentityConstraint from XmlSchemaAnnotated
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
 		return self
 
 	Func getSelector
-		return dnSend("s3:get",nHandle,"s8:Selector","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Selector"))
 
 	Func setSelector P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Selector",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Selector",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Selector",P1)
 		return self
 
 	Func getFields
-		return dnSend("s3:get",nHandle,"s6:Fields","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Fields"))
 
 	Func setFields P1
 		raise("DotNet Error: Fields is a read-only property")
 
 	Func getQualifiedName
-		return dnSend("s3:get",nHandle,"s13:QualifiedName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:QualifiedName"))
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")
@@ -2268,20 +2185,18 @@ Class XmlSchemaImport from XmlSchemaExternal
 
 	Func getNamespace
 		dn_x = dotnet_call("s3:get",nHandle,"s9:Namespace")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Namespace",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNamespace P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Namespace",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Namespace",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Namespace",P1)
 		return self
 
 	Func getAnnotation
-		return dnSend("s3:get",nHandle,"s10:Annotation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Annotation"))
 
 	Func setAnnotation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:Annotation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Annotation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:Annotation",P1)
 		return self
 
 
@@ -2308,11 +2223,10 @@ Class XmlSchemaInclude from XmlSchemaExternal
 		return self
 
 	Func getAnnotation
-		return dnSend("s3:get",nHandle,"s10:Annotation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Annotation"))
 
 	Func setAnnotation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:Annotation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:Annotation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:Annotation",P1)
 		return self
 
 
@@ -2342,32 +2256,29 @@ Class XmlSchemaNotation from XmlSchemaAnnotated
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
 		return self
 
 	Func getPublic
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Public")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Public",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPublic P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Public",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Public",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Public",P1)
 		return self
 
 	Func getSystem
 		dn_x = dotnet_call("s3:get",nHandle,"s6:System")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:System",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSystem P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:System",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:System",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:System",P1)
 		return self
 
 
@@ -2389,42 +2300,38 @@ Class XmlSchemaParticle from XmlSchemaAnnotated
 
 	Func getMinOccursString
 		dn_x = dotnet_call("s3:get",nHandle,"s15:MinOccursString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:MinOccursString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMinOccursString P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:MinOccursString",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:MinOccursString",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:MinOccursString",P1)
 		return self
 
 	Func getMaxOccursString
 		dn_x = dotnet_call("s3:get",nHandle,"s15:MaxOccursString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:MaxOccursString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaxOccursString P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:MaxOccursString",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:MaxOccursString",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:MaxOccursString",P1)
 		return self
 
 	Func getMinOccurs
 		dn_x = dotnet_call("s3:get",nHandle,"s9:MinOccurs")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:MinOccurs",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMinOccurs P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:MinOccurs",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:MinOccurs",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:MinOccurs",P1)
 		return self
 
 	Func getMaxOccurs
 		dn_x = dotnet_call("s3:get",nHandle,"s9:MaxOccurs")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:MaxOccurs",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMaxOccurs P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:MaxOccurs",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:MaxOccurs",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:MaxOccurs",P1)
 		return self
 
 
@@ -2454,25 +2361,25 @@ Class XmlSchemaRedefine from XmlSchemaExternal
 		return self
 
 	Func getItems
-		return dnSend("s3:get",nHandle,"s5:Items","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Items"))
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getAttributeGroups
-		return dnSend("s3:get",nHandle,"s15:AttributeGroups","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:AttributeGroups"))
 
 	Func setAttributeGroups P1
 		raise("DotNet Error: AttributeGroups is a read-only property")
 
 	Func getSchemaTypes
-		return dnSend("s3:get",nHandle,"s11:SchemaTypes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:SchemaTypes"))
 
 	Func setSchemaTypes P1
 		raise("DotNet Error: SchemaTypes is a read-only property")
 
 	Func getGroups
-		return dnSend("s3:get",nHandle,"s6:Groups","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Groups"))
 
 	Func setGroups P1
 		raise("DotNet Error: Groups is a read-only property")
@@ -2522,82 +2429,79 @@ Class XmlSchemaType from XmlSchemaAnnotated
 		return self
 
 	Func GetBuiltInSimpleType P1
-		return dnSend("s4:call",dnTypeHandle('System.Xml.Schema.XmlSchemaType, System.Private.Xml'),"s20:GetBuiltInSimpleType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Xml.Schema.XmlSchemaType, System.Private.Xml',"s20:GetBuiltInSimpleType",P1))
 
 	Func GetBuiltInComplexType P1
-		return dnSend("s4:call",dnTypeHandle('System.Xml.Schema.XmlSchemaType, System.Private.Xml'),"s21:GetBuiltInComplexType",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Xml.Schema.XmlSchemaType, System.Private.Xml',"s21:GetBuiltInComplexType",P1))
 
 	Func IsDerivedFrom P1,P2,P3
 		dn_x = dotnet_call("s4:call",'System.Xml.Schema.XmlSchemaType, System.Private.Xml',"s13:IsDerivedFrom",P1,P2,P3)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",'System.Xml.Schema.XmlSchemaType, System.Private.Xml',"s13:IsDerivedFrom",[P1,P2,P3]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
 		return self
 
 	Func getFinal
-		return dnSend("s3:get",nHandle,"s5:Final","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Final"))
 
 	Func setFinal P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Final",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Final",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Final",P1)
 		return self
 
 	Func getQualifiedName
-		return dnSend("s3:get",nHandle,"s13:QualifiedName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:QualifiedName"))
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")
 
 	Func getFinalResolved
-		return dnSend("s3:get",nHandle,"s13:FinalResolved","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:FinalResolved"))
 
 	Func setFinalResolved P1
 		raise("DotNet Error: FinalResolved is a read-only property")
 
 	Func getBaseSchemaType
-		return dnSend("s3:get",nHandle,"s14:BaseSchemaType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:BaseSchemaType"))
 
 	Func setBaseSchemaType P1
 		raise("DotNet Error: BaseSchemaType is a read-only property")
 
 	Func getBaseXmlSchemaType
-		return dnSend("s3:get",nHandle,"s17:BaseXmlSchemaType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:BaseXmlSchemaType"))
 
 	Func setBaseXmlSchemaType P1
 		raise("DotNet Error: BaseXmlSchemaType is a read-only property")
 
 	Func getDerivedBy
-		return dnSend("s3:get",nHandle,"s9:DerivedBy","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:DerivedBy"))
 
 	Func setDerivedBy P1
 		raise("DotNet Error: DerivedBy is a read-only property")
 
 	Func getDatatype
-		return dnSend("s3:get",nHandle,"s8:Datatype","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Datatype"))
 
 	Func setDatatype P1
 		raise("DotNet Error: Datatype is a read-only property")
 
 	Func getIsMixed
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsMixed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsMixed",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsMixed P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:IsMixed",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:IsMixed",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:IsMixed",P1)
 		return self
 
 	Func getTypeCode
-		return dnSend("s3:get",nHandle,"s8:TypeCode","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:TypeCode"))
 
 	Func setTypeCode P1
 		raise("DotNet Error: TypeCode is a read-only property")
@@ -2627,12 +2531,11 @@ Class XmlSchemaXPath from XmlSchemaAnnotated
 
 	Func getXPath
 		dn_x = dotnet_call("s3:get",nHandle,"s5:XPath")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:XPath",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setXPath P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:XPath",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:XPath",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:XPath",P1)
 		return self
 
 
@@ -2661,20 +2564,18 @@ Class XmlSchemaAny from XmlSchemaParticle
 
 	Func getNamespace
 		dn_x = dotnet_call("s3:get",nHandle,"s9:Namespace")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Namespace",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setNamespace P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Namespace",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Namespace",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Namespace",P1)
 		return self
 
 	Func getProcessContents
-		return dnSend("s3:get",nHandle,"s15:ProcessContents","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ProcessContents"))
 
 	Func setProcessContents P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:ProcessContents",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ProcessContents",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:ProcessContents",P1)
 		return self
 
 
@@ -2702,12 +2603,11 @@ Class XmlSchemaComplexContent from XmlSchemaContentModel
 
 	Func getIsMixed
 		dn_x = dotnet_call("s3:get",nHandle,"s7:IsMixed")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:IsMixed",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsMixed P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:IsMixed",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:IsMixed",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:IsMixed",P1)
 		return self
 
 
@@ -2737,33 +2637,30 @@ Class XmlSchemaComplexContentExtension from XmlSchemaContent
 		return self
 
 	Func getBaseTypeName
-		return dnSend("s3:get",nHandle,"s12:BaseTypeName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:BaseTypeName"))
 
 	Func setBaseTypeName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:BaseTypeName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:BaseTypeName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:BaseTypeName",P1)
 		return self
 
 	Func getParticle
-		return dnSend("s3:get",nHandle,"s8:Particle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Particle"))
 
 	Func setParticle P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Particle",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Particle",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Particle",P1)
 		return self
 
 	Func getAttributes
-		return dnSend("s3:get",nHandle,"s10:Attributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Attributes"))
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAnyAttribute
-		return dnSend("s3:get",nHandle,"s12:AnyAttribute","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:AnyAttribute"))
 
 	Func setAnyAttribute P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:AnyAttribute",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:AnyAttribute",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:AnyAttribute",P1)
 		return self
 
 
@@ -2793,33 +2690,30 @@ Class XmlSchemaComplexContentRestriction from XmlSchemaContent
 		return self
 
 	Func getBaseTypeName
-		return dnSend("s3:get",nHandle,"s12:BaseTypeName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:BaseTypeName"))
 
 	Func setBaseTypeName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:BaseTypeName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:BaseTypeName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:BaseTypeName",P1)
 		return self
 
 	Func getParticle
-		return dnSend("s3:get",nHandle,"s8:Particle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Particle"))
 
 	Func setParticle P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Particle",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Particle",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Particle",P1)
 		return self
 
 	Func getAttributes
-		return dnSend("s3:get",nHandle,"s10:Attributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Attributes"))
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAnyAttribute
-		return dnSend("s3:get",nHandle,"s12:AnyAttribute","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:AnyAttribute"))
 
 	Func setAnyAttribute P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:AnyAttribute",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:AnyAttribute",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:AnyAttribute",P1)
 		return self
 
 
@@ -2857,78 +2751,73 @@ Class XmlSchemaComplexType from XmlSchemaType
 
 	Func getIsAbstract
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAbstract",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAbstract P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAbstract",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAbstract",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:IsAbstract",P1)
 		return self
 
 	Func getBlock
-		return dnSend("s3:get",nHandle,"s5:Block","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Block"))
 
 	Func setBlock P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Block",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Block",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Block",P1)
 		return self
 
 	Func getContentModel
-		return dnSend("s3:get",nHandle,"s12:ContentModel","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ContentModel"))
 
 	Func setContentModel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:ContentModel",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:ContentModel",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:ContentModel",P1)
 		return self
 
 	Func getParticle
-		return dnSend("s3:get",nHandle,"s8:Particle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Particle"))
 
 	Func setParticle P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Particle",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Particle",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Particle",P1)
 		return self
 
 	Func getAttributes
-		return dnSend("s3:get",nHandle,"s10:Attributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Attributes"))
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAnyAttribute
-		return dnSend("s3:get",nHandle,"s12:AnyAttribute","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:AnyAttribute"))
 
 	Func setAnyAttribute P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:AnyAttribute",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:AnyAttribute",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:AnyAttribute",P1)
 		return self
 
 	Func getContentType
-		return dnSend("s3:get",nHandle,"s11:ContentType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ContentType"))
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getContentTypeParticle
-		return dnSend("s3:get",nHandle,"s19:ContentTypeParticle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ContentTypeParticle"))
 
 	Func setContentTypeParticle P1
 		raise("DotNet Error: ContentTypeParticle is a read-only property")
 
 	Func getBlockResolved
-		return dnSend("s3:get",nHandle,"s13:BlockResolved","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:BlockResolved"))
 
 	Func setBlockResolved P1
 		raise("DotNet Error: BlockResolved is a read-only property")
 
 	Func getAttributeUses
-		return dnSend("s3:get",nHandle,"s13:AttributeUses","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:AttributeUses"))
 
 	Func setAttributeUses P1
 		raise("DotNet Error: AttributeUses is a read-only property")
 
 	Func getAttributeWildcard
-		return dnSend("s3:get",nHandle,"s17:AttributeWildcard","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:AttributeWildcard"))
 
 	Func setAttributeWildcard P1
 		raise("DotNet Error: AttributeWildcard is a read-only property")
@@ -2975,142 +2864,130 @@ Class XmlSchemaElement from XmlSchemaParticle
 
 	Func getIsAbstract
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsAbstract",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsAbstract P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsAbstract",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsAbstract",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:IsAbstract",P1)
 		return self
 
 	Func getBlock
-		return dnSend("s3:get",nHandle,"s5:Block","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Block"))
 
 	Func setBlock P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Block",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Block",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Block",P1)
 		return self
 
 	Func getDefaultValue
 		dn_x = dotnet_call("s3:get",nHandle,"s12:DefaultValue")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:DefaultValue",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultValue P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:DefaultValue",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:DefaultValue",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:DefaultValue",P1)
 		return self
 
 	Func getFinal
-		return dnSend("s3:get",nHandle,"s5:Final","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Final"))
 
 	Func setFinal P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Final",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Final",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Final",P1)
 		return self
 
 	Func getFixedValue
 		dn_x = dotnet_call("s3:get",nHandle,"s10:FixedValue")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:FixedValue",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFixedValue P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:FixedValue",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:FixedValue",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:FixedValue",P1)
 		return self
 
 	Func getForm
-		return dnSend("s3:get",nHandle,"s4:Form","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Form"))
 
 	Func setForm P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Form",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Form",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Form",P1)
 		return self
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Name",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Name",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
 		return self
 
 	Func getIsNillable
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNillable")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsNillable",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsNillable P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:IsNillable",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:IsNillable",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:IsNillable",P1)
 		return self
 
 	Func getRefName
-		return dnSend("s3:get",nHandle,"s7:RefName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:RefName"))
 
 	Func setRefName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:RefName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:RefName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:RefName",P1)
 		return self
 
 	Func getSubstitutionGroup
-		return dnSend("s3:get",nHandle,"s17:SubstitutionGroup","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:SubstitutionGroup"))
 
 	Func setSubstitutionGroup P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:SubstitutionGroup",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:SubstitutionGroup",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:SubstitutionGroup",P1)
 		return self
 
 	Func getSchemaTypeName
-		return dnSend("s3:get",nHandle,"s14:SchemaTypeName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:SchemaTypeName"))
 
 	Func setSchemaTypeName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:SchemaTypeName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:SchemaTypeName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:SchemaTypeName",P1)
 		return self
 
 	Func getSchemaType
-		return dnSend("s3:get",nHandle,"s10:SchemaType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:SchemaType"))
 
 	Func setSchemaType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:SchemaType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:SchemaType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:SchemaType",P1)
 		return self
 
 	Func getConstraints
-		return dnSend("s3:get",nHandle,"s11:Constraints","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Constraints"))
 
 	Func setConstraints P1
 		raise("DotNet Error: Constraints is a read-only property")
 
 	Func getQualifiedName
-		return dnSend("s3:get",nHandle,"s13:QualifiedName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:QualifiedName"))
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")
 
 	Func getElementType
-		return dnSend("s3:get",nHandle,"s11:ElementType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ElementType"))
 
 	Func setElementType P1
 		raise("DotNet Error: ElementType is a read-only property")
 
 	Func getElementSchemaType
-		return dnSend("s3:get",nHandle,"s17:ElementSchemaType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ElementSchemaType"))
 
 	Func setElementSchemaType P1
 		raise("DotNet Error: ElementSchemaType is a read-only property")
 
 	Func getBlockResolved
-		return dnSend("s3:get",nHandle,"s13:BlockResolved","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:BlockResolved"))
 
 	Func setBlockResolved P1
 		raise("DotNet Error: BlockResolved is a read-only property")
 
 	Func getFinalResolved
-		return dnSend("s3:get",nHandle,"s13:FinalResolved","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:FinalResolved"))
 
 	Func setFinalResolved P1
 		raise("DotNet Error: FinalResolved is a read-only property")
@@ -3151,7 +3028,7 @@ Class XmlSchemaGroupBase from XmlSchemaParticle
 		return self
 
 	Func getItems
-		return dnSend("s3:get",nHandle,"s5:Items","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Items"))
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
@@ -3181,15 +3058,14 @@ Class XmlSchemaGroupRef from XmlSchemaParticle
 		return self
 
 	Func getRefName
-		return dnSend("s3:get",nHandle,"s7:RefName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:RefName"))
 
 	Func setRefName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:RefName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:RefName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:RefName",P1)
 		return self
 
 	Func getParticle
-		return dnSend("s3:get",nHandle,"s8:Particle","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Particle"))
 
 	Func setParticle P1
 		raise("DotNet Error: Particle is a read-only property")
@@ -3239,11 +3115,10 @@ Class XmlSchemaKeyref from XmlSchemaIdentityConstraint
 		return self
 
 	Func getRefer
-		return dnSend("s3:get",nHandle,"s5:Refer","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Refer"))
 
 	Func setRefer P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Refer",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Refer",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Refer",P1)
 		return self
 
 
@@ -3410,25 +3285,23 @@ Class XmlSchemaSimpleContentExtension from XmlSchemaContent
 		return self
 
 	Func getBaseTypeName
-		return dnSend("s3:get",nHandle,"s12:BaseTypeName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:BaseTypeName"))
 
 	Func setBaseTypeName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:BaseTypeName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:BaseTypeName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:BaseTypeName",P1)
 		return self
 
 	Func getAttributes
-		return dnSend("s3:get",nHandle,"s10:Attributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Attributes"))
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAnyAttribute
-		return dnSend("s3:get",nHandle,"s12:AnyAttribute","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:AnyAttribute"))
 
 	Func setAnyAttribute P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:AnyAttribute",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:AnyAttribute",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:AnyAttribute",P1)
 		return self
 
 
@@ -3459,39 +3332,36 @@ Class XmlSchemaSimpleContentRestriction from XmlSchemaContent
 		return self
 
 	Func getBaseTypeName
-		return dnSend("s3:get",nHandle,"s12:BaseTypeName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:BaseTypeName"))
 
 	Func setBaseTypeName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:BaseTypeName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:BaseTypeName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:BaseTypeName",P1)
 		return self
 
 	Func getBaseType
-		return dnSend("s3:get",nHandle,"s8:BaseType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:BaseType"))
 
 	Func setBaseType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:BaseType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:BaseType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:BaseType",P1)
 		return self
 
 	Func getFacets
-		return dnSend("s3:get",nHandle,"s6:Facets","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Facets"))
 
 	Func setFacets P1
 		raise("DotNet Error: Facets is a read-only property")
 
 	Func getAttributes
-		return dnSend("s3:get",nHandle,"s10:Attributes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Attributes"))
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAnyAttribute
-		return dnSend("s3:get",nHandle,"s12:AnyAttribute","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:AnyAttribute"))
 
 	Func setAnyAttribute P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:AnyAttribute",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:AnyAttribute",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:AnyAttribute",P1)
 		return self
 
 
@@ -3518,11 +3388,10 @@ Class XmlSchemaSimpleType from XmlSchemaType
 		return self
 
 	Func getContent
-		return dnSend("s3:get",nHandle,"s7:Content","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Content"))
 
 	Func setContent P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Content",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Content",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Content",P1)
 		return self
 
 
@@ -3551,27 +3420,24 @@ Class XmlSchemaSimpleTypeList from XmlSchemaSimpleTypeContent
 		return self
 
 	Func getItemTypeName
-		return dnSend("s3:get",nHandle,"s12:ItemTypeName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ItemTypeName"))
 
 	Func setItemTypeName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:ItemTypeName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:ItemTypeName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:ItemTypeName",P1)
 		return self
 
 	Func getItemType
-		return dnSend("s3:get",nHandle,"s8:ItemType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:ItemType"))
 
 	Func setItemType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:ItemType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:ItemType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:ItemType",P1)
 		return self
 
 	Func getBaseItemType
-		return dnSend("s3:get",nHandle,"s12:BaseItemType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:BaseItemType"))
 
 	Func setBaseItemType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:BaseItemType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:BaseItemType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:BaseItemType",P1)
 		return self
 
 
@@ -3600,23 +3466,21 @@ Class XmlSchemaSimpleTypeRestriction from XmlSchemaSimpleTypeContent
 		return self
 
 	Func getBaseTypeName
-		return dnSend("s3:get",nHandle,"s12:BaseTypeName","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:BaseTypeName"))
 
 	Func setBaseTypeName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:BaseTypeName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:BaseTypeName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:BaseTypeName",P1)
 		return self
 
 	Func getBaseType
-		return dnSend("s3:get",nHandle,"s8:BaseType","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:BaseType"))
 
 	Func setBaseType P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:BaseType",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:BaseType",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:BaseType",P1)
 		return self
 
 	Func getFacets
-		return dnSend("s3:get",nHandle,"s6:Facets","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Facets"))
 
 	Func setFacets P1
 		raise("DotNet Error: Facets is a read-only property")
@@ -3647,21 +3511,20 @@ Class XmlSchemaSimpleTypeUnion from XmlSchemaSimpleTypeContent
 		return self
 
 	Func getBaseTypes
-		return dnSend("s3:get",nHandle,"s9:BaseTypes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:BaseTypes"))
 
 	Func setBaseTypes P1
 		raise("DotNet Error: BaseTypes is a read-only property")
 
 	Func getMemberTypes
-		return dnSend("s3:get",nHandle,"s11:MemberTypes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:MemberTypes"))
 
 	Func setMemberTypes P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:MemberTypes",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:MemberTypes",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:MemberTypes",P1)
 		return self
 
 	Func getBaseMemberTypes
-		return dnSend("s3:get",nHandle,"s15:BaseMemberTypes","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:BaseMemberTypes"))
 
 	Func setBaseMemberTypes P1
 		raise("DotNet Error: BaseMemberTypes is a read-only property")

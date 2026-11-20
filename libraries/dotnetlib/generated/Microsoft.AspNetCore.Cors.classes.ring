@@ -22,11 +22,11 @@ Class CorsPolicyMetadata from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getPolicy
-		return dnSend("s3:get",nHandle,"s6:Policy","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Policy"))
 
 	Func setPolicy P1
 		raise("DotNet Error: Policy is a read-only property")

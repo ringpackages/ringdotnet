@@ -8,6 +8,8 @@ using {
 	"System.Collections.Generic"
 }
 
+nTotal = 0          # the code of a callback sees only global variables
+
 func main
 	oMath = new Math()
 	oList = new StringList()
@@ -79,4 +81,21 @@ func main
 	dnAssert("a static method, again",oMath.Max(3,4),4)
 	dnAssert("a static method with an object argument",new String().Concat([ :str0 = new StringBuilder("a").ToString(), :str1 = "b" ]),"ab")
 	dnAssert("a static method called with a list",len(new Path().Combine(["a","b"])),3)
+	# a callback and a list of texts as arguments (packed in C too)
+	oNames = new StringList()
+	oNames.Add("ab")
+	oNames.Add("cde")
+	oNames.ForEach_(dnCallback("nTotal += len(aDotNetArgs[1])"))
+	dnAssert("a callback as an argument",nTotal,5)
+	oNames.InsertRange(0,["x","y"])
+	dnAssert("a list of texts as an argument",oNames.Count,4)
+	dnAssert("the first inserted text",oNames.Item(0),"x")
+
+	# an object as the answer: the same class as before, null as an object that answers isNull(), and the object keeps working
+	oBuilder2 = new StringBuilder("abc")
+	oChained = oBuilder2.Append("d").Append("e")
+	dnAssert("an object as the answer (a chained call)",oChained.ToString(),"abcde")
+	dnAssert("the object is of its class",oChained.Length,5)
+	oNothing = new Environment().GetEnvironmentVariable("RINGDOTNET_NO_SUCH_VARIABLE_XYZ")
+	dnAssert("null is an object that answers isNull()",oNothing.isNull(),True)
 	dnTestSummary()

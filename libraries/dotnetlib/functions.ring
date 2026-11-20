@@ -209,16 +209,19 @@ func dnTypeCached  cTypeName
 func dnCreate  cTypeName, aParameters
 	return dnNewHandle("s9:newhandle",cTypeName,dnPack(aParameters))
 
-# The rest of a call that the extension (dotnet_call, dotnet_callv) did not finish: it answers a list [1, answer] when the answer is not a
-# text, a number or a yes/no (an object, null...), and [0] when it did not send the request because an argument is not a text or a number
-func dnLate  aMarker, cOperation, nHandle, cName, aArgs
-	if aMarker[1] = 0
-		if isstring(nHandle)          # a static method: the extension was given the name of the type
-			nHandle = dnTypeHandle(nHandle)
-		ok
-		return dnSend(cOperation,nHandle,cName,dnPack(aArgs))
+# The answer of dotnet_callo (a call that returns an object): the extension answers the text "<handle>|<type>|<base type>..." and the Ring
+# function wraps it as the generated class of the type; null is 0; any other answer is the list [1, answer] that dnFinish reads.
+func dnObj  dn_xInfo
+	if isstring(dn_xInfo)
+		dnWrapInto(dn_xInfo)
+		dn_oObject = oDotNetNew          # a copy: the next wrapped object replaces oDotNetNew, and a method of this object may be running (a global that is replaced while
+		oDotNetNew = ""          # its method runs is an error). The global must not keep the object alive: it owns the handle
+		return dn_oObject
 	ok
-	return dnFinish(aMarker[2])
+	if isnumber(dn_xInfo)
+		return new DotNetObject(0)
+	ok
+	return dnFinish(dn_xInfo[2])
 
 # The handle of the type object of a type name, made once (the generated static methods pass it as a number: returning the cached
 # type object itself would copy it at every call)

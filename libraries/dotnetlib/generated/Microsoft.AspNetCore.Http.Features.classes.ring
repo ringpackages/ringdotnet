@@ -353,15 +353,14 @@ Class DefaultSessionFeature from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getSession
-		return dnSend("s3:get",nHandle,"s7:Session","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Session"))
 
 	Func setSession P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Session",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Session",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Session",P1)
 		return self
 
 
@@ -405,33 +404,31 @@ Class FeatureCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Get_ 
-		return dnSend("s4:call",nHandle,"s3:Get","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
 
 	Func Set P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Set",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Set",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Set",P1)
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getRevision
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Revision")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Revision",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRevision P1
@@ -439,7 +436,7 @@ Class FeatureCollection from Object
 
 	Func getIsReadOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReadOnly P1
@@ -459,14 +456,14 @@ Class FeatureCollectionExtensions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetRequiredFeature P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Features.FeatureCollectionExtensions, Microsoft.Extensions.Features'),"s18:GetRequiredFeature",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('Microsoft.AspNetCore.Http.Features.FeatureCollectionExtensions, Microsoft.Extensions.Features'),"s18:GetRequiredFeature",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Features.FeatureCollectionExtensions, Microsoft.Extensions.Features',"s18:GetRequiredFeature",P1))
 
 
 Class FormFeature from Object
@@ -501,36 +498,35 @@ Class FormFeature from Object
 		return self
 
 	Func ReadForm 
-		return dnSend("s4:call",nHandle,"s8:ReadForm","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:ReadForm"))
 
 	Func ReadFormAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s13:ReadFormAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s13:ReadFormAsync","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadFormAsync"))
 		ok
-		return dnSend("s4:call",nHandle,"s13:ReadFormAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadFormAsync",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getHasFormContentType
 		dn_x = dotnet_call("s3:get",nHandle,"s18:HasFormContentType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:HasFormContentType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasFormContentType P1
 		raise("DotNet Error: HasFormContentType is a read-only property")
 
 	Func getForm
-		return dnSend("s3:get",nHandle,"s4:Form","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Form"))
 
 	Func setForm P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Form",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Form",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Form",P1)
 		return self
 
 
@@ -571,112 +567,102 @@ Class FormOptions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getBufferBody
 		dn_x = dotnet_call("s3:get",nHandle,"s10:BufferBody")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:BufferBody",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBufferBody P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:BufferBody",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:BufferBody",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:BufferBody",P1)
 		return self
 
 	Func getMemoryBufferThreshold
 		dn_x = dotnet_call("s3:get",nHandle,"s21:MemoryBufferThreshold")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:MemoryBufferThreshold",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMemoryBufferThreshold P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:MemoryBufferThreshold",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:MemoryBufferThreshold",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:MemoryBufferThreshold",P1)
 		return self
 
 	Func getBufferBodyLengthLimit
 		dn_x = dotnet_call("s3:get",nHandle,"s21:BufferBodyLengthLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:BufferBodyLengthLimit",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBufferBodyLengthLimit P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:BufferBodyLengthLimit",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:BufferBodyLengthLimit",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:BufferBodyLengthLimit",P1)
 		return self
 
 	Func getValueCountLimit
 		dn_x = dotnet_call("s3:get",nHandle,"s15:ValueCountLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:ValueCountLimit",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValueCountLimit P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:ValueCountLimit",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ValueCountLimit",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:ValueCountLimit",P1)
 		return self
 
 	Func getKeyLengthLimit
 		dn_x = dotnet_call("s3:get",nHandle,"s14:KeyLengthLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:KeyLengthLimit",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setKeyLengthLimit P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:KeyLengthLimit",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:KeyLengthLimit",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:KeyLengthLimit",P1)
 		return self
 
 	Func getValueLengthLimit
 		dn_x = dotnet_call("s3:get",nHandle,"s16:ValueLengthLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:ValueLengthLimit",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setValueLengthLimit P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:ValueLengthLimit",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:ValueLengthLimit",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:ValueLengthLimit",P1)
 		return self
 
 	Func getMultipartBoundaryLengthLimit
 		dn_x = dotnet_call("s3:get",nHandle,"s28:MultipartBoundaryLengthLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s28:MultipartBoundaryLengthLimit",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMultipartBoundaryLengthLimit P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s28:MultipartBoundaryLengthLimit",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s28:MultipartBoundaryLengthLimit",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s28:MultipartBoundaryLengthLimit",P1)
 		return self
 
 	Func getMultipartHeadersCountLimit
 		dn_x = dotnet_call("s3:get",nHandle,"s26:MultipartHeadersCountLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s26:MultipartHeadersCountLimit",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMultipartHeadersCountLimit P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s26:MultipartHeadersCountLimit",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s26:MultipartHeadersCountLimit",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s26:MultipartHeadersCountLimit",P1)
 		return self
 
 	Func getMultipartHeadersLengthLimit
 		dn_x = dotnet_call("s3:get",nHandle,"s27:MultipartHeadersLengthLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s27:MultipartHeadersLengthLimit",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMultipartHeadersLengthLimit P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s27:MultipartHeadersLengthLimit",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s27:MultipartHeadersLengthLimit",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s27:MultipartHeadersLengthLimit",P1)
 		return self
 
 	Func getMultipartBodyLengthLimit
 		dn_x = dotnet_call("s3:get",nHandle,"s24:MultipartBodyLengthLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s24:MultipartBodyLengthLimit",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMultipartBodyLengthLimit P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s24:MultipartBodyLengthLimit",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s24:MultipartBodyLengthLimit",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s24:MultipartBodyLengthLimit",P1)
 		return self
 
 	Func getDefaultMemoryBufferThreshold
 		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s28:DefaultMemoryBufferThreshold")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s28:DefaultMemoryBufferThreshold",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultMemoryBufferThreshold P1
@@ -684,7 +670,7 @@ Class FormOptions from Object
 
 	Func getDefaultBufferBodyLengthLimit
 		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s28:DefaultBufferBodyLengthLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s28:DefaultBufferBodyLengthLimit",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultBufferBodyLengthLimit P1
@@ -692,7 +678,7 @@ Class FormOptions from Object
 
 	Func getDefaultMultipartBoundaryLengthLimit
 		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s35:DefaultMultipartBoundaryLengthLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s35:DefaultMultipartBoundaryLengthLimit",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultMultipartBoundaryLengthLimit P1
@@ -700,7 +686,7 @@ Class FormOptions from Object
 
 	Func getDefaultMultipartBodyLengthLimit
 		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s31:DefaultMultipartBodyLengthLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s31:DefaultMultipartBodyLengthLimit",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDefaultMultipartBodyLengthLimit P1
@@ -735,53 +721,48 @@ Class HttpConnectionFeature from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getConnectionId
 		dn_x = dotnet_call("s3:get",nHandle,"s12:ConnectionId")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ConnectionId",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setConnectionId P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:ConnectionId",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:ConnectionId",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:ConnectionId",P1)
 		return self
 
 	Func getLocalIpAddress
-		return dnSend("s3:get",nHandle,"s14:LocalIpAddress","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:LocalIpAddress"))
 
 	Func setLocalIpAddress P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:LocalIpAddress",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:LocalIpAddress",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:LocalIpAddress",P1)
 		return self
 
 	Func getLocalPort
 		dn_x = dotnet_call("s3:get",nHandle,"s9:LocalPort")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:LocalPort",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLocalPort P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:LocalPort",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:LocalPort",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:LocalPort",P1)
 		return self
 
 	Func getRemoteIpAddress
-		return dnSend("s3:get",nHandle,"s15:RemoteIpAddress","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:RemoteIpAddress"))
 
 	Func setRemoteIpAddress P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:RemoteIpAddress",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:RemoteIpAddress",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:RemoteIpAddress",P1)
 		return self
 
 	Func getRemotePort
 		dn_x = dotnet_call("s3:get",nHandle,"s10:RemotePort")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:RemotePort",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRemotePort P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:RemotePort",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:RemotePort",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:RemotePort",P1)
 		return self
 
 
@@ -817,93 +798,84 @@ Class HttpRequestFeature from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getProtocol
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Protocol")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Protocol",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setProtocol P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Protocol",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Protocol",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Protocol",P1)
 		return self
 
 	Func getScheme
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Scheme")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Scheme",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setScheme P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Scheme",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Scheme",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Scheme",P1)
 		return self
 
 	Func getMethod
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Method")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Method",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMethod P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Method",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Method",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Method",P1)
 		return self
 
 	Func getPathBase
 		dn_x = dotnet_call("s3:get",nHandle,"s8:PathBase")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:PathBase",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPathBase P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:PathBase",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:PathBase",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:PathBase",P1)
 		return self
 
 	Func getPath
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Path")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Path",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPath P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Path",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Path",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Path",P1)
 		return self
 
 	Func getQueryString
 		dn_x = dotnet_call("s3:get",nHandle,"s11:QueryString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:QueryString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setQueryString P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:QueryString",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:QueryString",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:QueryString",P1)
 		return self
 
 	Func getRawTarget
 		dn_x = dotnet_call("s3:get",nHandle,"s9:RawTarget")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:RawTarget",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRawTarget P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:RawTarget",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:RawTarget",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:RawTarget",P1)
 		return self
 
 	Func getHeaders
-		return dnSend("s3:get",nHandle,"s7:Headers","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Headers"))
 
 	Func setHeaders P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Headers",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Headers",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Headers",P1)
 		return self
 
 	Func getBody
-		return dnSend("s3:get",nHandle,"s4:Body","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Body"))
 
 	Func setBody P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Body",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Body",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Body",P1)
 		return self
 
 
@@ -931,17 +903,16 @@ Class HttpRequestIdentifierFeature from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getTraceIdentifier
 		dn_x = dotnet_call("s3:get",nHandle,"s15:TraceIdentifier")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:TraceIdentifier",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTraceIdentifier P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:TraceIdentifier",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:TraceIdentifier",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:TraceIdentifier",P1)
 		return self
 
 
@@ -968,22 +939,20 @@ Class HttpRequestLifetimeFeature from Object
 		return self
 
 	Func Abort 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Abort")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Abort","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Abort")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getRequestAborted
-		return dnSend("s3:get",nHandle,"s14:RequestAborted","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:RequestAborted"))
 
 	Func setRequestAborted P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:RequestAborted",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:RequestAborted",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:RequestAborted",P1)
 		return self
 
 
@@ -1014,61 +983,55 @@ Class HttpResponseFeature from Object
 		return self
 
 	Func OnStarting P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s10:OnStarting",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s10:OnStarting",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s10:OnStarting",P1,P2)
 
 		return self
 
 	Func OnCompleted P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:OnCompleted",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:OnCompleted",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s11:OnCompleted",P1,P2)
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getStatusCode
 		dn_x = dotnet_call("s3:get",nHandle,"s10:StatusCode")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:StatusCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setStatusCode P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:StatusCode",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:StatusCode",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:StatusCode",P1)
 		return self
 
 	Func getReasonPhrase
 		dn_x = dotnet_call("s3:get",nHandle,"s12:ReasonPhrase")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ReasonPhrase",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setReasonPhrase P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:ReasonPhrase",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:ReasonPhrase",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:ReasonPhrase",P1)
 		return self
 
 	Func getHeaders
-		return dnSend("s3:get",nHandle,"s7:Headers","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Headers"))
 
 	Func setHeaders P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Headers",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Headers",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Headers",P1)
 		return self
 
 	Func getBody
-		return dnSend("s3:get",nHandle,"s4:Body","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Body"))
 
 	Func setBody P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Body",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Body",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Body",P1)
 		return self
 
 	Func getHasStarted
 		dn_x = dotnet_call("s3:get",nHandle,"s10:HasStarted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:HasStarted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasStarted P1
@@ -1089,7 +1052,7 @@ Class IBadRequestExceptionFeature from DotNetObject
 		return self
 
 	Func getError
-		return dnSend("s3:get",nHandle,"s5:Error","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Error"))
 
 	Func setError P1
 		raise("DotNet Error: Error is a read-only property")
@@ -1109,11 +1072,10 @@ Class IEndpointFeature from DotNetObject
 		return self
 
 	Func getEndpoint
-		return dnSend("s3:get",nHandle,"s8:Endpoint","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Endpoint"))
 
 	Func setEndpoint P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Endpoint",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Endpoint",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Endpoint",P1)
 		return self
 
 
@@ -1132,25 +1094,23 @@ Class IFeatureCollection from DotNetObject
 		return self
 
 	Func Get_ 
-		return dnSend("s4:call",nHandle,"s3:Get","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
 
 	Func Set P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s3:Set",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s3:Set",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s3:Set",P1)
 
 		return self
 
 	Func Item P1
-		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 	Func getIsReadOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReadOnly P1
@@ -1158,7 +1118,7 @@ Class IFeatureCollection from DotNetObject
 
 	Func getRevision
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Revision")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Revision",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRevision P1
@@ -1180,25 +1140,24 @@ Class IFormFeature from DotNetObject
 		return self
 
 	Func ReadForm 
-		return dnSend("s4:call",nHandle,"s8:ReadForm","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:ReadForm"))
 
 	Func ReadFormAsync P1
-		return dnSend("s4:call",nHandle,"s13:ReadFormAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadFormAsync",P1))
 
 	Func getHasFormContentType
 		dn_x = dotnet_call("s3:get",nHandle,"s18:HasFormContentType")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:HasFormContentType",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasFormContentType P1
 		raise("DotNet Error: HasFormContentType is a read-only property")
 
 	Func getForm
-		return dnSend("s3:get",nHandle,"s4:Form","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Form"))
 
 	Func setForm P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Form",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Form",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Form",P1)
 		return self
 
 
@@ -1216,11 +1175,10 @@ Class IHttpActivityFeature from DotNetObject
 		return self
 
 	Func getActivity
-		return dnSend("s3:get",nHandle,"s8:Activity","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Activity"))
 
 	Func setActivity P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Activity",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Activity",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Activity",P1)
 		return self
 
 
@@ -1239,12 +1197,11 @@ Class IHttpBodyControlFeature from DotNetObject
 
 	Func getAllowSynchronousIO
 		dn_x = dotnet_call("s3:get",nHandle,"s18:AllowSynchronousIO")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:AllowSynchronousIO",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAllowSynchronousIO P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:AllowSynchronousIO",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:AllowSynchronousIO",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:AllowSynchronousIO",P1)
 		return self
 
 
@@ -1267,48 +1224,43 @@ Class IHttpConnectionFeature from DotNetObject
 
 	Func getConnectionId
 		dn_x = dotnet_call("s3:get",nHandle,"s12:ConnectionId")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ConnectionId",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setConnectionId P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:ConnectionId",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:ConnectionId",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:ConnectionId",P1)
 		return self
 
 	Func getRemoteIpAddress
-		return dnSend("s3:get",nHandle,"s15:RemoteIpAddress","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:RemoteIpAddress"))
 
 	Func setRemoteIpAddress P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:RemoteIpAddress",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:RemoteIpAddress",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:RemoteIpAddress",P1)
 		return self
 
 	Func getLocalIpAddress
-		return dnSend("s3:get",nHandle,"s14:LocalIpAddress","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:LocalIpAddress"))
 
 	Func setLocalIpAddress P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:LocalIpAddress",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:LocalIpAddress",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:LocalIpAddress",P1)
 		return self
 
 	Func getRemotePort
 		dn_x = dotnet_call("s3:get",nHandle,"s10:RemotePort")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:RemotePort",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRemotePort P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:RemotePort",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:RemotePort",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:RemotePort",P1)
 		return self
 
 	Func getLocalPort
 		dn_x = dotnet_call("s3:get",nHandle,"s9:LocalPort")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:LocalPort",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLocalPort P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:LocalPort",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:LocalPort",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:LocalPort",P1)
 		return self
 
 
@@ -1327,11 +1279,11 @@ Class IHttpExtendedConnectFeature from DotNetObject
 		return self
 
 	Func AcceptAsync 
-		return dnSend("s4:call",nHandle,"s11:AcceptAsync","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AcceptAsync"))
 
 	Func getIsExtendedConnect
 		dn_x = dotnet_call("s3:get",nHandle,"s17:IsExtendedConnect")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:IsExtendedConnect",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsExtendedConnect P1
@@ -1339,7 +1291,7 @@ Class IHttpExtendedConnectFeature from DotNetObject
 
 	Func getProtocol
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Protocol")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Protocol",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setProtocol P1
@@ -1362,18 +1314,17 @@ Class IHttpMaxRequestBodySizeFeature from DotNetObject
 
 	Func getIsReadOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getMaxRequestBodySize
-		return dnSend("s3:get",nHandle,"s18:MaxRequestBodySize","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:MaxRequestBodySize"))
 
 	Func setMaxRequestBodySize P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:MaxRequestBodySize",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:MaxRequestBodySize",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:MaxRequestBodySize",P1)
 		return self
 
 
@@ -1392,19 +1343,18 @@ Class IHttpMetricsTagsFeature from DotNetObject
 		return self
 
 	Func getTags
-		return dnSend("s3:get",nHandle,"s4:Tags","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Tags"))
 
 	Func setTags P1
 		raise("DotNet Error: Tags is a read-only property")
 
 	Func getMetricsDisabled
 		dn_x = dotnet_call("s3:get",nHandle,"s15:MetricsDisabled")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:MetricsDisabled",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMetricsDisabled P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:MetricsDisabled",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:MetricsDisabled",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:MetricsDisabled",P1)
 		return self
 
 
@@ -1423,7 +1373,7 @@ Class IHttpRequestBodyDetectionFeature from DotNetObject
 
 	Func getCanHaveBody
 		dn_x = dotnet_call("s3:get",nHandle,"s11:CanHaveBody")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:CanHaveBody",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCanHaveBody P1
@@ -1453,88 +1403,79 @@ Class IHttpRequestFeature from DotNetObject
 
 	Func getProtocol
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Protocol")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Protocol",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setProtocol P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Protocol",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Protocol",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Protocol",P1)
 		return self
 
 	Func getScheme
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Scheme")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Scheme",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setScheme P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Scheme",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Scheme",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Scheme",P1)
 		return self
 
 	Func getMethod
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Method")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Method",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMethod P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Method",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Method",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Method",P1)
 		return self
 
 	Func getPathBase
 		dn_x = dotnet_call("s3:get",nHandle,"s8:PathBase")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:PathBase",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPathBase P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:PathBase",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:PathBase",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:PathBase",P1)
 		return self
 
 	Func getPath
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Path")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:Path",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPath P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Path",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Path",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Path",P1)
 		return self
 
 	Func getQueryString
 		dn_x = dotnet_call("s3:get",nHandle,"s11:QueryString")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:QueryString",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setQueryString P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:QueryString",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:QueryString",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:QueryString",P1)
 		return self
 
 	Func getRawTarget
 		dn_x = dotnet_call("s3:get",nHandle,"s9:RawTarget")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:RawTarget",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRawTarget P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:RawTarget",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:RawTarget",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:RawTarget",P1)
 		return self
 
 	Func getHeaders
-		return dnSend("s3:get",nHandle,"s7:Headers","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Headers"))
 
 	Func setHeaders P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Headers",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Headers",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Headers",P1)
 		return self
 
 	Func getBody
-		return dnSend("s3:get",nHandle,"s4:Body","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Body"))
 
 	Func setBody P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Body",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Body",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Body",P1)
 		return self
 
 
@@ -1553,12 +1494,11 @@ Class IHttpRequestIdentifierFeature from DotNetObject
 
 	Func getTraceIdentifier
 		dn_x = dotnet_call("s3:get",nHandle,"s15:TraceIdentifier")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:TraceIdentifier",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTraceIdentifier P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:TraceIdentifier",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:TraceIdentifier",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:TraceIdentifier",P1)
 		return self
 
 
@@ -1576,17 +1516,15 @@ Class IHttpRequestLifetimeFeature from DotNetObject
 		return self
 
 	Func Abort 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Abort")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Abort","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Abort")
 
 		return self
 
 	Func getRequestAborted
-		return dnSend("s3:get",nHandle,"s14:RequestAborted","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:RequestAborted"))
 
 	Func setRequestAborted P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:RequestAborted",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:RequestAborted",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:RequestAborted",P1)
 		return self
 
 
@@ -1606,14 +1544,14 @@ Class IHttpRequestTrailersFeature from DotNetObject
 
 	Func getAvailable
 		dn_x = dotnet_call("s3:get",nHandle,"s9:Available")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Available",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAvailable P1
 		raise("DotNet Error: Available is a read-only property")
 
 	Func getTrailers
-		return dnSend("s3:get",nHandle,"s8:Trailers","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Trailers"))
 
 	Func setTrailers P1
 		raise("DotNet Error: Trailers is a read-only property")
@@ -1631,8 +1569,7 @@ Class IHttpResetFeature from DotNetObject
 		return self
 
 	Func Reset P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Reset",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Reset",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Reset",P1)
 
 		return self
 
@@ -1652,8 +1589,7 @@ Class IHttpResponseBodyFeature from DotNetObject
 		return self
 
 	Func DisableBuffering 
-		dn_x = dotnet_callv("s4:call",nHandle,"s16:DisableBuffering")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s16:DisableBuffering","") ok
+		dotnet_callv("s4:call",nHandle,"s16:DisableBuffering")
 
 		return self
 
@@ -1662,9 +1598,9 @@ Class IHttpResponseBodyFeature from DotNetObject
 			return dnSend("s9:callnamed",nHandle,"s10:StartAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s10:StartAsync","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync"))
 		ok
-		return dnSend("s4:call",nHandle,"s10:StartAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1))
 
 	Func SendFileAsync P1
 		if dnIsNamed(P1)
@@ -1673,16 +1609,16 @@ Class IHttpResponseBodyFeature from DotNetObject
 		raise("DotNet Error: SendFileAsync does not take one argument: use named arguments, SendFileAsync([ :parameter = value, ... ])")
 
 	Func CompleteAsync 
-		return dnSend("s4:call",nHandle,"s13:CompleteAsync","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:CompleteAsync"))
 
 	Func getStream
-		return dnSend("s3:get",nHandle,"s6:Stream","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Stream"))
 
 	Func setStream P1
 		raise("DotNet Error: Stream is a read-only property")
 
 	Func getWriter
-		return dnSend("s3:get",nHandle,"s6:Writer","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Writer"))
 
 	Func setWriter P1
 		raise("DotNet Error: Writer is a read-only property")
@@ -1706,56 +1642,50 @@ Class IHttpResponseFeature from DotNetObject
 		return self
 
 	Func OnStarting P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s10:OnStarting",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s10:OnStarting",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s10:OnStarting",P1,P2)
 
 		return self
 
 	Func OnCompleted P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:OnCompleted",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:OnCompleted",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s11:OnCompleted",P1,P2)
 
 		return self
 
 	Func getStatusCode
 		dn_x = dotnet_call("s3:get",nHandle,"s10:StatusCode")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:StatusCode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setStatusCode P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:StatusCode",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:StatusCode",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:StatusCode",P1)
 		return self
 
 	Func getReasonPhrase
 		dn_x = dotnet_call("s3:get",nHandle,"s12:ReasonPhrase")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:ReasonPhrase",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setReasonPhrase P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:ReasonPhrase",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:ReasonPhrase",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:ReasonPhrase",P1)
 		return self
 
 	Func getHeaders
-		return dnSend("s3:get",nHandle,"s7:Headers","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Headers"))
 
 	Func setHeaders P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Headers",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Headers",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Headers",P1)
 		return self
 
 	Func getBody
-		return dnSend("s3:get",nHandle,"s4:Body","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Body"))
 
 	Func setBody P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Body",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Body",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Body",P1)
 		return self
 
 	Func getHasStarted
 		dn_x = dotnet_call("s3:get",nHandle,"s10:HasStarted")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:HasStarted",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasStarted P1
@@ -1776,11 +1706,10 @@ Class IHttpResponseTrailersFeature from DotNetObject
 		return self
 
 	Func getTrailers
-		return dnSend("s3:get",nHandle,"s8:Trailers","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Trailers"))
 
 	Func setTrailers P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Trailers",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Trailers",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Trailers",P1)
 		return self
 
 
@@ -1798,11 +1727,11 @@ Class IHttpUpgradeFeature from DotNetObject
 		return self
 
 	Func UpgradeAsync 
-		return dnSend("s4:call",nHandle,"s12:UpgradeAsync","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:UpgradeAsync"))
 
 	Func getIsUpgradableRequest
 		dn_x = dotnet_call("s3:get",nHandle,"s19:IsUpgradableRequest")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s19:IsUpgradableRequest",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsUpgradableRequest P1
@@ -1823,11 +1752,11 @@ Class IHttpWebSocketFeature from DotNetObject
 		return self
 
 	Func AcceptAsync P1
-		return dnSend("s4:call",nHandle,"s11:AcceptAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AcceptAsync",P1))
 
 	Func getIsWebSocketRequest
 		dn_x = dotnet_call("s3:get",nHandle,"s18:IsWebSocketRequest")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:IsWebSocketRequest",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsWebSocketRequest P1
@@ -1852,13 +1781,13 @@ Class IHttpWebTransportFeature from DotNetObject
 			return dnSend("s9:callnamed",nHandle,"s11:AcceptAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s11:AcceptAsync","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:AcceptAsync"))
 		ok
-		return dnSend("s4:call",nHandle,"s11:AcceptAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AcceptAsync",P1))
 
 	Func getIsWebTransportRequest
 		dn_x = dotnet_call("s3:get",nHandle,"s21:IsWebTransportRequest")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:IsWebTransportRequest",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsWebTransportRequest P1
@@ -1879,11 +1808,10 @@ Class IHttpsCompressionFeature from DotNetObject
 		return self
 
 	Func getMode
-		return dnSend("s3:get",nHandle,"s4:Mode","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Mode"))
 
 	Func setMode P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Mode",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Mode",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Mode",P1)
 		return self
 
 
@@ -1901,11 +1829,10 @@ Class IItemsFeature from DotNetObject
 		return self
 
 	Func getItems
-		return dnSend("s3:get",nHandle,"s5:Items","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Items"))
 
 	Func setItems P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Items",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Items",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Items",P1)
 		return self
 
 
@@ -1923,11 +1850,10 @@ Class IQueryFeature from DotNetObject
 		return self
 
 	Func getQuery
-		return dnSend("s3:get",nHandle,"s5:Query","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Query"))
 
 	Func setQuery P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Query",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Query",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Query",P1)
 		return self
 
 
@@ -1945,7 +1871,7 @@ Class IRequestBodyPipeFeature from DotNetObject
 		return self
 
 	Func getReader
-		return dnSend("s3:get",nHandle,"s6:Reader","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Reader"))
 
 	Func setReader P1
 		raise("DotNet Error: Reader is a read-only property")
@@ -1965,11 +1891,10 @@ Class IRequestCookiesFeature from DotNetObject
 		return self
 
 	Func getCookies
-		return dnSend("s3:get",nHandle,"s7:Cookies","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Cookies"))
 
 	Func setCookies P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Cookies",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Cookies",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Cookies",P1)
 		return self
 
 
@@ -1987,7 +1912,7 @@ Class IResponseCookiesFeature from DotNetObject
 		return self
 
 	Func getCookies
-		return dnSend("s3:get",nHandle,"s7:Cookies","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Cookies"))
 
 	Func setCookies P1
 		raise("DotNet Error: Cookies is a read-only property")
@@ -2007,11 +1932,10 @@ Class IRouteValuesFeature from DotNetObject
 		return self
 
 	Func getRouteValues
-		return dnSend("s3:get",nHandle,"s11:RouteValues","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:RouteValues"))
 
 	Func setRouteValues P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:RouteValues",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:RouteValues",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:RouteValues",P1)
 		return self
 
 
@@ -2028,12 +1952,11 @@ Class IServerVariablesFeature from DotNetObject
 
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s8:get_Item",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetItem P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
 		return self
 
 
@@ -2051,11 +1974,10 @@ Class IServiceProvidersFeature from DotNetObject
 		return self
 
 	Func getRequestServices
-		return dnSend("s3:get",nHandle,"s15:RequestServices","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:RequestServices"))
 
 	Func setRequestServices P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:RequestServices",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:RequestServices",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:RequestServices",P1)
 		return self
 
 
@@ -2073,11 +1995,10 @@ Class ISessionFeature from DotNetObject
 		return self
 
 	Func getSession
-		return dnSend("s3:get",nHandle,"s7:Session","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Session"))
 
 	Func setSession P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Session",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Session",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Session",P1)
 		return self
 
 
@@ -2095,14 +2016,13 @@ Class ITlsConnectionFeature from DotNetObject
 		return self
 
 	Func GetClientCertificateAsync P1
-		return dnSend("s4:call",nHandle,"s25:GetClientCertificateAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetClientCertificateAsync",P1))
 
 	Func getClientCertificate
-		return dnSend("s3:get",nHandle,"s17:ClientCertificate","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ClientCertificate"))
 
 	Func setClientCertificate P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:ClientCertificate",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:ClientCertificate",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:ClientCertificate",P1)
 		return self
 
 
@@ -2118,10 +2038,10 @@ Class ITlsTokenBindingFeature from DotNetObject
 		return self
 
 	Func GetProvidedTokenBindingId 
-		return dnSend("s4:call",nHandle,"s25:GetProvidedTokenBindingId","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetProvidedTokenBindingId"))
 
 	Func GetReferredTokenBindingId 
-		return dnSend("s4:call",nHandle,"s25:GetReferredTokenBindingId","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetReferredTokenBindingId"))
 
 
 Class ITrackingConsentFeature from DotNetObject
@@ -2140,25 +2060,23 @@ Class ITrackingConsentFeature from DotNetObject
 		return self
 
 	Func GrantConsent 
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:GrantConsent")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:GrantConsent","") ok
+		dotnet_callv("s4:call",nHandle,"s12:GrantConsent")
 
 		return self
 
 	Func WithdrawConsent 
-		dn_x = dotnet_callv("s4:call",nHandle,"s15:WithdrawConsent")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s15:WithdrawConsent","") ok
+		dotnet_callv("s4:call",nHandle,"s15:WithdrawConsent")
 
 		return self
 
 	Func CreateConsentCookie 
 		dn_x = dotnet_call("s4:call",nHandle,"s19:CreateConsentCookie")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s19:CreateConsentCookie",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getIsConsentNeeded
 		dn_x = dotnet_call("s3:get",nHandle,"s15:IsConsentNeeded")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:IsConsentNeeded",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsConsentNeeded P1
@@ -2166,7 +2084,7 @@ Class ITrackingConsentFeature from DotNetObject
 
 	Func getHasConsent
 		dn_x = dotnet_call("s3:get",nHandle,"s10:HasConsent")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:HasConsent",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHasConsent P1
@@ -2174,7 +2092,7 @@ Class ITrackingConsentFeature from DotNetObject
 
 	Func getCanTrack
 		dn_x = dotnet_call("s3:get",nHandle,"s8:CanTrack")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:CanTrack",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCanTrack P1
@@ -2195,8 +2113,7 @@ Class IWebTransportSession from DotNetObject
 		return self
 
 	Func Abort P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Abort",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Abort",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s5:Abort",P1)
 
 		return self
 
@@ -2205,22 +2122,22 @@ Class IWebTransportSession from DotNetObject
 			return dnSend("s9:callnamed",nHandle,"s17:AcceptStreamAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s17:AcceptStreamAsync","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s17:AcceptStreamAsync"))
 		ok
-		return dnSend("s4:call",nHandle,"s17:AcceptStreamAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AcceptStreamAsync",P1))
 
 	Func OpenUnidirectionalStreamAsync P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",nHandle,"s29:OpenUnidirectionalStreamAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s29:OpenUnidirectionalStreamAsync","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s29:OpenUnidirectionalStreamAsync"))
 		ok
-		return dnSend("s4:call",nHandle,"s29:OpenUnidirectionalStreamAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:OpenUnidirectionalStreamAsync",P1))
 
 	Func getSessionId
 		dn_x = dotnet_call("s3:get",nHandle,"s9:SessionId")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:SessionId",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSessionId P1
@@ -2251,15 +2168,14 @@ Class ItemsFeature from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getItems
-		return dnSend("s3:get",nHandle,"s5:Items","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Items"))
 
 	Func setItems P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Items",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Items",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Items",P1)
 		return self
 
 
@@ -2280,15 +2196,14 @@ Class QueryFeature from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getQuery
-		return dnSend("s3:get",nHandle,"s5:Query","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Query"))
 
 	Func setQuery P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Query",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Query",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Query",P1)
 		return self
 
 
@@ -2309,11 +2224,11 @@ Class RequestBodyPipeFeature from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getReader
-		return dnSend("s3:get",nHandle,"s6:Reader","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Reader"))
 
 	Func setReader P1
 		raise("DotNet Error: Reader is a read-only property")
@@ -2336,15 +2251,14 @@ Class RequestCookiesFeature from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCookies
-		return dnSend("s3:get",nHandle,"s7:Cookies","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Cookies"))
 
 	Func setCookies P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Cookies",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Cookies",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Cookies",P1)
 		return self
 
 
@@ -2364,25 +2278,23 @@ Class RequestServicesFeature from Object
 		return self
 
 	Func DisposeAsync 
-		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
 	Func Dispose 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:Dispose")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:Dispose","") ok
+		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getRequestServices
-		return dnSend("s3:get",nHandle,"s15:RequestServices","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:RequestServices"))
 
 	Func setRequestServices P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:RequestServices",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:RequestServices",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:RequestServices",P1)
 		return self
 
 
@@ -2418,11 +2330,11 @@ Class ResponseCookiesFeature from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getCookies
-		return dnSend("s3:get",nHandle,"s7:Cookies","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Cookies"))
 
 	Func setCookies P1
 		raise("DotNet Error: Cookies is a read-only property")
@@ -2452,15 +2364,14 @@ Class RouteValuesFeature from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getRouteValues
-		return dnSend("s3:get",nHandle,"s11:RouteValues","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:RouteValues"))
 
 	Func setRouteValues P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:RouteValues",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:RouteValues",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:RouteValues",P1)
 		return self
 
 
@@ -2488,15 +2399,14 @@ Class ServiceProvidersFeature from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getRequestServices
-		return dnSend("s3:get",nHandle,"s15:RequestServices","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:RequestServices"))
 
 	Func setRequestServices P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:RequestServices",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:RequestServices",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:RequestServices",P1)
 		return self
 
 
@@ -2523,19 +2433,18 @@ Class TlsConnectionFeature from Object
 		return self
 
 	Func GetClientCertificateAsync P1
-		return dnSend("s4:call",nHandle,"s25:GetClientCertificateAsync",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetClientCertificateAsync",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getClientCertificate
-		return dnSend("s3:get",nHandle,"s17:ClientCertificate","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ClientCertificate"))
 
 	Func setClientCertificate P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:ClientCertificate",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:ClientCertificate",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:ClientCertificate",P1)
 		return self
 
 

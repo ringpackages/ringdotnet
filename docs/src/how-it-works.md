@@ -77,15 +77,15 @@ A call from Ring to .NET is a request that Ring packs, the extension sends to th
 |---|---|---|
 | a method that returns a text, a number or a yes/no (`oList.Contains("a")`), a property read (`oSB.Length`) | 2 to 3 µs | 350,000 to 450,000 |
 | a static method with numbers (`new Math().Max(1,2)`) | 3 to 4 µs | about 300,000 |
-| a method that returns an object (`oSB.Append("x")`) | about 60 µs | about 17,000 |
+| a method that returns an object (`oSB.Append("x")`) | about 45 to 50 µs | about 20,000 |
 | `new StringBuilder("x")` | about 25 µs | about 40,000 |
 
 How the time is spent:
 
 - The first group is packed and read **in C**: the generated method calls `dotnet_call` with the handle of the object, the name of the method (a ready wire item) and the arguments, and the extension builds the request, calls the bridge and returns the text, number or yes/no. The call into .NET itself (decoding, reflection, encoding the answer) takes about 0.5 µs.
 - The bridge **remembers the overload** that it chose for a kind of arguments (the type; for a number, whole or not and its range; a text only when no overload could read it as an enum or another type), so `Math.Max`, which has 14 overloads, costs about the same as a method with one.
-- A method that returns an **object** takes more time: Ring makes the wrapper object with its guard and copies it at each `return` level.
-- A call with an **object or a list as an argument** takes the Ring path (`dnSend`, about 8 µs), and so does a call with named arguments.
+- A method that returns an **object** takes more time: the extension answers the type and the handle, and Ring makes the wrapper object of the generated class with its guard, and copies it at each `return` level (the global that holds the new object cannot be returned directly: a method of the object may be running when the next one is made).
+- The arguments of a native call can be texts, numbers, lists, .NET objects and callbacks (a call with an object argument takes about 3 µs). A call with **named arguments**, and a method with `out` or `ref` parameters, take the Ring path (`dnSend`, about 8 µs).
 - Fewer crossings are faster than faster crossings: `toList()` copies a whole collection in one request, and a loop that reads 500 items with `Item(i)` makes 500 requests.
 
 ## Packages

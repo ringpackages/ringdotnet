@@ -78,173 +78,162 @@ Class Shape from FrameworkElement
 		return self
 
 	Func getStretch
-		return dnSend("s3:get",nHandle,"s7:Stretch","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Stretch"))
 
 	Func setStretch P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Stretch",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Stretch",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Stretch",P1)
 		return self
 
 	Func getRenderedGeometry
-		return dnSend("s3:get",nHandle,"s16:RenderedGeometry","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:RenderedGeometry"))
 
 	Func setRenderedGeometry P1
 		raise("DotNet Error: RenderedGeometry is a read-only property")
 
 	Func getGeometryTransform
-		return dnSend("s3:get",nHandle,"s17:GeometryTransform","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:GeometryTransform"))
 
 	Func setGeometryTransform P1
 		raise("DotNet Error: GeometryTransform is a read-only property")
 
 	Func getFill
-		return dnSend("s3:get",nHandle,"s4:Fill","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Fill"))
 
 	Func setFill P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Fill",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Fill",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Fill",P1)
 		return self
 
 	Func getStroke
-		return dnSend("s3:get",nHandle,"s6:Stroke","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Stroke"))
 
 	Func setStroke P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Stroke",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Stroke",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Stroke",P1)
 		return self
 
 	Func getStrokeThickness
 		dn_x = dotnet_call("s3:get",nHandle,"s15:StrokeThickness")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:StrokeThickness",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setStrokeThickness P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:StrokeThickness",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:StrokeThickness",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:StrokeThickness",P1)
 		return self
 
 	Func getStrokeStartLineCap
-		return dnSend("s3:get",nHandle,"s18:StrokeStartLineCap","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:StrokeStartLineCap"))
 
 	Func setStrokeStartLineCap P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:StrokeStartLineCap",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:StrokeStartLineCap",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:StrokeStartLineCap",P1)
 		return self
 
 	Func getStrokeEndLineCap
-		return dnSend("s3:get",nHandle,"s16:StrokeEndLineCap","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StrokeEndLineCap"))
 
 	Func setStrokeEndLineCap P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:StrokeEndLineCap",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:StrokeEndLineCap",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:StrokeEndLineCap",P1)
 		return self
 
 	Func getStrokeDashCap
-		return dnSend("s3:get",nHandle,"s13:StrokeDashCap","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:StrokeDashCap"))
 
 	Func setStrokeDashCap P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:StrokeDashCap",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:StrokeDashCap",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:StrokeDashCap",P1)
 		return self
 
 	Func getStrokeLineJoin
-		return dnSend("s3:get",nHandle,"s14:StrokeLineJoin","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:StrokeLineJoin"))
 
 	Func setStrokeLineJoin P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:StrokeLineJoin",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:StrokeLineJoin",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:StrokeLineJoin",P1)
 		return self
 
 	Func getStrokeMiterLimit
 		dn_x = dotnet_call("s3:get",nHandle,"s16:StrokeMiterLimit")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:StrokeMiterLimit",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setStrokeMiterLimit P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:StrokeMiterLimit",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:StrokeMiterLimit",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:StrokeMiterLimit",P1)
 		return self
 
 	Func getStrokeDashOffset
 		dn_x = dotnet_call("s3:get",nHandle,"s16:StrokeDashOffset")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:StrokeDashOffset",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setStrokeDashOffset P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:StrokeDashOffset",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:StrokeDashOffset",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:StrokeDashOffset",P1)
 		return self
 
 	Func getStrokeDashArray
-		return dnSend("s3:get",nHandle,"s15:StrokeDashArray","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StrokeDashArray"))
 
 	Func setStrokeDashArray P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:StrokeDashArray",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:StrokeDashArray",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:StrokeDashArray",P1)
 		return self
 
 	Func getStretchProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s15:StretchProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Shape, PresentationFramework',"s15:StretchProperty"))
 
 	Func setStretchProperty P1
 		raise("DotNet Error: StretchProperty is a read-only property")
 
 	Func getFillProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s12:FillProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Shape, PresentationFramework',"s12:FillProperty"))
 
 	Func setFillProperty P1
 		raise("DotNet Error: FillProperty is a read-only property")
 
 	Func getStrokeProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s14:StrokeProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Shape, PresentationFramework',"s14:StrokeProperty"))
 
 	Func setStrokeProperty P1
 		raise("DotNet Error: StrokeProperty is a read-only property")
 
 	Func getStrokeThicknessProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s23:StrokeThicknessProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Shape, PresentationFramework',"s23:StrokeThicknessProperty"))
 
 	Func setStrokeThicknessProperty P1
 		raise("DotNet Error: StrokeThicknessProperty is a read-only property")
 
 	Func getStrokeStartLineCapProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s26:StrokeStartLineCapProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Shape, PresentationFramework',"s26:StrokeStartLineCapProperty"))
 
 	Func setStrokeStartLineCapProperty P1
 		raise("DotNet Error: StrokeStartLineCapProperty is a read-only property")
 
 	Func getStrokeEndLineCapProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s24:StrokeEndLineCapProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Shape, PresentationFramework',"s24:StrokeEndLineCapProperty"))
 
 	Func setStrokeEndLineCapProperty P1
 		raise("DotNet Error: StrokeEndLineCapProperty is a read-only property")
 
 	Func getStrokeDashCapProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s21:StrokeDashCapProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Shape, PresentationFramework',"s21:StrokeDashCapProperty"))
 
 	Func setStrokeDashCapProperty P1
 		raise("DotNet Error: StrokeDashCapProperty is a read-only property")
 
 	Func getStrokeLineJoinProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s22:StrokeLineJoinProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Shape, PresentationFramework',"s22:StrokeLineJoinProperty"))
 
 	Func setStrokeLineJoinProperty P1
 		raise("DotNet Error: StrokeLineJoinProperty is a read-only property")
 
 	Func getStrokeMiterLimitProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s24:StrokeMiterLimitProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Shape, PresentationFramework',"s24:StrokeMiterLimitProperty"))
 
 	Func setStrokeMiterLimitProperty P1
 		raise("DotNet Error: StrokeMiterLimitProperty is a read-only property")
 
 	Func getStrokeDashOffsetProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s24:StrokeDashOffsetProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Shape, PresentationFramework',"s24:StrokeDashOffsetProperty"))
 
 	Func setStrokeDashOffsetProperty P1
 		raise("DotNet Error: StrokeDashOffsetProperty is a read-only property")
 
 	Func getStrokeDashArrayProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Shape, PresentationFramework'),"s23:StrokeDashArrayProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Shape, PresentationFramework',"s23:StrokeDashArrayProperty"))
 
 	Func setStrokeDashArrayProperty P1
 		raise("DotNet Error: StrokeDashArrayProperty is a read-only property")
@@ -302,64 +291,60 @@ Class Line from Shape
 
 	Func getX1
 		dn_x = dotnet_call("s3:get",nHandle,"s2:X1")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:X1",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setX1 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s2:X1",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s2:X1",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s2:X1",P1)
 		return self
 
 	Func getY1
 		dn_x = dotnet_call("s3:get",nHandle,"s2:Y1")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Y1",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setY1 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s2:Y1",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s2:Y1",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s2:Y1",P1)
 		return self
 
 	Func getX2
 		dn_x = dotnet_call("s3:get",nHandle,"s2:X2")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:X2",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setX2 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s2:X2",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s2:X2",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s2:X2",P1)
 		return self
 
 	Func getY2
 		dn_x = dotnet_call("s3:get",nHandle,"s2:Y2")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s2:Y2",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setY2 P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s2:Y2",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s2:Y2",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s2:Y2",P1)
 		return self
 
 	Func getX1Property
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Line, PresentationFramework'),"s10:X1Property","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Line, PresentationFramework',"s10:X1Property"))
 
 	Func setX1Property P1
 		raise("DotNet Error: X1Property is a read-only property")
 
 	Func getY1Property
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Line, PresentationFramework'),"s10:Y1Property","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Line, PresentationFramework',"s10:Y1Property"))
 
 	Func setY1Property P1
 		raise("DotNet Error: Y1Property is a read-only property")
 
 	Func getX2Property
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Line, PresentationFramework'),"s10:X2Property","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Line, PresentationFramework',"s10:X2Property"))
 
 	Func setX2Property P1
 		raise("DotNet Error: X2Property is a read-only property")
 
 	Func getY2Property
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Line, PresentationFramework'),"s10:Y2Property","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Line, PresentationFramework',"s10:Y2Property"))
 
 	Func setY2Property P1
 		raise("DotNet Error: Y2Property is a read-only property")
@@ -389,15 +374,14 @@ Class WpfPath from Shape
 		return self
 
 	Func getData
-		return dnSend("s3:get",nHandle,"s4:Data","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Data"))
 
 	Func setData P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s4:Data",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s4:Data",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s4:Data",P1)
 		return self
 
 	Func getDataProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Path, PresentationFramework'),"s12:DataProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Path, PresentationFramework',"s12:DataProperty"))
 
 	Func setDataProperty P1
 		raise("DotNet Error: DataProperty is a read-only property")
@@ -429,29 +413,27 @@ Class Polygon from Shape
 		return self
 
 	Func getPoints
-		return dnSend("s3:get",nHandle,"s6:Points","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Points"))
 
 	Func setPoints P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Points",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Points",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Points",P1)
 		return self
 
 	Func getFillRule
-		return dnSend("s3:get",nHandle,"s8:FillRule","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:FillRule"))
 
 	Func setFillRule P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:FillRule",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:FillRule",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:FillRule",P1)
 		return self
 
 	Func getPointsProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Polygon, PresentationFramework'),"s14:PointsProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Polygon, PresentationFramework',"s14:PointsProperty"))
 
 	Func setPointsProperty P1
 		raise("DotNet Error: PointsProperty is a read-only property")
 
 	Func getFillRuleProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Polygon, PresentationFramework'),"s16:FillRuleProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Polygon, PresentationFramework',"s16:FillRuleProperty"))
 
 	Func setFillRuleProperty P1
 		raise("DotNet Error: FillRuleProperty is a read-only property")
@@ -483,29 +465,27 @@ Class Polyline from Shape
 		return self
 
 	Func getPoints
-		return dnSend("s3:get",nHandle,"s6:Points","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Points"))
 
 	Func setPoints P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Points",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Points",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Points",P1)
 		return self
 
 	Func getFillRule
-		return dnSend("s3:get",nHandle,"s8:FillRule","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:FillRule"))
 
 	Func setFillRule P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:FillRule",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:FillRule",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:FillRule",P1)
 		return self
 
 	Func getPointsProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Polyline, PresentationFramework'),"s14:PointsProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Polyline, PresentationFramework',"s14:PointsProperty"))
 
 	Func setPointsProperty P1
 		raise("DotNet Error: PointsProperty is a read-only property")
 
 	Func getFillRuleProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Polyline, PresentationFramework'),"s16:FillRuleProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Polyline, PresentationFramework',"s16:FillRuleProperty"))
 
 	Func setFillRuleProperty P1
 		raise("DotNet Error: FillRuleProperty is a read-only property")
@@ -538,32 +518,30 @@ Class WpfRectangle from Shape
 
 	Func getRadiusX
 		dn_x = dotnet_call("s3:get",nHandle,"s7:RadiusX")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:RadiusX",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRadiusX P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:RadiusX",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:RadiusX",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:RadiusX",P1)
 		return self
 
 	Func getRadiusY
 		dn_x = dotnet_call("s3:get",nHandle,"s7:RadiusY")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:RadiusY",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRadiusY P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:RadiusY",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:RadiusY",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:RadiusY",P1)
 		return self
 
 	Func getRadiusXProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Rectangle, PresentationFramework'),"s15:RadiusXProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Rectangle, PresentationFramework',"s15:RadiusXProperty"))
 
 	Func setRadiusXProperty P1
 		raise("DotNet Error: RadiusXProperty is a read-only property")
 
 	Func getRadiusYProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Shapes.Rectangle, PresentationFramework'),"s15:RadiusYProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Shapes.Rectangle, PresentationFramework',"s15:RadiusYProperty"))
 
 	Func setRadiusYProperty P1
 		raise("DotNet Error: RadiusYProperty is a read-only property")

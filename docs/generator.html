@@ -271,18 +271,18 @@ ring gendotnet.ring System.Text System.IO # only these</code></pre></div>
 
 	<span class="k">Func</span> <span class="f">Contains</span> P1
 		dn_x = dotnet_call(<span class="s">"s4:call"</span>,nHandle,<span class="s">"s8:Contains"</span>,P1)
-		<span class="k">if</span> islist(dn_x) <span class="k">return</span> <span class="f">dnLate</span>(dn_x,<span class="s">"s4:call"</span>,nHandle,<span class="s">"s8:Contains"</span>,[P1]) <span class="k">ok</span>
+		<span class="k">if</span> islist(dn_x) <span class="k">return</span> <span class="f">dnFinish</span>(dn_x[<span class="n">2</span>]) <span class="k">ok</span>
 		<span class="k">return</span> dn_x
 
 	<span class="k">Func</span> <span class="f">Append</span> P1
-		<span class="k">return</span> <span class="f">dnSend</span>(<span class="s">"s4:call"</span>,nHandle,<span class="s">"s6:Append"</span>,<span class="f">dnPackItem</span>(P1))
+		<span class="k">return</span> <span class="f">dnObj</span>(dotnet_callo(<span class="s">"s4:call"</span>,nHandle,<span class="s">"s6:Append"</span>,P1))
 
 	<span class="k">Func</span> <span class="f">getLength</span>
 		dn_x = dotnet_call(<span class="s">"s3:get"</span>,nHandle,<span class="s">"s6:Length"</span>)
-		<span class="k">if</span> islist(dn_x) <span class="k">return</span> <span class="f">dnLate</span>(dn_x,<span class="s">"s3:get"</span>,nHandle,<span class="s">"s6:Length"</span>,[]) <span class="k">ok</span>
+		<span class="k">if</span> islist(dn_x) <span class="k">return</span> <span class="f">dnFinish</span>(dn_x[<span class="n">2</span>]) <span class="k">ok</span>
 		<span class="k">return</span> dn_x</code></pre></div>
-<p>Ring calls <code>getLength()</code> when you read <code>oSB.Length</code>, and <code>setLength(value)</code> when you assign to it. A generated method does not make a target object or a list for the request: it passes the handle as a number and the parts that never change (the operation <code>call</code> and the name) as ready wire items.</p>
-<ul><li>A method that returns a <strong>text, a number, a yes/no or nothing</strong> calls the C function <code>dotnet_call</code> (<code>dotnet_callv</code> for nothing). It packs the arguments (texts and numbers), calls .NET and reads the answer in C: about 2 to 3 µs for a call. When it cannot finish (an argument is an object or a list, or the answer is an object or null) it answers a list, and the Ring function <code>dnLate</code> does the rest.</li><li>Any other method (it returns an object, or has <code>out</code> parameters) uses <code>dnSend</code>, the same request made in Ring.</li><li>The calls with named arguments (<code>callnamed</code>) also use <code>dnSend</code>.</li></ul>
+<p>Ring calls <code>getLength()</code> when you read <code>oSB.Length</code>, and <code>setLength(value)</code> when you assign to it. A generated method does not make a target object or a list for the request: it passes the handle as a number and the parts that never change (the operation <code>call</code> and the name) as ready wire items, and a C function of the extension packs the arguments, calls .NET and reads the answer:</p>
+<ul><li><code>dotnet_call</code> for a method that returns a <strong>text, a number or a yes/no</strong>: the answer is that Ring value, about 2 to 3 µs for a call.</li><li><code>dotnet_callv</code> for a method that returns <strong>nothing</strong>.</li><li><code>dotnet_callo</code> for a method that returns an <strong>object</strong>: it answers the type and the handle, and the Ring function <code>dnObj</code> makes the object of the generated class.</li><li>The arguments can be texts, numbers, lists, .NET objects and callbacks; an error of .NET is raised as a Ring error. An answer that the function does not expect (null, for example) comes back as a list that <code>dnFinish</code> reads.</li><li>A method with <code>out</code> or <code>ref</code> parameters, and the calls with named arguments (<code>callnamed</code>), use <code>dnSend</code>, the same request made in Ring.</li></ul>
 <h2 id="wrapping-your-own-assembly">Wrapping your own assembly<a class="anchor" href="#wrapping-your-own-assembly">#</a></h2>
 <p><code>tools/dotnettools/wrapassembly.ring</code> uses the same generator for a single DLL: <a href="own-assemblies.html">Your own assemblies</a>.</p>
 <h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>

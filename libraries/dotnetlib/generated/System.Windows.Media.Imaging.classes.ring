@@ -229,38 +229,38 @@ Class BitmapCodecInfo from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getContainerFormat
-		return dnSend("s3:get",nHandle,"s15:ContainerFormat","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ContainerFormat"))
 
 	Func setContainerFormat P1
 		raise("DotNet Error: ContainerFormat is a read-only property")
 
 	Func getAuthor
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Author")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Author",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAuthor P1
 		raise("DotNet Error: Author is a read-only property")
 
 	Func getVersion
-		return dnSend("s3:get",nHandle,"s7:Version","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Version"))
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getSpecificationVersion
-		return dnSend("s3:get",nHandle,"s20:SpecificationVersion","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s20:SpecificationVersion"))
 
 	Func setSpecificationVersion P1
 		raise("DotNet Error: SpecificationVersion is a read-only property")
 
 	Func getFriendlyName
 		dn_x = dotnet_call("s3:get",nHandle,"s12:FriendlyName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:FriendlyName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFriendlyName P1
@@ -268,7 +268,7 @@ Class BitmapCodecInfo from Object
 
 	Func getDeviceManufacturer
 		dn_x = dotnet_call("s3:get",nHandle,"s18:DeviceManufacturer")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:DeviceManufacturer",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDeviceManufacturer P1
@@ -276,7 +276,7 @@ Class BitmapCodecInfo from Object
 
 	Func getDeviceModels
 		dn_x = dotnet_call("s3:get",nHandle,"s12:DeviceModels")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:DeviceModels",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDeviceModels P1
@@ -284,7 +284,7 @@ Class BitmapCodecInfo from Object
 
 	Func getMimeTypes
 		dn_x = dotnet_call("s3:get",nHandle,"s9:MimeTypes")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:MimeTypes",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setMimeTypes P1
@@ -292,7 +292,7 @@ Class BitmapCodecInfo from Object
 
 	Func getFileExtensions
 		dn_x = dotnet_call("s3:get",nHandle,"s14:FileExtensions")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:FileExtensions",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFileExtensions P1
@@ -300,7 +300,7 @@ Class BitmapCodecInfo from Object
 
 	Func getSupportsAnimation
 		dn_x = dotnet_call("s3:get",nHandle,"s17:SupportsAnimation")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:SupportsAnimation",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSupportsAnimation P1
@@ -308,7 +308,7 @@ Class BitmapCodecInfo from Object
 
 	Func getSupportsLossless
 		dn_x = dotnet_call("s3:get",nHandle,"s16:SupportsLossless")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:SupportsLossless",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSupportsLossless P1
@@ -316,7 +316,7 @@ Class BitmapCodecInfo from Object
 
 	Func getSupportsMultipleFrames
 		dn_x = dotnet_call("s3:get",nHandle,"s22:SupportsMultipleFrames")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s22:SupportsMultipleFrames",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSupportsMultipleFrames P1
@@ -344,7 +344,7 @@ Class BitmapDecoder from DispatcherObject
 		return self
 
 	Func CreateInPlaceBitmapMetadataWriter 
-		return dnSend("s4:call",nHandle,"s33:CreateInPlaceBitmapMetadataWriter","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s33:CreateInPlaceBitmapMetadataWriter"))
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -377,50 +377,50 @@ Class BitmapDecoder from DispatcherObject
 		return self
 
 	Func getPalette
-		return dnSend("s3:get",nHandle,"s7:Palette","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Palette"))
 
 	Func setPalette P1
 		raise("DotNet Error: Palette is a read-only property")
 
 	Func getColorContexts
-		return dnSend("s3:get",nHandle,"s13:ColorContexts","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ColorContexts"))
 
 	Func setColorContexts P1
 		raise("DotNet Error: ColorContexts is a read-only property")
 
 	Func getThumbnail
-		return dnSend("s3:get",nHandle,"s9:Thumbnail","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Thumbnail"))
 
 	Func setThumbnail P1
 		raise("DotNet Error: Thumbnail is a read-only property")
 
 	Func getMetadata
-		return dnSend("s3:get",nHandle,"s8:Metadata","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
 	Func getCodecInfo
-		return dnSend("s3:get",nHandle,"s9:CodecInfo","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:CodecInfo"))
 
 	Func setCodecInfo P1
 		raise("DotNet Error: CodecInfo is a read-only property")
 
 	Func getFrames
-		return dnSend("s3:get",nHandle,"s6:Frames","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Frames"))
 
 	Func setFrames P1
 		raise("DotNet Error: Frames is a read-only property")
 
 	Func getPreview
-		return dnSend("s3:get",nHandle,"s7:Preview","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Preview"))
 
 	Func setPreview P1
 		raise("DotNet Error: Preview is a read-only property")
 
 	Func getIsDownloading
 		dn_x = dotnet_call("s3:get",nHandle,"s13:IsDownloading")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IsDownloading",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsDownloading P1
@@ -447,66 +447,59 @@ Class BitmapEncoder from DispatcherObject
 		return self
 
 	Func Save P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s4:Save",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Save",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s4:Save",P1)
 
 		return self
 
 	Func Create P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Imaging.BitmapEncoder, PresentationCore'),"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Imaging.BitmapEncoder, PresentationCore',"s6:Create",P1))
 
 	Func getColorContexts
-		return dnSend("s3:get",nHandle,"s13:ColorContexts","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ColorContexts"))
 
 	Func setColorContexts P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:ColorContexts",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:ColorContexts",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:ColorContexts",P1)
 		return self
 
 	Func getThumbnail
-		return dnSend("s3:get",nHandle,"s9:Thumbnail","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Thumbnail"))
 
 	Func setThumbnail P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Thumbnail",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Thumbnail",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Thumbnail",P1)
 		return self
 
 	Func getMetadata
-		return dnSend("s3:get",nHandle,"s8:Metadata","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
 	Func setMetadata P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Metadata",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Metadata",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Metadata",P1)
 		return self
 
 	Func getPreview
-		return dnSend("s3:get",nHandle,"s7:Preview","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Preview"))
 
 	Func setPreview P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Preview",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Preview",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Preview",P1)
 		return self
 
 	Func getCodecInfo
-		return dnSend("s3:get",nHandle,"s9:CodecInfo","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:CodecInfo"))
 
 	Func setCodecInfo P1
 		raise("DotNet Error: CodecInfo is a read-only property")
 
 	Func getPalette
-		return dnSend("s3:get",nHandle,"s7:Palette","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Palette"))
 
 	Func setPalette P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Palette",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Palette",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Palette",P1)
 		return self
 
 	Func getFrames
-		return dnSend("s3:get",nHandle,"s6:Frames","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Frames"))
 
 	Func setFrames P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Frames",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Frames",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Frames",P1)
 		return self
 
 
@@ -540,28 +533,26 @@ Class BitmapMetadata from ImageMetadata
 		return self
 
 	Func SetQuery P1,P2
-		dn_x = dotnet_callv("s4:call",nHandle,"s8:SetQuery",P1,P2)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s8:SetQuery",dnPackItem(P1) + dnPackItem(P2)) ok
+		dotnet_callv("s4:call",nHandle,"s8:SetQuery",P1,P2)
 
 		return self
 
 	Func GetQuery P1
-		return dnSend("s4:call",nHandle,"s8:GetQuery",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetQuery",P1))
 
 	Func RemoveQuery P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s11:RemoveQuery",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s11:RemoveQuery",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s11:RemoveQuery",P1)
 
 		return self
 
 	Func ContainsQuery P1
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ContainsQuery",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s13:ContainsQuery",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getFormat
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Format")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Format",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFormat P1
@@ -569,7 +560,7 @@ Class BitmapMetadata from ImageMetadata
 
 	Func getLocation
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Location")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Location",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLocation P1
@@ -577,7 +568,7 @@ Class BitmapMetadata from ImageMetadata
 
 	Func getIsReadOnly
 		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:IsReadOnly",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsReadOnly P1
@@ -585,116 +576,105 @@ Class BitmapMetadata from ImageMetadata
 
 	Func getIsFixedSize
 		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:IsFixedSize",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getAuthor
-		return dnSend("s3:get",nHandle,"s6:Author","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Author"))
 
 	Func setAuthor P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Author",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Author",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Author",P1)
 		return self
 
 	Func getTitle
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Title")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s5:Title",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setTitle P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s5:Title",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s5:Title",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s5:Title",P1)
 		return self
 
 	Func getRating
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Rating")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s6:Rating",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setRating P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Rating",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Rating",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Rating",P1)
 		return self
 
 	Func getSubject
 		dn_x = dotnet_call("s3:get",nHandle,"s7:Subject")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Subject",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSubject P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Subject",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Subject",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Subject",P1)
 		return self
 
 	Func getComment
 		dn_x = dotnet_call("s3:get",nHandle,"s7:Comment")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s7:Comment",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setComment P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:Comment",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:Comment",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:Comment",P1)
 		return self
 
 	Func getDateTaken
 		dn_x = dotnet_call("s3:get",nHandle,"s9:DateTaken")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:DateTaken",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDateTaken P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:DateTaken",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:DateTaken",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:DateTaken",P1)
 		return self
 
 	Func getApplicationName
 		dn_x = dotnet_call("s3:get",nHandle,"s15:ApplicationName")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:ApplicationName",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setApplicationName P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:ApplicationName",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:ApplicationName",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:ApplicationName",P1)
 		return self
 
 	Func getCopyright
 		dn_x = dotnet_call("s3:get",nHandle,"s9:Copyright")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s9:Copyright",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCopyright P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Copyright",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Copyright",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Copyright",P1)
 		return self
 
 	Func getCameraManufacturer
 		dn_x = dotnet_call("s3:get",nHandle,"s18:CameraManufacturer")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:CameraManufacturer",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCameraManufacturer P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:CameraManufacturer",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:CameraManufacturer",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:CameraManufacturer",P1)
 		return self
 
 	Func getCameraModel
 		dn_x = dotnet_call("s3:get",nHandle,"s11:CameraModel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:CameraModel",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCameraModel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:CameraModel",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:CameraModel",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:CameraModel",P1)
 		return self
 
 	Func getKeywords
-		return dnSend("s3:get",nHandle,"s8:Keywords","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Keywords"))
 
 	Func setKeywords P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Keywords",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Keywords",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Keywords",P1)
 		return self
 
 
@@ -712,11 +692,11 @@ Class BitmapMetadataBlob from Object
 		return self
 
 	Func GetBlobValue 
-		return dnSend("s4:call",nHandle,"s12:GetBlobValue","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetBlobValue"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -751,7 +731,7 @@ Class BitmapPalette from DispatcherObject
 		return self
 
 	Func getColors
-		return dnSend("s3:get",nHandle,"s6:Colors","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Colors"))
 
 	Func setColors P1
 		raise("DotNet Error: Colors is a read-only property")
@@ -795,149 +775,149 @@ Class BitmapPalettes from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getBlackAndWhite
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s13:BlackAndWhite","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s13:BlackAndWhite"))
 
 	Func setBlackAndWhite P1
 		raise("DotNet Error: BlackAndWhite is a read-only property")
 
 	Func getBlackAndWhiteTransparent
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s24:BlackAndWhiteTransparent","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s24:BlackAndWhiteTransparent"))
 
 	Func setBlackAndWhiteTransparent P1
 		raise("DotNet Error: BlackAndWhiteTransparent is a read-only property")
 
 	Func getHalftone8
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s9:Halftone8","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s9:Halftone8"))
 
 	Func setHalftone8 P1
 		raise("DotNet Error: Halftone8 is a read-only property")
 
 	Func getHalftone8Transparent
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s20:Halftone8Transparent","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s20:Halftone8Transparent"))
 
 	Func setHalftone8Transparent P1
 		raise("DotNet Error: Halftone8Transparent is a read-only property")
 
 	Func getHalftone27
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s10:Halftone27","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s10:Halftone27"))
 
 	Func setHalftone27 P1
 		raise("DotNet Error: Halftone27 is a read-only property")
 
 	Func getHalftone27Transparent
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s21:Halftone27Transparent","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s21:Halftone27Transparent"))
 
 	Func setHalftone27Transparent P1
 		raise("DotNet Error: Halftone27Transparent is a read-only property")
 
 	Func getHalftone64
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s10:Halftone64","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s10:Halftone64"))
 
 	Func setHalftone64 P1
 		raise("DotNet Error: Halftone64 is a read-only property")
 
 	Func getHalftone64Transparent
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s21:Halftone64Transparent","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s21:Halftone64Transparent"))
 
 	Func setHalftone64Transparent P1
 		raise("DotNet Error: Halftone64Transparent is a read-only property")
 
 	Func getHalftone125
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s11:Halftone125","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s11:Halftone125"))
 
 	Func setHalftone125 P1
 		raise("DotNet Error: Halftone125 is a read-only property")
 
 	Func getHalftone125Transparent
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s22:Halftone125Transparent","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s22:Halftone125Transparent"))
 
 	Func setHalftone125Transparent P1
 		raise("DotNet Error: Halftone125Transparent is a read-only property")
 
 	Func getHalftone216
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s11:Halftone216","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s11:Halftone216"))
 
 	Func setHalftone216 P1
 		raise("DotNet Error: Halftone216 is a read-only property")
 
 	Func getHalftone216Transparent
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s22:Halftone216Transparent","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s22:Halftone216Transparent"))
 
 	Func setHalftone216Transparent P1
 		raise("DotNet Error: Halftone216Transparent is a read-only property")
 
 	Func getHalftone252
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s11:Halftone252","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s11:Halftone252"))
 
 	Func setHalftone252 P1
 		raise("DotNet Error: Halftone252 is a read-only property")
 
 	Func getHalftone252Transparent
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s22:Halftone252Transparent","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s22:Halftone252Transparent"))
 
 	Func setHalftone252Transparent P1
 		raise("DotNet Error: Halftone252Transparent is a read-only property")
 
 	Func getHalftone256
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s11:Halftone256","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s11:Halftone256"))
 
 	Func setHalftone256 P1
 		raise("DotNet Error: Halftone256 is a read-only property")
 
 	Func getHalftone256Transparent
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s22:Halftone256Transparent","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s22:Halftone256Transparent"))
 
 	Func setHalftone256Transparent P1
 		raise("DotNet Error: Halftone256Transparent is a read-only property")
 
 	Func getGray4
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s5:Gray4","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s5:Gray4"))
 
 	Func setGray4 P1
 		raise("DotNet Error: Gray4 is a read-only property")
 
 	Func getGray4Transparent
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s16:Gray4Transparent","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s16:Gray4Transparent"))
 
 	Func setGray4Transparent P1
 		raise("DotNet Error: Gray4Transparent is a read-only property")
 
 	Func getGray16
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s6:Gray16","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s6:Gray16"))
 
 	Func setGray16 P1
 		raise("DotNet Error: Gray16 is a read-only property")
 
 	Func getGray16Transparent
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s17:Gray16Transparent","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s17:Gray16Transparent"))
 
 	Func setGray16Transparent P1
 		raise("DotNet Error: Gray16Transparent is a read-only property")
 
 	Func getGray256
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s7:Gray256","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s7:Gray256"))
 
 	Func setGray256 P1
 		raise("DotNet Error: Gray256 is a read-only property")
 
 	Func getGray256Transparent
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s18:Gray256Transparent","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s18:Gray256Transparent"))
 
 	Func setGray256Transparent P1
 		raise("DotNet Error: Gray256Transparent is a read-only property")
 
 	Func getWebPalette
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s10:WebPalette","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s10:WebPalette"))
 
 	Func setWebPalette P1
 		raise("DotNet Error: WebPalette is a read-only property")
 
 	Func getWebPaletteTransparent
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"s21:WebPaletteTransparent","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapPalettes, PresentationCore',"s21:WebPaletteTransparent"))
 
 	Func setWebPaletteTransparent P1
 		raise("DotNet Error: WebPaletteTransparent is a read-only property")
@@ -961,27 +941,27 @@ Class BitmapSizeOptions from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s6:Equals",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FromEmptyOptions 
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"s16:FromEmptyOptions","")
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore',"s16:FromEmptyOptions"))
 
 	Func FromHeight P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"s10:FromHeight",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore',"s10:FromHeight",P1))
 
 	Func FromWidth P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"s9:FromWidth",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore',"s9:FromWidth",P1))
 
 	Func FromWidthAndHeight P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"s18:FromWidthAndHeight",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore',"s18:FromWidthAndHeight",P1,P2))
 
 	Func FromRotation P1
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"s12:FromRotation",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore',"s12:FromRotation",P1))
 
 	Func getPreservesAspectRatio
 		dn_x = dotnet_call("s3:get",nHandle,"s20:PreservesAspectRatio")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:PreservesAspectRatio",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPreservesAspectRatio P1
@@ -989,7 +969,7 @@ Class BitmapSizeOptions from Object
 
 	Func getPixelWidth
 		dn_x = dotnet_call("s3:get",nHandle,"s10:PixelWidth")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:PixelWidth",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPixelWidth P1
@@ -997,14 +977,14 @@ Class BitmapSizeOptions from Object
 
 	Func getPixelHeight
 		dn_x = dotnet_call("s3:get",nHandle,"s11:PixelHeight")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:PixelHeight",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPixelHeight P1
 		raise("DotNet Error: PixelHeight is a read-only property")
 
 	Func getRotation
-		return dnSend("s3:get",nHandle,"s8:Rotation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Rotation"))
 
 	Func setRotation P1
 		raise("DotNet Error: Rotation is a read-only property")
@@ -1075,14 +1055,14 @@ Class BitmapSource from ImageSource
 		return self
 
 	Func getFormat
-		return dnSend("s3:get",nHandle,"s6:Format","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Format"))
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getPixelWidth
 		dn_x = dotnet_call("s3:get",nHandle,"s10:PixelWidth")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s10:PixelWidth",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPixelWidth P1
@@ -1090,7 +1070,7 @@ Class BitmapSource from ImageSource
 
 	Func getPixelHeight
 		dn_x = dotnet_call("s3:get",nHandle,"s11:PixelHeight")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s11:PixelHeight",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setPixelHeight P1
@@ -1098,7 +1078,7 @@ Class BitmapSource from ImageSource
 
 	Func getDpiX
 		dn_x = dotnet_call("s3:get",nHandle,"s4:DpiX")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:DpiX",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDpiX P1
@@ -1106,21 +1086,21 @@ Class BitmapSource from ImageSource
 
 	Func getDpiY
 		dn_x = dotnet_call("s3:get",nHandle,"s4:DpiY")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s4:DpiY",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDpiY P1
 		raise("DotNet Error: DpiY is a read-only property")
 
 	Func getPalette
-		return dnSend("s3:get",nHandle,"s7:Palette","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Palette"))
 
 	Func setPalette P1
 		raise("DotNet Error: Palette is a read-only property")
 
 	Func getIsDownloading
 		dn_x = dotnet_call("s3:get",nHandle,"s13:IsDownloading")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IsDownloading",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIsDownloading P1
@@ -1142,7 +1122,7 @@ Class DownloadProgressEventArgs from EventArgs
 
 	Func getProgress
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Progress")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Progress",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setProgress P1
@@ -1166,36 +1146,35 @@ Class BitmapFrame from BitmapSource
 		return self
 
 	Func CreateInPlaceBitmapMetadataWriter 
-		return dnSend("s4:call",nHandle,"s33:CreateInPlaceBitmapMetadataWriter","")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s33:CreateInPlaceBitmapMetadataWriter"))
 
 	Func Create P1
 		if dnIsNamed(P1)
 			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Imaging.BitmapFrame, PresentationCore'),"s6:Create",dnPackItem(P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Windows.Media.Imaging.BitmapFrame, PresentationCore'),"s6:Create",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Imaging.BitmapFrame, PresentationCore',"s6:Create",P1))
 
 	Func getBaseUri
-		return dnSend("s3:get",nHandle,"s7:BaseUri","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:BaseUri"))
 
 	Func setBaseUri P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:BaseUri",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:BaseUri",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:BaseUri",P1)
 		return self
 
 	Func getThumbnail
-		return dnSend("s3:get",nHandle,"s9:Thumbnail","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Thumbnail"))
 
 	Func setThumbnail P1
 		raise("DotNet Error: Thumbnail is a read-only property")
 
 	Func getDecoder
-		return dnSend("s3:get",nHandle,"s7:Decoder","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Decoder"))
 
 	Func setDecoder P1
 		raise("DotNet Error: Decoder is a read-only property")
 
 	Func getColorContexts
-		return dnSend("s3:get",nHandle,"s13:ColorContexts","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ColorContexts"))
 
 	Func setColorContexts P1
 		raise("DotNet Error: ColorContexts is a read-only property")
@@ -1258,151 +1237,139 @@ Class BitmapImage from BitmapSource
 		return self
 
 	Func BeginInit 
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:BeginInit","") ok
+		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
 
 		return self
 
 	Func EndInit 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:EndInit")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:EndInit","") ok
+		dotnet_callv("s4:call",nHandle,"s7:EndInit")
 
 		return self
 
 	Func getBaseUri
-		return dnSend("s3:get",nHandle,"s7:BaseUri","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:BaseUri"))
 
 	Func setBaseUri P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s7:BaseUri",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s7:BaseUri",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s7:BaseUri",P1)
 		return self
 
 	Func getUriCachePolicy
-		return dnSend("s3:get",nHandle,"s14:UriCachePolicy","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s14:UriCachePolicy"))
 
 	Func setUriCachePolicy P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:UriCachePolicy",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:UriCachePolicy",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:UriCachePolicy",P1)
 		return self
 
 	Func getUriSource
-		return dnSend("s3:get",nHandle,"s9:UriSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:UriSource"))
 
 	Func setUriSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:UriSource",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:UriSource",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:UriSource",P1)
 		return self
 
 	Func getStreamSource
-		return dnSend("s3:get",nHandle,"s12:StreamSource","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s12:StreamSource"))
 
 	Func setStreamSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:StreamSource",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:StreamSource",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:StreamSource",P1)
 		return self
 
 	Func getDecodePixelWidth
 		dn_x = dotnet_call("s3:get",nHandle,"s16:DecodePixelWidth")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:DecodePixelWidth",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDecodePixelWidth P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:DecodePixelWidth",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:DecodePixelWidth",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:DecodePixelWidth",P1)
 		return self
 
 	Func getDecodePixelHeight
 		dn_x = dotnet_call("s3:get",nHandle,"s17:DecodePixelHeight")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:DecodePixelHeight",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setDecodePixelHeight P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:DecodePixelHeight",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:DecodePixelHeight",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:DecodePixelHeight",P1)
 		return self
 
 	Func getRotation
-		return dnSend("s3:get",nHandle,"s8:Rotation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Rotation"))
 
 	Func setRotation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Rotation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Rotation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Rotation",P1)
 		return self
 
 	Func getSourceRect
-		return dnSend("s3:get",nHandle,"s10:SourceRect","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:SourceRect"))
 
 	Func setSourceRect P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:SourceRect",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:SourceRect",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:SourceRect",P1)
 		return self
 
 	Func getCreateOptions
-		return dnSend("s3:get",nHandle,"s13:CreateOptions","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s13:CreateOptions"))
 
 	Func setCreateOptions P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:CreateOptions",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:CreateOptions",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:CreateOptions",P1)
 		return self
 
 	Func getCacheOption
-		return dnSend("s3:get",nHandle,"s11:CacheOption","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:CacheOption"))
 
 	Func setCacheOption P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:CacheOption",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:CacheOption",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:CacheOption",P1)
 		return self
 
 	Func getUriCachePolicyProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s22:UriCachePolicyProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapImage, PresentationCore',"s22:UriCachePolicyProperty"))
 
 	Func setUriCachePolicyProperty P1
 		raise("DotNet Error: UriCachePolicyProperty is a read-only property")
 
 	Func getUriSourceProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s17:UriSourceProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapImage, PresentationCore',"s17:UriSourceProperty"))
 
 	Func setUriSourceProperty P1
 		raise("DotNet Error: UriSourceProperty is a read-only property")
 
 	Func getStreamSourceProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s20:StreamSourceProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapImage, PresentationCore',"s20:StreamSourceProperty"))
 
 	Func setStreamSourceProperty P1
 		raise("DotNet Error: StreamSourceProperty is a read-only property")
 
 	Func getDecodePixelWidthProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s24:DecodePixelWidthProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapImage, PresentationCore',"s24:DecodePixelWidthProperty"))
 
 	Func setDecodePixelWidthProperty P1
 		raise("DotNet Error: DecodePixelWidthProperty is a read-only property")
 
 	Func getDecodePixelHeightProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s25:DecodePixelHeightProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapImage, PresentationCore',"s25:DecodePixelHeightProperty"))
 
 	Func setDecodePixelHeightProperty P1
 		raise("DotNet Error: DecodePixelHeightProperty is a read-only property")
 
 	Func getRotationProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s16:RotationProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapImage, PresentationCore',"s16:RotationProperty"))
 
 	Func setRotationProperty P1
 		raise("DotNet Error: RotationProperty is a read-only property")
 
 	Func getSourceRectProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s18:SourceRectProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapImage, PresentationCore',"s18:SourceRectProperty"))
 
 	Func setSourceRectProperty P1
 		raise("DotNet Error: SourceRectProperty is a read-only property")
 
 	Func getCreateOptionsProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s21:CreateOptionsProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapImage, PresentationCore',"s21:CreateOptionsProperty"))
 
 	Func setCreateOptionsProperty P1
 		raise("DotNet Error: CreateOptionsProperty is a read-only property")
 
 	Func getCacheOptionProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"s19:CacheOptionProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.BitmapImage, PresentationCore',"s19:CacheOptionProperty"))
 
 	Func setCacheOptionProperty P1
 		raise("DotNet Error: CacheOptionProperty is a read-only property")
@@ -1503,69 +1470,63 @@ Class ColorConvertedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:BeginInit","") ok
+		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
 
 		return self
 
 	Func EndInit 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:EndInit")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:EndInit","") ok
+		dotnet_callv("s4:call",nHandle,"s7:EndInit")
 
 		return self
 
 	Func getSource
-		return dnSend("s3:get",nHandle,"s6:Source","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Source"))
 
 	Func setSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Source",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Source",P1)
 		return self
 
 	Func getSourceColorContext
-		return dnSend("s3:get",nHandle,"s18:SourceColorContext","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:SourceColorContext"))
 
 	Func setSourceColorContext P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:SourceColorContext",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:SourceColorContext",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:SourceColorContext",P1)
 		return self
 
 	Func getDestinationColorContext
-		return dnSend("s3:get",nHandle,"s23:DestinationColorContext","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s23:DestinationColorContext"))
 
 	Func setDestinationColorContext P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s23:DestinationColorContext",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s23:DestinationColorContext",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s23:DestinationColorContext",P1)
 		return self
 
 	Func getDestinationFormat
-		return dnSend("s3:get",nHandle,"s17:DestinationFormat","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:DestinationFormat"))
 
 	Func setDestinationFormat P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:DestinationFormat",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:DestinationFormat",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:DestinationFormat",P1)
 		return self
 
 	Func getSourceProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore'),"s14:SourceProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',"s14:SourceProperty"))
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
 
 	Func getSourceColorContextProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore'),"s26:SourceColorContextProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',"s26:SourceColorContextProperty"))
 
 	Func setSourceColorContextProperty P1
 		raise("DotNet Error: SourceColorContextProperty is a read-only property")
 
 	Func getDestinationColorContextProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore'),"s31:DestinationColorContextProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',"s31:DestinationColorContextProperty"))
 
 	Func setDestinationColorContextProperty P1
 		raise("DotNet Error: DestinationColorContextProperty is a read-only property")
 
 	Func getDestinationFormatProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore'),"s25:DestinationFormatProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',"s25:DestinationFormatProperty"))
 
 	Func setDestinationFormatProperty P1
 		raise("DotNet Error: DestinationFormatProperty is a read-only property")
@@ -1613,41 +1574,37 @@ Class CroppedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:BeginInit","") ok
+		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
 
 		return self
 
 	Func EndInit 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:EndInit")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:EndInit","") ok
+		dotnet_callv("s4:call",nHandle,"s7:EndInit")
 
 		return self
 
 	Func getSource
-		return dnSend("s3:get",nHandle,"s6:Source","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Source"))
 
 	Func setSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Source",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Source",P1)
 		return self
 
 	Func getSourceRect
-		return dnSend("s3:get",nHandle,"s10:SourceRect","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:SourceRect"))
 
 	Func setSourceRect P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s10:SourceRect",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s10:SourceRect",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s10:SourceRect",P1)
 		return self
 
 	Func getSourceProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore'),"s14:SourceProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',"s14:SourceProperty"))
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
 
 	Func getSourceRectProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore'),"s18:SourceRectProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',"s18:SourceRectProperty"))
 
 	Func setSourceRectProperty P1
 		raise("DotNet Error: SourceRectProperty is a read-only property")
@@ -1699,71 +1656,65 @@ Class FormatConvertedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:BeginInit","") ok
+		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
 
 		return self
 
 	Func EndInit 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:EndInit")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:EndInit","") ok
+		dotnet_callv("s4:call",nHandle,"s7:EndInit")
 
 		return self
 
 	Func getSource
-		return dnSend("s3:get",nHandle,"s6:Source","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Source"))
 
 	Func setSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Source",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Source",P1)
 		return self
 
 	Func getDestinationFormat
-		return dnSend("s3:get",nHandle,"s17:DestinationFormat","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s17:DestinationFormat"))
 
 	Func setDestinationFormat P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:DestinationFormat",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:DestinationFormat",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:DestinationFormat",P1)
 		return self
 
 	Func getDestinationPalette
-		return dnSend("s3:get",nHandle,"s18:DestinationPalette","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s18:DestinationPalette"))
 
 	Func setDestinationPalette P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:DestinationPalette",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:DestinationPalette",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:DestinationPalette",P1)
 		return self
 
 	Func getAlphaThreshold
 		dn_x = dotnet_call("s3:get",nHandle,"s14:AlphaThreshold")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:AlphaThreshold",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAlphaThreshold P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:AlphaThreshold",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:AlphaThreshold",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:AlphaThreshold",P1)
 		return self
 
 	Func getSourceProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore'),"s14:SourceProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',"s14:SourceProperty"))
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
 
 	Func getDestinationFormatProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore'),"s25:DestinationFormatProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',"s25:DestinationFormatProperty"))
 
 	Func setDestinationFormatProperty P1
 		raise("DotNet Error: DestinationFormatProperty is a read-only property")
 
 	Func getDestinationPaletteProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore'),"s26:DestinationPaletteProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',"s26:DestinationPaletteProperty"))
 
 	Func setDestinationPaletteProperty P1
 		raise("DotNet Error: DestinationPaletteProperty is a read-only property")
 
 	Func getAlphaThresholdProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore'),"s22:AlphaThresholdProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',"s22:AlphaThresholdProperty"))
 
 	Func setAlphaThresholdProperty P1
 		raise("DotNet Error: AlphaThresholdProperty is a read-only property")
@@ -1831,7 +1782,7 @@ Class InPlaceBitmapMetadataWriter from BitmapMetadata
 
 	Func TrySave 
 		dn_x = dotnet_call("s4:call",nHandle,"s7:TrySave")
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:TrySave",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 
@@ -1876,40 +1827,36 @@ Class JpegBitmapEncoder from BitmapEncoder
 
 	Func getQualityLevel
 		dn_x = dotnet_call("s3:get",nHandle,"s12:QualityLevel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:QualityLevel",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setQualityLevel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:QualityLevel",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:QualityLevel",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:QualityLevel",P1)
 		return self
 
 	Func getRotation
-		return dnSend("s3:get",nHandle,"s8:Rotation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Rotation"))
 
 	Func setRotation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Rotation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Rotation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Rotation",P1)
 		return self
 
 	Func getFlipHorizontal
 		dn_x = dotnet_call("s3:get",nHandle,"s14:FlipHorizontal")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:FlipHorizontal",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFlipHorizontal P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:FlipHorizontal",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:FlipHorizontal",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:FlipHorizontal",P1)
 		return self
 
 	Func getFlipVertical
 		dn_x = dotnet_call("s3:get",nHandle,"s12:FlipVertical")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:FlipVertical",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFlipVertical P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:FlipVertical",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:FlipVertical",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:FlipVertical",P1)
 		return self
 
 
@@ -1927,7 +1874,7 @@ Class LateBoundBitmapDecoder from BitmapDecoder
 		return self
 
 	Func getDecoder
-		return dnSend("s3:get",nHandle,"s7:Decoder","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Decoder"))
 
 	Func setDecoder P1
 		raise("DotNet Error: Decoder is a read-only property")
@@ -1970,11 +1917,10 @@ Class PngBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getInterlace
-		return dnSend("s3:get",nHandle,"s9:Interlace","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Interlace"))
 
 	Func setInterlace P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Interlace",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Interlace",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Interlace",P1)
 		return self
 
 
@@ -1992,14 +1938,12 @@ Class RenderTargetBitmap from BitmapSource
 		return self
 
 	Func Render P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Render",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Render",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s6:Render",P1)
 
 		return self
 
 	Func Clear 
-		dn_x = dotnet_callv("s4:call",nHandle,"s5:Clear")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s5:Clear","") ok
+		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
@@ -2041,11 +1985,10 @@ Class TiffBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getCompression
-		return dnSend("s3:get",nHandle,"s11:Compression","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Compression"))
 
 	Func setCompression P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s11:Compression",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s11:Compression",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s11:Compression",P1)
 		return self
 
 
@@ -2091,41 +2034,37 @@ Class TransformedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dn_x = dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s9:BeginInit","") ok
+		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
 
 		return self
 
 	Func EndInit 
-		dn_x = dotnet_callv("s4:call",nHandle,"s7:EndInit")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s7:EndInit","") ok
+		dotnet_callv("s4:call",nHandle,"s7:EndInit")
 
 		return self
 
 	Func getSource
-		return dnSend("s3:get",nHandle,"s6:Source","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Source"))
 
 	Func setSource P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s6:Source",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s6:Source",P1)
 		return self
 
 	Func getTransform
-		return dnSend("s3:get",nHandle,"s9:Transform","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Transform"))
 
 	Func setTransform P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s9:Transform",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s9:Transform",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s9:Transform",P1)
 		return self
 
 	Func getSourceProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore'),"s14:SourceProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',"s14:SourceProperty"))
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
 
 	Func getTransformProperty
-		return dnSend("s3:get",dnTypeHandle('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore'),"s17:TransformProperty","")
+		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',"s17:TransformProperty"))
 
 	Func setTransformProperty P1
 		raise("DotNet Error: TransformProperty is a read-only property")
@@ -2186,180 +2125,162 @@ Class WmpBitmapEncoder from BitmapEncoder
 
 	Func getImageQualityLevel
 		dn_x = dotnet_call("s3:get",nHandle,"s17:ImageQualityLevel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:ImageQualityLevel",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setImageQualityLevel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:ImageQualityLevel",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:ImageQualityLevel",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:ImageQualityLevel",P1)
 		return self
 
 	Func getLossless
 		dn_x = dotnet_call("s3:get",nHandle,"s8:Lossless")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s8:Lossless",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setLossless P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Lossless",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Lossless",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Lossless",P1)
 		return self
 
 	Func getRotation
-		return dnSend("s3:get",nHandle,"s8:Rotation","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Rotation"))
 
 	Func setRotation P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s8:Rotation",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s8:Rotation",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s8:Rotation",P1)
 		return self
 
 	Func getFlipHorizontal
 		dn_x = dotnet_call("s3:get",nHandle,"s14:FlipHorizontal")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:FlipHorizontal",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFlipHorizontal P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:FlipHorizontal",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:FlipHorizontal",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:FlipHorizontal",P1)
 		return self
 
 	Func getFlipVertical
 		dn_x = dotnet_call("s3:get",nHandle,"s12:FlipVertical")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:FlipVertical",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFlipVertical P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:FlipVertical",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:FlipVertical",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:FlipVertical",P1)
 		return self
 
 	Func getUseCodecOptions
 		dn_x = dotnet_call("s3:get",nHandle,"s15:UseCodecOptions")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s15:UseCodecOptions",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setUseCodecOptions P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s15:UseCodecOptions",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s15:UseCodecOptions",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s15:UseCodecOptions",P1)
 		return self
 
 	Func getQualityLevel
 		dn_x = dotnet_call("s3:get",nHandle,"s12:QualityLevel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:QualityLevel",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setQualityLevel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:QualityLevel",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:QualityLevel",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:QualityLevel",P1)
 		return self
 
 	Func getSubsamplingLevel
 		dn_x = dotnet_call("s3:get",nHandle,"s16:SubsamplingLevel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:SubsamplingLevel",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setSubsamplingLevel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:SubsamplingLevel",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:SubsamplingLevel",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:SubsamplingLevel",P1)
 		return self
 
 	Func getOverlapLevel
 		dn_x = dotnet_call("s3:get",nHandle,"s12:OverlapLevel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s12:OverlapLevel",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setOverlapLevel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s12:OverlapLevel",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s12:OverlapLevel",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s12:OverlapLevel",P1)
 		return self
 
 	Func getHorizontalTileSlices
 		dn_x = dotnet_call("s3:get",nHandle,"s20:HorizontalTileSlices")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s20:HorizontalTileSlices",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setHorizontalTileSlices P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s20:HorizontalTileSlices",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s20:HorizontalTileSlices",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s20:HorizontalTileSlices",P1)
 		return self
 
 	Func getVerticalTileSlices
 		dn_x = dotnet_call("s3:get",nHandle,"s18:VerticalTileSlices")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s18:VerticalTileSlices",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setVerticalTileSlices P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s18:VerticalTileSlices",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s18:VerticalTileSlices",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s18:VerticalTileSlices",P1)
 		return self
 
 	Func getFrequencyOrder
 		dn_x = dotnet_call("s3:get",nHandle,"s14:FrequencyOrder")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s14:FrequencyOrder",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setFrequencyOrder P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s14:FrequencyOrder",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s14:FrequencyOrder",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s14:FrequencyOrder",P1)
 		return self
 
 	Func getInterleavedAlpha
 		dn_x = dotnet_call("s3:get",nHandle,"s16:InterleavedAlpha")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:InterleavedAlpha",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setInterleavedAlpha P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s16:InterleavedAlpha",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s16:InterleavedAlpha",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s16:InterleavedAlpha",P1)
 		return self
 
 	Func getAlphaQualityLevel
 		dn_x = dotnet_call("s3:get",nHandle,"s17:AlphaQualityLevel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s17:AlphaQualityLevel",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAlphaQualityLevel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s17:AlphaQualityLevel",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s17:AlphaQualityLevel",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s17:AlphaQualityLevel",P1)
 		return self
 
 	Func getCompressedDomainTranscode
 		dn_x = dotnet_call("s3:get",nHandle,"s25:CompressedDomainTranscode")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s25:CompressedDomainTranscode",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setCompressedDomainTranscode P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s25:CompressedDomainTranscode",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s25:CompressedDomainTranscode",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s25:CompressedDomainTranscode",P1)
 		return self
 
 	Func getImageDataDiscardLevel
 		dn_x = dotnet_call("s3:get",nHandle,"s21:ImageDataDiscardLevel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:ImageDataDiscardLevel",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setImageDataDiscardLevel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:ImageDataDiscardLevel",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:ImageDataDiscardLevel",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:ImageDataDiscardLevel",P1)
 		return self
 
 	Func getAlphaDataDiscardLevel
 		dn_x = dotnet_call("s3:get",nHandle,"s21:AlphaDataDiscardLevel")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s21:AlphaDataDiscardLevel",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setAlphaDataDiscardLevel P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s21:AlphaDataDiscardLevel",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s21:AlphaDataDiscardLevel",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s21:AlphaDataDiscardLevel",P1)
 		return self
 
 	Func getIgnoreOverlap
 		dn_x = dotnet_call("s3:get",nHandle,"s13:IgnoreOverlap")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s13:IgnoreOverlap",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setIgnoreOverlap P1
-		dn_x = dotnet_callv("s3:set",nHandle,"s13:IgnoreOverlap",P1)
-		if islist(dn_x) dnSend("s3:set",nHandle,"s13:IgnoreOverlap",dnPackItem(P1)) ok
+		dotnet_callv("s3:set",nHandle,"s13:IgnoreOverlap",P1)
 		return self
 
 
@@ -2395,25 +2316,22 @@ Class WriteableBitmap from BitmapSource
 		return self
 
 	Func AddDirtyRect P1
-		dn_x = dotnet_callv("s4:call",nHandle,"s12:AddDirtyRect",P1)
-		if islist(dn_x) dnSend("s4:call",nHandle,"s12:AddDirtyRect",dnPackItem(P1)) ok
+		dotnet_callv("s4:call",nHandle,"s12:AddDirtyRect",P1)
 
 		return self
 
 	Func Lock 
-		dn_x = dotnet_callv("s4:call",nHandle,"s4:Lock")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s4:Lock","") ok
+		dotnet_callv("s4:call",nHandle,"s4:Lock")
 
 		return self
 
 	Func TryLock P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:TryLock",P1)
-		if islist(dn_x) return dnLate(dn_x,"s4:call",nHandle,"s7:TryLock",[P1]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Unlock 
-		dn_x = dotnet_callv("s4:call",nHandle,"s6:Unlock")
-		if islist(dn_x) dnSend("s4:call",nHandle,"s6:Unlock","") ok
+		dotnet_callv("s4:call",nHandle,"s6:Unlock")
 
 		return self
 
@@ -2425,14 +2343,14 @@ Class WriteableBitmap from BitmapSource
 		raise("DotNet Error: WritePixels does not take one argument: use named arguments, WritePixels([ :parameter = value, ... ])")
 
 	Func getBackBuffer
-		return dnSend("s3:get",nHandle,"s10:BackBuffer","")
+		return dnObj(dotnet_callo("s3:get",nHandle,"s10:BackBuffer"))
 
 	Func setBackBuffer P1
 		raise("DotNet Error: BackBuffer is a read-only property")
 
 	Func getBackBufferStride
 		dn_x = dotnet_call("s3:get",nHandle,"s16:BackBufferStride")
-		if islist(dn_x) return dnLate(dn_x,"s3:get",nHandle,"s16:BackBufferStride",[]) ok
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func setBackBufferStride P1
