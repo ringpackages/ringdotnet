@@ -54,7 +54,7 @@ Class ContentDisposition from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Mime.ContentDisposition, System.Net.Mail',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -165,7 +165,7 @@ Class ContentType from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Mime.ContentType, System.Net.Mail',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

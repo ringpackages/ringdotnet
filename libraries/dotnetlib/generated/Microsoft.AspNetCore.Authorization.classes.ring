@@ -305,8 +305,8 @@ Class AuthorizationHandlerContext from Object
 		return self
 
 	Func Fail P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Fail",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Fail",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -389,7 +389,7 @@ Class AuthorizationMiddleware from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Authorization.AuthorizationMiddleware, Microsoft.AspNetCore.Authorization.Policy',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -498,8 +498,8 @@ Class AuthorizationPolicy from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization',"s7:Combine",P1))
 
 	Func CombineAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"s12:CombineAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization',"s12:CombineAsync",P1))
 		ok
 		raise("DotNet Error: CombineAsync does not take one argument: use named arguments, CombineAsync([ :parameter = value, ... ])")
 
@@ -542,8 +542,8 @@ Class AuthorizationPolicyBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Combine",P1))
 
 	Func RequireClaim P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:RequireClaim",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:RequireClaim",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:RequireClaim",P1))
 
@@ -605,8 +605,8 @@ Class AuthorizationResult from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization',"s7:Success"))
 
 	Func Failed P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization'),"s6:Failed",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization',"s6:Failed",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization',"s6:Failed"))
@@ -645,8 +645,8 @@ Class AuthorizationServiceExtensions from Object
 		return dn_x
 
 	Func AuthorizeAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authorization.AuthorizationServiceExtensions, Microsoft.AspNetCore.Authorization'),"s14:AuthorizeAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Authorization.AuthorizationServiceExtensions, Microsoft.AspNetCore.Authorization',"s14:AuthorizeAsync",P1))
 		ok
 		raise("DotNet Error: AuthorizeAsync does not take one argument: use named arguments, AuthorizeAsync([ :parameter = value, ... ])")
 

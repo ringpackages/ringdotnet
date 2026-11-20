@@ -389,7 +389,7 @@ Class FeatureCollection from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -460,8 +460,8 @@ Class FeatureCollectionExtensions from Object
 		return dn_x
 
 	Func GetRequiredFeature P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Features.FeatureCollectionExtensions, Microsoft.Extensions.Features'),"s18:GetRequiredFeature",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Features.FeatureCollectionExtensions, Microsoft.Extensions.Features',"s18:GetRequiredFeature",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Features.FeatureCollectionExtensions, Microsoft.Extensions.Features',"s18:GetRequiredFeature",P1))
 
@@ -483,7 +483,7 @@ Class FormFeature from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.Features.FormFeature, Microsoft.AspNetCore.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -501,8 +501,8 @@ Class FormFeature from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:ReadForm"))
 
 	Func ReadFormAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ReadFormAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ReadFormAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadFormAsync"))
@@ -1594,8 +1594,8 @@ Class IHttpResponseBodyFeature from DotNetObject
 		return self
 
 	Func StartAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:StartAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:StartAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync"))
@@ -1603,8 +1603,8 @@ Class IHttpResponseBodyFeature from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1))
 
 	Func SendFileAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SendFileAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SendFileAsync",P1))
 		ok
 		raise("DotNet Error: SendFileAsync does not take one argument: use named arguments, SendFileAsync([ :parameter = value, ... ])")
 
@@ -1777,8 +1777,8 @@ Class IHttpWebTransportFeature from DotNetObject
 		return self
 
 	Func AcceptAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:AcceptAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AcceptAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:AcceptAsync"))
@@ -2118,8 +2118,8 @@ Class IWebTransportSession from DotNetObject
 		return self
 
 	Func AcceptStreamAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:AcceptStreamAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AcceptStreamAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s17:AcceptStreamAsync"))
@@ -2127,8 +2127,8 @@ Class IWebTransportSession from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AcceptStreamAsync",P1))
 
 	Func OpenUnidirectionalStreamAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s29:OpenUnidirectionalStreamAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s29:OpenUnidirectionalStreamAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s29:OpenUnidirectionalStreamAsync"))
@@ -2314,7 +2314,7 @@ Class ResponseCookiesFeature from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature, Microsoft.AspNetCore.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

@@ -145,7 +145,7 @@ Class ConcurrentExclusiveSchedulerPair from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.ConcurrentExclusiveSchedulerPair, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -205,8 +205,8 @@ Class Parallel from Object
 		return dn_x
 
 	Func Invoke P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"s6:Invoke",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel',"s6:Invoke",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel',"s6:Invoke",P1)
@@ -214,26 +214,26 @@ Class Parallel from Object
 		return self
 
 	Func For_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"s3:For",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel',"s3:For",P1))
 		ok
 		raise("DotNet Error: For does not take one argument: use named arguments, For([ :parameter = value, ... ])")
 
 	Func ForEach_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"s7:ForEach",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel',"s7:ForEach",P1))
 		ok
 		raise("DotNet Error: ForEach does not take one argument: use named arguments, ForEach([ :parameter = value, ... ])")
 
 	Func ForAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"s8:ForAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel',"s8:ForAsync",P1))
 		ok
 		raise("DotNet Error: ForAsync does not take one argument: use named arguments, ForAsync([ :parameter = value, ... ])")
 
 	Func ForEachAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"s12:ForEachAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel',"s12:ForEachAsync",P1))
 		ok
 		raise("DotNet Error: ForEachAsync does not take one argument: use named arguments, ForEachAsync([ :parameter = value, ... ])")
 
@@ -416,7 +416,7 @@ Class Task from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.Task, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -431,8 +431,8 @@ Class Task from Object
 		return self
 
 	Func Start P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Start",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Start",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -445,8 +445,8 @@ Class Task from Object
 		return self
 
 	Func RunSynchronously P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s16:RunSynchronously",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s16:RunSynchronously",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -470,8 +470,10 @@ Class Task from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func Wait P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Wait",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s4:Wait",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dotnet_callv("s4:call",nHandle,"s4:Wait")
@@ -483,14 +485,14 @@ Class Task from Object
 		return dn_x
 
 	Func WaitAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:WaitAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:WaitAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:WaitAsync",P1))
 
 	Func ContinueWith P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:ContinueWith",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ContinueWith",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ContinueWith",P1))
 
@@ -503,16 +505,20 @@ Class Task from Object
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s5:Yield"))
 
 	Func WaitAll P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WaitAll",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:WaitAll",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:WaitAll",P1)
 
 		return self
 
 	Func WaitAny P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WaitAny",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:WaitAny",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:WaitAny",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -528,14 +534,14 @@ Class Task from Object
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s12:FromCanceled",P1))
 
 	Func Run P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s3:Run",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Threading.Tasks.Task, System.Private.CoreLib',"s3:Run",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s3:Run",P1))
 
 	Func Delay P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s5:Delay",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Threading.Tasks.Task, System.Private.CoreLib',"s5:Delay",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s5:Delay",P1))
 
@@ -543,8 +549,8 @@ Class Task from Object
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:WhenAll",P1))
 
 	Func WhenAny P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.Task, System.Private.CoreLib'),"s7:WhenAny",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:WhenAny",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s7:WhenAny",P1))
 
@@ -657,8 +663,8 @@ Class TaskAsyncEnumerableExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib',"s16:WithCancellation",P1,P2))
 
 	Func ToBlockingEnumerable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"s20:ToBlockingEnumerable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib',"s20:ToBlockingEnumerable",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib',"s20:ToBlockingEnumerable",P1))
 
@@ -687,7 +693,7 @@ Class TaskCompletionSource from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.TaskCompletionSource, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -722,8 +728,8 @@ Class TaskCompletionSource from Object
 		return dn_x
 
 	Func SetCanceled P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s11:SetCanceled",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s11:SetCanceled",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -736,8 +742,10 @@ Class TaskCompletionSource from Object
 		return self
 
 	Func TrySetCanceled P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:TrySetCanceled",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:TrySetCanceled",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s14:TrySetCanceled")
@@ -817,7 +825,7 @@ Class TaskFactory from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.TaskFactory, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -832,26 +840,26 @@ Class TaskFactory from Object
 		return self
 
 	Func StartNew P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:StartNew",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:StartNew",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:StartNew",P1))
 
 	Func FromAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:FromAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:FromAsync",P1))
 		ok
 		raise("DotNet Error: FromAsync does not take one argument: use named arguments, FromAsync([ :parameter = value, ... ])")
 
 	Func ContinueWhenAll P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:ContinueWhenAll",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:ContinueWhenAll",P1))
 		ok
 		raise("DotNet Error: ContinueWhenAll does not take one argument: use named arguments, ContinueWhenAll([ :parameter = value, ... ])")
 
 	Func ContinueWhenAny P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:ContinueWhenAny",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:ContinueWhenAny",P1))
 		ok
 		raise("DotNet Error: ContinueWhenAny does not take one argument: use named arguments, ContinueWhenAny([ :parameter = value, ... ])")
 
@@ -1035,7 +1043,7 @@ Class ValueTask from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.ValueTask, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1125,7 +1133,7 @@ Class StringTask from Task
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1167,7 +1175,7 @@ Class ObjectTask from Task
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1207,7 +1215,7 @@ Class NumberTask from Task
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1249,7 +1257,7 @@ Class IntTask from Task
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1291,7 +1299,7 @@ Class BoolTask from Task
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1333,7 +1341,7 @@ Class BytesTask from Task
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Byte[], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

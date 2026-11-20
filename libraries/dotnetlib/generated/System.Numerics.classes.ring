@@ -96,7 +96,7 @@ Class BigInteger from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.BigInteger, System.Runtime.Numerics',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -116,8 +116,8 @@ Class BigInteger from ValueType
 		return dn_x
 
 	Func ToByteArray P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:ToByteArray",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ToByteArray",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToByteArray"))
@@ -125,8 +125,10 @@ Class BigInteger from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToByteArray",P1))
 
 	Func GetByteCount P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:GetByteCount",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetByteCount",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s12:GetByteCount")
@@ -138,8 +140,10 @@ Class BigInteger from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -151,14 +155,16 @@ Class BigInteger from ValueType
 		return dn_x
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.BigInteger, System.Runtime.Numerics',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s5:Parse",P1))
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Numerics.BigInteger, System.Runtime.Numerics',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s8:TryParse",dnPackItem(P1))
 
@@ -192,8 +198,10 @@ Class BigInteger from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s6:Negate",P1))
 
 	Func Log P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.BigInteger, System.Runtime.Numerics'),"s3:Log",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Numerics.BigInteger, System.Runtime.Numerics',"s3:Log",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s3:Log",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -436,7 +444,7 @@ Class Complex from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.Complex, System.Runtime.Numerics',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -451,8 +459,10 @@ Class Complex from ValueType
 		return self
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -530,8 +540,8 @@ Class Complex from ValueType
 		return dn_x
 
 	Func Log P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s3:Log",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Complex, System.Runtime.Numerics',"s3:Log",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s3:Log",P1))
 
@@ -623,14 +633,16 @@ Class Complex from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Complex, System.Runtime.Numerics',"s12:MinMagnitude",P1,P2))
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Complex, System.Runtime.Numerics',"s5:Parse",P1))
 		ok
 		raise("DotNet Error: Parse does not take one argument: use named arguments, Parse([ :parameter = value, ... ])")
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Complex, System.Runtime.Numerics'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Numerics.Complex, System.Runtime.Numerics',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: TryParse does not take one argument: use named arguments, TryParse([ :parameter = value, ... ])")
 
@@ -729,7 +741,7 @@ Class Matrix3x2 from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.Matrix3x2, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -752,26 +764,26 @@ Class Matrix3x2 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s3:Add",P1,P2))
 
 	Func CreateRotation P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s14:CreateRotation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s14:CreateRotation",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s14:CreateRotation",P1))
 
 	Func CreateScale P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s11:CreateScale",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s11:CreateScale",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s11:CreateScale",P1))
 
 	Func CreateSkew P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s10:CreateSkew",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s10:CreateSkew",P1))
 		ok
 		raise("DotNet Error: CreateSkew does not take one argument: use named arguments, CreateSkew([ :parameter = value, ... ])")
 
 	Func CreateTranslation P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix3x2, System.Private.CoreLib'),"s17:CreateTranslation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s17:CreateTranslation",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s17:CreateTranslation",P1))
 
@@ -908,7 +920,7 @@ Class Matrix4x4 from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.Matrix4x4, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -991,26 +1003,26 @@ Class Matrix4x4 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s16:CreateReflection",P1))
 
 	Func CreateRotationX P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateRotationX",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s15:CreateRotationX",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s15:CreateRotationX",P1))
 
 	Func CreateRotationY P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateRotationY",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s15:CreateRotationY",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s15:CreateRotationY",P1))
 
 	Func CreateRotationZ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s15:CreateRotationZ",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s15:CreateRotationZ",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s15:CreateRotationZ",P1))
 
 	Func CreateScale P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s11:CreateScale",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s11:CreateScale",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s11:CreateScale",P1))
 
@@ -1018,8 +1030,8 @@ Class Matrix4x4 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s12:CreateShadow",P1,P2))
 
 	Func CreateTranslation P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Matrix4x4, System.Private.CoreLib'),"s17:CreateTranslation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s17:CreateTranslation",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s17:CreateTranslation",P1))
 
@@ -1247,7 +1259,7 @@ Class Plane from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.Plane, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1332,7 +1344,7 @@ Class Quaternion from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.Quaternion, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1483,11 +1495,15 @@ Class Vector from Object
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Numerics.Vector, System.Private.CoreLib',"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1709,8 +1725,10 @@ Class Vector from Object
 		return dn_x
 
 	Func LoadUnsafe P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:LoadUnsafe",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Numerics.Vector, System.Private.CoreLib',"s10:LoadUnsafe",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:LoadUnsafe",dnPackItem(P1))
 
@@ -1769,8 +1787,8 @@ Class Vector from Object
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s16:RadiansToDegrees",P1))
 
 	Func Round P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Vector, System.Private.CoreLib',"s5:Round",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s5:Round",P1))
 
@@ -1793,8 +1811,10 @@ Class Vector from Object
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s10:SquareRoot",P1))
 
 	Func StoreUnsafe P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s11:StoreUnsafe",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Numerics.Vector, System.Private.CoreLib',"s11:StoreUnsafe",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: StoreUnsafe does not take one argument: use named arguments, StoreUnsafe([ :parameter = value, ... ])")
 
@@ -1886,7 +1906,7 @@ Class Vector2 from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.Vector2, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1901,8 +1921,8 @@ Class Vector2 from ValueType
 		return self
 
 	Func CopyTo P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:CopyTo",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
@@ -1920,8 +1940,10 @@ Class Vector2 from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1946,8 +1968,8 @@ Class Vector2 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s3:Cos",P1))
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Vector2, System.Private.CoreLib',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s6:Create",P1))
 
@@ -2039,8 +2061,8 @@ Class Vector2 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s7:Reflect",P1,P2))
 
 	Func Round P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector2, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Vector2, System.Private.CoreLib',"s5:Round",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s5:Round",P1))
 
@@ -2204,7 +2226,7 @@ Class Vector3 from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.Vector3, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2219,8 +2241,8 @@ Class Vector3 from ValueType
 		return self
 
 	Func CopyTo P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:CopyTo",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
@@ -2238,8 +2260,10 @@ Class Vector3 from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2264,8 +2288,8 @@ Class Vector3 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s3:Cos",P1))
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Vector3, System.Private.CoreLib',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s6:Create",P1))
 
@@ -2360,8 +2384,8 @@ Class Vector3 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s7:Reflect",P1,P2))
 
 	Func Round P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector3, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Vector3, System.Private.CoreLib',"s5:Round",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s5:Round",P1))
 
@@ -2542,7 +2566,7 @@ Class Vector4 from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.Vector4, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2557,8 +2581,8 @@ Class Vector4 from ValueType
 		return self
 
 	Func CopyTo P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:CopyTo",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
@@ -2576,8 +2600,10 @@ Class Vector4 from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2602,8 +2628,8 @@ Class Vector4 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s3:Cos",P1))
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Vector4, System.Private.CoreLib',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s6:Create",P1))
 
@@ -2692,8 +2718,8 @@ Class Vector4 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s16:RadiansToDegrees",P1))
 
 	Func Round P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Numerics.Vector4, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Vector4, System.Private.CoreLib',"s5:Round",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s5:Round",P1))
 

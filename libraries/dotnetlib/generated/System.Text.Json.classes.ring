@@ -100,14 +100,14 @@ Class JsonDocument from Object
 		return dn_x
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonDocument, System.Text.Json'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.JsonDocument, System.Text.Json',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.JsonDocument, System.Text.Json',"s5:Parse",P1))
 
 	Func ParseAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonDocument, System.Text.Json'),"s10:ParseAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.JsonDocument, System.Text.Json',"s10:ParseAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.JsonDocument, System.Text.Json',"s10:ParseAsync",P1))
 
@@ -391,8 +391,8 @@ Class JsonEncodedText from ValueType
 		return self
 
 	Func Encode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonEncodedText, System.Text.Json'),"s6:Encode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.JsonEncodedText, System.Text.Json',"s6:Encode",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.JsonEncodedText, System.Text.Json',"s6:Encode",P1))
 
@@ -601,7 +601,7 @@ Class JsonReaderState from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.Json.JsonReaderState, System.Text.Json',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -641,56 +641,58 @@ Class JsonSerializer from Object
 		return dn_x
 
 	Func Deserialize P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s11:Deserialize",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.JsonSerializer, System.Text.Json',"s11:Deserialize",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.JsonSerializer, System.Text.Json',"s11:Deserialize",P1))
 
 	Func SerializeToDocument P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s19:SerializeToDocument",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.JsonSerializer, System.Text.Json',"s19:SerializeToDocument",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.JsonSerializer, System.Text.Json',"s19:SerializeToDocument",P1))
 
 	Func SerializeToElement P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s18:SerializeToElement",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.JsonSerializer, System.Text.Json',"s18:SerializeToElement",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.JsonSerializer, System.Text.Json',"s18:SerializeToElement",P1))
 
 	Func SerializeToNode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s15:SerializeToNode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.JsonSerializer, System.Text.Json',"s15:SerializeToNode",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.JsonSerializer, System.Text.Json',"s15:SerializeToNode",P1))
 
 	Func DeserializeAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s16:DeserializeAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.JsonSerializer, System.Text.Json',"s16:DeserializeAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.JsonSerializer, System.Text.Json',"s16:DeserializeAsync",P1))
 
 	Func DeserializeAsyncEnumerable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s26:DeserializeAsyncEnumerable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.JsonSerializer, System.Text.Json',"s26:DeserializeAsyncEnumerable",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.JsonSerializer, System.Text.Json',"s26:DeserializeAsyncEnumerable",P1))
 
 	Func SerializeToUtf8Bytes P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s20:SerializeToUtf8Bytes",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.JsonSerializer, System.Text.Json',"s20:SerializeToUtf8Bytes",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.JsonSerializer, System.Text.Json',"s20:SerializeToUtf8Bytes",P1))
 
 	Func SerializeAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s14:SerializeAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.JsonSerializer, System.Text.Json',"s14:SerializeAsync",P1))
 		ok
 		raise("DotNet Error: SerializeAsync does not take one argument: use named arguments, SerializeAsync([ :parameter = value, ... ])")
 
 	Func Serialize P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.JsonSerializer, System.Text.Json'),"s9:Serialize",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Text.Json.JsonSerializer, System.Text.Json',"s9:Serialize",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Text.Json.JsonSerializer, System.Text.Json',"s9:Serialize",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -759,7 +761,7 @@ Class JsonSerializerOptions from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.Json.JsonSerializerOptions, System.Text.Json',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -788,8 +790,8 @@ Class JsonSerializerOptions from Object
 		return self
 
 	Func MakeReadOnly P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s12:MakeReadOnly",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s12:MakeReadOnly",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1156,7 +1158,7 @@ Class Utf8JsonWriter from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.Json.Utf8JsonWriter, System.Text.Json',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1171,8 +1173,8 @@ Class Utf8JsonWriter from Object
 		return self
 
 	Func Reset P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Reset",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Reset",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1198,8 +1200,8 @@ Class Utf8JsonWriter from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
 	Func FlushAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:FlushAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:FlushAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:FlushAsync"))
@@ -1207,8 +1209,8 @@ Class Utf8JsonWriter from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FlushAsync",P1))
 
 	Func WriteStartArray P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s15:WriteStartArray",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:WriteStartArray",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1221,8 +1223,8 @@ Class Utf8JsonWriter from Object
 		return self
 
 	Func WriteStartObject P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s16:WriteStartObject",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s16:WriteStartObject",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1295,8 +1297,8 @@ Class Utf8JsonWriter from Object
 		return self
 
 	Func WriteRawValue P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s13:WriteRawValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s13:WriteRawValue",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s13:WriteRawValue",P1)

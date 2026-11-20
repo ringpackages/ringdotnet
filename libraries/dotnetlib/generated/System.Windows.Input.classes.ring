@@ -795,7 +795,7 @@ Class AccessKeyPressedEventArgs from RoutedEventArgs
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.AccessKeyPressedEventArgs, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1100,7 +1100,7 @@ Class CommandBinding from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.CommandBinding, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1187,7 +1187,7 @@ Class CommandBindingCollection from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.CommandBindingCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1651,7 +1651,7 @@ Class WpfCursor from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.Cursor, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2406,7 +2406,7 @@ Class InputBindingCollection from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.InputBindingCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2627,7 +2627,7 @@ Class InputGestureCollection from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.InputGestureCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3026,8 +3026,8 @@ Class InputMethod from DispatcherObject
 		return self
 
 	Func ShowConfigureUI P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s15:ShowConfigureUI",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:ShowConfigureUI",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -3040,8 +3040,8 @@ Class InputMethod from DispatcherObject
 		return self
 
 	Func ShowRegisterWordUI P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s18:ShowRegisterWordUI",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s18:ShowRegisterWordUI",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -3387,7 +3387,7 @@ Class InputScopeName from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.InputScopeName, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3469,7 +3469,7 @@ Class InputScopePhrase from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.InputScopePhrase, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4120,7 +4120,7 @@ Class ManipulationPivot from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.ManipulationPivot, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4625,8 +4625,10 @@ Class Mouse from Object
 		return self
 
 	Func Capture P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Input.Mouse, PresentationCore'),"s7:Capture",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Windows.Input.Mouse, PresentationCore',"s7:Capture",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Windows.Input.Mouse, PresentationCore',"s7:Capture",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5076,7 +5078,7 @@ Class RoutedCommand from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.RoutedCommand, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5474,8 +5476,10 @@ Class Stylus from Object
 		return self
 
 	Func Capture P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Input.Stylus, PresentationCore'),"s7:Capture",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Windows.Input.Stylus, PresentationCore',"s7:Capture",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Windows.Input.Stylus, PresentationCore',"s7:Capture",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5863,7 +5867,7 @@ Class StylusPoint from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.StylusPoint, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5896,11 +5900,15 @@ Class StylusPoint from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToPoint"))
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Input.StylusPoint, PresentationCore'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Input.StylusPoint, PresentationCore',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5981,7 +5989,7 @@ Class StylusPointCollection from DotNetObject
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.StylusPointCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6119,7 +6127,7 @@ Class StylusPointDescription from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.StylusPointDescription, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6492,7 +6500,7 @@ Class TextComposition from DispatcherObject
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.TextComposition, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7003,7 +7011,7 @@ Class KeyBinding from InputBinding
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.KeyBinding, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7062,7 +7070,7 @@ Class KeyGesture from InputGesture
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.KeyGesture, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7574,7 +7582,7 @@ Class MouseBinding from InputBinding
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.MouseBinding, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7623,8 +7631,10 @@ Class MouseDevice from InputDevice
 		return self
 
 	Func Capture P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Capture",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:Capture",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:Capture",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7720,7 +7730,7 @@ Class WpfMouseEventArgs from InputEventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.MouseEventArgs, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7805,7 +7815,7 @@ Class MouseGesture from InputGesture
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.MouseGesture, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7846,8 +7856,8 @@ Class ProcessInputEventArgs from NotifyInputEventArgs
 		return self
 
 	Func PushInput P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:PushInput",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:PushInput",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:PushInput",P1))
 
@@ -7882,7 +7892,7 @@ Class RoutedUICommand from RoutedCommand
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.RoutedUICommand, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7929,8 +7939,10 @@ Class StylusDevice from InputDevice
 		return self
 
 	Func Capture P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Capture",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:Capture",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:Capture",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7942,8 +7954,8 @@ Class StylusDevice from InputDevice
 		return self
 
 	Func GetStylusPoints P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:GetStylusPoints",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetStylusPoints",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetStylusPoints",P1))
 
@@ -8044,8 +8056,8 @@ Class StylusEventArgs from InputEventArgs
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetPosition",P1))
 
 	Func GetStylusPoints P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:GetStylusPoints",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetStylusPoints",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetStylusPoints",P1))
 
@@ -8091,7 +8103,7 @@ Class StylusPointPropertyInfo from StylusPointProperty
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.StylusPointPropertyInfo, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8280,8 +8292,10 @@ Class TouchDevice from InputDevice
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetIntermediateTouchPoints",P1))
 
 	Func Capture P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Capture",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:Capture",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:Capture",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -8543,7 +8557,7 @@ Class MouseButtonEventArgs from WpfMouseEventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.MouseButtonEventArgs, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8645,7 +8659,7 @@ Class QueryCursorEventArgs from WpfMouseEventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.QueryCursorEventArgs, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

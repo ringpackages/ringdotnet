@@ -204,8 +204,8 @@ Class ValidateOptionsResultBuilder from Object
 		return self
 
 	Func AddError P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:AddError",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:AddError",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:AddError",P1)

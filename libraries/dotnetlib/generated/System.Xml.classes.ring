@@ -342,11 +342,15 @@ Class XmlConvert from Object
 		return self
 
 	Func Format P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s8:ToString",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -509,14 +513,14 @@ Class XmlConvert from Object
 		return dnObj(dotnet_callo("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s10:ToTimeSpan",P1))
 
 	Func ToDateTime P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s10:ToDateTime",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.XmlConvert, System.Private.Xml',"s10:ToDateTime",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s10:ToDateTime",P1))
 
 	Func ToDateTimeOffset P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.XmlConvert, System.Private.Xml'),"s16:ToDateTimeOffset",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.XmlConvert, System.Private.Xml',"s16:ToDateTimeOffset",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s16:ToDateTimeOffset",P1))
 
@@ -546,7 +550,7 @@ Class XmlImplementation from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlImplementation, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -586,16 +590,20 @@ Class XmlNameTable from Object
 		return self
 
 	Func Get_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Get",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s3:Get",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s3:Get",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -621,8 +629,8 @@ Class XmlNamedNodeMap from Object
 		return self
 
 	Func GetNamedItem P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:GetNamedItem",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:GetNamedItem",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetNamedItem",P1))
 
@@ -630,8 +638,8 @@ Class XmlNamedNodeMap from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetNamedItem",P1))
 
 	Func RemoveNamedItem P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:RemoveNamedItem",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:RemoveNamedItem",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RemoveNamedItem",P1))
 
@@ -770,14 +778,14 @@ Class XmlNode from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateNavigator"))
 
 	Func SelectSingleNode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:SelectSingleNode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SelectSingleNode",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SelectSingleNode",P1))
 
 	Func SelectNodes P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:SelectNodes",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:SelectNodes",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SelectNodes",P1))
 
@@ -1129,7 +1137,7 @@ Class XmlParserContext from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlParserContext, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1258,7 +1266,7 @@ Class XmlQualifiedName from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlQualifiedName, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1273,11 +1281,15 @@ Class XmlQualifiedName from Object
 		return self
 
 	Func Format P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Xml.XmlQualifiedName, System.Private.Xml'),"s8:ToString",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Xml.XmlQualifiedName, System.Private.Xml',"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
@@ -1402,8 +1414,8 @@ Class XmlReader from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadContentAs",P1,P2))
 
 	Func ReadElementContentAsObject P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s26:ReadElementContentAsObject",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s26:ReadElementContentAsObject",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s26:ReadElementContentAsObject"))
@@ -1411,8 +1423,10 @@ Class XmlReader from Object
 		raise("DotNet Error: ReadElementContentAsObject does not take one argument: use named arguments, ReadElementContentAsObject([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsBoolean P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s27:ReadElementContentAsBoolean",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s27:ReadElementContentAsBoolean",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s27:ReadElementContentAsBoolean")
@@ -1422,8 +1436,8 @@ Class XmlReader from Object
 		raise("DotNet Error: ReadElementContentAsBoolean does not take one argument: use named arguments, ReadElementContentAsBoolean([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsDateTime P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s28:ReadElementContentAsDateTime",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s28:ReadElementContentAsDateTime",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s28:ReadElementContentAsDateTime"))
@@ -1431,8 +1445,10 @@ Class XmlReader from Object
 		raise("DotNet Error: ReadElementContentAsDateTime does not take one argument: use named arguments, ReadElementContentAsDateTime([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsDouble P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s26:ReadElementContentAsDouble",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s26:ReadElementContentAsDouble",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s26:ReadElementContentAsDouble")
@@ -1442,8 +1458,10 @@ Class XmlReader from Object
 		raise("DotNet Error: ReadElementContentAsDouble does not take one argument: use named arguments, ReadElementContentAsDouble([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsFloat P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:ReadElementContentAsFloat",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s25:ReadElementContentAsFloat",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s25:ReadElementContentAsFloat")
@@ -1453,8 +1471,10 @@ Class XmlReader from Object
 		raise("DotNet Error: ReadElementContentAsFloat does not take one argument: use named arguments, ReadElementContentAsFloat([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsDecimal P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s27:ReadElementContentAsDecimal",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s27:ReadElementContentAsDecimal",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s27:ReadElementContentAsDecimal")
@@ -1464,8 +1484,10 @@ Class XmlReader from Object
 		raise("DotNet Error: ReadElementContentAsDecimal does not take one argument: use named arguments, ReadElementContentAsDecimal([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsInt P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s23:ReadElementContentAsInt",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s23:ReadElementContentAsInt",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s23:ReadElementContentAsInt")
@@ -1475,8 +1497,10 @@ Class XmlReader from Object
 		raise("DotNet Error: ReadElementContentAsInt does not take one argument: use named arguments, ReadElementContentAsInt([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsLong P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:ReadElementContentAsLong",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:ReadElementContentAsLong",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s24:ReadElementContentAsLong")
@@ -1486,8 +1510,10 @@ Class XmlReader from Object
 		raise("DotNet Error: ReadElementContentAsLong does not take one argument: use named arguments, ReadElementContentAsLong([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s26:ReadElementContentAsString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s26:ReadElementContentAsString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s26:ReadElementContentAsString")
@@ -1497,22 +1523,26 @@ Class XmlReader from Object
 		raise("DotNet Error: ReadElementContentAsString does not take one argument: use named arguments, ReadElementContentAsString([ :parameter = value, ... ])")
 
 	Func ReadElementContentAs P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:ReadElementContentAs",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ReadElementContentAs",P1))
 		ok
 		raise("DotNet Error: ReadElementContentAs does not take one argument: use named arguments, ReadElementContentAs([ :parameter = value, ... ])")
 
 	Func GetAttribute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:GetAttribute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetAttribute",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetAttribute",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToAttribute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:MoveToAttribute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:MoveToAttribute",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s15:MoveToAttribute",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1597,8 +1627,8 @@ Class XmlReader from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:MoveToContent"))
 
 	Func ReadStartElement P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s16:ReadStartElement",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s16:ReadStartElement",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1611,8 +1641,10 @@ Class XmlReader from Object
 		return self
 
 	Func ReadElementString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:ReadElementString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:ReadElementString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s17:ReadElementString")
@@ -1629,8 +1661,10 @@ Class XmlReader from Object
 		return self
 
 	Func IsStartElement P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:IsStartElement",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:IsStartElement",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s14:IsStartElement")
@@ -1642,24 +1676,30 @@ Class XmlReader from Object
 		return dn_x
 
 	Func ReadToFollowing P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:ReadToFollowing",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:ReadToFollowing",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s15:ReadToFollowing",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReadToDescendant P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:ReadToDescendant",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:ReadToDescendant",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s16:ReadToDescendant",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReadToNextSibling P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:ReadToNextSibling",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:ReadToNextSibling",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s17:ReadToNextSibling",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1750,8 +1790,8 @@ Class XmlReader from Object
 		return dn_x
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.XmlReader, System.Private.Xml'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.XmlReader, System.Private.Xml',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.XmlReader, System.Private.Xml',"s6:Create",P1))
 
@@ -2219,8 +2259,8 @@ Class XmlWriter from Object
 		return self
 
 	Func WriteStartDocument P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s18:WriteStartDocument",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s18:WriteStartDocument",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -2243,8 +2283,8 @@ Class XmlWriter from Object
 		return self
 
 	Func WriteStartElement P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s17:WriteStartElement",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s17:WriteStartElement",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s17:WriteStartElement",P1)
@@ -2262,15 +2302,15 @@ Class XmlWriter from Object
 		return self
 
 	Func WriteAttributeString P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s20:WriteAttributeString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s20:WriteAttributeString",P1)
 			return self
 		ok
 		raise("DotNet Error: WriteAttributeString does not take one argument: use named arguments, WriteAttributeString([ :parameter = value, ... ])")
 
 	Func WriteStartAttribute P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s19:WriteStartAttribute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s19:WriteStartAttribute",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s19:WriteStartAttribute",P1)
@@ -2328,8 +2368,8 @@ Class XmlWriter from Object
 		return self
 
 	Func WriteRaw P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:WriteRaw",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:WriteRaw",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:WriteRaw",P1)
@@ -2392,8 +2432,8 @@ Class XmlWriter from Object
 		return self
 
 	Func WriteElementString P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s18:WriteElementString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s18:WriteElementString",P1)
 			return self
 		ok
 		raise("DotNet Error: WriteElementString does not take one argument: use named arguments, WriteElementString([ :parameter = value, ... ])")
@@ -2404,8 +2444,8 @@ Class XmlWriter from Object
 		return self
 
 	Func WriteStartDocumentAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s23:WriteStartDocumentAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:WriteStartDocumentAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s23:WriteStartDocumentAsync"))
@@ -2458,8 +2498,8 @@ Class XmlWriter from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:WriteCharsAsync",P1,P2,P3))
 
 	Func WriteRawAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:WriteRawAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:WriteRawAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:WriteRawAsync",P1))
 
@@ -2499,8 +2539,8 @@ Class XmlWriter from Object
 		return dn_x
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.XmlWriter, System.Private.Xml'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.XmlWriter, System.Private.Xml',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.XmlWriter, System.Private.Xml',"s6:Create",P1))
 
@@ -2825,7 +2865,7 @@ Class XmlDocument from XmlNode
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlDocument, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2840,8 +2880,8 @@ Class XmlDocument from XmlNode
 		return self
 
 	Func CreateAttribute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:CreateAttribute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:CreateAttribute",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateAttribute",P1))
 
@@ -2858,8 +2898,8 @@ Class XmlDocument from XmlNode
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CreateDocumentFragment"))
 
 	Func CreateElement P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:CreateElement",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:CreateElement",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:CreateElement",P1))
 
@@ -2882,8 +2922,8 @@ Class XmlDocument from XmlNode
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateWhitespace",P1))
 
 	Func GetElementsByTagName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:GetElementsByTagName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:GetElementsByTagName",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetElementsByTagName",P1))
 
@@ -2894,8 +2934,8 @@ Class XmlDocument from XmlNode
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ImportNode",P1,P2))
 
 	Func CreateNode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:CreateNode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:CreateNode",P1))
 		ok
 		raise("DotNet Error: CreateNode does not take one argument: use named arguments, CreateNode([ :parameter = value, ... ])")
 
@@ -2918,8 +2958,8 @@ Class XmlDocument from XmlNode
 		return self
 
 	Func Validate P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:Validate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:Validate",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:Validate",P1)
@@ -3153,7 +3193,7 @@ Class XmlTextReader from XmlReader
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlTextReader, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3294,7 +3334,7 @@ Class XmlTextWriter from XmlWriter
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlTextWriter, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3554,22 +3594,26 @@ Class XmlElement from XmlLinkedNode
 		return self
 
 	Func GetAttribute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:GetAttribute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetAttribute",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetAttribute",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetAttribute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:SetAttribute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s12:SetAttribute",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: SetAttribute does not take one argument: use named arguments, SetAttribute([ :parameter = value, ... ])")
 
 	Func RemoveAttribute P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s15:RemoveAttribute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:RemoveAttribute",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s15:RemoveAttribute",P1)
@@ -3577,32 +3621,34 @@ Class XmlElement from XmlLinkedNode
 		return self
 
 	Func GetAttributeNode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:GetAttributeNode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetAttributeNode",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetAttributeNode",P1))
 
 	Func SetAttributeNode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:SetAttributeNode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SetAttributeNode",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SetAttributeNode",P1))
 
 	Func RemoveAttributeNode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:RemoveAttributeNode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:RemoveAttributeNode",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:RemoveAttributeNode",P1))
 
 	Func GetElementsByTagName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:GetElementsByTagName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:GetElementsByTagName",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetElementsByTagName",P1))
 
 	Func HasAttribute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:HasAttribute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:HasAttribute",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:HasAttribute",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

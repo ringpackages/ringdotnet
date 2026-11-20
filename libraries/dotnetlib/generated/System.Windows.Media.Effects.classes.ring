@@ -122,7 +122,7 @@ Class BitmapEffectCollection from Animatable
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Effects.BitmapEffectCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -225,7 +225,7 @@ Class BitmapEffectInput from Animatable
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

@@ -413,8 +413,8 @@ Class KestrelServerOptions from Object
 		return self
 
 	Func Configure P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:Configure",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Configure",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure"))
@@ -422,8 +422,8 @@ Class KestrelServerOptions from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
 
 	Func Listen P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Listen",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Listen",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:Listen",P1)
@@ -431,8 +431,8 @@ Class KestrelServerOptions from Object
 		return self
 
 	Func ListenLocalhost P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s15:ListenLocalhost",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:ListenLocalhost",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s15:ListenLocalhost",P1)
@@ -440,8 +440,8 @@ Class KestrelServerOptions from Object
 		return self
 
 	Func ListenAnyIP P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s11:ListenAnyIP",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s11:ListenAnyIP",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s11:ListenAnyIP",P1)
@@ -449,8 +449,8 @@ Class KestrelServerOptions from Object
 		return self
 
 	Func ListenUnixSocket P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s16:ListenUnixSocket",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s16:ListenUnixSocket",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s16:ListenUnixSocket",P1)
@@ -458,8 +458,8 @@ Class KestrelServerOptions from Object
 		return self
 
 	Func ListenHandle P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s12:ListenHandle",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s12:ListenHandle",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s12:ListenHandle",P1)
@@ -467,8 +467,8 @@ Class KestrelServerOptions from Object
 		return self
 
 	Func ListenNamedPipe P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s15:ListenNamedPipe",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:ListenNamedPipe",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s15:ListenNamedPipe",P1)

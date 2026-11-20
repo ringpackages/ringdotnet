@@ -130,20 +130,20 @@ Class Extensions from Object
 		return dn_x
 
 	Func Attributes P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s10:Attributes",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.Linq.Extensions, System.Private.Xml.Linq',"s10:Attributes",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.Extensions, System.Private.Xml.Linq',"s10:Attributes",P1))
 
 	Func Ancestors P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s9:Ancestors",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.Linq.Extensions, System.Private.Xml.Linq',"s9:Ancestors",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.Extensions, System.Private.Xml.Linq',"s9:Ancestors",P1))
 
 	Func AncestorsAndSelf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s16:AncestorsAndSelf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.Linq.Extensions, System.Private.Xml.Linq',"s16:AncestorsAndSelf",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.Extensions, System.Private.Xml.Linq',"s16:AncestorsAndSelf",P1))
 
@@ -154,8 +154,8 @@ Class Extensions from Object
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.Extensions, System.Private.Xml.Linq',"s15:DescendantNodes",P1))
 
 	Func Descendants P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s11:Descendants",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.Linq.Extensions, System.Private.Xml.Linq',"s11:Descendants",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.Extensions, System.Private.Xml.Linq',"s11:Descendants",P1))
 
@@ -163,14 +163,14 @@ Class Extensions from Object
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.Extensions, System.Private.Xml.Linq',"s22:DescendantNodesAndSelf",P1))
 
 	Func DescendantsAndSelf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s18:DescendantsAndSelf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.Linq.Extensions, System.Private.Xml.Linq',"s18:DescendantsAndSelf",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.Extensions, System.Private.Xml.Linq',"s18:DescendantsAndSelf",P1))
 
 	Func Elements P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"s8:Elements",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.Linq.Extensions, System.Private.Xml.Linq',"s8:Elements",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.Extensions, System.Private.Xml.Linq',"s8:Elements",P1))
 
@@ -201,7 +201,7 @@ Class XDeclaration from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XDeclaration, System.Private.Xml.Linq',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -269,8 +269,8 @@ Class XName from Object
 		return dn_x
 
 	Func Get_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.XName, System.Private.Xml.Linq'),"s3:Get",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.Linq.XName, System.Private.Xml.Linq',"s3:Get",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.XName, System.Private.Xml.Linq',"s3:Get",P1))
 
@@ -403,16 +403,20 @@ Class XNodeEqualityComparer from Object
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
@@ -446,8 +450,8 @@ Class XObject from Object
 		return self
 
 	Func Annotation P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:Annotation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:Annotation",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:Annotation"))
@@ -455,8 +459,8 @@ Class XObject from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:Annotation",P1))
 
 	Func Annotations P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:Annotations",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:Annotations",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:Annotations"))
@@ -464,8 +468,8 @@ Class XObject from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Annotations",P1))
 
 	Func RemoveAnnotations P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s17:RemoveAnnotations",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s17:RemoveAnnotations",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -591,7 +595,7 @@ Class XStreamingElement from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XStreamingElement, System.Private.Xml.Linq',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -611,8 +615,8 @@ Class XStreamingElement from Object
 		return self
 
 	Func Save P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Save",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Save",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s4:Save",P1)
@@ -620,8 +624,10 @@ Class XStreamingElement from Object
 		return self
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -666,7 +672,7 @@ Class XAttribute from XObject
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XAttribute, System.Private.Xml.Linq',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -759,8 +765,8 @@ Class XNode from XObject
 		return self
 
 	Func Ancestors P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:Ancestors",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Ancestors",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:Ancestors"))
@@ -768,8 +774,8 @@ Class XNode from XObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Ancestors",P1))
 
 	Func CreateReader P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:CreateReader",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:CreateReader",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateReader"))
@@ -783,8 +789,8 @@ Class XNode from XObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:NodesBeforeSelf"))
 
 	Func ElementsAfterSelf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:ElementsAfterSelf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ElementsAfterSelf",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s17:ElementsAfterSelf"))
@@ -792,8 +798,8 @@ Class XNode from XObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ElementsAfterSelf",P1))
 
 	Func ElementsBeforeSelf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:ElementsBeforeSelf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ElementsBeforeSelf",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:ElementsBeforeSelf"))
@@ -821,8 +827,10 @@ Class XNode from XObject
 		return self
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -933,8 +941,8 @@ Class XContainer from XNode
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:DescendantNodes"))
 
 	Func Descendants P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:Descendants",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:Descendants",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:Descendants"))
@@ -945,8 +953,8 @@ Class XContainer from XNode
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Element",P1))
 
 	Func Elements P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Elements",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Elements",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s8:Elements"))
@@ -998,7 +1006,7 @@ Class XDocumentType from XNode
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XDocumentType, System.Private.Xml.Linq',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1066,7 +1074,7 @@ Class XProcessingInstruction from XNode
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XProcessingInstruction, System.Private.Xml.Linq',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1164,7 +1172,7 @@ Class XDocument from XContainer
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XDocument, System.Private.Xml.Linq',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1179,8 +1187,8 @@ Class XDocument from XContainer
 		return self
 
 	Func Save P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Save",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Save",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s4:Save",P1)
@@ -1188,14 +1196,14 @@ Class XDocument from XContainer
 		return self
 
 	Func SaveAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:SaveAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:SaveAsync",P1))
 		ok
 		raise("DotNet Error: SaveAsync does not take one argument: use named arguments, SaveAsync([ :parameter = value, ... ])")
 
 	Func Load_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"s4:Load",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.Linq.XDocument, System.Private.Xml.Linq',"s4:Load",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.XDocument, System.Private.Xml.Linq',"s4:Load",P1))
 
@@ -1203,8 +1211,8 @@ Class XDocument from XContainer
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.XDocument, System.Private.Xml.Linq',"s9:LoadAsync",P1,P2,P3))
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.Linq.XDocument, System.Private.Xml.Linq',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.XDocument, System.Private.Xml.Linq',"s5:Parse",P1))
 
@@ -1251,7 +1259,7 @@ Class XElement from XContainer
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Linq.XElement, System.Private.Xml.Linq',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1266,8 +1274,8 @@ Class XElement from XContainer
 		return self
 
 	Func Save P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Save",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Save",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s4:Save",P1)
@@ -1275,8 +1283,8 @@ Class XElement from XContainer
 		return self
 
 	Func AncestorsAndSelf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:AncestorsAndSelf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:AncestorsAndSelf",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s16:AncestorsAndSelf"))
@@ -1287,8 +1295,8 @@ Class XElement from XContainer
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Attribute",P1))
 
 	Func Attributes P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:Attributes",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:Attributes",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:Attributes"))
@@ -1299,8 +1307,8 @@ Class XElement from XContainer
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:DescendantNodesAndSelf"))
 
 	Func DescendantsAndSelf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:DescendantsAndSelf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:DescendantsAndSelf",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:DescendantsAndSelf"))
@@ -1339,8 +1347,8 @@ Class XElement from XContainer
 		return self
 
 	Func SaveAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:SaveAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:SaveAsync",P1))
 		ok
 		raise("DotNet Error: SaveAsync does not take one argument: use named arguments, SaveAsync([ :parameter = value, ... ])")
 
@@ -1360,8 +1368,8 @@ Class XElement from XContainer
 		return self
 
 	Func Load_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"s4:Load",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.Linq.XElement, System.Private.Xml.Linq',"s4:Load",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.XElement, System.Private.Xml.Linq',"s4:Load",P1))
 
@@ -1369,8 +1377,8 @@ Class XElement from XContainer
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.XElement, System.Private.Xml.Linq',"s9:LoadAsync",P1,P2,P3))
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.Linq.XElement, System.Private.Xml.Linq',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.XElement, System.Private.Xml.Linq',"s5:Parse",P1))
 

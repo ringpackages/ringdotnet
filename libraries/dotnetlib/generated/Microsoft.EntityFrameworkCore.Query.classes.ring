@@ -923,7 +923,7 @@ Class EntityMaterializerSourceParameters from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.EntityMaterializerSourceParameters, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1095,8 +1095,10 @@ Class ExpressionEqualityComparer from Object
 		return self
 
 	Func GetHashCode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
@@ -1108,8 +1110,10 @@ Class ExpressionEqualityComparer from Object
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1163,8 +1167,8 @@ Class ExpressionPrinter from ExpressionVisitor
 		return self
 
 	Func AppendLine P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:AppendLine",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AppendLine",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendLine"))
@@ -1172,8 +1176,8 @@ Class ExpressionPrinter from ExpressionVisitor
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendLine",P1))
 
 	Func AppendLines P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:AppendLines",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AppendLines",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AppendLines",P1))
 
@@ -1184,8 +1188,10 @@ Class ExpressionPrinter from ExpressionVisitor
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Append",P1))
 
 	Func PrintExpression P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:PrintExpression",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:PrintExpression",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s15:PrintExpression",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1202,8 +1208,8 @@ Class ExpressionPrinter from ExpressionVisitor
 		return dn_x
 
 	Func VisitCollection P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s15:VisitCollection",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:VisitCollection",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s15:VisitCollection",P1)
@@ -1323,8 +1329,8 @@ Class IAsyncQueryProvider from DotNetObject
 		return self
 
 	Func ExecuteAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:ExecuteAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ExecuteAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ExecuteAsync",P1))
 
@@ -1356,8 +1362,8 @@ Class IEntityMaterializerSource from DotNetObject
 		return self
 
 	Func CreateMaterializeExpression P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s27:CreateMaterializeExpression",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:CreateMaterializeExpression",P1))
 		ok
 		raise("DotNet Error: CreateMaterializeExpression does not take one argument: use named arguments, CreateMaterializeExpression([ :parameter = value, ... ])")
 
@@ -1820,14 +1826,14 @@ Class ISqlExpressionFactory from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ApplyDefaultTypeMapping",P1))
 
 	Func MakeUnary P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:MakeUnary",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:MakeUnary",P1))
 		ok
 		raise("DotNet Error: MakeUnary does not take one argument: use named arguments, MakeUnary([ :parameter = value, ... ])")
 
 	Func MakeBinary P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:MakeBinary",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:MakeBinary",P1))
 		ok
 		raise("DotNet Error: MakeBinary does not take one argument: use named arguments, MakeBinary([ :parameter = value, ... ])")
 
@@ -1856,50 +1862,50 @@ Class ISqlExpressionFactory from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:OrElse",P1,P2))
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Add",P1))
 		ok
 		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
 
 	Func Subtract P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Subtract",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Subtract",P1))
 		ok
 		raise("DotNet Error: Subtract does not take one argument: use named arguments, Subtract([ :parameter = value, ... ])")
 
 	Func Multiply P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Multiply",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Multiply",P1))
 		ok
 		raise("DotNet Error: Multiply does not take one argument: use named arguments, Multiply([ :parameter = value, ... ])")
 
 	Func Divide P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Divide",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Divide",P1))
 		ok
 		raise("DotNet Error: Divide does not take one argument: use named arguments, Divide([ :parameter = value, ... ])")
 
 	Func Modulo P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Modulo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Modulo",P1))
 		ok
 		raise("DotNet Error: Modulo does not take one argument: use named arguments, Modulo([ :parameter = value, ... ])")
 
 	Func And_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:And",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:And",P1))
 		ok
 		raise("DotNet Error: And does not take one argument: use named arguments, And([ :parameter = value, ... ])")
 
 	Func Or_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s2:Or",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s2:Or",P1))
 		ok
 		raise("DotNet Error: Or does not take one argument: use named arguments, Or([ :parameter = value, ... ])")
 
 	Func Coalesce P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Coalesce",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Coalesce",P1))
 		ok
 		raise("DotNet Error: Coalesce does not take one argument: use named arguments, Coalesce([ :parameter = value, ... ])")
 
@@ -1907,8 +1913,8 @@ Class ISqlExpressionFactory from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:IsNotNull",P1))
 
 	Func Convert P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Convert",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Convert",P1))
 		ok
 		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
@@ -1919,20 +1925,20 @@ Class ISqlExpressionFactory from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Negate",P1))
 
 	Func Case_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Case",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Case",P1))
 		ok
 		raise("DotNet Error: Case does not take one argument: use named arguments, Case([ :parameter = value, ... ])")
 
 	Func Function_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Function",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Function",P1))
 		ok
 		raise("DotNet Error: Function does not take one argument: use named arguments, Function([ :parameter = value, ... ])")
 
 	Func NiladicFunction P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:NiladicFunction",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:NiladicFunction",P1))
 		ok
 		raise("DotNet Error: NiladicFunction does not take one argument: use named arguments, NiladicFunction([ :parameter = value, ... ])")
 
@@ -1943,14 +1949,14 @@ Class ISqlExpressionFactory from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s2:In",P1,P2))
 
 	Func Like P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Like",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Like",P1))
 		ok
 		raise("DotNet Error: Like does not take one argument: use named arguments, Like([ :parameter = value, ... ])")
 
 	Func Constant P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Constant",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Constant",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Constant",P1))
 
@@ -1977,7 +1983,7 @@ Class IncludeExpression from ExpressionsExpression
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.IncludeExpression, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2419,7 +2425,7 @@ Class NonQueryExpression from ExpressionsExpression
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.NonQueryExpression, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2479,7 +2485,7 @@ Class EfPathSegment from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.PathSegment, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2620,7 +2626,7 @@ Class QueryCompilationContext from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2937,8 +2943,8 @@ Class QueryContext from Object
 		return self
 
 	Func InitializeStateManager P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s22:InitializeStateManager",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s22:InitializeStateManager",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -4632,14 +4638,14 @@ Class RelationalSqlTranslatingExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Translate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:Translate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Translate",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1))
 
 	Func TranslateProjection P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:TranslateProjection",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:TranslateProjection",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TranslateProjection",P1))
 
@@ -4814,14 +4820,14 @@ Class ShapedQueryCompilingExpressionVisitor from ExpressionVisitor
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
 
 	Func SingleAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"s11:SingleAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore',"s11:SingleAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore',"s11:SingleAsync",P1))
 
 	Func SingleOrDefaultAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"s20:SingleOrDefaultAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore',"s20:SingleOrDefaultAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore',"s20:SingleOrDefaultAsync",P1))
 
@@ -5052,8 +5058,8 @@ Class SqlExpressionFactory from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ApplyTypeMapping",P1,P2))
 
 	Func MakeBinary P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:MakeBinary",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:MakeBinary",P1))
 		ok
 		raise("DotNet Error: MakeBinary does not take one argument: use named arguments, MakeBinary([ :parameter = value, ... ])")
 
@@ -5082,56 +5088,56 @@ Class SqlExpressionFactory from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:OrElse",P1,P2))
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Add",P1))
 		ok
 		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
 
 	Func Subtract P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Subtract",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Subtract",P1))
 		ok
 		raise("DotNet Error: Subtract does not take one argument: use named arguments, Subtract([ :parameter = value, ... ])")
 
 	Func Multiply P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Multiply",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Multiply",P1))
 		ok
 		raise("DotNet Error: Multiply does not take one argument: use named arguments, Multiply([ :parameter = value, ... ])")
 
 	Func Divide P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Divide",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Divide",P1))
 		ok
 		raise("DotNet Error: Divide does not take one argument: use named arguments, Divide([ :parameter = value, ... ])")
 
 	Func Modulo P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Modulo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Modulo",P1))
 		ok
 		raise("DotNet Error: Modulo does not take one argument: use named arguments, Modulo([ :parameter = value, ... ])")
 
 	Func And_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:And",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:And",P1))
 		ok
 		raise("DotNet Error: And does not take one argument: use named arguments, And([ :parameter = value, ... ])")
 
 	Func Or_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s2:Or",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s2:Or",P1))
 		ok
 		raise("DotNet Error: Or does not take one argument: use named arguments, Or([ :parameter = value, ... ])")
 
 	Func Coalesce P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Coalesce",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Coalesce",P1))
 		ok
 		raise("DotNet Error: Coalesce does not take one argument: use named arguments, Coalesce([ :parameter = value, ... ])")
 
 	Func MakeUnary P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:MakeUnary",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:MakeUnary",P1))
 		ok
 		raise("DotNet Error: MakeUnary does not take one argument: use named arguments, MakeUnary([ :parameter = value, ... ])")
 
@@ -5139,8 +5145,8 @@ Class SqlExpressionFactory from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:IsNotNull",P1))
 
 	Func Convert P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Convert",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Convert",P1))
 		ok
 		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
@@ -5151,20 +5157,20 @@ Class SqlExpressionFactory from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Negate",P1))
 
 	Func Case_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Case",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Case",P1))
 		ok
 		raise("DotNet Error: Case does not take one argument: use named arguments, Case([ :parameter = value, ... ])")
 
 	Func Function_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Function",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Function",P1))
 		ok
 		raise("DotNet Error: Function does not take one argument: use named arguments, Function([ :parameter = value, ... ])")
 
 	Func NiladicFunction P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:NiladicFunction",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:NiladicFunction",P1))
 		ok
 		raise("DotNet Error: NiladicFunction does not take one argument: use named arguments, NiladicFunction([ :parameter = value, ... ])")
 
@@ -5175,8 +5181,8 @@ Class SqlExpressionFactory from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s2:In",P1,P2))
 
 	Func Like P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Like",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Like",P1))
 		ok
 		raise("DotNet Error: Like does not take one argument: use named arguments, Like([ :parameter = value, ... ])")
 
@@ -5184,8 +5190,8 @@ Class SqlExpressionFactory from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Fragment",P1))
 
 	Func Constant P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Constant",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Constant",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Constant",P1))
 
@@ -5314,7 +5320,7 @@ Class StructuralTypeProjectionExpression from ExpressionsExpression
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.StructuralTypeProjectionExpression, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5400,8 +5406,8 @@ Class StructuralTypeShaperExpression from ExpressionsExpression
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:WithType",P1))
 
 	Func MakeNullable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:MakeNullable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:MakeNullable",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s12:MakeNullable"))
@@ -5482,7 +5488,7 @@ Class EntityQueryRootExpression from QueryRootExpression
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5522,7 +5528,7 @@ Class InlineQueryRootExpression from QueryRootExpression
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.InlineQueryRootExpression, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5562,7 +5568,7 @@ Class ParameterQueryRootExpression from QueryRootExpression
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.ParameterQueryRootExpression, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5734,7 +5740,7 @@ Class RelationalQueryCompilationContext from QueryCompilationContext
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.RelationalQueryCompilationContext, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

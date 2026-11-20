@@ -43,7 +43,7 @@ Class AssociatedMetadataTypeTypeDescriptionProvider from TypeDescriptionProvider
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.DataAnnotations.AssociatedMetadataTypeTypeDescriptionProvider, System.ComponentModel.Annotations',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -93,7 +93,7 @@ Class ValidationContext from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.Annotations',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -175,7 +175,7 @@ Class DataAnnotationsValidationResult from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.DataAnnotations.ValidationResult, System.ComponentModel.Annotations',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -238,8 +238,10 @@ Class Validator from Object
 		return dn_x
 
 	Func TryValidateObject P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s17:TryValidateObject",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations',"s17:TryValidateObject",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: TryValidateObject does not take one argument: use named arguments, TryValidateObject([ :parameter = value, ... ])")
 
@@ -254,8 +256,8 @@ Class Validator from Object
 		return self
 
 	Func ValidateObject P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"s14:ValidateObject",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations',"s14:ValidateObject",P1)
 			return self
 		ok
 		raise("DotNet Error: ValidateObject does not take one argument: use named arguments, ValidateObject([ :parameter = value, ... ])")

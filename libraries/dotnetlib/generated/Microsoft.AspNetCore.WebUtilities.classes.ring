@@ -160,7 +160,7 @@ Class BufferedReadStream from Stream
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.BufferedReadStream, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -175,20 +175,22 @@ Class BufferedReadStream from Stream
 		return self
 
 	Func WriteAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:WriteAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:WriteAsync",P1))
 		ok
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
 	Func ReadAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:ReadAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:ReadAsync",P1))
 		ok
 		raise("DotNet Error: ReadAsync does not take one argument: use named arguments, ReadAsync([ :parameter = value, ... ])")
 
 	Func EnsureBuffered P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:EnsureBuffered",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:EnsureBuffered",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s14:EnsureBuffered")
@@ -200,8 +202,8 @@ Class BufferedReadStream from Stream
 		return dn_x
 
 	Func EnsureBufferedAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:EnsureBufferedAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:EnsureBufferedAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:EnsureBufferedAsync",P1))
 
@@ -238,7 +240,7 @@ Class FileBufferingReadStream from Stream
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FileBufferingReadStream, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -253,8 +255,8 @@ Class FileBufferingReadStream from Stream
 		return self
 
 	Func WriteAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:WriteAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:WriteAsync",P1))
 		ok
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
@@ -307,7 +309,7 @@ Class FileBufferingWriteStream from Stream
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -322,14 +324,14 @@ Class FileBufferingWriteStream from Stream
 		return self
 
 	Func ReadAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:ReadAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:ReadAsync",P1))
 		ok
 		raise("DotNet Error: ReadAsync does not take one argument: use named arguments, ReadAsync([ :parameter = value, ... ])")
 
 	Func DrainBufferAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:DrainBufferAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:DrainBufferAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:DrainBufferAsync",P1))
 
@@ -361,7 +363,7 @@ Class FileMultipartSection from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FileMultipartSection, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -426,7 +428,7 @@ Class FormMultipartSection from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FormMultipartSection, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -441,8 +443,8 @@ Class FormMultipartSection from Object
 		return self
 
 	Func GetValueAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:GetValueAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetValueAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetValueAsync"))
@@ -487,7 +489,7 @@ Class FormPipeReader from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FormPipeReader, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -502,8 +504,8 @@ Class FormPipeReader from Object
 		return self
 
 	Func ReadFormAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ReadFormAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ReadFormAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadFormAsync"))
@@ -564,7 +566,7 @@ Class FormReader from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -582,8 +584,8 @@ Class FormReader from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReadNextPair"))
 
 	Func ReadNextPairAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:ReadNextPairAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ReadNextPairAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadNextPairAsync"))
@@ -594,8 +596,8 @@ Class FormReader from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:ReadForm"))
 
 	Func ReadFormAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ReadFormAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ReadFormAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadFormAsync"))
@@ -678,7 +680,7 @@ Class HttpRequestStreamReader from TextReader
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.HttpRequestStreamReader, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -707,7 +709,7 @@ Class HttpResponseStreamWriter from TextWriter
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.HttpResponseStreamWriter, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -799,7 +801,7 @@ Class MultipartReader from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -814,8 +816,8 @@ Class MultipartReader from Object
 		return self
 
 	Func ReadNextSectionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:ReadNextSectionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ReadNextSectionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s20:ReadNextSectionAsync"))
@@ -981,8 +983,8 @@ Class MultipartSectionStreamExtensions from Object
 		return dn_x
 
 	Func ReadAsStringAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities'),"s17:ReadAsStringAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities',"s17:ReadAsStringAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities',"s17:ReadAsStringAsync",P1))
 
@@ -1004,8 +1006,10 @@ Class QueryHelpers from Object
 		return dn_x
 
 	Func AddQueryString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities'),"s14:AddQueryString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities',"s14:AddQueryString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: AddQueryString does not take one argument: use named arguments, AddQueryString([ :parameter = value, ... ])")
 
@@ -1038,7 +1042,7 @@ Class QueryStringEnumerable from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable, Microsoft.AspNetCore.WebUtilities',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1095,8 +1099,8 @@ Class StreamHelperExtensions from Object
 		return dn_x
 
 	Func DrainAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions, Microsoft.AspNetCore.WebUtilities'),"s10:DrainAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions, Microsoft.AspNetCore.WebUtilities',"s10:DrainAsync",P1))
 		ok
 		raise("DotNet Error: DrainAsync does not take one argument: use named arguments, DrainAsync([ :parameter = value, ... ])")
 
@@ -1118,8 +1122,8 @@ Class WebEncoders from Object
 		return dn_x
 
 	Func Base64UrlDecode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s15:Base64UrlDecode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities',"s15:Base64UrlDecode",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities',"s15:Base64UrlDecode",P1))
 
@@ -1129,8 +1133,10 @@ Class WebEncoders from Object
 		return dn_x
 
 	Func Base64UrlEncode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"s15:Base64UrlEncode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities',"s15:Base64UrlEncode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities',"s15:Base64UrlEncode",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

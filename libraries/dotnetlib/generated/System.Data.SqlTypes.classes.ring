@@ -144,7 +144,7 @@ Class SqlBinary from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlBinary, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -167,11 +167,15 @@ Class SqlBinary from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Data.SqlTypes.SqlBinary, System.Data.Common',"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -267,7 +271,7 @@ Class SqlBoolean from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlBoolean, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -314,11 +318,15 @@ Class SqlBoolean from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Data.SqlTypes.SqlBoolean, System.Data.Common',"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -453,7 +461,7 @@ Class SqlByte from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlByte, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -500,11 +508,15 @@ Class SqlByte from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Data.SqlTypes.SqlByte, System.Data.Common'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Data.SqlTypes.SqlByte, System.Data.Common',"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -629,7 +641,7 @@ Class SqlBytes from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlBytes, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -759,7 +771,7 @@ Class SqlChars from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlChars, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -883,7 +895,7 @@ Class SqlDateTime from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlDateTime, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -906,11 +918,15 @@ Class SqlDateTime from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Data.SqlTypes.SqlDateTime, System.Data.Common',"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1047,7 +1063,7 @@ Class SqlDecimal from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlDecimal, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1099,11 +1115,15 @@ Class SqlDecimal from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Data.SqlTypes.SqlDecimal, System.Data.Common',"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1281,7 +1301,7 @@ Class SqlDouble from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlDouble, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1328,11 +1348,15 @@ Class SqlDouble from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Data.SqlTypes.SqlDouble, System.Data.Common',"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1434,7 +1458,7 @@ Class SqlGuid from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlGuid, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1463,11 +1487,15 @@ Class SqlGuid from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Data.SqlTypes.SqlGuid, System.Data.Common',"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1540,7 +1568,7 @@ Class SqlInt16 from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlInt16, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1587,11 +1615,15 @@ Class SqlInt16 from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Data.SqlTypes.SqlInt16, System.Data.Common',"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1714,7 +1746,7 @@ Class SqlInt32 from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlInt32, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1761,11 +1793,15 @@ Class SqlInt32 from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Data.SqlTypes.SqlInt32, System.Data.Common',"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1888,7 +1924,7 @@ Class SqlInt64 from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlInt64, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1935,11 +1971,15 @@ Class SqlInt64 from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Data.SqlTypes.SqlInt64, System.Data.Common',"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2062,7 +2102,7 @@ Class SqlMoney from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlMoney, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2134,11 +2174,15 @@ Class SqlMoney from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Data.SqlTypes.SqlMoney, System.Data.Common',"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2246,7 +2290,7 @@ Class SqlSingle from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlSingle, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2293,11 +2337,15 @@ Class SqlSingle from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Data.SqlTypes.SqlSingle, System.Data.Common',"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2409,7 +2457,7 @@ Class SqlString from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlString, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2471,11 +2519,15 @@ Class SqlString from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Data.SqlTypes.SqlString, System.Data.Common'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Data.SqlTypes.SqlString, System.Data.Common',"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2627,7 +2679,7 @@ Class SqlXml from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlXml, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

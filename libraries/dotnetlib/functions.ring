@@ -223,6 +223,13 @@ func dnObj  dn_xInfo
 	ok
 	return dnFinish(dn_xInfo[2])
 
+# The answer of dotnet_calla (any answer): the extension answers a text, a number or a yes/no itself and an object as the list [2, "<handle>|<type>..."]
+func dnAny  dn_aAnswer
+	if dn_aAnswer[1] = 2
+		return dnObj(dn_aAnswer[2])
+	ok
+	return dnFinish(dn_aAnswer[2])
+
 # The handle of the type object of a type name, made once (the generated static methods pass it as a number: returning the cached
 # type object itself would copy it at every call)
 func dnTypeHandle  cTypeName

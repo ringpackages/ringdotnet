@@ -285,8 +285,8 @@ Class ChainedBuilderExtensions from Object
 		return dn_x
 
 	Func AddConfiguration P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.ChainedBuilderExtensions, Microsoft.Extensions.Configuration'),"s16:AddConfiguration",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Configuration.ChainedBuilderExtensions, Microsoft.Extensions.Configuration',"s16:AddConfiguration",P1))
 		ok
 		raise("DotNet Error: AddConfiguration does not take one argument: use named arguments, AddConfiguration([ :parameter = value, ... ])")
 
@@ -407,8 +407,8 @@ Class CommandLineConfigurationExtensions from Object
 		return dn_x
 
 	Func AddCommandLine P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine'),"s14:AddCommandLine",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine',"s14:AddCommandLine",P1))
 		ok
 		raise("DotNet Error: AddCommandLine does not take one argument: use named arguments, AddCommandLine([ :parameter = value, ... ])")
 
@@ -430,21 +430,21 @@ Class ConfigurationBinder from Object
 		return dn_x
 
 	Func Get_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"s3:Get",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder',"s3:Get",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder',"s3:Get",P1))
 
 	Func Bind P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"s4:Bind",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder',"s4:Bind",P1)
 			return self
 		ok
 		raise("DotNet Error: Bind does not take one argument: use named arguments, Bind([ :parameter = value, ... ])")
 
 	Func GetValue P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"s8:GetValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder',"s8:GetValue",P1))
 		ok
 		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
 
@@ -523,7 +523,7 @@ Class ConfigurationDebugViewContext from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -593,8 +593,8 @@ Class ConfigurationExtensions from Object
 		return dn_x
 
 	Func AsEnumerable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s12:AsEnumerable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions',"s12:AsEnumerable",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions',"s12:AsEnumerable",P1))
 
@@ -903,8 +903,10 @@ Class ConfigurationRootExtensions from Object
 		return dn_x
 
 	Func GetDebugView P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"s12:GetDebugView",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions',"s12:GetDebugView",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions',"s12:GetDebugView",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -994,8 +996,8 @@ Class EnvironmentVariablesExtensions from Object
 		return dn_x
 
 	Func AddEnvironmentVariables P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables'),"s23:AddEnvironmentVariables",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables',"s23:AddEnvironmentVariables",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables',"s23:AddEnvironmentVariables",P1))
 
@@ -1376,8 +1378,8 @@ Class IniConfigurationExtensions from Object
 		return dn_x
 
 	Func AddIniFile P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini'),"s10:AddIniFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini',"s10:AddIniFile",P1))
 		ok
 		raise("DotNet Error: AddIniFile does not take one argument: use named arguments, AddIniFile([ :parameter = value, ... ])")
 
@@ -1402,8 +1404,8 @@ Class JsonConfigurationExtensions from Object
 		return dn_x
 
 	Func AddJsonFile P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json'),"s11:AddJsonFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json',"s11:AddJsonFile",P1))
 		ok
 		raise("DotNet Error: AddJsonFile does not take one argument: use named arguments, AddJsonFile([ :parameter = value, ... ])")
 
@@ -1428,8 +1430,8 @@ Class KeyPerFileConfigurationBuilderExtensions from Object
 		return dn_x
 
 	Func AddKeyPerFile P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile'),"s13:AddKeyPerFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile',"s13:AddKeyPerFile",P1))
 		ok
 		raise("DotNet Error: AddKeyPerFile does not take one argument: use named arguments, AddKeyPerFile([ :parameter = value, ... ])")
 
@@ -1451,8 +1453,8 @@ Class MemoryConfigurationBuilderExtensions from Object
 		return dn_x
 
 	Func AddInMemoryCollection P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration'),"s21:AddInMemoryCollection",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration',"s21:AddInMemoryCollection",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration',"s21:AddInMemoryCollection",P1))
 
@@ -1503,8 +1505,8 @@ Class UserSecretsConfigurationExtensions from Object
 		return dn_x
 
 	Func AddUserSecrets P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets'),"s14:AddUserSecrets",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets',"s14:AddUserSecrets",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets',"s14:AddUserSecrets",P1))
 
@@ -1526,8 +1528,8 @@ Class XmlConfigurationExtensions from Object
 		return dn_x
 
 	Func AddXmlFile P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml'),"s10:AddXmlFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml',"s10:AddXmlFile",P1))
 		ok
 		raise("DotNet Error: AddXmlFile does not take one argument: use named arguments, AddXmlFile([ :parameter = value, ... ])")
 
@@ -1549,8 +1551,8 @@ Class FileConfigurationProvider from ConfigurationProvider
 		return self
 
 	Func Load_ P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Load",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1588,8 +1590,8 @@ Class StreamConfigurationProvider from ConfigurationProvider
 		return self
 
 	Func Load_ P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Load",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""

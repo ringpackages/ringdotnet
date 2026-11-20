@@ -64,7 +64,7 @@ Class XPathDocument from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XPath.XPathDocument, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -102,8 +102,8 @@ Class XPathExpression from Object
 		return self
 
 	Func AddSort P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:AddSort",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:AddSort",P1)
 			return self
 		ok
 		raise("DotNet Error: AddSort does not take one argument: use named arguments, AddSort([ :parameter = value, ... ])")
@@ -122,8 +122,8 @@ Class XPathExpression from Object
 		return dn_x
 
 	Func Compile P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.XPath.XPathExpression, System.Private.Xml'),"s7:Compile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.XPath.XPathExpression, System.Private.Xml',"s7:Compile",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.XPath.XPathExpression, System.Private.Xml',"s7:Compile",P1))
 
@@ -165,8 +165,8 @@ Class XPathItem from Object
 		return self
 
 	Func ValueAs P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:ValueAs",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:ValueAs",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ValueAs",P1))
 
@@ -399,8 +399,10 @@ Class XPathNavigator from XPathItem
 		return dn_x
 
 	Func MoveToFirstNamespace P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:MoveToFirstNamespace",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s20:MoveToFirstNamespace",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s20:MoveToFirstNamespace")
@@ -412,8 +414,10 @@ Class XPathNavigator from XPathItem
 		return dn_x
 
 	Func MoveToNextNamespace P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:MoveToNextNamespace",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:MoveToNextNamespace",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s19:MoveToNextNamespace")
@@ -425,8 +429,10 @@ Class XPathNavigator from XPathItem
 		return dn_x
 
 	Func MoveToNext P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:MoveToNext",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:MoveToNext",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s10:MoveToNext")
@@ -473,16 +479,20 @@ Class XPathNavigator from XPathItem
 		return dn_x
 
 	Func MoveToChild P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:MoveToChild",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:MoveToChild",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s11:MoveToChild",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func MoveToFollowing P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:MoveToFollowing",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:MoveToFollowing",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s15:MoveToFollowing",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -510,20 +520,20 @@ Class XPathNavigator from XPathItem
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Compile",P1))
 
 	Func SelectSingleNode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:SelectSingleNode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SelectSingleNode",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SelectSingleNode",P1))
 
 	Func Select P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Select",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Select",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Select",P1))
 
 	Func Evaluate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Evaluate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Evaluate",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Evaluate",P1))
 
@@ -533,26 +543,28 @@ Class XPathNavigator from XPathItem
 		return dn_x
 
 	Func SelectChildren P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:SelectChildren",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:SelectChildren",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SelectChildren",P1))
 
 	Func SelectAncestors P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:SelectAncestors",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:SelectAncestors",P1))
 		ok
 		raise("DotNet Error: SelectAncestors does not take one argument: use named arguments, SelectAncestors([ :parameter = value, ... ])")
 
 	Func SelectDescendants P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:SelectDescendants",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:SelectDescendants",P1))
 		ok
 		raise("DotNet Error: SelectDescendants does not take one argument: use named arguments, SelectDescendants([ :parameter = value, ... ])")
 
 	Func PrependChild P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:PrependChild",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s12:PrependChild",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s12:PrependChild"))
@@ -562,8 +574,10 @@ Class XPathNavigator from XPathItem
 		return self
 
 	Func AppendChild P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:AppendChild",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s11:AppendChild",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:AppendChild"))
@@ -573,8 +587,10 @@ Class XPathNavigator from XPathItem
 		return self
 
 	Func InsertAfter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:InsertAfter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s11:InsertAfter",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:InsertAfter"))
@@ -584,8 +600,10 @@ Class XPathNavigator from XPathItem
 		return self
 
 	Func InsertBefore P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:InsertBefore",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s12:InsertBefore",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s12:InsertBefore"))

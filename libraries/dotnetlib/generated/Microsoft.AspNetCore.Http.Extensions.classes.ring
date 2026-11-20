@@ -67,7 +67,7 @@ Class QueryBuilder from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.Extensions.QueryBuilder, Microsoft.AspNetCore.Http.Extensions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -115,8 +115,8 @@ Class StreamCopyOperation from Object
 		return dn_x
 
 	Func CopyToAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Extensions.StreamCopyOperation, Microsoft.AspNetCore.Http.Extensions'),"s11:CopyToAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Extensions.StreamCopyOperation, Microsoft.AspNetCore.Http.Extensions',"s11:CopyToAsync",P1))
 		ok
 		raise("DotNet Error: CopyToAsync does not take one argument: use named arguments, CopyToAsync([ :parameter = value, ... ])")
 
@@ -138,8 +138,10 @@ Class UriHelper from Object
 		return dn_x
 
 	Func BuildRelative P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"s13:BuildRelative",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions',"s13:BuildRelative",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions',"s13:BuildRelative")
@@ -151,8 +153,10 @@ Class UriHelper from Object
 		return dn_x
 
 	Func BuildAbsolute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"s13:BuildAbsolute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions',"s13:BuildAbsolute",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: BuildAbsolute does not take one argument: use named arguments, BuildAbsolute([ :parameter = value, ... ])")
 

@@ -473,8 +473,8 @@ Class AdornerLayer from FrameworkElement
 		return self
 
 	Func Update P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Update",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Update",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -647,7 +647,7 @@ Class DocumentPage from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.DocumentPage, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -730,8 +730,8 @@ Class DocumentPaginator from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetPage",P1))
 
 	Func GetPageAsync P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s12:GetPageAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s12:GetPageAsync",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s12:GetPageAsync",P1)
@@ -744,8 +744,8 @@ Class DocumentPaginator from Object
 		return self
 
 	Func ComputePageCountAsync P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s21:ComputePageCountAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s21:ComputePageCountAsync",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1666,7 +1666,7 @@ Class FlowDocument from FrameworkContentElement
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.FlowDocument, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3809,8 +3809,8 @@ Class TextRange from Object
 		return dn_x
 
 	Func Save P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Save",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Save",P1)
 			return self
 		ok
 		raise("DotNet Error: Save does not take one argument: use named arguments, Save([ :parameter = value, ... ])")
@@ -5320,8 +5320,8 @@ Class DynamicDocumentPaginator from DocumentPaginator
 		return dn_x
 
 	Func GetPageNumberAsync P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s18:GetPageNumberAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s18:GetPageNumberAsync",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s18:GetPageNumberAsync",P1)
@@ -5532,7 +5532,7 @@ Class ListItem from TextElement
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.ListItem, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5730,7 +5730,7 @@ Class TableCell from TextElement
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.TableCell, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5986,8 +5986,10 @@ Class TextPointer from ContentPosition
 		return dn_x
 
 	Func GetTextInRun P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:GetTextInRun",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetTextInRun",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTextInRun",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5997,8 +5999,8 @@ Class TextPointer from ContentPosition
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetAdjacentElement",P1))
 
 	Func GetPositionAtOffset P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:GetPositionAtOffset",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetPositionAtOffset",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetPositionAtOffset",P1))
 
@@ -6256,7 +6258,7 @@ Class BlockUIContainer from Block
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.BlockUIContainer, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6302,7 +6304,7 @@ Class InlineUIContainer from Inline
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.InlineUIContainer, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6346,7 +6348,7 @@ Class LineBreak from Inline
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.LineBreak, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6391,7 +6393,7 @@ Class List from Block
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.List, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6491,7 +6493,7 @@ Class Paragraph from Block
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Paragraph, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6630,7 +6632,7 @@ Class Run from Inline
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Run, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6690,7 +6692,7 @@ Class Section from Block
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Section, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6749,7 +6751,7 @@ Class Span from Inline
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Span, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6855,7 +6857,7 @@ Class Bold from Span
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Bold, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6909,7 +6911,7 @@ Class Figure from AnchoredBlock
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Figure, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7061,7 +7063,7 @@ Class Floater from AnchoredBlock
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Floater, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7139,7 +7141,7 @@ Class Hyperlink from Span
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Hyperlink, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7270,7 +7272,7 @@ Class Italic from Span
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Italic, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7307,7 +7309,7 @@ Class Underline from Span
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Underline, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

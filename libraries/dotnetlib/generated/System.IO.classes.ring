@@ -189,7 +189,7 @@ Class BinaryReader from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.BinaryReader, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -219,8 +219,10 @@ Class BinaryReader from Object
 		return dn_x
 
 	Func Read P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Read",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s4:Read",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s4:Read")
@@ -345,7 +347,7 @@ Class BinaryWriter from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.BinaryWriter, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -383,8 +385,8 @@ Class BinaryWriter from Object
 		return dn_x
 
 	Func Write P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Write",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Write",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s5:Write",P1)
@@ -439,14 +441,14 @@ Class Directory from Object
 		return dnObj(dotnet_callo("s4:call",'System.IO.Directory, System.Private.CoreLib',"s9:GetParent",P1))
 
 	Func CreateDirectory P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s15:CreateDirectory",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.Directory, System.Private.CoreLib',"s15:CreateDirectory",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.Directory, System.Private.CoreLib',"s15:CreateDirectory",P1))
 
 	Func CreateTempSubdirectory P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s22:CreateTempSubdirectory",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.Directory, System.Private.CoreLib',"s22:CreateTempSubdirectory",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.IO.Directory, System.Private.CoreLib',"s22:CreateTempSubdirectory"))
@@ -507,38 +509,38 @@ Class Directory from Object
 		return dnObj(dotnet_callo("s4:call",'System.IO.Directory, System.Private.CoreLib',"s20:GetLastAccessTimeUtc",P1))
 
 	Func GetFiles P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s8:GetFiles",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.Directory, System.Private.CoreLib',"s8:GetFiles",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.Directory, System.Private.CoreLib',"s8:GetFiles",P1))
 
 	Func GetDirectories P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s14:GetDirectories",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.Directory, System.Private.CoreLib',"s14:GetDirectories",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.Directory, System.Private.CoreLib',"s14:GetDirectories",P1))
 
 	Func GetFileSystemEntries P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s20:GetFileSystemEntries",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.Directory, System.Private.CoreLib',"s20:GetFileSystemEntries",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.Directory, System.Private.CoreLib',"s20:GetFileSystemEntries",P1))
 
 	Func EnumerateDirectories P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s20:EnumerateDirectories",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.Directory, System.Private.CoreLib',"s20:EnumerateDirectories",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.Directory, System.Private.CoreLib',"s20:EnumerateDirectories",P1))
 
 	Func EnumerateFiles P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s14:EnumerateFiles",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.Directory, System.Private.CoreLib',"s14:EnumerateFiles",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.Directory, System.Private.CoreLib',"s14:EnumerateFiles",P1))
 
 	Func EnumerateFileSystemEntries P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s26:EnumerateFileSystemEntries",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.Directory, System.Private.CoreLib',"s26:EnumerateFileSystemEntries",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.Directory, System.Private.CoreLib',"s26:EnumerateFileSystemEntries",P1))
 
@@ -563,8 +565,8 @@ Class Directory from Object
 		return self
 
 	Func Delete P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.IO.Directory, System.Private.CoreLib'),"s6:Delete",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.IO.Directory, System.Private.CoreLib',"s6:Delete",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.IO.Directory, System.Private.CoreLib',"s6:Delete",P1)
@@ -826,15 +828,15 @@ Class File from Object
 		return dnObj(dotnet_callo("s4:call",'System.IO.File, System.Private.CoreLib',"s10:AppendText",P1))
 
 	Func Copy P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s4:Copy",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s4:Copy",P1)
 			return self
 		ok
 		raise("DotNet Error: Copy does not take one argument: use named arguments, Copy([ :parameter = value, ... ])")
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.File, System.Private.CoreLib',"s6:Create",P1))
 
@@ -849,14 +851,14 @@ Class File from Object
 		return dn_x
 
 	Func Open P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s4:Open",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s4:Open",P1))
 		ok
 		raise("DotNet Error: Open does not take one argument: use named arguments, Open([ :parameter = value, ... ])")
 
 	Func OpenHandle P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s10:OpenHandle",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s10:OpenHandle",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.File, System.Private.CoreLib',"s10:OpenHandle",P1))
 
@@ -931,16 +933,18 @@ Class File from Object
 		return dnObj(dotnet_callo("s4:call",'System.IO.File, System.Private.CoreLib',"s9:OpenWrite",P1))
 
 	Func ReadAllText P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s11:ReadAllText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s11:ReadAllText",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.IO.File, System.Private.CoreLib',"s11:ReadAllText",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func WriteAllText P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s12:WriteAllText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s12:WriteAllText",P1)
 			return self
 		ok
 		raise("DotNet Error: WriteAllText does not take one argument: use named arguments, WriteAllText([ :parameter = value, ... ])")
@@ -959,60 +963,60 @@ Class File from Object
 		return self
 
 	Func AppendAllBytesAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s19:AppendAllBytesAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s19:AppendAllBytesAsync",P1))
 		ok
 		raise("DotNet Error: AppendAllBytesAsync does not take one argument: use named arguments, AppendAllBytesAsync([ :parameter = value, ... ])")
 
 	Func ReadAllLines P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s12:ReadAllLines",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s12:ReadAllLines",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.File, System.Private.CoreLib',"s12:ReadAllLines",P1))
 
 	Func ReadLines P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s9:ReadLines",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s9:ReadLines",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.File, System.Private.CoreLib',"s9:ReadLines",P1))
 
 	Func ReadLinesAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s14:ReadLinesAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s14:ReadLinesAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.File, System.Private.CoreLib',"s14:ReadLinesAsync",P1))
 
 	Func WriteAllLines P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s13:WriteAllLines",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s13:WriteAllLines",P1)
 			return self
 		ok
 		raise("DotNet Error: WriteAllLines does not take one argument: use named arguments, WriteAllLines([ :parameter = value, ... ])")
 
 	Func AppendAllText P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s13:AppendAllText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s13:AppendAllText",P1)
 			return self
 		ok
 		raise("DotNet Error: AppendAllText does not take one argument: use named arguments, AppendAllText([ :parameter = value, ... ])")
 
 	Func AppendAllLines P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s14:AppendAllLines",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s14:AppendAllLines",P1)
 			return self
 		ok
 		raise("DotNet Error: AppendAllLines does not take one argument: use named arguments, AppendAllLines([ :parameter = value, ... ])")
 
 	Func Replace P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s7:Replace",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s7:Replace",P1)
 			return self
 		ok
 		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
 	Func Move P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s4:Move",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s4:Move",P1)
 			return self
 		ok
 		raise("DotNet Error: Move does not take one argument: use named arguments, Move([ :parameter = value, ... ])")
@@ -1028,50 +1032,50 @@ Class File from Object
 		return self
 
 	Func ReadAllTextAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s16:ReadAllTextAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s16:ReadAllTextAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.File, System.Private.CoreLib',"s16:ReadAllTextAsync",P1))
 
 	Func WriteAllTextAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s17:WriteAllTextAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s17:WriteAllTextAsync",P1))
 		ok
 		raise("DotNet Error: WriteAllTextAsync does not take one argument: use named arguments, WriteAllTextAsync([ :parameter = value, ... ])")
 
 	Func ReadAllBytesAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s17:ReadAllBytesAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s17:ReadAllBytesAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.File, System.Private.CoreLib',"s17:ReadAllBytesAsync",P1))
 
 	Func WriteAllBytesAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s18:WriteAllBytesAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s18:WriteAllBytesAsync",P1))
 		ok
 		raise("DotNet Error: WriteAllBytesAsync does not take one argument: use named arguments, WriteAllBytesAsync([ :parameter = value, ... ])")
 
 	Func ReadAllLinesAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s17:ReadAllLinesAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s17:ReadAllLinesAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.File, System.Private.CoreLib',"s17:ReadAllLinesAsync",P1))
 
 	Func WriteAllLinesAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s18:WriteAllLinesAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s18:WriteAllLinesAsync",P1))
 		ok
 		raise("DotNet Error: WriteAllLinesAsync does not take one argument: use named arguments, WriteAllLinesAsync([ :parameter = value, ... ])")
 
 	Func AppendAllTextAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s18:AppendAllTextAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s18:AppendAllTextAsync",P1))
 		ok
 		raise("DotNet Error: AppendAllTextAsync does not take one argument: use named arguments, AppendAllTextAsync([ :parameter = value, ... ])")
 
 	Func AppendAllLinesAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.File, System.Private.CoreLib'),"s19:AppendAllLinesAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.File, System.Private.CoreLib',"s19:AppendAllLinesAsync",P1))
 		ok
 		raise("DotNet Error: AppendAllLinesAsync does not take one argument: use named arguments, AppendAllLinesAsync([ :parameter = value, ... ])")
 
@@ -1385,7 +1389,7 @@ Class FileSystemWatcher from Component
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.FileSystemWatcher, System.IO.FileSystem.Watcher',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1400,8 +1404,8 @@ Class FileSystemWatcher from Component
 		return self
 
 	Func WaitForChanged P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:WaitForChanged",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:WaitForChanged",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:WaitForChanged",P1))
 
@@ -1589,16 +1593,20 @@ Class Path from Object
 		return dn_x
 
 	Func Combine P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s7:Combine",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.IO.Path, System.Private.CoreLib',"s7:Combine",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s7:Combine",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Join P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s4:Join",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.IO.Path, System.Private.CoreLib',"s4:Join",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s4:Join",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1626,8 +1634,10 @@ Class Path from Object
 		return dnObj(dotnet_callo("s4:call",'System.IO.Path, System.Private.CoreLib',"s19:GetInvalidPathChars"))
 
 	Func GetFullPath P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Path, System.Private.CoreLib'),"s11:GetFullPath",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.IO.Path, System.Private.CoreLib',"s11:GetFullPath",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s11:GetFullPath",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1716,8 +1726,8 @@ Class RandomAccess from Object
 		return dn_x
 
 	Func ReadAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s9:ReadAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.RandomAccess, System.Private.CoreLib',"s9:ReadAsync",P1))
 		ok
 		raise("DotNet Error: ReadAsync does not take one argument: use named arguments, ReadAsync([ :parameter = value, ... ])")
 
@@ -1727,8 +1737,8 @@ Class RandomAccess from Object
 		return self
 
 	Func WriteAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.RandomAccess, System.Private.CoreLib'),"s10:WriteAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.RandomAccess, System.Private.CoreLib',"s10:WriteAsync",P1))
 		ok
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
@@ -1760,8 +1770,8 @@ Class Stream from MarshalByRefObject
 		return self
 
 	Func CopyTo P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:CopyTo",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
@@ -1769,8 +1779,8 @@ Class Stream from MarshalByRefObject
 		return self
 
 	Func CopyToAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:CopyToAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CopyToAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CopyToAsync",P1))
 
@@ -1793,8 +1803,8 @@ Class Stream from MarshalByRefObject
 		return self
 
 	Func FlushAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:FlushAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:FlushAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:FlushAsync"))
@@ -1810,20 +1820,20 @@ Class Stream from MarshalByRefObject
 		return dn_x
 
 	Func ReadAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:ReadAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:ReadAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ReadAsync",P1))
 
 	Func ReadExactlyAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:ReadExactlyAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:ReadExactlyAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ReadExactlyAsync",P1))
 
 	Func ReadAtLeastAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:ReadAtLeastAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:ReadAtLeastAsync",P1))
 		ok
 		raise("DotNet Error: ReadAtLeastAsync does not take one argument: use named arguments, ReadAtLeastAsync([ :parameter = value, ... ])")
 
@@ -1836,8 +1846,8 @@ Class Stream from MarshalByRefObject
 		return self
 
 	Func WriteAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:WriteAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:WriteAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:WriteAsync",P1))
 
@@ -1979,8 +1989,10 @@ Class TextReader from MarshalByRefObject
 		return dn_x
 
 	Func Read P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Read",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s4:Read",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s4:Read")
@@ -2005,8 +2017,8 @@ Class TextReader from MarshalByRefObject
 		return dn_x
 
 	Func ReadLineAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ReadLineAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ReadLineAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadLineAsync"))
@@ -2014,8 +2026,8 @@ Class TextReader from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadLineAsync",P1))
 
 	Func ReadToEndAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:ReadToEndAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:ReadToEndAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s14:ReadToEndAsync"))
@@ -2023,14 +2035,14 @@ Class TextReader from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ReadToEndAsync",P1))
 
 	Func ReadAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:ReadAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:ReadAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ReadAsync",P1))
 
 	Func ReadBlockAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:ReadBlockAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:ReadBlockAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ReadBlockAsync",P1))
 
@@ -2079,8 +2091,8 @@ Class TextWriter from MarshalByRefObject
 		return self
 
 	Func Write P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Write",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Write",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s5:Write",P1)
@@ -2088,8 +2100,8 @@ Class TextWriter from MarshalByRefObject
 		return self
 
 	Func WriteLine P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:WriteLine",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:WriteLine",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -2102,14 +2114,14 @@ Class TextWriter from MarshalByRefObject
 		return self
 
 	Func WriteAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:WriteAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:WriteAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:WriteAsync",P1))
 
 	Func WriteLineAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:WriteLineAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:WriteLineAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s14:WriteLineAsync"))
@@ -2117,8 +2129,8 @@ Class TextWriter from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:WriteLineAsync",P1))
 
 	Func FlushAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:FlushAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:FlushAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:FlushAsync"))
@@ -2177,7 +2189,7 @@ Class UnmanagedMemoryAccessor from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.UnmanagedMemoryAccessor, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2384,7 +2396,7 @@ Class BufferedStream from Stream
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.BufferedStream, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2438,8 +2450,8 @@ Class DirectoryInfo from FileSystemInfo
 		return self
 
 	Func GetFiles P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:GetFiles",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetFiles",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetFiles"))
@@ -2447,8 +2459,8 @@ Class DirectoryInfo from FileSystemInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetFiles",P1))
 
 	Func GetFileSystemInfos P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:GetFileSystemInfos",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetFileSystemInfos",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetFileSystemInfos"))
@@ -2456,8 +2468,8 @@ Class DirectoryInfo from FileSystemInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetFileSystemInfos",P1))
 
 	Func GetDirectories P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetDirectories",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:GetDirectories",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetDirectories"))
@@ -2465,8 +2477,8 @@ Class DirectoryInfo from FileSystemInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetDirectories",P1))
 
 	Func EnumerateDirectories P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:EnumerateDirectories",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:EnumerateDirectories",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s20:EnumerateDirectories"))
@@ -2474,8 +2486,8 @@ Class DirectoryInfo from FileSystemInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:EnumerateDirectories",P1))
 
 	Func EnumerateFiles P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:EnumerateFiles",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:EnumerateFiles",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s14:EnumerateFiles"))
@@ -2483,8 +2495,8 @@ Class DirectoryInfo from FileSystemInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:EnumerateFiles",P1))
 
 	Func EnumerateFileSystemInfos P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:EnumerateFileSystemInfos",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:EnumerateFileSystemInfos",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s24:EnumerateFileSystemInfos"))
@@ -2497,8 +2509,8 @@ Class DirectoryInfo from FileSystemInfo
 		return self
 
 	Func Delete P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Delete",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Delete",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -2542,8 +2554,8 @@ Class FileInfo from FileSystemInfo
 		return self
 
 	Func Open P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Open",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Open",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Open",P1))
 
@@ -2557,8 +2569,8 @@ Class FileInfo from FileSystemInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendText"))
 
 	Func CopyTo P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:CopyTo",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:CopyTo",P1))
 
@@ -2572,8 +2584,8 @@ Class FileInfo from FileSystemInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:OpenWrite"))
 
 	Func MoveTo P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:MoveTo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:MoveTo",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:MoveTo",P1)
@@ -2581,8 +2593,8 @@ Class FileInfo from FileSystemInfo
 		return self
 
 	Func Replace P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Replace",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Replace",P1))
 		ok
 		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
@@ -2647,7 +2659,7 @@ Class FileStream from Stream
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.FileStream, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2672,8 +2684,8 @@ Class FileStream from Stream
 		return self
 
 	Func Flush P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Flush",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Flush",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -2738,7 +2750,7 @@ Class MemoryStream from Stream
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.MemoryStream, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2827,7 +2839,7 @@ Class StreamReader from TextReader
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.StreamReader, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2887,7 +2899,7 @@ Class StreamWriter from TextWriter
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.StreamWriter, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2956,7 +2968,7 @@ Class StringWriter from TextWriter
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.StringWriter, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2991,7 +3003,7 @@ Class UnmanagedMemoryStream from Stream
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.UnmanagedMemoryStream, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

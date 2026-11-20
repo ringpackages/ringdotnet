@@ -365,14 +365,14 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Assign",P1,P2))
 
 	Func MakeBinary P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s10:MakeBinary",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s10:MakeBinary",P1))
 		ok
 		raise("DotNet Error: MakeBinary does not take one argument: use named arguments, MakeBinary([ :parameter = value, ... ])")
 
 	Func Equal P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Equal",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Equal",P1))
 		ok
 		raise("DotNet Error: Equal does not take one argument: use named arguments, Equal([ :parameter = value, ... ])")
 
@@ -380,8 +380,8 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s14:ReferenceEqual",P1,P2))
 
 	Func NotEqual P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:NotEqual",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:NotEqual",P1))
 		ok
 		raise("DotNet Error: NotEqual does not take one argument: use named arguments, NotEqual([ :parameter = value, ... ])")
 
@@ -389,212 +389,212 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s17:ReferenceNotEqual",P1,P2))
 
 	Func GreaterThan P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s11:GreaterThan",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s11:GreaterThan",P1))
 		ok
 		raise("DotNet Error: GreaterThan does not take one argument: use named arguments, GreaterThan([ :parameter = value, ... ])")
 
 	Func LessThan P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:LessThan",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:LessThan",P1))
 		ok
 		raise("DotNet Error: LessThan does not take one argument: use named arguments, LessThan([ :parameter = value, ... ])")
 
 	Func GreaterThanOrEqual P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s18:GreaterThanOrEqual",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s18:GreaterThanOrEqual",P1))
 		ok
 		raise("DotNet Error: GreaterThanOrEqual does not take one argument: use named arguments, GreaterThanOrEqual([ :parameter = value, ... ])")
 
 	Func LessThanOrEqual P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s15:LessThanOrEqual",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s15:LessThanOrEqual",P1))
 		ok
 		raise("DotNet Error: LessThanOrEqual does not take one argument: use named arguments, LessThanOrEqual([ :parameter = value, ... ])")
 
 	Func AndAlso P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s7:AndAlso",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s7:AndAlso",P1))
 		ok
 		raise("DotNet Error: AndAlso does not take one argument: use named arguments, AndAlso([ :parameter = value, ... ])")
 
 	Func OrElse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:OrElse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:OrElse",P1))
 		ok
 		raise("DotNet Error: OrElse does not take one argument: use named arguments, OrElse([ :parameter = value, ... ])")
 
 	Func Coalesce P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:Coalesce",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:Coalesce",P1))
 		ok
 		raise("DotNet Error: Coalesce does not take one argument: use named arguments, Coalesce([ :parameter = value, ... ])")
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s3:Add",P1))
 		ok
 		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
 
 	Func AddAssign P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:AddAssign",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:AddAssign",P1))
 		ok
 		raise("DotNet Error: AddAssign does not take one argument: use named arguments, AddAssign([ :parameter = value, ... ])")
 
 	Func AddAssignChecked P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s16:AddAssignChecked",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s16:AddAssignChecked",P1))
 		ok
 		raise("DotNet Error: AddAssignChecked does not take one argument: use named arguments, AddAssignChecked([ :parameter = value, ... ])")
 
 	Func AddChecked P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s10:AddChecked",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s10:AddChecked",P1))
 		ok
 		raise("DotNet Error: AddChecked does not take one argument: use named arguments, AddChecked([ :parameter = value, ... ])")
 
 	Func Subtract P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:Subtract",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:Subtract",P1))
 		ok
 		raise("DotNet Error: Subtract does not take one argument: use named arguments, Subtract([ :parameter = value, ... ])")
 
 	Func SubtractAssign P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s14:SubtractAssign",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s14:SubtractAssign",P1))
 		ok
 		raise("DotNet Error: SubtractAssign does not take one argument: use named arguments, SubtractAssign([ :parameter = value, ... ])")
 
 	Func SubtractAssignChecked P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s21:SubtractAssignChecked",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s21:SubtractAssignChecked",P1))
 		ok
 		raise("DotNet Error: SubtractAssignChecked does not take one argument: use named arguments, SubtractAssignChecked([ :parameter = value, ... ])")
 
 	Func SubtractChecked P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s15:SubtractChecked",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s15:SubtractChecked",P1))
 		ok
 		raise("DotNet Error: SubtractChecked does not take one argument: use named arguments, SubtractChecked([ :parameter = value, ... ])")
 
 	Func Divide P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:Divide",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Divide",P1))
 		ok
 		raise("DotNet Error: Divide does not take one argument: use named arguments, Divide([ :parameter = value, ... ])")
 
 	Func DivideAssign P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s12:DivideAssign",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s12:DivideAssign",P1))
 		ok
 		raise("DotNet Error: DivideAssign does not take one argument: use named arguments, DivideAssign([ :parameter = value, ... ])")
 
 	Func Modulo P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:Modulo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Modulo",P1))
 		ok
 		raise("DotNet Error: Modulo does not take one argument: use named arguments, Modulo([ :parameter = value, ... ])")
 
 	Func ModuloAssign P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s12:ModuloAssign",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s12:ModuloAssign",P1))
 		ok
 		raise("DotNet Error: ModuloAssign does not take one argument: use named arguments, ModuloAssign([ :parameter = value, ... ])")
 
 	Func Multiply P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:Multiply",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:Multiply",P1))
 		ok
 		raise("DotNet Error: Multiply does not take one argument: use named arguments, Multiply([ :parameter = value, ... ])")
 
 	Func MultiplyAssign P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s14:MultiplyAssign",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s14:MultiplyAssign",P1))
 		ok
 		raise("DotNet Error: MultiplyAssign does not take one argument: use named arguments, MultiplyAssign([ :parameter = value, ... ])")
 
 	Func MultiplyAssignChecked P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s21:MultiplyAssignChecked",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s21:MultiplyAssignChecked",P1))
 		ok
 		raise("DotNet Error: MultiplyAssignChecked does not take one argument: use named arguments, MultiplyAssignChecked([ :parameter = value, ... ])")
 
 	Func MultiplyChecked P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s15:MultiplyChecked",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s15:MultiplyChecked",P1))
 		ok
 		raise("DotNet Error: MultiplyChecked does not take one argument: use named arguments, MultiplyChecked([ :parameter = value, ... ])")
 
 	Func LeftShift P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:LeftShift",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:LeftShift",P1))
 		ok
 		raise("DotNet Error: LeftShift does not take one argument: use named arguments, LeftShift([ :parameter = value, ... ])")
 
 	Func LeftShiftAssign P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s15:LeftShiftAssign",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s15:LeftShiftAssign",P1))
 		ok
 		raise("DotNet Error: LeftShiftAssign does not take one argument: use named arguments, LeftShiftAssign([ :parameter = value, ... ])")
 
 	Func RightShift P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s10:RightShift",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s10:RightShift",P1))
 		ok
 		raise("DotNet Error: RightShift does not take one argument: use named arguments, RightShift([ :parameter = value, ... ])")
 
 	Func RightShiftAssign P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s16:RightShiftAssign",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s16:RightShiftAssign",P1))
 		ok
 		raise("DotNet Error: RightShiftAssign does not take one argument: use named arguments, RightShiftAssign([ :parameter = value, ... ])")
 
 	Func And_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s3:And",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s3:And",P1))
 		ok
 		raise("DotNet Error: And does not take one argument: use named arguments, And([ :parameter = value, ... ])")
 
 	Func AndAssign P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:AndAssign",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:AndAssign",P1))
 		ok
 		raise("DotNet Error: AndAssign does not take one argument: use named arguments, AndAssign([ :parameter = value, ... ])")
 
 	Func Or_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s2:Or",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s2:Or",P1))
 		ok
 		raise("DotNet Error: Or does not take one argument: use named arguments, Or([ :parameter = value, ... ])")
 
 	Func OrAssign P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:OrAssign",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:OrAssign",P1))
 		ok
 		raise("DotNet Error: OrAssign does not take one argument: use named arguments, OrAssign([ :parameter = value, ... ])")
 
 	Func ExclusiveOr P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s11:ExclusiveOr",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s11:ExclusiveOr",P1))
 		ok
 		raise("DotNet Error: ExclusiveOr does not take one argument: use named arguments, ExclusiveOr([ :parameter = value, ... ])")
 
 	Func ExclusiveOrAssign P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s17:ExclusiveOrAssign",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s17:ExclusiveOrAssign",P1))
 		ok
 		raise("DotNet Error: ExclusiveOrAssign does not take one argument: use named arguments, ExclusiveOrAssign([ :parameter = value, ... ])")
 
 	Func Power P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Power",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Power",P1))
 		ok
 		raise("DotNet Error: Power does not take one argument: use named arguments, Power([ :parameter = value, ... ])")
 
 	Func PowerAssign P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s11:PowerAssign",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s11:PowerAssign",P1))
 		ok
 		raise("DotNet Error: PowerAssign does not take one argument: use named arguments, PowerAssign([ :parameter = value, ... ])")
 
@@ -602,14 +602,14 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s10:ArrayIndex",P1,P2))
 
 	Func Block P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Block",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Block",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Block",P1))
 
 	Func Catch_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Catch",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Catch",P1))
 		ok
 		raise("DotNet Error: Catch does not take one argument: use named arguments, Catch([ :parameter = value, ... ])")
 
@@ -617,8 +617,8 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s14:MakeCatchBlock",P1,P2,P3,P4))
 
 	Func Condition P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:Condition",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:Condition",P1))
 		ok
 		raise("DotNet Error: Condition does not take one argument: use named arguments, Condition([ :parameter = value, ... ])")
 
@@ -629,8 +629,8 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s10:IfThenElse",P1,P2,P3))
 
 	Func Constant P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:Constant",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:Constant",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:Constant",P1))
 
@@ -650,38 +650,38 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s11:ElementInit",P1,P2))
 
 	Func Dynamic P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s7:Dynamic",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s7:Dynamic",P1))
 		ok
 		raise("DotNet Error: Dynamic does not take one argument: use named arguments, Dynamic([ :parameter = value, ... ])")
 
 	Func MakeDynamic P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s11:MakeDynamic",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s11:MakeDynamic",P1))
 		ok
 		raise("DotNet Error: MakeDynamic does not take one argument: use named arguments, MakeDynamic([ :parameter = value, ... ])")
 
 	Func Break_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Break",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Break",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Break",P1))
 
 	Func Continue_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:Continue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:Continue",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:Continue",P1))
 
 	Func Return_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:Return",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Return",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Return",P1))
 
 	Func Goto P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s4:Goto",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s4:Goto",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s4:Goto",P1))
 
@@ -695,8 +695,8 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s11:ArrayAccess",P1,P2))
 
 	Func Property P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:Property",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:Property",P1))
 		ok
 		raise("DotNet Error: Property does not take one argument: use named arguments, Property([ :parameter = value, ... ])")
 
@@ -704,8 +704,8 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Invoke",P1,P2))
 
 	Func Label P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Label",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Label",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Label"))
@@ -713,8 +713,8 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Label",P1))
 
 	Func Lambda P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:Lambda",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Lambda",P1))
 		ok
 		raise("DotNet Error: Lambda does not take one argument: use named arguments, Lambda([ :parameter = value, ... ])")
 
@@ -734,14 +734,14 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s15:GetDelegateType",P1))
 
 	Func ListInit P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:ListInit",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:ListInit",P1))
 		ok
 		raise("DotNet Error: ListInit does not take one argument: use named arguments, ListInit([ :parameter = value, ... ])")
 
 	Func Loop_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s4:Loop",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s4:Loop",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s4:Loop",P1))
 
@@ -749,8 +749,8 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s4:Bind",P1,P2))
 
 	Func Field P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Field",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Field",P1))
 		ok
 		raise("DotNet Error: Field does not take one argument: use named arguments, Field([ :parameter = value, ... ])")
 
@@ -770,8 +770,8 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s10:MemberBind",P1,P2))
 
 	Func Call_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s4:Call",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s4:Call",P1))
 		ok
 		raise("DotNet Error: Call does not take one argument: use named arguments, Call([ :parameter = value, ... ])")
 
@@ -782,14 +782,14 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s14:NewArrayBounds",P1,P2))
 
 	Func Parameter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:Parameter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:Parameter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:Parameter",P1))
 
 	Func Variable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s8:Variable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:Variable",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s8:Variable",P1))
 
@@ -800,14 +800,14 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s10:SwitchCase",P1,P2))
 
 	Func Switch_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:Switch",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Switch",P1))
 		ok
 		raise("DotNet Error: Switch does not take one argument: use named arguments, Switch([ :parameter = value, ... ])")
 
 	Func SymbolDocument P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s14:SymbolDocument",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s14:SymbolDocument",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s14:SymbolDocument",P1))
 
@@ -833,50 +833,50 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:TypeEqual",P1,P2))
 
 	Func MakeUnary P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:MakeUnary",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:MakeUnary",P1))
 		ok
 		raise("DotNet Error: MakeUnary does not take one argument: use named arguments, MakeUnary([ :parameter = value, ... ])")
 
 	Func Negate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:Negate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Negate",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Negate",P1))
 
 	Func UnaryPlus P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:UnaryPlus",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:UnaryPlus",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:UnaryPlus",P1))
 
 	Func NegateChecked P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s13:NegateChecked",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s13:NegateChecked",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s13:NegateChecked",P1))
 
 	Func Not_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s3:Not",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s3:Not",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s3:Not",P1))
 
 	Func IsFalse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s7:IsFalse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s7:IsFalse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s7:IsFalse",P1))
 
 	Func IsTrue P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s6:IsTrue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:IsTrue",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:IsTrue",P1))
 
 	Func OnesComplement P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s14:OnesComplement",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s14:OnesComplement",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s14:OnesComplement",P1))
 
@@ -887,14 +887,14 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Unbox",P1,P2))
 
 	Func Convert P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s7:Convert",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s7:Convert",P1))
 		ok
 		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
 	Func ConvertChecked P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s14:ConvertChecked",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s14:ConvertChecked",P1))
 		ok
 		raise("DotNet Error: ConvertChecked does not take one argument: use named arguments, ConvertChecked([ :parameter = value, ... ])")
 
@@ -905,8 +905,8 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Quote",P1))
 
 	Func Rethrow P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s7:Rethrow",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s7:Rethrow",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s7:Rethrow"))
@@ -914,44 +914,44 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s7:Rethrow",P1))
 
 	Func Throw P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s5:Throw",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Throw",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s5:Throw",P1))
 
 	Func Increment P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:Increment",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:Increment",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:Increment",P1))
 
 	Func Decrement P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s9:Decrement",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:Decrement",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s9:Decrement",P1))
 
 	Func PreIncrementAssign P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s18:PreIncrementAssign",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s18:PreIncrementAssign",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s18:PreIncrementAssign",P1))
 
 	Func PreDecrementAssign P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s18:PreDecrementAssign",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s18:PreDecrementAssign",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s18:PreDecrementAssign",P1))
 
 	Func PostIncrementAssign P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s19:PostIncrementAssign",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s19:PostIncrementAssign",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s19:PostIncrementAssign",P1))
 
 	Func PostDecrementAssign P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.Expression, System.Linq.Expressions'),"s19:PostDecrementAssign",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s19:PostDecrementAssign",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s19:PostDecrementAssign",P1))
 
@@ -988,11 +988,11 @@ Class ExpressionVisitor from Object
 		return self
 
 	Func Visit P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.ExpressionVisitor, System.Linq.Expressions'),"s5:Visit",dnPackItem(P1))
+				return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.ExpressionVisitor, System.Linq.Expressions',"s5:Visit",P1))
 			ok
-			return dnSend("s9:callnamed",nHandle,"s5:Visit",dnPackItem(P1))
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Visit",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
 
@@ -1460,14 +1460,14 @@ Class DynamicExpression from ExpressionsExpression
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func Dynamic P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.DynamicExpression, System.Linq.Expressions'),"s7:Dynamic",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.DynamicExpression, System.Linq.Expressions',"s7:Dynamic",P1))
 		ok
 		raise("DotNet Error: Dynamic does not take one argument: use named arguments, Dynamic([ :parameter = value, ... ])")
 
 	Func MakeDynamic P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Linq.Expressions.DynamicExpression, System.Linq.Expressions'),"s11:MakeDynamic",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.DynamicExpression, System.Linq.Expressions',"s11:MakeDynamic",P1))
 		ok
 		raise("DotNet Error: MakeDynamic does not take one argument: use named arguments, MakeDynamic([ :parameter = value, ... ])")
 
@@ -1692,8 +1692,8 @@ Class LambdaExpression from ExpressionsExpression
 		return self
 
 	Func Compile P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Compile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Compile",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s7:Compile"))

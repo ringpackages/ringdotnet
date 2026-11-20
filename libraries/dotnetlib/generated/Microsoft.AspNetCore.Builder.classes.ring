@@ -673,7 +673,7 @@ Class ApplicationBuilder from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Builder.ApplicationBuilder, Microsoft.AspNetCore.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -735,8 +735,8 @@ Class ApplicationBuilderExtensions from Object
 		return dn_x
 
 	Func UseRequestLocalization P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.ApplicationBuilderExtensions, Microsoft.AspNetCore.Localization'),"s22:UseRequestLocalization",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.ApplicationBuilderExtensions, Microsoft.AspNetCore.Localization',"s22:UseRequestLocalization",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.ApplicationBuilderExtensions, Microsoft.AspNetCore.Localization',"s22:UseRequestLocalization",P1))
 
@@ -798,8 +798,8 @@ Class AuthorizationEndpointConventionBuilderExtensions from Object
 		return dn_x
 
 	Func RequireAuthorization P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy'),"s20:RequireAuthorization",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy',"s20:RequireAuthorization",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy',"s20:RequireAuthorization",P1))
 
@@ -871,8 +871,8 @@ Class ComponentEndpointRouteBuilderExtensions from Object
 		return dn_x
 
 	Func MapBlazorHub P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"s12:MapBlazorHub",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server',"s12:MapBlazorHub",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server',"s12:MapBlazorHub",P1))
 
@@ -992,14 +992,14 @@ Class ConnectionEndpointRouteBuilderExtensions from Object
 		return dn_x
 
 	Func MapConnections P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections'),"s14:MapConnections",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections',"s14:MapConnections",P1))
 		ok
 		raise("DotNet Error: MapConnections does not take one argument: use named arguments, MapConnections([ :parameter = value, ... ])")
 
 	Func MapConnectionHandler P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections'),"s20:MapConnectionHandler",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections',"s20:MapConnectionHandler",P1))
 		ok
 		raise("DotNet Error: MapConnectionHandler does not take one argument: use named arguments, MapConnectionHandler([ :parameter = value, ... ])")
 
@@ -1048,8 +1048,8 @@ Class ControllerActionEndpointConventionBuilderResourceCollectionExtensions from
 		return dn_x
 
 	Func WithStaticAssets P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.ControllerActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"s16:WithStaticAssets",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.ControllerActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures',"s16:WithStaticAssets",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.ControllerActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures',"s16:WithStaticAssets",P1))
 
@@ -1077,32 +1077,32 @@ Class ControllerEndpointRouteBuilderExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core',"s25:MapDefaultControllerRoute",P1))
 
 	Func MapControllerRoute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"s18:MapControllerRoute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core',"s18:MapControllerRoute",P1))
 		ok
 		raise("DotNet Error: MapControllerRoute does not take one argument: use named arguments, MapControllerRoute([ :parameter = value, ... ])")
 
 	Func MapAreaControllerRoute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"s22:MapAreaControllerRoute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core',"s22:MapAreaControllerRoute",P1))
 		ok
 		raise("DotNet Error: MapAreaControllerRoute does not take one argument: use named arguments, MapAreaControllerRoute([ :parameter = value, ... ])")
 
 	Func MapFallbackToController P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"s23:MapFallbackToController",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core',"s23:MapFallbackToController",P1))
 		ok
 		raise("DotNet Error: MapFallbackToController does not take one argument: use named arguments, MapFallbackToController([ :parameter = value, ... ])")
 
 	Func MapFallbackToAreaController P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"s27:MapFallbackToAreaController",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core',"s27:MapFallbackToAreaController",P1))
 		ok
 		raise("DotNet Error: MapFallbackToAreaController does not take one argument: use named arguments, MapFallbackToAreaController([ :parameter = value, ... ])")
 
 	Func MapDynamicControllerRoute P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"s25:MapDynamicControllerRoute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core',"s25:MapDynamicControllerRoute",P1)
 			return self
 		ok
 		raise("DotNet Error: MapDynamicControllerRoute does not take one argument: use named arguments, MapDynamicControllerRoute([ :parameter = value, ... ])")
@@ -1125,8 +1125,8 @@ Class CookiePolicyAppBuilderExtensions from Object
 		return dn_x
 
 	Func UseCookiePolicy P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions, Microsoft.AspNetCore.CookiePolicy'),"s15:UseCookiePolicy",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions, Microsoft.AspNetCore.CookiePolicy',"s15:UseCookiePolicy",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions, Microsoft.AspNetCore.CookiePolicy',"s15:UseCookiePolicy",P1))
 
@@ -1241,8 +1241,8 @@ Class CorsEndpointConventionBuilderExtensions from Object
 		return dn_x
 
 	Func RequireCors P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.CorsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Cors'),"s11:RequireCors",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.CorsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Cors',"s11:RequireCors",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.CorsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Cors',"s11:RequireCors",P1))
 
@@ -1264,8 +1264,8 @@ Class CorsMiddlewareExtensions from Object
 		return dn_x
 
 	Func UseCors P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions, Microsoft.AspNetCore.Cors'),"s7:UseCors",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions, Microsoft.AspNetCore.Cors',"s7:UseCors",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions, Microsoft.AspNetCore.Cors',"s7:UseCors",P1))
 
@@ -1287,8 +1287,8 @@ Class DefaultFilesExtensions from Object
 		return dn_x
 
 	Func UseDefaultFiles P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.DefaultFilesExtensions, Microsoft.AspNetCore.StaticFiles'),"s15:UseDefaultFiles",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.DefaultFilesExtensions, Microsoft.AspNetCore.StaticFiles',"s15:UseDefaultFiles",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.DefaultFilesExtensions, Microsoft.AspNetCore.StaticFiles',"s15:UseDefaultFiles",P1))
 
@@ -1320,7 +1320,7 @@ Class DefaultFilesOptions from DotNetObject
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Builder.DefaultFilesOptions, Microsoft.AspNetCore.StaticFiles',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1400,8 +1400,8 @@ Class DeveloperExceptionPageExtensions from Object
 		return dn_x
 
 	Func UseDeveloperExceptionPage P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions, Microsoft.AspNetCore.Diagnostics'),"s25:UseDeveloperExceptionPage",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions, Microsoft.AspNetCore.Diagnostics',"s25:UseDeveloperExceptionPage",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions, Microsoft.AspNetCore.Diagnostics',"s25:UseDeveloperExceptionPage",P1))
 
@@ -1468,8 +1468,8 @@ Class DirectoryBrowserExtensions from Object
 		return dn_x
 
 	Func UseDirectoryBrowser P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions, Microsoft.AspNetCore.StaticFiles'),"s19:UseDirectoryBrowser",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions, Microsoft.AspNetCore.StaticFiles',"s19:UseDirectoryBrowser",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions, Microsoft.AspNetCore.StaticFiles',"s19:UseDirectoryBrowser",P1))
 
@@ -1501,7 +1501,7 @@ Class DirectoryBrowserOptions from DotNetObject
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Builder.DirectoryBrowserOptions, Microsoft.AspNetCore.StaticFiles',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1666,8 +1666,8 @@ Class EndpointRouteBuilderExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing',"s3:Map",P1,P2,P3))
 
 	Func MapFallback P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s11:MapFallback",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing',"s11:MapFallback",P1))
 		ok
 		raise("DotNet Error: MapFallback does not take one argument: use named arguments, MapFallback([ :parameter = value, ... ])")
 
@@ -1712,8 +1712,8 @@ Class ExceptionHandlerExtensions from Object
 		return dn_x
 
 	Func UseExceptionHandler P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions, Microsoft.AspNetCore.Diagnostics'),"s19:UseExceptionHandler",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions, Microsoft.AspNetCore.Diagnostics',"s19:UseExceptionHandler",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions, Microsoft.AspNetCore.Diagnostics',"s19:UseExceptionHandler",P1))
 
@@ -1808,8 +1808,8 @@ Class FallbackEndpointRouteBuilderExtensions from Object
 		return dn_x
 
 	Func MapFallback P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.FallbackEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s11:MapFallback",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.FallbackEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing',"s11:MapFallback",P1))
 		ok
 		raise("DotNet Error: MapFallback does not take one argument: use named arguments, MapFallback([ :parameter = value, ... ])")
 
@@ -1839,8 +1839,8 @@ Class FileServerExtensions from Object
 		return dn_x
 
 	Func UseFileServer P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.FileServerExtensions, Microsoft.AspNetCore.StaticFiles'),"s13:UseFileServer",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.FileServerExtensions, Microsoft.AspNetCore.StaticFiles',"s13:UseFileServer",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.FileServerExtensions, Microsoft.AspNetCore.StaticFiles',"s13:UseFileServer",P1))
 
@@ -1969,8 +1969,8 @@ Class ForwardedHeadersExtensions from Object
 		return dn_x
 
 	Func UseForwardedHeaders P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions, Microsoft.AspNetCore.HttpOverrides'),"s19:UseForwardedHeaders",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions, Microsoft.AspNetCore.HttpOverrides',"s19:UseForwardedHeaders",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions, Microsoft.AspNetCore.HttpOverrides',"s19:UseForwardedHeaders",P1))
 
@@ -2147,8 +2147,8 @@ Class HealthCheckApplicationBuilderExtensions from Object
 		return dn_x
 
 	Func UseHealthChecks P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks'),"s15:UseHealthChecks",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks',"s15:UseHealthChecks",P1))
 		ok
 		raise("DotNet Error: UseHealthChecks does not take one argument: use named arguments, UseHealthChecks([ :parameter = value, ... ])")
 
@@ -2170,8 +2170,8 @@ Class HealthCheckEndpointRouteBuilderExtensions from Object
 		return dn_x
 
 	Func MapHealthChecks P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.HealthCheckEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks'),"s15:MapHealthChecks",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.HealthCheckEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks',"s15:MapHealthChecks",P1))
 		ok
 		raise("DotNet Error: MapHealthChecks does not take one argument: use named arguments, MapHealthChecks([ :parameter = value, ... ])")
 
@@ -2296,8 +2296,8 @@ Class HttpLoggingEndpointConventionBuilderExtensions from Object
 		return dn_x
 
 	Func WithHttpLogging P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.HttpLoggingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.HttpLogging'),"s15:WithHttpLogging",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.HttpLoggingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.HttpLogging',"s15:WithHttpLogging",P1))
 		ok
 		raise("DotNet Error: WithHttpLogging does not take one argument: use named arguments, WithHttpLogging([ :parameter = value, ... ])")
 
@@ -2319,8 +2319,8 @@ Class HttpMethodOverrideExtensions from Object
 		return dn_x
 
 	Func UseHttpMethodOverride P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions, Microsoft.AspNetCore.HttpOverrides'),"s21:UseHttpMethodOverride",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions, Microsoft.AspNetCore.HttpOverrides',"s21:UseHttpMethodOverride",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions, Microsoft.AspNetCore.HttpOverrides',"s21:UseHttpMethodOverride",P1))
 
@@ -2466,8 +2466,8 @@ Class HubEndpointRouteBuilderExtensions from Object
 		return dn_x
 
 	Func MapHub P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.HubEndpointRouteBuilderExtensions, Microsoft.AspNetCore.SignalR'),"s6:MapHub",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.HubEndpointRouteBuilderExtensions, Microsoft.AspNetCore.SignalR',"s6:MapHub",P1))
 		ok
 		raise("DotNet Error: MapHub does not take one argument: use named arguments, MapHub([ :parameter = value, ... ])")
 
@@ -2696,8 +2696,8 @@ Class MapExtensions from Object
 		return dn_x
 
 	Func Map P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.MapExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s3:Map",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.MapExtensions, Microsoft.AspNetCore.Http.Abstractions',"s3:Map",P1))
 		ok
 		raise("DotNet Error: Map does not take one argument: use named arguments, Map([ :parameter = value, ... ])")
 
@@ -2719,8 +2719,8 @@ Class MapRouteRouteBuilderExtensions from Object
 		return dn_x
 
 	Func MapRoute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"s8:MapRoute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions, Microsoft.AspNetCore.Routing',"s8:MapRoute",P1))
 		ok
 		raise("DotNet Error: MapRoute does not take one argument: use named arguments, MapRoute([ :parameter = value, ... ])")
 
@@ -2762,8 +2762,8 @@ Class MvcApplicationBuilderExtensions from Object
 		return dn_x
 
 	Func UseMvc P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"s6:UseMvc",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core',"s6:UseMvc",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core',"s6:UseMvc",P1))
 
@@ -2788,8 +2788,8 @@ Class MvcAreaRouteBuilderExtensions from Object
 		return dn_x
 
 	Func MapAreaRoute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"s12:MapAreaRoute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core',"s12:MapAreaRoute",P1))
 		ok
 		raise("DotNet Error: MapAreaRoute does not take one argument: use named arguments, MapAreaRoute([ :parameter = value, ... ])")
 
@@ -2858,8 +2858,8 @@ Class PageActionEndpointConventionBuilderResourceCollectionExtensions from Objec
 		return dn_x
 
 	Func WithStaticAssets P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.PageActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"s16:WithStaticAssets",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.PageActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages',"s16:WithStaticAssets",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.PageActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages',"s16:WithStaticAssets",P1))
 
@@ -2881,8 +2881,8 @@ Class RateLimiterApplicationBuilderExtensions from Object
 		return dn_x
 
 	Func UseRateLimiter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.RateLimiterApplicationBuilderExtensions, Microsoft.AspNetCore.RateLimiting'),"s14:UseRateLimiter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.RateLimiterApplicationBuilderExtensions, Microsoft.AspNetCore.RateLimiting',"s14:UseRateLimiter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.RateLimiterApplicationBuilderExtensions, Microsoft.AspNetCore.RateLimiting',"s14:UseRateLimiter",P1))
 
@@ -2927,8 +2927,8 @@ Class RateLimiterServiceCollectionExtensions from Object
 		return dn_x
 
 	Func AddRateLimiter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.RateLimiterServiceCollectionExtensions, Microsoft.AspNetCore.RateLimiting'),"s14:AddRateLimiter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.RateLimiterServiceCollectionExtensions, Microsoft.AspNetCore.RateLimiting',"s14:AddRateLimiter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.RateLimiterServiceCollectionExtensions, Microsoft.AspNetCore.RateLimiting',"s14:AddRateLimiter",P1))
 
@@ -2980,8 +2980,8 @@ Class RazorComponentsEndpointConventionBuilderExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints',"s23:AddAdditionalAssemblies",P1,P2))
 
 	Func WithStaticAssets P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints'),"s16:WithStaticAssets",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints',"s16:WithStaticAssets",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints',"s16:WithStaticAssets",P1))
 
@@ -3026,20 +3026,20 @@ Class RazorPagesEndpointRouteBuilderExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages',"s13:MapRazorPages",P1))
 
 	Func MapFallbackToPage P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"s17:MapFallbackToPage",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages',"s17:MapFallbackToPage",P1))
 		ok
 		raise("DotNet Error: MapFallbackToPage does not take one argument: use named arguments, MapFallbackToPage([ :parameter = value, ... ])")
 
 	Func MapFallbackToAreaPage P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"s21:MapFallbackToAreaPage",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages',"s21:MapFallbackToAreaPage",P1))
 		ok
 		raise("DotNet Error: MapFallbackToAreaPage does not take one argument: use named arguments, MapFallbackToAreaPage([ :parameter = value, ... ])")
 
 	Func MapDynamicPageRoute P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"s19:MapDynamicPageRoute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages',"s19:MapDynamicPageRoute",P1)
 			return self
 		ok
 		raise("DotNet Error: MapDynamicPageRoute does not take one argument: use named arguments, MapDynamicPageRoute([ :parameter = value, ... ])")
@@ -3293,8 +3293,8 @@ Class ResponseCompressionServicesExtensions from Object
 		return dn_x
 
 	Func AddResponseCompression P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.ResponseCompressionServicesExtensions, Microsoft.AspNetCore.ResponseCompression'),"s22:AddResponseCompression",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.ResponseCompressionServicesExtensions, Microsoft.AspNetCore.ResponseCompression',"s22:AddResponseCompression",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.ResponseCompressionServicesExtensions, Microsoft.AspNetCore.ResponseCompression',"s22:AddResponseCompression",P1))
 
@@ -3316,8 +3316,8 @@ Class RewriteBuilderExtensions from Object
 		return dn_x
 
 	Func UseRewriter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.RewriteBuilderExtensions, Microsoft.AspNetCore.Rewrite'),"s11:UseRewriter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.RewriteBuilderExtensions, Microsoft.AspNetCore.Rewrite',"s11:UseRewriter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.RewriteBuilderExtensions, Microsoft.AspNetCore.Rewrite',"s11:UseRewriter",P1))
 
@@ -3368,8 +3368,8 @@ Class RouteShortCircuitEndpointConventionBuilderExtensions from Object
 		return dn_x
 
 	Func ShortCircuit P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"s12:ShortCircuit",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing',"s12:ShortCircuit",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing',"s12:ShortCircuit",P1))
 
@@ -3454,14 +3454,14 @@ Class RoutingEndpointConventionBuilderExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing',"s18:DisableAntiforgery",P1))
 
 	Func WithFormMappingOptions P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"s22:WithFormMappingOptions",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing',"s22:WithFormMappingOptions",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing',"s22:WithFormMappingOptions",P1))
 
 	Func WithFormOptions P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"s15:WithFormOptions",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing',"s15:WithFormOptions",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing',"s15:WithFormOptions",P1))
 
@@ -3505,8 +3505,8 @@ Class ServerRazorComponentsEndpointConventionBuilderExtensions from Object
 		return dn_x
 
 	Func AddInteractiveServerRenderMode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.ServerRazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"s30:AddInteractiveServerRenderMode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.ServerRazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Server',"s30:AddInteractiveServerRenderMode",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.ServerRazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Server',"s30:AddInteractiveServerRenderMode",P1))
 
@@ -3528,8 +3528,8 @@ Class SessionMiddlewareExtensions from Object
 		return dn_x
 
 	Func UseSession P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions, Microsoft.AspNetCore.Session'),"s10:UseSession",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions, Microsoft.AspNetCore.Session',"s10:UseSession",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions, Microsoft.AspNetCore.Session',"s10:UseSession",P1))
 
@@ -3602,8 +3602,8 @@ Class StaticAssetsEndpointRouteBuilderExtensions from Object
 		return dn_x
 
 	Func MapStaticAssets P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.StaticAssetsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticAssets'),"s15:MapStaticAssets",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.StaticAssetsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticAssets',"s15:MapStaticAssets",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.StaticAssetsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticAssets',"s15:MapStaticAssets",P1))
 
@@ -3625,8 +3625,8 @@ Class StaticFileExtensions from Object
 		return dn_x
 
 	Func UseStaticFiles P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.StaticFileExtensions, Microsoft.AspNetCore.StaticFiles'),"s14:UseStaticFiles",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.StaticFileExtensions, Microsoft.AspNetCore.StaticFiles',"s14:UseStaticFiles",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.StaticFileExtensions, Microsoft.AspNetCore.StaticFiles',"s14:UseStaticFiles",P1))
 
@@ -3663,7 +3663,7 @@ Class StaticFileOptions from DotNetObject
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Builder.StaticFileOptions, Microsoft.AspNetCore.StaticFiles',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3782,8 +3782,8 @@ Class StaticFilesEndpointRouteBuilderExtensions from Object
 		return dn_x
 
 	Func MapFallbackToFile P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.StaticFilesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticFiles'),"s17:MapFallbackToFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.StaticFilesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticFiles',"s17:MapFallbackToFile",P1))
 		ok
 		raise("DotNet Error: MapFallbackToFile does not take one argument: use named arguments, MapFallbackToFile([ :parameter = value, ... ])")
 
@@ -3805,8 +3805,8 @@ Class StatusCodePagesExtensions from Object
 		return dn_x
 
 	Func UseStatusCodePages P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics'),"s18:UseStatusCodePages",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics',"s18:UseStatusCodePages",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics',"s18:UseStatusCodePages",P1))
 
@@ -3814,8 +3814,8 @@ Class StatusCodePagesExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics',"s31:UseStatusCodePagesWithRedirects",P1,P2))
 
 	Func UseStatusCodePagesWithReExecute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics'),"s31:UseStatusCodePagesWithReExecute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics',"s31:UseStatusCodePagesWithReExecute",P1))
 		ok
 		raise("DotNet Error: UseStatusCodePagesWithReExecute does not take one argument: use named arguments, UseStatusCodePagesWithReExecute([ :parameter = value, ... ])")
 
@@ -3892,8 +3892,8 @@ Class UseMiddlewareExtensions from Object
 		return dn_x
 
 	Func UseMiddleware P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.UseMiddlewareExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s13:UseMiddleware",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.UseMiddlewareExtensions, Microsoft.AspNetCore.Http.Abstractions',"s13:UseMiddleware",P1))
 		ok
 		raise("DotNet Error: UseMiddleware does not take one argument: use named arguments, UseMiddleware([ :parameter = value, ... ])")
 
@@ -3957,8 +3957,8 @@ Class WebApplication from Object
 		return self
 
 	Func StartAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:StartAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:StartAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync"))
@@ -3966,8 +3966,8 @@ Class WebApplication from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1))
 
 	Func StopAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:StopAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:StopAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync"))
@@ -3975,8 +3975,8 @@ Class WebApplication from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync",P1))
 
 	Func RunAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:RunAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:RunAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s8:RunAsync"))
@@ -3984,8 +3984,8 @@ Class WebApplication from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:RunAsync",P1))
 
 	Func Run P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Run",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Run",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -4009,8 +4009,8 @@ Class WebApplication from Object
 		return dn_x
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore',"s6:Create"))
@@ -4018,8 +4018,8 @@ Class WebApplication from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore',"s6:Create",P1))
 
 	Func CreateBuilder P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"s13:CreateBuilder",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore',"s13:CreateBuilder",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore',"s13:CreateBuilder"))
@@ -4027,8 +4027,8 @@ Class WebApplication from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore',"s13:CreateBuilder",P1))
 
 	Func CreateSlimBuilder P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"s17:CreateSlimBuilder",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore',"s17:CreateSlimBuilder",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore',"s17:CreateSlimBuilder"))
@@ -4237,8 +4237,8 @@ Class WebSocketMiddlewareExtensions from Object
 		return dn_x
 
 	Func UseWebSockets P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.WebSocketMiddlewareExtensions, Microsoft.AspNetCore.WebSockets'),"s13:UseWebSockets",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.WebSocketMiddlewareExtensions, Microsoft.AspNetCore.WebSockets',"s13:UseWebSockets",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.WebSocketMiddlewareExtensions, Microsoft.AspNetCore.WebSockets',"s13:UseWebSockets",P1))
 
@@ -4320,8 +4320,8 @@ Class WelcomePageExtensions from Object
 		return dn_x
 
 	Func UseWelcomePage P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Builder.WelcomePageExtensions, Microsoft.AspNetCore.Diagnostics'),"s14:UseWelcomePage",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.WelcomePageExtensions, Microsoft.AspNetCore.Diagnostics',"s14:UseWelcomePage",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.WelcomePageExtensions, Microsoft.AspNetCore.Diagnostics',"s14:UseWelcomePage",P1))
 

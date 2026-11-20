@@ -154,32 +154,32 @@ Class ConsoleLoggerExtensions from Object
 		return dn_x
 
 	Func AddConsole P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"s10:AddConsole",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console',"s10:AddConsole",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console',"s10:AddConsole",P1))
 
 	Func AddSimpleConsole P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"s16:AddSimpleConsole",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console',"s16:AddSimpleConsole",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console',"s16:AddSimpleConsole",P1))
 
 	Func AddJsonConsole P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"s14:AddJsonConsole",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console',"s14:AddJsonConsole",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console',"s14:AddJsonConsole",P1))
 
 	Func AddSystemdConsole P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"s17:AddSystemdConsole",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console',"s17:AddSystemdConsole",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console',"s17:AddSystemdConsole",P1))
 
 	Func AddConsoleFormatter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"s19:AddConsoleFormatter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console',"s19:AddConsoleFormatter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console',"s19:AddConsoleFormatter",P1))
 
@@ -201,8 +201,8 @@ Class DebugLoggerFactoryExtensions from Object
 		return dn_x
 
 	Func AddDebug P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.DebugLoggerFactoryExtensions, Microsoft.Extensions.Logging.Debug'),"s8:AddDebug",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Logging.DebugLoggerFactoryExtensions, Microsoft.Extensions.Logging.Debug',"s8:AddDebug",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Logging.DebugLoggerFactoryExtensions, Microsoft.Extensions.Logging.Debug',"s8:AddDebug",P1))
 
@@ -232,7 +232,7 @@ Class EventId from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Logging.EventId, Microsoft.Extensions.Logging.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -280,8 +280,8 @@ Class EventLoggerFactoryExtensions from Object
 		return dn_x
 
 	Func AddEventLog P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.EventLoggerFactoryExtensions, Microsoft.Extensions.Logging.EventLog'),"s11:AddEventLog",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Logging.EventLoggerFactoryExtensions, Microsoft.Extensions.Logging.EventLog',"s11:AddEventLog",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Logging.EventLoggerFactoryExtensions, Microsoft.Extensions.Logging.EventLog',"s11:AddEventLog",P1))
 
@@ -323,8 +323,8 @@ Class FilterLoggingBuilderExtensions from Object
 		return dn_x
 
 	Func AddFilter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.FilterLoggingBuilderExtensions, Microsoft.Extensions.Logging'),"s9:AddFilter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Logging.FilterLoggingBuilderExtensions, Microsoft.Extensions.Logging',"s9:AddFilter",P1))
 		ok
 		raise("DotNet Error: AddFilter does not take one argument: use named arguments, AddFilter([ :parameter = value, ... ])")
 
@@ -500,50 +500,50 @@ Class LoggerExtensions from Object
 		return dn_x
 
 	Func LogDebug P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"s8:LogDebug",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions',"s8:LogDebug",P1)
 			return self
 		ok
 		raise("DotNet Error: LogDebug does not take one argument: use named arguments, LogDebug([ :parameter = value, ... ])")
 
 	Func LogTrace P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"s8:LogTrace",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions',"s8:LogTrace",P1)
 			return self
 		ok
 		raise("DotNet Error: LogTrace does not take one argument: use named arguments, LogTrace([ :parameter = value, ... ])")
 
 	Func LogInformation P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"s14:LogInformation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions',"s14:LogInformation",P1)
 			return self
 		ok
 		raise("DotNet Error: LogInformation does not take one argument: use named arguments, LogInformation([ :parameter = value, ... ])")
 
 	Func LogWarning P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"s10:LogWarning",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions',"s10:LogWarning",P1)
 			return self
 		ok
 		raise("DotNet Error: LogWarning does not take one argument: use named arguments, LogWarning([ :parameter = value, ... ])")
 
 	Func LogError P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"s8:LogError",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions',"s8:LogError",P1)
 			return self
 		ok
 		raise("DotNet Error: LogError does not take one argument: use named arguments, LogError([ :parameter = value, ... ])")
 
 	Func LogCritical P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"s11:LogCritical",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions',"s11:LogCritical",P1)
 			return self
 		ok
 		raise("DotNet Error: LogCritical does not take one argument: use named arguments, LogCritical([ :parameter = value, ... ])")
 
 	Func Log P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"s3:Log",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions',"s3:Log",P1)
 			return self
 		ok
 		raise("DotNet Error: Log does not take one argument: use named arguments, Log([ :parameter = value, ... ])")
@@ -608,7 +608,7 @@ Class LoggerFactory from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Logging.LoggerFactory, Microsoft.Extensions.Logging',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -661,8 +661,8 @@ Class LoggerFactoryExtensions from Object
 		return dn_x
 
 	Func CreateLogger P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.LoggerFactoryExtensions, Microsoft.Extensions.Logging.Abstractions'),"s12:CreateLogger",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Logging.LoggerFactoryExtensions, Microsoft.Extensions.Logging.Abstractions',"s12:CreateLogger",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Logging.LoggerFactoryExtensions, Microsoft.Extensions.Logging.Abstractions',"s12:CreateLogger",P1))
 
@@ -826,8 +826,8 @@ Class LoggerMessage from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Logging.LoggerMessage, Microsoft.Extensions.Logging.Abstractions',"s11:DefineScope",P1))
 
 	Func Define P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.LoggerMessage, Microsoft.Extensions.Logging.Abstractions'),"s6:Define",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Logging.LoggerMessage, Microsoft.Extensions.Logging.Abstractions',"s6:Define",P1))
 		ok
 		raise("DotNet Error: Define does not take one argument: use named arguments, Define([ :parameter = value, ... ])")
 
@@ -878,8 +878,8 @@ Class TraceSourceFactoryExtensions from Object
 		return dn_x
 
 	Func AddTraceSource P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Logging.TraceSourceFactoryExtensions, Microsoft.Extensions.Logging.TraceSource'),"s14:AddTraceSource",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Logging.TraceSourceFactoryExtensions, Microsoft.Extensions.Logging.TraceSource',"s14:AddTraceSource",P1))
 		ok
 		raise("DotNet Error: AddTraceSource does not take one argument: use named arguments, AddTraceSource([ :parameter = value, ... ])")
 

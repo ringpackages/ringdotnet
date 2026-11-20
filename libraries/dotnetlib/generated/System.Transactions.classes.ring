@@ -298,8 +298,8 @@ Class Transaction from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:EnlistDurable",P1,P2,P3))
 
 	Func Rollback P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:Rollback",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:Rollback",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -326,8 +326,10 @@ Class Transaction from Object
 		return self
 
 	Func EnlistPromotableSinglePhase P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s27:EnlistPromotableSinglePhase",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s27:EnlistPromotableSinglePhase",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s27:EnlistPromotableSinglePhase",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -626,7 +628,7 @@ Class TransactionScope from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Transactions.TransactionScope, System.Transactions.Local',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -678,7 +680,7 @@ Class CommittableTransaction from Transaction
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Transactions.CommittableTransaction, System.Transactions.Local',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -740,8 +742,8 @@ Class PreparingEnlistment from Enlistment
 		return self
 
 	Func ForceRollback P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s13:ForceRollback",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s13:ForceRollback",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -769,8 +771,8 @@ Class SinglePhaseEnlistment from Enlistment
 		return self
 
 	Func Aborted P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Aborted",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Aborted",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -788,8 +790,8 @@ Class SinglePhaseEnlistment from Enlistment
 		return self
 
 	Func InDoubt P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:InDoubt",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:InDoubt",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""

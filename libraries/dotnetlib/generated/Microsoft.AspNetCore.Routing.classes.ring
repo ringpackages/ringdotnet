@@ -468,14 +468,18 @@ Class ControllerLinkGeneratorExtensions from Object
 		return dn_x
 
 	Func GetPathByAction P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"s15:GetPathByAction",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core',"s15:GetPathByAction",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: GetPathByAction does not take one argument: use named arguments, GetPathByAction([ :parameter = value, ... ])")
 
 	Func GetUriByAction P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"s14:GetUriByAction",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core',"s14:GetUriByAction",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: GetUriByAction does not take one argument: use named arguments, GetUriByAction([ :parameter = value, ... ])")
 
@@ -606,7 +610,7 @@ Class HttpMethodMetadata from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.HttpMethodMetadata, Microsoft.AspNetCore.Routing',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1146,14 +1150,18 @@ Class LinkGenerator from Object
 		return self
 
 	Func GetPathByAddress P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:GetPathByAddress",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:GetPathByAddress",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: GetPathByAddress does not take one argument: use named arguments, GetPathByAddress([ :parameter = value, ... ])")
 
 	Func GetUriByAddress P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:GetUriByAddress",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:GetUriByAddress",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: GetUriByAddress does not take one argument: use named arguments, GetUriByAddress([ :parameter = value, ... ])")
 
@@ -1180,14 +1188,18 @@ Class LinkGeneratorEndpointNameAddressExtensions from Object
 		return dn_x
 
 	Func GetPathByName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"s13:GetPathByName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing',"s13:GetPathByName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: GetPathByName does not take one argument: use named arguments, GetPathByName([ :parameter = value, ... ])")
 
 	Func GetUriByName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"s12:GetUriByName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing',"s12:GetUriByName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: GetUriByName does not take one argument: use named arguments, GetUriByName([ :parameter = value, ... ])")
 
@@ -1209,14 +1221,18 @@ Class LinkGeneratorRouteValuesAddressExtensions from Object
 		return dn_x
 
 	Func GetPathByRouteValues P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"s20:GetPathByRouteValues",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing',"s20:GetPathByRouteValues",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: GetPathByRouteValues does not take one argument: use named arguments, GetPathByRouteValues([ :parameter = value, ... ])")
 
 	Func GetUriByRouteValues P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"s19:GetUriByRouteValues",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing',"s19:GetUriByRouteValues",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: GetUriByRouteValues does not take one argument: use named arguments, GetUriByRouteValues([ :parameter = value, ... ])")
 
@@ -1356,14 +1372,18 @@ Class PageLinkGeneratorExtensions from Object
 		return dn_x
 
 	Func GetPathByPage P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"s13:GetPathByPage",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core',"s13:GetPathByPage",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: GetPathByPage does not take one argument: use named arguments, GetPathByPage([ :parameter = value, ... ])")
 
 	Func GetUriByPage P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"s12:GetUriByPage",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core',"s12:GetUriByPage",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: GetUriByPage does not take one argument: use named arguments, GetUriByPage([ :parameter = value, ... ])")
 
@@ -1521,7 +1541,7 @@ Class RouteBuilder from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.RouteBuilder, Microsoft.AspNetCore.Routing',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1742,7 +1762,7 @@ Class RouteData from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.RouteData, Microsoft.AspNetCore.Routing.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2005,8 +2025,8 @@ Class RouteHandlerServices from Object
 		return dn_x
 
 	Func Map P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Routing.RouteHandlerServices, Microsoft.AspNetCore.Routing'),"s3:Map",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Routing.RouteHandlerServices, Microsoft.AspNetCore.Routing',"s3:Map",P1))
 		ok
 		raise("DotNet Error: Map does not take one argument: use named arguments, Map([ :parameter = value, ... ])")
 
@@ -2063,8 +2083,8 @@ Class RouteOptions from Object
 		return self
 
 	Func SetParameterPolicy P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s18:SetParameterPolicy",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s18:SetParameterPolicy",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s18:SetParameterPolicy",P1)
@@ -2131,7 +2151,7 @@ Class RouteValueDictionary from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2241,16 +2261,20 @@ Class RouteValueEqualityComparer from Object
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
@@ -2470,7 +2494,7 @@ Class VirtualPathContext from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.VirtualPathContext, Microsoft.AspNetCore.Routing.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2535,7 +2559,7 @@ Class VirtualPathData from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.VirtualPathData, Microsoft.AspNetCore.Routing.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2634,7 +2658,7 @@ Class Route from RouteBase
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.Route, Microsoft.AspNetCore.Routing',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

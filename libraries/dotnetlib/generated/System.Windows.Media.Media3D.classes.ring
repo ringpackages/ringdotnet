@@ -422,8 +422,10 @@ Class Camera from Animatable
 		return self
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -513,8 +515,10 @@ Class GeneralTransform3D from Animatable
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TransformBounds",P1))
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -551,7 +555,7 @@ Class GeneralTransform3DCollection from Animatable
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.GeneralTransform3DCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -694,8 +698,10 @@ Class Material from Animatable
 		return self
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -726,7 +732,7 @@ Class MaterialCollection from Animatable
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.MaterialCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -843,7 +849,7 @@ Class Matrix3D from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Matrix3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -931,19 +937,25 @@ Class Matrix3D from ValueType
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Matrix3D, PresentationCore'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Media.Media3D.Matrix3D, PresentationCore',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1172,8 +1184,10 @@ Class Model3D from Animatable
 		return self
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1223,7 +1237,7 @@ Class Model3DCollection from Animatable
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Model3DCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1359,7 +1373,7 @@ Class Point3D from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Point3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1379,19 +1393,25 @@ Class Point3D from ValueType
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Point3D, PresentationCore'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Media.Media3D.Point3D, PresentationCore',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1461,7 +1481,7 @@ Class Point3DCollection from Freezable
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Point3DCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1519,8 +1539,10 @@ Class Point3DCollection from Freezable
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1614,7 +1636,7 @@ Class Point4D from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Point4D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1634,19 +1656,25 @@ Class Point4D from ValueType
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Point4D, PresentationCore'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Media.Media3D.Point4D, PresentationCore',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1754,7 +1782,7 @@ Class WpfQuaternion from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Quaternion, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1784,19 +1812,25 @@ Class WpfQuaternion from ValueType
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Media.Media3D.Quaternion, PresentationCore',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1812,8 +1846,8 @@ Class WpfQuaternion from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Quaternion, PresentationCore',"s8:Multiply",P1,P2))
 
 	Func Slerp P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"s5:Slerp",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Media.Media3D.Quaternion, PresentationCore',"s5:Slerp",P1))
 		ok
 		raise("DotNet Error: Slerp does not take one argument: use named arguments, Slerp([ :parameter = value, ... ])")
 
@@ -1983,7 +2017,7 @@ Class Rect3D from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Rect3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1998,8 +2032,10 @@ Class Rect3D from ValueType
 		return self
 
 	Func Contains P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Contains",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2011,52 +2047,70 @@ Class Rect3D from ValueType
 		return dn_x
 
 	Func Intersect P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"s9:Intersect",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Windows.Media.Media3D.Rect3D, PresentationCore',"s9:Intersect",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s9:Intersect",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:Intersect",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",nHandle,"s9:Intersect",P1)
 
 		return self
 
 	Func Union P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"s5:Union",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Windows.Media.Media3D.Rect3D, PresentationCore',"s5:Union",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s5:Union",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s5:Union",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",nHandle,"s5:Union",P1)
 
 		return self
 
 	Func Offset P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"s6:Offset",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Windows.Media.Media3D.Rect3D, PresentationCore',"s6:Offset",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Offset",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Offset",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:Offset",P1)
 
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Media.Media3D.Rect3D, PresentationCore',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2183,8 +2237,10 @@ Class Rotation3D from Animatable
 		return self
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2225,7 +2281,7 @@ Class Size3D from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Size3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2240,19 +2296,25 @@ Class Size3D from ValueType
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Size3D, PresentationCore'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Media.Media3D.Size3D, PresentationCore',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2348,7 +2410,7 @@ Class Transform3DCollection from Animatable
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Transform3DCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2449,7 +2511,7 @@ Class Vector3D from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Vector3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2474,19 +2536,25 @@ Class Vector3D from ValueType
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2588,7 +2656,7 @@ Class Vector3DCollection from Freezable
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Vector3DCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2646,8 +2714,10 @@ Class Vector3DCollection from Freezable
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2751,8 +2821,10 @@ Class Viewport3DVisual from Visual
 		return self
 
 	Func HitTest P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:HitTest",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s7:HitTest",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HitTest",P1))
 
@@ -2893,15 +2965,15 @@ Class Visual3D from DependencyObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:TransformToDescendant",P1))
 
 	Func ApplyAnimationClock P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s19:ApplyAnimationClock",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s19:ApplyAnimationClock",P1)
 			return self
 		ok
 		raise("DotNet Error: ApplyAnimationClock does not take one argument: use named arguments, ApplyAnimationClock([ :parameter = value, ... ])")
 
 	Func BeginAnimation P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:BeginAnimation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:BeginAnimation",P1)
 			return self
 		ok
 		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
@@ -3035,7 +3107,7 @@ Class AxisAngleRotation3D from Rotation3D
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3107,7 +3179,7 @@ Class DiffuseMaterial from Material
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3188,7 +3260,7 @@ Class EmissiveMaterial from Material
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3295,7 +3367,7 @@ Class GeometryModel3D from Model3D
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3441,7 +3513,7 @@ Class MatrixCamera from Camera
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.MatrixCamera, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3765,7 +3837,7 @@ Class QuaternionRotation3D from Rotation3D
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.QuaternionRotation3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3925,7 +3997,7 @@ Class SpecularMaterial from Material
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4150,7 +4222,7 @@ Class AmbientLight from Light
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.AmbientLight, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4190,7 +4262,7 @@ Class DirectionalLight from Light
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.DirectionalLight, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4243,7 +4315,7 @@ Class MatrixTransform3D from Transform3D
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.MatrixTransform3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4296,7 +4368,7 @@ Class OrthographicCamera from ProjectionCamera
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.OrthographicCamera, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4351,7 +4423,7 @@ Class PerspectiveCamera from ProjectionCamera
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.PerspectiveCamera, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4536,7 +4608,7 @@ Class PointLight from PointLightBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.PointLight, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4582,7 +4654,7 @@ Class RotateTransform3D from AffineTransform3D
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4690,7 +4762,7 @@ Class ScaleTransform3D from AffineTransform3D
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4824,7 +4896,7 @@ Class SpotLight from PointLightBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.SpotLight, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4911,7 +4983,7 @@ Class TranslateTransform3D from AffineTransform3D
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

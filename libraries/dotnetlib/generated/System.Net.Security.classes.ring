@@ -470,7 +470,7 @@ Class SslApplicationProtocol from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Security.SslApplicationProtocol, System.Net.Security',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -526,14 +526,14 @@ Class SslCertificateTrust from Object
 		return dn_x
 
 	Func CreateForX509Store P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Security.SslCertificateTrust, System.Net.Security'),"s18:CreateForX509Store",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Security.SslCertificateTrust, System.Net.Security',"s18:CreateForX509Store",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Net.Security.SslCertificateTrust, System.Net.Security',"s18:CreateForX509Store",P1))
 
 	Func CreateForX509Collection P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Security.SslCertificateTrust, System.Net.Security'),"s23:CreateForX509Collection",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Security.SslCertificateTrust, System.Net.Security',"s23:CreateForX509Collection",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Net.Security.SslCertificateTrust, System.Net.Security',"s23:CreateForX509Collection",P1))
 
@@ -700,7 +700,7 @@ Class SslClientHelloInfo from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Security.SslClientHelloInfo, System.Net.Security',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -886,8 +886,8 @@ Class SslStreamCertificateContext from Object
 		return dn_x
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Security.SslStreamCertificateContext, System.Net.Security'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Security.SslStreamCertificateContext, System.Net.Security',"s6:Create",P1))
 		ok
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
@@ -921,7 +921,7 @@ Class NegotiateStream from AuthenticatedStream
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Security.NegotiateStream, System.Net.Security',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -936,8 +936,8 @@ Class NegotiateStream from AuthenticatedStream
 		return self
 
 	Func BeginAuthenticateAsClient P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:BeginAuthenticateAsClient",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:BeginAuthenticateAsClient",P1))
 		ok
 		raise("DotNet Error: BeginAuthenticateAsClient does not take one argument: use named arguments, BeginAuthenticateAsClient([ :parameter = value, ... ])")
 
@@ -947,8 +947,8 @@ Class NegotiateStream from AuthenticatedStream
 		return self
 
 	Func AuthenticateAsServer P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s20:AuthenticateAsServer",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s20:AuthenticateAsServer",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -961,8 +961,8 @@ Class NegotiateStream from AuthenticatedStream
 		return self
 
 	Func BeginAuthenticateAsServer P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:BeginAuthenticateAsServer",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:BeginAuthenticateAsServer",P1))
 		ok
 		raise("DotNet Error: BeginAuthenticateAsServer does not take one argument: use named arguments, BeginAuthenticateAsServer([ :parameter = value, ... ])")
 
@@ -972,8 +972,8 @@ Class NegotiateStream from AuthenticatedStream
 		return self
 
 	Func AuthenticateAsClient P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s20:AuthenticateAsClient",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s20:AuthenticateAsClient",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -984,8 +984,8 @@ Class NegotiateStream from AuthenticatedStream
 		raise("DotNet Error: AuthenticateAsClient does not take one argument: use named arguments, AuthenticateAsClient([ :parameter = value, ... ])")
 
 	Func AuthenticateAsClientAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:AuthenticateAsClientAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AuthenticateAsClientAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s25:AuthenticateAsClientAsync"))
@@ -993,8 +993,8 @@ Class NegotiateStream from AuthenticatedStream
 		raise("DotNet Error: AuthenticateAsClientAsync does not take one argument: use named arguments, AuthenticateAsClientAsync([ :parameter = value, ... ])")
 
 	Func AuthenticateAsServerAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:AuthenticateAsServerAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AuthenticateAsServerAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s25:AuthenticateAsServerAsync"))
@@ -1043,7 +1043,7 @@ Class SslStream from AuthenticatedStream
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Security.SslStream, System.Net.Security',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1058,8 +1058,8 @@ Class SslStream from AuthenticatedStream
 		return self
 
 	Func BeginAuthenticateAsClient P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:BeginAuthenticateAsClient",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:BeginAuthenticateAsClient",P1))
 		ok
 		raise("DotNet Error: BeginAuthenticateAsClient does not take one argument: use named arguments, BeginAuthenticateAsClient([ :parameter = value, ... ])")
 
@@ -1069,8 +1069,8 @@ Class SslStream from AuthenticatedStream
 		return self
 
 	Func BeginAuthenticateAsServer P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:BeginAuthenticateAsServer",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:BeginAuthenticateAsServer",P1))
 		ok
 		raise("DotNet Error: BeginAuthenticateAsServer does not take one argument: use named arguments, BeginAuthenticateAsServer([ :parameter = value, ... ])")
 
@@ -1080,8 +1080,8 @@ Class SslStream from AuthenticatedStream
 		return self
 
 	Func AuthenticateAsClient P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s20:AuthenticateAsClient",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s20:AuthenticateAsClient",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s20:AuthenticateAsClient",P1)
@@ -1089,8 +1089,8 @@ Class SslStream from AuthenticatedStream
 		return self
 
 	Func AuthenticateAsServer P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s20:AuthenticateAsServer",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s20:AuthenticateAsServer",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s20:AuthenticateAsServer",P1)
@@ -1098,14 +1098,14 @@ Class SslStream from AuthenticatedStream
 		return self
 
 	Func AuthenticateAsClientAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:AuthenticateAsClientAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AuthenticateAsClientAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AuthenticateAsClientAsync",P1))
 
 	Func AuthenticateAsServerAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:AuthenticateAsServerAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AuthenticateAsServerAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AuthenticateAsServerAsync",P1))
 
@@ -1113,8 +1113,8 @@ Class SslStream from AuthenticatedStream
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ShutdownAsync"))
 
 	Func NegotiateClientCertificateAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s31:NegotiateClientCertificateAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s31:NegotiateClientCertificateAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s31:NegotiateClientCertificateAsync"))
@@ -1122,8 +1122,8 @@ Class SslStream from AuthenticatedStream
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:NegotiateClientCertificateAsync",P1))
 
 	Func Write P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Write",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Write",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s5:Write",P1)

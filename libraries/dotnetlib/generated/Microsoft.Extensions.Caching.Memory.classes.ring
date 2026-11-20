@@ -94,8 +94,8 @@ Class CacheEntryExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions',"s20:SetSlidingExpiration",P1,P2))
 
 	Func RegisterPostEvictionCallback P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s28:RegisterPostEvictionCallback",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions',"s28:RegisterPostEvictionCallback",P1))
 		ok
 		raise("DotNet Error: RegisterPostEvictionCallback does not take one argument: use named arguments, RegisterPostEvictionCallback([ :parameter = value, ... ])")
 
@@ -132,20 +132,20 @@ Class CacheExtensions from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"s11:TryGetValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Set P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"s3:Set",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions',"s3:Set",P1))
 		ok
 		raise("DotNet Error: Set does not take one argument: use named arguments, Set([ :parameter = value, ... ])")
 
 	Func GetOrCreate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"s11:GetOrCreate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions',"s11:GetOrCreate",P1))
 		ok
 		raise("DotNet Error: GetOrCreate does not take one argument: use named arguments, GetOrCreate([ :parameter = value, ... ])")
 
 	Func GetOrCreateAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"s16:GetOrCreateAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions',"s16:GetOrCreateAsync",P1))
 		ok
 		raise("DotNet Error: GetOrCreateAsync does not take one argument: use named arguments, GetOrCreateAsync([ :parameter = value, ... ])")
 
@@ -275,7 +275,7 @@ Class MemoryCache from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Caching.Memory.MemoryCache, Microsoft.Extensions.Caching.Memory',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -370,8 +370,8 @@ Class MemoryCacheEntryExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions',"s20:SetSlidingExpiration",P1,P2))
 
 	Func RegisterPostEvictionCallback P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"s28:RegisterPostEvictionCallback",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions',"s28:RegisterPostEvictionCallback",P1))
 		ok
 		raise("DotNet Error: RegisterPostEvictionCallback does not take one argument: use named arguments, RegisterPostEvictionCallback([ :parameter = value, ... ])")
 

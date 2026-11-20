@@ -145,8 +145,8 @@ Class HttpContent from Object
 		return self
 
 	Func ReadAsStringAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:ReadAsStringAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ReadAsStringAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadAsStringAsync"))
@@ -154,8 +154,8 @@ Class HttpContent from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadAsStringAsync",P1))
 
 	Func ReadAsByteArrayAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:ReadAsByteArrayAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ReadAsByteArrayAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s20:ReadAsByteArrayAsync"))
@@ -163,8 +163,8 @@ Class HttpContent from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ReadAsByteArrayAsync",P1))
 
 	Func ReadAsStream P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:ReadAsStream",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ReadAsStream",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReadAsStream"))
@@ -172,8 +172,8 @@ Class HttpContent from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReadAsStream",P1))
 
 	Func ReadAsStreamAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:ReadAsStreamAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ReadAsStreamAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadAsStreamAsync"))
@@ -186,14 +186,14 @@ Class HttpContent from Object
 		return self
 
 	Func CopyToAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:CopyToAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CopyToAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CopyToAsync",P1))
 
 	Func LoadIntoBufferAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:LoadIntoBufferAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:LoadIntoBufferAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s19:LoadIntoBufferAsync"))
@@ -253,7 +253,7 @@ Class HttpMessageInvoker from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.HttpMessageInvoker, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -399,7 +399,7 @@ Class HttpRequestMessage from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.HttpRequestMessage, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -542,7 +542,7 @@ Class HttpResponseMessage from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.HttpResponseMessage, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -714,7 +714,7 @@ Class ResponseTask from Task
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Net.Http.HttpResponseMessage, System.Net.Http, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]], System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -752,7 +752,7 @@ Class ByteArrayContent from HttpContent
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.ByteArrayContent, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -818,7 +818,7 @@ Class HttpClient from HttpMessageInvoker
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.HttpClient, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -833,62 +833,62 @@ Class HttpClient from HttpMessageInvoker
 		return self
 
 	Func GetStringAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetStringAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:GetStringAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetStringAsync",P1))
 
 	Func GetByteArrayAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:GetByteArrayAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:GetByteArrayAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetByteArrayAsync",P1))
 
 	Func GetStreamAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetStreamAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:GetStreamAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetStreamAsync",P1))
 
 	Func GetAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:GetAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetAsync",P1))
 
 	Func PostAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:PostAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:PostAsync",P1))
 		ok
 		raise("DotNet Error: PostAsync does not take one argument: use named arguments, PostAsync([ :parameter = value, ... ])")
 
 	Func PutAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:PutAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:PutAsync",P1))
 		ok
 		raise("DotNet Error: PutAsync does not take one argument: use named arguments, PutAsync([ :parameter = value, ... ])")
 
 	Func PatchAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:PatchAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:PatchAsync",P1))
 		ok
 		raise("DotNet Error: PatchAsync does not take one argument: use named arguments, PatchAsync([ :parameter = value, ... ])")
 
 	Func DeleteAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:DeleteAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:DeleteAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:DeleteAsync",P1))
 
 	Func Send P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Send",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Send",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Send",P1))
 
 	Func SendAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:SendAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:SendAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:SendAsync",P1))
 
@@ -1214,7 +1214,7 @@ Class MultipartContent from HttpContent
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.MultipartContent, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1580,7 +1580,7 @@ Class StreamContent from HttpContent
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.StreamContent, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1643,7 +1643,7 @@ Class MultipartFormDataContent from MultipartContent
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.MultipartFormDataContent, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1658,8 +1658,8 @@ Class MultipartFormDataContent from MultipartContent
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
@@ -1681,7 +1681,7 @@ Class StringContent from ByteArrayContent
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.StringContent, System.Net.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

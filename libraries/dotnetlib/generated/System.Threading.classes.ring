@@ -306,7 +306,7 @@ Class Barrier from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Barrier, System.Threading',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -341,8 +341,10 @@ Class Barrier from Object
 		return self
 
 	Func SignalAndWait P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SignalAndWait",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:SignalAndWait",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dotnet_callv("s4:call",nHandle,"s13:SignalAndWait")
@@ -415,7 +417,7 @@ Class CancellationToken from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.CancellationToken, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -430,8 +432,8 @@ Class CancellationToken from ValueType
 		return self
 
 	Func Register P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Register",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Register",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Register",P1))
 
@@ -539,7 +541,7 @@ Class CancellationTokenSource from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.CancellationTokenSource, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -554,8 +556,8 @@ Class CancellationTokenSource from Object
 		return self
 
 	Func Cancel P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Cancel",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Cancel",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -591,8 +593,8 @@ Class CancellationTokenSource from Object
 		return dn_x
 
 	Func CreateLinkedTokenSource P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.CancellationTokenSource, System.Private.CoreLib'),"s23:CreateLinkedTokenSource",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Threading.CancellationTokenSource, System.Private.CoreLib',"s23:CreateLinkedTokenSource",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Threading.CancellationTokenSource, System.Private.CoreLib',"s23:CreateLinkedTokenSource",P1))
 
@@ -671,8 +673,10 @@ Class CountdownEvent from Object
 		return self
 
 	Func Signal P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Signal",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Signal",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s6:Signal")
@@ -684,8 +688,8 @@ Class CountdownEvent from Object
 		return dn_x
 
 	Func AddCount P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:AddCount",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:AddCount",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -698,8 +702,10 @@ Class CountdownEvent from Object
 		return self
 
 	Func TryAddCount P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:TryAddCount",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:TryAddCount",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:TryAddCount")
@@ -711,8 +717,8 @@ Class CountdownEvent from Object
 		return dn_x
 
 	Func Reset P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Reset",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Reset",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -725,8 +731,10 @@ Class CountdownEvent from Object
 		return self
 
 	Func Wait P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Wait",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s4:Wait",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dotnet_callv("s4:call",nHandle,"s4:Wait")
@@ -851,7 +859,7 @@ Class HostExecutionContext from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.HostExecutionContext, System.Threading',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -869,8 +877,8 @@ Class HostExecutionContext from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:CreateCopy"))
 
 	Func Dispose P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Dispose",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Dispose",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1027,8 +1035,10 @@ Class LazyInitializer from Object
 		return dn_x
 
 	Func EnsureInitialized P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.LazyInitializer, System.Private.CoreLib'),"s17:EnsureInitialized",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Threading.LazyInitializer, System.Private.CoreLib',"s17:EnsureInitialized",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Threading.LazyInitializer, System.Private.CoreLib'),"s17:EnsureInitialized",dnPackItem(P1))
 
@@ -1064,8 +1074,10 @@ Class Lock from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:EnterScope"))
 
 	Func TryEnter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:TryEnter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:TryEnter",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s8:TryEnter")
@@ -1142,7 +1154,7 @@ Class ManualResetEventSlim from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.ManualResetEventSlim, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1167,8 +1179,10 @@ Class ManualResetEventSlim from Object
 		return self
 
 	Func Wait P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Wait",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s4:Wait",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dotnet_callv("s4:call",nHandle,"s4:Wait")
@@ -1231,8 +1245,10 @@ Class Monitor from Object
 		return dn_x
 
 	Func Enter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s5:Enter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Threading.Monitor, System.Private.CoreLib',"s5:Enter",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",'System.Threading.Monitor, System.Private.CoreLib',"s5:Enter",P1)
 
@@ -1244,8 +1260,10 @@ Class Monitor from Object
 		return self
 
 	Func TryEnter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s8:TryEnter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Threading.Monitor, System.Private.CoreLib',"s8:TryEnter",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Threading.Monitor, System.Private.CoreLib',"s8:TryEnter",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1257,8 +1275,10 @@ Class Monitor from Object
 		return dn_x
 
 	Func Wait P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.Monitor, System.Private.CoreLib'),"s4:Wait",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Threading.Monitor, System.Private.CoreLib',"s4:Wait",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Threading.Monitor, System.Private.CoreLib',"s4:Wait",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1377,7 +1397,7 @@ Class Overlapped from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Overlapped, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1392,14 +1412,14 @@ Class Overlapped from Object
 		return self
 
 	Func Pack P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Pack",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Pack",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Pack",P1))
 
 	Func UnsafePack P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:UnsafePack",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UnsafePack",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UnsafePack",P1))
 
@@ -1466,7 +1486,7 @@ Class PeriodicTimer from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.PeriodicTimer, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1481,8 +1501,8 @@ Class PeriodicTimer from Object
 		return self
 
 	Func WaitForNextTickAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:WaitForNextTickAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:WaitForNextTickAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s20:WaitForNextTickAsync"))
@@ -1672,7 +1692,7 @@ Class ReaderWriterLockSlim from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.ReaderWriterLockSlim, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1862,7 +1882,7 @@ Class SemaphoreSlim from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.SemaphoreSlim, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1877,8 +1897,10 @@ Class SemaphoreSlim from Object
 		return self
 
 	Func Wait P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Wait",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s4:Wait",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dotnet_callv("s4:call",nHandle,"s4:Wait")
@@ -1890,8 +1912,8 @@ Class SemaphoreSlim from Object
 		return self
 
 	Func WaitAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:WaitAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:WaitAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:WaitAsync"))
@@ -1949,7 +1971,7 @@ Class SpinLock from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.SpinLock, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1967,14 +1989,16 @@ Class SpinLock from ValueType
 		return dnSend("s4:call",nHandle,"s5:Enter",dnPackItem(P1))
 
 	Func TryEnter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:TryEnter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s8:TryEnter",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",nHandle,"s8:TryEnter",dnPackItem(P1))
 
 	Func Exit_ P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Exit",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Exit",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -2035,8 +2059,8 @@ Class SpinWait from ValueType
 		return self
 
 	Func SpinOnce P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:SpinOnce",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:SpinOnce",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -2054,8 +2078,10 @@ Class SpinWait from ValueType
 		return self
 
 	Func SpinUntil P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.SpinWait, System.Private.CoreLib'),"s9:SpinUntil",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Threading.SpinWait, System.Private.CoreLib',"s9:SpinUntil",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",'System.Threading.SpinWait, System.Private.CoreLib',"s9:SpinUntil",P1)
 
@@ -2176,7 +2202,7 @@ Class Thread from DotNetObject
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Thread, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2204,8 +2230,10 @@ Class Thread from DotNetObject
 		return self
 
 	Func Join P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Join",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s4:Join",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dotnet_callv("s4:call",nHandle,"s4:Join")
@@ -2217,8 +2245,8 @@ Class Thread from DotNetObject
 		return dn_x
 
 	Func Start P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Start",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Start",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -2231,8 +2259,8 @@ Class Thread from DotNetObject
 		return self
 
 	Func UnsafeStart P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s11:UnsafeStart",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s11:UnsafeStart",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -2245,8 +2273,8 @@ Class Thread from DotNetObject
 		return self
 
 	Func Abort P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Abort",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Abort",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -2535,16 +2563,20 @@ Class ThreadPool from Object
 		return dnObj(dotnet_callo("s4:call",'System.Threading.ThreadPool, System.Private.CoreLib',"s33:UnsafeRegisterWaitForSingleObject",P1,P2,P3,P4,P5))
 
 	Func QueueUserWorkItem P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s17:QueueUserWorkItem",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Threading.ThreadPool, System.Private.CoreLib',"s17:QueueUserWorkItem",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Threading.ThreadPool, System.Private.CoreLib',"s17:QueueUserWorkItem",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UnsafeQueueUserWorkItem P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s23:UnsafeQueueUserWorkItem",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Threading.ThreadPool, System.Private.CoreLib',"s23:UnsafeQueueUserWorkItem",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: UnsafeQueueUserWorkItem does not take one argument: use named arguments, UnsafeQueueUserWorkItem([ :parameter = value, ... ])")
 
@@ -2611,8 +2643,8 @@ Class ThreadPoolBoundHandle from Object
 		return self
 
 	Func AllocateNativeOverlapped P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:AllocateNativeOverlapped",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:AllocateNativeOverlapped",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:AllocateNativeOverlapped",P1))
 
@@ -2689,7 +2721,7 @@ Class Timer from MarshalByRefObject
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Timer, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2709,8 +2741,10 @@ Class Timer from MarshalByRefObject
 		return dn_x
 
 	Func Dispose P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Dispose",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s7:Dispose",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dotnet_callv("s4:call",nHandle,"s7:Dispose")
@@ -2782,8 +2816,10 @@ Class WaitHandle from MarshalByRefObject
 		return self
 
 	Func WaitOne P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:WaitOne",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:WaitOne",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s7:WaitOne")
@@ -2795,24 +2831,30 @@ Class WaitHandle from MarshalByRefObject
 		return dn_x
 
 	Func WaitAll P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s7:WaitAll",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Threading.WaitHandle, System.Private.CoreLib',"s7:WaitAll",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Threading.WaitHandle, System.Private.CoreLib',"s7:WaitAll",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func WaitAny P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s7:WaitAny",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Threading.WaitHandle, System.Private.CoreLib',"s7:WaitAny",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Threading.WaitHandle, System.Private.CoreLib',"s7:WaitAny",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SignalAndWait P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Threading.WaitHandle, System.Private.CoreLib'),"s13:SignalAndWait",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Threading.WaitHandle, System.Private.CoreLib',"s13:SignalAndWait",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: SignalAndWait does not take one argument: use named arguments, SignalAndWait([ :parameter = value, ... ])")
 
@@ -2878,7 +2920,7 @@ Class EventWaitHandle from WaitHandle
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.EventWaitHandle, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2931,7 +2973,7 @@ Class Mutex from WaitHandle
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Mutex, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2971,7 +3013,7 @@ Class Semaphore from WaitHandle
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Semaphore, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

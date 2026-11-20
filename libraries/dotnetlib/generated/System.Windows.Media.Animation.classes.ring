@@ -1351,15 +1351,15 @@ Class Animatable from Freezable
 		return self
 
 	Func ApplyAnimationClock P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s19:ApplyAnimationClock",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s19:ApplyAnimationClock",P1)
 			return self
 		ok
 		raise("DotNet Error: ApplyAnimationClock does not take one argument: use named arguments, ApplyAnimationClock([ :parameter = value, ... ])")
 
 	Func BeginAnimation P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:BeginAnimation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:BeginAnimation",P1)
 			return self
 		ok
 		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
@@ -2146,11 +2146,15 @@ Class ClockCollection from Object
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Animation.ClockCollection, PresentationCore'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Media.Animation.ClockCollection, PresentationCore',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2852,15 +2856,15 @@ Class IAnimatable from DotNetObject
 		return self
 
 	Func ApplyAnimationClock P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s19:ApplyAnimationClock",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s19:ApplyAnimationClock",P1)
 			return self
 		ok
 		raise("DotNet Error: ApplyAnimationClock does not take one argument: use named arguments, ApplyAnimationClock([ :parameter = value, ... ])")
 
 	Func BeginAnimation P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:BeginAnimation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:BeginAnimation",P1)
 			return self
 		ok
 		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
@@ -3524,7 +3528,7 @@ Class KeySpline from Freezable
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.KeySpline, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3544,8 +3548,10 @@ Class KeySpline from Freezable
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3593,11 +3599,15 @@ Class KeyTime from ValueType
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Animation.KeyTime, PresentationCore'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Media.Animation.KeyTime, PresentationCore',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4729,7 +4739,7 @@ Class RepeatBehavior from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.RepeatBehavior, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4744,19 +4754,25 @@ Class RepeatBehavior from ValueType
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Animation.RepeatBehavior, PresentationCore'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Media.Animation.RepeatBehavior, PresentationCore',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -6254,7 +6270,7 @@ Class DiscreteBooleanKeyFrame from BooleanKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6291,7 +6307,7 @@ Class DiscreteByteKeyFrame from ByteKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6328,7 +6344,7 @@ Class DiscreteCharKeyFrame from CharKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6365,7 +6381,7 @@ Class DiscreteColorKeyFrame from ColorKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6402,7 +6418,7 @@ Class DiscreteDecimalKeyFrame from DecimalKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6439,7 +6455,7 @@ Class DiscreteDoubleKeyFrame from DoubleKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6476,7 +6492,7 @@ Class DiscreteInt16KeyFrame from Int16KeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6513,7 +6529,7 @@ Class DiscreteInt32KeyFrame from Int32KeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6550,7 +6566,7 @@ Class DiscreteInt64KeyFrame from Int64KeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6587,7 +6603,7 @@ Class DiscreteMatrixKeyFrame from MatrixKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6624,7 +6640,7 @@ Class DiscreteObjectKeyFrame from ObjectKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6661,7 +6677,7 @@ Class DiscretePoint3DKeyFrame from Point3DKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6698,7 +6714,7 @@ Class DiscretePointKeyFrame from PointKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6735,7 +6751,7 @@ Class DiscreteQuaternionKeyFrame from QuaternionKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6772,7 +6788,7 @@ Class DiscreteRectKeyFrame from RectKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6809,7 +6825,7 @@ Class DiscreteRotation3DKeyFrame from Rotation3DKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6846,7 +6862,7 @@ Class DiscreteSingleKeyFrame from SingleKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6883,7 +6899,7 @@ Class DiscreteSizeKeyFrame from SizeKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6920,7 +6936,7 @@ Class DiscreteStringKeyFrame from StringKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6957,7 +6973,7 @@ Class DiscreteThicknessKeyFrame from ThicknessKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6994,7 +7010,7 @@ Class DiscreteVector3DKeyFrame from Vector3DKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7031,7 +7047,7 @@ Class DiscreteVectorKeyFrame from VectorKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7071,7 +7087,7 @@ Class EasingByteKeyFrame from ByteKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7124,7 +7140,7 @@ Class EasingColorKeyFrame from ColorKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7177,7 +7193,7 @@ Class EasingDecimalKeyFrame from DecimalKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7230,7 +7246,7 @@ Class EasingDoubleKeyFrame from DoubleKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7283,7 +7299,7 @@ Class EasingInt16KeyFrame from Int16KeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7336,7 +7352,7 @@ Class EasingInt32KeyFrame from Int32KeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7389,7 +7405,7 @@ Class EasingInt64KeyFrame from Int64KeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7442,7 +7458,7 @@ Class EasingPoint3DKeyFrame from Point3DKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7495,7 +7511,7 @@ Class EasingPointKeyFrame from PointKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7550,7 +7566,7 @@ Class EasingQuaternionKeyFrame from QuaternionKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7618,7 +7634,7 @@ Class EasingRectKeyFrame from RectKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7671,7 +7687,7 @@ Class EasingRotation3DKeyFrame from Rotation3DKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7724,7 +7740,7 @@ Class EasingSingleKeyFrame from SingleKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7777,7 +7793,7 @@ Class EasingSizeKeyFrame from SizeKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7830,7 +7846,7 @@ Class EasingThicknessKeyFrame from ThicknessKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7883,7 +7899,7 @@ Class EasingVector3DKeyFrame from Vector3DKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7936,7 +7952,7 @@ Class EasingVectorKeyFrame from VectorKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8081,7 +8097,7 @@ Class LinearByteKeyFrame from ByteKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8118,7 +8134,7 @@ Class LinearColorKeyFrame from ColorKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8155,7 +8171,7 @@ Class LinearDecimalKeyFrame from DecimalKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8192,7 +8208,7 @@ Class LinearDoubleKeyFrame from DoubleKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8229,7 +8245,7 @@ Class LinearInt16KeyFrame from Int16KeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8266,7 +8282,7 @@ Class LinearInt32KeyFrame from Int32KeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8303,7 +8319,7 @@ Class LinearInt64KeyFrame from Int64KeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8340,7 +8356,7 @@ Class LinearPoint3DKeyFrame from Point3DKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8377,7 +8393,7 @@ Class LinearPointKeyFrame from PointKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8417,7 +8433,7 @@ Class LinearQuaternionKeyFrame from QuaternionKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8469,7 +8485,7 @@ Class LinearRectKeyFrame from RectKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8506,7 +8522,7 @@ Class LinearRotation3DKeyFrame from Rotation3DKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8543,7 +8559,7 @@ Class LinearSingleKeyFrame from SingleKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8580,7 +8596,7 @@ Class LinearSizeKeyFrame from SizeKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8617,7 +8633,7 @@ Class LinearThicknessKeyFrame from ThicknessKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8654,7 +8670,7 @@ Class LinearVector3DKeyFrame from Vector3DKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8691,7 +8707,7 @@ Class LinearVectorKeyFrame from VectorKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9013,7 +9029,7 @@ Class SplineByteKeyFrame from ByteKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9066,7 +9082,7 @@ Class SplineColorKeyFrame from ColorKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9119,7 +9135,7 @@ Class SplineDecimalKeyFrame from DecimalKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9172,7 +9188,7 @@ Class SplineDoubleKeyFrame from DoubleKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9225,7 +9241,7 @@ Class SplineInt16KeyFrame from Int16KeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9278,7 +9294,7 @@ Class SplineInt32KeyFrame from Int32KeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9331,7 +9347,7 @@ Class SplineInt64KeyFrame from Int64KeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9384,7 +9400,7 @@ Class SplinePoint3DKeyFrame from Point3DKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9437,7 +9453,7 @@ Class SplinePointKeyFrame from PointKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9492,7 +9508,7 @@ Class SplineQuaternionKeyFrame from QuaternionKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9560,7 +9576,7 @@ Class SplineRectKeyFrame from RectKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9613,7 +9629,7 @@ Class SplineRotation3DKeyFrame from Rotation3DKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9666,7 +9682,7 @@ Class SplineSingleKeyFrame from SingleKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9719,7 +9735,7 @@ Class SplineSizeKeyFrame from SizeKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9772,7 +9788,7 @@ Class SplineThicknessKeyFrame from ThicknessKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9825,7 +9841,7 @@ Class SplineVector3DKeyFrame from Vector3DKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9878,7 +9894,7 @@ Class SplineVectorKeyFrame from VectorKeyFrame
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9959,8 +9975,8 @@ Class Timeline from Animatable
 		return self
 
 	Func CreateClock P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:CreateClock",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CreateClock",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateClock"))
@@ -10173,7 +10189,7 @@ Class TimelineCollection from Animatable
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.TimelineCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -10477,7 +10493,7 @@ Class ParallelTimeline from TimelineGroup
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -10705,7 +10721,7 @@ Class ByteAnimation from ByteAnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.ByteAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -10913,7 +10929,7 @@ Class ColorAnimation from ColorAnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.ColorAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -11086,7 +11102,7 @@ Class DecimalAnimation from DecimalAnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -11259,7 +11275,7 @@ Class DoubleAnimation from DoubleAnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -11504,7 +11520,7 @@ Class Int16Animation from Int16AnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Int16Animation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -11677,7 +11693,7 @@ Class Int32Animation from Int32AnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Int32Animation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -11850,7 +11866,7 @@ Class Int64Animation from Int64AnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Int64Animation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -12191,7 +12207,7 @@ Class Point3DAnimation from Point3DAnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -12364,7 +12380,7 @@ Class PointAnimation from PointAnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.PointAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -12596,7 +12612,7 @@ Class QuaternionAnimation from QuaternionAnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -12784,7 +12800,7 @@ Class RectAnimation from RectAnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.RectAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -12957,7 +12973,7 @@ Class Rotation3DAnimation from Rotation3DAnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -13130,7 +13146,7 @@ Class SingleAnimation from SingleAnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SingleAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -13303,7 +13319,7 @@ Class SizeAnimation from SizeAnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SizeAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -13468,8 +13484,8 @@ Class Storyboard from ParallelTimeline
 		return self
 
 	Func Begin P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Begin",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Begin",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -13482,8 +13498,10 @@ Class Storyboard from ParallelTimeline
 		return self
 
 	Func GetCurrentGlobalSpeed P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:GetCurrentGlobalSpeed",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s21:GetCurrentGlobalSpeed",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s21:GetCurrentGlobalSpeed")
@@ -13493,8 +13511,10 @@ Class Storyboard from ParallelTimeline
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetCurrentGlobalSpeed",P1))
 
 	Func GetCurrentIteration P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:GetCurrentIteration",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s19:GetCurrentIteration",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s19:GetCurrentIteration")
@@ -13504,8 +13524,10 @@ Class Storyboard from ParallelTimeline
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetCurrentIteration",P1))
 
 	Func GetCurrentProgress P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:GetCurrentProgress",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s18:GetCurrentProgress",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s18:GetCurrentProgress")
@@ -13515,8 +13537,8 @@ Class Storyboard from ParallelTimeline
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetCurrentProgress",P1))
 
 	Func GetCurrentState P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:GetCurrentState",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetCurrentState",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetCurrentState"))
@@ -13524,8 +13546,8 @@ Class Storyboard from ParallelTimeline
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetCurrentState",P1))
 
 	Func GetCurrentTime P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetCurrentTime",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:GetCurrentTime",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetCurrentTime"))
@@ -13533,8 +13555,10 @@ Class Storyboard from ParallelTimeline
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetCurrentTime",P1))
 
 	Func GetIsPaused P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetIsPaused",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetIsPaused",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetIsPaused")
@@ -13546,8 +13570,8 @@ Class Storyboard from ParallelTimeline
 		return dn_x
 
 	Func Pause P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Pause",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Pause",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -13560,8 +13584,8 @@ Class Storyboard from ParallelTimeline
 		return self
 
 	Func Remove P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Remove",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Remove",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -13574,8 +13598,8 @@ Class Storyboard from ParallelTimeline
 		return self
 
 	Func Resume P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Resume",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Resume",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -13588,8 +13612,8 @@ Class Storyboard from ParallelTimeline
 		return self
 
 	Func Seek P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Seek",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Seek",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s4:Seek",P1)
@@ -13597,8 +13621,8 @@ Class Storyboard from ParallelTimeline
 		return self
 
 	Func SeekAlignedToLastTick P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s21:SeekAlignedToLastTick",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s21:SeekAlignedToLastTick",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s21:SeekAlignedToLastTick",P1)
@@ -13606,8 +13630,8 @@ Class Storyboard from ParallelTimeline
 		return self
 
 	Func SetSpeedRatio_ P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s13:SetSpeedRatio",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s13:SetSpeedRatio",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s13:SetSpeedRatio",P1)
@@ -13615,8 +13639,8 @@ Class Storyboard from ParallelTimeline
 		return self
 
 	Func SkipToFill P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:SkipToFill",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:SkipToFill",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -13629,8 +13653,8 @@ Class Storyboard from ParallelTimeline
 		return self
 
 	Func Stop P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Stop",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Stop",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -13752,7 +13776,7 @@ Class ThicknessAnimation from ThicknessAnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -13925,7 +13949,7 @@ Class Vector3DAnimation from Vector3DAnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -14098,7 +14122,7 @@ Class VectorAnimation from VectorAnimationBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.VectorAnimation, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

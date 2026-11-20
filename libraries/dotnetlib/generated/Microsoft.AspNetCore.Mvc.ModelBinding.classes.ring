@@ -395,7 +395,7 @@ Class BindingInfo from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -420,8 +420,8 @@ Class BindingInfo from Object
 		return dn_x
 
 	Func GetBindingInfo P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions'),"s14:GetBindingInfo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',"s14:GetBindingInfo",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',"s14:GetBindingInfo",P1))
 
@@ -660,7 +660,7 @@ Class CompositeValueProvider from DotNetObject
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -686,8 +686,8 @@ Class CompositeValueProvider from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
 
 	Func Filter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Filter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Filter",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter"))
@@ -756,8 +756,8 @@ Class CompositeValueProvider from DotNetObject
 		return dn_x
 
 	Func CreateAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core'),"s11:CreateAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',"s11:CreateAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',"s11:CreateAsync",P1))
 
@@ -801,8 +801,8 @@ Class EmptyModelMetadataProvider from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetMetadataForProperties",P1))
 
 	Func GetMetadataForParameter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s23:GetMetadataForParameter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:GetMetadataForParameter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetMetadataForParameter",P1))
 
@@ -859,7 +859,7 @@ Class EnumGroupAndName from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName, Microsoft.AspNetCore.Mvc.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1317,8 +1317,8 @@ Class ModelAttributes from Object
 		return dn_x
 
 	Func GetAttributesForProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"s24:GetAttributesForProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core',"s24:GetAttributesForProperty",P1))
 		ok
 		raise("DotNet Error: GetAttributesForProperty does not take one argument: use named arguments, GetAttributesForProperty([ :parameter = value, ... ])")
 
@@ -1326,8 +1326,8 @@ Class ModelAttributes from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core',"s20:GetAttributesForType",P1))
 
 	Func GetAttributesForParameter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"s25:GetAttributesForParameter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core',"s25:GetAttributesForParameter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core',"s25:GetAttributesForParameter",P1))
 
@@ -1446,8 +1446,8 @@ Class ModelBinderProviderContext from Object
 		return self
 
 	Func CreateBinder P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:CreateBinder",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:CreateBinder",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateBinder",P1))
 
@@ -1498,8 +1498,8 @@ Class ModelBinderProviderExtensions from Object
 		return dn_x
 
 	Func RemoveType P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderProviderExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderProviderExtensions, Microsoft.AspNetCore.Mvc.Core',"s10:RemoveType",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderProviderExtensions, Microsoft.AspNetCore.Mvc.Core',"s10:RemoveType",P1)
@@ -1536,8 +1536,8 @@ Class ModelBindingContext from Object
 		return self
 
 	Func EnterNestedScope P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:EnterNestedScope",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:EnterNestedScope",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s16:EnterNestedScope"))
@@ -1730,7 +1730,7 @@ Class ModelError from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.ModelError, Microsoft.AspNetCore.Mvc.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2368,8 +2368,8 @@ Class ModelMetadataProvider from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetMetadataForType",P1))
 
 	Func GetMetadataForParameter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s23:GetMetadataForParameter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:GetMetadataForParameter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetMetadataForParameter",P1))
 
@@ -2528,7 +2528,7 @@ Class ModelStateDictionary from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2548,15 +2548,17 @@ Class ModelStateDictionary from Object
 		return dn_x
 
 	Func AddModelError P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s13:AddModelError",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s13:AddModelError",P1)
 			return self
 		ok
 		raise("DotNet Error: AddModelError does not take one argument: use named arguments, AddModelError([ :parameter = value, ... ])")
 
 	Func TryAddModelError P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:TryAddModelError",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:TryAddModelError",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: TryAddModelError does not take one argument: use named arguments, TryAddModelError([ :parameter = value, ... ])")
 
@@ -2582,8 +2584,8 @@ Class ModelStateDictionary from Object
 		return self
 
 	Func SetModelValue P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s13:SetModelValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s13:SetModelValue",P1)
 			return self
 		ok
 		raise("DotNet Error: SetModelValue does not take one argument: use named arguments, SetModelValue([ :parameter = value, ... ])")
@@ -2721,8 +2723,8 @@ Class ModelStateDictionaryExtensions from Object
 		return dn_x
 
 	Func AddModelError P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"s13:AddModelError",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures',"s13:AddModelError",P1)
 			return self
 		ok
 		raise("DotNet Error: AddModelError does not take one argument: use named arguments, AddModelError([ :parameter = value, ... ])")
@@ -2825,8 +2827,8 @@ Class ObjectModelValidator from Object
 		return self
 
 	Func Validate P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:Validate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:Validate",P1)
 			return self
 		ok
 		raise("DotNet Error: Validate does not take one argument: use named arguments, Validate([ :parameter = value, ... ])")
@@ -2854,8 +2856,8 @@ Class ParameterBinder from Object
 		return self
 
 	Func BindModelAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:BindModelAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:BindModelAsync",P1))
 		ok
 		raise("DotNet Error: BindModelAsync does not take one argument: use named arguments, BindModelAsync([ :parameter = value, ... ])")
 
@@ -3092,8 +3094,8 @@ Class ValueProviderFactoryExtensions from Object
 		return dn_x
 
 	Func RemoveType P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:RemoveType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryExtensions, Microsoft.AspNetCore.Mvc.Core',"s10:RemoveType",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryExtensions, Microsoft.AspNetCore.Mvc.Core',"s10:RemoveType",P1)
@@ -3129,7 +3131,7 @@ Class ValueProviderResult from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3280,8 +3282,8 @@ Class JQueryValueProvider from BindingSourceValueProvider
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
 
 	Func Filter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Filter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Filter",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter"))
@@ -3334,7 +3336,7 @@ Class RouteValueProvider from BindingSourceValueProvider
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.RouteValueProvider, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

@@ -1315,16 +1315,20 @@ Class EntityTypeFullNameComparer from Object
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
@@ -1361,16 +1365,20 @@ Class ForeignKeyComparer from Object
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
@@ -1682,8 +1690,10 @@ Class IColumnBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:FindColumnMapping",P1))
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -1764,8 +1774,10 @@ Class EfIColumnMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -1906,14 +1918,14 @@ Class IConventionAnnotatable from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAnnotations"))
 
 	Func AddAnnotation P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:AddAnnotation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
 		ok
 		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
 
 	Func SetAnnotation P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SetAnnotation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetAnnotation",P1))
 		ok
 		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
 
@@ -1927,8 +1939,8 @@ Class IConventionAnnotatable from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:AddAnnotations",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
@@ -1936,8 +1948,8 @@ Class IConventionAnnotatable from DotNetObject
 		return self
 
 	Func SetOrRemoveAnnotation P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
 		ok
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
@@ -1989,8 +2001,10 @@ Class IConventionCheckConstraint from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:SetName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:SetName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:SetName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2027,8 +2041,8 @@ Class IConventionComplexProperty from DotNetObject
 		return self
 
 	Func SetIsNullable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SetIsNullable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetIsNullable",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SetIsNullable",P1))
 
@@ -2094,8 +2108,10 @@ Class IConventionDbFunction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:SetName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:SetName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:SetName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2105,8 +2121,10 @@ Class IConventionDbFunction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetNameConfigurationSource"))
 
 	Func SetSchema P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:SetSchema",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:SetSchema",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:SetSchema",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2116,8 +2134,10 @@ Class IConventionDbFunction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetSchemaConfigurationSource"))
 
 	Func SetIsBuiltIn P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:SetIsBuiltIn",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:SetIsBuiltIn",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:SetIsBuiltIn",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2127,8 +2147,10 @@ Class IConventionDbFunction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetIsBuiltInConfigurationSource"))
 
 	Func SetIsNullable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SetIsNullable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:SetIsNullable",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:SetIsNullable",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2138,8 +2160,10 @@ Class IConventionDbFunction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetIsNullableConfigurationSource"))
 
 	Func SetStoreType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:SetStoreType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:SetStoreType",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:SetStoreType",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2149,8 +2173,8 @@ Class IConventionDbFunction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetStoreTypeConfigurationSource"))
 
 	Func SetTypeMapping P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:SetTypeMapping",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:SetTypeMapping",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SetTypeMapping",P1))
 
@@ -2158,8 +2182,8 @@ Class IConventionDbFunction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetTypeMappingConfigurationSource"))
 
 	Func SetTranslation P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:SetTranslation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:SetTranslation",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SetTranslation",P1))
 
@@ -2202,8 +2226,10 @@ Class IConventionDbFunctionParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetStoreType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:SetStoreType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:SetStoreType",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:SetStoreType",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2213,8 +2239,8 @@ Class IConventionDbFunctionParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetStoreTypeConfigurationSource"))
 
 	Func SetTypeMapping P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:SetTypeMapping",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:SetTypeMapping",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SetTypeMapping",P1))
 
@@ -2249,8 +2275,8 @@ Class IConventionElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetIsNullable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SetIsNullable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetIsNullable",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SetIsNullable",P1))
 
@@ -2258,8 +2284,8 @@ Class IConventionElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetIsNullableConfigurationSource"))
 
 	Func SetTypeMapping P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:SetTypeMapping",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:SetTypeMapping",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SetTypeMapping",P1))
 
@@ -2267,8 +2293,8 @@ Class IConventionElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetTypeMappingConfigurationSource"))
 
 	Func SetMaxLength P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:SetMaxLength",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SetMaxLength",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetMaxLength",P1))
 
@@ -2276,8 +2302,8 @@ Class IConventionElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetMaxLengthConfigurationSource"))
 
 	Func SetPrecision P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:SetPrecision",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SetPrecision",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetPrecision",P1))
 
@@ -2285,8 +2311,8 @@ Class IConventionElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetPrecisionConfigurationSource"))
 
 	Func SetScale P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:SetScale",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SetScale",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SetScale",P1))
 
@@ -2294,8 +2320,8 @@ Class IConventionElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetScaleConfigurationSource"))
 
 	Func SetIsUnicode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:SetIsUnicode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SetIsUnicode",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetIsUnicode",P1))
 
@@ -2303,8 +2329,8 @@ Class IConventionElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetIsUnicodeConfigurationSource"))
 
 	Func SetValueConverter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:SetValueConverter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:SetValueConverter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:SetValueConverter",P1))
 
@@ -2312,8 +2338,8 @@ Class IConventionElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s36:GetValueConverterConfigurationSource"))
 
 	Func SetProviderClrType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:SetProviderClrType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:SetProviderClrType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:SetProviderClrType",P1))
 
@@ -2321,8 +2347,8 @@ Class IConventionElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s37:GetProviderClrTypeConfigurationSource"))
 
 	Func SetValueComparer P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:SetValueComparer",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SetValueComparer",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SetValueComparer",P1))
 
@@ -2330,8 +2356,8 @@ Class IConventionElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s35:GetValueComparerConfigurationSource"))
 
 	Func SetJsonValueReaderWriterType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s28:SetJsonValueReaderWriterType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s28:SetJsonValueReaderWriterType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:SetJsonValueReaderWriterType",P1))
 
@@ -2370,8 +2396,8 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetQueryFilter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:SetQueryFilter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:SetQueryFilter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SetQueryFilter",P1))
 
@@ -2382,8 +2408,8 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:FindDiscriminatorProperty"))
 
 	Func SetDiscriminatorProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:SetDiscriminatorProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:SetDiscriminatorProperty",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetDiscriminatorProperty",P1))
 
@@ -2391,8 +2417,8 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s43:GetDiscriminatorPropertyConfigurationSource"))
 
 	Func SetDiscriminatorMappingComplete P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s31:SetDiscriminatorMappingComplete",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s31:SetDiscriminatorMappingComplete",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:SetDiscriminatorMappingComplete",P1))
 
@@ -2400,8 +2426,8 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s50:GetDiscriminatorMappingCompleteConfigurationSource"))
 
 	Func SetDiscriminatorValue P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:SetDiscriminatorValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetDiscriminatorValue",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetDiscriminatorValue",P1))
 
@@ -2412,8 +2438,8 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetDiscriminatorValueConfigurationSource"))
 
 	Func SetBaseType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:SetBaseType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:SetBaseType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetBaseType",P1))
 
@@ -2451,8 +2477,8 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:LeastDerivedType",P1))
 
 	Func SetIsKeyless P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:SetIsKeyless",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SetIsKeyless",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetIsKeyless",P1))
 
@@ -2460,8 +2486,8 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetIsKeylessConfigurationSource"))
 
 	Func SetPrimaryKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SetPrimaryKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetPrimaryKey",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SetPrimaryKey",P1))
 
@@ -2472,8 +2498,8 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetPrimaryKeyConfigurationSource"))
 
 	Func AddKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:AddKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:AddKey",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AddKey",P1))
 
@@ -2490,8 +2516,8 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:RemoveKey",P1))
 
 	Func AddForeignKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:AddForeignKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddForeignKey",P1))
 		ok
 		raise("DotNet Error: AddForeignKey does not take one argument: use named arguments, AddForeignKey([ :parameter = value, ... ])")
 
@@ -2523,8 +2549,8 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:FindOwnership"))
 
 	Func RemoveForeignKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:RemoveForeignKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:RemoveForeignKey",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveForeignKey",P1))
 
@@ -2544,8 +2570,8 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetNavigations"))
 
 	Func AddSkipNavigation P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:AddSkipNavigation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddSkipNavigation",P1))
 		ok
 		raise("DotNet Error: AddSkipNavigation does not take one argument: use named arguments, AddSkipNavigation([ :parameter = value, ... ])")
 
@@ -2568,8 +2594,8 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:RemoveSkipNavigation",P1))
 
 	Func AddIndex P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:AddIndex",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:AddIndex",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddIndex",P1))
 
@@ -2589,8 +2615,8 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:RemoveIndex",P1))
 
 	Func AddServiceProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:AddServiceProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddServiceProperty",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddServiceProperty",P1))
 
@@ -2616,8 +2642,8 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetDeclaredTriggers"))
 
 	Func AddTrigger P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:AddTrigger",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddTrigger",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddTrigger",P1))
 
@@ -2625,8 +2651,8 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:RemoveTrigger",P1))
 
 	Func SetNavigationAccessMode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s23:SetNavigationAccessMode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:SetNavigationAccessMode",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:SetNavigationAccessMode",P1))
 
@@ -2666,8 +2692,8 @@ Class IConventionEntityTypeMappingFragment from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetIsTableExcludedFromMigrations P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s32:SetIsTableExcludedFromMigrations",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s32:SetIsTableExcludedFromMigrations",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:SetIsTableExcludedFromMigrations",P1))
 
@@ -2710,8 +2736,8 @@ Class IConventionForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetProperties P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SetProperties",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetProperties",P1))
 		ok
 		raise("DotNet Error: SetProperties does not take one argument: use named arguments, SetProperties([ :parameter = value, ... ])")
 
@@ -2725,8 +2751,8 @@ Class IConventionForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s34:GetPrincipalEndConfigurationSource"))
 
 	Func SetIsUnique P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:SetIsUnique",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:SetIsUnique",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetIsUnique",P1))
 
@@ -2734,8 +2760,8 @@ Class IConventionForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetIsUniqueConfigurationSource"))
 
 	Func SetIsRequired P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SetIsRequired",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetIsRequired",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SetIsRequired",P1))
 
@@ -2743,8 +2769,8 @@ Class IConventionForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetIsRequiredConfigurationSource"))
 
 	Func SetIsRequiredDependent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s22:SetIsRequiredDependent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:SetIsRequiredDependent",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:SetIsRequiredDependent",P1))
 
@@ -2752,8 +2778,8 @@ Class IConventionForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s41:GetIsRequiredDependentConfigurationSource"))
 
 	Func SetIsOwnership P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:SetIsOwnership",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:SetIsOwnership",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SetIsOwnership",P1))
 
@@ -2761,8 +2787,8 @@ Class IConventionForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetIsOwnershipConfigurationSource"))
 
 	Func SetDeleteBehavior P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:SetDeleteBehavior",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:SetDeleteBehavior",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:SetDeleteBehavior",P1))
 
@@ -2770,8 +2796,8 @@ Class IConventionForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s36:GetDeleteBehaviorConfigurationSource"))
 
 	Func SetDependentToPrincipal P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s23:SetDependentToPrincipal",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:SetDependentToPrincipal",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:SetDependentToPrincipal",P1))
 
@@ -2779,8 +2805,8 @@ Class IConventionForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s42:GetDependentToPrincipalConfigurationSource"))
 
 	Func SetPrincipalToDependent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s23:SetPrincipalToDependent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:SetPrincipalToDependent",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:SetPrincipalToDependent",P1))
 
@@ -2849,8 +2875,8 @@ Class IConventionIndex from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetIsUnique P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:SetIsUnique",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:SetIsUnique",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetIsUnique",P1))
 
@@ -2858,8 +2884,8 @@ Class IConventionIndex from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetIsUniqueConfigurationSource"))
 
 	Func SetIsDescending P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:SetIsDescending",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:SetIsDescending",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:SetIsDescending",P1))
 
@@ -2942,8 +2968,8 @@ Class IConventionModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:DelayConventions"))
 
 	Func SetPropertyAccessMode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:SetPropertyAccessMode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetPropertyAccessMode",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetPropertyAccessMode",P1))
 
@@ -2951,8 +2977,10 @@ Class IConventionModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetPropertyAccessModeConfigurationSource"))
 
 	Func SetEmbeddedDiscriminatorName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s28:SetEmbeddedDiscriminatorName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s28:SetEmbeddedDiscriminatorName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s28:SetEmbeddedDiscriminatorName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2962,8 +2990,8 @@ Class IConventionModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s47:GetEmbeddedDiscriminatorNameConfigurationSource"))
 
 	Func SetChangeTrackingStrategy P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:SetChangeTrackingStrategy",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:SetChangeTrackingStrategy",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:SetChangeTrackingStrategy",P1))
 
@@ -2971,26 +2999,26 @@ Class IConventionModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s44:GetChangeTrackingStrategyConfigurationSource"))
 
 	Func AddEntityType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:AddEntityType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddEntityType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddEntityType",P1))
 
 	Func AddOwnedEntityType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:AddOwnedEntityType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddOwnedEntityType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddOwnedEntityType",P1))
 
 	Func FindEntityType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:FindEntityType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:FindEntityType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindEntityType",P1))
 
 	Func RemoveEntityType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:RemoveEntityType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:RemoveEntityType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveEntityType",P1))
 
@@ -3001,14 +3029,14 @@ Class IConventionModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:FindEntityTypes",P1))
 
 	Func FindLeastDerivedEntityTypes P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s27:FindLeastDerivedEntityTypes",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:FindLeastDerivedEntityTypes",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:FindLeastDerivedEntityTypes",P1))
 
 	Func AddShared P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:AddShared",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:AddShared",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s9:AddShared",P1)
@@ -3022,8 +3050,8 @@ Class IConventionModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:FindIsSharedConfigurationSource",P1))
 
 	Func AddOwned P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:AddOwned",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:AddOwned",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:AddOwned",P1)
@@ -3044,8 +3072,10 @@ Class IConventionModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:FindIsOwnedConfigurationSource",P1))
 
 	Func AddIgnored P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:AddIgnored",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:AddIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s10:AddIgnored",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3097,8 +3127,8 @@ Class IConventionNavigation from DotNetObject
 		return self
 
 	Func SetInverse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:SetInverse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:SetInverse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetInverse",P1))
 
@@ -3145,8 +3175,8 @@ Class IConventionNavigationBase from DotNetObject
 		return self
 
 	Func SetIsEagerLoaded P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:SetIsEagerLoaded",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SetIsEagerLoaded",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SetIsEagerLoaded",P1))
 
@@ -3154,8 +3184,8 @@ Class IConventionNavigationBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s35:GetIsEagerLoadedConfigurationSource"))
 
 	Func SetLazyLoadingEnabled P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:SetLazyLoadingEnabled",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetLazyLoadingEnabled",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetLazyLoadingEnabled",P1))
 
@@ -3181,8 +3211,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetTypeConfigurationSource"))
 
 	Func SetIsNullable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SetIsNullable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetIsNullable",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SetIsNullable",P1))
 
@@ -3190,8 +3220,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetIsNullableConfigurationSource"))
 
 	Func SetValueGenerated P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:SetValueGenerated",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:SetValueGenerated",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:SetValueGenerated",P1))
 
@@ -3199,8 +3229,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s36:GetValueGeneratedConfigurationSource"))
 
 	Func SetIsConcurrencyToken P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:SetIsConcurrencyToken",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetIsConcurrencyToken",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetIsConcurrencyToken",P1))
 
@@ -3231,8 +3261,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetContainingKeys"))
 
 	Func SetTypeMapping P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:SetTypeMapping",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:SetTypeMapping",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SetTypeMapping",P1))
 
@@ -3240,8 +3270,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetTypeMappingConfigurationSource"))
 
 	Func SetMaxLength P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:SetMaxLength",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SetMaxLength",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetMaxLength",P1))
 
@@ -3249,8 +3279,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetMaxLengthConfigurationSource"))
 
 	Func SetPrecision P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:SetPrecision",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SetPrecision",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetPrecision",P1))
 
@@ -3258,8 +3288,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetPrecisionConfigurationSource"))
 
 	Func SetScale P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:SetScale",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SetScale",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SetScale",P1))
 
@@ -3267,8 +3297,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetScaleConfigurationSource"))
 
 	Func SetIsUnicode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:SetIsUnicode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SetIsUnicode",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetIsUnicode",P1))
 
@@ -3276,8 +3306,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetIsUnicodeConfigurationSource"))
 
 	Func SetBeforeSaveBehavior P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:SetBeforeSaveBehavior",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetBeforeSaveBehavior",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetBeforeSaveBehavior",P1))
 
@@ -3285,8 +3315,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetBeforeSaveBehaviorConfigurationSource"))
 
 	Func SetAfterSaveBehavior P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:SetAfterSaveBehavior",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:SetAfterSaveBehavior",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetAfterSaveBehavior",P1))
 
@@ -3294,8 +3324,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s39:GetAfterSaveBehaviorConfigurationSource"))
 
 	Func SetSentinel P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:SetSentinel",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:SetSentinel",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetSentinel",P1))
 
@@ -3303,8 +3333,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetSentinelConfigurationSource"))
 
 	Func SetValueGeneratorFactory P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:SetValueGeneratorFactory",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:SetValueGeneratorFactory",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetValueGeneratorFactory",P1))
 
@@ -3312,8 +3342,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s43:GetValueGeneratorFactoryConfigurationSource"))
 
 	Func SetValueConverter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:SetValueConverter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:SetValueConverter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:SetValueConverter",P1))
 
@@ -3321,8 +3351,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s36:GetValueConverterConfigurationSource"))
 
 	Func SetProviderClrType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:SetProviderClrType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:SetProviderClrType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:SetProviderClrType",P1))
 
@@ -3330,8 +3360,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s37:GetProviderClrTypeConfigurationSource"))
 
 	Func SetValueComparer P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:SetValueComparer",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SetValueComparer",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SetValueComparer",P1))
 
@@ -3339,8 +3369,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s35:GetValueComparerConfigurationSource"))
 
 	Func SetProviderValueComparer P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:SetProviderValueComparer",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:SetProviderValueComparer",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetProviderValueComparer",P1))
 
@@ -3348,8 +3378,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s43:GetProviderValueComparerConfigurationSource"))
 
 	Func SetJsonValueReaderWriterType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s28:SetJsonValueReaderWriterType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s28:SetJsonValueReaderWriterType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:SetJsonValueReaderWriterType",P1))
 
@@ -3360,8 +3390,8 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetElementType"))
 
 	Func SetElementType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:SetElementType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:SetElementType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SetElementType",P1))
 
@@ -3398,14 +3428,14 @@ Class IConventionPropertyBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetFieldInfo P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:SetFieldInfo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SetFieldInfo",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetFieldInfo",P1))
 
 	Func SetField P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:SetField",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SetField",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SetField",P1))
 
@@ -3413,8 +3443,8 @@ Class IConventionPropertyBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetFieldInfoConfigurationSource"))
 
 	Func SetPropertyAccessMode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:SetPropertyAccessMode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetPropertyAccessMode",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetPropertyAccessMode",P1))
 
@@ -3446,16 +3476,20 @@ Class IConventionRelationalPropertyOverrides from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetColumnName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SetColumnName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:SetColumnName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:SetColumnName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RemoveColumnNameOverride P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:RemoveColumnNameOverride",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:RemoveColumnNameOverride",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s24:RemoveColumnNameOverride")
@@ -3500,8 +3534,8 @@ Class IConventionSequence from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetStartValue P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SetStartValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetStartValue",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SetStartValue",P1))
 
@@ -3509,8 +3543,8 @@ Class IConventionSequence from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetStartValueConfigurationSource"))
 
 	Func SetIncrementBy P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:SetIncrementBy",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:SetIncrementBy",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SetIncrementBy",P1))
 
@@ -3518,8 +3552,8 @@ Class IConventionSequence from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetIncrementByConfigurationSource"))
 
 	Func SetMinValue P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:SetMinValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:SetMinValue",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetMinValue",P1))
 
@@ -3527,8 +3561,8 @@ Class IConventionSequence from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetMinValueConfigurationSource"))
 
 	Func SetMaxValue P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:SetMaxValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:SetMaxValue",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetMaxValue",P1))
 
@@ -3536,8 +3570,8 @@ Class IConventionSequence from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetMaxValueConfigurationSource"))
 
 	Func SetType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:SetType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:SetType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:SetType",P1))
 
@@ -3545,8 +3579,8 @@ Class IConventionSequence from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetTypeConfigurationSource"))
 
 	Func SetIsCyclic P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:SetIsCyclic",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:SetIsCyclic",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetIsCyclic",P1))
 
@@ -3581,8 +3615,8 @@ Class IConventionServiceProperty from DotNetObject
 		return self
 
 	Func SetParameterBinding P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:SetParameterBinding",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:SetParameterBinding",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:SetParameterBinding",P1))
 
@@ -3621,8 +3655,8 @@ Class IConventionSkipNavigation from DotNetObject
 		return self
 
 	Func SetForeignKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SetForeignKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SetForeignKey",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SetForeignKey",P1))
 
@@ -3630,8 +3664,8 @@ Class IConventionSkipNavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetForeignKeyConfigurationSource"))
 
 	Func SetInverse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:SetInverse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:SetInverse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetInverse",P1))
 
@@ -3689,8 +3723,10 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:SetName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:SetName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:SetName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3700,8 +3736,10 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetNameConfigurationSource"))
 
 	Func SetSchema P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:SetSchema",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:SetSchema",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:SetSchema",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3714,8 +3752,8 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:FindParameter",P1))
 
 	Func AddParameter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:AddParameter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AddParameter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddParameter",P1))
 
@@ -3723,8 +3761,8 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindOriginalValueParameter",P1))
 
 	Func AddOriginalValueParameter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:AddOriginalValueParameter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AddOriginalValueParameter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddOriginalValueParameter",P1))
 
@@ -3732,8 +3770,8 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:FindRowsAffectedParameter"))
 
 	Func AddRowsAffectedParameter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:AddRowsAffectedParameter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:AddRowsAffectedParameter",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s24:AddRowsAffectedParameter"))
@@ -3744,8 +3782,8 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:FindResultColumn",P1))
 
 	Func AddResultColumn P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:AddResultColumn",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:AddResultColumn",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddResultColumn",P1))
 
@@ -3753,8 +3791,8 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:FindRowsAffectedResultColumn"))
 
 	Func AddRowsAffectedResultColumn P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s27:AddRowsAffectedResultColumn",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:AddRowsAffectedResultColumn",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s27:AddRowsAffectedResultColumn"))
@@ -3762,8 +3800,10 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:AddRowsAffectedResultColumn",P1))
 
 	Func SetIsRowsAffectedReturned P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:SetIsRowsAffectedReturned",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s25:SetIsRowsAffectedReturned",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s25:SetIsRowsAffectedReturned",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3809,8 +3849,10 @@ Class IConventionStoredProcedureParameter from DotNetObject
 		return self
 
 	Func SetName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:SetName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:SetName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:SetName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3820,8 +3862,8 @@ Class IConventionStoredProcedureParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetNameConfigurationSource"))
 
 	Func SetDirection P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:SetDirection",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SetDirection",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetDirection",P1))
 
@@ -3856,8 +3898,10 @@ Class IConventionStoredProcedureResultColumn from DotNetObject
 		return self
 
 	Func SetName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:SetName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:SetName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:SetName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3925,8 +3969,10 @@ Class IConventionTypeBase from DotNetObject
 		return self
 
 	Func AddIgnored P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:AddIgnored",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:AddIgnored",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s10:AddIgnored",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3949,14 +3995,14 @@ Class IConventionTypeBase from DotNetObject
 		return dn_x
 
 	Func AddProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:AddProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddProperty",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddProperty",P1))
 
 	Func AddIndexerProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:AddIndexerProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddIndexerProperty",P1))
 		ok
 		raise("DotNet Error: AddIndexerProperty does not take one argument: use named arguments, AddIndexerProperty([ :parameter = value, ... ])")
 
@@ -3985,14 +4031,14 @@ Class IConventionTypeBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:RemoveProperty",P1))
 
 	Func AddComplexProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:AddComplexProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddComplexProperty",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddComplexProperty",P1))
 
 	Func AddComplexIndexerProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:AddComplexIndexerProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AddComplexIndexerProperty",P1))
 		ok
 		raise("DotNet Error: AddComplexIndexerProperty does not take one argument: use named arguments, AddComplexIndexerProperty([ :parameter = value, ... ])")
 
@@ -4027,8 +4073,8 @@ Class IConventionTypeBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:FindMembersInHierarchy",P1))
 
 	Func SetChangeTrackingStrategy P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:SetChangeTrackingStrategy",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:SetChangeTrackingStrategy",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:SetChangeTrackingStrategy",P1))
 
@@ -4036,8 +4082,8 @@ Class IConventionTypeBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s44:GetChangeTrackingStrategyConfigurationSource"))
 
 	Func SetPropertyAccessMode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:SetPropertyAccessMode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetPropertyAccessMode",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetPropertyAccessMode",P1))
 
@@ -4469,8 +4515,10 @@ Class IForeignKeyConstraint from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -4573,8 +4621,10 @@ Class IFunctionColumnMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -4721,8 +4771,8 @@ Class IModel from DotNetObject
 		return self
 
 	Func FindEntityType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:FindEntityType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:FindEntityType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindEntityType",P1))
 
@@ -4739,8 +4789,8 @@ Class IModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:FindEntityTypes",P1))
 
 	Func FindLeastDerivedEntityTypes P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s27:FindLeastDerivedEntityTypes",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:FindLeastDerivedEntityTypes",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:FindLeastDerivedEntityTypes",P1))
 
@@ -5214,8 +5264,8 @@ Class IMutableEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:FindOwnership"))
 
 	Func RemoveForeignKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:RemoveForeignKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:RemoveForeignKey",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveForeignKey",P1))
 
@@ -5235,8 +5285,8 @@ Class IMutableEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetNavigations"))
 
 	Func AddSkipNavigation P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:AddSkipNavigation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddSkipNavigation",P1))
 		ok
 		raise("DotNet Error: AddSkipNavigation does not take one argument: use named arguments, AddSkipNavigation([ :parameter = value, ... ])")
 
@@ -5259,8 +5309,8 @@ Class IMutableEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:RemoveSkipNavigation",P1))
 
 	Func AddIndex P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:AddIndex",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:AddIndex",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddIndex",P1))
 
@@ -5280,8 +5330,8 @@ Class IMutableEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:RemoveIndex",P1))
 
 	Func AddServiceProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:AddServiceProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddServiceProperty",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddServiceProperty",P1))
 
@@ -5581,26 +5631,26 @@ Class IMutableModel from DotNetObject
 		return self
 
 	Func AddEntityType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:AddEntityType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddEntityType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddEntityType",P1))
 
 	Func AddOwnedEntityType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:AddOwnedEntityType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddOwnedEntityType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddOwnedEntityType",P1))
 
 	Func FindEntityType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:FindEntityType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:FindEntityType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindEntityType",P1))
 
 	Func RemoveEntityType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:RemoveEntityType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:RemoveEntityType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveEntityType",P1))
 
@@ -5611,8 +5661,8 @@ Class IMutableModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:FindEntityTypes",P1))
 
 	Func FindLeastDerivedEntityTypes P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s27:FindLeastDerivedEntityTypes",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:FindLeastDerivedEntityTypes",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:FindLeastDerivedEntityTypes",P1))
 
@@ -6308,8 +6358,8 @@ Class IMutableTypeBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIgnoredMembers"))
 
 	Func AddProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:AddProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddProperty",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddProperty",P1))
 
@@ -6341,14 +6391,14 @@ Class IMutableTypeBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:RemoveProperty",P1))
 
 	Func AddComplexProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:AddComplexProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddComplexProperty",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddComplexProperty",P1))
 
 	Func AddComplexIndexerProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:AddComplexIndexerProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AddComplexIndexerProperty",P1))
 		ok
 		raise("DotNet Error: AddComplexIndexerProperty does not take one argument: use named arguments, AddComplexIndexerProperty([ :parameter = value, ... ])")
 
@@ -6654,8 +6704,10 @@ Class IReadOnlyCheckConstraint from DotNetObject
 		return self
 
 	Func GetDefaultName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetDefaultName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
@@ -6668,8 +6720,10 @@ Class IReadOnlyCheckConstraint from DotNetObject
 		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -6727,8 +6781,10 @@ Class IReadOnlyComplexProperty from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -6781,8 +6837,10 @@ Class IReadOnlyComplexType from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -6827,8 +6885,10 @@ Class IReadOnlyDbFunction from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -6958,8 +7018,10 @@ Class IReadOnlyDbFunctionParameter from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -7056,8 +7118,10 @@ Class IReadOnlyElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetJsonValueReaderWriter"))
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -7103,8 +7167,8 @@ Class IReadOnlyEntityType from DotNetObject
 		return self
 
 	Func GetSeedData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetSeedData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetSeedData",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetSeedData"))
@@ -7297,8 +7361,10 @@ Class IReadOnlyEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetOrCreateEmptyMaterializer",P1))
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -7332,8 +7398,10 @@ Class IReadOnlyEntityTypeMappingFragment from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -7401,8 +7469,10 @@ Class IReadOnlyForeignKey from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -7511,8 +7581,10 @@ Class IReadOnlyIndex from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -7581,8 +7653,10 @@ Class IReadOnlyKey from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -7644,8 +7718,8 @@ Class IReadOnlyModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetEntityTypes"))
 
 	Func FindEntityType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:FindEntityType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:FindEntityType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindEntityType",P1))
 
@@ -7653,14 +7727,16 @@ Class IReadOnlyModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:FindEntityTypes",P1))
 
 	Func FindLeastDerivedEntityTypes P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s27:FindLeastDerivedEntityTypes",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:FindLeastDerivedEntityTypes",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:FindLeastDerivedEntityTypes",P1))
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -7696,8 +7772,10 @@ Class IReadOnlyNavigation from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -7911,8 +7989,10 @@ Class IReadOnlyProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetContainingKeys"))
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -8052,8 +8132,10 @@ Class IReadOnlyRelationalPropertyOverrides from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -8116,8 +8198,10 @@ Class IReadOnlySequence from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -8216,8 +8300,10 @@ Class IReadOnlyServiceProperty from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -8258,8 +8344,10 @@ Class IReadOnlySkipNavigation from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -8339,8 +8427,10 @@ Class IReadOnlyStoredProcedure from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -8413,8 +8503,10 @@ Class IReadOnlyStoredProcedureParameter from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -8485,8 +8577,10 @@ Class IReadOnlyStoredProcedureResultColumn from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -8543,8 +8637,10 @@ Class IReadOnlyTrigger from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -8594,8 +8690,10 @@ Class IReadOnlyTypeBase from DotNetObject
 		return dn_x
 
 	Func DisplayName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:DisplayName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
@@ -8778,8 +8876,10 @@ Class IRelationalModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindStoredProcedure",P1,P2))
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -9040,8 +9140,10 @@ Class ISqlQueryColumnMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -9181,8 +9283,10 @@ Class IStoreFunctionParameter from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -9552,8 +9656,10 @@ Class IStoredProcedureParameterMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -9626,8 +9732,10 @@ Class IStoredProcedureResultColumnMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -9789,8 +9897,10 @@ Class ITableBase from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -9878,8 +9988,10 @@ Class ITableIndex from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -10006,8 +10118,10 @@ Class ITableMappingBase from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -10235,8 +10349,10 @@ Class IUniqueConstraint from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -10358,8 +10474,10 @@ Class IViewColumnMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
@@ -10429,16 +10547,20 @@ Class IndexComparer from Object
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
@@ -10513,16 +10635,20 @@ Class KeyComparer from Object
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
@@ -10592,7 +10718,7 @@ Class MemberIdentity from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Metadata.MemberIdentity, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -10696,7 +10822,7 @@ Class ParameterBindingInfo from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Metadata.ParameterBindingInfo, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -11461,7 +11587,7 @@ Class RuntimeDbFunction from AnnotatableBase
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Metadata.RuntimeDbFunction, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -11476,8 +11602,8 @@ Class RuntimeDbFunction from AnnotatableBase
 		return self
 
 	Func AddParameter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:AddParameter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AddParameter",P1))
 		ok
 		raise("DotNet Error: AddParameter does not take one argument: use named arguments, AddParameter([ :parameter = value, ... ])")
 
@@ -11859,7 +11985,7 @@ Class RuntimeModel from RuntimeAnnotatableBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Metadata.RuntimeModel, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -11879,8 +12005,8 @@ Class RuntimeModel from RuntimeAnnotatableBase
 		return self
 
 	Func AddEntityType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:AddEntityType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddEntityType",P1))
 		ok
 		raise("DotNet Error: AddEntityType does not take one argument: use named arguments, AddEntityType([ :parameter = value, ... ])")
 
@@ -11897,8 +12023,8 @@ Class RuntimeModel from RuntimeAnnotatableBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindAdHocEntityType",P1))
 
 	Func AddTypeMappingConfiguration P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s27:AddTypeMappingConfiguration",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:AddTypeMappingConfiguration",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:AddTypeMappingConfiguration",P1))
 
@@ -12041,7 +12167,7 @@ Class RuntimeSequence from AnnotatableBase
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Metadata.RuntimeSequence, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -12187,8 +12313,8 @@ Class RuntimeTypeBase from RuntimeAnnotatableBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetDerivedTypes"))
 
 	Func AddProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:AddProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddProperty",P1))
 		ok
 		raise("DotNet Error: AddProperty does not take one argument: use named arguments, AddProperty([ :parameter = value, ... ])")
 
@@ -12208,8 +12334,8 @@ Class RuntimeTypeBase from RuntimeAnnotatableBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:FindIndexerPropertyInfo"))
 
 	Func AddComplexProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:AddComplexProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddComplexProperty",P1))
 		ok
 		raise("DotNet Error: AddComplexProperty does not take one argument: use named arguments, AddComplexProperty([ :parameter = value, ... ])")
 
@@ -12408,14 +12534,14 @@ Class StoreObjectIdentifier from ValueType
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',"s6:Create",P1,P2))
 
 	Func Table P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational'),"s5:Table",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',"s5:Table",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',"s5:Table",P1))
 
 	Func View P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational'),"s4:View",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',"s4:View",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',"s4:View",P1))
 
@@ -12426,20 +12552,20 @@ Class StoreObjectIdentifier from ValueType
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',"s10:DbFunction",P1))
 
 	Func InsertStoredProcedure P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational'),"s21:InsertStoredProcedure",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',"s21:InsertStoredProcedure",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',"s21:InsertStoredProcedure",P1))
 
 	Func DeleteStoredProcedure P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational'),"s21:DeleteStoredProcedure",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',"s21:DeleteStoredProcedure",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',"s21:DeleteStoredProcedure",P1))
 
 	Func UpdateStoredProcedure P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational'),"s21:UpdateStoredProcedure",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',"s21:UpdateStoredProcedure",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',"s21:UpdateStoredProcedure",P1))
 
@@ -12485,16 +12611,20 @@ Class TypeBaseNameComparer from Object
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
@@ -12562,7 +12692,7 @@ Class FactoryMethodBinding from InstantiationBinding
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Metadata.FactoryMethodBinding, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -12739,8 +12869,8 @@ Class RuntimeEntityType from RuntimeTypeBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetKeys"))
 
 	Func AddForeignKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:AddForeignKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddForeignKey",P1))
 		ok
 		raise("DotNet Error: AddForeignKey does not take one argument: use named arguments, AddForeignKey([ :parameter = value, ... ])")
 
@@ -12757,8 +12887,8 @@ Class RuntimeEntityType from RuntimeTypeBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:FindDeclaredForeignKeys",P1))
 
 	Func AddNavigation P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:AddNavigation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddNavigation",P1))
 		ok
 		raise("DotNet Error: AddNavigation does not take one argument: use named arguments, AddNavigation([ :parameter = value, ... ])")
 
@@ -12769,8 +12899,8 @@ Class RuntimeEntityType from RuntimeTypeBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindNavigationsInHierarchy",P1))
 
 	Func AddSkipNavigation P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:AddSkipNavigation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddSkipNavigation",P1))
 		ok
 		raise("DotNet Error: AddSkipNavigation does not take one argument: use named arguments, AddSkipNavigation([ :parameter = value, ... ])")
 
@@ -12781,8 +12911,8 @@ Class RuntimeEntityType from RuntimeTypeBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:FindSkipNavigationsInHierarchy",P1))
 
 	Func AddIndex P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:AddIndex",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:AddIndex",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddIndex",P1))
 
@@ -12796,8 +12926,8 @@ Class RuntimeEntityType from RuntimeTypeBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetIndexes"))
 
 	Func AddServiceProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:AddServiceProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddServiceProperty",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddServiceProperty",P1))
 
@@ -12938,8 +13068,8 @@ Class RuntimeProperty from RuntimePropertyBase
 		return self
 
 	Func SetElementType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:SetElementType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:SetElementType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SetElementType",P1))
 
@@ -13120,8 +13250,8 @@ Class ServiceParameterBinding from ParameterBinding
 		return self
 
 	Func BindToParameter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:BindToParameter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:BindToParameter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:BindToParameter",P1))
 

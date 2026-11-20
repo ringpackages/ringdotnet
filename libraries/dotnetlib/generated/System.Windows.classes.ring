@@ -1008,8 +1008,10 @@ Class WpfApplication from DispatcherObject
 		return self
 
 	Func Run P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Run",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s3:Run",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s3:Run")
@@ -1021,8 +1023,8 @@ Class WpfApplication from DispatcherObject
 		return dn_x
 
 	Func Shutdown P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:Shutdown",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:Shutdown",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1041,8 +1043,10 @@ Class WpfApplication from DispatcherObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TryFindResource",P1))
 
 	Func LoadComponent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Application, PresentationFramework'),"s13:LoadComponent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Windows.Application, PresentationFramework',"s13:LoadComponent",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Application, PresentationFramework',"s13:LoadComponent",P1))
 
@@ -1350,8 +1354,10 @@ Class WpfClipboard from Object
 		return dn_x
 
 	Func ContainsText P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s12:ContainsText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Windows.Clipboard, PresentationCore',"s12:ContainsText",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",'System.Windows.Clipboard, PresentationCore',"s12:ContainsText")
@@ -1380,8 +1386,10 @@ Class WpfClipboard from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Clipboard, PresentationCore',"s8:GetImage"))
 
 	Func GetText P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:GetText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Windows.Clipboard, PresentationCore',"s7:GetText",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",'System.Windows.Clipboard, PresentationCore',"s7:GetText")
@@ -1413,8 +1421,8 @@ Class WpfClipboard from Object
 		return self
 
 	Func SetText P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s7:SetText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Clipboard, PresentationCore',"s7:SetText",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Windows.Clipboard, PresentationCore',"s7:SetText",P1)
@@ -1430,8 +1438,8 @@ Class WpfClipboard from Object
 		return dn_x
 
 	Func SetDataObject P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Clipboard, PresentationCore'),"s13:SetDataObject",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Clipboard, PresentationCore',"s13:SetDataObject",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Windows.Clipboard, PresentationCore',"s13:SetDataObject",P1)
@@ -1461,7 +1469,7 @@ Class ColorConvertedBitmapExtension from MarkupExtension
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.ColorConvertedBitmapExtension, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1503,7 +1511,7 @@ Class Condition from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Condition, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1751,7 +1759,7 @@ Class CornerRadius from ValueType
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.CornerRadius, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2136,7 +2144,7 @@ Class WpfDataObject from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DataObject, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2151,22 +2159,24 @@ Class WpfDataObject from Object
 		return self
 
 	Func GetData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:GetData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:GetData",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetData",P1))
 
 	Func GetDataPresent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetDataPresent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:GetDataPresent",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDataPresent",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetFormats P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:GetFormats",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetFormats",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetFormats"))
@@ -2174,8 +2184,8 @@ Class WpfDataObject from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetFormats",P1))
 
 	Func SetData P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:SetData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:SetData",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s7:SetData",P1)
@@ -2198,8 +2208,10 @@ Class WpfDataObject from Object
 		return dn_x
 
 	Func ContainsText P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:ContainsText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:ContainsText",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s12:ContainsText")
@@ -2220,8 +2232,10 @@ Class WpfDataObject from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetImage"))
 
 	Func GetText P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:GetText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:GetText",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s7:GetText")
@@ -2248,8 +2262,8 @@ Class WpfDataObject from Object
 		return self
 
 	Func SetText P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:SetText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:SetText",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s7:SetText",P1)
@@ -2504,8 +2518,8 @@ Class DependencyProperty from Object
 		return self
 
 	Func OverrideMetadata P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s16:OverrideMetadata",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s16:OverrideMetadata",P1)
 			return self
 		ok
 		raise("DotNet Error: OverrideMetadata does not take one argument: use named arguments, OverrideMetadata([ :parameter = value, ... ])")
@@ -2514,8 +2528,8 @@ Class DependencyProperty from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetMetadata",P1))
 
 	Func AddOwner P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:AddOwner",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:AddOwner",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddOwner",P1))
 
@@ -2535,26 +2549,26 @@ Class DependencyProperty from Object
 		return dn_x
 
 	Func Register P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.DependencyProperty, WindowsBase'),"s8:Register",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.DependencyProperty, WindowsBase',"s8:Register",P1))
 		ok
 		raise("DotNet Error: Register does not take one argument: use named arguments, Register([ :parameter = value, ... ])")
 
 	Func RegisterReadOnly P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.DependencyProperty, WindowsBase'),"s16:RegisterReadOnly",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.DependencyProperty, WindowsBase',"s16:RegisterReadOnly",P1))
 		ok
 		raise("DotNet Error: RegisterReadOnly does not take one argument: use named arguments, RegisterReadOnly([ :parameter = value, ... ])")
 
 	Func RegisterAttachedReadOnly P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.DependencyProperty, WindowsBase'),"s24:RegisterAttachedReadOnly",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.DependencyProperty, WindowsBase',"s24:RegisterAttachedReadOnly",P1))
 		ok
 		raise("DotNet Error: RegisterAttachedReadOnly does not take one argument: use named arguments, RegisterAttachedReadOnly([ :parameter = value, ... ])")
 
 	Func RegisterAttached P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.DependencyProperty, WindowsBase'),"s16:RegisterAttached",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.DependencyProperty, WindowsBase',"s16:RegisterAttached",P1))
 		ok
 		raise("DotNet Error: RegisterAttached does not take one argument: use named arguments, RegisterAttached([ :parameter = value, ... ])")
 
@@ -2639,7 +2653,7 @@ Class DependencyPropertyChangedEventArgs from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DependencyPropertyChangedEventArgs, WindowsBase',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2776,7 +2790,7 @@ Class DpiScale from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DpiScale, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3083,7 +3097,7 @@ Class Duration from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Duration, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3101,11 +3115,15 @@ Class Duration from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Duration, PresentationCore'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Duration, PresentationCore',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3194,7 +3212,7 @@ Class DynamicResourceExtension from MarkupExtension
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DynamicResourceExtension, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3257,8 +3275,8 @@ Class EventManager from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.EventManager, PresentationCore',"s19:RegisterRoutedEvent",P1,P2,P3,P4))
 
 	Func RegisterClassHandler P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.EventManager, PresentationCore'),"s20:RegisterClassHandler",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.EventManager, PresentationCore',"s20:RegisterClassHandler",P1)
 			return self
 		ok
 		raise("DotNet Error: RegisterClassHandler does not take one argument: use named arguments, RegisterClassHandler([ :parameter = value, ... ])")
@@ -3425,7 +3443,7 @@ Class FigureLength from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.FigureLength, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4023,7 +4041,7 @@ Class FrameworkElementFactory from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.FrameworkElementFactory, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4058,8 +4076,8 @@ Class FrameworkElementFactory from Object
 		return self
 
 	Func AddHandler P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:AddHandler",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:AddHandler",P1)
 			return self
 		ok
 		raise("DotNet Error: AddHandler does not take one argument: use named arguments, AddHandler([ :parameter = value, ... ])")
@@ -4236,7 +4254,7 @@ Class GridLength from ValueType
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.GridLength, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4393,22 +4411,24 @@ Class WpfIDataObject from DotNetObject
 		return self
 
 	Func GetData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:GetData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:GetData",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetData",P1))
 
 	Func GetDataPresent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetDataPresent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:GetDataPresent",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDataPresent",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetFormats P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:GetFormats",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetFormats",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetFormats"))
@@ -4416,8 +4436,8 @@ Class WpfIDataObject from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetFormats",P1))
 
 	Func SetData P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:SetData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:SetData",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s7:SetData",P1)
@@ -5023,7 +5043,7 @@ Class Int32Rect from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Int32Rect, WindowsBase',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5038,19 +5058,25 @@ Class Int32Rect from ValueType
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Int32Rect, WindowsBase'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Int32Rect, WindowsBase',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5386,8 +5412,8 @@ Class WpfMessageBox from Object
 		return dn_x
 
 	Func Show P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.MessageBox, PresentationFramework'),"s4:Show",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.MessageBox, PresentationFramework',"s4:Show",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Windows.MessageBox, PresentationFramework',"s4:Show",P1))
 
@@ -5447,8 +5473,8 @@ Class NameScope from Object
 		return dn_x
 
 	Func Add P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
@@ -5561,19 +5587,25 @@ Class WpfPoint from ValueType
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Point, WindowsBase'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Point, WindowsBase',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5730,7 +5762,7 @@ Class PropertyMetadata from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.PropertyMetadata, WindowsBase',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5788,7 +5820,7 @@ Class PropertyPath from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.PropertyPath, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5875,7 +5907,7 @@ Class Rect from ValueType
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Rect, WindowsBase',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5890,27 +5922,35 @@ Class Rect from ValueType
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Rect, WindowsBase'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Rect, WindowsBase',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Contains P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Contains",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5922,55 +5962,75 @@ Class Rect from ValueType
 		return dn_x
 
 	Func Intersect P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Rect, WindowsBase'),"s9:Intersect",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Windows.Rect, WindowsBase',"s9:Intersect",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s9:Intersect",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:Intersect",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",nHandle,"s9:Intersect",P1)
 
 		return self
 
 	Func Union P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Rect, WindowsBase'),"s5:Union",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Windows.Rect, WindowsBase',"s5:Union",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s5:Union",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s5:Union",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",nHandle,"s5:Union",P1)
 
 		return self
 
 	Func Offset P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Rect, WindowsBase'),"s6:Offset",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Windows.Rect, WindowsBase',"s6:Offset",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Offset",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Offset",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:Offset",P1)
 
 		return self
 
 	Func Inflate P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Rect, WindowsBase'),"s7:Inflate",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Windows.Rect, WindowsBase',"s7:Inflate",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s7:Inflate",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s7:Inflate",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",nHandle,"s7:Inflate",P1)
 
 		return self
 
 	Func Transform P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Rect, WindowsBase'),"s9:Transform",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Windows.Rect, WindowsBase',"s9:Transform",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s9:Transform",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:Transform",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",nHandle,"s9:Transform",P1)
 
@@ -6383,7 +6443,7 @@ Class RoutedEventArgs from EventArgs
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.RoutedEventArgs, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6639,19 +6699,25 @@ Class WpfSize from ValueType
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Size, WindowsBase'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Size, WindowsBase',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -6780,7 +6846,7 @@ Class SplashScreen from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.SplashScreen, WindowsBase',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6795,8 +6861,8 @@ Class SplashScreen from Object
 		return self
 
 	Func Show P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Show",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Show",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s4:Show",P1)
@@ -6858,7 +6924,7 @@ Class StaticResourceExtension from MarkupExtension
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.StaticResourceExtension, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6930,7 +6996,7 @@ Class Style from DispatcherObject
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Style, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -10677,7 +10743,7 @@ Class TemplateBindingExtension from MarkupExtension
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.TemplateBindingExtension, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -10829,7 +10895,7 @@ Class TextDecoration from Animatable
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.TextDecoration, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -10935,7 +11001,7 @@ Class TextDecorationCollection from Animatable
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.TextDecorationCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -11032,11 +11098,11 @@ Class TextDecorationCollectionConverter from TypeConverter
 		return self
 
 	Func ConvertFromString P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.TextDecorationCollectionConverter, PresentationCore'),"s17:ConvertFromString",dnPackItem(P1))
+				return dnObj(dotnet_callo("s9:callnamed",'System.Windows.TextDecorationCollectionConverter, PresentationCore',"s17:ConvertFromString",P1))
 			ok
-			return dnSend("s9:callnamed",nHandle,"s17:ConvertFromString",dnPackItem(P1))
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ConvertFromString",P1))
 		ok
 		if nHandle = 0
 			return dnObj(dotnet_callo("s4:call",'System.Windows.TextDecorationCollectionConverter, PresentationCore',"s17:ConvertFromString",P1))
@@ -11114,7 +11180,7 @@ Class ThemeDictionaryExtension from MarkupExtension
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.ThemeDictionaryExtension, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -11166,7 +11232,7 @@ Class ThemeMode from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.ThemeMode, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -11253,7 +11319,7 @@ Class Thickness from ValueType
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Thickness, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -11350,7 +11416,7 @@ Class TriggerActionCollection from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.TriggerActionCollection, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -11721,15 +11787,15 @@ Class UIElement from Visual
 		return self
 
 	Func ApplyAnimationClock P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s19:ApplyAnimationClock",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s19:ApplyAnimationClock",P1)
 			return self
 		ok
 		raise("DotNet Error: ApplyAnimationClock does not take one argument: use named arguments, ApplyAnimationClock([ :parameter = value, ... ])")
 
 	Func BeginAnimation P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:BeginAnimation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:BeginAnimation",P1)
 			return self
 		ok
 		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
@@ -11753,8 +11819,8 @@ Class UIElement from Visual
 		return self
 
 	Func AddHandler P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:AddHandler",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:AddHandler",P1)
 			return self
 		ok
 		raise("DotNet Error: AddHandler does not take one argument: use named arguments, AddHandler([ :parameter = value, ... ])")
@@ -13590,8 +13656,8 @@ Class UIElement3D from Visual3D
 		return self
 
 	Func AddHandler P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:AddHandler",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:AddHandler",P1)
 			return self
 		ok
 		raise("DotNet Error: AddHandler does not take one argument: use named arguments, AddHandler([ :parameter = value, ... ])")
@@ -15028,19 +15094,25 @@ Class WpfVector from ValueType
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Vector, WindowsBase'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Vector, WindowsBase',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -15683,7 +15755,7 @@ Class ComponentResourceKey from ResourceKey
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.ComponentResourceKey, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -15855,15 +15927,15 @@ Class ContentElement from DependencyObject
 		return self
 
 	Func ApplyAnimationClock P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s19:ApplyAnimationClock",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s19:ApplyAnimationClock",P1)
 			return self
 		ok
 		raise("DotNet Error: ApplyAnimationClock does not take one argument: use named arguments, ApplyAnimationClock([ :parameter = value, ... ])")
 
 	Func BeginAnimation P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:BeginAnimation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:BeginAnimation",P1)
 			return self
 		ok
 		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
@@ -15887,8 +15959,8 @@ Class ContentElement from DependencyObject
 		return self
 
 	Func AddHandler P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:AddHandler",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:AddHandler",P1)
 			return self
 		ok
 		raise("DotNet Error: AddHandler does not take one argument: use named arguments, AddHandler([ :parameter = value, ... ])")
@@ -17248,7 +17320,7 @@ Class DataTemplate from FrameworkTemplate
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DataTemplate, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -17380,7 +17452,7 @@ Class EventSetter from SetterBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.EventSetter, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -17543,8 +17615,8 @@ Class FrameworkElement from UIElement
 		return self
 
 	Func BeginStoryboard P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s15:BeginStoryboard",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:BeginStoryboard",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s15:BeginStoryboard",P1)
@@ -17579,8 +17651,8 @@ Class FrameworkElement from UIElement
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetBinding",P1,P2))
 
 	Func BringIntoView P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s13:BringIntoView",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s13:BringIntoView",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -18402,7 +18474,7 @@ Class Setter from SetterBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Setter, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -18514,7 +18586,7 @@ Class SourceChangedEventArgs from RoutedEventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.SourceChangedEventArgs, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -18657,7 +18729,7 @@ Class UIPropertyMetadata from PropertyMetadata
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.UIPropertyMetadata, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -19028,7 +19100,7 @@ Class DataTemplateKey from TemplateKey
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DataTemplateKey, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -19127,7 +19199,7 @@ Class EventTrigger from TriggerBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.EventTrigger, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -19249,8 +19321,8 @@ Class FrameworkContentElement from ContentElement
 		return self
 
 	Func BeginStoryboard P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s15:BeginStoryboard",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:BeginStoryboard",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s15:BeginStoryboard",P1)
@@ -19641,7 +19713,7 @@ Class FrameworkPropertyMetadata from UIPropertyMetadata
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.FrameworkPropertyMetadata, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -19801,7 +19873,7 @@ Class HierarchicalDataTemplate from DataTemplate
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.HierarchicalDataTemplate, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

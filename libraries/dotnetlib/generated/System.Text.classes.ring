@@ -242,14 +242,18 @@ Class Decoder from Object
 		return self
 
 	Func GetCharCount P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:GetCharCount",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetCharCount",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: GetCharCount does not take one argument: use named arguments, GetCharCount([ :parameter = value, ... ])")
 
 	Func GetChars P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:GetChars",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:GetChars",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: GetChars does not take one argument: use named arguments, GetChars([ :parameter = value, ... ])")
 
@@ -473,8 +477,10 @@ Class EncoderFallbackBuffer from Object
 		return self
 
 	Func Fallback P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Fallback",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Fallback",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: Fallback does not take one argument: use named arguments, Fallback([ :parameter = value, ... ])")
 
@@ -547,36 +553,46 @@ Class Encoding from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func GetByteCount P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:GetByteCount",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetByteCount",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetByteCount",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetBytes P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:GetBytes",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s8:GetBytes",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetBytes",P1))
 
 	Func GetCharCount P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:GetCharCount",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetCharCount",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetCharCount",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetChars P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:GetChars",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s8:GetChars",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetChars",P1))
 
 	Func IsAlwaysNormalized P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:IsAlwaysNormalized",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s18:IsAlwaysNormalized",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s18:IsAlwaysNormalized")
@@ -604,8 +620,10 @@ Class Encoding from Object
 		return dn_x
 
 	Func GetString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:GetString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:GetString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -617,8 +635,8 @@ Class Encoding from Object
 		return dn_x
 
 	Func Convert P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s7:Convert",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Encoding, System.Private.CoreLib',"s7:Convert",P1))
 		ok
 		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
@@ -628,8 +646,8 @@ Class Encoding from Object
 		return self
 
 	Func GetEncoding P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s11:GetEncoding",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Encoding, System.Private.CoreLib',"s11:GetEncoding",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Encoding, System.Private.CoreLib',"s11:GetEncoding",P1))
 
@@ -637,8 +655,8 @@ Class Encoding from Object
 		return dnObj(dotnet_callo("s4:call",'System.Text.Encoding, System.Private.CoreLib',"s12:GetEncodings"))
 
 	Func CreateTranscodingStream P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Encoding, System.Private.CoreLib'),"s23:CreateTranscodingStream",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Encoding, System.Private.CoreLib',"s23:CreateTranscodingStream",P1))
 		ok
 		raise("DotNet Error: CreateTranscodingStream does not take one argument: use named arguments, CreateTranscodingStream([ :parameter = value, ... ])")
 
@@ -869,8 +887,8 @@ Class EncodingProvider from Object
 		return self
 
 	Func GetEncoding P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetEncoding",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetEncoding",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetEncoding",P1))
 
@@ -913,7 +931,7 @@ Class Rune from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.Rune, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -941,8 +959,10 @@ Class Rune from ValueType
 		return dn_x
 
 	Func TryCreate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s9:TryCreate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Text.Rune, System.Private.CoreLib',"s9:TryCreate",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Text.Rune, System.Private.CoreLib'),"s9:TryCreate",dnPackItem(P1))
 
@@ -1109,7 +1129,7 @@ Class StringBuilder from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.StringBuilder, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1129,8 +1149,10 @@ Class StringBuilder from Object
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
@@ -1141,14 +1163,18 @@ Class StringBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetChunks"))
 
 	Func Append P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Append",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Append",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Append",P1))
 
 	Func AppendLine P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:AppendLine",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s10:AppendLine",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendLine"))
@@ -1161,8 +1187,8 @@ Class StringBuilder from Object
 		return self
 
 	Func Insert P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Insert",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Insert",P1))
 		ok
 		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
 
@@ -1173,14 +1199,14 @@ Class StringBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendJoin",P1,P2))
 
 	Func AppendFormat P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:AppendFormat",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AppendFormat",P1))
 		ok
 		raise("DotNet Error: AppendFormat does not take one argument: use named arguments, AppendFormat([ :parameter = value, ... ])")
 
 	Func Replace P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Replace",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Replace",P1))
 		ok
 		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
@@ -1347,7 +1373,7 @@ Class DecoderReplacementFallback from DecoderFallback
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.DecoderReplacementFallback, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1450,7 +1476,7 @@ Class EncoderReplacementFallback from EncoderFallback
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.EncoderReplacementFallback, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1509,7 +1535,7 @@ Class UTF32Encoding from Encoding
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.UTF32Encoding, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1546,7 +1572,7 @@ Class UTF7Encoding from Encoding
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.UTF7Encoding, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1583,7 +1609,7 @@ Class UTF8Encoding from Encoding
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.UTF8Encoding, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1622,7 +1648,7 @@ Class UnicodeEncoding from Encoding
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.UnicodeEncoding, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

@@ -629,8 +629,8 @@ Class XmlSchemaDatatype from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ParseValue",P1,P2,P3))
 
 	Func ChangeType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:ChangeType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:ChangeType",P1))
 		ok
 		raise("DotNet Error: ChangeType does not take one argument: use named arguments, ChangeType([ :parameter = value, ... ])")
 
@@ -693,8 +693,8 @@ Class XmlSchemaInference from Object
 		return self
 
 	Func InferSchema P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:InferSchema",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:InferSchema",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:InferSchema",P1))
 
@@ -899,7 +899,7 @@ Class XmlSchemaObjectCollection from CollectionBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Schema.XmlSchemaObjectCollection, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1069,7 +1069,7 @@ Class XmlSchemaSet from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Schema.XmlSchemaSet, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1084,8 +1084,10 @@ Class XmlSchemaSet from Object
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
@@ -1118,8 +1120,8 @@ Class XmlSchemaSet from Object
 		return self
 
 	Func Schemas P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Schemas",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Schemas",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s7:Schemas"))
@@ -1215,8 +1217,8 @@ Class XmlSchemaValidator from Object
 		return self
 
 	Func Initialize P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:Initialize",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:Initialize",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1229,8 +1231,8 @@ Class XmlSchemaValidator from Object
 		return self
 
 	Func ValidateElement P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s15:ValidateElement",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:ValidateElement",P1)
 			return self
 		ok
 		raise("DotNet Error: ValidateElement does not take one argument: use named arguments, ValidateElement([ :parameter = value, ... ])")
@@ -1259,8 +1261,8 @@ Class XmlSchemaValidator from Object
 		return self
 
 	Func ValidateEndElement P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:ValidateEndElement",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ValidateEndElement",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ValidateEndElement",P1))
 
@@ -1360,8 +1362,8 @@ Class XmlSchema from XmlSchemaObject
 		return self
 
 	Func Write P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Write",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Write",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s5:Write",P1)
@@ -1369,8 +1371,8 @@ Class XmlSchema from XmlSchemaObject
 		return self
 
 	Func Compile P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Compile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Compile",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s7:Compile",P1)

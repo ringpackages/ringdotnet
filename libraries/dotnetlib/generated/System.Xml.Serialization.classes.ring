@@ -286,7 +286,7 @@ Class CodeIdentifiers from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.CodeIdentifiers, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -500,8 +500,8 @@ Class SoapAttributeOverrides from Object
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
 			return self
 		ok
 		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
@@ -544,7 +544,7 @@ Class SoapAttributes from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.SoapAttributes, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -630,7 +630,7 @@ Class SoapReflectionImporter from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.SoapReflectionImporter, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -655,14 +655,14 @@ Class SoapReflectionImporter from Object
 		return self
 
 	Func ImportTypeMapping P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:ImportTypeMapping",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ImportTypeMapping",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ImportTypeMapping",P1))
 
 	Func ImportMembersMapping P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:ImportMembersMapping",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ImportMembersMapping",P1))
 		ok
 		raise("DotNet Error: ImportMembersMapping does not take one argument: use named arguments, ImportMembersMapping([ :parameter = value, ... ])")
 
@@ -939,8 +939,8 @@ Class XmlAttributeOverrides from Object
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
 			return self
 		ok
 		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
@@ -991,7 +991,7 @@ Class XmlAttributes from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlAttributes, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1523,7 +1523,7 @@ Class XmlReflectionImporter from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlReflectionImporter, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1548,14 +1548,14 @@ Class XmlReflectionImporter from Object
 		return self
 
 	Func ImportTypeMapping P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:ImportTypeMapping",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ImportTypeMapping",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ImportTypeMapping",P1))
 
 	Func ImportMembersMapping P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:ImportMembersMapping",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ImportMembersMapping",P1))
 		ok
 		raise("DotNet Error: ImportMembersMapping does not take one argument: use named arguments, ImportMembersMapping([ :parameter = value, ... ])")
 
@@ -1702,8 +1702,8 @@ Class XmlSchemaExporter from Object
 		return self
 
 	Func ExportMembersMapping P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s20:ExportMembersMapping",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s20:ExportMembersMapping",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s20:ExportMembersMapping",P1)
@@ -1747,8 +1747,10 @@ Class XmlSchemas from CollectionBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetSchemas",P1))
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1844,7 +1846,7 @@ Class XmlSerializer from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlSerializer, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1859,15 +1861,15 @@ Class XmlSerializer from Object
 		return self
 
 	Func Serialize P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:Serialize",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:Serialize",P1)
 			return self
 		ok
 		raise("DotNet Error: Serialize does not take one argument: use named arguments, Serialize([ :parameter = value, ... ])")
 
 	Func Deserialize P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:Deserialize",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:Deserialize",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize",P1))
 
@@ -1882,8 +1884,8 @@ Class XmlSerializer from Object
 		return dn_x
 
 	Func FromMappings P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"s12:FromMappings",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Xml.Serialization.XmlSerializer, System.Private.Xml',"s12:FromMappings",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Serialization.XmlSerializer, System.Private.Xml',"s12:FromMappings",P1))
 
@@ -1891,8 +1893,10 @@ Class XmlSerializer from Object
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Serialization.XmlSerializer, System.Private.Xml',"s9:FromTypes",P1))
 
 	Func GetXmlSerializerAssemblyName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"s28:GetXmlSerializerAssemblyName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Xml.Serialization.XmlSerializer, System.Private.Xml',"s28:GetXmlSerializerAssemblyName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Xml.Serialization.XmlSerializer, System.Private.Xml',"s28:GetXmlSerializerAssemblyName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1952,8 +1956,8 @@ Class XmlSerializerFactory from Object
 		return self
 
 	Func CreateSerializer P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:CreateSerializer",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:CreateSerializer",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateSerializer",P1))
 
@@ -2048,7 +2052,7 @@ Class XmlSerializerNamespaces from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlSerializerNamespaces, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2137,7 +2141,7 @@ Class XmlSchemaImporter from SchemaImporter
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlSchemaImporter, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2152,14 +2156,14 @@ Class XmlSchemaImporter from SchemaImporter
 		return self
 
 	Func ImportDerivedTypeMapping P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:ImportDerivedTypeMapping",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:ImportDerivedTypeMapping",P1))
 		ok
 		raise("DotNet Error: ImportDerivedTypeMapping does not take one argument: use named arguments, ImportDerivedTypeMapping([ :parameter = value, ... ])")
 
 	Func ImportSchemaType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:ImportSchemaType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:ImportSchemaType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ImportSchemaType",P1))
 
@@ -2167,8 +2171,8 @@ Class XmlSchemaImporter from SchemaImporter
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ImportTypeMapping",P1))
 
 	Func ImportMembersMapping P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:ImportMembersMapping",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ImportMembersMapping",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ImportMembersMapping",P1))
 

@@ -51,7 +51,7 @@ Class Claim from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Claims.Claim, System.Security.Claims',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -66,8 +66,8 @@ Class Claim from Object
 		return self
 
 	Func Clone P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s5:Clone",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Clone",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
@@ -940,7 +940,7 @@ Class ClaimsIdentity from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Claims.ClaimsIdentity, System.Security.Claims',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -984,8 +984,10 @@ Class ClaimsIdentity from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:FindFirst",P1))
 
 	Func HasClaim P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:HasClaim",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:HasClaim",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:HasClaim",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1124,7 +1126,7 @@ Class ClaimsPrincipal from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Claims.ClaimsPrincipal, System.Security.Claims',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1158,8 +1160,10 @@ Class ClaimsPrincipal from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:FindFirst",P1))
 
 	Func HasClaim P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:HasClaim",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:HasClaim",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:HasClaim",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

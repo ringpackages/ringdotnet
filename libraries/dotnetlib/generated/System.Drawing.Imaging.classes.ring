@@ -299,7 +299,7 @@ Class ColorMatrix from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Imaging.ColorMatrix, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -720,7 +720,7 @@ Class EncoderParameter from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Imaging.EncoderParameter, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -799,7 +799,7 @@ Class EncoderParameters from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Imaging.EncoderParameters, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -908,8 +908,8 @@ Class ImageAttributes from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func SetColorMatrix P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:SetColorMatrix",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:SetColorMatrix",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s14:SetColorMatrix",P1)
@@ -917,8 +917,8 @@ Class ImageAttributes from Object
 		return self
 
 	Func ClearColorMatrix P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s16:ClearColorMatrix",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s16:ClearColorMatrix",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -931,15 +931,15 @@ Class ImageAttributes from Object
 		return self
 
 	Func SetColorMatrices P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s16:SetColorMatrices",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s16:SetColorMatrices",P1)
 			return self
 		ok
 		raise("DotNet Error: SetColorMatrices does not take one argument: use named arguments, SetColorMatrices([ :parameter = value, ... ])")
 
 	Func SetThreshold P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s12:SetThreshold",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s12:SetThreshold",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s12:SetThreshold",P1)
@@ -947,8 +947,8 @@ Class ImageAttributes from Object
 		return self
 
 	Func ClearThreshold P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:ClearThreshold",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:ClearThreshold",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -961,8 +961,8 @@ Class ImageAttributes from Object
 		return self
 
 	Func SetGamma P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:SetGamma",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:SetGamma",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:SetGamma",P1)
@@ -970,8 +970,8 @@ Class ImageAttributes from Object
 		return self
 
 	Func ClearGamma P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:ClearGamma",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:ClearGamma",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -984,8 +984,8 @@ Class ImageAttributes from Object
 		return self
 
 	Func SetNoOp P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:SetNoOp",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:SetNoOp",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -998,8 +998,8 @@ Class ImageAttributes from Object
 		return self
 
 	Func ClearNoOp P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:ClearNoOp",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:ClearNoOp",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1012,15 +1012,15 @@ Class ImageAttributes from Object
 		return self
 
 	Func SetColorKey P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s11:SetColorKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s11:SetColorKey",P1)
 			return self
 		ok
 		raise("DotNet Error: SetColorKey does not take one argument: use named arguments, SetColorKey([ :parameter = value, ... ])")
 
 	Func ClearColorKey P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s13:ClearColorKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s13:ClearColorKey",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1033,8 +1033,8 @@ Class ImageAttributes from Object
 		return self
 
 	Func SetOutputChannel P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s16:SetOutputChannel",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s16:SetOutputChannel",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s16:SetOutputChannel",P1)
@@ -1042,8 +1042,8 @@ Class ImageAttributes from Object
 		return self
 
 	Func ClearOutputChannel P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s18:ClearOutputChannel",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s18:ClearOutputChannel",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1056,8 +1056,8 @@ Class ImageAttributes from Object
 		return self
 
 	Func SetOutputChannelColorProfile P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s28:SetOutputChannelColorProfile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s28:SetOutputChannelColorProfile",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s28:SetOutputChannelColorProfile",P1)
@@ -1065,8 +1065,8 @@ Class ImageAttributes from Object
 		return self
 
 	Func ClearOutputChannelColorProfile P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s30:ClearOutputChannelColorProfile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s30:ClearOutputChannelColorProfile",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1079,8 +1079,8 @@ Class ImageAttributes from Object
 		return self
 
 	Func SetRemapTable P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s13:SetRemapTable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s13:SetRemapTable",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s13:SetRemapTable",P1)
@@ -1088,8 +1088,8 @@ Class ImageAttributes from Object
 		return self
 
 	Func ClearRemapTable P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s15:ClearRemapTable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:ClearRemapTable",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1112,8 +1112,8 @@ Class ImageAttributes from Object
 		return self
 
 	Func SetWrapMode P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s11:SetWrapMode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s11:SetWrapMode",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s11:SetWrapMode",P1)
@@ -1281,7 +1281,7 @@ Class ImageFormat from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Imaging.ImageFormat, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1493,7 +1493,7 @@ Class Metafile from Image
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Imaging.Metafile, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1513,11 +1513,11 @@ Class Metafile from Image
 		return self
 
 	Func GetMetafileHeader P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Drawing.Imaging.Metafile, System.Drawing.Common'),"s17:GetMetafileHeader",dnPackItem(P1))
+				return dnObj(dotnet_callo("s9:callnamed",'System.Drawing.Imaging.Metafile, System.Drawing.Common',"s17:GetMetafileHeader",P1))
 			ok
-			return dnSend("s9:callnamed",nHandle,"s17:GetMetafileHeader",dnPackItem(P1))
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:GetMetafileHeader",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetMetafileHeader"))

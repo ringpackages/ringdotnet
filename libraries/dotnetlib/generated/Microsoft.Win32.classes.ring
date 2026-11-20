@@ -38,8 +38,8 @@ Class Registry from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Win32.Registry, Microsoft.Win32.Registry',"s8:GetValue",P1,P2,P3))
 
 	Func SetValue P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"s8:SetValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.Win32.Registry, Microsoft.Win32.Registry',"s8:SetValue",P1)
 			return self
 		ok
 		raise("DotNet Error: SetValue does not take one argument: use named arguments, SetValue([ :parameter = value, ... ])")
@@ -114,14 +114,14 @@ Class RegistryKey from MarshalByRefObject
 		return self
 
 	Func CreateSubKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:CreateSubKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:CreateSubKey",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateSubKey",P1))
 
 	Func DeleteSubKey P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s12:DeleteSubKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s12:DeleteSubKey",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s12:DeleteSubKey",P1)
@@ -129,8 +129,8 @@ Class RegistryKey from MarshalByRefObject
 		return self
 
 	Func DeleteSubKeyTree P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s16:DeleteSubKeyTree",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s16:DeleteSubKeyTree",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s16:DeleteSubKeyTree",P1)
@@ -138,8 +138,8 @@ Class RegistryKey from MarshalByRefObject
 		return self
 
 	Func DeleteValue P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s11:DeleteValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s11:DeleteValue",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s11:DeleteValue",P1)
@@ -147,14 +147,14 @@ Class RegistryKey from MarshalByRefObject
 		return self
 
 	Func OpenSubKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:OpenSubKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:OpenSubKey",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:OpenSubKey",P1))
 
 	Func GetAccessControl P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:GetAccessControl",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetAccessControl",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetAccessControl"))
@@ -173,8 +173,8 @@ Class RegistryKey from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetValueNames"))
 
 	Func GetValue P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:GetValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
@@ -182,8 +182,8 @@ Class RegistryKey from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetValueKind",P1))
 
 	Func SetValue P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:SetValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:SetValue",P1)
 			return self
 		ok
 		raise("DotNet Error: SetValue does not take one argument: use named arguments, SetValue([ :parameter = value, ... ])")
@@ -192,14 +192,14 @@ Class RegistryKey from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry',"s11:OpenBaseKey",P1,P2))
 
 	Func OpenRemoteBaseKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"s17:OpenRemoteBaseKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry',"s17:OpenRemoteBaseKey",P1))
 		ok
 		raise("DotNet Error: OpenRemoteBaseKey does not take one argument: use named arguments, OpenRemoteBaseKey([ :parameter = value, ... ])")
 
 	Func FromHandle P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"s10:FromHandle",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry',"s10:FromHandle",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry',"s10:FromHandle",P1))
 

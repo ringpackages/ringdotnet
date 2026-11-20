@@ -229,7 +229,7 @@ Class CertificateRequest from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -244,8 +244,8 @@ Class CertificateRequest from Object
 		return self
 
 	Func CreateSigningRequest P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:CreateSigningRequest",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:CreateSigningRequest",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s20:CreateSigningRequest"))
@@ -253,8 +253,10 @@ Class CertificateRequest from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CreateSigningRequest",P1))
 
 	Func CreateSigningRequestPem P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s23:CreateSigningRequestPem",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s23:CreateSigningRequestPem",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s23:CreateSigningRequestPem")
@@ -269,8 +271,8 @@ Class CertificateRequest from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateSelfSigned",P1,P2))
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Create",P1))
 		ok
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
@@ -280,14 +282,14 @@ Class CertificateRequest from Object
 		return dn_x
 
 	Func LoadSigningRequestPem P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"s21:LoadSigningRequestPem",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography',"s21:LoadSigningRequestPem",P1))
 		ok
 		raise("DotNet Error: LoadSigningRequestPem does not take one argument: use named arguments, LoadSigningRequestPem([ :parameter = value, ... ])")
 
 	Func LoadSigningRequest P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"s18:LoadSigningRequest",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography',"s18:LoadSigningRequest",P1))
 		ok
 		raise("DotNet Error: LoadSigningRequest does not take one argument: use named arguments, LoadSigningRequest([ :parameter = value, ... ])")
 
@@ -343,8 +345,8 @@ Class CertificateRevocationListBuilder from Object
 		return self
 
 	Func AddEntry P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:AddEntry",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:AddEntry",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:AddEntry",P1)
@@ -357,8 +359,8 @@ Class CertificateRevocationListBuilder from Object
 		return dn_x
 
 	Func Build P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s5:Build",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Build",P1))
 		ok
 		raise("DotNet Error: Build does not take one argument: use named arguments, Build([ :parameter = value, ... ])")
 
@@ -368,8 +370,8 @@ Class CertificateRevocationListBuilder from Object
 		return dn_x
 
 	Func BuildCrlDistributionPointExtension P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography'),"s34:BuildCrlDistributionPointExtension",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography',"s34:BuildCrlDistributionPointExtension",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography',"s34:BuildCrlDistributionPointExtension",P1))
 
@@ -469,7 +471,7 @@ Class Pkcs12LoaderLimits from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -622,7 +624,7 @@ Class PublicKey from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.PublicKey, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -753,8 +755,8 @@ Class SubjectAlternativeNameBuilder from Object
 		return self
 
 	Func Build P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s5:Build",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Build",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
@@ -783,7 +785,7 @@ Class X500DistinguishedName from AsnEncodedData
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X500DistinguishedName, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -803,8 +805,8 @@ Class X500DistinguishedName from AsnEncodedData
 		return dn_x
 
 	Func EnumerateRelativeDistinguishedNames P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s35:EnumerateRelativeDistinguishedNames",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s35:EnumerateRelativeDistinguishedNames",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s35:EnumerateRelativeDistinguishedNames"))
@@ -841,8 +843,8 @@ Class X500DistinguishedNameBuilder from Object
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
 			return self
 		ok
 		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
@@ -965,7 +967,7 @@ Class X509Certificate from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -995,8 +997,8 @@ Class X509Certificate from Object
 		return dn_x
 
 	Func Export P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Export",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Export",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Export",P1))
 
@@ -1006,8 +1008,8 @@ Class X509Certificate from Object
 		return dn_x
 
 	Func GetCertHash P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetCertHash",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetCertHash",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetCertHash"))
@@ -1015,8 +1017,10 @@ Class X509Certificate from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetCertHash",P1))
 
 	Func GetCertHashString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:GetCertHashString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:GetCertHashString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s17:GetCertHashString")
@@ -1085,16 +1089,18 @@ Class X509Certificate from Object
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Import_ P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Import",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Import",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:Import",P1)
@@ -1193,7 +1199,7 @@ Class X509CertificateCollection from CollectionBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1273,26 +1279,26 @@ Class X509CertificateLoader from Object
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography',"s23:LoadCertificateFromFile",P1))
 
 	Func LoadPkcs12 P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"s10:LoadPkcs12",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography',"s10:LoadPkcs12",P1))
 		ok
 		raise("DotNet Error: LoadPkcs12 does not take one argument: use named arguments, LoadPkcs12([ :parameter = value, ... ])")
 
 	Func LoadPkcs12FromFile P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"s18:LoadPkcs12FromFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography',"s18:LoadPkcs12FromFile",P1))
 		ok
 		raise("DotNet Error: LoadPkcs12FromFile does not take one argument: use named arguments, LoadPkcs12FromFile([ :parameter = value, ... ])")
 
 	Func LoadPkcs12Collection P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"s20:LoadPkcs12Collection",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography',"s20:LoadPkcs12Collection",P1))
 		ok
 		raise("DotNet Error: LoadPkcs12Collection does not take one argument: use named arguments, LoadPkcs12Collection([ :parameter = value, ... ])")
 
 	Func LoadPkcs12CollectionFromFile P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"s28:LoadPkcs12CollectionFromFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography',"s28:LoadPkcs12CollectionFromFile",P1))
 		ok
 		raise("DotNet Error: LoadPkcs12CollectionFromFile does not take one argument: use named arguments, LoadPkcs12CollectionFromFile([ :parameter = value, ... ])")
 
@@ -1325,7 +1331,7 @@ Class X509Chain from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1711,7 +1717,7 @@ Class X509Extension from AsnEncodedData
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Extension, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1903,7 +1909,7 @@ Class X509Store from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2014,7 +2020,7 @@ Class X509AuthorityInformationAccessExtension from X509Extension
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2065,7 +2071,7 @@ Class X509AuthorityKeyIdentifierExtension from X509Extension
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2142,7 +2148,7 @@ Class X509BasicConstraintsExtension from X509Extension
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2157,8 +2163,8 @@ Class X509BasicConstraintsExtension from X509Extension
 		return self
 
 	Func CreateForCertificateAuthority P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"s29:CreateForCertificateAuthority",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',"s29:CreateForCertificateAuthority",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',"s29:CreateForCertificateAuthority"))
@@ -2166,8 +2172,8 @@ Class X509BasicConstraintsExtension from X509Extension
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',"s29:CreateForCertificateAuthority",P1))
 
 	Func CreateForEndEntity P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"s18:CreateForEndEntity",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',"s18:CreateForEndEntity",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',"s18:CreateForEndEntity"))
@@ -2238,7 +2244,7 @@ Class X509Certificate2 from X509Certificate
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2277,8 +2283,10 @@ Class X509Certificate2 from X509Certificate
 		return dn_x
 
 	Func MatchesHostname P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:MatchesHostname",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:MatchesHostname",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s15:MatchesHostname",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2299,8 +2307,8 @@ Class X509Certificate2 from X509Certificate
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',"s18:GetCertContentType",P1))
 
 	Func CreateFromPemFile P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography'),"s17:CreateFromPemFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',"s17:CreateFromPemFile",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',"s17:CreateFromPemFile",P1))
 
@@ -2438,7 +2446,7 @@ Class X509Certificate2Collection from X509CertificateCollection
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Certificate2Collection, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2453,8 +2461,8 @@ Class X509Certificate2Collection from X509CertificateCollection
 		return self
 
 	Func Export P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Export",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Export",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Export",P1))
 
@@ -2462,8 +2470,8 @@ Class X509Certificate2Collection from X509CertificateCollection
 		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Find",P1,P2,P3))
 
 	Func Import_ P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Import",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Import",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:Import",P1)
@@ -2515,7 +2523,7 @@ Class X509EnhancedKeyUsageExtension from X509Extension
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2560,7 +2568,7 @@ Class X509KeyUsageExtension from X509Extension
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2603,7 +2611,7 @@ Class X509SubjectAlternativeNameExtension from X509Extension
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2649,7 +2657,7 @@ Class X509SubjectKeyIdentifierExtension from X509Extension
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

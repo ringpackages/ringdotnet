@@ -643,7 +643,7 @@ Class CustomPopupPlacement from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.Primitives.CustomPopupPlacement, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1188,7 +1188,7 @@ Class GeneratorPosition from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Controls.Primitives.GeneratorPosition, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1362,8 +1362,8 @@ Class IItemContainerGenerator from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetItemContainerGeneratorForPanel",P1))
 
 	Func StartAt P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:StartAt",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:StartAt",P1))
 		ok
 		raise("DotNet Error: StartAt does not take one argument: use named arguments, StartAt([ :parameter = value, ... ])")
 

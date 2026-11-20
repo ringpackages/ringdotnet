@@ -61,7 +61,7 @@ Class AssemblyLoadContext from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -95,8 +95,8 @@ Class AssemblyLoadContext from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:LoadFromNativeImagePath",P1,P2))
 
 	Func LoadFromStream P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:LoadFromStream",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:LoadFromStream",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:LoadFromStream",P1))
 
@@ -106,11 +106,11 @@ Class AssemblyLoadContext from Object
 		return self
 
 	Func EnterContextualReflection P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"s25:EnterContextualReflection",dnPackItem(P1))
+				return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib',"s25:EnterContextualReflection",P1))
 			ok
-			return dnSend("s9:callnamed",nHandle,"s25:EnterContextualReflection",dnPackItem(P1))
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:EnterContextualReflection",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s25:EnterContextualReflection"))

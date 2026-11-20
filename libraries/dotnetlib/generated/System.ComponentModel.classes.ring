@@ -653,7 +653,7 @@ Class AddingNewEventArgs from EventArgs
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -873,7 +873,7 @@ Class CancelEventArgs from EventArgs
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.CancelEventArgs, System.ComponentModel',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1010,8 +1010,10 @@ Class ComponentEditor from Object
 		return self
 
 	Func EditComponent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:EditComponent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:EditComponent",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:EditComponent",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1045,7 +1047,7 @@ Class ComponentResourceManager from ResourceManager
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1060,8 +1062,8 @@ Class ComponentResourceManager from ResourceManager
 		return self
 
 	Func ApplyResources P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:ApplyResources",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:ApplyResources",P1)
 			return self
 		ok
 		raise("DotNet Error: ApplyResources does not take one argument: use named arguments, ApplyResources([ :parameter = value, ... ])")
@@ -1095,8 +1097,8 @@ Class Container from Object
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
@@ -1187,8 +1189,8 @@ Class CustomTypeDescriptor from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetEditor",P1))
 
 	Func GetEvents P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:GetEvents",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:GetEvents",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetEvents"))
@@ -1199,8 +1201,8 @@ Class CustomTypeDescriptor from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetEventsFromRegisteredType"))
 
 	Func GetProperties P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:GetProperties",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetProperties",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetProperties"))
@@ -1266,7 +1268,7 @@ Class EventDescriptorCollection from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.EventDescriptorCollection, System.ComponentModel.TypeConverter',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1322,8 +1324,8 @@ Class EventDescriptorCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Sort P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Sort",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Sort",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Sort"))
@@ -1430,7 +1432,7 @@ Class HandledEventArgs from EventArgs
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1730,8 +1732,8 @@ Class IContainer from DotNetObject
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
@@ -1789,8 +1791,8 @@ Class ICustomTypeDescriptor from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetEditor",P1))
 
 	Func GetEvents P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:GetEvents",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:GetEvents",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetEvents"))
@@ -1798,8 +1800,8 @@ Class ICustomTypeDescriptor from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetEvents",P1))
 
 	Func GetProperties P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:GetProperties",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetProperties",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetProperties"))
@@ -2422,8 +2424,8 @@ Class LicenseManager from Object
 		return dn_x
 
 	Func CreateWithContext P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s17:CreateWithContext",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter',"s17:CreateWithContext",P1))
 		ok
 		raise("DotNet Error: CreateWithContext does not take one argument: use named arguments, CreateWithContext([ :parameter = value, ... ])")
 
@@ -2433,8 +2435,10 @@ Class LicenseManager from Object
 		return dn_x
 
 	Func IsValid P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s7:IsValid",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter',"s7:IsValid",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter',"s7:IsValid",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2451,8 +2455,10 @@ Class LicenseManager from Object
 		return self
 
 	Func Validate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"s8:Validate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter',"s8:Validate",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",'System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter',"s8:Validate",P1)
 
@@ -2511,7 +2517,7 @@ Class ListChangedEventArgs from EventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.ListChangedEventArgs, System.ComponentModel.TypeConverter',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2614,7 +2620,7 @@ Class ListSortDescriptionCollection from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2768,7 +2774,7 @@ Class MaskedTextProvider from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2856,16 +2862,20 @@ Class MaskedTextProvider from Object
 		return dn_x
 
 	Func RemoveAt P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:RemoveAt",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s8:RemoveAt",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:RemoveAt",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Replace P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Replace",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s7:Replace",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
@@ -2880,8 +2890,10 @@ Class MaskedTextProvider from Object
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3278,7 +3290,7 @@ Class PropertyDescriptorCollection from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.PropertyDescriptorCollection, System.ComponentModel.TypeConverter',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3336,8 +3348,8 @@ Class PropertyDescriptorCollection from Object
 		return self
 
 	Func Sort P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Sort",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Sort",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Sort"))
@@ -3452,70 +3464,80 @@ Class TypeConverter from Object
 		return self
 
 	Func CanConvertFrom P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:CanConvertFrom",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:CanConvertFrom",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s14:CanConvertFrom",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CanConvertTo P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:CanConvertTo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:CanConvertTo",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:CanConvertTo",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConvertFrom P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:ConvertFrom",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ConvertFrom",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ConvertFrom",P1))
 
 	Func ConvertFromInvariantString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s26:ConvertFromInvariantString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s26:ConvertFromInvariantString",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:ConvertFromInvariantString",P1))
 
 	Func ConvertFromString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:ConvertFromString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ConvertFromString",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConvertFromString",P1))
 
 	Func ConvertTo P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:ConvertTo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:ConvertTo",P1))
 		ok
 		raise("DotNet Error: ConvertTo does not take one argument: use named arguments, ConvertTo([ :parameter = value, ... ])")
 
 	Func ConvertToInvariantString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:ConvertToInvariantString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:ConvertToInvariantString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s24:ConvertToInvariantString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ConvertToString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:ConvertToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:ConvertToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s15:ConvertToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CreateInstance P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:CreateInstance",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:CreateInstance",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
 
 	Func GetCreateInstanceSupported P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s26:GetCreateInstanceSupported",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s26:GetCreateInstanceSupported",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s26:GetCreateInstanceSupported")
@@ -3527,14 +3549,16 @@ Class TypeConverter from Object
 		return dn_x
 
 	Func GetProperties P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:GetProperties",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetProperties",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetProperties",P1))
 
 	Func GetPropertiesSupported P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s22:GetPropertiesSupported",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:GetPropertiesSupported",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s22:GetPropertiesSupported")
@@ -3546,8 +3570,8 @@ Class TypeConverter from Object
 		return dn_x
 
 	Func GetStandardValues P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:GetStandardValues",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:GetStandardValues",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetStandardValues"))
@@ -3555,8 +3579,10 @@ Class TypeConverter from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetStandardValues",P1))
 
 	Func GetStandardValuesExclusive P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s26:GetStandardValuesExclusive",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s26:GetStandardValuesExclusive",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s26:GetStandardValuesExclusive")
@@ -3568,8 +3594,10 @@ Class TypeConverter from Object
 		return dn_x
 
 	Func GetStandardValuesSupported P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s26:GetStandardValuesSupported",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s26:GetStandardValuesSupported",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s26:GetStandardValuesSupported")
@@ -3581,8 +3609,10 @@ Class TypeConverter from Object
 		return dn_x
 
 	Func IsValid P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:IsValid",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:IsValid",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IsValid",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3630,8 +3660,8 @@ Class TypeDescriptionProvider from Object
 		return dn_x
 
 	Func GetReflectionType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:GetReflectionType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:GetReflectionType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetReflectionType",P1))
 
@@ -3639,14 +3669,14 @@ Class TypeDescriptionProvider from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetRuntimeType",P1))
 
 	Func GetTypeDescriptor P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:GetTypeDescriptor",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:GetTypeDescriptor",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetTypeDescriptor",P1))
 
 	Func GetTypeDescriptorFromRegisteredType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s35:GetTypeDescriptorFromRegisteredType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s35:GetTypeDescriptorFromRegisteredType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s35:GetTypeDescriptorFromRegisteredType",P1))
 
@@ -3721,8 +3751,8 @@ Class TypeDescriptor from Object
 		return self
 
 	Func CreateEvent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s11:CreateEvent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s11:CreateEvent",P1))
 		ok
 		raise("DotNet Error: CreateEvent does not take one argument: use named arguments, CreateEvent([ :parameter = value, ... ])")
 
@@ -3730,8 +3760,8 @@ Class TypeDescriptor from Object
 		return dnObj(dotnet_callo("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s14:CreateInstance",P1,P2,P3,P4))
 
 	Func CreateProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s14:CreateProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s14:CreateProperty",P1))
 		ok
 		raise("DotNet Error: CreateProperty does not take one argument: use named arguments, CreateProperty([ :parameter = value, ... ])")
 
@@ -3739,30 +3769,34 @@ Class TypeDescriptor from Object
 		return dnObj(dotnet_callo("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s14:GetAssociation",P1,P2))
 
 	Func GetAttributes P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s13:GetAttributes",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s13:GetAttributes",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s13:GetAttributes",P1))
 
 	Func GetClassName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s12:GetClassName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s12:GetClassName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s12:GetClassName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetComponentName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s16:GetComponentName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s16:GetComponentName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s16:GetComponentName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetConverter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s12:GetConverter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s12:GetConverter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s12:GetConverter",P1))
 
@@ -3770,26 +3804,26 @@ Class TypeDescriptor from Object
 		return dnObj(dotnet_callo("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s30:GetConverterFromRegisteredType",P1))
 
 	Func GetDefaultEvent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s15:GetDefaultEvent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s15:GetDefaultEvent",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s15:GetDefaultEvent",P1))
 
 	Func GetDefaultProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s18:GetDefaultProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s18:GetDefaultProperty",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s18:GetDefaultProperty",P1))
 
 	Func GetEditor P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s9:GetEditor",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s9:GetEditor",P1))
 		ok
 		raise("DotNet Error: GetEditor does not take one argument: use named arguments, GetEditor([ :parameter = value, ... ])")
 
 	Func GetEvents P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s9:GetEvents",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s9:GetEvents",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s9:GetEvents",P1))
 
@@ -3802,8 +3836,8 @@ Class TypeDescriptor from Object
 		return dn_x
 
 	Func GetProperties P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"s13:GetProperties",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s13:GetProperties",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter',"s13:GetProperties",P1))
 
@@ -3908,8 +3942,8 @@ Class BackgroundWorker from Component
 		return self
 
 	Func ReportProgress P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:ReportProgress",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:ReportProgress",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s14:ReportProgress",P1)
@@ -3917,8 +3951,8 @@ Class BackgroundWorker from Component
 		return self
 
 	Func RunWorkerAsync P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:RunWorkerAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:RunWorkerAsync",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -4411,8 +4445,8 @@ Class PropertyDescriptor from MemberDescriptor
 		return dn_x
 
 	Func GetChildProperties P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:GetChildProperties",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetChildProperties",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetChildProperties"))

@@ -102,8 +102,8 @@ Class NamedPipeServerStreamAcl from Object
 		return dn_x
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.Pipes.NamedPipeServerStreamAcl, System.IO.Pipes'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.Pipes.NamedPipeServerStreamAcl, System.IO.Pipes',"s6:Create",P1))
 		ok
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
@@ -394,8 +394,8 @@ Class PipeSecurity from DotNetObject
 		return dn_x
 
 	Func SetSecurityDescriptorSddlForm P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s29:SetSecurityDescriptorSddlForm",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s29:SetSecurityDescriptorSddlForm",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s29:SetSecurityDescriptorSddlForm",P1)
@@ -406,8 +406,8 @@ Class PipeSecurity from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetSecurityDescriptorBinaryForm"))
 
 	Func SetSecurityDescriptorBinaryForm P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s31:SetSecurityDescriptorBinaryForm",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s31:SetSecurityDescriptorBinaryForm",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s31:SetSecurityDescriptorBinaryForm",P1)
@@ -613,7 +613,7 @@ Class AnonymousPipeClientStream from PipeStream
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.Pipes.AnonymousPipeClientStream, System.IO.Pipes',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -652,7 +652,7 @@ Class AnonymousPipeServerStream from PipeStream
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.Pipes.AnonymousPipeServerStream, System.IO.Pipes',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -699,7 +699,7 @@ Class NamedPipeClientStream from PipeStream
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.Pipes.NamedPipeClientStream, System.IO.Pipes',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -714,8 +714,8 @@ Class NamedPipeClientStream from PipeStream
 		return self
 
 	Func Connect P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Connect",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Connect",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -728,8 +728,8 @@ Class NamedPipeClientStream from PipeStream
 		return self
 
 	Func ConnectAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:ConnectAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ConnectAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ConnectAsync"))
@@ -761,7 +761,7 @@ Class NamedPipeServerStream from PipeStream
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -776,8 +776,8 @@ Class NamedPipeServerStream from PipeStream
 		return self
 
 	Func WaitForConnectionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s22:WaitForConnectionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:WaitForConnectionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s22:WaitForConnectionAsync"))

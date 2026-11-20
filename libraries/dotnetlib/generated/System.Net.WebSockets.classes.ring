@@ -82,8 +82,8 @@ Class ClientWebSocketOptions from Object
 		return self
 
 	Func SetBuffer P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:SetBuffer",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:SetBuffer",P1)
 			return self
 		ok
 		raise("DotNet Error: SetBuffer does not take one argument: use named arguments, SetBuffer([ :parameter = value, ... ])")
@@ -208,7 +208,7 @@ Class ValueWebSocketReceiveResult from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.WebSockets.ValueWebSocketReceiveResult, System.Net.WebSockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -282,8 +282,8 @@ Class WebSocket from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReceiveAsync",P1,P2))
 
 	Func SendAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:SendAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:SendAsync",P1))
 		ok
 		raise("DotNet Error: SendAsync does not take one argument: use named arguments, SendAsync([ :parameter = value, ... ])")
 
@@ -299,8 +299,8 @@ Class WebSocket from Object
 		return dnObj(dotnet_callo("s4:call",'System.Net.WebSockets.WebSocket, System.Net.WebSockets',"s18:CreateServerBuffer",P1))
 
 	Func CreateFromStream P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"s16:CreateFromStream",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.WebSockets.WebSocket, System.Net.WebSockets',"s16:CreateFromStream",P1))
 		ok
 		raise("DotNet Error: CreateFromStream does not take one argument: use named arguments, CreateFromStream([ :parameter = value, ... ])")
 
@@ -624,7 +624,7 @@ Class WebSocketReceiveResult from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.WebSockets.WebSocketReceiveResult, System.Net.WebSockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -705,8 +705,8 @@ Class ClientWebSocket from WebSocket
 		return self
 
 	Func ConnectAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:ConnectAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ConnectAsync",P1))
 		ok
 		raise("DotNet Error: ConnectAsync does not take one argument: use named arguments, ConnectAsync([ :parameter = value, ... ])")
 

@@ -238,8 +238,10 @@ Class FilterCollection from DotNetObject
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add"))
@@ -247,8 +249,8 @@ Class FilterCollection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
 
 	Func AddService P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:AddService",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddService",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddService"))
@@ -419,7 +421,7 @@ Class FilterItem from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.Filters.FilterItem, Microsoft.AspNetCore.Mvc.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

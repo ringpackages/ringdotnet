@@ -34,38 +34,38 @@ Class HttpClientJsonExtensions from Object
 		return dn_x
 
 	Func GetFromJsonAsAsyncEnumerable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"s28:GetFromJsonAsAsyncEnumerable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json',"s28:GetFromJsonAsAsyncEnumerable",P1))
 		ok
 		raise("DotNet Error: GetFromJsonAsAsyncEnumerable does not take one argument: use named arguments, GetFromJsonAsAsyncEnumerable([ :parameter = value, ... ])")
 
 	Func DeleteFromJsonAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"s19:DeleteFromJsonAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json',"s19:DeleteFromJsonAsync",P1))
 		ok
 		raise("DotNet Error: DeleteFromJsonAsync does not take one argument: use named arguments, DeleteFromJsonAsync([ :parameter = value, ... ])")
 
 	Func GetFromJsonAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"s16:GetFromJsonAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json',"s16:GetFromJsonAsync",P1))
 		ok
 		raise("DotNet Error: GetFromJsonAsync does not take one argument: use named arguments, GetFromJsonAsync([ :parameter = value, ... ])")
 
 	Func PostAsJsonAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"s15:PostAsJsonAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json',"s15:PostAsJsonAsync",P1))
 		ok
 		raise("DotNet Error: PostAsJsonAsync does not take one argument: use named arguments, PostAsJsonAsync([ :parameter = value, ... ])")
 
 	Func PutAsJsonAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"s14:PutAsJsonAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json',"s14:PutAsJsonAsync",P1))
 		ok
 		raise("DotNet Error: PutAsJsonAsync does not take one argument: use named arguments, PutAsJsonAsync([ :parameter = value, ... ])")
 
 	Func PatchAsJsonAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"s16:PatchAsJsonAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json',"s16:PatchAsJsonAsync",P1))
 		ok
 		raise("DotNet Error: PatchAsJsonAsync does not take one argument: use named arguments, PatchAsJsonAsync([ :parameter = value, ... ])")
 
@@ -87,14 +87,14 @@ Class HttpContentJsonExtensions from Object
 		return dn_x
 
 	Func ReadFromJsonAsAsyncEnumerable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json'),"s29:ReadFromJsonAsAsyncEnumerable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json',"s29:ReadFromJsonAsAsyncEnumerable",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json',"s29:ReadFromJsonAsAsyncEnumerable",P1))
 
 	Func ReadFromJsonAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json'),"s17:ReadFromJsonAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json',"s17:ReadFromJsonAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json',"s17:ReadFromJsonAsync",P1))
 
@@ -114,8 +114,8 @@ Class JsonContent from HttpContent
 		return self
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Http.Json.JsonContent, System.Net.Http.Json'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Http.Json.JsonContent, System.Net.Http.Json',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Net.Http.Json.JsonContent, System.Net.Http.Json',"s6:Create",P1))
 

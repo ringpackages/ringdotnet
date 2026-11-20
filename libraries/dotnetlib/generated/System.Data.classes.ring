@@ -389,7 +389,7 @@ Class DataColumn from MarshalByValueComponent
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataColumn, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -666,8 +666,8 @@ Class DataReaderExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s13:GetFieldValue",P1,P2))
 
 	Func GetFieldValueAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s18:GetFieldValueAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Data.DataReaderExtensions, System.Data.Common',"s18:GetFieldValueAsync",P1))
 		ok
 		raise("DotNet Error: GetFieldValueAsync does not take one argument: use named arguments, GetFieldValueAsync([ :parameter = value, ... ])")
 
@@ -720,8 +720,8 @@ Class DataReaderExtensions from Object
 		return dn_x
 
 	Func IsDBNullAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Data.DataReaderExtensions, System.Data.Common'),"s13:IsDBNullAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Data.DataReaderExtensions, System.Data.Common',"s13:IsDBNullAsync",P1))
 		ok
 		raise("DotNet Error: IsDBNullAsync does not take one argument: use named arguments, IsDBNullAsync([ :parameter = value, ... ])")
 
@@ -751,7 +751,7 @@ Class DataRelation from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataRelation, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -898,20 +898,20 @@ Class DataRow from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetColumnsInError"))
 
 	Func GetChildRows P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:GetChildRows",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:GetChildRows",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetChildRows",P1))
 
 	Func GetParentRow P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:GetParentRow",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:GetParentRow",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetParentRow",P1))
 
 	Func GetParentRows P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:GetParentRows",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetParentRows",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetParentRows",P1))
 
@@ -926,8 +926,8 @@ Class DataRow from Object
 		return self
 
 	Func SetParentRow P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s12:SetParentRow",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s12:SetParentRow",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s12:SetParentRow",P1)
@@ -1081,8 +1081,8 @@ Class DataRowExtensions from Object
 		return dn_x
 
 	Func Field P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Data.DataRowExtensions, System.Data.Common'),"s5:Field",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Data.DataRowExtensions, System.Data.Common',"s5:Field",P1))
 		ok
 		raise("DotNet Error: Field does not take one argument: use named arguments, Field([ :parameter = value, ... ])")
 
@@ -1115,8 +1115,8 @@ Class DataRowView from Object
 		return dn_x
 
 	Func CreateChildView P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:CreateChildView",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:CreateChildView",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateChildView",P1))
 
@@ -1227,7 +1227,7 @@ Class DataSet from MarshalByValueComponent
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataSet, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1273,8 +1273,8 @@ Class DataSet from MarshalByValueComponent
 		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Copy"))
 
 	Func GetChanges P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:GetChanges",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetChanges",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetChanges"))
@@ -1292,8 +1292,10 @@ Class DataSet from MarshalByValueComponent
 		return dn_x
 
 	Func HasChanges P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:HasChanges",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:HasChanges",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s10:HasChanges")
@@ -1315,8 +1317,8 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func WriteXmlSchema P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:WriteXmlSchema",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:WriteXmlSchema",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s14:WriteXmlSchema",P1)
@@ -1324,14 +1326,14 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func ReadXml P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:ReadXml",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:ReadXml",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ReadXml",P1))
 
 	Func WriteXml P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:WriteXml",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:WriteXml",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:WriteXml",P1)
@@ -1339,8 +1341,8 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func Merge P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Merge",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Merge",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s5:Merge",P1)
@@ -1358,15 +1360,15 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func Load_ P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Load",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self
 		ok
 		raise("DotNet Error: Load does not take one argument: use named arguments, Load([ :parameter = value, ... ])")
 
 	Func CreateDataReader P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:CreateDataReader",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:CreateDataReader",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateDataReader"))
@@ -1541,7 +1543,7 @@ Class DataTable from MarshalByValueComponent
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataTable, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1590,8 +1592,8 @@ Class DataTable from MarshalByValueComponent
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Compute",P1,P2))
 
 	Func GetChanges P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:GetChanges",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetChanges",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetChanges"))
@@ -1620,8 +1622,8 @@ Class DataTable from MarshalByValueComponent
 		return self
 
 	Func Select P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Select",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Select",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s6:Select"))
@@ -1642,8 +1644,8 @@ Class DataTable from MarshalByValueComponent
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:LoadDataRow",P1,P2))
 
 	Func Merge P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Merge",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Merge",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s5:Merge",P1)
@@ -1651,8 +1653,8 @@ Class DataTable from MarshalByValueComponent
 		return self
 
 	Func Load_ P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Load",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s4:Load",P1)
@@ -1663,8 +1665,8 @@ Class DataTable from MarshalByValueComponent
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateDataReader"))
 
 	Func WriteXml P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:WriteXml",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:WriteXml",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:WriteXml",P1)
@@ -1672,8 +1674,8 @@ Class DataTable from MarshalByValueComponent
 		return self
 
 	Func WriteXmlSchema P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:WriteXmlSchema",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:WriteXmlSchema",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s14:WriteXmlSchema",P1)
@@ -1971,8 +1973,10 @@ Class DataTableExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'System.Data.DataTableExtensions, System.Data.Common',"s12:AsEnumerable",P1))
 
 	Func CopyToDataTable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Data.DataTableExtensions, System.Data.Common'),"s15:CopyToDataTable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Data.DataTableExtensions, System.Data.Common',"s15:CopyToDataTable",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Data.DataTableExtensions, System.Data.Common',"s15:CopyToDataTable",P1))
 
@@ -2050,7 +2054,7 @@ Class DataView from MarshalByValueComponent
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataView, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2099,8 +2103,8 @@ Class DataView from MarshalByValueComponent
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func ToTable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:ToTable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:ToTable",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToTable"))
@@ -2243,7 +2247,7 @@ Class DataViewManager from MarshalByValueComponent
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataViewManager, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2465,26 +2469,26 @@ Class EnumerableRowCollectionExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'System.Data.EnumerableRowCollectionExtensions, System.Data.Common',"s5:Where",P1,P2))
 
 	Func OrderBy P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"s7:OrderBy",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Data.EnumerableRowCollectionExtensions, System.Data.Common',"s7:OrderBy",P1))
 		ok
 		raise("DotNet Error: OrderBy does not take one argument: use named arguments, OrderBy([ :parameter = value, ... ])")
 
 	Func OrderByDescending P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"s17:OrderByDescending",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Data.EnumerableRowCollectionExtensions, System.Data.Common',"s17:OrderByDescending",P1))
 		ok
 		raise("DotNet Error: OrderByDescending does not take one argument: use named arguments, OrderByDescending([ :parameter = value, ... ])")
 
 	Func ThenBy P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"s6:ThenBy",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Data.EnumerableRowCollectionExtensions, System.Data.Common',"s6:ThenBy",P1))
 		ok
 		raise("DotNet Error: ThenBy does not take one argument: use named arguments, ThenBy([ :parameter = value, ... ])")
 
 	Func ThenByDescending P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"s16:ThenByDescending",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Data.EnumerableRowCollectionExtensions, System.Data.Common',"s16:ThenByDescending",P1))
 		ok
 		raise("DotNet Error: ThenByDescending does not take one argument: use named arguments, ThenByDescending([ :parameter = value, ... ])")
 
@@ -2993,8 +2997,8 @@ Class IDbCommand from DotNetObject
 		return dn_x
 
 	Func ExecuteReader P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ExecuteReader",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ExecuteReader",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteReader"))
@@ -3074,8 +3078,8 @@ Class IDbConnection from DotNetObject
 		return self
 
 	Func BeginTransaction P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:BeginTransaction",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:BeginTransaction",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction"))
@@ -3531,14 +3535,14 @@ Class TypedTableBaseExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'System.Data.TypedTableBaseExtensions, System.Data.Common',"s5:Where",P1,P2))
 
 	Func OrderBy P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Data.TypedTableBaseExtensions, System.Data.Common'),"s7:OrderBy",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Data.TypedTableBaseExtensions, System.Data.Common',"s7:OrderBy",P1))
 		ok
 		raise("DotNet Error: OrderBy does not take one argument: use named arguments, OrderBy([ :parameter = value, ... ])")
 
 	Func OrderByDescending P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Data.TypedTableBaseExtensions, System.Data.Common'),"s17:OrderByDescending",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Data.TypedTableBaseExtensions, System.Data.Common',"s17:OrderByDescending",P1))
 		ok
 		raise("DotNet Error: OrderByDescending does not take one argument: use named arguments, OrderByDescending([ :parameter = value, ... ])")
 
@@ -3564,8 +3568,10 @@ Class ConstraintCollection from InternalDataCollectionBase
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
@@ -3630,8 +3636,10 @@ Class DataColumnCollection from InternalDataCollectionBase
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add"))
@@ -3699,8 +3707,10 @@ Class DataRelationCollection from InternalDataCollectionBase
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
@@ -3818,8 +3828,10 @@ Class DataTableCollection from InternalDataCollectionBase
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add"))
@@ -3844,24 +3856,28 @@ Class DataTableCollection from InternalDataCollectionBase
 		return self
 
 	Func Contains P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Contains",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IndexOf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:IndexOf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Remove P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Remove",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Remove",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
@@ -3914,7 +3930,7 @@ Class ForeignKeyConstraint from Constraint
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.ForeignKeyConstraint, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3985,7 +4001,7 @@ Class UniqueConstraint from Constraint
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.UniqueConstraint, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

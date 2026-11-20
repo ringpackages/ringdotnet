@@ -545,7 +545,7 @@ Class AspContentRangeHeaderValue from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.ContentRangeHeaderValue, Microsoft.Net.Http.Headers',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -629,7 +629,7 @@ Class CookieHeaderValue from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.CookieHeaderValue, Microsoft.Net.Http.Headers',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -699,7 +699,7 @@ Class AspEntityTagHeaderValue from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.EntityTagHeaderValue, Microsoft.Net.Http.Headers',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1719,8 +1719,10 @@ Class HeaderUtilities from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s12:TryParseDate",dnPackItem(P1))
 
 	Func FormatDate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s10:FormatDate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers',"s10:FormatDate",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers',"s10:FormatDate",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1771,7 +1773,7 @@ Class AspMediaTypeHeaderValue from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.MediaTypeHeaderValue, Microsoft.Net.Http.Headers',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1979,7 +1981,7 @@ Class AspNameValueHeaderValue from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.NameValueHeaderValue, Microsoft.Net.Http.Headers',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2120,7 +2122,7 @@ Class AspRangeHeaderValue from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.RangeHeaderValue, Microsoft.Net.Http.Headers',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2218,7 +2220,7 @@ Class SetCookieHeaderValue from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.SetCookieHeaderValue, Microsoft.Net.Http.Headers',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2351,7 +2353,7 @@ Class AspStringWithQualityHeaderValue from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.StringWithQualityHeaderValue, Microsoft.Net.Http.Headers',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

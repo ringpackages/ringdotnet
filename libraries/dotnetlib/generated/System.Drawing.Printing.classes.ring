@@ -122,7 +122,7 @@ Class Margins from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Printing.Margins, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -236,7 +236,7 @@ Class PageSettings from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Printing.PageSettings, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -378,7 +378,7 @@ Class PaperSize from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Printing.PaperSize, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -876,8 +876,8 @@ Class PrinterSettings from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func CreateMeasurementGraphics P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:CreateMeasurementGraphics",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:CreateMeasurementGraphics",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s25:CreateMeasurementGraphics"))
@@ -885,8 +885,8 @@ Class PrinterSettings from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:CreateMeasurementGraphics",P1))
 
 	Func GetHdevmode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetHdevmode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetHdevmode",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetHdevmode"))

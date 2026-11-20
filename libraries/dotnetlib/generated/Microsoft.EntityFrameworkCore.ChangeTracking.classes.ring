@@ -177,16 +177,20 @@ Class CaseInsensitiveValueComparer from DotNetObject
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
@@ -294,8 +298,8 @@ Class ChangeTracker from Object
 		return self
 
 	Func TrackGraph P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:TrackGraph",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:TrackGraph",P1)
 			return self
 		ok
 		raise("DotNet Error: TrackGraph does not take one argument: use named arguments, TrackGraph([ :parameter = value, ... ])")
@@ -531,8 +535,8 @@ Class EntityEntry from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetDatabaseValues"))
 
 	Func GetDatabaseValuesAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s22:GetDatabaseValuesAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:GetDatabaseValuesAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetDatabaseValuesAsync"))
@@ -545,8 +549,8 @@ Class EntityEntry from Object
 		return self
 
 	Func ReloadAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:ReloadAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ReloadAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:ReloadAsync"))
@@ -724,14 +728,14 @@ Class IDependentKeyValueFactory from DotNetObject
 		return self
 
 	Func CreatePrincipalEquatableKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s27:CreatePrincipalEquatableKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:CreatePrincipalEquatableKey",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:CreatePrincipalEquatableKey",P1))
 
 	Func CreateDependentEquatableKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s27:CreateDependentEquatableKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:CreateDependentEquatableKey",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:CreateDependentEquatableKey",P1))
 
@@ -753,8 +757,8 @@ Class IEntityEntryGraphIterator from DotNetObject
 		return self
 
 	Func TraverseGraphAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:TraverseGraphAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:TraverseGraphAsync",P1))
 		ok
 		raise("DotNet Error: TraverseGraphAsync does not take one argument: use named arguments, TraverseGraphAsync([ :parameter = value, ... ])")
 
@@ -771,8 +775,8 @@ Class IPrincipalKeyValueFactory from DotNetObject
 		return self
 
 	Func CreateEquatableKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:CreateEquatableKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:CreateEquatableKey",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CreateEquatableKey",P1))
 
@@ -902,16 +906,20 @@ Class ValueComparer from Object
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
@@ -944,8 +952,8 @@ Class ValueComparer from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore',"s3:Add",P1,P2))
 
 	Func CreateDefault P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"s13:CreateDefault",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore',"s13:CreateDefault",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore',"s13:CreateDefault",P1))
 
@@ -1214,8 +1222,8 @@ Class NavigationEntry from MemberEntry
 		return self
 
 	Func Load_ P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Load",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1228,8 +1236,8 @@ Class NavigationEntry from MemberEntry
 		return self
 
 	Func LoadAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:LoadAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:LoadAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:LoadAsync"))

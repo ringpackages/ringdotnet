@@ -425,7 +425,7 @@ Class MailAddress from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Mail.MailAddress, System.Net.Mail',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -445,8 +445,10 @@ Class MailAddress from Object
 		return dn_x
 
 	Func TryCreate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Mail.MailAddress, System.Net.Mail'),"s9:TryCreate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Net.Mail.MailAddress, System.Net.Mail',"s9:TryCreate",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Net.Mail.MailAddress, System.Net.Mail'),"s9:TryCreate",dnPackItem(P1))
 
@@ -624,7 +626,7 @@ Class MailMessage from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Mail.MailMessage, System.Net.Mail',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -816,7 +818,7 @@ Class SmtpClient from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Mail.SmtpClient, System.Net.Mail',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -831,8 +833,8 @@ Class SmtpClient from Object
 		return self
 
 	Func Send P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Send",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Send",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s4:Send",P1)
@@ -840,8 +842,8 @@ Class SmtpClient from Object
 		return self
 
 	Func SendAsync P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:SendAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:SendAsync",P1)
 			return self
 		ok
 		raise("DotNet Error: SendAsync does not take one argument: use named arguments, SendAsync([ :parameter = value, ... ])")
@@ -852,8 +854,8 @@ Class SmtpClient from Object
 		return self
 
 	Func SendMailAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SendMailAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SendMailAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SendMailAsync",P1))
 
@@ -989,7 +991,7 @@ Class AlternateView from AttachmentBase
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Mail.AlternateView, System.Net.Mail',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1004,8 +1006,8 @@ Class AlternateView from AttachmentBase
 		return self
 
 	Func CreateAlternateViewFromString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Mail.AlternateView, System.Net.Mail'),"s29:CreateAlternateViewFromString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Mail.AlternateView, System.Net.Mail',"s29:CreateAlternateViewFromString",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Net.Mail.AlternateView, System.Net.Mail',"s29:CreateAlternateViewFromString",P1))
 
@@ -1041,7 +1043,7 @@ Class Attachment from AttachmentBase
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Mail.Attachment, System.Net.Mail',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1056,8 +1058,8 @@ Class Attachment from AttachmentBase
 		return self
 
 	Func CreateAttachmentFromString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Mail.Attachment, System.Net.Mail'),"s26:CreateAttachmentFromString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Mail.Attachment, System.Net.Mail',"s26:CreateAttachmentFromString",P1))
 		ok
 		raise("DotNet Error: CreateAttachmentFromString does not take one argument: use named arguments, CreateAttachmentFromString([ :parameter = value, ... ])")
 
@@ -1100,7 +1102,7 @@ Class LinkedResource from AttachmentBase
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Mail.LinkedResource, System.Net.Mail',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1115,8 +1117,8 @@ Class LinkedResource from AttachmentBase
 		return self
 
 	Func CreateLinkedResourceFromString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Mail.LinkedResource, System.Net.Mail'),"s30:CreateLinkedResourceFromString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Mail.LinkedResource, System.Net.Mail',"s30:CreateLinkedResourceFromString",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Net.Mail.LinkedResource, System.Net.Mail',"s30:CreateLinkedResourceFromString",P1))
 

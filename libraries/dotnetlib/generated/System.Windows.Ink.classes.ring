@@ -436,7 +436,7 @@ Class GestureRecognizer from DependencyObject
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.GestureRecognizer, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -597,7 +597,7 @@ Class Stroke from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.Stroke, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -647,8 +647,8 @@ Class Stroke from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBounds"))
 
 	Func Draw P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Draw",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Draw",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s4:Draw",P1)
@@ -659,22 +659,24 @@ Class Stroke from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetClipResult",P1))
 
 	Func GetEraseResult P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetEraseResult",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:GetEraseResult",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetEraseResult",P1))
 
 	Func HitTest P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:HitTest",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:HitTest",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:HitTest",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetGeometry P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetGeometry",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetGeometry",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetGeometry"))
@@ -774,7 +776,7 @@ Class StrokeCollection from DotNetObject
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.StrokeCollection, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -789,8 +791,8 @@ Class StrokeCollection from DotNetObject
 		return self
 
 	Func Save P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Save",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Save",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s4:Save",P1)
@@ -850,8 +852,8 @@ Class StrokeCollection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBounds"))
 
 	Func HitTest P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:HitTest",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:HitTest",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HitTest",P1))
 
@@ -861,8 +863,8 @@ Class StrokeCollection from DotNetObject
 		return self
 
 	Func Erase P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Erase",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Erase",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s5:Erase",P1)
@@ -1106,7 +1108,7 @@ Class EllipseStylusShape from StylusShape
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.EllipseStylusShape, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1175,7 +1177,7 @@ Class RectangleStylusShape from StylusShape
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.RectangleStylusShape, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

@@ -423,8 +423,8 @@ Class AuthenticateResult from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions',"s8:NoResult"))
 
 	Func Fail P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"s4:Fail",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions',"s4:Fail",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions',"s4:Fail",P1))
 
@@ -485,8 +485,8 @@ Class AuthenticationBuilder from Object
 		return self
 
 	Func AddScheme P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:AddScheme",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:AddScheme",P1))
 		ok
 		raise("DotNet Error: AddScheme does not take one argument: use named arguments, AddScheme([ :parameter = value, ... ])")
 
@@ -618,38 +618,38 @@ Class AuthenticationHttpContextExtensions from Object
 		return dn_x
 
 	Func AuthenticateAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"s17:AuthenticateAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s17:AuthenticateAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s17:AuthenticateAsync",P1))
 
 	Func ChallengeAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"s14:ChallengeAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s14:ChallengeAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s14:ChallengeAsync",P1))
 
 	Func ForbidAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"s11:ForbidAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s11:ForbidAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s11:ForbidAsync",P1))
 
 	Func SignInAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"s11:SignInAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s11:SignInAsync",P1))
 		ok
 		raise("DotNet Error: SignInAsync does not take one argument: use named arguments, SignInAsync([ :parameter = value, ... ])")
 
 	Func SignOutAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"s12:SignOutAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s12:SignOutAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s12:SignOutAsync",P1))
 
 	Func GetTokenAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"s13:GetTokenAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s13:GetTokenAsync",P1))
 		ok
 		raise("DotNet Error: GetTokenAsync does not take one argument: use named arguments, GetTokenAsync([ :parameter = value, ... ])")
 
@@ -831,7 +831,7 @@ Class AuthenticationProperties from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1051,8 +1051,8 @@ Class AuthenticationSchemeOptions from Object
 		return self
 
 	Func Validate P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:Validate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:Validate",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1300,7 +1300,7 @@ Class AuthenticationTicket from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Authentication.AuthenticationTicket, Microsoft.AspNetCore.Authentication.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1425,8 +1425,8 @@ Class AuthenticationTokenExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s9:GetTokens",P1))
 
 	Func GetTokenAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"s13:GetTokenAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions',"s13:GetTokenAsync",P1))
 		ok
 		raise("DotNet Error: GetTokenAsync does not take one argument: use named arguments, GetTokenAsync([ :parameter = value, ... ])")
 
@@ -1473,22 +1473,22 @@ Class ClaimActionCollectionMapExtensions from Object
 		return dn_x
 
 	Func MapJsonKey P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"s10:MapJsonKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth',"s10:MapJsonKey",P1)
 			return self
 		ok
 		raise("DotNet Error: MapJsonKey does not take one argument: use named arguments, MapJsonKey([ :parameter = value, ... ])")
 
 	Func MapJsonSubKey P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"s13:MapJsonSubKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth',"s13:MapJsonSubKey",P1)
 			return self
 		ok
 		raise("DotNet Error: MapJsonSubKey does not take one argument: use named arguments, MapJsonSubKey([ :parameter = value, ... ])")
 
 	Func MapCustomJson P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"s13:MapCustomJson",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth',"s13:MapCustomJson",P1)
 			return self
 		ok
 		raise("DotNet Error: MapCustomJson does not take one argument: use named arguments, MapCustomJson([ :parameter = value, ... ])")
@@ -1829,7 +1829,7 @@ Class PolicySchemeHandler from DotNetObject
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Authentication.PolicySchemeHandler, Microsoft.AspNetCore.Authentication',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1906,16 +1906,18 @@ Class PropertiesDataFormat from DotNetObject
 		return self
 
 	Func Protect P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Protect",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:Protect",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:Protect",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Unprotect P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:Unprotect",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Unprotect",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Unprotect",P1))
 
@@ -2182,16 +2184,18 @@ Class TicketDataFormat from DotNetObject
 		return self
 
 	Func Protect P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Protect",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:Protect",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:Protect",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Unprotect P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:Unprotect",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Unprotect",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Unprotect",P1))
 
@@ -2410,8 +2414,8 @@ Class HandleRequestResult from AuthenticateResult
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication',"s7:Success",P1))
 
 	Func Fail P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"s4:Fail",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication',"s4:Fail",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication',"s4:Fail",P1))
 

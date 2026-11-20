@@ -450,7 +450,7 @@ Class VisualStyleRenderer from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -465,8 +465,8 @@ Class VisualStyleRenderer from Object
 		return self
 
 	Func SetParameters P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s13:SetParameters",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s13:SetParameters",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s13:SetParameters",P1)
@@ -474,8 +474,8 @@ Class VisualStyleRenderer from Object
 		return self
 
 	Func DrawBackground P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:DrawBackground",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:DrawBackground",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawBackground does not take one argument: use named arguments, DrawBackground([ :parameter = value, ... ])")
@@ -484,8 +484,8 @@ Class VisualStyleRenderer from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:DrawEdge",P1,P2,P3,P4,P5))
 
 	Func DrawImage P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:DrawImage",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:DrawImage",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawImage does not take one argument: use named arguments, DrawImage([ :parameter = value, ... ])")
@@ -496,8 +496,8 @@ Class VisualStyleRenderer from Object
 		return self
 
 	Func DrawText P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:DrawText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:DrawText",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawText does not take one argument: use named arguments, DrawText([ :parameter = value, ... ])")
@@ -538,8 +538,8 @@ Class VisualStyleRenderer from Object
 		return dn_x
 
 	Func GetPartSize P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetPartSize",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetPartSize",P1))
 		ok
 		raise("DotNet Error: GetPartSize does not take one argument: use named arguments, GetPartSize([ :parameter = value, ... ])")
 
@@ -555,8 +555,8 @@ Class VisualStyleRenderer from Object
 		return dn_x
 
 	Func GetTextExtent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:GetTextExtent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetTextExtent",P1))
 		ok
 		raise("DotNet Error: GetTextExtent does not take one argument: use named arguments, GetTextExtent([ :parameter = value, ... ])")
 
@@ -564,8 +564,8 @@ Class VisualStyleRenderer from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetTextMetrics",P1))
 
 	Func HitTestBackground P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:HitTestBackground",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:HitTestBackground",P1))
 		ok
 		raise("DotNet Error: HitTestBackground does not take one argument: use named arguments, HitTestBackground([ :parameter = value, ... ])")
 

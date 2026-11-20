@@ -160,7 +160,7 @@ Class XslCompiledTransform from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Xsl.XslCompiledTransform, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -175,8 +175,8 @@ Class XslCompiledTransform from Object
 		return self
 
 	Func Load_ P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Load",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s4:Load",P1)
@@ -184,8 +184,8 @@ Class XslCompiledTransform from Object
 		return self
 
 	Func Transform P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:Transform",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:Transform",P1)
 			return self
 		ok
 		raise("DotNet Error: Transform does not take one argument: use named arguments, Transform([ :parameter = value, ... ])")
@@ -225,8 +225,8 @@ Class XslTransform from Object
 		return self
 
 	Func Load_ P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Load",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s4:Load",P1)
@@ -234,8 +234,10 @@ Class XslTransform from Object
 		return self
 
 	Func Transform P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:Transform",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:Transform",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: Transform does not take one argument: use named arguments, Transform([ :parameter = value, ... ])")
 
@@ -397,7 +399,7 @@ Class XsltSettings from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Xsl.XsltSettings, System.Private.Xml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

@@ -115,7 +115,7 @@ Class EmbeddedFileProvider from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.FileProviders.EmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -271,7 +271,7 @@ Class ManifestEmbeddedFileProvider from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.FileProviders.ManifestEmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -526,7 +526,7 @@ Class PhysicalFileProvider from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.FileProviders.PhysicalFileProvider, Microsoft.Extensions.FileProviders.Physical',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

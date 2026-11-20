@@ -121,22 +121,24 @@ Class Dispatcher from Object
 		return self
 
 	Func BeginInvoke P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:BeginInvoke",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:BeginInvoke",P1))
 		ok
 		raise("DotNet Error: BeginInvoke does not take one argument: use named arguments, BeginInvoke([ :parameter = value, ... ])")
 
 	Func Invoke P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Invoke",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Invoke",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:Invoke",P1)
 
 		return self
 
 	Func InvokeAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:InvokeAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:InvokeAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:InvokeAsync",P1))
 
@@ -167,8 +169,8 @@ Class Dispatcher from Object
 		return self
 
 	Func Yield P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Threading.Dispatcher, WindowsBase'),"s5:Yield",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Threading.Dispatcher, WindowsBase',"s5:Yield",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s5:Yield"))
@@ -417,8 +419,8 @@ Class DispatcherOperation from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetAwaiter"))
 
 	Func Wait P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Wait",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Wait",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Wait"))
@@ -596,7 +598,7 @@ Class DispatcherSynchronizationContext from SynchronizationContext
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Threading.DispatcherSynchronizationContext, WindowsBase',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -638,7 +640,7 @@ Class DispatcherTimer from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Threading.DispatcherTimer, WindowsBase',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -727,7 +729,7 @@ Class DispatcherFrame from DispatcherObject
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Threading.DispatcherFrame, WindowsBase',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

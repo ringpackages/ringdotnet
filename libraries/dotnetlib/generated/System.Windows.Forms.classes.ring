@@ -2754,8 +2754,8 @@ Class Application from Object
 		return self
 
 	Func Exit_ P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s4:Exit",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.Application, System.Windows.Forms',"s4:Exit",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -2796,8 +2796,8 @@ Class Application from Object
 		return self
 
 	Func Run P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s3:Run",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.Application, System.Windows.Forms',"s3:Run",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -2830,8 +2830,8 @@ Class Application from Object
 		return dn_x
 
 	Func SetUnhandledExceptionMode P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s25:SetUnhandledExceptionMode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.Application, System.Windows.Forms',"s25:SetUnhandledExceptionMode",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s25:SetUnhandledExceptionMode",P1)
@@ -3085,7 +3085,7 @@ Class ApplicationContext from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ApplicationContext, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3392,7 +3392,7 @@ Class Binding from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Binding, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3565,7 +3565,7 @@ Class BindingCompleteEventArgs from CancelEventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingCompleteEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3635,8 +3635,10 @@ Class BindingContext from Object
 		return self
 
 	Func Contains P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Contains",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3853,7 +3855,7 @@ Class BindingMemberInfo from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3942,7 +3944,7 @@ Class BindingSource from Component
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingSource, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4084,8 +4086,8 @@ Class BindingSource from Component
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AddNew"))
 
 	Func ApplySort P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:ApplySort",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:ApplySort",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s9:ApplySort",P1)
@@ -4418,8 +4420,8 @@ Class ButtonRenderer from Object
 		return self
 
 	Func DrawButton P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"s10:DrawButton",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.ButtonRenderer, System.Windows.Forms',"s10:DrawButton",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawButton does not take one argument: use named arguments, DrawButton([ :parameter = value, ... ])")
@@ -4496,8 +4498,8 @@ Class CheckBoxRenderer from Object
 		return self
 
 	Func DrawCheckBox P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"s12:DrawCheckBox",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms',"s12:DrawCheckBox",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawCheckBox does not take one argument: use named arguments, DrawCheckBox([ :parameter = value, ... ])")
@@ -4532,8 +4534,8 @@ Class Clipboard from Object
 		return dn_x
 
 	Func SetDataObject P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s13:SetDataObject",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s13:SetDataObject",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s13:SetDataObject",P1)
@@ -4569,8 +4571,10 @@ Class Clipboard from Object
 		return dn_x
 
 	Func ContainsText P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s12:ContainsText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s12:ContainsText",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s12:ContainsText")
@@ -4594,8 +4598,10 @@ Class Clipboard from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s8:GetImage"))
 
 	Func GetText P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:GetText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s7:GetText",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s7:GetText")
@@ -4627,8 +4633,8 @@ Class Clipboard from Object
 		return self
 
 	Func SetText P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Clipboard, System.Windows.Forms'),"s7:SetText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s7:SetText",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s7:SetText",P1)
@@ -4694,7 +4700,7 @@ Class ColumnHeader from Component
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ColumnHeader, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4907,7 +4913,7 @@ Class ColumnWidthChangingEventArgs from CancelEventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ColumnWidthChangingEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4958,8 +4964,8 @@ Class ComboBoxRenderer from Object
 		return dn_x
 
 	Func DrawTextBox P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"s11:DrawTextBox",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms',"s11:DrawTextBox",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawTextBox does not take one argument: use named arguments, DrawTextBox([ :parameter = value, ... ])")
@@ -4997,8 +5003,8 @@ Class CommonDialog from Component
 		return self
 
 	Func ShowDialog P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:ShowDialog",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:ShowDialog",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:ShowDialog"))
@@ -5147,7 +5153,7 @@ Class Control from Component
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Control, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5170,8 +5176,8 @@ Class Control from Component
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetPreferredSize",P1))
 
 	Func BeginInvoke P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:BeginInvoke",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:BeginInvoke",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:BeginInvoke",P1))
 
@@ -5194,8 +5200,8 @@ Class Control from Component
 		return self
 
 	Func DoDragDrop P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:DoDragDrop",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:DoDragDrop",P1))
 		ok
 		raise("DotNet Error: DoDragDrop does not take one argument: use named arguments, DoDragDrop([ :parameter = value, ... ])")
 
@@ -5216,8 +5222,8 @@ Class Control from Component
 		return dn_x
 
 	Func GetChildAtPoint P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:GetChildAtPoint",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetChildAtPoint",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetChildAtPoint",P1))
 
@@ -5233,8 +5239,8 @@ Class Control from Component
 		return self
 
 	Func Invalidate P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:Invalidate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:Invalidate",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -5247,8 +5253,10 @@ Class Control from Component
 		return self
 
 	Func Invoke P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Invoke",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Invoke",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:Invoke",P1)
 
@@ -5263,8 +5271,8 @@ Class Control from Component
 		return dnSend("s4:call",nHandle,"s26:ScaleBitmapLogicalToDevice",dnPackItem(P1))
 
 	Func PerformLayout P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s13:PerformLayout",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s13:PerformLayout",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -5328,8 +5336,8 @@ Class Control from Component
 		return self
 
 	Func ResumeLayout P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s12:ResumeLayout",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s12:ResumeLayout",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -5342,8 +5350,8 @@ Class Control from Component
 		return self
 
 	Func Scale P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Scale",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Scale",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s5:Scale",P1)
@@ -5366,8 +5374,8 @@ Class Control from Component
 		return self
 
 	Func SetBounds_ P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:SetBounds",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:SetBounds",P1)
 			return self
 		ok
 		raise("DotNet Error: SetBounds does not take one argument: use named arguments, SetBounds([ :parameter = value, ... ])")
@@ -5393,8 +5401,8 @@ Class Control from Component
 		return self
 
 	Func InvokeAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:InvokeAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:InvokeAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:InvokeAsync",P1))
 
@@ -6636,8 +6644,8 @@ Class ControlPaint from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s22:CreateHBitmapColorMask",P1,P2))
 
 	Func Dark P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s4:Dark",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s4:Dark",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s4:Dark",P1))
 
@@ -6645,43 +6653,43 @@ Class ControlPaint from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s8:DarkDark",P1))
 
 	Func DrawBorder P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s10:DrawBorder",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s10:DrawBorder",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawBorder does not take one argument: use named arguments, DrawBorder([ :parameter = value, ... ])")
 
 	Func DrawBorder3D P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s12:DrawBorder3D",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s12:DrawBorder3D",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawBorder3D does not take one argument: use named arguments, DrawBorder3D([ :parameter = value, ... ])")
 
 	Func DrawButton P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s10:DrawButton",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s10:DrawButton",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawButton does not take one argument: use named arguments, DrawButton([ :parameter = value, ... ])")
 
 	Func DrawCaptionButton P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s17:DrawCaptionButton",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s17:DrawCaptionButton",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawCaptionButton does not take one argument: use named arguments, DrawCaptionButton([ :parameter = value, ... ])")
 
 	Func DrawCheckBox P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s12:DrawCheckBox",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s12:DrawCheckBox",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawCheckBox does not take one argument: use named arguments, DrawCheckBox([ :parameter = value, ... ])")
 
 	Func DrawComboButton P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s15:DrawComboButton",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s15:DrawComboButton",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawComboButton does not take one argument: use named arguments, DrawComboButton([ :parameter = value, ... ])")
@@ -6692,8 +6700,8 @@ Class ControlPaint from Object
 		return self
 
 	Func DrawFocusRectangle P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s18:DrawFocusRectangle",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s18:DrawFocusRectangle",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawFocusRectangle does not take one argument: use named arguments, DrawFocusRectangle([ :parameter = value, ... ])")
@@ -6719,22 +6727,22 @@ Class ControlPaint from Object
 		return self
 
 	Func DrawMenuGlyph P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s13:DrawMenuGlyph",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s13:DrawMenuGlyph",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawMenuGlyph does not take one argument: use named arguments, DrawMenuGlyph([ :parameter = value, ... ])")
 
 	Func DrawMixedCheckBox P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s17:DrawMixedCheckBox",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s17:DrawMixedCheckBox",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawMixedCheckBox does not take one argument: use named arguments, DrawMixedCheckBox([ :parameter = value, ... ])")
 
 	Func DrawRadioButton P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s15:DrawRadioButton",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s15:DrawRadioButton",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawRadioButton does not take one argument: use named arguments, DrawRadioButton([ :parameter = value, ... ])")
@@ -6750,8 +6758,8 @@ Class ControlPaint from Object
 		return self
 
 	Func DrawScrollButton P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s16:DrawScrollButton",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s16:DrawScrollButton",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawScrollButton does not take one argument: use named arguments, DrawScrollButton([ :parameter = value, ... ])")
@@ -6762,8 +6770,8 @@ Class ControlPaint from Object
 		return self
 
 	Func DrawSizeGrip P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s12:DrawSizeGrip",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s12:DrawSizeGrip",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawSizeGrip does not take one argument: use named arguments, DrawSizeGrip([ :parameter = value, ... ])")
@@ -6784,8 +6792,8 @@ Class ControlPaint from Object
 		return self
 
 	Func Light P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"s5:Light",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s5:Light",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.ControlPaint, System.Windows.Forms',"s5:Light",P1))
 
@@ -6984,7 +6992,7 @@ Class Cursor from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Cursor, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7941,7 +7949,7 @@ Class DataGridViewCellStyle from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8377,8 +8385,10 @@ Class DataGridViewRowCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:SharedRow",P1))
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s3:Add")
@@ -8420,8 +8430,10 @@ Class DataGridViewRowCollection from Object
 		return self
 
 	Func GetFirstRow P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetFirstRow",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetFirstRow",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s11:GetFirstRow",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -8433,14 +8445,18 @@ Class DataGridViewRowCollection from Object
 		return dn_x
 
 	Func GetNextRow P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:GetNextRow",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:GetNextRow",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: GetNextRow does not take one argument: use named arguments, GetNextRow([ :parameter = value, ... ])")
 
 	Func GetPreviousRow P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetPreviousRow",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:GetPreviousRow",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: GetPreviousRow does not take one argument: use named arguments, GetPreviousRow([ :parameter = value, ... ])")
 
@@ -9098,7 +9114,7 @@ Class DataObject from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataObject, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9113,22 +9129,24 @@ Class DataObject from Object
 		return self
 
 	Func GetData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:GetData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:GetData",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetData",P1))
 
 	Func GetDataPresent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetDataPresent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:GetDataPresent",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDataPresent",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetFormats P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:GetFormats",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetFormats",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetFormats"))
@@ -9136,8 +9154,8 @@ Class DataObject from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetFormats",P1))
 
 	Func SetData P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:SetData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:SetData",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s7:SetData",P1)
@@ -9160,8 +9178,10 @@ Class DataObject from Object
 		return dn_x
 
 	Func ContainsText P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:ContainsText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:ContainsText",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s12:ContainsText")
@@ -9182,8 +9202,10 @@ Class DataObject from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetImage"))
 
 	Func GetText P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:GetText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:GetText",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s7:GetText")
@@ -9210,8 +9232,8 @@ Class DataObject from Object
 		return self
 
 	Func SetText P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:SetText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:SetText",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s7:SetText",P1)
@@ -9348,7 +9370,7 @@ Class DragEventArgs from EventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DragEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9453,7 +9475,7 @@ Class DrawItemEventArgs from EventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DrawItemEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9556,8 +9578,8 @@ Class DrawListViewColumnHeaderEventArgs from EventArgs
 		return self
 
 	Func DrawText P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:DrawText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:DrawText",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -9660,8 +9682,8 @@ Class DrawListViewItemEventArgs from EventArgs
 		return self
 
 	Func DrawText P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:DrawText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:DrawText",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -9749,8 +9771,8 @@ Class DrawListViewSubItemEventArgs from EventArgs
 		return self
 
 	Func DrawText P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:DrawText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:DrawText",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -9850,8 +9872,8 @@ Class DrawToolTipEventArgs from EventArgs
 		return self
 
 	Func DrawText P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:DrawText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:DrawText",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -9992,7 +10014,7 @@ Class ErrorProvider from Component
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ErrorProvider, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -10145,22 +10167,26 @@ Class FeatureSupport from Object
 		return self
 
 	Func IsPresent P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.FeatureSupport, System.Windows.Forms'),"s9:IsPresent",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Forms.FeatureSupport, System.Windows.Forms',"s9:IsPresent",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s9:IsPresent",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:IsPresent",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:IsPresent",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetVersionPresent P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.FeatureSupport, System.Windows.Forms'),"s17:GetVersionPresent",dnPackItem(P1))
+				return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Forms.FeatureSupport, System.Windows.Forms',"s17:GetVersionPresent",P1))
 			ok
-			return dnSend("s9:callnamed",nHandle,"s17:GetVersionPresent",dnPackItem(P1))
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:GetVersionPresent",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetVersionPresent",P1))
 
@@ -10455,7 +10481,7 @@ Class GiveFeedbackEventArgs from EventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.GiveFeedbackEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -10672,8 +10698,8 @@ Class GroupBoxRenderer from Object
 		return self
 
 	Func DrawGroupBox P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"s12:DrawGroupBox",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms',"s12:DrawGroupBox",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawGroupBox does not take one argument: use named arguments, DrawGroupBox([ :parameter = value, ... ])")
@@ -10705,8 +10731,8 @@ Class Help from Object
 		return dn_x
 
 	Func ShowHelp P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.Help, System.Windows.Forms'),"s8:ShowHelp",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.Help, System.Windows.Forms',"s8:ShowHelp",P1)
 			return self
 		ok
 		raise("DotNet Error: ShowHelp does not take one argument: use named arguments, ShowHelp([ :parameter = value, ... ])")
@@ -10906,8 +10932,8 @@ Class HtmlDocument from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:CreateElement",P1))
 
 	Func InvokeScript P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:InvokeScript",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:InvokeScript",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:InvokeScript",P1))
 
@@ -11223,8 +11249,8 @@ Class HtmlElement from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:InsertAdjacentElement",P1,P2))
 
 	Func InvokeMember P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:InvokeMember",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:InvokeMember",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:InvokeMember",P1))
 
@@ -11901,8 +11927,8 @@ Class HtmlWindow from Object
 		return self
 
 	Func MoveTo P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:MoveTo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:MoveTo",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:MoveTo",P1)
@@ -11931,8 +11957,8 @@ Class HtmlWindow from Object
 		return self
 
 	Func ResizeTo P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:ResizeTo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:ResizeTo",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:ResizeTo",P1)
@@ -11940,8 +11966,8 @@ Class HtmlWindow from Object
 		return self
 
 	Func ScrollTo P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:ScrollTo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:ScrollTo",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:ScrollTo",P1)
@@ -12426,22 +12452,24 @@ Class IDataObject from DotNetObject
 		return self
 
 	Func GetData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:GetData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:GetData",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetData",P1))
 
 	Func GetDataPresent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetDataPresent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:GetDataPresent",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDataPresent",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetFormats P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:GetFormats",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetFormats",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetFormats"))
@@ -12449,8 +12477,8 @@ Class IDataObject from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetFormats",P1))
 
 	Func SetData P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:SetData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:SetData",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s7:SetData",P1)
@@ -12502,8 +12530,10 @@ Class IFeatureSupport from DotNetObject
 		return self
 
 	Func IsPresent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:IsPresent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:IsPresent",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:IsPresent",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -12656,7 +12686,7 @@ Class ImageList from Component
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ImageList, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -12671,8 +12701,8 @@ Class ImageList from Component
 		return self
 
 	Func Draw P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Draw",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Draw",P1)
 			return self
 		ok
 		raise("DotNet Error: Draw does not take one argument: use named arguments, Draw([ :parameter = value, ... ])")
@@ -13145,7 +13175,7 @@ Class ItemDragEventArgs from EventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ItemDragEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -13341,7 +13371,7 @@ Class LabelEditEventArgs from EventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.LabelEditEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -13470,7 +13500,7 @@ Class LinkArea from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.LinkArea, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -13529,7 +13559,7 @@ Class LinkClickedEventArgs from EventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.LinkClickedEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -13606,7 +13636,7 @@ Class LinkLabelLinkClickedEventArgs from EventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.LinkLabelLinkClickedEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -13671,8 +13701,8 @@ Class ListBindingHelper from Object
 		return dn_x
 
 	Func GetList P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"s7:GetList",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Forms.ListBindingHelper, System.Windows.Forms',"s7:GetList",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.ListBindingHelper, System.Windows.Forms',"s7:GetList",P1))
 
@@ -13682,14 +13712,14 @@ Class ListBindingHelper from Object
 		return dn_x
 
 	Func GetListItemProperties P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"s21:GetListItemProperties",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Forms.ListBindingHelper, System.Windows.Forms',"s21:GetListItemProperties",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.ListBindingHelper, System.Windows.Forms',"s21:GetListItemProperties",P1))
 
 	Func GetListItemType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"s15:GetListItemType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Forms.ListBindingHelper, System.Windows.Forms',"s15:GetListItemType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.ListBindingHelper, System.Windows.Forms',"s15:GetListItemType",P1))
 
@@ -13730,7 +13760,7 @@ Class ListViewGroup from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListViewGroup, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -13867,8 +13897,10 @@ Class ListViewGroupCollection from Object
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -14106,7 +14138,7 @@ Class ListViewItem from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListViewItem, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -14501,7 +14533,7 @@ Class MeasureItemEventArgs from EventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.MeasureItemEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -14635,8 +14667,8 @@ Class MessageBox from Object
 		return dn_x
 
 	Func Show P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.MessageBox, System.Windows.Forms'),"s4:Show",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Forms.MessageBox, System.Windows.Forms',"s4:Show",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.MessageBox, System.Windows.Forms',"s4:Show",P1))
 
@@ -14803,7 +14835,7 @@ Class NodeLabelEditEventArgs from EventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.NodeLabelEditEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -14872,7 +14904,7 @@ Class NotifyIcon from Component
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.NotifyIcon, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -14887,8 +14919,8 @@ Class NotifyIcon from Component
 		return self
 
 	Func ShowBalloonTip P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:ShowBalloonTip",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:ShowBalloonTip",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s14:ShowBalloonTip",P1)
@@ -15251,7 +15283,7 @@ Class Padding from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -15601,7 +15633,7 @@ Class PrintControllerWithStatusDialog from PrintController
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.PrintControllerWithStatusDialog, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -16618,7 +16650,7 @@ Class QueryAccessibilityHelpEventArgs from EventArgs
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -16725,7 +16757,7 @@ Class QuestionEventArgs from EventArgs
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -16778,8 +16810,8 @@ Class RadioButtonRenderer from Object
 		return self
 
 	Func DrawRadioButton P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"s15:DrawRadioButton",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms',"s15:DrawRadioButton",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawRadioButton does not take one argument: use named arguments, DrawRadioButton([ :parameter = value, ... ])")
@@ -17022,7 +17054,7 @@ Class ScrollEventArgs from EventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ScrollEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -17294,7 +17326,7 @@ Class SelectionRange from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.SelectionRange, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -18496,8 +18528,8 @@ Class TabRenderer from Object
 		return dn_x
 
 	Func DrawTabItem P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"s11:DrawTabItem",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.TabRenderer, System.Windows.Forms',"s11:DrawTabItem",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawTabItem does not take one argument: use named arguments, DrawTabItem([ :parameter = value, ... ])")
@@ -18541,7 +18573,7 @@ Class TableLayoutPanelCellPosition from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -18673,14 +18705,14 @@ Class TaskDialog from Object
 		return dn_x
 
 	Func ShowDialogAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"s15:ShowDialogAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Forms.TaskDialog, System.Windows.Forms',"s15:ShowDialogAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.TaskDialog, System.Windows.Forms',"s15:ShowDialogAsync",P1))
 
 	Func ShowDialog P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"s10:ShowDialog",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Forms.TaskDialog, System.Windows.Forms',"s10:ShowDialog",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.TaskDialog, System.Windows.Forms',"s10:ShowDialog",P1))
 
@@ -18714,8 +18746,10 @@ Class TaskDialogButtonCollection from DotNetObject
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
 
@@ -19281,8 +19315,8 @@ Class TextBoxRenderer from Object
 		return dn_x
 
 	Func DrawTextBox P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms'),"s11:DrawTextBox",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.TextBoxRenderer, System.Windows.Forms',"s11:DrawTextBox",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawTextBox does not take one argument: use named arguments, DrawTextBox([ :parameter = value, ... ])")
@@ -19313,15 +19347,15 @@ Class TextRenderer from Object
 		return dn_x
 
 	Func DrawText P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"s8:DrawText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.TextRenderer, System.Windows.Forms',"s8:DrawText",P1)
 			return self
 		ok
 		raise("DotNet Error: DrawText does not take one argument: use named arguments, DrawText([ :parameter = value, ... ])")
 
 	Func MeasureText P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"s11:MeasureText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Forms.TextRenderer, System.Windows.Forms',"s11:MeasureText",P1))
 		ok
 		raise("DotNet Error: MeasureText does not take one argument: use named arguments, MeasureText([ :parameter = value, ... ])")
 
@@ -19352,7 +19386,7 @@ Class FormsTimer from Component
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Timer, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -19753,8 +19787,10 @@ Class ToolStripItemCollection from ArrangedElementCollection
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
 
@@ -19897,8 +19933,8 @@ Class ToolStripManager from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s13:FindToolStrip",P1))
 
 	Func LoadSettings P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s12:LoadSettings",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s12:LoadSettings",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s12:LoadSettings",P1)
@@ -19906,8 +19942,8 @@ Class ToolStripManager from Object
 		return self
 
 	Func SaveSettings P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s12:SaveSettings",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s12:SaveSettings",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s12:SaveSettings",P1)
@@ -19930,8 +19966,10 @@ Class ToolStripManager from Object
 		return dn_x
 
 	Func RevertMerge P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"s11:RevertMerge",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s11:RevertMerge",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s11:RevertMerge",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -20106,7 +20144,7 @@ Class ToolStripRenderEventArgs from EventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripRenderEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -20470,7 +20508,7 @@ Class ToolTip from Component
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolTip, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -20505,8 +20543,8 @@ Class ToolTip from Component
 		return self
 
 	Func Show P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Show",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Show",P1)
 			return self
 		ok
 		raise("DotNet Error: Show does not take one argument: use named arguments, Show([ :parameter = value, ... ])")
@@ -20814,7 +20852,7 @@ Class TreeNode from MarshalByRefObject
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TreeNode, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -20837,8 +20875,8 @@ Class TreeNode from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func Collapse P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:Collapse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:Collapse",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -21151,8 +21189,10 @@ Class TreeNodeCollection from Object
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
 
@@ -21185,8 +21225,10 @@ Class TreeNodeCollection from Object
 		return dn_x
 
 	Func Insert P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Insert",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Insert",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
 
@@ -21336,7 +21378,7 @@ Class TreeViewEventArgs from EventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TreeViewEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -21814,8 +21856,10 @@ Class ControlCollection from ArrangedElementCollection
 		return self
 
 	Func GetChildIndex P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:GetChildIndex",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:GetChildIndex",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:GetChildIndex",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -21853,7 +21897,7 @@ Class ListBoxObjectCollection from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListBox+ObjectCollection, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -22132,8 +22176,8 @@ Class ListViewItemCollection from Object
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Add",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
 
@@ -22179,8 +22223,8 @@ Class ListViewItemCollection from Object
 		return dn_x
 
 	Func Insert P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Insert",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Insert",P1))
 		ok
 		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
 
@@ -22255,8 +22299,10 @@ Class ColumnHeaderCollection from Object
 		return dn_x
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -22288,8 +22334,8 @@ Class ColumnHeaderCollection from Object
 		return dn_x
 
 	Func Insert P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Insert",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Insert",P1)
 			return self
 		ok
 		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
@@ -22507,7 +22553,7 @@ Class ListViewSubItem from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -22601,14 +22647,14 @@ Class ListViewSubItemCollection from Object
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Add",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
 
 	Func AddRange P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:AddRange",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:AddRange",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:AddRange",P1)
@@ -22709,8 +22755,8 @@ Class TabPageCollection from Object
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
@@ -22743,8 +22789,8 @@ Class TabPageCollection from Object
 		return dn_x
 
 	Func Insert P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Insert",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Insert",P1)
 			return self
 		ok
 		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
@@ -22818,8 +22864,10 @@ Class ImageCollection from Object
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
@@ -23101,8 +23149,8 @@ Class AxHost from Control
 		return self
 
 	Func ShowPropertyPages P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s17:ShowPropertyPages",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s17:ShowPropertyPages",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -23461,7 +23509,7 @@ Class ColumnStyle from TableLayoutStyle
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ColumnStyle, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -23635,8 +23683,8 @@ Class DataGridView from Control
 		return dn_x
 
 	Func AutoResizeColumn P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s16:AutoResizeColumn",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s16:AutoResizeColumn",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s16:AutoResizeColumn",P1)
@@ -23644,8 +23692,8 @@ Class DataGridView from Control
 		return self
 
 	Func AutoResizeColumnHeadersHeight P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s29:AutoResizeColumnHeadersHeight",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s29:AutoResizeColumnHeadersHeight",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -23658,8 +23706,8 @@ Class DataGridView from Control
 		return self
 
 	Func AutoResizeColumns P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s17:AutoResizeColumns",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s17:AutoResizeColumns",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -23672,8 +23720,8 @@ Class DataGridView from Control
 		return self
 
 	Func AutoResizeRow P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s13:AutoResizeRow",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s13:AutoResizeRow",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s13:AutoResizeRow",P1)
@@ -23681,8 +23729,8 @@ Class DataGridView from Control
 		return self
 
 	Func AutoResizeRowHeadersWidth P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s25:AutoResizeRowHeadersWidth",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s25:AutoResizeRowHeadersWidth",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s25:AutoResizeRowHeadersWidth",P1)
@@ -23690,8 +23738,8 @@ Class DataGridView from Control
 		return self
 
 	Func AutoResizeRows P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:AutoResizeRows",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AutoResizeRows",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -23734,8 +23782,10 @@ Class DataGridView from Control
 		return dn_x
 
 	Func EndEdit P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:EndEdit",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:EndEdit",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s7:EndEdit")
@@ -23767,8 +23817,8 @@ Class DataGridView from Control
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HitTest",P1,P2))
 
 	Func InvalidateCell P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:InvalidateCell",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:InvalidateCell",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s14:InvalidateCell",P1)
@@ -23801,8 +23851,8 @@ Class DataGridView from Control
 		return self
 
 	Func Sort P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Sort",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Sort",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s4:Sort",P1)
@@ -23820,8 +23870,8 @@ Class DataGridView from Control
 		return self
 
 	Func UpdateRowErrorText P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s18:UpdateRowErrorText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s18:UpdateRowErrorText",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s18:UpdateRowErrorText",P1)
@@ -26068,8 +26118,10 @@ Class DataGridViewColumnCollection from BaseCollection
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -26101,8 +26153,8 @@ Class DataGridViewColumnCollection from BaseCollection
 		return dn_x
 
 	Func GetFirstColumn P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetFirstColumn",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:GetFirstColumn",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetFirstColumn",P1))
 
@@ -27196,7 +27248,7 @@ Class HandledMouseEventArgs from MouseEventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.HandledMouseEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -27616,8 +27668,8 @@ Class ListView from Control
 		return self
 
 	Func ArrangeIcons P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s12:ArrangeIcons",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s12:ArrangeIcons",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -27660,14 +27712,14 @@ Class ListView from Control
 		return self
 
 	Func FindItemWithText P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:FindItemWithText",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:FindItemWithText",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:FindItemWithText",P1))
 
 	Func FindNearestItem P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:FindNearestItem",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:FindNearestItem",P1))
 		ok
 		raise("DotNet Error: FindNearestItem does not take one argument: use named arguments, FindNearestItem([ :parameter = value, ... ])")
 
@@ -27675,14 +27727,14 @@ Class ListView from Control
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetItemAt",P1,P2))
 
 	Func GetItemRect P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetItemRect",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetItemRect",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetItemRect",P1))
 
 	Func HitTest P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:HitTest",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:HitTest",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HitTest",P1))
 
@@ -28324,8 +28376,8 @@ Class MonthCalendar from Control
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetDisplayRange",P1))
 
 	Func HitTest P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:HitTest",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:HitTest",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HitTest",P1))
 
@@ -28589,11 +28641,15 @@ Class OSFeature from FeatureSupport
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetVersionPresent",P1))
 
 	Func IsPresent P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Forms.OSFeature, System.Windows.Forms'),"s9:IsPresent",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Windows.Forms.OSFeature, System.Windows.Forms',"s9:IsPresent",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s9:IsPresent",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:IsPresent",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if nHandle = 0
 			dn_x = dotnet_call("s4:call",'System.Windows.Forms.OSFeature, System.Windows.Forms',"s9:IsPresent",P1)
@@ -28781,8 +28837,8 @@ Class PictureBox from Control
 		return self
 
 	Func Load_ P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Load",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -28795,8 +28851,8 @@ Class PictureBox from Control
 		return self
 
 	Func LoadAsync P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:LoadAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:LoadAsync",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -29260,7 +29316,7 @@ Class RowStyle from TableLayoutStyle
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.RowStyle, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -29857,8 +29913,8 @@ Class TableLayoutControlCollection from ControlCollection
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
@@ -30045,7 +30101,7 @@ Class TaskDialogButton from TaskDialogControl
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -30209,7 +30265,7 @@ Class TaskDialogExpander from TaskDialogControl
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -30300,7 +30356,7 @@ Class TaskDialogFootnote from TaskDialogControl
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -30359,7 +30415,7 @@ Class TaskDialogProgressBar from TaskDialogControl
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -30443,7 +30499,7 @@ Class TaskDialogRadioButton from TaskDialogControl
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -30518,7 +30574,7 @@ Class TaskDialogVerificationCheckBox from TaskDialogControl
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -30654,8 +30710,8 @@ Class TextBoxBase from Control
 		return self
 
 	Func Select P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Select",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Select",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -30967,8 +31023,8 @@ Class ToolStripItem from BindableComponent
 		return self
 
 	Func DoDragDrop P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:DoDragDrop",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:DoDragDrop",P1))
 		ok
 		raise("DotNet Error: DoDragDrop does not take one argument: use named arguments, DoDragDrop([ :parameter = value, ... ])")
 
@@ -30979,8 +31035,8 @@ Class ToolStripItem from BindableComponent
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetPreferredSize",P1))
 
 	Func Invalidate P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:Invalidate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:Invalidate",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -31743,7 +31799,7 @@ Class ToolStripItemImageRenderEventArgs from ToolStripItemRenderEventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripItemImageRenderEventArgs, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -31860,7 +31916,7 @@ Class ToolStripProfessionalRenderer from ToolStripRenderer
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -32175,8 +32231,8 @@ Class TreeView from Control
 		return self
 
 	Func HitTest P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:HitTest",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:HitTest",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HitTest",P1))
 
@@ -32186,8 +32242,8 @@ Class TreeView from Control
 		return dn_x
 
 	Func GetNodeAt P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:GetNodeAt",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:GetNodeAt",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetNodeAt",P1))
 
@@ -32656,8 +32712,10 @@ Class CheckedListBoxObjectCollection from ListBoxObjectCollection
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -32864,16 +32922,20 @@ Class ComboBox from ListControl
 		return self
 
 	Func FindString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:FindString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:FindString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s10:FindString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FindStringExact P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:FindStringExact",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:FindStringExact",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s15:FindStringExact",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -32885,8 +32947,8 @@ Class ComboBox from ListControl
 		return dn_x
 
 	Func Select P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Select",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Select",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -33161,8 +33223,10 @@ Class ContainerControl from ScrollableControl
 		return self
 
 	Func Validate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Validate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Validate",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s8:Validate")
@@ -33174,8 +33238,10 @@ Class ContainerControl from ScrollableControl
 		return dn_x
 
 	Func ValidateChildren P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:ValidateChildren",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:ValidateChildren",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s16:ValidateChildren")
@@ -33253,8 +33319,10 @@ Class ControlBindingsCollection from BindingsCollection
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
@@ -33368,7 +33436,7 @@ Class DataGridViewCheckBoxCell from DataGridViewCell
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -33485,7 +33553,7 @@ Class DataGridViewColumn from DataGridViewBand
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -33853,7 +33921,7 @@ Class DataGridViewImageCell from DataGridViewCell
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -34014,8 +34082,8 @@ Class DataGridViewRow from DataGridViewBand
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:AdjustRowHeaderBorderStyle",P1,P2,P3,P4,P5,P6))
 
 	Func CreateCells P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s11:CreateCells",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s11:CreateCells",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s11:CreateCells",P1)
@@ -34347,16 +34415,20 @@ Class ListBox from ListControl
 		return self
 
 	Func FindString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:FindString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:FindString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s10:FindString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FindStringExact P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:FindStringExact",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:FindStringExact",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s15:FindStringExact",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -34376,8 +34448,10 @@ Class ListBox from ListControl
 		return dn_x
 
 	Func IndexFromPoint P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:IndexFromPoint",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:IndexFromPoint",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s14:IndexFromPoint",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -34634,7 +34708,7 @@ Class MaskedTextBox from TextBoxBase
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.MaskedTextBox, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -35137,16 +35211,18 @@ Class RichTextBox from TextBoxBase
 		return dn_x
 
 	Func Find P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Find",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s4:Find",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s4:Find",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LoadFile P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:LoadFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:LoadFile",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:LoadFile",P1)
@@ -35154,8 +35230,8 @@ Class RichTextBox from TextBoxBase
 		return self
 
 	Func Paste P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Paste",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Paste",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -35173,8 +35249,8 @@ Class RichTextBox from TextBoxBase
 		return self
 
 	Func SaveFile P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:SaveFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:SaveFile",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:SaveFile",P1)
@@ -35550,7 +35626,7 @@ Class TaskDialogCommandLinkButton from TaskDialogButton
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -35606,8 +35682,8 @@ Class TextBox from TextBoxBase
 		return self
 
 	Func Paste P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Paste",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Paste",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -35750,7 +35826,7 @@ Class ToolStrip from ScrollableControl
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStrip, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -35768,8 +35844,8 @@ Class ToolStrip from ScrollableControl
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetNextItem",P1,P2))
 
 	Func GetItemAt P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:GetItemAt",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:GetItemAt",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetItemAt",P1))
 
@@ -36047,7 +36123,7 @@ Class ToolStripButton from ToolStripItem
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripButton, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -36122,7 +36198,7 @@ Class ToolStripControlHost from ToolStripItem
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripControlHost, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -36369,7 +36445,7 @@ Class ToolStripLabel from ToolStripItem
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -36535,8 +36611,8 @@ Class WebBrowser from WebBrowserBase
 		return self
 
 	Func Navigate P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:Navigate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:Navigate",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:Navigate",P1)
@@ -36549,8 +36625,8 @@ Class WebBrowser from WebBrowserBase
 		return self
 
 	Func Refresh P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Refresh",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Refresh",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -36878,7 +36954,7 @@ Class BindingNavigator from ToolStrip
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingNavigator, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -37163,7 +37239,7 @@ Class DataGridViewCheckBoxColumn from DataGridViewColumn
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -37488,7 +37564,7 @@ Class DataGridViewImageColumn from DataGridViewColumn
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -37921,8 +37997,8 @@ Class Form from ContainerControl
 		return self
 
 	Func Show P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Show",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Show",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -37935,8 +38011,8 @@ Class Form from ContainerControl
 		return self
 
 	Func ShowAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:ShowAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:ShowAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:ShowAsync"))
@@ -37944,8 +38020,8 @@ Class Form from ContainerControl
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ShowAsync",P1))
 
 	Func ShowDialog P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:ShowDialog",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:ShowDialog",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:ShowDialog"))
@@ -37953,8 +38029,8 @@ Class Form from ContainerControl
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ShowDialog",P1))
 
 	Func ShowDialogAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:ShowDialogAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:ShowDialogAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s15:ShowDialogAsync"))
@@ -39168,7 +39244,7 @@ Class TabPage from Panel
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TabPage, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -39412,7 +39488,7 @@ Class ToolStripComboBox from ToolStripControlHost
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -39437,16 +39513,20 @@ Class ToolStripComboBox from ToolStripControlHost
 		return self
 
 	Func FindString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:FindString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:FindString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s10:FindString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FindStringExact P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:FindStringExact",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:FindStringExact",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s15:FindStringExact",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -39458,8 +39538,8 @@ Class ToolStripComboBox from ToolStripControlHost
 		return dn_x
 
 	Func Select P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Select",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Select",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -39848,8 +39928,8 @@ Class ToolStripDropDown from ToolStrip
 		return self
 
 	Func Close P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Close",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Close",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -39862,8 +39942,8 @@ Class ToolStripDropDown from ToolStrip
 		return self
 
 	Func Show P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Show",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Show",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -39992,7 +40072,7 @@ Class ToolStripDropDownButton from ToolStripDropDownItem
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -40046,7 +40126,7 @@ Class ToolStripMenuItem from ToolStripDropDownItem
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -40173,8 +40253,8 @@ Class ToolStripPanel from ContainerControl
 		return self
 
 	Func Join P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Join",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Join",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s4:Join",P1)
@@ -40267,7 +40347,7 @@ Class ToolStripProgressBar from ToolStripControlHost
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -40399,7 +40479,7 @@ Class ToolStripSplitButton from ToolStripDropDownItem
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -40546,7 +40626,7 @@ Class ToolStripStatusLabel from ToolStripLabel
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -40636,7 +40716,7 @@ Class ToolStripTextBox from ToolStripControlHost
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -40717,8 +40797,8 @@ Class ToolStripTextBox from ToolStripControlHost
 		return self
 
 	Func Select P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Select",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Select",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -40998,8 +41078,8 @@ Class UpDownBase from ContainerControl
 		return self
 
 	Func Select P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Select",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Select",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -41474,7 +41554,7 @@ Class ContextMenuStrip from ToolStripDropDownMenu
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

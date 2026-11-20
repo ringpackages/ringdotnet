@@ -111,8 +111,8 @@ Class ChangeToken from Object
 		return dn_x
 
 	Func OnChange P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Primitives.ChangeToken, Microsoft.Extensions.Primitives'),"s8:OnChange",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Primitives.ChangeToken, Microsoft.Extensions.Primitives',"s8:OnChange",P1))
 		ok
 		raise("DotNet Error: OnChange does not take one argument: use named arguments, OnChange([ :parameter = value, ... ])")
 
@@ -248,7 +248,7 @@ Class StringSegment from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -263,8 +263,8 @@ Class StringSegment from ValueType
 		return self
 
 	Func AsSpan P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:AsSpan",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:AsSpan",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s6:AsSpan"))
@@ -275,11 +275,15 @@ Class StringSegment from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AsMemory"))
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -296,30 +300,36 @@ Class StringSegment from ValueType
 		return dn_x
 
 	Func Substring P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:Substring",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:Substring",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:Substring",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Subsegment P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:Subsegment",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:Subsegment",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:Subsegment",P1))
 
 	Func IndexOf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:IndexOf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IndexOfAny P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:IndexOfAny",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:IndexOfAny",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s10:IndexOfAny",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -422,16 +432,20 @@ Class StringSegmentComparer from Object
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
@@ -477,7 +491,7 @@ Class StringTokenizer from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Primitives.StringTokenizer, Microsoft.Extensions.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -520,7 +534,7 @@ Class StringValues from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -541,11 +555,15 @@ Class StringValues from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

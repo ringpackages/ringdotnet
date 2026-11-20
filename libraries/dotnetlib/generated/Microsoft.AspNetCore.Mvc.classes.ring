@@ -440,7 +440,7 @@ Class ActionContext from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -783,14 +783,14 @@ Class ControllerBase from Object
 		return self
 
 	Func StatusCode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:StatusCode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:StatusCode",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StatusCode",P1))
 
 	Func Content P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Content",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Content",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Content",P1))
 
@@ -798,8 +798,8 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:NoContent"))
 
 	Func Ok P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s2:Ok",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s2:Ok",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s2:Ok"))
@@ -831,8 +831,8 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s36:LocalRedirectPermanentPreserveMethod",P1))
 
 	Func RedirectToAction P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:RedirectToAction",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:RedirectToAction",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s16:RedirectToAction"))
@@ -840,8 +840,8 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RedirectToAction",P1))
 
 	Func RedirectToActionPreserveMethod P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s30:RedirectToActionPreserveMethod",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s30:RedirectToActionPreserveMethod",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s30:RedirectToActionPreserveMethod"))
@@ -849,14 +849,14 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:RedirectToActionPreserveMethod",P1))
 
 	Func RedirectToActionPermanent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:RedirectToActionPermanent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:RedirectToActionPermanent",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:RedirectToActionPermanent",P1))
 
 	Func RedirectToActionPermanentPreserveMethod P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s39:RedirectToActionPermanentPreserveMethod",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s39:RedirectToActionPermanentPreserveMethod",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s39:RedirectToActionPermanentPreserveMethod"))
@@ -864,14 +864,14 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s39:RedirectToActionPermanentPreserveMethod",P1))
 
 	Func RedirectToRoute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:RedirectToRoute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:RedirectToRoute",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RedirectToRoute",P1))
 
 	Func RedirectToRoutePreserveMethod P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s29:RedirectToRoutePreserveMethod",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s29:RedirectToRoutePreserveMethod",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s29:RedirectToRoutePreserveMethod"))
@@ -879,14 +879,14 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s29:RedirectToRoutePreserveMethod",P1))
 
 	Func RedirectToRoutePermanent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:RedirectToRoutePermanent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:RedirectToRoutePermanent",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:RedirectToRoutePermanent",P1))
 
 	Func RedirectToRoutePermanentPreserveMethod P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s38:RedirectToRoutePermanentPreserveMethod",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s38:RedirectToRoutePermanentPreserveMethod",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s38:RedirectToRoutePermanentPreserveMethod"))
@@ -894,44 +894,44 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s38:RedirectToRoutePermanentPreserveMethod",P1))
 
 	Func RedirectToPage P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:RedirectToPage",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:RedirectToPage",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:RedirectToPage",P1))
 
 	Func RedirectToPagePermanent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s23:RedirectToPagePermanent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:RedirectToPagePermanent",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RedirectToPagePermanent",P1))
 
 	Func RedirectToPagePreserveMethod P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s28:RedirectToPagePreserveMethod",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s28:RedirectToPagePreserveMethod",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:RedirectToPagePreserveMethod",P1))
 
 	Func RedirectToPagePermanentPreserveMethod P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s37:RedirectToPagePermanentPreserveMethod",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s37:RedirectToPagePermanentPreserveMethod",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s37:RedirectToPagePermanentPreserveMethod",P1))
 
 	Func File P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:File",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:File",P1))
 		ok
 		raise("DotNet Error: File does not take one argument: use named arguments, File([ :parameter = value, ... ])")
 
 	Func PhysicalFile P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:PhysicalFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:PhysicalFile",P1))
 		ok
 		raise("DotNet Error: PhysicalFile does not take one argument: use named arguments, PhysicalFile([ :parameter = value, ... ])")
 
 	Func Unauthorized P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:Unauthorized",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:Unauthorized",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s12:Unauthorized"))
@@ -939,8 +939,8 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:Unauthorized",P1))
 
 	Func NotFound P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:NotFound",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:NotFound",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s8:NotFound"))
@@ -948,8 +948,8 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:NotFound",P1))
 
 	Func BadRequest P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:BadRequest",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:BadRequest",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:BadRequest"))
@@ -957,8 +957,8 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:BadRequest",P1))
 
 	Func UnprocessableEntity P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:UnprocessableEntity",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UnprocessableEntity",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s19:UnprocessableEntity"))
@@ -966,8 +966,8 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UnprocessableEntity",P1))
 
 	Func Conflict P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Conflict",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Conflict",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s8:Conflict"))
@@ -975,8 +975,8 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Conflict",P1))
 
 	Func Problem P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Problem",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Problem",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s7:Problem"))
@@ -984,8 +984,8 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Problem",P1))
 
 	Func ValidationProblem P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:ValidationProblem",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ValidationProblem",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s17:ValidationProblem"))
@@ -993,8 +993,8 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ValidationProblem",P1))
 
 	Func Created P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Created",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Created",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s7:Created"))
@@ -1002,20 +1002,20 @@ Class ControllerBase from Object
 		raise("DotNet Error: Created does not take one argument: use named arguments, Created([ :parameter = value, ... ])")
 
 	Func CreatedAtAction P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:CreatedAtAction",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:CreatedAtAction",P1))
 		ok
 		raise("DotNet Error: CreatedAtAction does not take one argument: use named arguments, CreatedAtAction([ :parameter = value, ... ])")
 
 	Func CreatedAtRoute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:CreatedAtRoute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:CreatedAtRoute",P1))
 		ok
 		raise("DotNet Error: CreatedAtRoute does not take one argument: use named arguments, CreatedAtRoute([ :parameter = value, ... ])")
 
 	Func Accepted P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Accepted",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Accepted",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s8:Accepted"))
@@ -1023,20 +1023,20 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Accepted",P1))
 
 	Func AcceptedAtAction P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:AcceptedAtAction",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:AcceptedAtAction",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AcceptedAtAction",P1))
 
 	Func AcceptedAtRoute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:AcceptedAtRoute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:AcceptedAtRoute",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AcceptedAtRoute",P1))
 
 	Func Challenge P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:Challenge",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Challenge",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:Challenge"))
@@ -1044,8 +1044,8 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Challenge",P1))
 
 	Func Forbid P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Forbid",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Forbid",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s6:Forbid"))
@@ -1053,14 +1053,14 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Forbid",P1))
 
 	Func SignIn P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:SignIn",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:SignIn",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:SignIn",P1))
 
 	Func SignOut P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:SignOut",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:SignOut",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s7:SignOut"))
@@ -1068,14 +1068,16 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:SignOut",P1))
 
 	Func TryUpdateModelAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:TryUpdateModelAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:TryUpdateModelAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TryUpdateModelAsync",P1))
 
 	Func TryValidateModel P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:TryValidateModel",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:TryValidateModel",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s16:TryValidateModel",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1870,7 +1872,7 @@ Class SerializableError from ObjectDictionary
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1902,36 +1904,46 @@ Class UrlHelperExtensions from Object
 		return dn_x
 
 	Func Action P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s6:Action",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core',"s6:Action",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core',"s6:Action",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func RouteUrl P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s8:RouteUrl",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core',"s8:RouteUrl",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: RouteUrl does not take one argument: use named arguments, RouteUrl([ :parameter = value, ... ])")
 
 	Func Page P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s4:Page",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core',"s4:Page",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: Page does not take one argument: use named arguments, Page([ :parameter = value, ... ])")
 
 	Func ActionLink P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s10:ActionLink",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core',"s10:ActionLink",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core',"s10:ActionLink",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PageLink P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"s8:PageLink",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core',"s8:PageLink",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core',"s8:PageLink",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1960,7 +1972,7 @@ Class ValidationProblemDetails from HttpValidationProblemDetails
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2004,8 +2016,8 @@ Class ViewComponent from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Content",P1))
 
 	Func View P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:View",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:View",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s4:View"))
@@ -2124,7 +2136,7 @@ Class ChallengeResult from ActionResult
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2219,8 +2231,8 @@ Class Controller from ControllerBase
 		return self
 
 	Func View P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:View",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:View",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s4:View"))
@@ -2228,8 +2240,8 @@ Class Controller from ControllerBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s4:View",P1))
 
 	Func PartialView P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:PartialView",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:PartialView",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:PartialView"))
@@ -2237,14 +2249,14 @@ Class Controller from ControllerBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:PartialView",P1))
 
 	Func ViewComponent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ViewComponent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ViewComponent",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ViewComponent",P1))
 
 	Func Json P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Json",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Json",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Json",P1))
 
@@ -2311,7 +2323,7 @@ Class ControllerContext from ActionContext
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2437,7 +2449,7 @@ Class ForbidResult from ActionResult
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2485,7 +2497,7 @@ Class JsonResult from ActionResult
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.JsonResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2549,7 +2561,7 @@ Class LocalRedirectResult from ActionResult
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.LocalRedirectResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2758,7 +2770,7 @@ Class RedirectResult from ActionResult
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.RedirectResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2829,7 +2841,7 @@ Class RedirectToActionResult from ActionResult
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.RedirectToActionResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2927,7 +2939,7 @@ Class RedirectToPageResult from ActionResult
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.RedirectToPageResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3040,7 +3052,7 @@ Class RedirectToRouteResult from ActionResult
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.RedirectToRouteResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3123,7 +3135,7 @@ Class SignInResult from ActionResult
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.SignInResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3186,7 +3198,7 @@ Class SignOutResult from ActionResult
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3478,7 +3490,7 @@ Class AcceptedAtRouteResult from ObjectResult
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.AcceptedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3540,7 +3552,7 @@ Class AcceptedResult from ObjectResult
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3703,7 +3715,7 @@ Class CreatedAtRouteResult from ObjectResult
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.CreatedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3765,7 +3777,7 @@ Class CreatedResult from ObjectResult
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

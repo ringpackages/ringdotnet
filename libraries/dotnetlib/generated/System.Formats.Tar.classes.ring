@@ -89,8 +89,8 @@ Class TarEntry from Object
 		return self
 
 	Func ExtractToFileAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:ExtractToFileAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ExtractToFileAsync",P1))
 		ok
 		raise("DotNet Error: ExtractToFileAsync does not take one argument: use named arguments, ExtractToFileAsync([ :parameter = value, ... ])")
 
@@ -215,8 +215,8 @@ Class TarFile from Object
 		return self
 
 	Func CreateFromDirectoryAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Formats.Tar.TarFile, System.Formats.Tar'),"s24:CreateFromDirectoryAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Formats.Tar.TarFile, System.Formats.Tar',"s24:CreateFromDirectoryAsync",P1))
 		ok
 		raise("DotNet Error: CreateFromDirectoryAsync does not take one argument: use named arguments, CreateFromDirectoryAsync([ :parameter = value, ... ])")
 
@@ -226,8 +226,8 @@ Class TarFile from Object
 		return self
 
 	Func ExtractToDirectoryAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Formats.Tar.TarFile, System.Formats.Tar'),"s23:ExtractToDirectoryAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Formats.Tar.TarFile, System.Formats.Tar',"s23:ExtractToDirectoryAsync",P1))
 		ok
 		raise("DotNet Error: ExtractToDirectoryAsync does not take one argument: use named arguments, ExtractToDirectoryAsync([ :parameter = value, ... ])")
 
@@ -246,7 +246,7 @@ Class TarReader from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.TarReader, System.Formats.Tar',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -269,8 +269,8 @@ Class TarReader from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
 	Func GetNextEntry P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:GetNextEntry",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:GetNextEntry",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetNextEntry"))
@@ -278,8 +278,8 @@ Class TarReader from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetNextEntry",P1))
 
 	Func GetNextEntryAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:GetNextEntryAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:GetNextEntryAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetNextEntryAsync"))
@@ -308,7 +308,7 @@ Class TarWriter from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.TarWriter, System.Formats.Tar',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -331,8 +331,8 @@ Class TarWriter from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
 	Func WriteEntry P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:WriteEntry",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:WriteEntry",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s10:WriteEntry",P1)
@@ -340,8 +340,8 @@ Class TarWriter from Object
 		return self
 
 	Func WriteEntryAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:WriteEntryAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:WriteEntryAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:WriteEntryAsync",P1))
 
@@ -424,7 +424,7 @@ Class V7TarEntry from TarEntry
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.V7TarEntry, System.Formats.Tar',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -456,7 +456,7 @@ Class GnuTarEntry from PosixTarEntry
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.GnuTarEntry, System.Formats.Tar',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -523,7 +523,7 @@ Class PaxTarEntry from PosixTarEntry
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.PaxTarEntry, System.Formats.Tar',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -558,7 +558,7 @@ Class UstarTarEntry from PosixTarEntry
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Formats.Tar.UstarTarEntry, System.Formats.Tar',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

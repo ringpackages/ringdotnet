@@ -632,8 +632,10 @@ Class NavigationService from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RemoveBackEntry"))
 
 	Func Navigate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Navigate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Navigate",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Navigate",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -798,8 +800,10 @@ Class NavigationWindow from Window
 		return self
 
 	Func Navigate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Navigate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Navigate",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Navigate",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

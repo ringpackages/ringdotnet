@@ -637,7 +637,7 @@ Class NamespaceMapEntry from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.NamespaceMapEntry, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -712,7 +712,7 @@ Class ParserContext from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.ParserContext, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -929,8 +929,8 @@ Class ValueSerializer from Object
 		return dn_x
 
 	Func GetSerializerFor P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Markup.ValueSerializer, System.Xaml'),"s16:GetSerializerFor",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Markup.ValueSerializer, System.Xaml',"s16:GetSerializerFor",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Markup.ValueSerializer, System.Xaml',"s16:GetSerializerFor",P1))
 
@@ -1021,8 +1021,8 @@ Class XamlReader from Object
 		return self
 
 	Func LoadAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:LoadAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:LoadAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:LoadAsync",P1))
 
@@ -1037,14 +1037,14 @@ Class XamlReader from Object
 		return dn_x
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Markup.XamlReader, PresentationFramework'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Markup.XamlReader, PresentationFramework',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Markup.XamlReader, PresentationFramework',"s5:Parse",P1))
 
 	Func Load_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Markup.XamlReader, PresentationFramework'),"s4:Load",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Markup.XamlReader, PresentationFramework',"s4:Load",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Markup.XamlReader, PresentationFramework',"s4:Load",P1))
 
@@ -1120,7 +1120,7 @@ Class XamlTypeMapper from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.XamlTypeMapper, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1135,8 +1135,8 @@ Class XamlTypeMapper from Object
 		return self
 
 	Func GetType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:GetType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:GetType",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
@@ -1182,8 +1182,10 @@ Class XamlWriter from Object
 		return dn_x
 
 	Func Save P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Markup.XamlWriter, PresentationFramework'),"s4:Save",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Windows.Markup.XamlWriter, PresentationFramework',"s4:Save",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Windows.Markup.XamlWriter, PresentationFramework',"s4:Save",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1367,7 +1369,7 @@ Class XmlnsDictionary from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.XmlnsDictionary, PresentationFramework',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1542,7 +1544,7 @@ Class ArrayExtension from MarkupExtension
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.ArrayExtension, System.Xaml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1699,7 +1701,7 @@ Class Reference from MarkupExtension
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.Reference, System.Xaml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1748,7 +1750,7 @@ Class StaticExtension from MarkupExtension
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.StaticExtension, System.Xaml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1803,7 +1805,7 @@ Class TypeExtension from MarkupExtension
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.TypeExtension, System.Xaml',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

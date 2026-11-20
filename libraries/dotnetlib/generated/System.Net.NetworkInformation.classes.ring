@@ -2048,21 +2048,21 @@ Class Ping from Component
 		return self
 
 	Func Send P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Send",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Send",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Send",P1))
 
 	Func SendAsync P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:SendAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:SendAsync",P1)
 			return self
 		ok
 		raise("DotNet Error: SendAsync does not take one argument: use named arguments, SendAsync([ :parameter = value, ... ])")
 
 	Func SendPingAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SendPingAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SendPingAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SendPingAsync",P1))
 
@@ -2125,7 +2125,7 @@ Class PingOptions from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.NetworkInformation.PingOptions, System.Net.Ping',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

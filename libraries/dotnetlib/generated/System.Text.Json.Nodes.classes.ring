@@ -83,8 +83,10 @@ Class JsonNode from Object
 		return self
 
 	Func ToJsonString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:ToJsonString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:ToJsonString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s12:ToJsonString")
@@ -96,8 +98,8 @@ Class JsonNode from Object
 		return dn_x
 
 	Func WriteTo P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:WriteTo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:WriteTo",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
@@ -115,14 +117,14 @@ Class JsonNode from Object
 		return dn_x
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.Nodes.JsonNode, System.Text.Json',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.Nodes.JsonNode, System.Text.Json',"s5:Parse",P1))
 
 	Func ParseAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"s10:ParseAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.Nodes.JsonNode, System.Text.Json',"s10:ParseAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.Nodes.JsonNode, System.Text.Json',"s10:ParseAsync",P1))
 
@@ -208,7 +210,7 @@ Class JsonArray from JsonNode
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.Json.Nodes.JsonArray, System.Text.Json',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -264,8 +266,8 @@ Class JsonArray from JsonNode
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.Nodes.JsonArray, System.Text.Json'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.Nodes.JsonArray, System.Text.Json',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.Nodes.JsonArray, System.Text.Json',"s6:Create",P1))
 
@@ -302,7 +304,7 @@ Class JsonObject from JsonNode
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.Json.Nodes.JsonObject, System.Text.Json',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -320,8 +322,8 @@ Class JsonObject from JsonNode
 		return dnSend("s4:call",nHandle,"s19:TryGetPropertyValue",dnPackItem(P1))
 
 	Func Add P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
@@ -350,8 +352,8 @@ Class JsonObject from JsonNode
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:GetAt",P1))
 
 	Func SetAt P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:SetAt",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:SetAt",P1)
 			return self
 		ok
 		raise("DotNet Error: SetAt does not take one argument: use named arguments, SetAt([ :parameter = value, ... ])")
@@ -372,8 +374,8 @@ Class JsonObject from JsonNode
 		return self
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.Nodes.JsonObject, System.Text.Json'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.Nodes.JsonObject, System.Text.Json',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.Nodes.JsonObject, System.Text.Json',"s6:Create",P1))
 
@@ -401,8 +403,8 @@ Class JsonValue from JsonNode
 		return dnSend("s4:call",nHandle,"s11:TryGetValue","")
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Text.Json.Nodes.JsonValue, System.Text.Json'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.Nodes.JsonValue, System.Text.Json',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.Nodes.JsonValue, System.Text.Json',"s6:Create",P1))
 

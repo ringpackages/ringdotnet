@@ -346,8 +346,8 @@ Class Activity from Object
 		return self
 
 	Func SetStatus P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:SetStatus",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:SetStatus",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:SetStatus",P1))
 
@@ -378,8 +378,10 @@ Class Activity from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddEvent",P1))
 
 	Func AddException P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:AddException",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s12:AddException",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",nHandle,"s12:AddException",dnPackItem(P1))
 
@@ -393,8 +395,8 @@ Class Activity from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetBaggage",P1,P2))
 
 	Func SetParentId P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:SetParentId",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:SetParentId",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetParentId",P1))
 
@@ -720,7 +722,7 @@ Class ActivityContext from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -735,8 +737,10 @@ Class ActivityContext from ValueType
 		return self
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: TryParse does not take one argument: use named arguments, TryParse([ :parameter = value, ... ])")
 
@@ -804,7 +808,7 @@ Class ActivityEvent from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -867,7 +871,7 @@ Class ActivityLink from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivityLink, System.Diagnostics.DiagnosticSource',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -995,7 +999,7 @@ Class ActivitySource from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1015,14 +1019,14 @@ Class ActivitySource from Object
 		return dn_x
 
 	Func CreateActivity P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:CreateActivity",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:CreateActivity",P1))
 		ok
 		raise("DotNet Error: CreateActivity does not take one argument: use named arguments, CreateActivity([ :parameter = value, ... ])")
 
 	Func StartActivity P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:StartActivity",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:StartActivity",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:StartActivity"))
@@ -1123,7 +1127,7 @@ Class ActivityTagsCollection from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivityTagsCollection, System.Diagnostics.DiagnosticSource',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1138,8 +1142,8 @@ Class ActivityTagsCollection from Object
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
@@ -1262,8 +1266,8 @@ Class CorrelationManager from Object
 		return self
 
 	Func StartLogicalOperation P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s21:StartLogicalOperation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s21:StartLogicalOperation",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1365,8 +1369,8 @@ Class Debug from Object
 		return self
 
 	Func Print P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Print",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Diagnostics.Debug, System.Private.CoreLib',"s5:Print",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s5:Print",P1)
@@ -1374,16 +1378,18 @@ Class Debug from Object
 		return self
 
 	Func Assert P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s6:Assert",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Diagnostics.Debug, System.Private.CoreLib',"s6:Assert",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s6:Assert",P1)
 
 		return self
 
 	Func Fail P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s4:Fail",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Diagnostics.Debug, System.Private.CoreLib',"s4:Fail",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s4:Fail",P1)
@@ -1391,8 +1397,8 @@ Class Debug from Object
 		return self
 
 	Func WriteLine P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s9:WriteLine",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Diagnostics.Debug, System.Private.CoreLib',"s9:WriteLine",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s9:WriteLine",P1)
@@ -1400,8 +1406,8 @@ Class Debug from Object
 		return self
 
 	Func Write P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s5:Write",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Diagnostics.Debug, System.Private.CoreLib',"s5:Write",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s5:Write",P1)
@@ -1409,14 +1415,18 @@ Class Debug from Object
 		return self
 
 	Func WriteIf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s7:WriteIf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Diagnostics.Debug, System.Private.CoreLib',"s7:WriteIf",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: WriteIf does not take one argument: use named arguments, WriteIf([ :parameter = value, ... ])")
 
 	Func WriteLineIf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Debug, System.Private.CoreLib'),"s11:WriteLineIf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Diagnostics.Debug, System.Private.CoreLib',"s11:WriteLineIf",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: WriteLineIf does not take one argument: use named arguments, WriteLineIf([ :parameter = value, ... ])")
 
@@ -1640,8 +1650,10 @@ Class DiagnosticSource from Object
 		return self
 
 	Func IsEnabled P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:IsEnabled",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:IsEnabled",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:IsEnabled",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2114,8 +2126,10 @@ Class Process from Component
 		return dn_x
 
 	Func WaitForInputIdle P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:WaitForInputIdle",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:WaitForInputIdle",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s16:WaitForInputIdle")
@@ -2137,11 +2151,15 @@ Class Process from Component
 		return self
 
 	Func Start P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s5:Start",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Diagnostics.Process, System.Diagnostics.Process',"s5:Start",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s5:Start",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s5:Start",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s5:Start")
@@ -2151,8 +2169,10 @@ Class Process from Component
 		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.Process, System.Diagnostics.Process',"s5:Start",P1))
 
 	Func WaitForExit P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:WaitForExit",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s11:WaitForExit",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dotnet_callv("s4:call",nHandle,"s11:WaitForExit")
@@ -2164,8 +2184,8 @@ Class Process from Component
 		return dn_x
 
 	Func WaitForExitAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:WaitForExitAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:WaitForExitAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s16:WaitForExitAsync"))
@@ -2193,8 +2213,8 @@ Class Process from Component
 		return self
 
 	Func Kill P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Kill",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Kill",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -2207,20 +2227,20 @@ Class Process from Component
 		return self
 
 	Func GetProcessById P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s14:GetProcessById",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Diagnostics.Process, System.Diagnostics.Process',"s14:GetProcessById",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.Process, System.Diagnostics.Process',"s14:GetProcessById",P1))
 
 	Func GetProcessesByName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s18:GetProcessesByName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Diagnostics.Process, System.Diagnostics.Process',"s18:GetProcessesByName",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.Process, System.Diagnostics.Process',"s18:GetProcessesByName",P1))
 
 	Func GetProcesses P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Process, System.Diagnostics.Process'),"s12:GetProcesses",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Diagnostics.Process, System.Diagnostics.Process',"s12:GetProcesses",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Diagnostics.Process, System.Diagnostics.Process',"s12:GetProcesses"))
@@ -2774,7 +2794,7 @@ Class ProcessStartInfo from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3188,7 +3208,7 @@ Class StackFrame from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.StackFrame, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3312,7 +3332,7 @@ Class StackTrace from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.StackTrace, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3415,8 +3435,8 @@ Class Stopwatch from Object
 		return dn_x
 
 	Func GetElapsedTime P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"s14:GetElapsedTime",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s14:GetElapsedTime",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s14:GetElapsedTime",P1))
 
@@ -3566,8 +3586,8 @@ Class TagList from ValueType
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
@@ -3670,8 +3690,8 @@ Class Trace from Object
 		return self
 
 	Func Assert P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s6:Assert",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s6:Assert",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s6:Assert",P1)
@@ -3679,8 +3699,8 @@ Class Trace from Object
 		return self
 
 	Func Fail P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s4:Fail",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s4:Fail",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s4:Fail",P1)
@@ -3693,8 +3713,8 @@ Class Trace from Object
 		return self
 
 	Func TraceInformation P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s16:TraceInformation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s16:TraceInformation",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s16:TraceInformation",P1)
@@ -3702,8 +3722,8 @@ Class Trace from Object
 		return self
 
 	Func TraceWarning P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s12:TraceWarning",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s12:TraceWarning",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s12:TraceWarning",P1)
@@ -3711,8 +3731,8 @@ Class Trace from Object
 		return self
 
 	Func TraceError P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s10:TraceError",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s10:TraceError",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s10:TraceError",P1)
@@ -3720,8 +3740,8 @@ Class Trace from Object
 		return self
 
 	Func Write P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s5:Write",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s5:Write",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s5:Write",P1)
@@ -3729,8 +3749,8 @@ Class Trace from Object
 		return self
 
 	Func WriteLine P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s9:WriteLine",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s9:WriteLine",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s9:WriteLine",P1)
@@ -3738,15 +3758,15 @@ Class Trace from Object
 		return self
 
 	Func WriteIf P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s7:WriteIf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s7:WriteIf",P1)
 			return self
 		ok
 		raise("DotNet Error: WriteIf does not take one argument: use named arguments, WriteIf([ :parameter = value, ... ])")
 
 	Func WriteLineIf P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"s11:WriteLineIf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s11:WriteLineIf",P1)
 			return self
 		ok
 		raise("DotNet Error: WriteLineIf does not take one argument: use named arguments, WriteLineIf([ :parameter = value, ... ])")
@@ -3957,8 +3977,8 @@ Class TraceListener from MarshalByRefObject
 		return self
 
 	Func Fail P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Fail",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Fail",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s4:Fail",P1)
@@ -3966,8 +3986,8 @@ Class TraceListener from MarshalByRefObject
 		return self
 
 	Func Write P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Write",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Write",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s5:Write",P1)
@@ -3975,8 +3995,8 @@ Class TraceListener from MarshalByRefObject
 		return self
 
 	Func WriteLine P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:WriteLine",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:WriteLine",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s9:WriteLine",P1)
@@ -3989,8 +4009,8 @@ Class TraceListener from MarshalByRefObject
 		return self
 
 	Func TraceEvent P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:TraceEvent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:TraceEvent",P1)
 			return self
 		ok
 		raise("DotNet Error: TraceEvent does not take one argument: use named arguments, TraceEvent([ :parameter = value, ... ])")
@@ -4152,7 +4172,7 @@ Class TraceSource from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.TraceSource, System.Diagnostics.TraceSource',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4177,8 +4197,8 @@ Class TraceSource from Object
 		return self
 
 	Func TraceEvent P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:TraceEvent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:TraceEvent",P1)
 			return self
 		ok
 		raise("DotNet Error: TraceEvent does not take one argument: use named arguments, TraceEvent([ :parameter = value, ... ])")
@@ -4189,8 +4209,8 @@ Class TraceSource from Object
 		return self
 
 	Func TraceInformation P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s16:TraceInformation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s16:TraceInformation",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s16:TraceInformation",P1)
@@ -4265,7 +4285,7 @@ Class BooleanSwitch from Switch_
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.BooleanSwitch, System.Diagnostics.TraceSource',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4348,8 +4368,8 @@ Class DiagnosticListener from DiagnosticSource
 		return self
 
 	Func Subscribe P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:Subscribe",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Subscribe",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Subscribe",P1))
 
@@ -4359,8 +4379,10 @@ Class DiagnosticListener from DiagnosticSource
 		return self
 
 	Func IsEnabled P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:IsEnabled",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:IsEnabled",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s9:IsEnabled")
@@ -4450,7 +4472,7 @@ Class SourceSwitch from Switch_
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.SourceSwitch, System.Diagnostics.TraceSource',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4501,7 +4523,7 @@ Class TextWriterTraceListener from TraceListener
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.TextWriterTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4543,7 +4565,7 @@ Class TraceSwitch from Switch_
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.TraceSwitch, System.Diagnostics.TraceSource',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4619,7 +4641,7 @@ Class ConsoleTraceListener from TextWriterTraceListener
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ConsoleTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4650,7 +4672,7 @@ Class DelimitedListTraceListener from TextWriterTraceListener
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.DelimitedListTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4688,7 +4710,7 @@ Class XmlWriterTraceListener from TextWriterTraceListener
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.XmlWriterTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

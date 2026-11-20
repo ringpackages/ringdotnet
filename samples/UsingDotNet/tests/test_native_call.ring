@@ -98,4 +98,23 @@ func main
 	dnAssert("the object is of its class",oChained.Length,5)
 	oNothing = new Environment().GetEnvironmentVariable("RINGDOTNET_NO_SUCH_VARIABLE_XYZ")
 	dnAssert("null is an object that answers isNull()",oNothing.isNull(),True)
+	# named arguments (the dispatcher of an overloaded name: native too)
+	dnAssert("named, a number answer",oMath.Round([ :value = 3.14159, :digits = 2 ]),3.14)
+	dnAssert("named, any order",oMath.Round([ :digits = 1, :value = 2.74 ]),2.7)
+	oDate = new DateTime(2024,12,25)
+	dnAssert("named, a text answer",oDate.Format([ :format = "yyyy-MM-dd" ]),"2024-12-25")
+	oNamed = new StringBuilder("a")
+	oNamed2 = oNamed.Append([ :value = "b" ]).Append([ :value = "c" ])
+	dnAssert("named, an object answer (chained)",oNamed2.ToString(),"abc")
+	aParsed = new Int32().TryParse([ :s = "42" ])
+	dnAssert("named, an answer that is a list (out parameter)",aParsed[1],True)
+	dnAssert("named, the out value",aParsed[2],42)
+	dnAssert("an empty list of names is the parameterless overload",new Random(NULL).Next_([]) >= 0,True)
+	cError = ""
+	try
+		oMath.Round([ :nothing = 1 ])
+	catch
+		cError = cCatchError
+	done
+	dnAssert("a name that matches no parameter is an error",substr(cError,"DotNet Error:") > 0,1)
 	dnTestSummary()

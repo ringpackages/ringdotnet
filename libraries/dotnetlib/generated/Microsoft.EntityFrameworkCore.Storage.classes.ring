@@ -590,14 +590,16 @@ Class CoreTypeMapping from Object
 		return self
 
 	Func WithComposedConverter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:WithComposedConverter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:WithComposedConverter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:WithComposedConverter",P1))
 
 	Func Clone P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s5:Clone",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s5:Clone",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			return dnSend("s4:call",nHandle,"s5:Clone","")
@@ -678,8 +680,8 @@ Class Database from Object
 		return dn_x
 
 	Func SaveChangesAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:SaveChangesAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SaveChangesAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SaveChangesAsync",P1))
 
@@ -804,8 +806,8 @@ Class ExecutionStrategy from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Execute",P1,P2,P3))
 
 	Func ExecuteAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:ExecuteAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ExecuteAsync",P1))
 		ok
 		raise("DotNet Error: ExecuteAsync does not take one argument: use named arguments, ExecuteAsync([ :parameter = value, ... ])")
 
@@ -907,8 +909,8 @@ Class IDatabase from DotNetObject
 		return dn_x
 
 	Func SaveChangesAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:SaveChangesAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SaveChangesAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SaveChangesAsync",P1))
 
@@ -936,8 +938,8 @@ Class IDatabaseCreator from DotNetObject
 		return dn_x
 
 	Func EnsureDeletedAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:EnsureDeletedAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:EnsureDeletedAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:EnsureDeletedAsync"))
@@ -950,8 +952,8 @@ Class IDatabaseCreator from DotNetObject
 		return dn_x
 
 	Func EnsureCreatedAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:EnsureCreatedAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:EnsureCreatedAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:EnsureCreatedAsync"))
@@ -964,8 +966,8 @@ Class IDatabaseCreator from DotNetObject
 		return dn_x
 
 	Func CanConnectAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:CanConnectAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:CanConnectAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s15:CanConnectAsync"))
@@ -1146,8 +1148,8 @@ Class IDbContextTransaction from DotNetObject
 		return self
 
 	Func CommitAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:CommitAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CommitAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:CommitAsync"))
@@ -1160,8 +1162,8 @@ Class IDbContextTransaction from DotNetObject
 		return self
 
 	Func RollbackAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:RollbackAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:RollbackAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:RollbackAsync"))
@@ -1174,8 +1176,8 @@ Class IDbContextTransaction from DotNetObject
 		return self
 
 	Func CreateSavepointAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:CreateSavepointAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:CreateSavepointAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CreateSavepointAsync",P1))
 
@@ -1185,8 +1187,8 @@ Class IDbContextTransaction from DotNetObject
 		return self
 
 	Func RollbackToSavepointAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:RollbackToSavepointAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:RollbackToSavepointAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:RollbackToSavepointAsync",P1))
 
@@ -1196,8 +1198,8 @@ Class IDbContextTransaction from DotNetObject
 		return self
 
 	Func ReleaseSavepointAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:ReleaseSavepointAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:ReleaseSavepointAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:ReleaseSavepointAsync",P1))
 
@@ -1233,8 +1235,8 @@ Class IDbContextTransactionManager from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction"))
 
 	Func BeginTransactionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:BeginTransactionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:BeginTransactionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s21:BeginTransactionAsync"))
@@ -1247,8 +1249,8 @@ Class IDbContextTransactionManager from DotNetObject
 		return self
 
 	Func CommitTransactionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s22:CommitTransactionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:CommitTransactionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s22:CommitTransactionAsync"))
@@ -1261,8 +1263,8 @@ Class IDbContextTransactionManager from DotNetObject
 		return self
 
 	Func RollbackTransactionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:RollbackTransactionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:RollbackTransactionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s24:RollbackTransactionAsync"))
@@ -1288,8 +1290,10 @@ Class IExceptionDetector from DotNetObject
 		return self
 
 	Func IsCancellation P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:IsCancellation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:IsCancellation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s14:IsCancellation",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1313,8 +1317,8 @@ Class IExecutionStrategy from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Execute",P1,P2,P3))
 
 	Func ExecuteAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:ExecuteAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ExecuteAsync",P1))
 		ok
 		raise("DotNet Error: ExecuteAsync does not take one argument: use named arguments, ExecuteAsync([ :parameter = value, ... ])")
 
@@ -1369,8 +1373,8 @@ Class IRawSqlCommandBuilder from DotNetObject
 		return self
 
 	Func Build P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s5:Build",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Build",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build",P1))
 
@@ -1392,8 +1396,8 @@ Class IRelationalCommand from DotNetObject
 		return dn_x
 
 	Func ExecuteNonQueryAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ExecuteNonQueryAsync",P1))
 
@@ -1401,8 +1405,8 @@ Class IRelationalCommand from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteScalar",P1))
 
 	Func ExecuteScalarAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:ExecuteScalarAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ExecuteScalarAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteScalarAsync",P1))
 
@@ -1410,8 +1414,8 @@ Class IRelationalCommand from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteReader",P1))
 
 	Func ExecuteReaderAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:ExecuteReaderAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ExecuteReaderAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteReaderAsync",P1))
 
@@ -1549,8 +1553,10 @@ Class IRelationalConnection from DotNetObject
 		return self
 
 	Func Open P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Open",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s4:Open",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s4:Open")
@@ -1562,8 +1568,8 @@ Class IRelationalConnection from DotNetObject
 		return dn_x
 
 	Func OpenAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:OpenAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:OpenAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:OpenAsync",P1))
 
@@ -1642,8 +1648,8 @@ Class IRelationalDatabaseCreator from DotNetObject
 		return dn_x
 
 	Func ExistsAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:ExistsAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ExistsAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:ExistsAsync"))
@@ -1656,8 +1662,8 @@ Class IRelationalDatabaseCreator from DotNetObject
 		return dn_x
 
 	Func HasTablesAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:HasTablesAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:HasTablesAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s14:HasTablesAsync"))
@@ -1670,8 +1676,8 @@ Class IRelationalDatabaseCreator from DotNetObject
 		return self
 
 	Func CreateAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:CreateAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CreateAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateAsync"))
@@ -1684,8 +1690,8 @@ Class IRelationalDatabaseCreator from DotNetObject
 		return self
 
 	Func DeleteAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:DeleteAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:DeleteAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:DeleteAsync"))
@@ -1698,8 +1704,8 @@ Class IRelationalDatabaseCreator from DotNetObject
 		return self
 
 	Func CreateTablesAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:CreateTablesAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:CreateTablesAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s17:CreateTablesAsync"))
@@ -1803,20 +1809,20 @@ Class IRelationalTransactionManager from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction",P1))
 
 	Func BeginTransactionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:BeginTransactionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:BeginTransactionAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:BeginTransactionAsync",P1))
 
 	Func UseTransaction P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:UseTransaction",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:UseTransaction",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseTransaction",P1))
 
 	Func UseTransactionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:UseTransactionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UseTransactionAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseTransactionAsync",P1))
 
@@ -1833,8 +1839,8 @@ Class IRelationalTypeMappingSource from DotNetObject
 		return self
 
 	Func FindMapping P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:FindMapping",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:FindMapping",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:FindMapping",P1))
 
@@ -1872,24 +1878,30 @@ Class ISqlGenerationHelper from DotNetObject
 		return self
 
 	Func GenerateParameterName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:GenerateParameterName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s21:GenerateParameterName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s21:GenerateParameterName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GenerateParameterNamePlaceholder P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s32:GenerateParameterNamePlaceholder",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s32:GenerateParameterNamePlaceholder",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s32:GenerateParameterNamePlaceholder",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DelimitIdentifier P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:DelimitIdentifier",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s17:DelimitIdentifier",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s17:DelimitIdentifier",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2005,8 +2017,8 @@ Class ITypeMappingSource from DotNetObject
 		return self
 
 	Func FindMapping P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:FindMapping",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:FindMapping",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:FindMapping",P1))
 
@@ -2052,7 +2064,7 @@ Class MaterializationContext from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.MaterializationContext, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2104,8 +2116,8 @@ Class NonRetryingExecutionStrategy from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Execute",P1,P2,P3))
 
 	Func ExecuteAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:ExecuteAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ExecuteAsync",P1))
 		ok
 		raise("DotNet Error: ExecuteAsync does not take one argument: use named arguments, ExecuteAsync([ :parameter = value, ... ])")
 
@@ -2329,8 +2341,8 @@ Class RelationalCommand from Object
 		return dn_x
 
 	Func ExecuteNonQueryAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ExecuteNonQueryAsync",P1))
 
@@ -2338,8 +2350,8 @@ Class RelationalCommand from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteScalar",P1))
 
 	Func ExecuteScalarAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:ExecuteScalarAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ExecuteScalarAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteScalarAsync",P1))
 
@@ -2347,8 +2359,8 @@ Class RelationalCommand from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteReader",P1))
 
 	Func ExecuteReaderAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:ExecuteReaderAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ExecuteReaderAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteReaderAsync",P1))
 
@@ -2500,8 +2512,8 @@ Class RelationalCommandBuilderExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational',"s10:AppendLine",P1,P2))
 
 	Func AppendLines P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"s11:AppendLines",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational',"s11:AppendLines",P1))
 		ok
 		raise("DotNet Error: AppendLines does not take one argument: use named arguments, AppendLines([ :parameter = value, ... ])")
 
@@ -2509,8 +2521,8 @@ Class RelationalCommandBuilderExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational',"s6:Indent",P1))
 
 	Func AddParameter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"s12:AddParameter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational',"s12:AddParameter",P1))
 		ok
 		raise("DotNet Error: AddParameter does not take one argument: use named arguments, AddParameter([ :parameter = value, ... ])")
 
@@ -2573,7 +2585,7 @@ Class RelationalCommandParameterObject from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.RelationalCommandParameterObject, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2671,8 +2683,8 @@ Class RelationalConnection from Object
 		return self
 
 	Func BeginTransaction P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:BeginTransaction",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:BeginTransaction",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction"))
@@ -2680,8 +2692,8 @@ Class RelationalConnection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction",P1))
 
 	Func BeginTransactionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:BeginTransactionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:BeginTransactionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s21:BeginTransactionAsync"))
@@ -2689,14 +2701,14 @@ Class RelationalConnection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:BeginTransactionAsync",P1))
 
 	Func UseTransaction P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:UseTransaction",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:UseTransaction",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseTransaction",P1))
 
 	Func UseTransactionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:UseTransactionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UseTransactionAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseTransactionAsync",P1))
 
@@ -2706,8 +2718,8 @@ Class RelationalConnection from Object
 		return self
 
 	Func CommitTransactionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s22:CommitTransactionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:CommitTransactionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s22:CommitTransactionAsync"))
@@ -2720,8 +2732,8 @@ Class RelationalConnection from Object
 		return self
 
 	Func RollbackTransactionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:RollbackTransactionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:RollbackTransactionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s24:RollbackTransactionAsync"))
@@ -2729,8 +2741,10 @@ Class RelationalConnection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:RollbackTransactionAsync",P1))
 
 	Func Open P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Open",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s4:Open",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s4:Open")
@@ -2742,8 +2756,8 @@ Class RelationalConnection from Object
 		return dn_x
 
 	Func OpenAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:OpenAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:OpenAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:OpenAsync",P1))
 
@@ -2934,8 +2948,8 @@ Class RelationalDataReader from Object
 		return dn_x
 
 	Func ReadAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:ReadAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:ReadAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:ReadAsync"))
@@ -3005,8 +3019,8 @@ Class RelationalDatabaseCreator from Object
 		return dn_x
 
 	Func ExistsAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:ExistsAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ExistsAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:ExistsAsync"))
@@ -3019,8 +3033,8 @@ Class RelationalDatabaseCreator from Object
 		return self
 
 	Func CreateAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:CreateAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CreateAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateAsync"))
@@ -3033,8 +3047,8 @@ Class RelationalDatabaseCreator from Object
 		return self
 
 	Func DeleteAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:DeleteAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:DeleteAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:DeleteAsync"))
@@ -3047,8 +3061,8 @@ Class RelationalDatabaseCreator from Object
 		return self
 
 	Func CreateTablesAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:CreateTablesAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:CreateTablesAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s17:CreateTablesAsync"))
@@ -3061,8 +3075,8 @@ Class RelationalDatabaseCreator from Object
 		return dn_x
 
 	Func HasTablesAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:HasTablesAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:HasTablesAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s14:HasTablesAsync"))
@@ -3075,8 +3089,8 @@ Class RelationalDatabaseCreator from Object
 		return dn_x
 
 	Func EnsureDeletedAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:EnsureDeletedAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:EnsureDeletedAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:EnsureDeletedAsync"))
@@ -3089,8 +3103,8 @@ Class RelationalDatabaseCreator from Object
 		return dn_x
 
 	Func EnsureCreatedAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:EnsureCreatedAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:EnsureCreatedAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:EnsureCreatedAsync"))
@@ -3108,8 +3122,8 @@ Class RelationalDatabaseCreator from Object
 		return dn_x
 
 	Func CanConnectAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:CanConnectAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:CanConnectAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s15:CanConnectAsync"))
@@ -3274,14 +3288,16 @@ Class RelationalExecutionStrategyExtensions from Object
 		return dn_x
 
 	Func ExecuteInTransaction P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"s20:ExecuteInTransaction",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational',"s20:ExecuteInTransaction",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: ExecuteInTransaction does not take one argument: use named arguments, ExecuteInTransaction([ :parameter = value, ... ])")
 
 	Func ExecuteInTransactionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"s25:ExecuteInTransactionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational',"s25:ExecuteInTransactionAsync",P1))
 		ok
 		raise("DotNet Error: ExecuteInTransactionAsync does not take one argument: use named arguments, ExecuteInTransactionAsync([ :parameter = value, ... ])")
 
@@ -3328,32 +3344,40 @@ Class RelationalSqlGenerationHelper from Object
 		return self
 
 	Func GenerateParameterName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:GenerateParameterName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s21:GenerateParameterName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s21:GenerateParameterName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GenerateParameterNamePlaceholder P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s32:GenerateParameterNamePlaceholder",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s32:GenerateParameterNamePlaceholder",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s32:GenerateParameterNamePlaceholder",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func EscapeIdentifier P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:EscapeIdentifier",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s16:EscapeIdentifier",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s16:EscapeIdentifier",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DelimitIdentifier P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:DelimitIdentifier",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s17:DelimitIdentifier",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s17:DelimitIdentifier",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3488,8 +3512,8 @@ Class RelationalTransaction from Object
 		return self
 
 	Func CommitAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:CommitAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CommitAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:CommitAsync"))
@@ -3497,8 +3521,8 @@ Class RelationalTransaction from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CommitAsync",P1))
 
 	Func RollbackAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:RollbackAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:RollbackAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:RollbackAsync"))
@@ -3511,8 +3535,8 @@ Class RelationalTransaction from Object
 		return self
 
 	Func CreateSavepointAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:CreateSavepointAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:CreateSavepointAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CreateSavepointAsync",P1))
 
@@ -3522,8 +3546,8 @@ Class RelationalTransaction from Object
 		return self
 
 	Func RollbackToSavepointAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:RollbackToSavepointAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:RollbackToSavepointAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:RollbackToSavepointAsync",P1))
 
@@ -3533,8 +3557,8 @@ Class RelationalTransaction from Object
 		return self
 
 	Func ReleaseSavepointAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:ReleaseSavepointAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:ReleaseSavepointAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:ReleaseSavepointAsync",P1))
 
@@ -3654,7 +3678,7 @@ Class RelationalTypeMappingInfo from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3829,14 +3853,14 @@ Class RelationalTypeMappingSourceExtensions from Object
 		return dn_x
 
 	Func GetMappingForValue P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational'),"s18:GetMappingForValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational',"s18:GetMappingForValue",P1))
 		ok
 		raise("DotNet Error: GetMappingForValue does not take one argument: use named arguments, GetMappingForValue([ :parameter = value, ... ])")
 
 	Func GetMapping P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational'),"s10:GetMapping",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational',"s10:GetMapping",P1))
 		ok
 		raise("DotNet Error: GetMapping does not take one argument: use named arguments, GetMapping([ :parameter = value, ... ])")
 
@@ -3874,7 +3898,7 @@ Class TypeMappingInfo from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3978,8 +4002,8 @@ Class TypeMappingSourceBase from Object
 		return self
 
 	Func FindMapping P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:FindMapping",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:FindMapping",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:FindMapping",P1))
 
@@ -4052,7 +4076,7 @@ Class TypeMaterializationInfo from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.TypeMaterializationInfo, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4128,7 +4152,7 @@ Class ValueBuffer from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ValueBuffer, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4218,8 +4242,8 @@ Class RelationalTypeMapping from CoreTypeMapping
 		return dnSend("s4:call",nHandle,"s19:WithTypeMappingInfo",dnPackItem(P1))
 
 	Func CreateParameter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:CreateParameter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:CreateParameter",P1))
 		ok
 		raise("DotNet Error: CreateParameter does not take one argument: use named arguments, CreateParameter([ :parameter = value, ... ])")
 
@@ -4234,11 +4258,11 @@ Class RelationalTypeMapping from CoreTypeMapping
 		return dn_x
 
 	Func GetDataReaderMethod P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"s19:GetDataReaderMethod",dnPackItem(P1))
+				return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational',"s19:GetDataReaderMethod",P1))
 			ok
-			return dnSend("s9:callnamed",nHandle,"s19:GetDataReaderMethod",dnPackItem(P1))
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetDataReaderMethod",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetDataReaderMethod"))
@@ -4357,7 +4381,7 @@ Class BoolTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.BoolTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4397,7 +4421,7 @@ Class ByteArrayTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ByteArrayTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4437,7 +4461,7 @@ Class ByteTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ByteTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4477,7 +4501,7 @@ Class CharTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.CharTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4517,7 +4541,7 @@ Class DateOnlyTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.DateOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4557,7 +4581,7 @@ Class DateTimeOffsetTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.DateTimeOffsetTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4597,7 +4621,7 @@ Class DateTimeTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.DateTimeTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4637,7 +4661,7 @@ Class DecimalTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.DecimalTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4677,7 +4701,7 @@ Class DoubleTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.DoubleTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4717,7 +4741,7 @@ Class FloatTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.FloatTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4757,7 +4781,7 @@ Class GuidTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.GuidTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4797,7 +4821,7 @@ Class IntTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.IntTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4852,7 +4876,7 @@ Class LongTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.LongTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4892,7 +4916,7 @@ Class SByteTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.SByteTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4932,7 +4956,7 @@ Class ShortTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ShortTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4972,7 +4996,7 @@ Class StringTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.StringTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5012,7 +5036,7 @@ Class TimeOnlyTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.TimeOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5052,7 +5076,7 @@ Class TimeSpanTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.TimeSpanTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5092,7 +5116,7 @@ Class UIntTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.UIntTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5132,7 +5156,7 @@ Class ULongTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ULongTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5172,7 +5196,7 @@ Class UShortTypeMapping from RelationalTypeMapping
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.UShortTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

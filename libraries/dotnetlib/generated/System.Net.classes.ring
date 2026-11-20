@@ -355,7 +355,7 @@ Class Authorization from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Authorization, System.Net.Requests',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -452,7 +452,7 @@ Class Cookie from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Cookie, System.Net.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -713,7 +713,7 @@ Class CookieContainer from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.CookieContainer, System.Net.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -728,8 +728,8 @@ Class CookieContainer from Object
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
@@ -841,22 +841,22 @@ Class CredentialCache from Object
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
 			return self
 		ok
 		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
 
 	Func Remove P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Remove",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Remove",P1)
 			return self
 		ok
 		raise("DotNet Error: Remove does not take one argument: use named arguments, Remove([ :parameter = value, ... ])")
 
 	Func GetCredential P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:GetCredential",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetCredential",P1))
 		ok
 		raise("DotNet Error: GetCredential does not take one argument: use named arguments, GetCredential([ :parameter = value, ... ])")
 
@@ -903,14 +903,14 @@ Class Dns from Object
 		return dn_x
 
 	Func GetHostEntry P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s12:GetHostEntry",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Dns, System.Net.NameResolution',"s12:GetHostEntry",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Net.Dns, System.Net.NameResolution',"s12:GetHostEntry",P1))
 
 	Func GetHostEntryAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s17:GetHostEntryAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Dns, System.Net.NameResolution',"s17:GetHostEntryAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Net.Dns, System.Net.NameResolution',"s17:GetHostEntryAsync",P1))
 
@@ -921,14 +921,14 @@ Class Dns from Object
 		return dnObj(dotnet_callo("s4:call",'System.Net.Dns, System.Net.NameResolution',"s15:EndGetHostEntry",P1))
 
 	Func GetHostAddresses P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s16:GetHostAddresses",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Dns, System.Net.NameResolution',"s16:GetHostAddresses",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Net.Dns, System.Net.NameResolution',"s16:GetHostAddresses",P1))
 
 	Func GetHostAddressesAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Dns, System.Net.NameResolution'),"s21:GetHostAddressesAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Dns, System.Net.NameResolution',"s21:GetHostAddressesAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Net.Dns, System.Net.NameResolution',"s21:GetHostAddressesAsync",P1))
 
@@ -1278,8 +1278,10 @@ Class HttpListenerBasicIdentity from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:FindFirst",P1))
 
 	Func HasClaim P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:HasClaim",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:HasClaim",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:HasClaim",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1402,8 +1404,8 @@ Class HttpListenerContext from Object
 		return self
 
 	Func AcceptWebSocketAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:AcceptWebSocketAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:AcceptWebSocketAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AcceptWebSocketAsync",P1))
 
@@ -1827,8 +1829,8 @@ Class HttpListenerResponse from Object
 		return self
 
 	Func Close P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Close",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Close",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -2175,7 +2177,7 @@ Class IPAddress from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.IPAddress, System.Net.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2417,7 +2419,7 @@ Class IPNetwork from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.IPNetwork, System.Net.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2555,7 +2557,7 @@ Class NetworkCredential from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.NetworkCredential, System.Net.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2570,8 +2572,8 @@ Class NetworkCredential from Object
 		return self
 
 	Func GetCredential P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:GetCredential",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetCredential",P1))
 		ok
 		raise("DotNet Error: GetCredential does not take one argument: use named arguments, GetCredential([ :parameter = value, ... ])")
 
@@ -2857,7 +2859,7 @@ Class SocketAddress from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.SocketAddress, System.Net.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3108,32 +3110,34 @@ Class WebClient from Component
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:OpenRead",P1))
 
 	Func OpenWrite P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:OpenWrite",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:OpenWrite",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:OpenWrite",P1))
 
 	Func UploadData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:UploadData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UploadData",P1))
 		ok
 		raise("DotNet Error: UploadData does not take one argument: use named arguments, UploadData([ :parameter = value, ... ])")
 
 	Func UploadFile P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:UploadFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UploadFile",P1))
 		ok
 		raise("DotNet Error: UploadFile does not take one argument: use named arguments, UploadFile([ :parameter = value, ... ])")
 
 	Func UploadValues P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:UploadValues",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:UploadValues",P1))
 		ok
 		raise("DotNet Error: UploadValues does not take one argument: use named arguments, UploadValues([ :parameter = value, ... ])")
 
 	Func UploadString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:UploadString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:UploadString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: UploadString does not take one argument: use named arguments, UploadString([ :parameter = value, ... ])")
 
@@ -3143,8 +3147,8 @@ Class WebClient from Component
 		return dn_x
 
 	Func OpenReadAsync P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s13:OpenReadAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s13:OpenReadAsync",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s13:OpenReadAsync",P1)
@@ -3152,8 +3156,8 @@ Class WebClient from Component
 		return self
 
 	Func OpenWriteAsync P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:OpenWriteAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:OpenWriteAsync",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s14:OpenWriteAsync",P1)
@@ -3161,8 +3165,8 @@ Class WebClient from Component
 		return self
 
 	Func DownloadStringAsync P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s19:DownloadStringAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s19:DownloadStringAsync",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s19:DownloadStringAsync",P1)
@@ -3170,8 +3174,8 @@ Class WebClient from Component
 		return self
 
 	Func DownloadDataAsync P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s17:DownloadDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s17:DownloadDataAsync",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s17:DownloadDataAsync",P1)
@@ -3179,36 +3183,36 @@ Class WebClient from Component
 		return self
 
 	Func DownloadFileAsync P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s17:DownloadFileAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s17:DownloadFileAsync",P1)
 			return self
 		ok
 		raise("DotNet Error: DownloadFileAsync does not take one argument: use named arguments, DownloadFileAsync([ :parameter = value, ... ])")
 
 	Func UploadStringAsync P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s17:UploadStringAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s17:UploadStringAsync",P1)
 			return self
 		ok
 		raise("DotNet Error: UploadStringAsync does not take one argument: use named arguments, UploadStringAsync([ :parameter = value, ... ])")
 
 	Func UploadDataAsync P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s15:UploadDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:UploadDataAsync",P1)
 			return self
 		ok
 		raise("DotNet Error: UploadDataAsync does not take one argument: use named arguments, UploadDataAsync([ :parameter = value, ... ])")
 
 	Func UploadFileAsync P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s15:UploadFileAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:UploadFileAsync",P1)
 			return self
 		ok
 		raise("DotNet Error: UploadFileAsync does not take one argument: use named arguments, UploadFileAsync([ :parameter = value, ... ])")
 
 	Func UploadValuesAsync P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s17:UploadValuesAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s17:UploadValuesAsync",P1)
 			return self
 		ok
 		raise("DotNet Error: UploadValuesAsync does not take one argument: use named arguments, UploadValuesAsync([ :parameter = value, ... ])")
@@ -3225,14 +3229,14 @@ Class WebClient from Component
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:OpenReadTaskAsync",P1))
 
 	Func OpenWriteTaskAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:OpenWriteTaskAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:OpenWriteTaskAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:OpenWriteTaskAsync",P1))
 
 	Func UploadStringTaskAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:UploadStringTaskAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UploadStringTaskAsync",P1))
 		ok
 		raise("DotNet Error: UploadStringTaskAsync does not take one argument: use named arguments, UploadStringTaskAsync([ :parameter = value, ... ])")
 
@@ -3243,20 +3247,20 @@ Class WebClient from Component
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:DownloadFileTaskAsync",P1,P2))
 
 	Func UploadDataTaskAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:UploadDataTaskAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UploadDataTaskAsync",P1))
 		ok
 		raise("DotNet Error: UploadDataTaskAsync does not take one argument: use named arguments, UploadDataTaskAsync([ :parameter = value, ... ])")
 
 	Func UploadFileTaskAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:UploadFileTaskAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UploadFileTaskAsync",P1))
 		ok
 		raise("DotNet Error: UploadFileTaskAsync does not take one argument: use named arguments, UploadFileTaskAsync([ :parameter = value, ... ])")
 
 	Func UploadValuesTaskAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:UploadValuesTaskAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UploadValuesTaskAsync",P1))
 		ok
 		raise("DotNet Error: UploadValuesTaskAsync does not take one argument: use named arguments, UploadValuesTaskAsync([ :parameter = value, ... ])")
 
@@ -3473,8 +3477,10 @@ Class WebHeaderCollection from NameValueCollection
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToByteArray"))
 
 	Func IsRestricted P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection'),"s12:IsRestricted",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Net.WebHeaderCollection, System.Net.WebHeaderCollection',"s12:IsRestricted",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Net.WebHeaderCollection, System.Net.WebHeaderCollection',"s12:IsRestricted",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3510,7 +3516,7 @@ Class WebProxy from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.WebProxy, System.Net.WebProxy',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3907,16 +3913,20 @@ Class WebUtility from Object
 		return dn_x
 
 	Func HtmlEncode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s10:HtmlEncode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Net.WebUtility, System.Private.CoreLib',"s10:HtmlEncode",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Net.WebUtility, System.Private.CoreLib',"s10:HtmlEncode",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func HtmlDecode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.WebUtility, System.Private.CoreLib'),"s10:HtmlDecode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Net.WebUtility, System.Private.CoreLib',"s10:HtmlDecode",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Net.WebUtility, System.Private.CoreLib',"s10:HtmlDecode",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3985,7 +3995,7 @@ Class DnsEndPoint from EndPoint
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.DnsEndPoint, System.Net.Primitives',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4269,8 +4279,8 @@ Class HttpWebRequest from WebRequest
 		return dnSend("s4:call",nHandle,"s19:EndGetRequestStream",dnPackItem(P1))
 
 	Func AddRange P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:AddRange",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:AddRange",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:AddRange",P1)

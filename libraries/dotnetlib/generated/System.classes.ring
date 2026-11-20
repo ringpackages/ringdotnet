@@ -796,8 +796,10 @@ Class IConvertible from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToDateTime",P1))
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -868,8 +870,10 @@ Class IFormattable from DotNetObject
 		return self
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
@@ -927,11 +931,15 @@ Class Object from DotNetObject
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Object, System.Private.CoreLib'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Object, System.Private.CoreLib',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1033,11 +1041,11 @@ Class Type from MemberInfo
 		return self
 
 	Func GetType P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Type, System.Private.CoreLib'),"s7:GetType",dnPackItem(P1))
+				return dnObj(dotnet_callo("s9:callnamed",'System.Type, System.Private.CoreLib',"s7:GetType",P1))
 			ok
-			return dnSend("s9:callnamed",nHandle,"s7:GetType",dnPackItem(P1))
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:GetType",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
@@ -1073,14 +1081,14 @@ Class Type from MemberInfo
 		return dn_x
 
 	Func GetConstructor P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetConstructor",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:GetConstructor",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetConstructor",P1))
 
 	Func GetConstructors P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:GetConstructors",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetConstructors",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetConstructors"))
@@ -1088,14 +1096,14 @@ Class Type from MemberInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetConstructors",P1))
 
 	Func GetEvent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:GetEvent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetEvent",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetEvent",P1))
 
 	Func GetEvents P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:GetEvents",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:GetEvents",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetEvents"))
@@ -1103,14 +1111,14 @@ Class Type from MemberInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetEvents",P1))
 
 	Func GetField P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:GetField",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetField",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetField",P1))
 
 	Func GetFields P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:GetFields",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:GetFields",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetFields"))
@@ -1127,14 +1135,14 @@ Class Type from MemberInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetFunctionPointerParameterTypes"))
 
 	Func GetMember P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:GetMember",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:GetMember",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetMember",P1))
 
 	Func GetMembers P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:GetMembers",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetMembers",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetMembers"))
@@ -1145,14 +1153,14 @@ Class Type from MemberInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s37:GetMemberWithSameMetadataDefinitionAs",P1))
 
 	Func GetMethod P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:GetMethod",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:GetMethod",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetMethod",P1))
 
 	Func GetMethods P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:GetMethods",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetMethods",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetMethods"))
@@ -1160,14 +1168,14 @@ Class Type from MemberInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetMethods",P1))
 
 	Func GetNestedType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:GetNestedType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetNestedType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetNestedType",P1))
 
 	Func GetNestedTypes P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetNestedTypes",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:GetNestedTypes",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetNestedTypes"))
@@ -1175,14 +1183,14 @@ Class Type from MemberInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetNestedTypes",P1))
 
 	Func GetProperty P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetProperty",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetProperty",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetProperty",P1))
 
 	Func GetProperties P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:GetProperties",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetProperties",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetProperties"))
@@ -1193,14 +1201,14 @@ Class Type from MemberInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetDefaultMembers"))
 
 	Func InvokeMember P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:InvokeMember",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:InvokeMember",P1))
 		ok
 		raise("DotNet Error: InvokeMember does not take one argument: use named arguments, InvokeMember([ :parameter = value, ... ])")
 
 	Func GetInterface P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:GetInterface",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:GetInterface",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetInterface",P1))
 
@@ -1230,8 +1238,8 @@ Class Type from MemberInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetEnumValuesAsUnderlyingType"))
 
 	Func MakeArrayType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:MakeArrayType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:MakeArrayType",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:MakeArrayType"))
@@ -1289,14 +1297,14 @@ Class Type from MemberInfo
 		return dnObj(dotnet_callo("s4:call",'System.Type, System.Private.CoreLib',"s11:GetTypeCode",P1))
 
 	Func GetTypeFromCLSID P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Type, System.Private.CoreLib'),"s16:GetTypeFromCLSID",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Type, System.Private.CoreLib',"s16:GetTypeFromCLSID",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Type, System.Private.CoreLib',"s16:GetTypeFromCLSID",P1))
 
 	Func GetTypeFromProgID P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Type, System.Private.CoreLib'),"s17:GetTypeFromProgID",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Type, System.Private.CoreLib',"s17:GetTypeFromProgID",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Type, System.Private.CoreLib',"s17:GetTypeFromProgID",P1))
 
@@ -1867,8 +1875,8 @@ Class Activator from Object
 		return dn_x
 
 	Func CreateInstance P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Activator, System.Private.CoreLib'),"s14:CreateInstance",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Activator, System.Private.CoreLib',"s14:CreateInstance",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Activator, System.Private.CoreLib',"s14:CreateInstance"))
@@ -1876,8 +1884,8 @@ Class Activator from Object
 		return dnObj(dotnet_callo("s4:call",'System.Activator, System.Private.CoreLib',"s14:CreateInstance",P1))
 
 	Func CreateInstanceFrom P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Activator, System.Private.CoreLib'),"s18:CreateInstanceFrom",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Activator, System.Private.CoreLib',"s18:CreateInstanceFrom",P1))
 		ok
 		raise("DotNet Error: CreateInstanceFrom does not take one argument: use named arguments, CreateInstanceFrom([ :parameter = value, ... ])")
 
@@ -2075,14 +2083,14 @@ Class Array from Object
 		return self
 
 	Func GetValue P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:GetValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func SetValue P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:SetValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:SetValue",P1)
 			return self
 		ok
 		raise("DotNet Error: SetValue does not take one argument: use named arguments, SetValue([ :parameter = value, ... ])")
@@ -2114,8 +2122,8 @@ Class Array from Object
 		return self
 
 	Func Clear P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s5:Clear",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Array, System.Private.CoreLib',"s5:Clear",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Array, System.Private.CoreLib',"s5:Clear",P1)
@@ -2129,27 +2137,29 @@ Class Array from Object
 		return dnSend("s4:call",dnTypeHandle('System.Array, System.Private.CoreLib'),"s6:Resize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateInstance P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s14:CreateInstance",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Array, System.Private.CoreLib',"s14:CreateInstance",P1))
 		ok
 		raise("DotNet Error: CreateInstance does not take one argument: use named arguments, CreateInstance([ :parameter = value, ... ])")
 
 	Func CreateInstanceFromArrayType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s27:CreateInstanceFromArrayType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Array, System.Private.CoreLib',"s27:CreateInstanceFromArrayType",P1))
 		ok
 		raise("DotNet Error: CreateInstanceFromArrayType does not take one argument: use named arguments, CreateInstanceFromArrayType([ :parameter = value, ... ])")
 
 	Func Copy P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s4:Copy",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Array, System.Private.CoreLib',"s4:Copy",P1)
 			return self
 		ok
 		raise("DotNet Error: Copy does not take one argument: use named arguments, Copy([ :parameter = value, ... ])")
 
 	Func BinarySearch P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s12:BinarySearch",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Array, System.Private.CoreLib',"s12:BinarySearch",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: BinarySearch does not take one argument: use named arguments, BinarySearch([ :parameter = value, ... ])")
 
@@ -2165,8 +2175,8 @@ Class Array from Object
 		return dn_x
 
 	Func Fill P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s4:Fill",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Array, System.Private.CoreLib',"s4:Fill",P1)
 			return self
 		ok
 		raise("DotNet Error: Fill does not take one argument: use named arguments, Fill([ :parameter = value, ... ])")
@@ -2178,8 +2188,10 @@ Class Array from Object
 		return dnObj(dotnet_callo("s4:call",'System.Array, System.Private.CoreLib',"s7:FindAll",P1,P2))
 
 	Func FindIndex P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s9:FindIndex",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Array, System.Private.CoreLib',"s9:FindIndex",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: FindIndex does not take one argument: use named arguments, FindIndex([ :parameter = value, ... ])")
 
@@ -2187,8 +2199,10 @@ Class Array from Object
 		return dnObj(dotnet_callo("s4:call",'System.Array, System.Private.CoreLib',"s8:FindLast",P1,P2))
 
 	Func FindLastIndex P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s13:FindLastIndex",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Array, System.Private.CoreLib',"s13:FindLastIndex",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: FindLastIndex does not take one argument: use named arguments, FindLastIndex([ :parameter = value, ... ])")
 
@@ -2198,20 +2212,24 @@ Class Array from Object
 		return self
 
 	Func IndexOf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s7:IndexOf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Array, System.Private.CoreLib',"s7:IndexOf",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: IndexOf does not take one argument: use named arguments, IndexOf([ :parameter = value, ... ])")
 
 	Func LastIndexOf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s11:LastIndexOf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Array, System.Private.CoreLib',"s11:LastIndexOf",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: LastIndexOf does not take one argument: use named arguments, LastIndexOf([ :parameter = value, ... ])")
 
 	Func Reverse P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s7:Reverse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Array, System.Private.CoreLib',"s7:Reverse",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Array, System.Private.CoreLib',"s7:Reverse",P1)
@@ -2219,8 +2237,8 @@ Class Array from Object
 		return self
 
 	Func Sort P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Array, System.Private.CoreLib'),"s4:Sort",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Array, System.Private.CoreLib',"s4:Sort",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Array, System.Private.CoreLib',"s4:Sort",P1)
@@ -2309,11 +2327,15 @@ Class BitConverter from Object
 		return self
 
 	Func Format P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.BitConverter, System.Private.CoreLib'),"s8:ToString",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.BitConverter, System.Private.CoreLib',"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.BitConverter, System.Private.CoreLib',"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2574,8 +2596,8 @@ Class Console from Object
 		return dn_x
 
 	Func ReadKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Console, System.Console'),"s7:ReadKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Console, System.Console',"s7:ReadKey",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Console, System.Console',"s7:ReadKey"))
@@ -2606,8 +2628,8 @@ Class Console from Object
 		return dnObj(dotnet_callo("s4:call",'System.Console, System.Console',"s17:GetCursorPosition"))
 
 	Func Beep P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Console, System.Console'),"s4:Beep",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Console, System.Console',"s4:Beep",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -2618,8 +2640,8 @@ Class Console from Object
 		raise("DotNet Error: Beep does not take one argument: use named arguments, Beep([ :parameter = value, ... ])")
 
 	Func MoveBufferArea P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Console, System.Console'),"s14:MoveBufferArea",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Console, System.Console',"s14:MoveBufferArea",P1)
 			return self
 		ok
 		raise("DotNet Error: MoveBufferArea does not take one argument: use named arguments, MoveBufferArea([ :parameter = value, ... ])")
@@ -2635,8 +2657,8 @@ Class Console from Object
 		return self
 
 	Func OpenStandardInput P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Console, System.Console'),"s17:OpenStandardInput",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Console, System.Console',"s17:OpenStandardInput",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Console, System.Console',"s17:OpenStandardInput"))
@@ -2644,8 +2666,8 @@ Class Console from Object
 		return dnObj(dotnet_callo("s4:call",'System.Console, System.Console',"s17:OpenStandardInput",P1))
 
 	Func OpenStandardOutput P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Console, System.Console'),"s18:OpenStandardOutput",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Console, System.Console',"s18:OpenStandardOutput",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Console, System.Console',"s18:OpenStandardOutput"))
@@ -2653,8 +2675,8 @@ Class Console from Object
 		return dnObj(dotnet_callo("s4:call",'System.Console, System.Console',"s18:OpenStandardOutput",P1))
 
 	Func OpenStandardError P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Console, System.Console'),"s17:OpenStandardError",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Console, System.Console',"s17:OpenStandardError",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Console, System.Console',"s17:OpenStandardError"))
@@ -2687,8 +2709,8 @@ Class Console from Object
 		return dn_x
 
 	Func WriteLine P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Console, System.Console'),"s9:WriteLine",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Console, System.Console',"s9:WriteLine",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -2701,8 +2723,8 @@ Class Console from Object
 		return self
 
 	Func Write P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Console, System.Console'),"s5:Write",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Console, System.Console',"s5:Write",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Console, System.Console',"s5:Write",P1)
@@ -2941,11 +2963,15 @@ Class Convert from Object
 		return self
 
 	Func Format P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToString",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Convert, System.Private.CoreLib',"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2965,130 +2991,158 @@ Class Convert from Object
 		return dn_x
 
 	Func ChangeType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s10:ChangeType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Convert, System.Private.CoreLib',"s10:ChangeType",P1))
 		ok
 		raise("DotNet Error: ChangeType does not take one argument: use named arguments, ChangeType([ :parameter = value, ... ])")
 
 	Func ToBoolean P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s9:ToBoolean",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s9:ToBoolean",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Convert, System.Private.CoreLib',"s9:ToBoolean",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToChar P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s6:ToChar",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Convert, System.Private.CoreLib',"s6:ToChar",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Convert, System.Private.CoreLib',"s6:ToChar",P1))
 
 	Func ToSByte P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s7:ToSByte",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s7:ToSByte",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Convert, System.Private.CoreLib',"s7:ToSByte",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToByte P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s6:ToByte",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s6:ToByte",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Convert, System.Private.CoreLib',"s6:ToByte",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToInt16 P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s7:ToInt16",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s7:ToInt16",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Convert, System.Private.CoreLib',"s7:ToInt16",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToUInt16 P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToUInt16",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s8:ToUInt16",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Convert, System.Private.CoreLib',"s8:ToUInt16",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToInt32 P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s7:ToInt32",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s7:ToInt32",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Convert, System.Private.CoreLib',"s7:ToInt32",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToUInt32 P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToUInt32",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s8:ToUInt32",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Convert, System.Private.CoreLib',"s8:ToUInt32",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToInt64 P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s7:ToInt64",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s7:ToInt64",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Convert, System.Private.CoreLib',"s7:ToInt64",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToUInt64 P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToUInt64",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s8:ToUInt64",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Convert, System.Private.CoreLib',"s8:ToUInt64",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToSingle P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToSingle",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s8:ToSingle",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Convert, System.Private.CoreLib',"s8:ToSingle",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToDouble P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s8:ToDouble",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s8:ToDouble",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Convert, System.Private.CoreLib',"s8:ToDouble",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToDecimal P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s9:ToDecimal",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s9:ToDecimal",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Convert, System.Private.CoreLib',"s9:ToDecimal",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToDateTime P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s10:ToDateTime",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Convert, System.Private.CoreLib',"s10:ToDateTime",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Convert, System.Private.CoreLib',"s10:ToDateTime",P1))
 
 	Func ToBase64String P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s14:ToBase64String",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s14:ToBase64String",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Convert, System.Private.CoreLib',"s14:ToBase64String",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToBase64CharArray P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s17:ToBase64CharArray",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s17:ToBase64CharArray",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: ToBase64CharArray does not take one argument: use named arguments, ToBase64CharArray([ :parameter = value, ... ])")
 
@@ -3102,16 +3156,20 @@ Class Convert from Object
 		return dnObj(dotnet_callo("s4:call",'System.Convert, System.Private.CoreLib',"s13:FromHexString",P1))
 
 	Func ToHexString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s11:ToHexString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s11:ToHexString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Convert, System.Private.CoreLib',"s11:ToHexString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToHexStringLower P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Convert, System.Private.CoreLib'),"s16:ToHexStringLower",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Convert, System.Private.CoreLib',"s16:ToHexStringLower",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Convert, System.Private.CoreLib',"s16:ToHexStringLower",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3143,8 +3201,10 @@ Class DBNull from Object
 		return self
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3213,8 +3273,8 @@ Class Environment from Object
 		return self
 
 	Func FailFast P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s8:FailFast",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Environment, System.Private.CoreLib',"s8:FailFast",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Environment, System.Private.CoreLib',"s8:FailFast",P1)
@@ -3222,16 +3282,18 @@ Class Environment from Object
 		return self
 
 	Func GetEnvironmentVariable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s22:GetEnvironmentVariable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Environment, System.Private.CoreLib',"s22:GetEnvironmentVariable",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Environment, System.Private.CoreLib',"s22:GetEnvironmentVariable",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetEnvironmentVariables P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s23:GetEnvironmentVariables",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Environment, System.Private.CoreLib',"s23:GetEnvironmentVariables",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Environment, System.Private.CoreLib',"s23:GetEnvironmentVariables"))
@@ -3239,8 +3301,8 @@ Class Environment from Object
 		return dnObj(dotnet_callo("s4:call",'System.Environment, System.Private.CoreLib',"s23:GetEnvironmentVariables",P1))
 
 	Func SetEnvironmentVariable P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s22:SetEnvironmentVariable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Environment, System.Private.CoreLib',"s22:SetEnvironmentVariable",P1)
 			return self
 		ok
 		raise("DotNet Error: SetEnvironmentVariable does not take one argument: use named arguments, SetEnvironmentVariable([ :parameter = value, ... ])")
@@ -3254,8 +3316,10 @@ Class Environment from Object
 		return dn_x
 
 	Func GetFolderPath P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Environment, System.Private.CoreLib'),"s13:GetFolderPath",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Environment, System.Private.CoreLib',"s13:GetFolderPath",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Environment, System.Private.CoreLib',"s13:GetFolderPath",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3516,8 +3580,10 @@ Class FormattableString from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3574,8 +3640,8 @@ Class GC from Object
 		return dn_x
 
 	Func GetGCMemoryInfo P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.GC, System.Private.CoreLib'),"s15:GetGCMemoryInfo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.GC, System.Private.CoreLib',"s15:GetGCMemoryInfo",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.GC, System.Private.CoreLib',"s15:GetGCMemoryInfo"))
@@ -3598,8 +3664,8 @@ Class GC from Object
 		return dn_x
 
 	Func Collect P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.GC, System.Private.CoreLib'),"s7:Collect",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.GC, System.Private.CoreLib',"s7:Collect",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -3647,8 +3713,10 @@ Class GC from Object
 		return dn_x
 
 	Func GetTotalAllocatedBytes P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.GC, System.Private.CoreLib'),"s22:GetTotalAllocatedBytes",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.GC, System.Private.CoreLib',"s22:GetTotalAllocatedBytes",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",'System.GC, System.Private.CoreLib',"s22:GetTotalAllocatedBytes")
@@ -3670,8 +3738,8 @@ Class GC from Object
 		return self
 
 	Func WaitForFullGCApproach P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.GC, System.Private.CoreLib'),"s21:WaitForFullGCApproach",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.GC, System.Private.CoreLib',"s21:WaitForFullGCApproach",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.GC, System.Private.CoreLib',"s21:WaitForFullGCApproach"))
@@ -3679,8 +3747,8 @@ Class GC from Object
 		return dnObj(dotnet_callo("s4:call",'System.GC, System.Private.CoreLib',"s21:WaitForFullGCApproach",P1))
 
 	Func WaitForFullGCComplete P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.GC, System.Private.CoreLib'),"s21:WaitForFullGCComplete",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.GC, System.Private.CoreLib',"s21:WaitForFullGCComplete",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.GC, System.Private.CoreLib',"s21:WaitForFullGCComplete"))
@@ -3688,8 +3756,10 @@ Class GC from Object
 		return dnObj(dotnet_callo("s4:call",'System.GC, System.Private.CoreLib',"s21:WaitForFullGCComplete",P1))
 
 	Func TryStartNoGCRegion P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.GC, System.Private.CoreLib'),"s18:TryStartNoGCRegion",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.GC, System.Private.CoreLib',"s18:TryStartNoGCRegion",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.GC, System.Private.CoreLib',"s18:TryStartNoGCRegion",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3706,14 +3776,14 @@ Class GC from Object
 		return self
 
 	Func AllocateUninitializedArray P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.GC, System.Private.CoreLib'),"s26:AllocateUninitializedArray",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.GC, System.Private.CoreLib',"s26:AllocateUninitializedArray",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.GC, System.Private.CoreLib',"s26:AllocateUninitializedArray",P1))
 
 	Func AllocateArray P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.GC, System.Private.CoreLib'),"s13:AllocateArray",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.GC, System.Private.CoreLib',"s13:AllocateArray",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.GC, System.Private.CoreLib',"s13:AllocateArray",P1))
 
@@ -3868,8 +3938,10 @@ Class Math from Object
 		return dn_x
 
 	Func Log P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Math, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Math, System.Private.CoreLib',"s3:Log",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s3:Log",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3992,8 +4064,10 @@ Class Math from Object
 		return dn_x
 
 	Func Round P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Math, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Math, System.Private.CoreLib',"s5:Round",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s5:Round",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4130,8 +4204,10 @@ Class MathF from Object
 		return dn_x
 
 	Func Log P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.MathF, System.Private.CoreLib',"s3:Log",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s3:Log",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4241,8 +4317,10 @@ Class MathF from Object
 		return dn_x
 
 	Func Round P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.MathF, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.MathF, System.Private.CoreLib',"s5:Round",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s5:Round",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4305,14 +4383,14 @@ Class MemoryExtensions from Object
 		return dn_x
 
 	Func AsSpan P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.MemoryExtensions, System.Private.CoreLib'),"s6:AsSpan",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.MemoryExtensions, System.Private.CoreLib',"s6:AsSpan",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.MemoryExtensions, System.Private.CoreLib',"s6:AsSpan",P1))
 
 	Func AsMemory P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.MemoryExtensions, System.Private.CoreLib'),"s8:AsMemory",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.MemoryExtensions, System.Private.CoreLib',"s8:AsMemory",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.MemoryExtensions, System.Private.CoreLib',"s8:AsMemory",P1))
 
@@ -4322,20 +4400,20 @@ Class MemoryExtensions from Object
 		return self
 
 	Func Trim P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.MemoryExtensions, System.Private.CoreLib'),"s4:Trim",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.MemoryExtensions, System.Private.CoreLib',"s4:Trim",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.MemoryExtensions, System.Private.CoreLib',"s4:Trim",P1))
 
 	Func TrimStart P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.MemoryExtensions, System.Private.CoreLib'),"s9:TrimStart",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.MemoryExtensions, System.Private.CoreLib',"s9:TrimStart",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.MemoryExtensions, System.Private.CoreLib',"s9:TrimStart",P1))
 
 	Func TrimEnd P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.MemoryExtensions, System.Private.CoreLib'),"s7:TrimEnd",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.MemoryExtensions, System.Private.CoreLib',"s7:TrimEnd",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.MemoryExtensions, System.Private.CoreLib',"s7:TrimEnd",P1))
 
@@ -4352,11 +4430,15 @@ Class Nullable from Object
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Nullable, System.Private.CoreLib'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Nullable, System.Private.CoreLib',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4411,8 +4493,10 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsOSPlatformVersionAtLeast P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s26:IsOSPlatformVersionAtLeast",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.OperatingSystem, System.Private.CoreLib',"s26:IsOSPlatformVersionAtLeast",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: IsOSPlatformVersionAtLeast does not take one argument: use named arguments, IsOSPlatformVersionAtLeast([ :parameter = value, ... ])")
 
@@ -4437,8 +4521,10 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsFreeBSDVersionAtLeast P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s23:IsFreeBSDVersionAtLeast",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.OperatingSystem, System.Private.CoreLib',"s23:IsFreeBSDVersionAtLeast",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s23:IsFreeBSDVersionAtLeast",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4450,8 +4536,10 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsAndroidVersionAtLeast P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s23:IsAndroidVersionAtLeast",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.OperatingSystem, System.Private.CoreLib',"s23:IsAndroidVersionAtLeast",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s23:IsAndroidVersionAtLeast",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4463,8 +4551,10 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsIOSVersionAtLeast P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s19:IsIOSVersionAtLeast",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.OperatingSystem, System.Private.CoreLib',"s19:IsIOSVersionAtLeast",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s19:IsIOSVersionAtLeast",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4476,8 +4566,10 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsMacOSVersionAtLeast P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s21:IsMacOSVersionAtLeast",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.OperatingSystem, System.Private.CoreLib',"s21:IsMacOSVersionAtLeast",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s21:IsMacOSVersionAtLeast",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4489,8 +4581,10 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsMacCatalystVersionAtLeast P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s27:IsMacCatalystVersionAtLeast",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.OperatingSystem, System.Private.CoreLib',"s27:IsMacCatalystVersionAtLeast",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s27:IsMacCatalystVersionAtLeast",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4502,8 +4596,10 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsTvOSVersionAtLeast P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s20:IsTvOSVersionAtLeast",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.OperatingSystem, System.Private.CoreLib',"s20:IsTvOSVersionAtLeast",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s20:IsTvOSVersionAtLeast",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4515,8 +4611,10 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsWatchOSVersionAtLeast P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s23:IsWatchOSVersionAtLeast",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.OperatingSystem, System.Private.CoreLib',"s23:IsWatchOSVersionAtLeast",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s23:IsWatchOSVersionAtLeast",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4528,8 +4626,10 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsWindowsVersionAtLeast P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.OperatingSystem, System.Private.CoreLib'),"s23:IsWindowsVersionAtLeast",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.OperatingSystem, System.Private.CoreLib',"s23:IsWindowsVersionAtLeast",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s23:IsWindowsVersionAtLeast",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4592,7 +4692,7 @@ Class Random from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Random, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4607,8 +4707,10 @@ Class Random from Object
 		return self
 
 	Func Next_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Next",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s4:Next",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s4:Next")
@@ -4620,8 +4722,10 @@ Class Random from Object
 		return dn_x
 
 	Func NextInt64 P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:NextInt64",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:NextInt64",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s9:NextInt64")
@@ -4682,7 +4786,7 @@ Class String from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.String, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4702,27 +4806,35 @@ Class String from Object
 		return dn_x
 
 	Func EndsWith P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:EndsWith",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:EndsWith",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:EndsWith",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.String, System.Private.CoreLib'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.String, System.Private.CoreLib',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
@@ -4734,8 +4846,10 @@ Class String from Object
 		return dn_x
 
 	Func StartsWith P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:StartsWith",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:StartsWith",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s10:StartsWith",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4750,8 +4864,8 @@ Class String from Object
 		return self
 
 	Func ToCharArray P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:ToCharArray",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ToCharArray",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToCharArray"))
@@ -4771,8 +4885,10 @@ Class String from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTypeCode"))
 
 	Func IsNormalized P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:IsNormalized",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:IsNormalized",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s12:IsNormalized")
@@ -4784,8 +4900,10 @@ Class String from Object
 		return dn_x
 
 	Func Normalize P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:Normalize",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:Normalize",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s9:Normalize")
@@ -4802,38 +4920,48 @@ Class String from Object
 		return dn_x
 
 	Func PadLeft P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:PadLeft",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:PadLeft",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:PadLeft",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PadRight P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:PadRight",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:PadRight",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:PadRight",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Remove P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Remove",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Remove",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Replace P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Replace",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:Replace",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
 	Func ReplaceLineEndings P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:ReplaceLineEndings",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s18:ReplaceLineEndings",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s18:ReplaceLineEndings")
@@ -4845,22 +4973,26 @@ Class String from Object
 		return dn_x
 
 	Func Split P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s5:Split",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Split",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Split",P1))
 
 	Func Substring P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:Substring",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:Substring",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:Substring",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToLower P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:ToLower",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:ToLower",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s7:ToLower")
@@ -4877,8 +5009,10 @@ Class String from Object
 		return dn_x
 
 	Func ToUpper P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:ToUpper",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:ToUpper",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s7:ToUpper")
@@ -4895,8 +5029,10 @@ Class String from Object
 		return dn_x
 
 	Func Trim P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Trim",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s4:Trim",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s4:Trim")
@@ -4908,8 +5044,10 @@ Class String from Object
 		return dn_x
 
 	Func TrimStart P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:TrimStart",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:TrimStart",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s9:TrimStart")
@@ -4921,8 +5059,10 @@ Class String from Object
 		return dn_x
 
 	Func TrimEnd P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:TrimEnd",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:TrimEnd",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s7:TrimEnd")
@@ -4934,40 +5074,50 @@ Class String from Object
 		return dn_x
 
 	Func Contains P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Contains",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Contains",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IndexOf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:IndexOf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IndexOfAny P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:IndexOfAny",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:IndexOfAny",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s10:IndexOfAny",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LastIndexOf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:LastIndexOf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:LastIndexOf",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s11:LastIndexOf",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func LastIndexOfAny P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:LastIndexOfAny",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:LastIndexOfAny",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s14:LastIndexOfAny",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4984,14 +5134,18 @@ Class String from Object
 		return dn_x
 
 	Func Compare P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.String, System.Private.CoreLib'),"s7:Compare",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.String, System.Private.CoreLib',"s7:Compare",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: Compare does not take one argument: use named arguments, Compare([ :parameter = value, ... ])")
 
 	Func CompareOrdinal P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.String, System.Private.CoreLib'),"s14:CompareOrdinal",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.String, System.Private.CoreLib',"s14:CompareOrdinal",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: CompareOrdinal does not take one argument: use named arguments, CompareOrdinal([ :parameter = value, ... ])")
 
@@ -5016,22 +5170,28 @@ Class String from Object
 		return dn_x
 
 	Func Concat P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.String, System.Private.CoreLib'),"s6:Concat",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.String, System.Private.CoreLib',"s6:Concat",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.String, System.Private.CoreLib',"s6:Concat",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.String, System.Private.CoreLib'),"s6:Format",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.String, System.Private.CoreLib',"s6:Format",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: Format does not take one argument: use named arguments, Format([ :parameter = value, ... ])")
 
 	Func Join P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.String, System.Private.CoreLib'),"s4:Join",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.String, System.Private.CoreLib',"s4:Join",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: Join does not take one argument: use named arguments, Join([ :parameter = value, ... ])")
 
@@ -5079,16 +5239,20 @@ Class StringComparer from Object
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHashCode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
@@ -5165,16 +5329,20 @@ Class StringNormalizationExtensions from Object
 		return dn_x
 
 	Func IsNormalized P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.StringNormalizationExtensions, System.Private.CoreLib'),"s12:IsNormalized",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.StringNormalizationExtensions, System.Private.CoreLib',"s12:IsNormalized",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.StringNormalizationExtensions, System.Private.CoreLib',"s12:IsNormalized",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Normalize P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.StringNormalizationExtensions, System.Private.CoreLib'),"s9:Normalize",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.StringNormalizationExtensions, System.Private.CoreLib',"s9:Normalize",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.StringNormalizationExtensions, System.Private.CoreLib',"s9:Normalize",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5208,8 +5376,8 @@ Class TimeProvider from Object
 		return dn_x
 
 	Func GetElapsedTime P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetElapsedTime",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:GetElapsedTime",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetElapsedTime",P1))
 
@@ -5308,8 +5476,8 @@ Class TimeZoneInfo from Object
 		return self
 
 	Func ConvertTimeBySystemTimeZoneId P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s29:ConvertTimeBySystemTimeZoneId",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.TimeZoneInfo, System.Private.CoreLib',"s29:ConvertTimeBySystemTimeZoneId",P1))
 		ok
 		raise("DotNet Error: ConvertTimeBySystemTimeZoneId does not take one argument: use named arguments, ConvertTimeBySystemTimeZoneId([ :parameter = value, ... ])")
 
@@ -5320,8 +5488,8 @@ Class TimeZoneInfo from Object
 		return dnSend("s4:call",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s25:TryFindSystemTimeZoneById",dnPackItem(P1))
 
 	Func ConvertTime P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s11:ConvertTime",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.TimeZoneInfo, System.Private.CoreLib',"s11:ConvertTime",P1))
 		ok
 		raise("DotNet Error: ConvertTime does not take one argument: use named arguments, ConvertTime([ :parameter = value, ... ])")
 
@@ -5329,8 +5497,8 @@ Class TimeZoneInfo from Object
 		return dnObj(dotnet_callo("s4:call",'System.TimeZoneInfo, System.Private.CoreLib',"s18:ConvertTimeFromUtc",P1,P2))
 
 	Func ConvertTimeToUtc P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s16:ConvertTimeToUtc",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.TimeZoneInfo, System.Private.CoreLib',"s16:ConvertTimeToUtc",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.TimeZoneInfo, System.Private.CoreLib',"s16:ConvertTimeToUtc",P1))
 
@@ -5338,8 +5506,8 @@ Class TimeZoneInfo from Object
 		return dnObj(dotnet_callo("s4:call",'System.TimeZoneInfo, System.Private.CoreLib',"s20:FromSerializedString",P1))
 
 	Func GetSystemTimeZones P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s18:GetSystemTimeZones",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.TimeZoneInfo, System.Private.CoreLib',"s18:GetSystemTimeZones",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.TimeZoneInfo, System.Private.CoreLib',"s18:GetSystemTimeZones"))
@@ -5347,8 +5515,8 @@ Class TimeZoneInfo from Object
 		return dnObj(dotnet_callo("s4:call",'System.TimeZoneInfo, System.Private.CoreLib',"s18:GetSystemTimeZones",P1))
 
 	Func CreateCustomTimeZone P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s20:CreateCustomTimeZone",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.TimeZoneInfo, System.Private.CoreLib',"s20:CreateCustomTimeZone",P1))
 		ok
 		raise("DotNet Error: CreateCustomTimeZone does not take one argument: use named arguments, CreateCustomTimeZone([ :parameter = value, ... ])")
 
@@ -5356,8 +5524,10 @@ Class TimeZoneInfo from Object
 		return dnSend("s4:call",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s27:TryConvertIanaIdToWindowsId",dnPackItem(P1))
 
 	Func TryConvertWindowsIdToIanaId P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s27:TryConvertWindowsIdToIanaId",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.TimeZoneInfo, System.Private.CoreLib',"s27:TryConvertWindowsIdToIanaId",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s27:TryConvertWindowsIdToIanaId",dnPackItem(P1))
 
@@ -5445,8 +5615,8 @@ Class Tuple from Object
 		return dn_x
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Tuple, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Tuple, System.Private.CoreLib',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Tuple, System.Private.CoreLib',"s6:Create",P1))
 
@@ -5531,7 +5701,7 @@ Class Uri from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Uri, System.Private.Uri',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5978,7 +6148,7 @@ Class UriBuilder from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.UriBuilder, System.Private.Uri',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6153,7 +6323,7 @@ Class Version from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Version, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6181,8 +6351,10 @@ Class Version from Object
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -6261,7 +6433,7 @@ Class WeakReference from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.WeakReference, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6348,16 +6520,20 @@ Class AppDomain from MarshalByRefObject
 		return dn_x
 
 	Func ExecuteAssembly P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:ExecuteAssembly",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:ExecuteAssembly",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s15:ExecuteAssembly",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ExecuteAssemblyByName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:ExecuteAssemblyByName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s21:ExecuteAssemblyByName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s21:ExecuteAssemblyByName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -6385,8 +6561,8 @@ Class AppDomain from MarshalByRefObject
 		return dn_x
 
 	Func Load_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Load",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Load",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Load",P1))
 
@@ -6437,26 +6613,26 @@ Class AppDomain from MarshalByRefObject
 		return self
 
 	Func CreateInstance P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:CreateInstance",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:CreateInstance",P1))
 		ok
 		raise("DotNet Error: CreateInstance does not take one argument: use named arguments, CreateInstance([ :parameter = value, ... ])")
 
 	Func CreateInstanceAndUnwrap P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s23:CreateInstanceAndUnwrap",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:CreateInstanceAndUnwrap",P1))
 		ok
 		raise("DotNet Error: CreateInstanceAndUnwrap does not take one argument: use named arguments, CreateInstanceAndUnwrap([ :parameter = value, ... ])")
 
 	Func CreateInstanceFrom P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:CreateInstanceFrom",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:CreateInstanceFrom",P1))
 		ok
 		raise("DotNet Error: CreateInstanceFrom does not take one argument: use named arguments, CreateInstanceFrom([ :parameter = value, ... ])")
 
 	Func CreateInstanceFromAndUnwrap P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s27:CreateInstanceFromAndUnwrap",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:CreateInstanceFromAndUnwrap",P1))
 		ok
 		raise("DotNet Error: CreateInstanceFromAndUnwrap does not take one argument: use named arguments, CreateInstanceFromAndUnwrap([ :parameter = value, ... ])")
 
@@ -6710,8 +6886,10 @@ Class Boolean from ValueType
 		return self
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -6779,8 +6957,10 @@ Class Byte from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -6790,16 +6970,20 @@ Class Byte from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTypeCode"))
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Byte, System.Private.CoreLib',"s5:Parse",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Byte, System.Private.CoreLib',"s5:Parse",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Byte, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Byte, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -6932,11 +7116,15 @@ Class Char from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s8:ToString",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Char, System.Private.CoreLib',"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if nHandle = 0
 			dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s8:ToString",P1)
@@ -7002,8 +7190,10 @@ Class Char from ValueType
 		return dn_x
 
 	Func IsDigit P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s7:IsDigit",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Char, System.Private.CoreLib',"s7:IsDigit",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s7:IsDigit",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7015,56 +7205,68 @@ Class Char from ValueType
 		return dn_x
 
 	Func IsLetter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s8:IsLetter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Char, System.Private.CoreLib',"s8:IsLetter",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s8:IsLetter",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsWhiteSpace P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s12:IsWhiteSpace",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Char, System.Private.CoreLib',"s12:IsWhiteSpace",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s12:IsWhiteSpace",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsUpper P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s7:IsUpper",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Char, System.Private.CoreLib',"s7:IsUpper",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s7:IsUpper",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsLower P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s7:IsLower",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Char, System.Private.CoreLib',"s7:IsLower",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s7:IsLower",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsPunctuation P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s13:IsPunctuation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Char, System.Private.CoreLib',"s13:IsPunctuation",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s13:IsPunctuation",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsLetterOrDigit P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s15:IsLetterOrDigit",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Char, System.Private.CoreLib',"s15:IsLetterOrDigit",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s15:IsLetterOrDigit",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToUpper P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s7:ToUpper",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Char, System.Private.CoreLib',"s7:ToUpper",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Char, System.Private.CoreLib',"s7:ToUpper",P1))
 
@@ -7072,8 +7274,8 @@ Class Char from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Char, System.Private.CoreLib',"s16:ToUpperInvariant",P1))
 
 	Func ToLower P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s7:ToLower",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Char, System.Private.CoreLib',"s7:ToLower",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Char, System.Private.CoreLib',"s7:ToLower",P1))
 
@@ -7081,70 +7283,86 @@ Class Char from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Char, System.Private.CoreLib',"s16:ToLowerInvariant",P1))
 
 	Func IsControl P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s9:IsControl",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Char, System.Private.CoreLib',"s9:IsControl",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s9:IsControl",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsNumber P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s8:IsNumber",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Char, System.Private.CoreLib',"s8:IsNumber",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s8:IsNumber",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsSeparator P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s11:IsSeparator",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Char, System.Private.CoreLib',"s11:IsSeparator",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s11:IsSeparator",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsSurrogate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s11:IsSurrogate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Char, System.Private.CoreLib',"s11:IsSurrogate",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s11:IsSurrogate",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsSymbol P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s8:IsSymbol",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Char, System.Private.CoreLib',"s8:IsSymbol",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s8:IsSymbol",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetUnicodeCategory P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s18:GetUnicodeCategory",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Char, System.Private.CoreLib',"s18:GetUnicodeCategory",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Char, System.Private.CoreLib',"s18:GetUnicodeCategory",P1))
 
 	Func GetNumericValue P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s15:GetNumericValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Char, System.Private.CoreLib',"s15:GetNumericValue",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s15:GetNumericValue",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsHighSurrogate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s15:IsHighSurrogate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Char, System.Private.CoreLib',"s15:IsHighSurrogate",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s15:IsHighSurrogate",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsLowSurrogate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Char, System.Private.CoreLib'),"s14:IsLowSurrogate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Char, System.Private.CoreLib',"s14:IsLowSurrogate",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s14:IsLowSurrogate",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7234,7 +7452,7 @@ Class ConsoleKeyInfo from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ConsoleKeyInfo, System.Console',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7319,7 +7537,7 @@ Class DateOnly from ValueType
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.DateOnly, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7346,8 +7564,8 @@ Class DateOnly from ValueType
 		return dnSend("s4:call",nHandle,"s11:Deconstruct","")
 
 	Func ToDateTime P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:ToDateTime",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:ToDateTime",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToDateTime",P1))
 
@@ -7367,8 +7585,10 @@ Class DateOnly from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7381,26 +7601,30 @@ Class DateOnly from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.DateOnly, System.Private.CoreLib',"s12:FromDateTime",P1))
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.DateOnly, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.DateOnly, System.Private.CoreLib',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.DateOnly, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func ParseExact P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.DateOnly, System.Private.CoreLib'),"s10:ParseExact",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.DateOnly, System.Private.CoreLib',"s10:ParseExact",P1))
 		ok
 		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.DateOnly, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.DateOnly, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.DateOnly, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func TryParseExact P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.DateOnly, System.Private.CoreLib'),"s13:TryParseExact",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.DateOnly, System.Private.CoreLib',"s13:TryParseExact",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: TryParseExact does not take one argument: use named arguments, TryParseExact([ :parameter = value, ... ])")
 
@@ -7499,7 +7723,7 @@ Class DateTime from ValueType
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.DateTime, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7549,11 +7773,15 @@ Class DateTime from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.DateTime, System.Private.CoreLib',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7611,8 +7839,10 @@ Class DateTime from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7625,8 +7855,8 @@ Class DateTime from ValueType
 		return dnSend("s4:call",nHandle,"s11:Deconstruct","")
 
 	Func GetDateTimeFormats P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:GetDateTimeFormats",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetDateTimeFormats",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetDateTimeFormats"))
@@ -7667,20 +7897,22 @@ Class DateTime from ValueType
 		return dn_x
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.DateTime, System.Private.CoreLib',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.DateTime, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func ParseExact P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s10:ParseExact",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.DateTime, System.Private.CoreLib',"s10:ParseExact",P1))
 		ok
 		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.DateTime, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.DateTime, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -7884,7 +8116,7 @@ Class DateTimeOffset from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.DateTimeOffset, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7937,11 +8169,15 @@ Class DateTimeOffset from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.DateTimeOffset, System.Private.CoreLib',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7974,8 +8210,10 @@ Class DateTimeOffset from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToLocalTime"))
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -8002,20 +8240,22 @@ Class DateTimeOffset from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.DateTimeOffset, System.Private.CoreLib',"s24:FromUnixTimeMilliseconds",P1))
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.DateTimeOffset, System.Private.CoreLib',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.DateTimeOffset, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func ParseExact P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s10:ParseExact",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.DateTimeOffset, System.Private.CoreLib',"s10:ParseExact",P1))
 		ok
 		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.DateTimeOffset, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.DateTimeOffset, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -8228,7 +8468,7 @@ Class Decimal from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Decimal, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -8248,19 +8488,25 @@ Class Decimal from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Decimal, System.Private.CoreLib',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -8305,16 +8551,20 @@ Class Decimal from ValueType
 		return dn_x
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Decimal, System.Private.CoreLib',"s5:Parse",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Decimal, System.Private.CoreLib',"s5:Parse",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Decimal, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -8337,8 +8587,10 @@ Class Decimal from ValueType
 		return dn_x
 
 	Func Round P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Decimal, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Decimal, System.Private.CoreLib',"s5:Round",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Decimal, System.Private.CoreLib',"s5:Round",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -8581,8 +8833,10 @@ Class Double from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -8632,16 +8886,20 @@ Class Double from ValueType
 		return dn_x
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Double, System.Private.CoreLib',"s5:Parse",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:Parse",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Double, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Double, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -8702,8 +8960,10 @@ Class Double from ValueType
 		return dn_x
 
 	Func Round P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Double, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Double, System.Private.CoreLib',"s5:Round",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:Round",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -8800,8 +9060,10 @@ Class Double from ValueType
 		return dn_x
 
 	Func Log P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Double, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Double, System.Private.CoreLib',"s3:Log",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s3:Log",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -9139,16 +9401,18 @@ Class Enum from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTypeCode"))
 
 	Func GetName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s7:GetName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Enum, System.Private.CoreLib',"s7:GetName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Enum, System.Private.CoreLib',"s7:GetName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetNames P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s8:GetNames",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Enum, System.Private.CoreLib',"s8:GetNames",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Enum, System.Private.CoreLib',"s8:GetNames"))
@@ -9159,8 +9423,8 @@ Class Enum from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Enum, System.Private.CoreLib',"s17:GetUnderlyingType",P1))
 
 	Func GetValues P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s9:GetValues",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Enum, System.Private.CoreLib',"s9:GetValues",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Enum, System.Private.CoreLib',"s9:GetValues"))
@@ -9168,8 +9432,8 @@ Class Enum from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Enum, System.Private.CoreLib',"s9:GetValues",P1))
 
 	Func GetValuesAsUnderlyingType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s25:GetValuesAsUnderlyingType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Enum, System.Private.CoreLib',"s25:GetValuesAsUnderlyingType",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Enum, System.Private.CoreLib',"s25:GetValuesAsUnderlyingType"))
@@ -9177,22 +9441,26 @@ Class Enum from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Enum, System.Private.CoreLib',"s25:GetValuesAsUnderlyingType",P1))
 
 	Func IsDefined P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s9:IsDefined",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Enum, System.Private.CoreLib',"s9:IsDefined",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Enum, System.Private.CoreLib',"s9:IsDefined",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Enum, System.Private.CoreLib',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Enum, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Enum, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Enum, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -9529,7 +9797,7 @@ Class Guid from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Guid, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -9544,8 +9812,8 @@ Class Guid from ValueType
 		return self
 
 	Func ToByteArray P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:ToByteArray",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ToByteArray",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToByteArray"))
@@ -9558,16 +9826,18 @@ Class Guid from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CreateVersion7 P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Guid, System.Private.CoreLib'),"s14:CreateVersion7",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Guid, System.Private.CoreLib',"s14:CreateVersion7",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Guid, System.Private.CoreLib',"s14:CreateVersion7"))
@@ -9575,14 +9845,16 @@ Class Guid from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Guid, System.Private.CoreLib',"s14:CreateVersion7",P1))
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Guid, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Guid, System.Private.CoreLib',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Guid, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Guid, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Guid, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Guid, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -9665,8 +9937,10 @@ Class Half from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -9713,14 +9987,16 @@ Class Half from ValueType
 		return dn_x
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Half, System.Private.CoreLib',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Half, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Half, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Half, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Half, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -9763,8 +10039,8 @@ Class Half from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Half, System.Private.CoreLib',"s5:Floor",P1))
 
 	Func Round P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Half, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Half, System.Private.CoreLib',"s5:Round",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Half, System.Private.CoreLib',"s5:Round",P1))
 
@@ -9825,8 +10101,8 @@ Class Half from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Half, System.Private.CoreLib',"s4:Tanh",P1))
 
 	Func Log P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Half, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Half, System.Private.CoreLib',"s3:Log",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Half, System.Private.CoreLib',"s3:Log",P1))
 
@@ -10086,8 +10362,8 @@ Class HashCode from ValueType
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
@@ -10100,8 +10376,10 @@ Class HashCode from ValueType
 		return dn_x
 
 	Func Combine P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.HashCode, System.Private.CoreLib'),"s7:Combine",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.HashCode, System.Private.CoreLib',"s7:Combine",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.HashCode, System.Private.CoreLib',"s7:Combine",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -10155,7 +10433,7 @@ Class Index from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Index, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -10234,7 +10512,7 @@ Class Int128 from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Int128, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -10254,22 +10532,26 @@ Class Int128 from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Int128, System.Private.CoreLib',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Int128, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Int128, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Int128, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -10414,8 +10696,10 @@ Class Int16 from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -10425,16 +10709,20 @@ Class Int16 from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTypeCode"))
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Int16, System.Private.CoreLib',"s5:Parse",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s5:Parse",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Int16, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Int16, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -10597,8 +10885,10 @@ Class Int32 from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -10613,16 +10903,20 @@ Class Int32 from ValueType
 		return dn_x
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Int32, System.Private.CoreLib',"s5:Parse",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s5:Parse",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Int32, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Int32, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -10785,8 +11079,10 @@ Class Int64 from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -10799,16 +11095,20 @@ Class Int64 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Int64, System.Private.CoreLib',"s6:BigMul",P1,P2))
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Int64, System.Private.CoreLib',"s5:Parse",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s5:Parse",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Int64, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Int64, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -10969,7 +11269,7 @@ Class IntPtr from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.IntPtr, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -11002,8 +11302,10 @@ Class IntPtr from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -11016,14 +11318,16 @@ Class IntPtr from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.IntPtr, System.Private.CoreLib',"s8:Subtract",P1,P2))
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IntPtr, System.Private.CoreLib',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IntPtr, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.IntPtr, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.IntPtr, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -11183,8 +11487,8 @@ Class ModuleHandle from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s37:GetRuntimeTypeHandleFromMetadataToken",P1))
 
 	Func ResolveTypeHandle P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:ResolveTypeHandle",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ResolveTypeHandle",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ResolveTypeHandle",P1))
 
@@ -11192,8 +11496,8 @@ Class ModuleHandle from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s39:GetRuntimeMethodHandleFromMetadataToken",P1))
 
 	Func ResolveMethodHandle P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:ResolveMethodHandle",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:ResolveMethodHandle",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ResolveMethodHandle",P1))
 
@@ -11201,8 +11505,8 @@ Class ModuleHandle from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s38:GetRuntimeFieldHandleFromMetadataToken",P1))
 
 	Func ResolveFieldHandle P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:ResolveFieldHandle",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ResolveFieldHandle",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ResolveFieldHandle",P1))
 
@@ -11321,7 +11625,7 @@ Class Range from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Range, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -11377,7 +11681,7 @@ Class ResolveEventArgs from EventArgs
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.ResolveEventArgs, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -11561,8 +11865,10 @@ Class SByte from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -11572,16 +11878,20 @@ Class SByte from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTypeCode"))
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.SByte, System.Private.CoreLib',"s5:Parse",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s5:Parse",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.SByte, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.SByte, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -11752,8 +12062,10 @@ Class Single from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -11803,16 +12115,20 @@ Class Single from ValueType
 		return dn_x
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Single, System.Private.CoreLib',"s5:Parse",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:Parse",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Single, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Single, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -11873,8 +12189,10 @@ Class Single from ValueType
 		return dn_x
 
 	Func Round P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Single, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Single, System.Private.CoreLib',"s5:Round",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:Round",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -11971,8 +12289,10 @@ Class Single from ValueType
 		return dn_x
 
 	Func Log P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Single, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Single, System.Private.CoreLib',"s3:Log",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s3:Log",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -12317,7 +12637,7 @@ Class TimeOnly from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.TimeOnly, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -12367,8 +12687,10 @@ Class TimeOnly from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -12381,26 +12703,30 @@ Class TimeOnly from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.TimeOnly, System.Private.CoreLib',"s12:FromDateTime",P1))
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeOnly, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.TimeOnly, System.Private.CoreLib',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.TimeOnly, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func ParseExact P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeOnly, System.Private.CoreLib'),"s10:ParseExact",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.TimeOnly, System.Private.CoreLib',"s10:ParseExact",P1))
 		ok
 		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeOnly, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.TimeOnly, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.TimeOnly, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func TryParseExact P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeOnly, System.Private.CoreLib'),"s13:TryParseExact",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.TimeOnly, System.Private.CoreLib',"s13:TryParseExact",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: TryParseExact does not take one argument: use named arguments, TryParseExact([ :parameter = value, ... ])")
 
@@ -12536,7 +12862,7 @@ Class TimeSpan from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.TimeSpan, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -12562,11 +12888,15 @@ Class TimeSpan from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Duration"))
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.TimeSpan, System.Private.CoreLib',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -12585,8 +12915,10 @@ Class TimeSpan from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Divide",P1))
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -12598,32 +12930,32 @@ Class TimeSpan from ValueType
 		return dn_x
 
 	Func FromDays P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s8:FromDays",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.TimeSpan, System.Private.CoreLib',"s8:FromDays",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.TimeSpan, System.Private.CoreLib',"s8:FromDays",P1))
 
 	Func FromHours P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s9:FromHours",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.TimeSpan, System.Private.CoreLib',"s9:FromHours",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.TimeSpan, System.Private.CoreLib',"s9:FromHours",P1))
 
 	Func FromMinutes P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s11:FromMinutes",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.TimeSpan, System.Private.CoreLib',"s11:FromMinutes",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.TimeSpan, System.Private.CoreLib',"s11:FromMinutes",P1))
 
 	Func FromSeconds P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s11:FromSeconds",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.TimeSpan, System.Private.CoreLib',"s11:FromSeconds",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.TimeSpan, System.Private.CoreLib',"s11:FromSeconds",P1))
 
 	Func FromMilliseconds P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s16:FromMilliseconds",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.TimeSpan, System.Private.CoreLib',"s16:FromMilliseconds",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.TimeSpan, System.Private.CoreLib',"s16:FromMilliseconds",P1))
 
@@ -12634,26 +12966,30 @@ Class TimeSpan from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.TimeSpan, System.Private.CoreLib',"s9:FromTicks",P1))
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.TimeSpan, System.Private.CoreLib',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.TimeSpan, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func ParseExact P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s10:ParseExact",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.TimeSpan, System.Private.CoreLib',"s10:ParseExact",P1))
 		ok
 		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.TimeSpan, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func TryParseExact P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.TimeSpan, System.Private.CoreLib'),"s13:TryParseExact",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.TimeSpan, System.Private.CoreLib',"s13:TryParseExact",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: TryParseExact does not take one argument: use named arguments, TryParseExact([ :parameter = value, ... ])")
 
@@ -12999,7 +13335,7 @@ Class UInt128 from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.UInt128, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -13019,22 +13355,26 @@ Class UInt128 from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.UInt128, System.Private.CoreLib',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.UInt128, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.UInt128, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.UInt128, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -13151,8 +13491,10 @@ Class UInt16 from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -13162,16 +13504,20 @@ Class UInt16 from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTypeCode"))
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.UInt16, System.Private.CoreLib',"s5:Parse",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.UInt16, System.Private.CoreLib',"s5:Parse",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.UInt16, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.UInt16, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -13304,8 +13650,10 @@ Class UInt32 from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -13320,16 +13668,20 @@ Class UInt32 from ValueType
 		return dn_x
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.UInt32, System.Private.CoreLib',"s5:Parse",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.UInt32, System.Private.CoreLib',"s5:Parse",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.UInt32, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.UInt32, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -13462,8 +13814,10 @@ Class UInt64 from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -13476,16 +13830,20 @@ Class UInt64 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.UInt64, System.Private.CoreLib',"s6:BigMul",P1,P2))
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.UInt64, System.Private.CoreLib',"s5:Parse",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.UInt64, System.Private.CoreLib',"s5:Parse",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.UInt64, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.UInt64, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -13616,7 +13974,7 @@ Class UIntPtr from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.UIntPtr, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -13649,8 +14007,10 @@ Class UIntPtr from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -13663,14 +14023,16 @@ Class UIntPtr from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.UIntPtr, System.Private.CoreLib',"s8:Subtract",P1,P2))
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.UIntPtr, System.Private.CoreLib',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.UIntPtr, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.UIntPtr, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.UIntPtr, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -13849,8 +14211,8 @@ Class ValueTuple from ValueType
 		return dn_x
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.ValueTuple, System.Private.CoreLib'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.ValueTuple, System.Private.CoreLib',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.ValueTuple, System.Private.CoreLib',"s6:Create"))

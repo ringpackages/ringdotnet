@@ -267,6 +267,9 @@ func nativeCall cRequest, cMode
 	if cMode = "object"
 		return "dotnet_callo(" + cNative + ")"
 	ok
+	if cMode = "any"
+		return "dn_x = dotnet_calla(" + cNative + ")" + nl + "		if islist(dn_x) return dnAny(dn_x) ok" + nl + "		return dn_x" + nl
+	ok
 	# a text, a number or a yes/no: any other answer (null...) comes back as a list that dnFinish reads
 	return "dn_x = dotnet_call(" + cNative + ")" + nl + "		if islist(dn_x) return dnFinish(dn_x[2]) ok" + nl + "		return dn_x" + nl
 
@@ -464,7 +467,7 @@ func buildPlan cTypeName, nForceInit
 		if lDefaultRegion
 			cCode += "		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group" + nl
 		ok
-		cCode += "		if dnIsNamed(P1)" + nl
+		cCode += "		if dotnet_isnamed(P1)" + nl
 		cCode += "			nHandle = dnCreateNamed('" + cTypeName + "',P1)" + nl
 		cCode += "			oDotNetGuard = dotnet_guard(nHandle)" + nl
 		cCode += "			return self" + nl
@@ -828,18 +831,57 @@ func arityCall aFiMethods, cFiName, cFiType, nFiArity, cFiOperation, cFiIndent
 	ok
 	return cFiCode
 
+# How the answers of the overloads of a name are read: "void", "value" (a text, a number, a yes/no), "object", "any" (the overloads differ),
+# or "ring" (no overload found)
+func dispatcherMode aMethods, cName
+	cLower = lower(cName)
+	cMode = ""
+	for aRec in aMethods
+		if lower(aRec[1]) = cLower
+			if aRec[5] > 0
+				cMode = "any"          # a method with out/ref parameters answers a list: dnFinish reads it
+				loop
+			ok
+			if aRec[3] = "System.Void"
+				cKind = "void"
+			but isPrimitiveType(aRec[3])
+				cKind = "value"
+			else
+				cKind = "object"
+			ok
+			if cMode = ""
+				cMode = cKind
+			but cMode != cKind
+				cMode = "any"
+			ok
+		ok
+	next
+	if cMode = ""
+		return "ring"
+	ok
+	return cMode
+
+# The code of the named form of a dispatcher: the call of the family with the list of names, at the indent cIndent (the first line is
+# written after the indent of the caller)
+func namedCall cRequest, cMode, cIndent
+	if cMode = "ring"
+		return "return " + sendCall(cRequest) + nl
+	ok
+	if cMode = "void"
+		return nativeCall(cRequest,"void") + cIndent + "return self" + nl
+	ok
+	if cMode = "object"
+		return "return dnObj(" + nativeCall(cRequest,"object") + ")" + nl
+	ok
+	return nativeCall(cRequest,cMode)
+
 # The plain method of an overloaded family
 func dispatcherBlock cDiRing, cDiName, cDiType, aDiMethods, aDiFamily
 	aDiArities = aDiFamily[1]
 	cDiB = "	Func " + cDiRing + " P1" + nl
-	cDiB += "		if dnIsNamed(P1)" + nl
+	cDiB += "		if dotnet_isnamed(P1)" + nl
 	# the named form: the bridge chooses the overload by the parameter names; static methods are reachable from an object
-	lDiVoid = true
-	for aDiRec in aDiMethods
-		if lower(aDiRec[1]) = lower(cDiName) and (aDiRec[3] != "System.Void" or aDiRec[5] > 0)
-			lDiVoid = false
-		ok
-	next
+	cDiMode = dispatcherMode(aDiMethods,cDiName)
 	if aDiFamily[2] and not aDiFamily[3]
 		cDiTarget = "dnTypeCached('" + cDiType + "')"
 	else
@@ -847,14 +889,10 @@ func dispatcherBlock cDiRing, cDiName, cDiType, aDiMethods, aDiFamily
 	ok
 	if aDiFamily[2] and aDiFamily[3]
 		cDiB += "			if nHandle = 0" + nl
-		cDiB += "				return " + sendCall('"callnamed",[dnTypeCached(' + "'" + cDiType + "'" + '),"' + cDiName + '",P1]') + nl
+		cDiB += "				" + namedCall('"callnamed",[dnTypeCached(' + "'" + cDiType + "'" + '),"' + cDiName + '",P1]',cDiMode,"				")
 		cDiB += "			ok" + nl
 	ok
-	if lDiVoid
-		cDiB += "			" + sendCall('"callnamed",[' + cDiTarget + ',"' + cDiName + '",P1]') + nl + "			return self" + nl
-	else
-		cDiB += "			return " + sendCall('"callnamed",[' + cDiTarget + ',"' + cDiName + '",P1]') + nl
-	ok
+	cDiB += "			" + namedCall('"callnamed",[' + cDiTarget + ',"' + cDiName + '",P1]',cDiMode,"			")
 	cDiB += "		ok" + nl
 	if find(aDiArities,0) > 0
 		cDiB += "		if isstring(P1) and P1 = " + '""' + nl

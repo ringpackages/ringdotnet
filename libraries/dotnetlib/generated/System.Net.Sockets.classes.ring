@@ -162,7 +162,7 @@ Class IPv6MulticastOption from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.IPv6MulticastOption, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -256,7 +256,7 @@ Class MulticastOption from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.MulticastOption, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -316,7 +316,7 @@ Class NetworkStream from Stream
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.NetworkStream, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -331,8 +331,8 @@ Class NetworkStream from Stream
 		return self
 
 	Func Close P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Close",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Close",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -384,7 +384,7 @@ Class SafeSocketHandle from DotNetObject
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.SafeSocketHandle, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -482,7 +482,7 @@ Class SendPacketsElement from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.SendPacketsElement, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -604,7 +604,7 @@ Class Socket from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.Socket, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -624,8 +624,8 @@ Class Socket from Object
 		return self
 
 	Func Connect P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Connect",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Connect",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s7:Connect",P1)
@@ -633,8 +633,8 @@ Class Socket from Object
 		return self
 
 	Func Close P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Close",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Close",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -647,8 +647,8 @@ Class Socket from Object
 		return self
 
 	Func Listen P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Listen",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Listen",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -664,16 +664,18 @@ Class Socket from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Accept"))
 
 	Func Send P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Send",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s4:Send",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s4:Send",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SendFile P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:SendFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:SendFile",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:SendFile",P1)
@@ -681,14 +683,18 @@ Class Socket from Object
 		return self
 
 	Func SendTo P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:SendTo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:SendTo",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: SendTo does not take one argument: use named arguments, SendTo([ :parameter = value, ... ])")
 
 	Func Receive P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Receive",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s7:Receive",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:Receive",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -698,8 +704,10 @@ Class Socket from Object
 		return dnSend("s4:call",nHandle,"s18:ReceiveMessageFrom",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func ReceiveFrom P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:ReceiveFrom",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s11:ReceiveFrom",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: ReceiveFrom does not take one argument: use named arguments, ReceiveFrom([ :parameter = value, ... ])")
 
@@ -714,8 +722,10 @@ Class Socket from Object
 		return self
 
 	Func GetSocketOption P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:GetSocketOption",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetSocketOption",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: GetSocketOption does not take one argument: use named arguments, GetSocketOption([ :parameter = value, ... ])")
 
@@ -730,8 +740,8 @@ Class Socket from Object
 		return dn_x
 
 	Func BeginConnect P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:BeginConnect",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:BeginConnect",P1))
 		ok
 		raise("DotNet Error: BeginConnect does not take one argument: use named arguments, BeginConnect([ :parameter = value, ... ])")
 
@@ -754,8 +764,10 @@ Class Socket from Object
 		return self
 
 	Func BeginSend P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:BeginSend",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:BeginSend",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: BeginSend does not take one argument: use named arguments, BeginSend([ :parameter = value, ... ])")
 
@@ -765,8 +777,8 @@ Class Socket from Object
 		return dn_x
 
 	Func BeginSendFile P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:BeginSendFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:BeginSendFile",P1))
 		ok
 		raise("DotNet Error: BeginSendFile does not take one argument: use named arguments, BeginSendFile([ :parameter = value, ... ])")
 
@@ -784,8 +796,10 @@ Class Socket from Object
 		return dn_x
 
 	Func BeginReceive P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:BeginReceive",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s12:BeginReceive",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: BeginReceive does not take one argument: use named arguments, BeginReceive([ :parameter = value, ... ])")
 
@@ -807,8 +821,8 @@ Class Socket from Object
 		return dnSend("s4:call",nHandle,"s14:EndReceiveFrom",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BeginAccept P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:BeginAccept",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:BeginAccept",P1))
 		ok
 		raise("DotNet Error: BeginAccept does not take one argument: use named arguments, BeginAccept([ :parameter = value, ... ])")
 
@@ -821,8 +835,10 @@ Class Socket from Object
 		return self
 
 	Func AcceptAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:AcceptAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s11:AcceptAsync",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:AcceptAsync"))
@@ -832,51 +848,65 @@ Class Socket from Object
 		return dn_x
 
 	Func ConnectAsync P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Net.Sockets.Socket, System.Net.Sockets'),"s12:ConnectAsync",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Net.Sockets.Socket, System.Net.Sockets',"s12:ConnectAsync",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s12:ConnectAsync",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s12:ConnectAsync",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:ConnectAsync",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func DisconnectAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:DisconnectAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:DisconnectAsync",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s15:DisconnectAsync",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReceiveAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:ReceiveAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s12:ReceiveAsync",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:ReceiveAsync",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReceiveFromAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:ReceiveFromAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s16:ReceiveFromAsync",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s16:ReceiveFromAsync",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReceiveMessageFromAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s23:ReceiveMessageFromAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s23:ReceiveMessageFromAsync",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s23:ReceiveMessageFromAsync",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SendAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:SendAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:SendAsync",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:SendAsync",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -888,8 +918,10 @@ Class Socket from Object
 		return dn_x
 
 	Func SendToAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:SendToAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s11:SendToAsync",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s11:SendToAsync",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -901,8 +933,8 @@ Class Socket from Object
 		return self
 
 	Func SendFileAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SendFileAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SendFileAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SendFileAsync",P1))
 
@@ -1197,7 +1229,7 @@ Class SocketAsyncEventArgs from EventArgs
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.SocketAsyncEventArgs, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1212,8 +1244,8 @@ Class SocketAsyncEventArgs from EventArgs
 		return self
 
 	Func SetBuffer P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:SetBuffer",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:SetBuffer",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s9:SetBuffer",P1)
@@ -1516,20 +1548,20 @@ Class SocketTaskExtensions from Object
 		return dn_x
 
 	Func AcceptAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"s11:AcceptAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets',"s11:AcceptAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets',"s11:AcceptAsync",P1))
 
 	Func ConnectAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"s12:ConnectAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets',"s12:ConnectAsync",P1))
 		ok
 		raise("DotNet Error: ConnectAsync does not take one argument: use named arguments, ConnectAsync([ :parameter = value, ... ])")
 
 	Func ReceiveAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"s12:ReceiveAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets',"s12:ReceiveAsync",P1))
 		ok
 		raise("DotNet Error: ReceiveAsync does not take one argument: use named arguments, ReceiveAsync([ :parameter = value, ... ])")
 
@@ -1540,8 +1572,8 @@ Class SocketTaskExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets',"s23:ReceiveMessageFromAsync",P1,P2,P3,P4))
 
 	Func SendAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"s9:SendAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets',"s9:SendAsync",P1))
 		ok
 		raise("DotNet Error: SendAsync does not take one argument: use named arguments, SendAsync([ :parameter = value, ... ])")
 
@@ -1582,7 +1614,7 @@ Class TcpClient from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.TcpClient, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1597,8 +1629,8 @@ Class TcpClient from Object
 		return self
 
 	Func Connect P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Connect",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Connect",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s7:Connect",P1)
@@ -1606,8 +1638,8 @@ Class TcpClient from Object
 		return self
 
 	Func ConnectAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:ConnectAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ConnectAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ConnectAsync",P1))
 
@@ -1740,7 +1772,7 @@ Class TcpListener from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.TcpListener, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1760,8 +1792,8 @@ Class TcpListener from Object
 		return self
 
 	Func Start P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Start",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Start",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1807,8 +1839,8 @@ Class TcpListener from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:EndAcceptTcpClient",P1))
 
 	Func AcceptSocketAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:AcceptSocketAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AcceptSocketAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s17:AcceptSocketAsync"))
@@ -1816,8 +1848,8 @@ Class TcpListener from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AcceptSocketAsync",P1))
 
 	Func AcceptTcpClientAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:AcceptTcpClientAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:AcceptTcpClientAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s20:AcceptTcpClientAsync"))
@@ -1884,7 +1916,7 @@ Class UdpClient from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.UdpClient, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1909,8 +1941,8 @@ Class UdpClient from Object
 		return self
 
 	Func BeginSend P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:BeginSend",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:BeginSend",P1))
 		ok
 		raise("DotNet Error: BeginSend does not take one argument: use named arguments, BeginSend([ :parameter = value, ... ])")
 
@@ -1926,8 +1958,8 @@ Class UdpClient from Object
 		return dnSend("s4:call",nHandle,"s10:EndReceive",dnPackItem(P1) + dnPackItem(P2))
 
 	Func JoinMulticastGroup P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s18:JoinMulticastGroup",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s18:JoinMulticastGroup",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s18:JoinMulticastGroup",P1)
@@ -1935,8 +1967,8 @@ Class UdpClient from Object
 		return self
 
 	Func DropMulticastGroup P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s18:DropMulticastGroup",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s18:DropMulticastGroup",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s18:DropMulticastGroup",P1)
@@ -1944,14 +1976,14 @@ Class UdpClient from Object
 		return self
 
 	Func SendAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:SendAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:SendAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:SendAsync",P1))
 
 	Func ReceiveAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:ReceiveAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ReceiveAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReceiveAsync"))
@@ -1964,8 +1996,8 @@ Class UdpClient from Object
 		return self
 
 	Func Connect P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Connect",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Connect",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s7:Connect",P1)
@@ -1976,8 +2008,10 @@ Class UdpClient from Object
 		return dnSend("s4:call",nHandle,"s7:Receive",dnPackItem(P1))
 
 	Func Send P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Send",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s4:Send",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: Send does not take one argument: use named arguments, Send([ :parameter = value, ... ])")
 
@@ -2072,7 +2106,7 @@ Class UdpReceiveResult from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.UdpReceiveResult, System.Net.Sockets',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

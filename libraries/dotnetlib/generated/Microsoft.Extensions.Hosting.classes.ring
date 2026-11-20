@@ -290,8 +290,8 @@ Class GenericHostBuilderExtensions from Object
 		return dn_x
 
 	Func ConfigureWebHostDefaults P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.GenericHostBuilderExtensions, Microsoft.AspNetCore'),"s24:ConfigureWebHostDefaults",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Hosting.GenericHostBuilderExtensions, Microsoft.AspNetCore',"s24:ConfigureWebHostDefaults",P1))
 		ok
 		raise("DotNet Error: ConfigureWebHostDefaults does not take one argument: use named arguments, ConfigureWebHostDefaults([ :parameter = value, ... ])")
 
@@ -313,8 +313,8 @@ Class GenericHostWebHostBuilderExtensions from Object
 		return dn_x
 
 	Func ConfigureWebHost P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"s16:ConfigureWebHost",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting',"s16:ConfigureWebHost",P1))
 		ok
 		raise("DotNet Error: ConfigureWebHost does not take one argument: use named arguments, ConfigureWebHost([ :parameter = value, ... ])")
 
@@ -339,8 +339,8 @@ Class Host from Object
 		return dn_x
 
 	Func CreateDefaultBuilder P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"s20:CreateDefaultBuilder",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting',"s20:CreateDefaultBuilder",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting',"s20:CreateDefaultBuilder"))
@@ -348,8 +348,8 @@ Class Host from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting',"s20:CreateDefaultBuilder",P1))
 
 	Func CreateApplicationBuilder P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"s24:CreateApplicationBuilder",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting',"s24:CreateApplicationBuilder",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting',"s24:CreateApplicationBuilder"))
@@ -388,7 +388,7 @@ Class HostApplicationBuilder from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Hosting.HostApplicationBuilder, Microsoft.Extensions.Hosting',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -403,8 +403,8 @@ Class HostApplicationBuilder from Object
 		return self
 
 	Func ConfigureContainer P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s18:ConfigureContainer",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s18:ConfigureContainer",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s18:ConfigureContainer",P1)
@@ -801,8 +801,8 @@ Class HostingAbstractionsHostBuilderExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions',"s5:Start",P1))
 
 	Func StartAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s10:StartAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions',"s10:StartAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions',"s10:StartAsync",P1))
 
@@ -842,14 +842,14 @@ Class HostingAbstractionsHostExtensions from Object
 		return self
 
 	Func RunAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s8:RunAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions',"s8:RunAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions',"s8:RunAsync",P1))
 
 	Func WaitForShutdownAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"s20:WaitForShutdownAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions',"s20:WaitForShutdownAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions',"s20:WaitForShutdownAsync",P1))
 
@@ -935,14 +935,14 @@ Class HostingHostBuilderExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s17:ConfigureDefaults",P1,P2))
 
 	Func UseConsoleLifetime P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s18:UseConsoleLifetime",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s18:UseConsoleLifetime",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s18:UseConsoleLifetime",P1))
 
 	Func RunConsoleAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"s15:RunConsoleAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s15:RunConsoleAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting',"s15:RunConsoleAsync",P1))
 
@@ -964,8 +964,8 @@ Class IHost from DotNetObject
 		return self
 
 	Func StartAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:StartAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:StartAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync"))
@@ -973,8 +973,8 @@ Class IHost from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1))
 
 	Func StopAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:StopAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:StopAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync"))
@@ -1007,8 +1007,8 @@ Class IHostApplicationBuilder from DotNetObject
 		return self
 
 	Func ConfigureContainer P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s18:ConfigureContainer",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s18:ConfigureContainer",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s18:ConfigureContainer",P1)

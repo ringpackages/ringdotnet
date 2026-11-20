@@ -689,15 +689,15 @@ Class AesCcm from Object
 		return self
 
 	Func Encrypt P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Encrypt",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Encrypt",P1)
 			return self
 		ok
 		raise("DotNet Error: Encrypt does not take one argument: use named arguments, Encrypt([ :parameter = value, ... ])")
 
 	Func Decrypt P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Decrypt",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Decrypt",P1)
 			return self
 		ok
 		raise("DotNet Error: Decrypt does not take one argument: use named arguments, Decrypt([ :parameter = value, ... ])")
@@ -752,7 +752,7 @@ Class AesGcm from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.AesGcm, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -767,15 +767,15 @@ Class AesGcm from Object
 		return self
 
 	Func Encrypt P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Encrypt",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Encrypt",P1)
 			return self
 		ok
 		raise("DotNet Error: Encrypt does not take one argument: use named arguments, Encrypt([ :parameter = value, ... ])")
 
 	Func Decrypt P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Decrypt",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Decrypt",P1)
 			return self
 		ok
 		raise("DotNet Error: Decrypt does not take one argument: use named arguments, Decrypt([ :parameter = value, ... ])")
@@ -834,7 +834,7 @@ Class AsnEncodedData from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.AsnEncodedData, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -904,7 +904,7 @@ Class AsnEncodedDataCollection from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.AsnEncodedDataCollection, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1060,8 +1060,8 @@ Class AsymmetricAlgorithm from Object
 		return dn_x
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography',"s6:Create"))
@@ -1155,8 +1155,8 @@ Class AsymmetricKeyExchangeFormatter from Object
 		return self
 
 	Func CreateKeyExchange P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:CreateKeyExchange",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:CreateKeyExchange",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:CreateKeyExchange",P1))
 
@@ -1252,15 +1252,15 @@ Class ChaCha20Poly1305 from Object
 		return self
 
 	Func Encrypt P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Encrypt",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Encrypt",P1)
 			return self
 		ok
 		raise("DotNet Error: Encrypt does not take one argument: use named arguments, Encrypt([ :parameter = value, ... ])")
 
 	Func Decrypt P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Decrypt",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Decrypt",P1)
 			return self
 		ok
 		raise("DotNet Error: Decrypt does not take one argument: use named arguments, Decrypt([ :parameter = value, ... ])")
@@ -1533,28 +1533,30 @@ Class CngKey from Object
 		return dn_x
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.CngKey, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.CngKey, System.Security.Cryptography',"s6:Create",P1))
 
 	Func Exists P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s6:Exists",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Security.Cryptography.CngKey, System.Security.Cryptography',"s6:Exists",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.CngKey, System.Security.Cryptography',"s6:Exists",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Import_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s6:Import",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.CngKey, System.Security.Cryptography',"s6:Import",P1))
 		ok
 		raise("DotNet Error: Import does not take one argument: use named arguments, Import([ :parameter = value, ... ])")
 
 	Func Open P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"s4:Open",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.CngKey, System.Security.Cryptography',"s4:Open",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.CngKey, System.Security.Cryptography',"s4:Open",P1))
 
@@ -1846,7 +1848,7 @@ Class CngProperty from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.CngProperty, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2047,7 +2049,7 @@ Class CngUIPolicy from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.CngUIPolicy, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2138,8 +2140,8 @@ Class CryptoConfig from Object
 		return self
 
 	Func CreateFromName P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"s14:CreateFromName",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.CryptoConfig, System.Security.Cryptography',"s14:CreateFromName",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.CryptoConfig, System.Security.Cryptography',"s14:CreateFromName",P1))
 
@@ -2181,7 +2183,7 @@ Class CryptoStream from Stream
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.CryptoStream, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2201,8 +2203,8 @@ Class CryptoStream from Stream
 		return self
 
 	Func FlushFinalBlockAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:FlushFinalBlockAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:FlushFinalBlockAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s20:FlushFinalBlockAsync"))
@@ -2243,8 +2245,8 @@ Class CryptographicOperations from Object
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography',"s8:HashData",P1,P2))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
@@ -2252,8 +2254,8 @@ Class CryptographicOperations from Object
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography',"s8:HmacData",P1,P2,P3))
 
 	Func HmacDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"s13:HmacDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography',"s13:HmacDataAsync",P1))
 		ok
 		raise("DotNet Error: HmacDataAsync does not take one argument: use named arguments, HmacDataAsync([ :parameter = value, ... ])")
 
@@ -2414,7 +2416,7 @@ Class CspParameters from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.CspParameters, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2923,7 +2925,7 @@ Class FromBase64Transform from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.FromBase64Transform, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3010,20 +3012,20 @@ Class HKDF from Object
 		return dn_x
 
 	Func Extract P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"s7:Extract",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HKDF, System.Security.Cryptography',"s7:Extract",P1))
 		ok
 		raise("DotNet Error: Extract does not take one argument: use named arguments, Extract([ :parameter = value, ... ])")
 
 	Func Expand P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"s6:Expand",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HKDF, System.Security.Cryptography',"s6:Expand",P1))
 		ok
 		raise("DotNet Error: Expand does not take one argument: use named arguments, Expand([ :parameter = value, ... ])")
 
 	Func DeriveKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"s9:DeriveKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HKDF, System.Security.Cryptography',"s9:DeriveKey",P1))
 		ok
 		raise("DotNet Error: DeriveKey does not take one argument: use named arguments, DeriveKey([ :parameter = value, ... ])")
 
@@ -3047,14 +3049,14 @@ Class HashAlgorithm from Object
 		return self
 
 	Func ComputeHash P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:ComputeHash",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ComputeHash",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ComputeHash",P1))
 
 	Func ComputeHashAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:ComputeHashAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:ComputeHashAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ComputeHashAsync",P1))
 
@@ -3087,8 +3089,8 @@ Class HashAlgorithm from Object
 		return dn_x
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography',"s6:Create"))
@@ -3174,7 +3176,7 @@ Class HashAlgorithmName from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3351,8 +3353,8 @@ Class IncrementalHash from Object
 		return self
 
 	Func AppendData P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:AppendData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:AppendData",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s10:AppendData",P1)
@@ -3462,7 +3464,7 @@ Class Kmac128 from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.Kmac128, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3501,14 +3503,14 @@ Class Kmac128 from Object
 		return dn_x
 
 	Func HashData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.Kmac128, System.Security.Cryptography',"s8:HashData",P1))
 		ok
 		raise("DotNet Error: HashData does not take one argument: use named arguments, HashData([ :parameter = value, ... ])")
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.Kmac128, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
@@ -3537,7 +3539,7 @@ Class Kmac256 from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.Kmac256, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3576,14 +3578,14 @@ Class Kmac256 from Object
 		return dn_x
 
 	Func HashData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.Kmac256, System.Security.Cryptography',"s8:HashData",P1))
 		ok
 		raise("DotNet Error: HashData does not take one argument: use named arguments, HashData([ :parameter = value, ... ])")
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.Kmac256, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
@@ -3612,7 +3614,7 @@ Class KmacXof128 from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.KmacXof128, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3651,14 +3653,14 @@ Class KmacXof128 from Object
 		return dn_x
 
 	Func HashData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.KmacXof128, System.Security.Cryptography',"s8:HashData",P1))
 		ok
 		raise("DotNet Error: HashData does not take one argument: use named arguments, HashData([ :parameter = value, ... ])")
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.KmacXof128, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
@@ -3687,7 +3689,7 @@ Class KmacXof256 from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.KmacXof256, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3726,14 +3728,14 @@ Class KmacXof256 from Object
 		return dn_x
 
 	Func HashData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"s8:HashData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.KmacXof256, System.Security.Cryptography',"s8:HashData",P1))
 		ok
 		raise("DotNet Error: HashData does not take one argument: use named arguments, HashData([ :parameter = value, ... ])")
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.KmacXof256, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
@@ -3791,7 +3793,7 @@ Class Oid from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.Oid, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4288,11 +4290,15 @@ Class RandomNumberGenerator from Object
 		return self
 
 	Func GetBytes P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s8:GetBytes",dnPackItem(P1))
+				dn_x = dotnet_calla("s9:callnamed",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s8:GetBytes",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s8:GetBytes",dnPackItem(P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s8:GetBytes",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if nHandle = 0
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s8:GetBytes",P1))
@@ -4312,8 +4318,8 @@ Class RandomNumberGenerator from Object
 		return dn_x
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s6:Create"))
@@ -4321,16 +4327,20 @@ Class RandomNumberGenerator from Object
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s6:Create",P1))
 
 	Func GetInt32 P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s8:GetInt32",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s8:GetInt32",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s8:GetInt32",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetHexString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"s12:GetHexString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s12:GetHexString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography',"s12:GetHexString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4391,7 +4401,7 @@ Class SafeEvpPKeyHandle from SafeHandle
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4484,8 +4494,8 @@ Class Shake128 from Object
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.Shake128, System.Security.Cryptography',"s8:HashData",P1,P2))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.Shake128, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
@@ -4556,8 +4566,8 @@ Class Shake256 from Object
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.Shake256, System.Security.Cryptography',"s8:HashData",P1,P2))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.Shake256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.Shake256, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
@@ -4597,7 +4607,7 @@ Class SignatureDescription from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.SignatureDescription, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4684,8 +4694,8 @@ Class SymmetricAlgorithm from Object
 		return self
 
 	Func CreateDecryptor P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:CreateDecryptor",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:CreateDecryptor",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateDecryptor"))
@@ -4693,8 +4703,8 @@ Class SymmetricAlgorithm from Object
 		raise("DotNet Error: CreateDecryptor does not take one argument: use named arguments, CreateDecryptor([ :parameter = value, ... ])")
 
 	Func CreateEncryptor P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:CreateEncryptor",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:CreateEncryptor",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateEncryptor"))
@@ -4732,16 +4742,20 @@ Class SymmetricAlgorithm from Object
 		return dn_x
 
 	Func GetCiphertextLengthCbc P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s22:GetCiphertextLengthCbc",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:GetCiphertextLengthCbc",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s22:GetCiphertextLengthCbc",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetCiphertextLengthCfb P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s22:GetCiphertextLengthCfb",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:GetCiphertextLengthCfb",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s22:GetCiphertextLengthCfb",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4754,26 +4768,26 @@ Class SymmetricAlgorithm from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:EncryptEcb",P1,P2))
 
 	Func DecryptCbc P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:DecryptCbc",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:DecryptCbc",P1))
 		ok
 		raise("DotNet Error: DecryptCbc does not take one argument: use named arguments, DecryptCbc([ :parameter = value, ... ])")
 
 	Func EncryptCbc P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:EncryptCbc",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:EncryptCbc",P1))
 		ok
 		raise("DotNet Error: EncryptCbc does not take one argument: use named arguments, EncryptCbc([ :parameter = value, ... ])")
 
 	Func DecryptCfb P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:DecryptCfb",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:DecryptCfb",P1))
 		ok
 		raise("DotNet Error: DecryptCfb does not take one argument: use named arguments, DecryptCfb([ :parameter = value, ... ])")
 
 	Func EncryptCfb P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:EncryptCfb",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:EncryptCfb",P1))
 		ok
 		raise("DotNet Error: EncryptCfb does not take one argument: use named arguments, EncryptCfb([ :parameter = value, ... ])")
 
@@ -4783,8 +4797,8 @@ Class SymmetricAlgorithm from Object
 		return dn_x
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography',"s6:Create"))
@@ -4952,8 +4966,8 @@ Class Aes from SymmetricAlgorithm
 		return self
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.Aes, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.Aes, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.Aes, System.Security.Cryptography',"s6:Create"))
@@ -4973,8 +4987,8 @@ Class DES from SymmetricAlgorithm
 		return self
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.DES, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.DES, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.DES, System.Security.Cryptography',"s6:Create"))
@@ -5012,26 +5026,30 @@ Class DSA from AsymmetricAlgorithm
 		return self
 
 	Func CreateSignature P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:CreateSignature",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:CreateSignature",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateSignature",P1))
 
 	Func VerifySignature P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:VerifySignature",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:VerifySignature",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: VerifySignature does not take one argument: use named arguments, VerifySignature([ :parameter = value, ... ])")
 
 	Func SignData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:SignData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SignData",P1))
 		ok
 		raise("DotNet Error: SignData does not take one argument: use named arguments, SignData([ :parameter = value, ... ])")
 
 	Func VerifyData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:VerifyData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:VerifyData",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: VerifyData does not take one argument: use named arguments, VerifyData([ :parameter = value, ... ])")
 
@@ -5041,8 +5059,8 @@ Class DSA from AsymmetricAlgorithm
 		return dn_x
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.DSA, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.DSA, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.DSA, System.Security.Cryptography',"s6:Create"))
@@ -5072,7 +5090,7 @@ Class DSASignatureDeformatter from AsymmetricSignatureDeformatter
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.DSASignatureDeformatter, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5109,7 +5127,7 @@ Class DSASignatureFormatter from AsymmetricSignatureFormatter
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.DSASignatureFormatter, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5203,8 +5221,8 @@ Class KeyedHashAlgorithm from HashAlgorithm
 		return self
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography',"s6:Create"))
@@ -5234,8 +5252,8 @@ Class MD5 from HashAlgorithm
 		return self
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.MD5, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.MD5, System.Security.Cryptography',"s6:Create"))
@@ -5246,8 +5264,8 @@ Class MD5 from HashAlgorithm
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.MD5, System.Security.Cryptography',"s8:HashData",P1))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.MD5, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.MD5, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.MD5, System.Security.Cryptography',"s13:HashDataAsync",P1))
 
@@ -5318,7 +5336,7 @@ Class PasswordDeriveBytes from DeriveBytes
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.PasswordDeriveBytes, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5375,8 +5393,8 @@ Class RC2 from SymmetricAlgorithm
 		return self
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.RC2, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.RC2, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.RC2, System.Security.Cryptography',"s6:Create"))
@@ -5438,14 +5456,16 @@ Class RSA from AsymmetricAlgorithm
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:EncryptValue",P1))
 
 	Func SignData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:SignData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SignData",P1))
 		ok
 		raise("DotNet Error: SignData does not take one argument: use named arguments, SignData([ :parameter = value, ... ])")
 
 	Func VerifyData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:VerifyData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:VerifyData",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: VerifyData does not take one argument: use named arguments, VerifyData([ :parameter = value, ... ])")
 
@@ -5466,8 +5486,8 @@ Class RSA from AsymmetricAlgorithm
 		return dn_x
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.RSA, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.RSA, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.RSA, System.Security.Cryptography',"s6:Create"))
@@ -5497,7 +5517,7 @@ Class RSAOAEPKeyExchangeDeformatter from AsymmetricKeyExchangeDeformatter
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAOAEPKeyExchangeDeformatter, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5537,7 +5557,7 @@ Class RSAOAEPKeyExchangeFormatter from AsymmetricKeyExchangeFormatter
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAOAEPKeyExchangeFormatter, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5590,7 +5610,7 @@ Class RSAPKCS1KeyExchangeDeformatter from AsymmetricKeyExchangeDeformatter
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAPKCS1KeyExchangeDeformatter, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5636,7 +5656,7 @@ Class RSAPKCS1KeyExchangeFormatter from AsymmetricKeyExchangeFormatter
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAPKCS1KeyExchangeFormatter, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5680,7 +5700,7 @@ Class RSAPKCS1SignatureDeformatter from AsymmetricSignatureDeformatter
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAPKCS1SignatureDeformatter, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5717,7 +5737,7 @@ Class RSAPKCS1SignatureFormatter from AsymmetricSignatureFormatter
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAPKCS1SignatureFormatter, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5750,7 +5770,7 @@ Class Rfc2898DeriveBytes from DeriveBytes
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.Rfc2898DeriveBytes, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5808,8 +5828,8 @@ Class SHA1 from HashAlgorithm
 		return self
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.SHA1, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA1, System.Security.Cryptography',"s6:Create"))
@@ -5820,8 +5840,8 @@ Class SHA1 from HashAlgorithm
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA1, System.Security.Cryptography',"s8:HashData",P1))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.SHA1, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA1, System.Security.Cryptography',"s13:HashDataAsync",P1))
 
@@ -5857,8 +5877,8 @@ Class SHA256 from HashAlgorithm
 		return self
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.SHA256, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA256, System.Security.Cryptography',"s6:Create"))
@@ -5869,8 +5889,8 @@ Class SHA256 from HashAlgorithm
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA256, System.Security.Cryptography',"s8:HashData",P1))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.SHA256, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA256, System.Security.Cryptography',"s13:HashDataAsync",P1))
 
@@ -5906,8 +5926,8 @@ Class SHA384 from HashAlgorithm
 		return self
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.SHA384, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA384, System.Security.Cryptography',"s6:Create"))
@@ -5918,8 +5938,8 @@ Class SHA384 from HashAlgorithm
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA384, System.Security.Cryptography',"s8:HashData",P1))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.SHA384, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA384, System.Security.Cryptography',"s13:HashDataAsync",P1))
 
@@ -5962,8 +5982,8 @@ Class SHA3_256 from HashAlgorithm
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA3_256, System.Security.Cryptography',"s8:HashData",P1))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.SHA3_256, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA3_256, System.Security.Cryptography',"s13:HashDataAsync",P1))
 
@@ -6014,8 +6034,8 @@ Class SHA3_384 from HashAlgorithm
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA3_384, System.Security.Cryptography',"s8:HashData",P1))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.SHA3_384, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA3_384, System.Security.Cryptography',"s13:HashDataAsync",P1))
 
@@ -6066,8 +6086,8 @@ Class SHA3_512 from HashAlgorithm
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA3_512, System.Security.Cryptography',"s8:HashData",P1))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.SHA3_512, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA3_512, System.Security.Cryptography',"s13:HashDataAsync",P1))
 
@@ -6111,8 +6131,8 @@ Class SHA512 from HashAlgorithm
 		return self
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.SHA512, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA512, System.Security.Cryptography',"s6:Create"))
@@ -6123,8 +6143,8 @@ Class SHA512 from HashAlgorithm
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA512, System.Security.Cryptography',"s8:HashData",P1))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.SHA512, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SHA512, System.Security.Cryptography',"s13:HashDataAsync",P1))
 
@@ -6157,8 +6177,8 @@ Class TripleDES from SymmetricAlgorithm
 		return self
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.TripleDES, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.TripleDES, System.Security.Cryptography',"s6:Create"))
@@ -6193,7 +6213,7 @@ Class AesCng from Aes
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.AesCng, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6232,7 +6252,7 @@ Class DSACng from DSA
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.DSACng, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6280,7 +6300,7 @@ Class DSACryptoServiceProvider from DSA
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6303,8 +6323,8 @@ Class DSACryptoServiceProvider from DSA
 		return self
 
 	Func SignData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:SignData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SignData",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SignData",P1))
 
@@ -6374,7 +6394,7 @@ Class DSAOpenSsl from DSA
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.DSAOpenSsl, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6409,14 +6429,14 @@ Class ECDiffieHellman from ECAlgorithm
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:DeriveKeyMaterial",P1))
 
 	Func DeriveKeyFromHash P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:DeriveKeyFromHash",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:DeriveKeyFromHash",P1))
 		ok
 		raise("DotNet Error: DeriveKeyFromHash does not take one argument: use named arguments, DeriveKeyFromHash([ :parameter = value, ... ])")
 
 	Func DeriveKeyFromHmac P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s17:DeriveKeyFromHmac",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:DeriveKeyFromHmac",P1))
 		ok
 		raise("DotNet Error: DeriveKeyFromHmac does not take one argument: use named arguments, DeriveKeyFromHmac([ :parameter = value, ... ])")
 
@@ -6427,8 +6447,8 @@ Class ECDiffieHellman from ECAlgorithm
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:DeriveRawSecretAgreement",P1))
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography',"s6:Create"))
@@ -6454,26 +6474,30 @@ Class ECDsa from ECAlgorithm
 		return self
 
 	Func SignData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:SignData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SignData",P1))
 		ok
 		raise("DotNet Error: SignData does not take one argument: use named arguments, SignData([ :parameter = value, ... ])")
 
 	Func SignHash P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:SignHash",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SignHash",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SignHash",P1))
 
 	Func VerifyData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:VerifyData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:VerifyData",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: VerifyData does not take one argument: use named arguments, VerifyData([ :parameter = value, ... ])")
 
 	Func VerifyHash P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:VerifyHash",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:VerifyHash",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: VerifyHash does not take one argument: use named arguments, VerifyHash([ :parameter = value, ... ])")
 
@@ -6483,8 +6507,8 @@ Class ECDsa from ECAlgorithm
 		return dn_x
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.ECDsa, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.ECDsa, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.ECDsa, System.Security.Cryptography',"s6:Create"))
@@ -6506,8 +6530,8 @@ Class HMAC from KeyedHashAlgorithm
 		return self
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMAC, System.Security.Cryptography'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HMAC, System.Security.Cryptography',"s6:Create",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMAC, System.Security.Cryptography',"s6:Create"))
@@ -6548,7 +6572,7 @@ Class RSACng from RSA
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSACng, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6596,7 +6620,7 @@ Class RSACryptoServiceProvider from RSA
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6619,14 +6643,16 @@ Class RSACryptoServiceProvider from RSA
 		return self
 
 	Func SignHash P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:SignHash",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SignHash",P1))
 		ok
 		raise("DotNet Error: SignHash does not take one argument: use named arguments, SignHash([ :parameter = value, ... ])")
 
 	Func VerifyHash P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:VerifyHash",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:VerifyHash",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: VerifyHash does not take one argument: use named arguments, VerifyHash([ :parameter = value, ... ])")
 
@@ -6688,7 +6714,7 @@ Class RSAOpenSsl from RSA
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAOpenSsl, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6728,7 +6754,7 @@ Class TripleDESCng from TripleDES
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.TripleDESCng, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6775,7 +6801,7 @@ Class ECDiffieHellmanCng from ECDiffieHellman
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.ECDiffieHellmanCng, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6793,8 +6819,8 @@ Class ECDiffieHellmanCng from ECDiffieHellman
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:DeriveSecretAgreementHandle",P1))
 
 	Func FromXmlString P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s13:FromXmlString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s13:FromXmlString",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s13:FromXmlString",P1)
@@ -6887,7 +6913,7 @@ Class ECDiffieHellmanOpenSsl from ECDiffieHellman
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.ECDiffieHellmanOpenSsl, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6930,7 +6956,7 @@ Class ECDsaCng from ECDsa
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.ECDsaCng, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -6945,8 +6971,8 @@ Class ECDsaCng from ECDsa
 		return self
 
 	Func FromXmlString P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s13:FromXmlString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s13:FromXmlString",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s13:FromXmlString",P1)
@@ -6954,8 +6980,8 @@ Class ECDsaCng from ECDsa
 		return self
 
 	Func SignData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:SignData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SignData",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SignData",P1))
 
@@ -6995,7 +7021,7 @@ Class ECDsaOpenSsl from ECDsa
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.ECDsaOpenSsl, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7038,7 +7064,7 @@ Class HMACMD5 from HMAC
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACMD5, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7056,8 +7082,8 @@ Class HMACMD5 from HMAC
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMACMD5, System.Security.Cryptography',"s8:HashData",P1,P2))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HMACMD5, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
@@ -7103,7 +7129,7 @@ Class HMACSHA1 from HMAC
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7121,8 +7147,8 @@ Class HMACSHA1 from HMAC
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',"s8:HashData",P1,P2))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
@@ -7168,7 +7194,7 @@ Class HMACSHA256 from HMAC
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7186,8 +7212,8 @@ Class HMACSHA256 from HMAC
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',"s8:HashData",P1,P2))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
@@ -7234,7 +7260,7 @@ Class HMACSHA384 from HMAC
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7252,8 +7278,8 @@ Class HMACSHA384 from HMAC
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMACSHA384, System.Security.Cryptography',"s8:HashData",P1,P2))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HMACSHA384, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
@@ -7309,7 +7335,7 @@ Class HMACSHA3_256 from HMAC
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7327,8 +7353,8 @@ Class HMACSHA3_256 from HMAC
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',"s8:HashData",P1,P2))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
@@ -7383,7 +7409,7 @@ Class HMACSHA3_384 from HMAC
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7401,8 +7427,8 @@ Class HMACSHA3_384 from HMAC
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',"s8:HashData",P1,P2))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
@@ -7457,7 +7483,7 @@ Class HMACSHA3_512 from HMAC
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7475,8 +7501,8 @@ Class HMACSHA3_512 from HMAC
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',"s8:HashData",P1,P2))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
@@ -7531,7 +7557,7 @@ Class HMACSHA512 from HMAC
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -7549,8 +7575,8 @@ Class HMACSHA512 from HMAC
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMACSHA512, System.Security.Cryptography',"s8:HashData",P1,P2))
 
 	Func HashDataAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"s13:HashDataAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Cryptography.HMACSHA512, System.Security.Cryptography',"s13:HashDataAsync",P1))
 		ok
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 

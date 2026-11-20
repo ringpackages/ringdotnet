@@ -225,7 +225,7 @@ Class ArrayWithOffset from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.ArrayWithOffset, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -301,7 +301,7 @@ Class CLong from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.CLong, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -346,7 +346,7 @@ Class CULong from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.CULong, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -455,8 +455,8 @@ Class ComWrappers from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetOrCreateObjectForComInstance",P1,P2))
 
 	Func GetOrRegisterObjectForComInstance P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s33:GetOrRegisterObjectForComInstance",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s33:GetOrRegisterObjectForComInstance",P1))
 		ok
 		raise("DotNet Error: GetOrRegisterObjectForComInstance does not take one argument: use named arguments, GetOrRegisterObjectForComInstance([ :parameter = value, ... ])")
 
@@ -637,8 +637,8 @@ Class GCHandle from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddrOfPinnedObject"))
 
 	Func Alloc P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib'),"s5:Alloc",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.GCHandle, System.Private.CoreLib',"s5:Alloc",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.GCHandle, System.Private.CoreLib',"s5:Alloc",P1))
 
@@ -683,7 +683,7 @@ Class HandleCollector from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.HandleCollector, System.Runtime.InteropServices',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -770,7 +770,7 @@ Class HandleRef from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.HandleRef, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -918,67 +918,75 @@ Class Marshal from Object
 		return dn_x
 
 	Func OffsetOf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s8:OffsetOf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s8:OffsetOf",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s8:OffsetOf",P1))
 
 	Func ReadByte P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s8:ReadByte",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s8:ReadByte",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s8:ReadByte",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReadInt16 P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s9:ReadInt16",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s9:ReadInt16",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s9:ReadInt16",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReadInt32 P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s9:ReadInt32",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s9:ReadInt32",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s9:ReadInt32",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ReadInt64 P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s9:ReadInt64",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s9:ReadInt64",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s9:ReadInt64",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func WriteByte P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s9:WriteByte",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s9:WriteByte",P1)
 			return self
 		ok
 		raise("DotNet Error: WriteByte does not take one argument: use named arguments, WriteByte([ :parameter = value, ... ])")
 
 	Func WriteInt16 P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s10:WriteInt16",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s10:WriteInt16",P1)
 			return self
 		ok
 		raise("DotNet Error: WriteInt16 does not take one argument: use named arguments, WriteInt16([ :parameter = value, ... ])")
 
 	Func WriteInt32 P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s10:WriteInt32",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s10:WriteInt32",P1)
 			return self
 		ok
 		raise("DotNet Error: WriteInt32 does not take one argument: use named arguments, WriteInt32([ :parameter = value, ... ])")
 
 	Func WriteInt64 P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s10:WriteInt64",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s10:WriteInt64",P1)
 			return self
 		ok
 		raise("DotNet Error: WriteInt64 does not take one argument: use named arguments, WriteInt64([ :parameter = value, ... ])")
@@ -1007,8 +1015,8 @@ Class Marshal from Object
 		return self
 
 	Func DestroyStructure P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s16:DestroyStructure",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s16:DestroyStructure",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s16:DestroyStructure",P1)
@@ -1035,8 +1043,8 @@ Class Marshal from Object
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:GetIDispatchForObject",P1))
 
 	Func GetComInterfaceForObject P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s24:GetComInterfaceForObject",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s24:GetComInterfaceForObject",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s24:GetComInterfaceForObject",P1))
 
@@ -1086,8 +1094,8 @@ Class Marshal from Object
 		return dn_x
 
 	Func CreateWrapperOfType P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:CreateWrapperOfType",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s19:CreateWrapperOfType",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s19:CreateWrapperOfType",P1))
 
@@ -1129,32 +1137,40 @@ Class Marshal from Object
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s12:AllocHGlobal",P1))
 
 	Func PtrToStringAnsi P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s15:PtrToStringAnsi",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:PtrToStringAnsi",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:PtrToStringAnsi",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PtrToStringUni P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s14:PtrToStringUni",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s14:PtrToStringUni",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s14:PtrToStringUni",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func PtrToStringUTF8 P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s15:PtrToStringUTF8",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:PtrToStringUTF8",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:PtrToStringUTF8",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SizeOf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s6:SizeOf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s6:SizeOf",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s6:SizeOf")
@@ -1182,14 +1198,14 @@ Class Marshal from Object
 		return self
 
 	Func ReadIntPtr P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s10:ReadIntPtr",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s10:ReadIntPtr",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s10:ReadIntPtr",P1))
 
 	Func WriteIntPtr P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s11:WriteIntPtr",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s11:WriteIntPtr",P1)
 			return self
 		ok
 		raise("DotNet Error: WriteIntPtr does not take one argument: use named arguments, WriteIntPtr([ :parameter = value, ... ])")
@@ -1205,20 +1221,22 @@ Class Marshal from Object
 		return self
 
 	Func PtrToStructure P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s14:PtrToStructure",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s14:PtrToStructure",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s14:PtrToStructure",P1))
 
 	Func GetExceptionForHR P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s17:GetExceptionForHR",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s17:GetExceptionForHR",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s17:GetExceptionForHR",P1))
 
 	Func ThrowExceptionForHR P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s19:ThrowExceptionForHR",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s19:ThrowExceptionForHR",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s19:ThrowExceptionForHR",P1)
@@ -1264,8 +1282,8 @@ Class Marshal from Object
 		return dn_x
 
 	Func GetDelegateForFunctionPointer P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s29:GetDelegateForFunctionPointer",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s29:GetDelegateForFunctionPointer",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s29:GetDelegateForFunctionPointer",P1))
 
@@ -1334,8 +1352,10 @@ Class Marshal from Object
 		return dn_x
 
 	Func PtrToStringAuto P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"s15:PtrToStringAuto",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:PtrToStringAuto",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s15:PtrToStringAuto",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1482,7 +1502,7 @@ Class NFloat from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.NFloat, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1502,8 +1522,10 @@ Class NFloat from ValueType
 		return dn_x
 
 	Func Format P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1550,14 +1572,16 @@ Class NFloat from ValueType
 		return dn_x
 
 	Func Parse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Parse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:Parse",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func TryParse P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s8:TryParse",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
@@ -1600,8 +1624,8 @@ Class NFloat from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:Floor",P1))
 
 	Func Round P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s5:Round",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:Round",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:Round",P1))
 
@@ -1662,8 +1686,8 @@ Class NFloat from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Tanh",P1))
 
 	Func Log P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"s3:Log",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s3:Log",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s3:Log",P1))
 
@@ -1911,14 +1935,16 @@ Class NativeLibrary from Object
 		return dn_x
 
 	Func Load_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s4:Load",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib',"s4:Load",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib',"s4:Load",P1))
 
 	Func TryLoad P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s7:TryLoad",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib',"s7:TryLoad",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"s7:TryLoad",dnPackItem(P1))
 
@@ -1959,14 +1985,14 @@ Class NativeMemory from Object
 		return dn_x
 
 	Func Alloc P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"s5:Alloc",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s5:Alloc",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s5:Alloc",P1))
 
 	Func AllocZeroed P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"s11:AllocZeroed",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s11:AllocZeroed",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib',"s11:AllocZeroed",P1))
 
@@ -2217,8 +2243,8 @@ Class SafeBuffer from DotNetObject
 		return self
 
 	Func Initialize P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:Initialize",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:Initialize",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s10:Initialize",P1)

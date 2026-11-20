@@ -67,7 +67,7 @@ Class SqliteBlob from Stream
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteBlob, Microsoft.Data.Sqlite',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -104,7 +104,7 @@ Class SqliteCommand from DbCommand
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteCommand, Microsoft.Data.Sqlite',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -144,7 +144,7 @@ Class SqliteConnection from DbConnection
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -159,29 +159,29 @@ Class SqliteConnection from DbConnection
 		return self
 
 	Func CreateAggregate P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s15:CreateAggregate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:CreateAggregate",P1)
 			return self
 		ok
 		raise("DotNet Error: CreateAggregate does not take one argument: use named arguments, CreateAggregate([ :parameter = value, ... ])")
 
 	Func CreateFunction P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:CreateFunction",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:CreateFunction",P1)
 			return self
 		ok
 		raise("DotNet Error: CreateFunction does not take one argument: use named arguments, CreateFunction([ :parameter = value, ... ])")
 
 	Func CreateCollation P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s15:CreateCollation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:CreateCollation",P1)
 			return self
 		ok
 		raise("DotNet Error: CreateCollation does not take one argument: use named arguments, CreateCollation([ :parameter = value, ... ])")
 
 	Func EnableExtensions P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s16:EnableExtensions",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s16:EnableExtensions",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -194,8 +194,8 @@ Class SqliteConnection from DbConnection
 		return self
 
 	Func LoadExtension P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s13:LoadExtension",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s13:LoadExtension",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s13:LoadExtension",P1)
@@ -203,8 +203,8 @@ Class SqliteConnection from DbConnection
 		return self
 
 	Func BackupDatabase P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:BackupDatabase",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:BackupDatabase",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s14:BackupDatabase",P1)
@@ -268,7 +268,7 @@ Class SqliteConnectionStringBuilder from DbConnectionStringBuilder
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteConnectionStringBuilder, Microsoft.Data.Sqlite',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -419,7 +419,7 @@ Class SqliteParameter from DbParameter
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteParameter, Microsoft.Data.Sqlite',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -458,8 +458,10 @@ Class SqliteParameterCollection from DbParameterCollection
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

@@ -31,8 +31,8 @@ Class MemoryMappedFile from Object
 		return self
 
 	Func CreateViewStream P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:CreateViewStream",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:CreateViewStream",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateViewStream"))
@@ -40,8 +40,8 @@ Class MemoryMappedFile from Object
 		raise("DotNet Error: CreateViewStream does not take one argument: use named arguments, CreateViewStream([ :parameter = value, ... ])")
 
 	Func CreateViewAccessor P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:CreateViewAccessor",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:CreateViewAccessor",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:CreateViewAccessor"))
@@ -59,26 +59,26 @@ Class MemoryMappedFile from Object
 		return dn_x
 
 	Func OpenExisting P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"s12:OpenExisting",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles',"s12:OpenExisting",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles',"s12:OpenExisting",P1))
 
 	Func CreateFromFile P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"s14:CreateFromFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles',"s14:CreateFromFile",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles',"s14:CreateFromFile",P1))
 
 	Func CreateNew P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"s9:CreateNew",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles',"s9:CreateNew",P1))
 		ok
 		raise("DotNet Error: CreateNew does not take one argument: use named arguments, CreateNew([ :parameter = value, ... ])")
 
 	Func CreateOrOpen P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"s12:CreateOrOpen",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles',"s12:CreateOrOpen",P1))
 		ok
 		raise("DotNet Error: CreateOrOpen does not take one argument: use named arguments, CreateOrOpen([ :parameter = value, ... ])")
 

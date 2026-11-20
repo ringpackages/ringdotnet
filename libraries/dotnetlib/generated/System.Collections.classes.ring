@@ -172,7 +172,7 @@ Class ArrayList from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.ArrayList, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -197,8 +197,10 @@ Class ArrayList from Object
 		return self
 
 	Func BinarySearch P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:BinarySearch",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:BinarySearch",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:BinarySearch",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -218,8 +220,8 @@ Class ArrayList from Object
 		return dn_x
 
 	Func CopyTo P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:CopyTo",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
@@ -227,8 +229,8 @@ Class ArrayList from Object
 		return self
 
 	Func GetEnumerator P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:GetEnumerator",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetEnumerator",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
@@ -236,8 +238,10 @@ Class ArrayList from Object
 		raise("DotNet Error: GetEnumerator does not take one argument: use named arguments, GetEnumerator([ :parameter = value, ... ])")
 
 	Func IndexOf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:IndexOf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -254,8 +258,10 @@ Class ArrayList from Object
 		return self
 
 	Func LastIndexOf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:LastIndexOf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:LastIndexOf",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s11:LastIndexOf",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -277,8 +283,8 @@ Class ArrayList from Object
 		return self
 
 	Func Reverse P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Reverse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Reverse",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -297,8 +303,8 @@ Class ArrayList from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetRange",P1,P2))
 
 	Func Sort P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Sort",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Sort",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -311,8 +317,8 @@ Class ArrayList from Object
 		return self
 
 	Func ToArray P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:ToArray",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:ToArray",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
@@ -419,7 +425,7 @@ Class BitArray from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.BitArray, System.Collections',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -566,7 +572,7 @@ Class CaseInsensitiveComparer from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.CaseInsensitiveComparer, System.Collections.NonGeneric',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -762,7 +768,7 @@ Class DictionaryEntry from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.DictionaryEntry, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -824,7 +830,7 @@ Class Hashtable from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Hashtable, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1448,7 +1454,7 @@ Class Queue from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Queue, System.Collections.NonGeneric',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1594,7 +1600,7 @@ Class SortedList from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.SortedList, System.Collections.NonGeneric',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1787,7 +1793,7 @@ Class Stack from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Stack, System.Collections.NonGeneric',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

@@ -336,7 +336,7 @@ Class Regex from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -367,60 +367,72 @@ Class Regex from Object
 		return dn_x
 
 	Func Count P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s5:Count",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s5:Count",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s5:Count",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s5:Count",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s5:Count",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsMatch P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s7:IsMatch",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s7:IsMatch",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s7:IsMatch",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:IsMatch",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IsMatch",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Match P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s5:Match",dnPackItem(P1))
+				return dnObj(dotnet_callo("s9:callnamed",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s5:Match",P1))
 			ok
-			return dnSend("s9:callnamed",nHandle,"s5:Match",dnPackItem(P1))
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Match",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Match",P1))
 
 	Func Matches P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s7:Matches",dnPackItem(P1))
+				return dnObj(dotnet_callo("s9:callnamed",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s7:Matches",P1))
 			ok
-			return dnSend("s9:callnamed",nHandle,"s7:Matches",dnPackItem(P1))
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Matches",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Matches",P1))
 
 	Func Replace P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s7:Replace",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s7:Replace",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s7:Replace",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:Replace",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
 	Func Split P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s5:Split",dnPackItem(P1))
+				return dnObj(dotnet_callo("s9:callnamed",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s5:Split",P1))
 			ok
-			return dnSend("s9:callnamed",nHandle,"s5:Split",dnPackItem(P1))
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Split",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Split",P1))
 
@@ -430,8 +442,8 @@ Class Regex from Object
 		return dn_x
 
 	Func CompileToAssembly P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"s17:CompileToAssembly",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s17:CompileToAssembly",P1)
 			return self
 		ok
 		raise("DotNet Error: CompileToAssembly does not take one argument: use named arguments, CompileToAssembly([ :parameter = value, ... ])")

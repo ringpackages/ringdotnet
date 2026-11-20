@@ -339,7 +339,7 @@ Class DataColumnMapping from MarshalByRefObject
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.Common.DataColumnMapping, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -354,11 +354,11 @@ Class DataColumnMapping from MarshalByRefObject
 		return self
 
 	Func GetDataColumnBySchemaAction P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('System.Data.Common.DataColumnMapping, System.Data.Common'),"s27:GetDataColumnBySchemaAction",dnPackItem(P1))
+				return dnObj(dotnet_callo("s9:callnamed",'System.Data.Common.DataColumnMapping, System.Data.Common',"s27:GetDataColumnBySchemaAction",P1))
 			ok
-			return dnSend("s9:callnamed",nHandle,"s27:GetDataColumnBySchemaAction",dnPackItem(P1))
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:GetDataColumnBySchemaAction",P1))
 		ok
 		raise("DotNet Error: GetDataColumnBySchemaAction does not take one argument: use named arguments, GetDataColumnBySchemaAction([ :parameter = value, ... ])")
 
@@ -404,8 +404,10 @@ Class DataColumnMappingCollection from MarshalByRefObject
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -510,7 +512,7 @@ Class DataTableMapping from MarshalByRefObject
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.Common.DataTableMapping, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -581,8 +583,10 @@ Class DataTableMappingCollection from MarshalByRefObject
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s3:Add",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -675,8 +679,8 @@ Class DbBatch from Object
 		return self
 
 	Func ExecuteReader P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ExecuteReader",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ExecuteReader",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteReader"))
@@ -684,8 +688,8 @@ Class DbBatch from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteReader",P1))
 
 	Func ExecuteReaderAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:ExecuteReaderAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ExecuteReaderAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteReaderAsync"))
@@ -698,8 +702,8 @@ Class DbBatch from Object
 		return dn_x
 
 	Func ExecuteNonQueryAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s20:ExecuteNonQueryAsync"))
@@ -710,8 +714,8 @@ Class DbBatch from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteScalar"))
 
 	Func ExecuteScalarAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:ExecuteScalarAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ExecuteScalarAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteScalarAsync"))
@@ -724,8 +728,8 @@ Class DbBatch from Object
 		return self
 
 	Func PrepareAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:PrepareAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:PrepareAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s12:PrepareAsync"))
@@ -1165,8 +1169,8 @@ Class DbCommand from Component
 		return dn_x
 
 	Func ExecuteReader P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ExecuteReader",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ExecuteReader",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteReader"))
@@ -1174,8 +1178,8 @@ Class DbCommand from Component
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteReader",P1))
 
 	Func ExecuteNonQueryAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s20:ExecuteNonQueryAsync"))
@@ -1183,8 +1187,8 @@ Class DbCommand from Component
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ExecuteNonQueryAsync",P1))
 
 	Func ExecuteReaderAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:ExecuteReaderAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ExecuteReaderAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteReaderAsync"))
@@ -1192,8 +1196,8 @@ Class DbCommand from Component
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteReaderAsync",P1))
 
 	Func ExecuteScalarAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:ExecuteScalarAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ExecuteScalarAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteScalarAsync"))
@@ -1209,8 +1213,8 @@ Class DbCommand from Component
 		return self
 
 	Func PrepareAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:PrepareAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:PrepareAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s12:PrepareAsync"))
@@ -1303,8 +1307,8 @@ Class DbCommandBuilder from Component
 		return self
 
 	Func GetInsertCommand P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:GetInsertCommand",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetInsertCommand",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetInsertCommand"))
@@ -1312,8 +1316,8 @@ Class DbCommandBuilder from Component
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetInsertCommand",P1))
 
 	Func GetUpdateCommand P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:GetUpdateCommand",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetUpdateCommand",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetUpdateCommand"))
@@ -1321,8 +1325,8 @@ Class DbCommandBuilder from Component
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetUpdateCommand",P1))
 
 	Func GetDeleteCommand P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:GetDeleteCommand",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetDeleteCommand",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetDeleteCommand"))
@@ -1431,8 +1435,8 @@ Class DbConnection from Component
 		return self
 
 	Func BeginTransaction P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:BeginTransaction",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:BeginTransaction",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction"))
@@ -1440,8 +1444,8 @@ Class DbConnection from Component
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction",P1))
 
 	Func BeginTransactionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:BeginTransactionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:BeginTransactionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s21:BeginTransactionAsync"))
@@ -1465,8 +1469,8 @@ Class DbConnection from Component
 		return self
 
 	Func ChangeDatabaseAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:ChangeDatabaseAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:ChangeDatabaseAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ChangeDatabaseAsync",P1))
 
@@ -1482,8 +1486,8 @@ Class DbConnection from Component
 		return self
 
 	Func GetSchema P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:GetSchema",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:GetSchema",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetSchema"))
@@ -1491,8 +1495,8 @@ Class DbConnection from Component
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetSchema",P1))
 
 	Func GetSchemaAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetSchemaAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:GetSchemaAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetSchemaAsync"))
@@ -1505,8 +1509,8 @@ Class DbConnection from Component
 		return self
 
 	Func OpenAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:OpenAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:OpenAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:OpenAsync"))
@@ -1607,7 +1611,7 @@ Class DbConnectionStringBuilder from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.Common.DbConnectionStringBuilder, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1660,8 +1664,8 @@ Class DbConnectionStringBuilder from Object
 		return dn_x
 
 	Func AppendKeyValuePair P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('System.Data.Common.DbConnectionStringBuilder, System.Data.Common'),"s18:AppendKeyValuePair",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'System.Data.Common.DbConnectionStringBuilder, System.Data.Common',"s18:AppendKeyValuePair",P1)
 			return self
 		ok
 		raise("DotNet Error: AppendKeyValuePair does not take one argument: use named arguments, AppendKeyValuePair([ :parameter = value, ... ])")
@@ -1787,8 +1791,8 @@ Class DbDataReader from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetSchemaTable"))
 
 	Func GetSchemaTableAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:GetSchemaTableAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetSchemaTableAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetSchemaTableAsync"))
@@ -1796,8 +1800,8 @@ Class DbDataReader from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetSchemaTableAsync",P1))
 
 	Func GetColumnSchemaAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:GetColumnSchemaAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:GetColumnSchemaAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetColumnSchemaAsync"))
@@ -1895,8 +1899,8 @@ Class DbDataReader from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetFieldValue",P1))
 
 	Func GetFieldValueAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:GetFieldValueAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetFieldValueAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetFieldValueAsync",P1))
 
@@ -1911,8 +1915,8 @@ Class DbDataReader from MarshalByRefObject
 		return dn_x
 
 	Func IsDBNullAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:IsDBNullAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:IsDBNullAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsDBNullAsync",P1))
 
@@ -1927,8 +1931,8 @@ Class DbDataReader from MarshalByRefObject
 		return dn_x
 
 	Func ReadAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:ReadAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:ReadAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:ReadAsync"))
@@ -1936,8 +1940,8 @@ Class DbDataReader from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ReadAsync",P1))
 
 	Func NextResultAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:NextResultAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:NextResultAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s15:NextResultAsync"))
@@ -2169,8 +2173,8 @@ Class DbDataSource from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:OpenConnection"))
 
 	Func OpenConnectionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:OpenConnectionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:OpenConnectionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s19:OpenConnectionAsync"))
@@ -2178,8 +2182,8 @@ Class DbDataSource from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:OpenConnectionAsync",P1))
 
 	Func CreateCommand P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:CreateCommand",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:CreateCommand",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:CreateCommand"))
@@ -2247,7 +2251,7 @@ Class DbEnumerator from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Data.Common.DbEnumerator, System.Data.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -3122,8 +3126,8 @@ Class DbTransaction from MarshalByRefObject
 		return self
 
 	Func CommitAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:CommitAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CommitAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:CommitAsync"))
@@ -3139,8 +3143,8 @@ Class DbTransaction from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
 	Func Rollback P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:Rollback",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:Rollback",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -3153,8 +3157,8 @@ Class DbTransaction from MarshalByRefObject
 		return self
 
 	Func RollbackAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:RollbackAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:RollbackAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:RollbackAsync"))
@@ -3162,14 +3166,14 @@ Class DbTransaction from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:RollbackAsync",P1))
 
 	Func SaveAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:SaveAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:SaveAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:SaveAsync",P1))
 
 	Func ReleaseAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:ReleaseAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ReleaseAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReleaseAsync",P1))
 
@@ -3237,8 +3241,8 @@ Class RowUpdatedEventArgs from EventArgs
 		return self
 
 	Func CopyToRows P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:CopyToRows",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:CopyToRows",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s10:CopyToRows",P1)
@@ -3694,22 +3698,26 @@ Class DbDataAdapter from DataAdapter
 		return self
 
 	Func FillSchema P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:FillSchema",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:FillSchema",P1))
 		ok
 		raise("DotNet Error: FillSchema does not take one argument: use named arguments, FillSchema([ :parameter = value, ... ])")
 
 	Func Fill P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s4:Fill",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s4:Fill",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s4:Fill",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Update P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Update",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Update",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Update",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

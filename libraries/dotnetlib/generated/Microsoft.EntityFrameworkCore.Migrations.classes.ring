@@ -163,8 +163,8 @@ Class HistoryRepository from Object
 		return dn_x
 
 	Func ExistsAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:ExistsAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ExistsAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:ExistsAsync"))
@@ -187,8 +187,8 @@ Class HistoryRepository from Object
 		return self
 
 	Func CreateAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:CreateAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CreateAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateAsync"))
@@ -199,8 +199,8 @@ Class HistoryRepository from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AcquireDatabaseLock"))
 
 	Func AcquireDatabaseLockAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:AcquireDatabaseLockAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:AcquireDatabaseLockAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s24:AcquireDatabaseLockAsync"))
@@ -211,8 +211,8 @@ Class HistoryRepository from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetAppliedMigrations"))
 
 	Func GetAppliedMigrationsAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:GetAppliedMigrationsAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:GetAppliedMigrationsAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetAppliedMigrationsAsync"))
@@ -461,8 +461,8 @@ Class IHistoryRepository from DotNetObject
 		return dn_x
 
 	Func ExistsAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:ExistsAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ExistsAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:ExistsAsync"))
@@ -475,8 +475,8 @@ Class IHistoryRepository from DotNetObject
 		return self
 
 	Func CreateAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:CreateAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CreateAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateAsync"))
@@ -489,8 +489,8 @@ Class IHistoryRepository from DotNetObject
 		return dn_x
 
 	Func CreateIfNotExistsAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s22:CreateIfNotExistsAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:CreateIfNotExistsAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s22:CreateIfNotExistsAsync"))
@@ -501,8 +501,8 @@ Class IHistoryRepository from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetAppliedMigrations"))
 
 	Func GetAppliedMigrationsAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:GetAppliedMigrationsAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:GetAppliedMigrationsAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetAppliedMigrationsAsync"))
@@ -513,8 +513,8 @@ Class IHistoryRepository from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AcquireDatabaseLock"))
 
 	Func AcquireDatabaseLockAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:AcquireDatabaseLockAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:AcquireDatabaseLockAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s24:AcquireDatabaseLockAsync"))
@@ -575,14 +575,16 @@ Class IMigrationCommandExecutor from DotNetObject
 		return self
 
 	Func ExecuteNonQuery P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:ExecuteNonQuery",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:ExecuteNonQuery",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: ExecuteNonQuery does not take one argument: use named arguments, ExecuteNonQuery([ :parameter = value, ... ])")
 
 	Func ExecuteNonQueryAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",P1))
 		ok
 		raise("DotNet Error: ExecuteNonQueryAsync does not take one argument: use named arguments, ExecuteNonQueryAsync([ :parameter = value, ... ])")
 
@@ -662,8 +664,8 @@ Class IMigrationsDatabaseLock from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReacquireIfNeeded",P1,P2))
 
 	Func ReacquireIfNeededAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s22:ReacquireIfNeededAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:ReacquireIfNeededAsync",P1))
 		ok
 		raise("DotNet Error: ReacquireIfNeededAsync does not take one argument: use named arguments, ReacquireIfNeededAsync([ :parameter = value, ... ])")
 
@@ -727,8 +729,8 @@ Class IMigrationsSqlGenerator from DotNetObject
 		return self
 
 	Func Generate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Generate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Generate",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Generate",P1))
 
@@ -745,8 +747,8 @@ Class IMigrator from DotNetObject
 		return self
 
 	Func Migrate P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Migrate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Migrate",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -759,8 +761,8 @@ Class IMigrator from DotNetObject
 		return self
 
 	Func MigrateAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:MigrateAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:MigrateAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s12:MigrateAsync"))
@@ -768,8 +770,10 @@ Class IMigrator from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:MigrateAsync",P1))
 
 	Func GenerateScript P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GenerateScript",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:GenerateScript",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s14:GenerateScript")
@@ -861,38 +865,38 @@ Class MigrationBuilder from Object
 		return self
 
 	Func AddColumn P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:AddColumn",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:AddColumn",P1))
 		ok
 		raise("DotNet Error: AddColumn does not take one argument: use named arguments, AddColumn([ :parameter = value, ... ])")
 
 	Func AddForeignKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:AddForeignKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddForeignKey",P1))
 		ok
 		raise("DotNet Error: AddForeignKey does not take one argument: use named arguments, AddForeignKey([ :parameter = value, ... ])")
 
 	Func AddPrimaryKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:AddPrimaryKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddPrimaryKey",P1))
 		ok
 		raise("DotNet Error: AddPrimaryKey does not take one argument: use named arguments, AddPrimaryKey([ :parameter = value, ... ])")
 
 	Func AddUniqueConstraint P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:AddUniqueConstraint",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:AddUniqueConstraint",P1))
 		ok
 		raise("DotNet Error: AddUniqueConstraint does not take one argument: use named arguments, AddUniqueConstraint([ :parameter = value, ... ])")
 
 	Func AlterColumn P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:AlterColumn",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AlterColumn",P1))
 		ok
 		raise("DotNet Error: AlterColumn does not take one argument: use named arguments, AlterColumn([ :parameter = value, ... ])")
 
 	Func AlterDatabase P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:AlterDatabase",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AlterDatabase",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:AlterDatabase"))
@@ -900,20 +904,20 @@ Class MigrationBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AlterDatabase",P1))
 
 	Func AlterSequence P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:AlterSequence",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AlterSequence",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AlterSequence",P1))
 
 	Func AlterTable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:AlterTable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AlterTable",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AlterTable",P1))
 
 	Func CreateIndex P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:CreateIndex",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CreateIndex",P1))
 		ok
 		raise("DotNet Error: CreateIndex does not take one argument: use named arguments, CreateIndex([ :parameter = value, ... ])")
 
@@ -921,50 +925,50 @@ Class MigrationBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:EnsureSchema",P1))
 
 	Func CreateSequence P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:CreateSequence",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:CreateSequence",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateSequence",P1))
 
 	Func CreateCheckConstraint P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:CreateCheckConstraint",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:CreateCheckConstraint",P1))
 		ok
 		raise("DotNet Error: CreateCheckConstraint does not take one argument: use named arguments, CreateCheckConstraint([ :parameter = value, ... ])")
 
 	Func AddCheckConstraint P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:AddCheckConstraint",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddCheckConstraint",P1))
 		ok
 		raise("DotNet Error: AddCheckConstraint does not take one argument: use named arguments, AddCheckConstraint([ :parameter = value, ... ])")
 
 	Func CreateTable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:CreateTable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CreateTable",P1))
 		ok
 		raise("DotNet Error: CreateTable does not take one argument: use named arguments, CreateTable([ :parameter = value, ... ])")
 
 	Func DropColumn P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:DropColumn",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:DropColumn",P1))
 		ok
 		raise("DotNet Error: DropColumn does not take one argument: use named arguments, DropColumn([ :parameter = value, ... ])")
 
 	Func DropForeignKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:DropForeignKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:DropForeignKey",P1))
 		ok
 		raise("DotNet Error: DropForeignKey does not take one argument: use named arguments, DropForeignKey([ :parameter = value, ... ])")
 
 	Func DropIndex P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:DropIndex",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:DropIndex",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:DropIndex",P1))
 
 	Func DropPrimaryKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:DropPrimaryKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:DropPrimaryKey",P1))
 		ok
 		raise("DotNet Error: DropPrimaryKey does not take one argument: use named arguments, DropPrimaryKey([ :parameter = value, ... ])")
 
@@ -972,80 +976,80 @@ Class MigrationBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:DropSchema",P1))
 
 	Func DropSequence P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:DropSequence",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:DropSequence",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DropSequence",P1))
 
 	Func DropCheckConstraint P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:DropCheckConstraint",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:DropCheckConstraint",P1))
 		ok
 		raise("DotNet Error: DropCheckConstraint does not take one argument: use named arguments, DropCheckConstraint([ :parameter = value, ... ])")
 
 	Func DropTable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:DropTable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:DropTable",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:DropTable",P1))
 
 	Func DropUniqueConstraint P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:DropUniqueConstraint",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:DropUniqueConstraint",P1))
 		ok
 		raise("DotNet Error: DropUniqueConstraint does not take one argument: use named arguments, DropUniqueConstraint([ :parameter = value, ... ])")
 
 	Func RenameColumn P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:RenameColumn",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:RenameColumn",P1))
 		ok
 		raise("DotNet Error: RenameColumn does not take one argument: use named arguments, RenameColumn([ :parameter = value, ... ])")
 
 	Func RenameIndex P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:RenameIndex",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:RenameIndex",P1))
 		ok
 		raise("DotNet Error: RenameIndex does not take one argument: use named arguments, RenameIndex([ :parameter = value, ... ])")
 
 	Func RenameSequence P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:RenameSequence",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:RenameSequence",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:RenameSequence",P1))
 
 	Func RenameTable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:RenameTable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:RenameTable",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:RenameTable",P1))
 
 	Func RestartSequence P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:RestartSequence",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:RestartSequence",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RestartSequence",P1))
 
 	Func Sql P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Sql",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Sql",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Sql",P1))
 
 	Func InsertData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:InsertData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:InsertData",P1))
 		ok
 		raise("DotNet Error: InsertData does not take one argument: use named arguments, InsertData([ :parameter = value, ... ])")
 
 	Func DeleteData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:DeleteData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:DeleteData",P1))
 		ok
 		raise("DotNet Error: DeleteData does not take one argument: use named arguments, DeleteData([ :parameter = value, ... ])")
 
 	Func UpdateData P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:UpdateData",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UpdateData",P1))
 		ok
 		raise("DotNet Error: UpdateData does not take one argument: use named arguments, UpdateData([ :parameter = value, ... ])")
 
@@ -1087,7 +1091,7 @@ Class MigrationCommand from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Migrations.MigrationCommand, Microsoft.EntityFrameworkCore.Relational',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1102,16 +1106,18 @@ Class MigrationCommand from Object
 		return self
 
 	Func ExecuteNonQuery P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:ExecuteNonQuery",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:ExecuteNonQuery",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s15:ExecuteNonQuery",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ExecuteNonQueryAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ExecuteNonQueryAsync",P1))
 
@@ -1160,8 +1166,8 @@ Class MigrationCommandListBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetCommandList"))
 
 	Func EndCommand P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:EndCommand",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:EndCommand",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:EndCommand"))
@@ -1172,8 +1178,8 @@ Class MigrationCommandListBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Append",P1))
 
 	Func AppendLine P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:AppendLine",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AppendLine",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendLine"))
@@ -1358,8 +1364,8 @@ Class MigrationsSqlGenerator from Object
 		return self
 
 	Func Generate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:Generate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Generate",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Generate",P1))
 

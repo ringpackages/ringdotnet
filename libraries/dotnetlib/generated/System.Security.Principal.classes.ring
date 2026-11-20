@@ -171,7 +171,7 @@ Class IdentityReferenceCollection from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Principal.IdentityReferenceCollection, System.Security.Principal.Windows',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -214,8 +214,8 @@ Class IdentityReferenceCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Translate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:Translate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Translate",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1))
 
@@ -264,7 +264,7 @@ Class WindowsIdentity from ClaimsIdentity
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -284,8 +284,8 @@ Class WindowsIdentity from ClaimsIdentity
 		return self
 
 	Func GetCurrent P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"s10:GetCurrent",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',"s10:GetCurrent",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',"s10:GetCurrent"))
@@ -424,7 +424,7 @@ Class NTAccount from IdentityReference
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Principal.NTAccount, System.Security.Principal.Windows',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -458,7 +458,7 @@ Class SecurityIdentifier from IdentityReference
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

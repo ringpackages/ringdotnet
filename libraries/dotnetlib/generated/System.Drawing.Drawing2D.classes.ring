@@ -108,7 +108,7 @@ Class Blend from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.Blend, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -167,7 +167,7 @@ Class ColorBlend from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.ColorBlend, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -220,7 +220,7 @@ Class CustomLineCap from MarshalByRefObject
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.CustomLineCap, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -323,7 +323,7 @@ Class GraphicsPath from MarshalByRefObject
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.GraphicsPath, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -384,22 +384,26 @@ Class GraphicsPath from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetLastPoint"))
 
 	Func IsVisible P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:IsVisible",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:IsVisible",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:IsVisible",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsOutlineVisible P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:IsOutlineVisible",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:IsOutlineVisible",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: IsOutlineVisible does not take one argument: use named arguments, IsOutlineVisible([ :parameter = value, ... ])")
 
 	Func AddLine P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:AddLine",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:AddLine",P1)
 			return self
 		ok
 		raise("DotNet Error: AddLine does not take one argument: use named arguments, AddLine([ :parameter = value, ... ])")
@@ -410,15 +414,15 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func AddArc P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:AddArc",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:AddArc",P1)
 			return self
 		ok
 		raise("DotNet Error: AddArc does not take one argument: use named arguments, AddArc([ :parameter = value, ... ])")
 
 	Func AddBezier P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:AddBezier",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:AddBezier",P1)
 			return self
 		ok
 		raise("DotNet Error: AddBezier does not take one argument: use named arguments, AddBezier([ :parameter = value, ... ])")
@@ -429,8 +433,8 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func AddCurve P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:AddCurve",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:AddCurve",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:AddCurve",P1)
@@ -438,8 +442,8 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func AddClosedCurve P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:AddClosedCurve",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:AddClosedCurve",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s14:AddClosedCurve",P1)
@@ -462,8 +466,8 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func AddEllipse P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:AddEllipse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:AddEllipse",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s10:AddEllipse",P1)
@@ -471,8 +475,8 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func AddPie P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:AddPie",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:AddPie",P1)
 			return self
 		ok
 		raise("DotNet Error: AddPie does not take one argument: use named arguments, AddPie([ :parameter = value, ... ])")
@@ -498,8 +502,8 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func GetBounds P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:GetBounds",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:GetBounds",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBounds"))
@@ -507,8 +511,8 @@ Class GraphicsPath from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBounds",P1))
 
 	Func Flatten P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Flatten",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Flatten",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -521,8 +525,8 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func Widen P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Widen",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Widen",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s5:Widen",P1)
@@ -530,8 +534,8 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func Warp P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Warp",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Warp",P1)
 			return self
 		ok
 		raise("DotNet Error: Warp does not take one argument: use named arguments, Warp([ :parameter = value, ... ])")
@@ -592,8 +596,10 @@ Class GraphicsPathIterator from MarshalByRefObject
 		return self
 
 	Func NextSubpath P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:NextSubpath",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s11:NextSubpath",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			return dnSend("s4:call",nHandle,"s11:NextSubpath","")
@@ -604,8 +610,10 @@ Class GraphicsPathIterator from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s12:NextPathType","")
 
 	Func NextMarker P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:NextMarker",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s10:NextMarker",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			return dnSend("s4:call",nHandle,"s10:NextMarker","")
@@ -677,7 +685,7 @@ Class HatchBrush from Brush
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.HatchBrush, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -732,7 +740,7 @@ Class LinearGradientBrush from Brush
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.LinearGradientBrush, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -747,8 +755,8 @@ Class LinearGradientBrush from Brush
 		return self
 
 	Func SetSigmaBellShape P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s17:SetSigmaBellShape",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s17:SetSigmaBellShape",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s17:SetSigmaBellShape",P1)
@@ -756,8 +764,8 @@ Class LinearGradientBrush from Brush
 		return self
 
 	Func SetBlendTriangularShape P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s23:SetBlendTriangularShape",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s23:SetBlendTriangularShape",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s23:SetBlendTriangularShape",P1)
@@ -770,8 +778,8 @@ Class LinearGradientBrush from Brush
 		return self
 
 	Func MultiplyTransform P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s17:MultiplyTransform",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s17:MultiplyTransform",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s17:MultiplyTransform",P1)
@@ -779,22 +787,22 @@ Class LinearGradientBrush from Brush
 		return self
 
 	Func TranslateTransform P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s18:TranslateTransform",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s18:TranslateTransform",P1)
 			return self
 		ok
 		raise("DotNet Error: TranslateTransform does not take one argument: use named arguments, TranslateTransform([ :parameter = value, ... ])")
 
 	Func ScaleTransform P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:ScaleTransform",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:ScaleTransform",P1)
 			return self
 		ok
 		raise("DotNet Error: ScaleTransform does not take one argument: use named arguments, ScaleTransform([ :parameter = value, ... ])")
 
 	Func RotateTransform P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s15:RotateTransform",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:RotateTransform",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s15:RotateTransform",P1)
@@ -881,7 +889,7 @@ Class Matrix from MarshalByRefObject
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.Matrix, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -909,8 +917,8 @@ Class Matrix from MarshalByRefObject
 		return self
 
 	Func Multiply P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:Multiply",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:Multiply",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:Multiply",P1)
@@ -918,22 +926,22 @@ Class Matrix from MarshalByRefObject
 		return self
 
 	Func Translate P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:Translate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:Translate",P1)
 			return self
 		ok
 		raise("DotNet Error: Translate does not take one argument: use named arguments, Translate([ :parameter = value, ... ])")
 
 	Func Scale P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Scale",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Scale",P1)
 			return self
 		ok
 		raise("DotNet Error: Scale does not take one argument: use named arguments, Scale([ :parameter = value, ... ])")
 
 	Func Rotate P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Rotate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Rotate",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:Rotate",P1)
@@ -941,15 +949,15 @@ Class Matrix from MarshalByRefObject
 		return self
 
 	Func RotateAt P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:RotateAt",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:RotateAt",P1)
 			return self
 		ok
 		raise("DotNet Error: RotateAt does not take one argument: use named arguments, RotateAt([ :parameter = value, ... ])")
 
 	Func Shear P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s5:Shear",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s5:Shear",P1)
 			return self
 		ok
 		raise("DotNet Error: Shear does not take one argument: use named arguments, Shear([ :parameter = value, ... ])")
@@ -1087,7 +1095,7 @@ Class PathGradientBrush from Brush
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.PathGradientBrush, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1102,8 +1110,8 @@ Class PathGradientBrush from Brush
 		return self
 
 	Func SetSigmaBellShape P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s17:SetSigmaBellShape",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s17:SetSigmaBellShape",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s17:SetSigmaBellShape",P1)
@@ -1111,8 +1119,8 @@ Class PathGradientBrush from Brush
 		return self
 
 	Func SetBlendTriangularShape P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s23:SetBlendTriangularShape",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s23:SetBlendTriangularShape",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s23:SetBlendTriangularShape",P1)
@@ -1125,8 +1133,8 @@ Class PathGradientBrush from Brush
 		return self
 
 	Func MultiplyTransform P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s17:MultiplyTransform",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s17:MultiplyTransform",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s17:MultiplyTransform",P1)
@@ -1134,22 +1142,22 @@ Class PathGradientBrush from Brush
 		return self
 
 	Func TranslateTransform P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s18:TranslateTransform",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s18:TranslateTransform",P1)
 			return self
 		ok
 		raise("DotNet Error: TranslateTransform does not take one argument: use named arguments, TranslateTransform([ :parameter = value, ... ])")
 
 	Func ScaleTransform P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s14:ScaleTransform",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s14:ScaleTransform",P1)
 			return self
 		ok
 		raise("DotNet Error: ScaleTransform does not take one argument: use named arguments, ScaleTransform([ :parameter = value, ... ])")
 
 	Func RotateTransform P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s15:RotateTransform",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:RotateTransform",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s15:RotateTransform",P1)
@@ -1264,7 +1272,7 @@ Class AdjustableArrowCap from CustomLineCap
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.AdjustableArrowCap, System.Drawing.Common',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

@@ -347,8 +347,8 @@ Class BitmapDecoder from DispatcherObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:CreateInPlaceBitmapMetadataWriter"))
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Imaging.BitmapDecoder, PresentationCore'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Media.Imaging.BitmapDecoder, PresentationCore',"s6:Create",P1))
 		ok
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
@@ -716,7 +716,7 @@ Class BitmapPalette from DispatcherObject
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.BitmapPalette, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1010,15 +1010,15 @@ Class BitmapSource from ImageSource
 		return self
 
 	Func CopyPixels P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:CopyPixels",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:CopyPixels",P1)
 			return self
 		ok
 		raise("DotNet Error: CopyPixels does not take one argument: use named arguments, CopyPixels([ :parameter = value, ... ])")
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Imaging.BitmapSource, PresentationCore'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Media.Imaging.BitmapSource, PresentationCore',"s6:Create",P1))
 		ok
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
@@ -1149,8 +1149,8 @@ Class BitmapFrame from BitmapSource
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:CreateInPlaceBitmapMetadataWriter"))
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Windows.Media.Imaging.BitmapFrame, PresentationCore'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Windows.Media.Imaging.BitmapFrame, PresentationCore',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Imaging.BitmapFrame, PresentationCore',"s6:Create",P1))
 
@@ -1222,7 +1222,7 @@ Class BitmapImage from BitmapSource
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.BitmapImage, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1455,7 +1455,7 @@ Class ColorConvertedBitmap from BitmapSource
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1559,7 +1559,7 @@ Class CroppedBitmap from BitmapSource
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1641,7 +1641,7 @@ Class FormatConvertedBitmap from BitmapSource
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2019,7 +2019,7 @@ Class TransformedBitmap from BitmapSource
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2301,7 +2301,7 @@ Class WriteableBitmap from BitmapSource
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.WriteableBitmap, PresentationCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2336,8 +2336,8 @@ Class WriteableBitmap from BitmapSource
 		return self
 
 	Func WritePixels P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s11:WritePixels",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s11:WritePixels",P1)
 			return self
 		ok
 		raise("DotNet Error: WritePixels does not take one argument: use named arguments, WritePixels([ :parameter = value, ... ])")

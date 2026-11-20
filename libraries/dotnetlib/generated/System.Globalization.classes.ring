@@ -245,14 +245,18 @@ Class Calendar from Object
 		return dn_x
 
 	Func GetDaysInMonth P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:GetDaysInMonth",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:GetDaysInMonth",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: GetDaysInMonth does not take one argument: use named arguments, GetDaysInMonth([ :parameter = value, ... ])")
 
 	Func GetDaysInYear P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:GetDaysInYear",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:GetDaysInYear",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:GetDaysInYear",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -284,8 +288,10 @@ Class Calendar from Object
 		return dn_x
 
 	Func GetMonthsInYear P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:GetMonthsInYear",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:GetMonthsInYear",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s15:GetMonthsInYear",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -307,36 +313,44 @@ Class Calendar from Object
 		return dn_x
 
 	Func IsLeapDay P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:IsLeapDay",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:IsLeapDay",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: IsLeapDay does not take one argument: use named arguments, IsLeapDay([ :parameter = value, ... ])")
 
 	Func IsLeapMonth P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:IsLeapMonth",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:IsLeapMonth",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: IsLeapMonth does not take one argument: use named arguments, IsLeapMonth([ :parameter = value, ... ])")
 
 	Func GetLeapMonth P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:GetLeapMonth",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetLeapMonth",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetLeapMonth",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsLeapYear P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:IsLeapYear",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:IsLeapYear",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s10:IsLeapYear",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ToDateTime P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:ToDateTime",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:ToDateTime",P1))
 		ok
 		raise("DotNet Error: ToDateTime does not take one argument: use named arguments, ToDateTime([ :parameter = value, ... ])")
 
@@ -420,32 +434,38 @@ Class CharUnicodeInfo from Object
 		return dn_x
 
 	Func GetDecimalDigitValue P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s20:GetDecimalDigitValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s20:GetDecimalDigitValue",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s20:GetDecimalDigitValue",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetDigitValue P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s13:GetDigitValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s13:GetDigitValue",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s13:GetDigitValue",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetNumericValue P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s15:GetNumericValue",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s15:GetNumericValue",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s15:GetNumericValue",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetUnicodeCategory P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"s18:GetUnicodeCategory",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s18:GetUnicodeCategory",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Globalization.CharUnicodeInfo, System.Private.CoreLib',"s18:GetUnicodeCategory",P1))
 
@@ -466,38 +486,48 @@ Class CompareInfo from Object
 		return self
 
 	Func Compare P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:Compare",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:Compare",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: Compare does not take one argument: use named arguments, Compare([ :parameter = value, ... ])")
 
 	Func IsPrefix P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:IsPrefix",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:IsPrefix",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: IsPrefix does not take one argument: use named arguments, IsPrefix([ :parameter = value, ... ])")
 
 	Func IsSuffix P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:IsSuffix",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:IsSuffix",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: IsSuffix does not take one argument: use named arguments, IsSuffix([ :parameter = value, ... ])")
 
 	Func IndexOf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:IndexOf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: IndexOf does not take one argument: use named arguments, IndexOf([ :parameter = value, ... ])")
 
 	Func LastIndexOf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:LastIndexOf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:LastIndexOf",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: LastIndexOf does not take one argument: use named arguments, LastIndexOf([ :parameter = value, ... ])")
 
 	Func GetSortKey P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:GetSortKey",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetSortKey",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetSortKey",P1))
 
@@ -507,8 +537,10 @@ Class CompareInfo from Object
 		return dn_x
 
 	Func GetHashCode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
@@ -518,8 +550,8 @@ Class CompareInfo from Object
 		raise("DotNet Error: GetHashCode does not take one argument: use named arguments, GetHashCode([ :parameter = value, ... ])")
 
 	Func GetCompareInfo P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CompareInfo, System.Private.CoreLib'),"s14:GetCompareInfo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Globalization.CompareInfo, System.Private.CoreLib',"s14:GetCompareInfo",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Globalization.CompareInfo, System.Private.CoreLib',"s14:GetCompareInfo",P1))
 
@@ -593,7 +625,7 @@ Class CultureInfo from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Globalization.CultureInfo, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -636,8 +668,8 @@ Class CultureInfo from Object
 		return dnObj(dotnet_callo("s4:call",'System.Globalization.CultureInfo, System.Private.CoreLib',"s8:ReadOnly",P1))
 
 	Func GetCultureInfo P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.CultureInfo, System.Private.CoreLib'),"s14:GetCultureInfo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Globalization.CultureInfo, System.Private.CoreLib',"s14:GetCultureInfo",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Globalization.CultureInfo, System.Private.CoreLib',"s14:GetCultureInfo",P1))
 
@@ -920,8 +952,8 @@ Class DateTimeFormatInfo from Object
 		return dn_x
 
 	Func GetAllDateTimePatterns P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s22:GetAllDateTimePatterns",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:GetAllDateTimePatterns",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetAllDateTimePatterns"))
@@ -1303,16 +1335,20 @@ Class IdnMapping from Object
 		return self
 
 	Func GetAscii P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:GetAscii",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:GetAscii",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:GetAscii",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetUnicode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:GetUnicode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:GetUnicode",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s10:GetUnicode",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1908,7 +1944,7 @@ Class StringInfo from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Globalization.StringInfo, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1928,32 +1964,38 @@ Class StringInfo from Object
 		return dn_x
 
 	Func SubstringByTextElements P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s23:SubstringByTextElements",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s23:SubstringByTextElements",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s23:SubstringByTextElements",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetNextTextElement P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s18:GetNextTextElement",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Globalization.StringInfo, System.Private.CoreLib',"s18:GetNextTextElement",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Globalization.StringInfo, System.Private.CoreLib',"s18:GetNextTextElement",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetNextTextElementLength P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s24:GetNextTextElementLength",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'System.Globalization.StringInfo, System.Private.CoreLib',"s24:GetNextTextElementLength",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'System.Globalization.StringInfo, System.Private.CoreLib',"s24:GetNextTextElementLength",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetTextElementEnumerator P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('System.Globalization.StringInfo, System.Private.CoreLib'),"s24:GetTextElementEnumerator",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'System.Globalization.StringInfo, System.Private.CoreLib',"s24:GetTextElementEnumerator",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Globalization.StringInfo, System.Private.CoreLib',"s24:GetTextElementEnumerator",P1))
 
@@ -2196,7 +2238,7 @@ Class GregorianCalendar from Calendar
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Globalization.GregorianCalendar, System.Private.CoreLib',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

@@ -102,7 +102,8 @@ Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when
 - `dotnet_callv` for a method that returns **nothing**.
 - `dotnet_callo` for a method that returns an **object**: it answers the type and the handle, and the Ring function `dnObj` makes the object of the generated class.
 - The arguments can be texts, numbers, lists, .NET objects and callbacks; an error of .NET is raised as a Ring error. An answer that the function does not expect (null, for example) comes back as a list that `dnFinish` reads.
-- A method with `out` or `ref` parameters, and the calls with named arguments (`callnamed`), use `dnSend`, the same request made in Ring.
+- The method of an **overloaded name** first asks the C function `dotnet_isnamed` whether the argument is a list of `[name, value]` pairs. If it is, the call is made with the operation `callnamed` (the bridge chooses the overload by the names), by `dotnet_call`, `dotnet_callv`, `dotnet_callo` or, when the overloads answer in different ways (a text for one, an object or a list for another), `dotnet_calla`.
+- `dnSend` (the same request made in Ring) is used only for the methods that the generator finds no overload for.
 
 ## Wrapping your own assembly
 

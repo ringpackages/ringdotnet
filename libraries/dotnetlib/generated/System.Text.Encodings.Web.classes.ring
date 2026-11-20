@@ -48,8 +48,10 @@ Class TextEncoder from Object
 		return dn_x
 
 	Func Encode P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Encode",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Encode",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Encode",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -91,7 +93,7 @@ Class TextEncoderSettings from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('System.Text.Encodings.Web.TextEncoderSettings, System.Text.Encodings.Web',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

@@ -600,8 +600,8 @@ Class ConnectionInfo from Object
 		return self
 
 	Func GetClientCertificateAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:GetClientCertificateAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:GetClientCertificateAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetClientCertificateAsync"))
@@ -699,8 +699,8 @@ Class CookieBuilder from Object
 		return self
 
 	Func Build P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s5:Build",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Build",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build",P1))
 
@@ -821,7 +821,7 @@ Class CookieOptions from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.CookieOptions, Microsoft.AspNetCore.Http.Features',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1003,8 +1003,8 @@ Class EndpointFilterExtensions from Object
 		return dn_x
 
 	Func AddEndpointFilter P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing'),"s17:AddEndpointFilter",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing',"s17:AddEndpointFilter",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing',"s17:AddEndpointFilter",P1))
 
@@ -1078,8 +1078,8 @@ Class EndpointFilterInvocationContext from Object
 		return dn_x
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions',"s6:Create",P1))
 
@@ -1191,7 +1191,7 @@ Class AspFormCollection from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.FormCollection, Microsoft.AspNetCore.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1280,8 +1280,8 @@ Class FormFile from Object
 		return self
 
 	Func CopyToAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:CopyToAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CopyToAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CopyToAsync",P1))
 
@@ -1383,8 +1383,10 @@ Class FormFileCollection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AsReadOnly"))
 
 	Func BinarySearch P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:BinarySearch",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:BinarySearch",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s12:BinarySearch",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1404,8 +1406,8 @@ Class FormFileCollection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ConvertAll",P1))
 
 	Func CopyTo P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:CopyTo",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
@@ -1429,8 +1431,10 @@ Class FormFileCollection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:FindAll",P1))
 
 	Func FindIndex P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:FindIndex",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:FindIndex",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s9:FindIndex",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1440,8 +1444,10 @@ Class FormFileCollection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:FindLast",P1))
 
 	Func FindLastIndex P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:FindLastIndex",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:FindLastIndex",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:FindLastIndex",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1462,8 +1468,10 @@ Class FormFileCollection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Slice",P1,P2))
 
 	Func IndexOf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s7:IndexOf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:IndexOf",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1480,8 +1488,10 @@ Class FormFileCollection from DotNetObject
 		return self
 
 	Func LastIndexOf P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:LastIndexOf",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:LastIndexOf",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s11:LastIndexOf",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1508,8 +1518,8 @@ Class FormFileCollection from DotNetObject
 		return self
 
 	Func Reverse P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s7:Reverse",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Reverse",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1520,8 +1530,8 @@ Class FormFileCollection from DotNetObject
 		raise("DotNet Error: Reverse does not take one argument: use named arguments, Reverse([ :parameter = value, ... ])")
 
 	Func Sort P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Sort",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Sort",P1)
 			return self
 		ok
 		if isstring(P1) and P1 = ""
@@ -1611,7 +1621,7 @@ Class FragmentString from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1684,7 +1694,7 @@ Class HeaderDictionary from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.HeaderDictionary, Microsoft.AspNetCore.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1699,8 +1709,8 @@ Class HeaderDictionary from Object
 		return self
 
 	Func Add P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
@@ -1874,7 +1884,7 @@ Class HostString from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2117,11 +2127,15 @@ Class HttpMethods from Object
 		return self
 
 	Func Equals P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			if nHandle = 0
-				return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"s6:Equals",dnPackItem(P1))
+				dn_x = dotnet_call("s9:callnamed",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 			ok
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2369,8 +2383,8 @@ Class HttpRequest from Object
 		return self
 
 	Func ReadFormAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:ReadFormAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ReadFormAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadFormAsync"))
@@ -2541,8 +2555,8 @@ Class HttpRequestJsonExtensions from Object
 		return dn_x
 
 	Func ReadFromJsonAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"s17:ReadFromJsonAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions',"s17:ReadFromJsonAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions',"s17:ReadFromJsonAsync",P1))
 
@@ -2569,8 +2583,8 @@ Class HttpRequestRewindExtensions from Object
 		return dn_x
 
 	Func EnableBuffering P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http'),"s15:EnableBuffering",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",'Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http',"s15:EnableBuffering",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",'Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http',"s15:EnableBuffering",P1)
@@ -2600,8 +2614,8 @@ Class HttpResponse from Object
 		return self
 
 	Func OnStarting P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s10:OnStarting",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s10:OnStarting",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s10:OnStarting",P1)
@@ -2609,8 +2623,8 @@ Class HttpResponse from Object
 		return self
 
 	Func OnCompleted P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s11:OnCompleted",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s11:OnCompleted",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s11:OnCompleted",P1)
@@ -2628,8 +2642,8 @@ Class HttpResponse from Object
 		return self
 
 	Func Redirect P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s8:Redirect",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s8:Redirect",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s8:Redirect",P1)
@@ -2637,8 +2651,8 @@ Class HttpResponse from Object
 		return self
 
 	Func StartAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:StartAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:StartAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync"))
@@ -2735,8 +2749,8 @@ Class HttpResponseJsonExtensions from Object
 		return dn_x
 
 	Func WriteAsJsonAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.HttpResponseJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"s16:WriteAsJsonAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.HttpResponseJsonExtensions, Microsoft.AspNetCore.Http.Extensions',"s16:WriteAsJsonAsync",P1))
 		ok
 		raise("DotNet Error: WriteAsJsonAsync does not take one argument: use named arguments, WriteAsJsonAsync([ :parameter = value, ... ])")
 
@@ -2758,8 +2772,8 @@ Class HttpResponseWritingExtensions from Object
 		return dn_x
 
 	Func WriteAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.HttpResponseWritingExtensions, Microsoft.AspNetCore.Http.Abstractions'),"s10:WriteAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.HttpResponseWritingExtensions, Microsoft.AspNetCore.Http.Abstractions',"s10:WriteAsync",P1))
 		ok
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
@@ -2788,7 +2802,7 @@ Class HttpValidationProblemDetails from ProblemDetails
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.HttpValidationProblemDetails, Microsoft.AspNetCore.Http.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2952,8 +2966,8 @@ Class IFormFile from DotNetObject
 		return self
 
 	Func CopyToAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:CopyToAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CopyToAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CopyToAsync",P1))
 
@@ -3988,15 +4002,15 @@ Class IResponseCookies from DotNetObject
 		return self
 
 	Func Append P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Append",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Append",P1)
 			return self
 		ok
 		raise("DotNet Error: Append does not take one argument: use named arguments, Append([ :parameter = value, ... ])")
 
 	Func Delete P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s6:Delete",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s6:Delete",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s6:Delete",P1)
@@ -4047,8 +4061,8 @@ Class ISession from DotNetObject
 		return self
 
 	Func LoadAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:LoadAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:LoadAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:LoadAsync"))
@@ -4056,8 +4070,8 @@ Class ISession from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:LoadAsync",P1))
 
 	Func CommitAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:CommitAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CommitAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s11:CommitAsync"))
@@ -4187,20 +4201,20 @@ Class OpenApiRouteHandlerBuilderExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing',"s22:ExcludeFromDescription",P1))
 
 	Func Produces P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"s8:Produces",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing',"s8:Produces",P1))
 		ok
 		raise("DotNet Error: Produces does not take one argument: use named arguments, Produces([ :parameter = value, ... ])")
 
 	Func ProducesProblem P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"s15:ProducesProblem",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing',"s15:ProducesProblem",P1))
 		ok
 		raise("DotNet Error: ProducesProblem does not take one argument: use named arguments, ProducesProblem([ :parameter = value, ... ])")
 
 	Func ProducesValidationProblem P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"s25:ProducesValidationProblem",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing',"s25:ProducesValidationProblem",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing',"s25:ProducesValidationProblem",P1))
 
@@ -4208,8 +4222,8 @@ Class OpenApiRouteHandlerBuilderExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing',"s8:WithTags",P1,P2))
 
 	Func Accepts P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"s7:Accepts",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing',"s7:Accepts",P1))
 		ok
 		raise("DotNet Error: Accepts does not take one argument: use named arguments, Accepts([ :parameter = value, ... ])")
 
@@ -4246,7 +4260,7 @@ Class PathString from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4266,8 +4280,10 @@ Class PathString from ValueType
 		return dn_x
 
 	Func StartsWithSegments P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:StartsWithSegments",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s18:StartsWithSegments",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s18:StartsWithSegments",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4277,8 +4293,10 @@ Class PathString from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
 
 	Func Equals P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4422,7 +4440,7 @@ Class ProducesResponseTypeMetadata from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.ProducesResponseTypeMetadata, Microsoft.AspNetCore.Http.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4491,7 +4509,7 @@ Class QueryCollection from Object
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.QueryCollection, Microsoft.AspNetCore.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4571,7 +4589,7 @@ Class QueryString from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -4591,8 +4609,8 @@ Class QueryString from ValueType
 		return dn_x
 
 	Func Add P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Add",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
 
@@ -4600,8 +4618,8 @@ Class QueryString from ValueType
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions',"s16:FromUriComponent",P1))
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions',"s6:Create",P1))
 
@@ -4645,14 +4663,14 @@ Class RequestDelegateFactory from Object
 		return dn_x
 
 	Func InferMetadata P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"s13:InferMetadata",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions',"s13:InferMetadata",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions',"s13:InferMetadata",P1))
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions',"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions',"s6:Create",P1))
 
@@ -4814,8 +4832,8 @@ Class RequestFormReaderExtensions from Object
 		return dn_x
 
 	Func ReadFormAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.RequestFormReaderExtensions, Microsoft.AspNetCore.Http'),"s13:ReadFormAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.RequestFormReaderExtensions, Microsoft.AspNetCore.Http',"s13:ReadFormAsync",P1))
 		ok
 		raise("DotNet Error: ReadFormAsync does not take one argument: use named arguments, ReadFormAsync([ :parameter = value, ... ])")
 
@@ -4932,8 +4950,8 @@ Class Results from Object
 		return dn_x
 
 	Func Challenge P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s9:Challenge",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s9:Challenge",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s9:Challenge"))
@@ -4941,8 +4959,8 @@ Class Results from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s9:Challenge",P1))
 
 	Func Forbid P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s6:Forbid",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s6:Forbid",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s6:Forbid"))
@@ -4950,14 +4968,14 @@ Class Results from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s6:Forbid",P1))
 
 	Func SignIn P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s6:SignIn",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s6:SignIn",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s6:SignIn",P1))
 
 	Func SignOut P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s7:SignOut",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s7:SignOut",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s7:SignOut"))
@@ -4965,56 +4983,56 @@ Class Results from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s7:SignOut",P1))
 
 	Func Content P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s7:Content",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s7:Content",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s7:Content",P1))
 
 	Func Text P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s4:Text",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s4:Text",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s4:Text",P1))
 
 	Func Json P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s4:Json",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s4:Json",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s4:Json",P1))
 
 	Func File P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s4:File",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s4:File",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s4:File",P1))
 
 	Func Bytes P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s5:Bytes",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s5:Bytes",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s5:Bytes",P1))
 
 	Func Stream P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s6:Stream",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s6:Stream",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s6:Stream",P1))
 
 	Func Redirect P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s8:Redirect",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s8:Redirect",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s8:Redirect",P1))
 
 	Func LocalRedirect P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s13:LocalRedirect",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s13:LocalRedirect",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s13:LocalRedirect",P1))
 
 	Func RedirectToRoute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s15:RedirectToRoute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s15:RedirectToRoute",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s15:RedirectToRoute"))
@@ -5025,8 +5043,8 @@ Class Results from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s10:StatusCode",P1))
 
 	Func NotFound P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s8:NotFound",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s8:NotFound",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s8:NotFound"))
@@ -5037,8 +5055,8 @@ Class Results from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s12:Unauthorized"))
 
 	Func BadRequest P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s10:BadRequest",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s10:BadRequest",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s10:BadRequest"))
@@ -5046,8 +5064,8 @@ Class Results from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s10:BadRequest",P1))
 
 	Func Conflict P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s8:Conflict",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s8:Conflict",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s8:Conflict"))
@@ -5058,8 +5076,8 @@ Class Results from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s9:NoContent"))
 
 	Func Ok P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s2:Ok",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s2:Ok",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s2:Ok"))
@@ -5067,8 +5085,8 @@ Class Results from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s2:Ok",P1))
 
 	Func UnprocessableEntity P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s19:UnprocessableEntity",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s19:UnprocessableEntity",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s19:UnprocessableEntity"))
@@ -5076,8 +5094,8 @@ Class Results from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s19:UnprocessableEntity",P1))
 
 	Func InternalServerError P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s19:InternalServerError",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s19:InternalServerError",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s19:InternalServerError"))
@@ -5085,8 +5103,8 @@ Class Results from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s19:InternalServerError",P1))
 
 	Func Problem P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s7:Problem",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s7:Problem",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s7:Problem"))
@@ -5094,14 +5112,14 @@ Class Results from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s7:Problem",P1))
 
 	Func ValidationProblem P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s17:ValidationProblem",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s17:ValidationProblem",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s17:ValidationProblem",P1))
 
 	Func Created P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s7:Created",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s7:Created",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s7:Created"))
@@ -5109,8 +5127,8 @@ Class Results from Object
 		raise("DotNet Error: Created does not take one argument: use named arguments, Created([ :parameter = value, ... ])")
 
 	Func CreatedAtRoute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s14:CreatedAtRoute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s14:CreatedAtRoute",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s14:CreatedAtRoute"))
@@ -5118,8 +5136,8 @@ Class Results from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s14:CreatedAtRoute",P1))
 
 	Func Accepted P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s8:Accepted",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s8:Accepted",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s8:Accepted"))
@@ -5127,8 +5145,8 @@ Class Results from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s8:Accepted",P1))
 
 	Func AcceptedAtRoute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"s15:AcceptedAtRoute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s15:AcceptedAtRoute",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results',"s15:AcceptedAtRoute"))
@@ -5185,8 +5203,8 @@ Class SendFileResponseExtensions from Object
 		return dn_x
 
 	Func SendFileAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.SendFileResponseExtensions, Microsoft.AspNetCore.Http.Extensions'),"s13:SendFileAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.SendFileResponseExtensions, Microsoft.AspNetCore.Http.Extensions',"s13:SendFileAsync",P1))
 		ok
 		raise("DotNet Error: SendFileAsync does not take one argument: use named arguments, SendFileAsync([ :parameter = value, ... ])")
 
@@ -5859,7 +5877,7 @@ Class StreamResponseBodyFeature from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.StreamResponseBodyFeature, Microsoft.AspNetCore.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -5882,8 +5900,8 @@ Class StreamResponseBodyFeature from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SendFileAsync",P1,P2,P3,P4))
 
 	Func StartAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:StartAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:StartAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync"))
@@ -5942,8 +5960,8 @@ Class TypedResults from Object
 		return dn_x
 
 	Func Challenge P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s9:Challenge",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s9:Challenge",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s9:Challenge"))
@@ -5951,8 +5969,8 @@ Class TypedResults from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s9:Challenge",P1))
 
 	Func Forbid P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s6:Forbid",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s6:Forbid",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s6:Forbid"))
@@ -5960,14 +5978,14 @@ Class TypedResults from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s6:Forbid",P1))
 
 	Func SignIn P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s6:SignIn",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s6:SignIn",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s6:SignIn",P1))
 
 	Func SignOut P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s7:SignOut",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s7:SignOut",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s7:SignOut"))
@@ -5975,68 +5993,68 @@ Class TypedResults from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s7:SignOut",P1))
 
 	Func Content P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s7:Content",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s7:Content",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s7:Content",P1))
 
 	Func Text P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s4:Text",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s4:Text",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s4:Text",P1))
 
 	Func Json P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s4:Json",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s4:Json",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s4:Json",P1))
 
 	Func File P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s4:File",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s4:File",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s4:File",P1))
 
 	Func Bytes P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s5:Bytes",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s5:Bytes",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s5:Bytes",P1))
 
 	Func Stream P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s6:Stream",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s6:Stream",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s6:Stream",P1))
 
 	Func PhysicalFile P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s12:PhysicalFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s12:PhysicalFile",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s12:PhysicalFile",P1))
 
 	Func VirtualFile P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s11:VirtualFile",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s11:VirtualFile",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s11:VirtualFile",P1))
 
 	Func Redirect P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s8:Redirect",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s8:Redirect",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s8:Redirect",P1))
 
 	Func LocalRedirect P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s13:LocalRedirect",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s13:LocalRedirect",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s13:LocalRedirect",P1))
 
 	Func RedirectToRoute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s15:RedirectToRoute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s15:RedirectToRoute",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s15:RedirectToRoute"))
@@ -6047,8 +6065,8 @@ Class TypedResults from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s10:StatusCode",P1))
 
 	Func NotFound P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s8:NotFound",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s8:NotFound",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s8:NotFound"))
@@ -6059,8 +6077,8 @@ Class TypedResults from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s12:Unauthorized"))
 
 	Func BadRequest P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s10:BadRequest",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s10:BadRequest",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s10:BadRequest"))
@@ -6068,8 +6086,8 @@ Class TypedResults from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s10:BadRequest",P1))
 
 	Func Conflict P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s8:Conflict",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s8:Conflict",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s8:Conflict"))
@@ -6080,8 +6098,8 @@ Class TypedResults from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s9:NoContent"))
 
 	Func Ok P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s2:Ok",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s2:Ok",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s2:Ok"))
@@ -6089,8 +6107,8 @@ Class TypedResults from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s2:Ok",P1))
 
 	Func UnprocessableEntity P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s19:UnprocessableEntity",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s19:UnprocessableEntity",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s19:UnprocessableEntity"))
@@ -6098,8 +6116,8 @@ Class TypedResults from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s19:UnprocessableEntity",P1))
 
 	Func InternalServerError P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s19:InternalServerError",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s19:InternalServerError",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s19:InternalServerError"))
@@ -6107,8 +6125,8 @@ Class TypedResults from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s19:InternalServerError",P1))
 
 	Func Problem P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s7:Problem",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s7:Problem",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s7:Problem"))
@@ -6116,14 +6134,14 @@ Class TypedResults from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s7:Problem",P1))
 
 	Func ValidationProblem P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s17:ValidationProblem",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s17:ValidationProblem",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s17:ValidationProblem",P1))
 
 	Func Created P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s7:Created",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s7:Created",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s7:Created"))
@@ -6131,8 +6149,8 @@ Class TypedResults from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s7:Created",P1))
 
 	Func CreatedAtRoute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s14:CreatedAtRoute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s14:CreatedAtRoute",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s14:CreatedAtRoute"))
@@ -6140,14 +6158,14 @@ Class TypedResults from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s14:CreatedAtRoute",P1))
 
 	Func Accepted P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s8:Accepted",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s8:Accepted",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s8:Accepted",P1))
 
 	Func AcceptedAtRoute P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"s15:AcceptedAtRoute",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s15:AcceptedAtRoute",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results',"s15:AcceptedAtRoute"))
@@ -6265,8 +6283,8 @@ Class WebSocketManager from Object
 		return self
 
 	Func AcceptWebSocketAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s20:AcceptWebSocketAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:AcceptWebSocketAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s20:AcceptWebSocketAsync"))
@@ -6333,7 +6351,7 @@ Class DefaultHttpContext from HttpContext
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.DefaultHttpContext, Microsoft.AspNetCore.Http',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self

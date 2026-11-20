@@ -436,8 +436,8 @@ Class AccessorExtensions from Object
 		return dn_x
 
 	Func GetService P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore'),"s10:GetService",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore',"s10:GetService",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore',"s10:GetService",P1))
 
@@ -594,7 +594,7 @@ Class ConcurrencyDetectorCriticalSectionDisposer from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.ConcurrencyDetectorCriticalSectionDisposer, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -664,8 +664,8 @@ Class CoreOptionsExtension from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:WithApplicationServiceProvider",P1))
 
 	Func WithRootApplicationServiceProvider P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s34:WithRootApplicationServiceProvider",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s34:WithRootApplicationServiceProvider",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s34:WithRootApplicationServiceProvider"))
@@ -697,8 +697,8 @@ Class CoreOptionsExtension from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:WithQueryTrackingBehavior",P1))
 
 	Func WithReplacedService P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s19:WithReplacedService",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:WithReplacedService",P1))
 		ok
 		raise("DotNet Error: WithReplacedService does not take one argument: use named arguments, WithReplacedService([ :parameter = value, ... ])")
 
@@ -909,8 +909,8 @@ Class DatabaseFacade from Object
 		return dn_x
 
 	Func EnsureCreatedAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:EnsureCreatedAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:EnsureCreatedAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:EnsureCreatedAsync"))
@@ -923,8 +923,8 @@ Class DatabaseFacade from Object
 		return dn_x
 
 	Func EnsureDeletedAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:EnsureDeletedAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:EnsureDeletedAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:EnsureDeletedAsync"))
@@ -937,8 +937,8 @@ Class DatabaseFacade from Object
 		return dn_x
 
 	Func CanConnectAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:CanConnectAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:CanConnectAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s15:CanConnectAsync"))
@@ -949,8 +949,8 @@ Class DatabaseFacade from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction"))
 
 	Func BeginTransactionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s21:BeginTransactionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:BeginTransactionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s21:BeginTransactionAsync"))
@@ -963,8 +963,8 @@ Class DatabaseFacade from Object
 		return self
 
 	Func CommitTransactionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s22:CommitTransactionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:CommitTransactionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s22:CommitTransactionAsync"))
@@ -977,8 +977,8 @@ Class DatabaseFacade from Object
 		return self
 
 	Func RollbackTransactionAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:RollbackTransactionAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:RollbackTransactionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s24:RollbackTransactionAsync"))
@@ -1117,7 +1117,7 @@ Class DbSetProperty from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.DbSetProperty, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -1272,8 +1272,8 @@ Class EntityFrameworkServicesBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:TryAddCoreServices"))
 
 	Func TryAdd P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:TryAdd",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:TryAdd",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s6:TryAdd"))
@@ -1311,8 +1311,10 @@ Class ExpressionExtensions from Object
 		return dn_x
 
 	Func Print P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s5:Print",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore',"s5:Print",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore',"s5:Print",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1346,20 +1348,20 @@ Class ExpressionExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore',"s36:CreateValueBufferReadValueExpression",P1,P2,P3,P4))
 
 	Func CreateKeyValuesExpression P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s25:CreateKeyValuesExpression",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore',"s25:CreateKeyValuesExpression",P1))
 		ok
 		raise("DotNet Error: CreateKeyValuesExpression does not take one argument: use named arguments, CreateKeyValuesExpression([ :parameter = value, ... ])")
 
 	Func CreateEFPropertyExpression P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s26:CreateEFPropertyExpression",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore',"s26:CreateEFPropertyExpression",P1))
 		ok
 		raise("DotNet Error: CreateEFPropertyExpression does not take one argument: use named arguments, CreateEFPropertyExpression([ :parameter = value, ... ])")
 
 	Func CreateEqualsExpression P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"s22:CreateEqualsExpression",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore',"s22:CreateEqualsExpression",P1))
 		ok
 		raise("DotNet Error: CreateEqualsExpression does not take one argument: use named arguments, CreateEqualsExpression([ :parameter = value, ... ])")
 
@@ -1628,8 +1630,8 @@ Class ILazyLoader from DotNetObject
 		return self
 
 	Func SetLoaded P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s9:SetLoaded",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s9:SetLoaded",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s9:SetLoaded",P1)
@@ -1637,16 +1639,18 @@ Class ILazyLoader from DotNetObject
 		return self
 
 	Func IsLoaded P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s8:IsLoaded",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:IsLoaded",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s8:IsLoaded",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Load_ P1
-		if dnIsNamed(P1)
-			dnSend("s9:callnamed",nHandle,"s4:Load",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
 			return self
 		ok
 		dotnet_callv("s4:call",nHandle,"s4:Load",P1)
@@ -1654,8 +1658,8 @@ Class ILazyLoader from DotNetObject
 		return self
 
 	Func LoadAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s9:LoadAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:LoadAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:LoadAsync",P1))
 
@@ -1709,8 +1713,8 @@ Class IModelRuntimeInitializer from DotNetObject
 		return self
 
 	Func Initialize P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:Initialize",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:Initialize",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:Initialize",P1))
 
@@ -1768,8 +1772,10 @@ Class IReadOnlyAnnotatable from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
 			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
@@ -1821,8 +1827,8 @@ Class IResettableService from DotNetObject
 		return self
 
 	Func ResetStateAsync P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:ResetStateAsync",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:ResetStateAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s15:ResetStateAsync"))
@@ -1879,8 +1885,8 @@ Class IndentedStringBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Append",P1))
 
 	Func AppendLine P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:AppendLine",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AppendLine",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendLine"))
@@ -1888,14 +1894,14 @@ Class IndentedStringBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendLine",P1))
 
 	Func AppendLines P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s11:AppendLines",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AppendLines",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AppendLines",P1))
 
 	Func AppendJoin P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:AppendJoin",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AppendJoin",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendJoin",P1))
 
@@ -1953,8 +1959,10 @@ Class LazyLoaderExtensions from Object
 		return dn_x
 
 	Func Load_ P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.LazyLoaderExtensions, Microsoft.EntityFrameworkCore.Abstractions'),"s4:Load",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",'Microsoft.EntityFrameworkCore.Infrastructure.LazyLoaderExtensions, Microsoft.EntityFrameworkCore.Abstractions',"s4:Load",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: Load does not take one argument: use named arguments, Load([ :parameter = value, ... ])")
 
@@ -1995,7 +2003,7 @@ Class ModelCacheKey from Object
 		return self
 
 	Func New_ P1
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKey, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2029,8 +2037,8 @@ Class ModelCacheKeyFactory from Object
 		return self
 
 	Func Create P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s6:Create",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Create",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
 
@@ -2158,8 +2166,8 @@ Class ModelRuntimeInitializer from Object
 		return self
 
 	Func Initialize P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s10:Initialize",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:Initialize",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:Initialize",P1))
 
@@ -2442,8 +2450,8 @@ Class EfRelationalModelExtensions from Object
 		return dn_x
 
 	Func GetRelationalDependencies P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"s25:GetRelationalDependencies",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational',"s25:GetRelationalDependencies",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational',"s25:GetRelationalDependencies",P1))
 
@@ -2543,8 +2551,8 @@ Class RelationalOptionsExtension from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:WithConnectionString",P1))
 
 	Func WithConnection P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s14:WithConnection",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:WithConnection",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:WithConnection",P1))
 
@@ -2874,7 +2882,7 @@ Class ServiceCharacteristics from ValueType
 
 	Func New_ P1
 		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
-		if dnIsNamed(P1)
+		if dotnet_isnamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteristics, Microsoft.EntityFrameworkCore',P1)
 			oDotNetGuard = dotnet_guard(nHandle)
 			return self
@@ -2919,8 +2927,8 @@ Class ServiceCollectionMap from Object
 		return self
 
 	Func TryAddTransient P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:TryAddTransient",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:TryAddTransient",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s15:TryAddTransient"))
@@ -2928,8 +2936,8 @@ Class ServiceCollectionMap from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TryAddTransient",P1))
 
 	Func TryAddScoped P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s12:TryAddScoped",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:TryAddScoped",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s12:TryAddScoped"))
@@ -2937,8 +2945,8 @@ Class ServiceCollectionMap from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:TryAddScoped",P1))
 
 	Func TryAddSingleton P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s15:TryAddSingleton",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:TryAddSingleton",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s15:TryAddSingleton"))
@@ -2949,8 +2957,8 @@ Class ServiceCollectionMap from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:TryAdd",P1,P2,P3))
 
 	Func TryAddTransientEnumerable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:TryAddTransientEnumerable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:TryAddTransientEnumerable",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s25:TryAddTransientEnumerable"))
@@ -2958,8 +2966,8 @@ Class ServiceCollectionMap from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:TryAddTransientEnumerable",P1))
 
 	Func TryAddScopedEnumerable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s22:TryAddScopedEnumerable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:TryAddScopedEnumerable",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s22:TryAddScopedEnumerable"))
@@ -2967,8 +2975,8 @@ Class ServiceCollectionMap from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:TryAddScopedEnumerable",P1))
 
 	Func TryAddSingletonEnumerable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s25:TryAddSingletonEnumerable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:TryAddSingletonEnumerable",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s25:TryAddSingletonEnumerable"))
@@ -2976,8 +2984,8 @@ Class ServiceCollectionMap from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:TryAddSingletonEnumerable",P1))
 
 	Func TryAddEnumerable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s16:TryAddEnumerable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:TryAddEnumerable",P1))
 		ok
 		raise("DotNet Error: TryAddEnumerable does not take one argument: use named arguments, TryAddEnumerable([ :parameter = value, ... ])")
 
@@ -3073,14 +3081,14 @@ Class SqliteDbContextOptionsBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:MigrationsAssembly",P1))
 
 	Func MigrationsHistoryTable P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s22:MigrationsHistoryTable",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:MigrationsHistoryTable",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:MigrationsHistoryTable",P1))
 
 	Func UseRelationalNulls P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s18:UseRelationalNulls",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:UseRelationalNulls",P1))
 		ok
 		if isstring(P1) and P1 = ""
 			return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseRelationalNulls"))
@@ -3157,14 +3165,18 @@ Class Uniquifier from Object
 		return dn_x
 
 	Func Uniquify P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore'),"s8:Uniquify",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore',"s8:Uniquify",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: Uniquify does not take one argument: use named arguments, Uniquify([ :parameter = value, ... ])")
 
 	Func Truncate P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore'),"s8:Truncate",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",'Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore',"s8:Truncate",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 		ok
 		raise("DotNet Error: Truncate does not take one argument: use named arguments, Truncate([ :parameter = value, ... ])")
 
@@ -3266,14 +3278,16 @@ Class ConventionAnnotatable from Annotatable
 		return self
 
 	Func AddAnnotation P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:AddAnnotation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAnnotation",P1))
 		ok
 		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
 
 	Func SetAnnotation P1
-		if dnIsNamed(P1)
-			return dnSend("s9:callnamed",nHandle,"s13:SetAnnotation",dnPackItem(P1))
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:SetAnnotation",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
 

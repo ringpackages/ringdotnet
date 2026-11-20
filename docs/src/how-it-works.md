@@ -85,7 +85,7 @@ How the time is spent:
 - The first group is packed and read **in C**: the generated method calls `dotnet_call` with the handle of the object, the name of the method (a ready wire item) and the arguments, and the extension builds the request, calls the bridge and returns the text, number or yes/no. The call into .NET itself (decoding, reflection, encoding the answer) takes about 0.5 µs.
 - The bridge **remembers the overload** that it chose for a kind of arguments (the type; for a number, whole or not and its range; a text only when no overload could read it as an enum or another type), so `Math.Max`, which has 14 overloads, costs about the same as a method with one.
 - A method that returns an **object** takes more time: the extension answers the type and the handle, and Ring makes the wrapper object of the generated class with its guard, and copies it at each `return` level (the global that holds the new object cannot be returned directly: a method of the object may be running when the next one is made).
-- The arguments of a native call can be texts, numbers, lists, .NET objects and callbacks (a call with an object argument takes about 3 µs). A call with **named arguments**, and a method with `out` or `ref` parameters, take the Ring path (`dnSend`, about 8 µs).
+- The arguments of a native call can be texts, numbers, lists, .NET objects and callbacks (a call with an object argument takes about 3 µs). A call with **named arguments** (`oMath.Round([ :value = 3.14159, :digits = 2 ])`) and a method with `out` or `ref` parameters are native too: about 4 to 7 µs.
 - Fewer crossings are faster than faster crossings: `toList()` copies a whole collection in one request, and a loop that reads 500 items with `Item(i)` makes 500 requests.
 
 ## Packages

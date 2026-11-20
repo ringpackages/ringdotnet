@@ -595,6 +595,7 @@ RING_FUNC(ring_dotnet_info)
 **      dotnet_call:   a text, a number or a yes/no  --> that value
 **      dotnet_callv:  1
 **      dotnet_callo:  an object --> "<handle>|<type>|<base type>..." (a text: dnObj wraps it); null --> 0
+**      dotnet_calla:  any answer: a text, a number or a yes/no --> that value; an object --> the list [2, "<handle>|<type>..."]
 **      a .NET error is raised as a Ring error; any other answer --> the list [1, answer] (dnFinish reads it)
 */
 
@@ -847,6 +848,7 @@ static int ringdotnet_typehandle ( const char *cName, int nLen, double *pHandle 
 #define DN_MODE_VALUE 0
 #define DN_MODE_VOID 1
 #define DN_MODE_OBJECT 2
+#define DN_MODE_ANY 3
 
 static void ringdotnet_docall ( void *pPointer, int nMode )
 {
@@ -934,7 +936,15 @@ static void ringdotnet_docall ( void *pPointer, int nMode )
 				return ;
 			}
 		}
-		if ( nMode == DN_MODE_VALUE ) {
+		if ( nMode == DN_MODE_ANY && cTag == 'o' ) {
+			List *pList = RING_API_NEWLIST ;
+			ring_list_adddouble(pList,2);
+			ring_list_addstring2(pList,pBody,(unsigned int) nLen);
+			RING_API_RETLISTBYREF(pList);
+			g_pFree((void *) pOut);
+			return ;
+		}
+		if ( nMode == DN_MODE_VALUE || nMode == DN_MODE_ANY ) {
 			if ( cTag == 's' ) {
 				RING_API_RETSTRING2(pBody,nLen);
 				g_pFree((void *) pOut);
@@ -994,6 +1004,41 @@ RING_FUNC(ring_dotnet_callo)
 	ringdotnet_docall(pPointer,DN_MODE_OBJECT);
 }
 
+RING_FUNC(ring_dotnet_calla)
+{
+	ringdotnet_docall(pPointer,DN_MODE_ANY);
+}
+
+/* dotnet_isnamed(xValue): 1 for a list of [name, value] pairs, the way Ring passes named arguments: [ :server = "x", :port = 80 ]  ([] too) */
+RING_FUNC(ring_dotnet_isnamed)
+{
+	List *pList ;
+	unsigned int x, nSize ;
+	if ( (RING_API_PARACOUNT != 1) || (! RING_API_ISLIST(1)) ) {
+		RING_API_RETNUMBER(0);
+		return ;
+	}
+	pList = RING_API_GETLIST(1) ;
+	if ( ring_list_isobject(pList) ) {
+		RING_API_RETNUMBER(0);
+		return ;
+	}
+	nSize = ring_list_getsize(pList) ;
+	for ( x = 1 ; x <= nSize ; x++ ) {
+		List *pItem ;
+		if ( ! ring_list_islist(pList,x) ) {
+			RING_API_RETNUMBER(0);
+			return ;
+		}
+		pItem = ring_list_getlist(pList,x) ;
+		if ( (ring_list_getsize(pItem) != 2) || (! ring_list_isstring(pItem,1)) ) {
+			RING_API_RETNUMBER(0);
+			return ;
+		}
+	}
+	RING_API_RETNUMBER(1);
+}
+
 /* dotnet_callbackrequest() --> the packed request of the running callback (function name, arguments) */
 RING_FUNC(ring_dotnet_callbackrequest)
 {
@@ -1017,6 +1062,8 @@ RING_LIBINIT
 	RING_API_REGISTER("dotnet_call",ring_dotnet_call);
 	RING_API_REGISTER("dotnet_callv",ring_dotnet_callv);
 	RING_API_REGISTER("dotnet_callo",ring_dotnet_callo);
+	RING_API_REGISTER("dotnet_calla",ring_dotnet_calla);
+	RING_API_REGISTER("dotnet_isnamed",ring_dotnet_isnamed);
 	RING_API_REGISTER("dotnet_guard",ring_dotnet_guard);
 	RING_API_REGISTER("dotnet_unguard",ring_dotnet_unguard);
 	RING_API_REGISTER("dotnet_pending",ring_dotnet_pending);
