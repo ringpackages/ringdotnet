@@ -157,31 +157,31 @@ Class DelegateStartup from DotNetObject
 		return self
 
 	Func Configure P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Configure",P1])
+		dnSend("s4:call",nHandle,"s9:Configure",dnPackItem(P1))
 		return self
 
 	Func CreateServiceProvider P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateServiceProvider",P1])
+		return dnSend("s4:call",nHandle,"s21:CreateServiceProvider",dnPackItem(P1))
 
 	Func ConfigureContainer P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureContainer",P1])
+		dnSend("s4:call",nHandle,"s18:ConfigureContainer",dnPackItem(P1))
 		return self
 
 	Func ConfigureServices P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureServices",P1])
+		dnSend("s4:call",nHandle,"s17:ConfigureServices",dnPackItem(P1))
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 
 Class HostingAbstractionsWebHostBuilderExtensions from Object
@@ -196,43 +196,43 @@ Class HostingAbstractionsWebHostBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseConfiguration P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions'),"UseConfiguration",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s16:UseConfiguration",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CaptureStartupErrors P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions'),"CaptureStartupErrors",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s20:CaptureStartupErrors",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UseStartup P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions'),"UseStartup",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s10:UseStartup",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UseServer P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions'),"UseServer",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s9:UseServer",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UseEnvironment P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions'),"UseEnvironment",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s14:UseEnvironment",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UseContentRoot P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions'),"UseContentRoot",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s14:UseContentRoot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UseWebRoot P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions'),"UseWebRoot",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s10:UseWebRoot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UseUrls P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions'),"UseUrls",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s7:UseUrls",dnPackItem(P1) + dnPackItem(P2))
 
 	Func PreferHostingUrls P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions'),"PreferHostingUrls",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s17:PreferHostingUrls",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SuppressStatusMessages P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions'),"SuppressStatusMessages",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s22:SuppressStatusMessages",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UseShutdownTimeout P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions'),"UseShutdownTimeout",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s18:UseShutdownTimeout",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Start P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions'),"Start",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s5:Start",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class HostingEnvironmentExtensions from Object
@@ -247,7 +247,7 @@ Class HostingEnvironmentExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class IHostingStartup from DotNetObject
@@ -262,7 +262,7 @@ Class IHostingStartup from DotNetObject
 		return self
 
 	Func Configure P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Configure",P1])
+		dnSend("s4:call",nHandle,"s9:Configure",dnPackItem(P1))
 		return self
 
 
@@ -278,10 +278,10 @@ Class IStartup from DotNetObject
 		return self
 
 	Func ConfigureServices P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureServices",P1])
+		return dnSend("s4:call",nHandle,"s17:ConfigureServices",dnPackItem(P1))
 
 	Func Configure P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Configure",P1])
+		dnSend("s4:call",nHandle,"s9:Configure",dnPackItem(P1))
 		return self
 
 
@@ -297,7 +297,7 @@ Class IStartupFilter from DotNetObject
 		return self
 
 	Func Configure P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Configure",P1])
+		return dnSend("s4:call",nHandle,"s9:Configure",dnPackItem(P1))
 
 
 Class IWebHost from DotNetObject
@@ -315,35 +315,35 @@ Class IWebHost from DotNetObject
 		return self
 
 	Func Start 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Start"])
+		dnSend("s4:call",nHandle,"s5:Start","")
 		return self
 
 	Func StartAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"StartAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:StartAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"StartAsync"])
+			return dnSend("s4:call",nHandle,"s10:StartAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"StartAsync",P1])
+		return dnSend("s4:call",nHandle,"s10:StartAsync",dnPackItem(P1))
 
 	Func StopAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"StopAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:StopAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"StopAsync"])
+			return dnSend("s4:call",nHandle,"s9:StopAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"StopAsync",P1])
+		return dnSend("s4:call",nHandle,"s9:StopAsync",dnPackItem(P1))
 
 	Func getServerFeatures
-		return dnRequest("get",[self,"ServerFeatures"])
+		return dnSend("s3:get",nHandle,"s14:ServerFeatures","")
 
 	Func setServerFeatures P1
 		raise("DotNet Error: ServerFeatures is a read-only property")
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnSend("s3:get",nHandle,"s8:Services","")
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
@@ -361,19 +361,19 @@ Class IWebHostBuilder from DotNetObject
 		return self
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
+		return dnSend("s4:call",nHandle,"s5:Build","")
 
 	Func ConfigureAppConfiguration P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureAppConfiguration",P1])
+		return dnSend("s4:call",nHandle,"s25:ConfigureAppConfiguration",dnPackItem(P1))
 
 	Func ConfigureServices P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureServices",P1])
+		return dnSend("s4:call",nHandle,"s17:ConfigureServices",dnPackItem(P1))
 
 	Func GetSetting P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSetting",P1])
+		return dnSend("s4:call",nHandle,"s10:GetSetting",dnPackItem(P1))
 
 	Func UseSetting P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UseSetting",P1,P2])
+		return dnSend("s4:call",nHandle,"s10:UseSetting",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class IWebHostEnvironment from DotNetObject
@@ -391,17 +391,17 @@ Class IWebHostEnvironment from DotNetObject
 		return self
 
 	Func getWebRootPath
-		return dnRequest("get",[self,"WebRootPath"])
+		return dnSend("s3:get",nHandle,"s11:WebRootPath","")
 
 	Func setWebRootPath P1
-		dnRequest("set",[self,"WebRootPath",P1])
+		dnSend("s3:set",nHandle,"s11:WebRootPath",dnPackItem(P1))
 		return self
 
 	Func getWebRootFileProvider
-		return dnRequest("get",[self,"WebRootFileProvider"])
+		return dnSend("s3:get",nHandle,"s19:WebRootFileProvider","")
 
 	Func setWebRootFileProvider P1
-		dnRequest("set",[self,"WebRootFileProvider",P1])
+		dnSend("s3:set",nHandle,"s19:WebRootFileProvider",dnPackItem(P1))
 		return self
 
 
@@ -417,13 +417,13 @@ Class KestrelServerOptionsSystemdExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseSystemd P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.KestrelServerOptionsSystemdExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseSystemd",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Hosting.KestrelServerOptionsSystemdExtensions, Microsoft.AspNetCore.Server.Kestrel.Core').nHandle,"s10:UseSystemd",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.KestrelServerOptionsSystemdExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseSystemd",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.KestrelServerOptionsSystemdExtensions, Microsoft.AspNetCore.Server.Kestrel.Core').nHandle,"s10:UseSystemd",dnPackItem(P1))
 
 
 Class ListenOptionsConnectionLoggingExtensions from Object
@@ -438,13 +438,13 @@ Class ListenOptionsConnectionLoggingExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseConnectionLogging P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsConnectionLoggingExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseConnectionLogging",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsConnectionLoggingExtensions, Microsoft.AspNetCore.Server.Kestrel.Core').nHandle,"s20:UseConnectionLogging",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsConnectionLoggingExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseConnectionLogging",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsConnectionLoggingExtensions, Microsoft.AspNetCore.Server.Kestrel.Core').nHandle,"s20:UseConnectionLogging",dnPackItem(P1))
 
 
 Class ListenOptionsHttpsExtensions from Object
@@ -459,13 +459,13 @@ Class ListenOptionsHttpsExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseHttps P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseHttps",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions, Microsoft.AspNetCore.Server.Kestrel.Core').nHandle,"s8:UseHttps",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseHttps",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions, Microsoft.AspNetCore.Server.Kestrel.Core').nHandle,"s8:UseHttps",dnPackItem(P1))
 
 
 Class StartupBase from Object
@@ -480,18 +480,18 @@ Class StartupBase from Object
 		return self
 
 	Func Configure P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Configure",P1])
+		dnSend("s4:call",nHandle,"s9:Configure",dnPackItem(P1))
 		return self
 
 	Func ConfigureServices P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureServices",P1])
+		dnSend("s4:call",nHandle,"s17:ConfigureServices",dnPackItem(P1))
 		return self
 
 	Func CreateServiceProvider P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateServiceProvider",P1])
+		return dnSend("s4:call",nHandle,"s21:CreateServiceProvider",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class WebHostBuilder from Object
@@ -519,22 +519,22 @@ Class WebHostBuilder from Object
 		return self
 
 	Func GetSetting P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSetting",P1])
+		return dnSend("s4:call",nHandle,"s10:GetSetting",dnPackItem(P1))
 
 	Func UseSetting P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UseSetting",P1,P2])
+		return dnSend("s4:call",nHandle,"s10:UseSetting",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConfigureServices P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureServices",P1])
+		return dnSend("s4:call",nHandle,"s17:ConfigureServices",dnPackItem(P1))
 
 	Func ConfigureAppConfiguration P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureAppConfiguration",P1])
+		return dnSend("s4:call",nHandle,"s25:ConfigureAppConfiguration",dnPackItem(P1))
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
+		return dnSend("s4:call",nHandle,"s5:Build","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class WebHostBuilderContext from Object
@@ -565,20 +565,20 @@ Class WebHostBuilderContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getHostingEnvironment
-		return dnRequest("get",[self,"HostingEnvironment"])
+		return dnSend("s3:get",nHandle,"s18:HostingEnvironment","")
 
 	Func setHostingEnvironment P1
-		dnRequest("set",[self,"HostingEnvironment",P1])
+		dnSend("s3:set",nHandle,"s18:HostingEnvironment",dnPackItem(P1))
 		return self
 
 	Func getConfiguration
-		return dnRequest("get",[self,"Configuration"])
+		return dnSend("s3:get",nHandle,"s13:Configuration","")
 
 	Func setConfiguration P1
-		dnRequest("set",[self,"Configuration",P1])
+		dnSend("s3:set",nHandle,"s13:Configuration",dnPackItem(P1))
 		return self
 
 
@@ -594,28 +594,28 @@ Class WebHostBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Configure P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"Configure",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting').nHandle,"s9:Configure",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UseStartup P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"UseStartup",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting').nHandle,"s10:UseStartup",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"UseStartup",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting').nHandle,"s10:UseStartup",dnPackItem(P1))
 
 	Func UseDefaultServiceProvider P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"UseDefaultServiceProvider",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting').nHandle,"s25:UseDefaultServiceProvider",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConfigureAppConfiguration P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"ConfigureAppConfiguration",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting').nHandle,"s25:ConfigureAppConfiguration",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConfigureLogging P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"ConfigureLogging",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting').nHandle,"s16:ConfigureLogging",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UseStaticWebAssets P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"UseStaticWebAssets",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting').nHandle,"s18:UseStaticWebAssets",dnPackItem(P1))
 
 
 Class WebHostBuilderHttpSysExtensions from Object
@@ -630,13 +630,13 @@ Class WebHostBuilderHttpSysExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseHttpSys P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions, Microsoft.AspNetCore.Server.HttpSys'),"UseHttpSys",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions, Microsoft.AspNetCore.Server.HttpSys').nHandle,"s10:UseHttpSys",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions, Microsoft.AspNetCore.Server.HttpSys'),"UseHttpSys",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions, Microsoft.AspNetCore.Server.HttpSys').nHandle,"s10:UseHttpSys",dnPackItem(P1))
 
 
 Class WebHostBuilderIISExtensions from Object
@@ -651,10 +651,10 @@ Class WebHostBuilderIISExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseIIS P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions, Microsoft.AspNetCore.Server.IIS'),"UseIIS",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions, Microsoft.AspNetCore.Server.IIS').nHandle,"s6:UseIIS",dnPackItem(P1))
 
 
 Class WebHostBuilderKestrelExtensions from Object
@@ -669,22 +669,22 @@ Class WebHostBuilderKestrelExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseKestrelHttpsConfiguration P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"UseKestrelHttpsConfiguration",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel').nHandle,"s28:UseKestrelHttpsConfiguration",dnPackItem(P1))
 
 	Func UseKestrel P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"UseKestrel",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel').nHandle,"s10:UseKestrel",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"UseKestrel",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel').nHandle,"s10:UseKestrel",dnPackItem(P1))
 
 	Func UseKestrelCore P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"UseKestrelCore",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel').nHandle,"s14:UseKestrelCore",dnPackItem(P1))
 
 	Func ConfigureKestrel P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"ConfigureKestrel",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel').nHandle,"s16:ConfigureKestrel",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class WebHostBuilderNamedPipeExtensions from Object
@@ -699,13 +699,13 @@ Class WebHostBuilderNamedPipeExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseNamedPipes P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderNamedPipeExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.NamedPipes'),"UseNamedPipes",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderNamedPipeExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.NamedPipes').nHandle,"s13:UseNamedPipes",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderNamedPipeExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.NamedPipes'),"UseNamedPipes",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderNamedPipeExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.NamedPipes').nHandle,"s13:UseNamedPipes",dnPackItem(P1))
 
 
 Class WebHostBuilderQuicExtensions from Object
@@ -720,13 +720,13 @@ Class WebHostBuilderQuicExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseQuic P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderQuicExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Quic'),"UseQuic",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderQuicExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Quic').nHandle,"s7:UseQuic",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderQuicExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Quic'),"UseQuic",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderQuicExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Quic').nHandle,"s7:UseQuic",dnPackItem(P1))
 
 
 Class WebHostBuilderSocketExtensions from Object
@@ -741,13 +741,13 @@ Class WebHostBuilderSocketExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseSockets P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderSocketExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets'),"UseSockets",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderSocketExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets').nHandle,"s10:UseSockets",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderSocketExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets'),"UseSockets",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderSocketExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets').nHandle,"s10:UseSockets",dnPackItem(P1))
 
 
 Class WebHostDefaults from Object
@@ -780,106 +780,106 @@ Class WebHostDefaults from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getApplicationKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"ApplicationKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s14:ApplicationKey","")
 
 	Func setApplicationKey P1
 		raise("DotNet Error: ApplicationKey is a read-only property")
 
 	Func getStartupAssemblyKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"StartupAssemblyKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s18:StartupAssemblyKey","")
 
 	Func setStartupAssemblyKey P1
 		raise("DotNet Error: StartupAssemblyKey is a read-only property")
 
 	Func getHostingStartupAssembliesKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"HostingStartupAssembliesKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s27:HostingStartupAssembliesKey","")
 
 	Func setHostingStartupAssembliesKey P1
 		raise("DotNet Error: HostingStartupAssembliesKey is a read-only property")
 
 	Func getHostingStartupExcludeAssembliesKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"HostingStartupExcludeAssembliesKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s34:HostingStartupExcludeAssembliesKey","")
 
 	Func setHostingStartupExcludeAssembliesKey P1
 		raise("DotNet Error: HostingStartupExcludeAssembliesKey is a read-only property")
 
 	Func getDetailedErrorsKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"DetailedErrorsKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s17:DetailedErrorsKey","")
 
 	Func setDetailedErrorsKey P1
 		raise("DotNet Error: DetailedErrorsKey is a read-only property")
 
 	Func getEnvironmentKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"EnvironmentKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s14:EnvironmentKey","")
 
 	Func setEnvironmentKey P1
 		raise("DotNet Error: EnvironmentKey is a read-only property")
 
 	Func getWebRootKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"WebRootKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s10:WebRootKey","")
 
 	Func setWebRootKey P1
 		raise("DotNet Error: WebRootKey is a read-only property")
 
 	Func getCaptureStartupErrorsKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"CaptureStartupErrorsKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s23:CaptureStartupErrorsKey","")
 
 	Func setCaptureStartupErrorsKey P1
 		raise("DotNet Error: CaptureStartupErrorsKey is a read-only property")
 
 	Func getServerUrlsKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"ServerUrlsKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s13:ServerUrlsKey","")
 
 	Func setServerUrlsKey P1
 		raise("DotNet Error: ServerUrlsKey is a read-only property")
 
 	Func getHttpPortsKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"HttpPortsKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s12:HttpPortsKey","")
 
 	Func setHttpPortsKey P1
 		raise("DotNet Error: HttpPortsKey is a read-only property")
 
 	Func getHttpsPortsKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"HttpsPortsKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s13:HttpsPortsKey","")
 
 	Func setHttpsPortsKey P1
 		raise("DotNet Error: HttpsPortsKey is a read-only property")
 
 	Func getContentRootKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"ContentRootKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s14:ContentRootKey","")
 
 	Func setContentRootKey P1
 		raise("DotNet Error: ContentRootKey is a read-only property")
 
 	Func getPreferHostingUrlsKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"PreferHostingUrlsKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s20:PreferHostingUrlsKey","")
 
 	Func setPreferHostingUrlsKey P1
 		raise("DotNet Error: PreferHostingUrlsKey is a read-only property")
 
 	Func getPreventHostingStartupKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"PreventHostingStartupKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s24:PreventHostingStartupKey","")
 
 	Func setPreventHostingStartupKey P1
 		raise("DotNet Error: PreventHostingStartupKey is a read-only property")
 
 	Func getSuppressStatusMessagesKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"SuppressStatusMessagesKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s25:SuppressStatusMessagesKey","")
 
 	Func setSuppressStatusMessagesKey P1
 		raise("DotNet Error: SuppressStatusMessagesKey is a read-only property")
 
 	Func getShutdownTimeoutKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"ShutdownTimeoutKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s18:ShutdownTimeoutKey","")
 
 	Func setShutdownTimeoutKey P1
 		raise("DotNet Error: ShutdownTimeoutKey is a read-only property")
 
 	Func getStaticWebAssetsKey
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"StaticWebAssetsKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions').nHandle,"s18:StaticWebAssetsKey","")
 
 	Func setStaticWebAssetsKey P1
 		raise("DotNet Error: StaticWebAssetsKey is a read-only property")
@@ -897,29 +897,29 @@ Class WebHostExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func StopAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"StopAsync",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting').nHandle,"s9:StopAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WaitForShutdown P1
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"WaitForShutdown",P1])
+		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting').nHandle,"s15:WaitForShutdown",dnPackItem(P1))
 		return self
 
 	Func WaitForShutdownAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"WaitForShutdownAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting').nHandle,"s20:WaitForShutdownAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"WaitForShutdownAsync",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting').nHandle,"s20:WaitForShutdownAsync",dnPackItem(P1))
 
 	Func Run P1
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"Run",P1])
+		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting').nHandle,"s3:Run",dnPackItem(P1))
 		return self
 
 	Func RunAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"RunAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting').nHandle,"s8:RunAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"RunAsync",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting').nHandle,"s8:RunAsync",dnPackItem(P1))
 
 

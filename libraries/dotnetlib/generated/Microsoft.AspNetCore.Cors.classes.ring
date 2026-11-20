@@ -21,10 +21,10 @@ Class CorsPolicyMetadata from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getPolicy
-		return dnRequest("get",[self,"Policy"])
+		return dnSend("s3:get",nHandle,"s6:Policy","")
 
 	Func setPolicy P1
 		raise("DotNet Error: Policy is a read-only property")

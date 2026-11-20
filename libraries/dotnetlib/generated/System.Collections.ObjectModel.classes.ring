@@ -70,58 +70,58 @@ Class ObservableObjectList from DotNetObject
 		return self
 
 	Func Move P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Move",P1,P2])
+		dnSend("s4:call",nHandle,"s4:Move",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func setCollectionChangedEvent P1
@@ -133,7 +133,7 @@ Class ObservableObjectList from DotNetObject
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -156,32 +156,32 @@ Class ReadOnlyStringList from Object
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Collections.ObjectModel.ReadOnlyCollection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Collections.ObjectModel.ReadOnlyCollection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -234,49 +234,49 @@ Class StringCollectionList from Object
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -327,7 +327,7 @@ Class ObservableStringList from StringCollectionList
 		return self
 
 	Func Move P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Move",P1,P2])
+		dnSend("s4:call",nHandle,"s4:Move",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func setCollectionChangedEvent P1

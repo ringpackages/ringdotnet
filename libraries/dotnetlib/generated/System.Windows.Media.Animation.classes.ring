@@ -1352,26 +1352,26 @@ Class Animatable from Freezable
 
 	Func ApplyAnimationClock P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ApplyAnimationClock",P1])
+			dnSend("s9:callnamed",nHandle,"s19:ApplyAnimationClock",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: ApplyAnimationClock does not take one argument: use named arguments, ApplyAnimationClock([ :parameter = value, ... ])")
 
 	Func BeginAnimation P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginAnimation",P1])
+			dnSend("s9:callnamed",nHandle,"s14:BeginAnimation",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
 
 	Func GetAnimationBaseValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAnimationBaseValue",P1])
+		return dnSend("s4:call",nHandle,"s21:GetAnimationBaseValue",dnPackItem(P1))
 
 	Func ShouldSerializeStoredWeakReference P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Animatable, PresentationCore'),"ShouldSerializeStoredWeakReference",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Animatable, PresentationCore').nHandle,"s34:ShouldSerializeStoredWeakReference",dnPackItem(P1))
 
 	Func getHasAnimatedProperties
-		return dnRequest("get",[self,"HasAnimatedProperties"])
+		return dnSend("s3:get",nHandle,"s21:HasAnimatedProperties","")
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")
@@ -1407,28 +1407,28 @@ Class BeginStoryboard from TriggerAction
 		return self
 
 	Func getStoryboard
-		return dnRequest("get",[self,"Storyboard"])
+		return dnSend("s3:get",nHandle,"s10:Storyboard","")
 
 	Func setStoryboard P1
-		dnRequest("set",[self,"Storyboard",P1])
+		dnSend("s3:set",nHandle,"s10:Storyboard",dnPackItem(P1))
 		return self
 
 	Func getHandoffBehavior
-		return dnRequest("get",[self,"HandoffBehavior"])
+		return dnSend("s3:get",nHandle,"s15:HandoffBehavior","")
 
 	Func setHandoffBehavior P1
-		dnRequest("set",[self,"HandoffBehavior",P1])
+		dnSend("s3:set",nHandle,"s15:HandoffBehavior",dnPackItem(P1))
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
 		return self
 
 	Func getStoryboardProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.BeginStoryboard, PresentationFramework'),"StoryboardProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.BeginStoryboard, PresentationFramework').nHandle,"s18:StoryboardProperty","")
 
 	Func setStoryboardProperty P1
 		raise("DotNet Error: StoryboardProperty is a read-only property")
@@ -1451,37 +1451,37 @@ Class BooleanKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.BooleanKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.BooleanKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.BooleanKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.BooleanKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -1519,76 +1519,76 @@ Class BooleanKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.BooleanKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.BooleanKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -1611,37 +1611,37 @@ Class ByteKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ByteKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ByteKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ByteKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ByteKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -1679,76 +1679,76 @@ Class ByteKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ByteKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ByteKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -1771,37 +1771,37 @@ Class CharKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.CharKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.CharKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.CharKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.CharKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -1839,76 +1839,76 @@ Class CharKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.CharKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.CharKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -1978,67 +1978,67 @@ Class Clock from DispatcherObject
 		return self
 
 	Func getController
-		return dnRequest("get",[self,"Controller"])
+		return dnSend("s3:get",nHandle,"s10:Controller","")
 
 	Func setController P1
 		raise("DotNet Error: Controller is a read-only property")
 
 	Func getCurrentIteration
-		return dnRequest("get",[self,"CurrentIteration"])
+		return dnSend("s3:get",nHandle,"s16:CurrentIteration","")
 
 	Func setCurrentIteration P1
 		raise("DotNet Error: CurrentIteration is a read-only property")
 
 	Func getCurrentGlobalSpeed
-		return dnRequest("get",[self,"CurrentGlobalSpeed"])
+		return dnSend("s3:get",nHandle,"s18:CurrentGlobalSpeed","")
 
 	Func setCurrentGlobalSpeed P1
 		raise("DotNet Error: CurrentGlobalSpeed is a read-only property")
 
 	Func getCurrentProgress
-		return dnRequest("get",[self,"CurrentProgress"])
+		return dnSend("s3:get",nHandle,"s15:CurrentProgress","")
 
 	Func setCurrentProgress P1
 		raise("DotNet Error: CurrentProgress is a read-only property")
 
 	Func getCurrentState
-		return dnRequest("get",[self,"CurrentState"])
+		return dnSend("s3:get",nHandle,"s12:CurrentState","")
 
 	Func setCurrentState P1
 		raise("DotNet Error: CurrentState is a read-only property")
 
 	Func getCurrentTime
-		return dnRequest("get",[self,"CurrentTime"])
+		return dnSend("s3:get",nHandle,"s11:CurrentTime","")
 
 	Func setCurrentTime P1
 		raise("DotNet Error: CurrentTime is a read-only property")
 
 	Func getHasControllableRoot
-		return dnRequest("get",[self,"HasControllableRoot"])
+		return dnSend("s3:get",nHandle,"s19:HasControllableRoot","")
 
 	Func setHasControllableRoot P1
 		raise("DotNet Error: HasControllableRoot is a read-only property")
 
 	Func getIsPaused
-		return dnRequest("get",[self,"IsPaused"])
+		return dnSend("s3:get",nHandle,"s8:IsPaused","")
 
 	Func setIsPaused P1
 		raise("DotNet Error: IsPaused is a read-only property")
 
 	Func getNaturalDuration
-		return dnRequest("get",[self,"NaturalDuration"])
+		return dnSend("s3:get",nHandle,"s15:NaturalDuration","")
 
 	Func setNaturalDuration P1
 		raise("DotNet Error: NaturalDuration is a read-only property")
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnSend("s3:get",nHandle,"s6:Parent","")
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getTimeline
-		return dnRequest("get",[self,"Timeline"])
+		return dnSend("s3:get",nHandle,"s8:Timeline","")
 
 	Func setTimeline P1
 		raise("DotNet Error: Timeline is a read-only property")
@@ -2059,43 +2059,43 @@ Class ClockCollection from Object
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Animation.ClockCollection, PresentationCore'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Animation.ClockCollection, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2116,48 +2116,48 @@ Class ClockController from DispatcherObject
 		return self
 
 	Func Begin 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Begin"])
+		dnSend("s4:call",nHandle,"s5:Begin","")
 		return self
 
 	Func SkipToFill 
-		dnRequest("call",[new DotNetObject(this.nHandle),"SkipToFill"])
+		dnSend("s4:call",nHandle,"s10:SkipToFill","")
 		return self
 
 	Func Pause 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Pause"])
+		dnSend("s4:call",nHandle,"s5:Pause","")
 		return self
 
 	Func Resume 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Resume"])
+		dnSend("s4:call",nHandle,"s6:Resume","")
 		return self
 
 	Func Seek P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Seek",P1,P2])
+		dnSend("s4:call",nHandle,"s4:Seek",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SeekAlignedToLastTick P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SeekAlignedToLastTick",P1,P2])
+		dnSend("s4:call",nHandle,"s21:SeekAlignedToLastTick",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Stop 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Stop"])
+		dnSend("s4:call",nHandle,"s4:Stop","")
 		return self
 
 	Func Remove 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove"])
+		dnSend("s4:call",nHandle,"s6:Remove","")
 		return self
 
 	Func getClock
-		return dnRequest("get",[self,"Clock"])
+		return dnSend("s3:get",nHandle,"s5:Clock","")
 
 	Func setClock P1
 		raise("DotNet Error: Clock is a read-only property")
 
 	Func getSpeedRatio
-		return dnRequest("get",[self,"SpeedRatio"])
+		return dnSend("s3:get",nHandle,"s10:SpeedRatio","")
 
 	Func setSpeedRatio P1
-		dnRequest("set",[self,"SpeedRatio",P1])
+		dnSend("s3:set",nHandle,"s10:SpeedRatio",dnPackItem(P1))
 		return self
 
 
@@ -2178,37 +2178,37 @@ Class ColorKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ColorKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ColorKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ColorKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ColorKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -2246,76 +2246,76 @@ Class ColorKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ColorKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ColorKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -2335,10 +2335,10 @@ Class ControllableStoryboardAction from TriggerAction
 		return self
 
 	Func getBeginStoryboardName
-		return dnRequest("get",[self,"BeginStoryboardName"])
+		return dnSend("s3:get",nHandle,"s19:BeginStoryboardName","")
 
 	Func setBeginStoryboardName P1
-		dnRequest("set",[self,"BeginStoryboardName",P1])
+		dnSend("s3:set",nHandle,"s19:BeginStoryboardName",dnPackItem(P1))
 		return self
 
 
@@ -2359,37 +2359,37 @@ Class DecimalKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.DecimalKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DecimalKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.DecimalKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DecimalKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -2427,76 +2427,76 @@ Class DecimalKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.DecimalKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DecimalKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -2519,37 +2519,37 @@ Class DoubleKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.DoubleKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.DoubleKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -2587,76 +2587,76 @@ Class DoubleKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.DoubleKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -2677,17 +2677,17 @@ Class EasingFunctionBase from Freezable
 		return self
 
 	Func Ease P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Ease",P1])
+		return dnSend("s4:call",nHandle,"s4:Ease",dnPackItem(P1))
 
 	Func getEasingMode
-		return dnRequest("get",[self,"EasingMode"])
+		return dnSend("s3:get",nHandle,"s10:EasingMode","")
 
 	Func setEasingMode P1
-		dnRequest("set",[self,"EasingMode",P1])
+		dnSend("s3:set",nHandle,"s10:EasingMode",dnPackItem(P1))
 		return self
 
 	Func getEasingModeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingFunctionBase, PresentationCore'),"EasingModeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingFunctionBase, PresentationCore').nHandle,"s18:EasingModeProperty","")
 
 	Func setEasingModeProperty P1
 		raise("DotNet Error: EasingModeProperty is a read-only property")
@@ -2708,23 +2708,23 @@ Class IAnimatable from DotNetObject
 
 	Func ApplyAnimationClock P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ApplyAnimationClock",P1])
+			dnSend("s9:callnamed",nHandle,"s19:ApplyAnimationClock",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: ApplyAnimationClock does not take one argument: use named arguments, ApplyAnimationClock([ :parameter = value, ... ])")
 
 	Func BeginAnimation P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginAnimation",P1])
+			dnSend("s9:callnamed",nHandle,"s14:BeginAnimation",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
 
 	Func GetAnimationBaseValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAnimationBaseValue",P1])
+		return dnSend("s4:call",nHandle,"s21:GetAnimationBaseValue",dnPackItem(P1))
 
 	Func getHasAnimatedProperties
-		return dnRequest("get",[self,"HasAnimatedProperties"])
+		return dnSend("s3:get",nHandle,"s21:HasAnimatedProperties","")
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")
@@ -2742,7 +2742,7 @@ Class IAnimation from DotNetObject
 		return self
 
 	Func GetCurrentValue P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentValue",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s15:GetCurrentValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class IEasingFunction from DotNetObject
@@ -2757,7 +2757,7 @@ Class IEasingFunction from DotNetObject
 		return self
 
 	Func Ease P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Ease",P1])
+		return dnSend("s4:call",nHandle,"s4:Ease",dnPackItem(P1))
 
 
 Class IKeyFrame from DotNetObject
@@ -2775,17 +2775,17 @@ Class IKeyFrame from DotNetObject
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 
@@ -2803,10 +2803,10 @@ Class IKeyFrameAnimation from DotNetObject
 		return self
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 
@@ -2827,37 +2827,37 @@ Class Int16KeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int16KeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int16KeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int16KeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int16KeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -2895,76 +2895,76 @@ Class Int16KeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int16KeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int16KeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -2987,37 +2987,37 @@ Class Int32KeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int32KeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int32KeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int32KeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int32KeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -3055,76 +3055,76 @@ Class Int32KeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int32KeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int32KeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -3147,37 +3147,37 @@ Class Int64KeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int64KeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int64KeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int64KeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int64KeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -3215,76 +3215,76 @@ Class Int64KeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int64KeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int64KeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -3338,26 +3338,26 @@ Class KeySpline from Freezable
 		return self
 
 	Func GetSplineProgress P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSplineProgress",P1])
+		return dnSend("s4:call",nHandle,"s17:GetSplineProgress",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func getControlPoint1
-		return dnRequest("get",[self,"ControlPoint1"])
+		return dnSend("s3:get",nHandle,"s13:ControlPoint1","")
 
 	Func setControlPoint1 P1
-		dnRequest("set",[self,"ControlPoint1",P1])
+		dnSend("s3:set",nHandle,"s13:ControlPoint1",dnPackItem(P1))
 		return self
 
 	Func getControlPoint2
-		return dnRequest("get",[self,"ControlPoint2"])
+		return dnSend("s3:get",nHandle,"s13:ControlPoint2","")
 
 	Func setControlPoint2 P1
-		dnRequest("set",[self,"ControlPoint2",P1])
+		dnSend("s3:set",nHandle,"s13:ControlPoint2",dnPackItem(P1))
 		return self
 
 
@@ -3394,47 +3394,47 @@ Class KeyTime from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func FromPercent P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore'),"FromPercent",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore').nHandle,"s11:FromPercent",dnPackItem(P1))
 
 	Func FromTimeSpan P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore'),"FromTimeSpan",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore').nHandle,"s12:FromTimeSpan",dnPackItem(P1))
 
 	Func getTimeSpan
-		return dnRequest("get",[self,"TimeSpan"])
+		return dnSend("s3:get",nHandle,"s8:TimeSpan","")
 
 	Func setTimeSpan P1
 		raise("DotNet Error: TimeSpan is a read-only property")
 
 	Func getPercent
-		return dnRequest("get",[self,"Percent"])
+		return dnSend("s3:get",nHandle,"s7:Percent","")
 
 	Func setPercent P1
 		raise("DotNet Error: Percent is a read-only property")
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnSend("s3:get",nHandle,"s4:Type","")
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getUniform
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore'),"Uniform"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore').nHandle,"s7:Uniform","")
 
 	Func setUniform P1
 		raise("DotNet Error: Uniform is a read-only property")
 
 	Func getPaced
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore'),"Paced"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore').nHandle,"s5:Paced","")
 
 	Func setPaced P1
 		raise("DotNet Error: Paced is a read-only property")
@@ -3457,37 +3457,37 @@ Class MatrixKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.MatrixKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.MatrixKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.MatrixKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.MatrixKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -3525,76 +3525,76 @@ Class MatrixKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.MatrixKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.MatrixKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -3617,37 +3617,37 @@ Class ObjectKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ObjectKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ObjectKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ObjectKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ObjectKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -3685,76 +3685,76 @@ Class ObjectKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ObjectKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ObjectKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -3777,37 +3777,37 @@ Class Point3DKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Point3DKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Point3DKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Point3DKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Point3DKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -3845,76 +3845,76 @@ Class Point3DKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Point3DKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Point3DKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -3937,37 +3937,37 @@ Class PointKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.PointKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PointKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.PointKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PointKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -4005,76 +4005,76 @@ Class PointKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.PointKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PointKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4097,37 +4097,37 @@ Class QuaternionKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.QuaternionKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.QuaternionKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.QuaternionKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.QuaternionKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -4165,76 +4165,76 @@ Class QuaternionKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.QuaternionKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.QuaternionKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4257,37 +4257,37 @@ Class RectKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.RectKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.RectKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.RectKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.RectKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -4325,76 +4325,76 @@ Class RectKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.RectKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.RectKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4453,44 +4453,44 @@ Class RepeatBehavior from ValueType
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Animation.RepeatBehavior, PresentationCore'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Animation.RepeatBehavior, PresentationCore').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func getHasCount
-		return dnRequest("get",[self,"HasCount"])
+		return dnSend("s3:get",nHandle,"s8:HasCount","")
 
 	Func setHasCount P1
 		raise("DotNet Error: HasCount is a read-only property")
 
 	Func getHasDuration
-		return dnRequest("get",[self,"HasDuration"])
+		return dnSend("s3:get",nHandle,"s11:HasDuration","")
 
 	Func setHasDuration P1
 		raise("DotNet Error: HasDuration is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getDuration
-		return dnRequest("get",[self,"Duration"])
+		return dnSend("s3:get",nHandle,"s8:Duration","")
 
 	Func setDuration P1
 		raise("DotNet Error: Duration is a read-only property")
 
 	Func getForever
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.RepeatBehavior, PresentationCore'),"Forever"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.RepeatBehavior, PresentationCore').nHandle,"s7:Forever","")
 
 	Func setForever P1
 		raise("DotNet Error: Forever is a read-only property")
@@ -4538,37 +4538,37 @@ Class Rotation3DKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Rotation3DKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Rotation3DKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Rotation3DKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Rotation3DKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -4606,76 +4606,76 @@ Class Rotation3DKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Rotation3DKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Rotation3DKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4698,37 +4698,37 @@ Class SingleKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SingleKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SingleKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SingleKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SingleKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -4766,76 +4766,76 @@ Class SingleKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SingleKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SingleKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4858,37 +4858,37 @@ Class SizeKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SizeKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SizeKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SizeKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SizeKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -4926,76 +4926,76 @@ Class SizeKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SizeKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SizeKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -5018,37 +5018,37 @@ Class StringKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.StringKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.StringKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.StringKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.StringKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -5086,76 +5086,76 @@ Class StringKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.StringKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.StringKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -5178,37 +5178,37 @@ Class ThicknessKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ThicknessKeyFrame, PresentationFramework'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ThicknessKeyFrame, PresentationFramework').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ThicknessKeyFrame, PresentationFramework'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ThicknessKeyFrame, PresentationFramework').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -5246,76 +5246,76 @@ Class ThicknessKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ThicknessKeyFrameCollection, PresentationFramework'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ThicknessKeyFrameCollection, PresentationFramework').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -5338,37 +5338,37 @@ Class Vector3DKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Vector3DKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Vector3DKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Vector3DKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Vector3DKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -5406,76 +5406,76 @@ Class Vector3DKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Vector3DKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Vector3DKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -5498,37 +5498,37 @@ Class VectorKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InterpolateValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:InterpolateValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue_ P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnSend("s3:get",nHandle,"s7:KeyTime","")
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnSend("s3:set",nHandle,"s7:KeyTime",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getKeyTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.VectorKeyFrame, PresentationCore'),"KeyTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.VectorKeyFrame, PresentationCore').nHandle,"s15:KeyTimeProperty","")
 
 	Func setKeyTimeProperty P1
 		raise("DotNet Error: KeyTimeProperty is a read-only property")
 
 	Func getValueProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.VectorKeyFrame, PresentationCore'),"ValueProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.VectorKeyFrame, PresentationCore').nHandle,"s13:ValueProperty","")
 
 	Func setValueProperty P1
 		raise("DotNet Error: ValueProperty is a read-only property")
@@ -5566,76 +5566,76 @@ Class VectorKeyFrameCollection from Freezable
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.VectorKeyFrameCollection, PresentationCore'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.VectorKeyFrameCollection, PresentationCore').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -5653,7 +5653,7 @@ Class AnimationClock from Clock
 		return self
 
 	Func GetCurrentValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s15:GetCurrentValue",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class BackEase from EasingFunctionBase
@@ -5684,14 +5684,14 @@ Class BackEase from EasingFunctionBase
 		return self
 
 	Func getAmplitude
-		return dnRequest("get",[self,"Amplitude"])
+		return dnSend("s3:get",nHandle,"s9:Amplitude","")
 
 	Func setAmplitude P1
-		dnRequest("set",[self,"Amplitude",P1])
+		dnSend("s3:set",nHandle,"s9:Amplitude",dnPackItem(P1))
 		return self
 
 	Func getAmplitudeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.BackEase, PresentationCore'),"AmplitudeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.BackEase, PresentationCore').nHandle,"s17:AmplitudeProperty","")
 
 	Func setAmplitudeProperty P1
 		raise("DotNet Error: AmplitudeProperty is a read-only property")
@@ -5727,27 +5727,27 @@ Class BounceEase from EasingFunctionBase
 		return self
 
 	Func getBounces
-		return dnRequest("get",[self,"Bounces"])
+		return dnSend("s3:get",nHandle,"s7:Bounces","")
 
 	Func setBounces P1
-		dnRequest("set",[self,"Bounces",P1])
+		dnSend("s3:set",nHandle,"s7:Bounces",dnPackItem(P1))
 		return self
 
 	Func getBounciness
-		return dnRequest("get",[self,"Bounciness"])
+		return dnSend("s3:get",nHandle,"s10:Bounciness","")
 
 	Func setBounciness P1
-		dnRequest("set",[self,"Bounciness",P1])
+		dnSend("s3:set",nHandle,"s10:Bounciness",dnPackItem(P1))
 		return self
 
 	Func getBouncesProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.BounceEase, PresentationCore'),"BouncesProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.BounceEase, PresentationCore').nHandle,"s15:BouncesProperty","")
 
 	Func setBouncesProperty P1
 		raise("DotNet Error: BouncesProperty is a read-only property")
 
 	Func getBouncinessProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.BounceEase, PresentationCore'),"BouncinessProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.BounceEase, PresentationCore').nHandle,"s18:BouncinessProperty","")
 
 	Func setBouncinessProperty P1
 		raise("DotNet Error: BouncinessProperty is a read-only property")
@@ -5792,7 +5792,7 @@ Class ClockGroup from Clock
 		return self
 
 	Func getChildren
-		return dnRequest("get",[self,"Children"])
+		return dnSend("s3:get",nHandle,"s8:Children","")
 
 	Func setChildren P1
 		raise("DotNet Error: Children is a read-only property")
@@ -6861,14 +6861,14 @@ Class EasingByteKeyFrame from ByteKeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -6922,14 +6922,14 @@ Class EasingColorKeyFrame from ColorKeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -6983,14 +6983,14 @@ Class EasingDecimalKeyFrame from DecimalKeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7044,14 +7044,14 @@ Class EasingDoubleKeyFrame from DoubleKeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7105,14 +7105,14 @@ Class EasingInt16KeyFrame from Int16KeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7166,14 +7166,14 @@ Class EasingInt32KeyFrame from Int32KeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7227,14 +7227,14 @@ Class EasingInt64KeyFrame from Int64KeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7288,14 +7288,14 @@ Class EasingPoint3DKeyFrame from Point3DKeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7349,14 +7349,14 @@ Class EasingPointKeyFrame from PointKeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7412,27 +7412,27 @@ Class EasingQuaternionKeyFrame from QuaternionKeyFrame
 		return self
 
 	Func getUseShortestPath
-		return dnRequest("get",[self,"UseShortestPath"])
+		return dnSend("s3:get",nHandle,"s15:UseShortestPath","")
 
 	Func setUseShortestPath P1
-		dnRequest("set",[self,"UseShortestPath",P1])
+		dnSend("s3:set",nHandle,"s15:UseShortestPath",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getUseShortestPathProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore'),"UseShortestPathProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore').nHandle,"s23:UseShortestPathProperty","")
 
 	Func setUseShortestPathProperty P1
 		raise("DotNet Error: UseShortestPathProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7486,14 +7486,14 @@ Class EasingRectKeyFrame from RectKeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7547,14 +7547,14 @@ Class EasingRotation3DKeyFrame from Rotation3DKeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7608,14 +7608,14 @@ Class EasingSingleKeyFrame from SingleKeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7669,14 +7669,14 @@ Class EasingSizeKeyFrame from SizeKeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7730,14 +7730,14 @@ Class EasingThicknessKeyFrame from ThicknessKeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7791,14 +7791,14 @@ Class EasingVector3DKeyFrame from Vector3DKeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7852,14 +7852,14 @@ Class EasingVectorKeyFrame from VectorKeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -7895,27 +7895,27 @@ Class ElasticEase from EasingFunctionBase
 		return self
 
 	Func getOscillations
-		return dnRequest("get",[self,"Oscillations"])
+		return dnSend("s3:get",nHandle,"s12:Oscillations","")
 
 	Func setOscillations P1
-		dnRequest("set",[self,"Oscillations",P1])
+		dnSend("s3:set",nHandle,"s12:Oscillations",dnPackItem(P1))
 		return self
 
 	Func getSpringiness
-		return dnRequest("get",[self,"Springiness"])
+		return dnSend("s3:get",nHandle,"s11:Springiness","")
 
 	Func setSpringiness P1
-		dnRequest("set",[self,"Springiness",P1])
+		dnSend("s3:set",nHandle,"s11:Springiness",dnPackItem(P1))
 		return self
 
 	Func getOscillationsProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ElasticEase, PresentationCore'),"OscillationsProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ElasticEase, PresentationCore').nHandle,"s20:OscillationsProperty","")
 
 	Func setOscillationsProperty P1
 		raise("DotNet Error: OscillationsProperty is a read-only property")
 
 	Func getSpringinessProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ElasticEase, PresentationCore'),"SpringinessProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ElasticEase, PresentationCore').nHandle,"s19:SpringinessProperty","")
 
 	Func setSpringinessProperty P1
 		raise("DotNet Error: SpringinessProperty is a read-only property")
@@ -7949,14 +7949,14 @@ Class ExponentialEase from EasingFunctionBase
 		return self
 
 	Func getExponent
-		return dnRequest("get",[self,"Exponent"])
+		return dnSend("s3:get",nHandle,"s8:Exponent","")
 
 	Func setExponent P1
-		dnRequest("set",[self,"Exponent",P1])
+		dnSend("s3:set",nHandle,"s8:Exponent",dnPackItem(P1))
 		return self
 
 	Func getExponentProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ExponentialEase, PresentationCore'),"ExponentProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ExponentialEase, PresentationCore').nHandle,"s16:ExponentProperty","")
 
 	Func setExponentProperty P1
 		raise("DotNet Error: ExponentProperty is a read-only property")
@@ -8415,14 +8415,14 @@ Class LinearQuaternionKeyFrame from QuaternionKeyFrame
 		return self
 
 	Func getUseShortestPath
-		return dnRequest("get",[self,"UseShortestPath"])
+		return dnSend("s3:get",nHandle,"s15:UseShortestPath","")
 
 	Func setUseShortestPath P1
-		dnRequest("set",[self,"UseShortestPath",P1])
+		dnSend("s3:set",nHandle,"s15:UseShortestPath",dnPackItem(P1))
 		return self
 
 	Func getUseShortestPathProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore'),"UseShortestPathProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore').nHandle,"s23:UseShortestPathProperty","")
 
 	Func setUseShortestPathProperty P1
 		raise("DotNet Error: UseShortestPathProperty is a read-only property")
@@ -8796,14 +8796,14 @@ Class PowerEase from EasingFunctionBase
 		return self
 
 	Func getPower
-		return dnRequest("get",[self,"Power"])
+		return dnSend("s3:get",nHandle,"s5:Power","")
 
 	Func setPower P1
-		dnRequest("set",[self,"Power",P1])
+		dnSend("s3:set",nHandle,"s5:Power",dnPackItem(P1))
 		return self
 
 	Func getPowerProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.PowerEase, PresentationCore'),"PowerProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PowerEase, PresentationCore').nHandle,"s13:PowerProperty","")
 
 	Func setPowerProperty P1
 		raise("DotNet Error: PowerProperty is a read-only property")
@@ -8962,20 +8962,20 @@ Class SeekStoryboard from ControllableStoryboardAction
 		return self
 
 	Func ShouldSerializeOffset 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeOffset"])
+		return dnSend("s4:call",nHandle,"s21:ShouldSerializeOffset","")
 
 	Func getOffset
-		return dnRequest("get",[self,"Offset"])
+		return dnSend("s3:get",nHandle,"s6:Offset","")
 
 	Func setOffset P1
-		dnRequest("set",[self,"Offset",P1])
+		dnSend("s3:set",nHandle,"s6:Offset",dnPackItem(P1))
 		return self
 
 	Func getOrigin
-		return dnRequest("get",[self,"Origin"])
+		return dnSend("s3:get",nHandle,"s6:Origin","")
 
 	Func setOrigin P1
-		dnRequest("set",[self,"Origin",P1])
+		dnSend("s3:set",nHandle,"s6:Origin",dnPackItem(P1))
 		return self
 
 
@@ -9006,10 +9006,10 @@ Class SetStoryboardSpeedRatio from ControllableStoryboardAction
 		return self
 
 	Func getSpeedRatio
-		return dnRequest("get",[self,"SpeedRatio"])
+		return dnSend("s3:get",nHandle,"s10:SpeedRatio","")
 
 	Func setSpeedRatio P1
-		dnRequest("set",[self,"SpeedRatio",P1])
+		dnSend("s3:set",nHandle,"s10:SpeedRatio",dnPackItem(P1))
 		return self
 
 
@@ -9111,14 +9111,14 @@ Class SplineByteKeyFrame from ByteKeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9172,14 +9172,14 @@ Class SplineColorKeyFrame from ColorKeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9233,14 +9233,14 @@ Class SplineDecimalKeyFrame from DecimalKeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9294,14 +9294,14 @@ Class SplineDoubleKeyFrame from DoubleKeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9355,14 +9355,14 @@ Class SplineInt16KeyFrame from Int16KeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9416,14 +9416,14 @@ Class SplineInt32KeyFrame from Int32KeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9477,14 +9477,14 @@ Class SplineInt64KeyFrame from Int64KeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9538,14 +9538,14 @@ Class SplinePoint3DKeyFrame from Point3DKeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9599,14 +9599,14 @@ Class SplinePointKeyFrame from PointKeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9662,27 +9662,27 @@ Class SplineQuaternionKeyFrame from QuaternionKeyFrame
 		return self
 
 	Func getUseShortestPath
-		return dnRequest("get",[self,"UseShortestPath"])
+		return dnSend("s3:get",nHandle,"s15:UseShortestPath","")
 
 	Func setUseShortestPath P1
-		dnRequest("set",[self,"UseShortestPath",P1])
+		dnSend("s3:set",nHandle,"s15:UseShortestPath",dnPackItem(P1))
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getUseShortestPathProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore'),"UseShortestPathProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore').nHandle,"s23:UseShortestPathProperty","")
 
 	Func setUseShortestPathProperty P1
 		raise("DotNet Error: UseShortestPathProperty is a read-only property")
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9736,14 +9736,14 @@ Class SplineRectKeyFrame from RectKeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9797,14 +9797,14 @@ Class SplineRotation3DKeyFrame from Rotation3DKeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9858,14 +9858,14 @@ Class SplineSingleKeyFrame from SingleKeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9919,14 +9919,14 @@ Class SplineSizeKeyFrame from SizeKeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -9980,14 +9980,14 @@ Class SplineThicknessKeyFrame from ThicknessKeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -10041,14 +10041,14 @@ Class SplineVector3DKeyFrame from Vector3DKeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -10102,14 +10102,14 @@ Class SplineVectorKeyFrame from VectorKeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnSend("s3:get",nHandle,"s9:KeySpline","")
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnSend("s3:set",nHandle,"s9:KeySpline",dnPackItem(P1))
 		return self
 
 	Func getKeySplineProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore'),"KeySplineProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore').nHandle,"s17:KeySplineProperty","")
 
 	Func setKeySplineProperty P1
 		raise("DotNet Error: KeySplineProperty is a read-only property")
@@ -10173,18 +10173,18 @@ Class Timeline from Animatable
 
 	Func CreateClock P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateClock",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:CreateClock",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"CreateClock"])
+			return dnSend("s4:call",nHandle,"s11:CreateClock","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateClock",P1])
+		return dnSend("s4:call",nHandle,"s11:CreateClock",dnPackItem(P1))
 
 	Func GetDesiredFrameRate P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore'),"GetDesiredFrameRate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s19:GetDesiredFrameRate",dnPackItem(P1))
 
 	Func SetDesiredFrameRate P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore'),"SetDesiredFrameRate",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s19:SetDesiredFrameRate",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func setCurrentStateInvalidatedEvent P1
@@ -10228,124 +10228,124 @@ Class Timeline from Animatable
 		return self
 
 	Func getAccelerationRatio
-		return dnRequest("get",[self,"AccelerationRatio"])
+		return dnSend("s3:get",nHandle,"s17:AccelerationRatio","")
 
 	Func setAccelerationRatio P1
-		dnRequest("set",[self,"AccelerationRatio",P1])
+		dnSend("s3:set",nHandle,"s17:AccelerationRatio",dnPackItem(P1))
 		return self
 
 	Func getAutoReverse
-		return dnRequest("get",[self,"AutoReverse"])
+		return dnSend("s3:get",nHandle,"s11:AutoReverse","")
 
 	Func setAutoReverse P1
-		dnRequest("set",[self,"AutoReverse",P1])
+		dnSend("s3:set",nHandle,"s11:AutoReverse",dnPackItem(P1))
 		return self
 
 	Func getBeginTime
-		return dnRequest("get",[self,"BeginTime"])
+		return dnSend("s3:get",nHandle,"s9:BeginTime","")
 
 	Func setBeginTime P1
-		dnRequest("set",[self,"BeginTime",P1])
+		dnSend("s3:set",nHandle,"s9:BeginTime",dnPackItem(P1))
 		return self
 
 	Func getDecelerationRatio
-		return dnRequest("get",[self,"DecelerationRatio"])
+		return dnSend("s3:get",nHandle,"s17:DecelerationRatio","")
 
 	Func setDecelerationRatio P1
-		dnRequest("set",[self,"DecelerationRatio",P1])
+		dnSend("s3:set",nHandle,"s17:DecelerationRatio",dnPackItem(P1))
 		return self
 
 	Func getDuration
-		return dnRequest("get",[self,"Duration"])
+		return dnSend("s3:get",nHandle,"s8:Duration","")
 
 	Func setDuration P1
-		dnRequest("set",[self,"Duration",P1])
+		dnSend("s3:set",nHandle,"s8:Duration",dnPackItem(P1))
 		return self
 
 	Func getFillBehavior
-		return dnRequest("get",[self,"FillBehavior"])
+		return dnSend("s3:get",nHandle,"s12:FillBehavior","")
 
 	Func setFillBehavior P1
-		dnRequest("set",[self,"FillBehavior",P1])
+		dnSend("s3:set",nHandle,"s12:FillBehavior",dnPackItem(P1))
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
 		return self
 
 	Func getRepeatBehavior
-		return dnRequest("get",[self,"RepeatBehavior"])
+		return dnSend("s3:get",nHandle,"s14:RepeatBehavior","")
 
 	Func setRepeatBehavior P1
-		dnRequest("set",[self,"RepeatBehavior",P1])
+		dnSend("s3:set",nHandle,"s14:RepeatBehavior",dnPackItem(P1))
 		return self
 
 	Func getSpeedRatio
-		return dnRequest("get",[self,"SpeedRatio"])
+		return dnSend("s3:get",nHandle,"s10:SpeedRatio","")
 
 	Func setSpeedRatio P1
-		dnRequest("set",[self,"SpeedRatio",P1])
+		dnSend("s3:set",nHandle,"s10:SpeedRatio",dnPackItem(P1))
 		return self
 
 	Func getAccelerationRatioProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore'),"AccelerationRatioProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s25:AccelerationRatioProperty","")
 
 	Func setAccelerationRatioProperty P1
 		raise("DotNet Error: AccelerationRatioProperty is a read-only property")
 
 	Func getAutoReverseProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore'),"AutoReverseProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s19:AutoReverseProperty","")
 
 	Func setAutoReverseProperty P1
 		raise("DotNet Error: AutoReverseProperty is a read-only property")
 
 	Func getBeginTimeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore'),"BeginTimeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s17:BeginTimeProperty","")
 
 	Func setBeginTimeProperty P1
 		raise("DotNet Error: BeginTimeProperty is a read-only property")
 
 	Func getDecelerationRatioProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore'),"DecelerationRatioProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s25:DecelerationRatioProperty","")
 
 	Func setDecelerationRatioProperty P1
 		raise("DotNet Error: DecelerationRatioProperty is a read-only property")
 
 	Func getDesiredFrameRateProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore'),"DesiredFrameRateProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s24:DesiredFrameRateProperty","")
 
 	Func setDesiredFrameRateProperty P1
 		raise("DotNet Error: DesiredFrameRateProperty is a read-only property")
 
 	Func getDurationProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore'),"DurationProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s16:DurationProperty","")
 
 	Func setDurationProperty P1
 		raise("DotNet Error: DurationProperty is a read-only property")
 
 	Func getFillBehaviorProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore'),"FillBehaviorProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s20:FillBehaviorProperty","")
 
 	Func setFillBehaviorProperty P1
 		raise("DotNet Error: FillBehaviorProperty is a read-only property")
 
 	Func getNameProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore'),"NameProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s12:NameProperty","")
 
 	Func setNameProperty P1
 		raise("DotNet Error: NameProperty is a read-only property")
 
 	Func getRepeatBehaviorProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore'),"RepeatBehaviorProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s22:RepeatBehaviorProperty","")
 
 	Func setRepeatBehaviorProperty P1
 		raise("DotNet Error: RepeatBehaviorProperty is a read-only property")
 
 	Func getSpeedRatioProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore'),"SpeedRatioProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore').nHandle,"s18:SpeedRatioProperty","")
 
 	Func setSpeedRatioProperty P1
 		raise("DotNet Error: SpeedRatioProperty is a read-only property")
@@ -10398,46 +10398,46 @@ Class TimelineCollection from Animatable
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -10460,28 +10460,28 @@ Class AnimationTimeline from Timeline
 		return self
 
 	Func GetCurrentValue P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentValue",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s15:GetCurrentValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getTargetPropertyType
-		return dnRequest("get",[self,"TargetPropertyType"])
+		return dnSend("s3:get",nHandle,"s18:TargetPropertyType","")
 
 	Func setTargetPropertyType P1
 		raise("DotNet Error: TargetPropertyType is a read-only property")
 
 	Func getIsDestinationDefault
-		return dnRequest("get",[self,"IsDestinationDefault"])
+		return dnSend("s3:get",nHandle,"s20:IsDestinationDefault","")
 
 	Func setIsDestinationDefault P1
 		raise("DotNet Error: IsDestinationDefault is a read-only property")
 
 	Func getIsAdditiveProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.AnimationTimeline, PresentationCore'),"IsAdditiveProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.AnimationTimeline, PresentationCore').nHandle,"s18:IsAdditiveProperty","")
 
 	Func setIsAdditiveProperty P1
 		raise("DotNet Error: IsAdditiveProperty is a read-only property")
 
 	Func getIsCumulativeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.AnimationTimeline, PresentationCore'),"IsCumulativeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.AnimationTimeline, PresentationCore').nHandle,"s20:IsCumulativeProperty","")
 
 	Func setIsCumulativeProperty P1
 		raise("DotNet Error: IsCumulativeProperty is a read-only property")
@@ -10502,14 +10502,14 @@ Class TimelineGroup from Timeline
 		return self
 
 	Func getChildren
-		return dnRequest("get",[self,"Children"])
+		return dnSend("s3:get",nHandle,"s8:Children","")
 
 	Func setChildren P1
-		dnRequest("set",[self,"Children",P1])
+		dnSend("s3:set",nHandle,"s8:Children",dnPackItem(P1))
 		return self
 
 	Func getChildrenProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.TimelineGroup, PresentationCore'),"ChildrenProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.TimelineGroup, PresentationCore').nHandle,"s16:ChildrenProperty","")
 
 	Func setChildrenProperty P1
 		raise("DotNet Error: ChildrenProperty is a read-only property")
@@ -10695,14 +10695,14 @@ Class ParallelTimeline from TimelineGroup
 		return self
 
 	Func getSlipBehavior
-		return dnRequest("get",[self,"SlipBehavior"])
+		return dnSend("s3:get",nHandle,"s12:SlipBehavior","")
 
 	Func setSlipBehavior P1
-		dnRequest("set",[self,"SlipBehavior",P1])
+		dnSend("s3:set",nHandle,"s12:SlipBehavior",dnPackItem(P1))
 		return self
 
 	Func getSlipBehaviorProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ParallelTimeline, PresentationCore'),"SlipBehaviorProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ParallelTimeline, PresentationCore').nHandle,"s20:SlipBehaviorProperty","")
 
 	Func setSlipBehaviorProperty P1
 		raise("DotNet Error: SlipBehaviorProperty is a read-only property")
@@ -10867,13 +10867,13 @@ Class BooleanAnimationUsingKeyFrames from BooleanAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 
@@ -10933,67 +10933,67 @@ Class ByteAnimation from ByteAnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ByteAnimation, PresentationCore'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ByteAnimation, PresentationCore').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ByteAnimation, PresentationCore'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ByteAnimation, PresentationCore').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ByteAnimation, PresentationCore'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ByteAnimation, PresentationCore').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ByteAnimation, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ByteAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -11028,27 +11028,27 @@ Class ByteAnimationUsingKeyFrames from ByteAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 
@@ -11079,13 +11079,13 @@ Class CharAnimationUsingKeyFrames from CharAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 
@@ -11145,67 +11145,67 @@ Class ColorAnimation from ColorAnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ColorAnimation, PresentationCore'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ColorAnimation, PresentationCore').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ColorAnimation, PresentationCore'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ColorAnimation, PresentationCore').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ColorAnimation, PresentationCore'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ColorAnimation, PresentationCore').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ColorAnimation, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ColorAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -11240,27 +11240,27 @@ Class ColorAnimationUsingKeyFrames from ColorAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 
@@ -11320,67 +11320,67 @@ Class DecimalAnimation from DecimalAnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.DecimalAnimation, PresentationCore'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DecimalAnimation, PresentationCore').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.DecimalAnimation, PresentationCore'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DecimalAnimation, PresentationCore').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.DecimalAnimation, PresentationCore'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DecimalAnimation, PresentationCore').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.DecimalAnimation, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DecimalAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -11415,27 +11415,27 @@ Class DecimalAnimationUsingKeyFrames from DecimalAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 
@@ -11495,67 +11495,67 @@ Class DoubleAnimation from DoubleAnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.DoubleAnimation, PresentationCore'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleAnimation, PresentationCore').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.DoubleAnimation, PresentationCore'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleAnimation, PresentationCore').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.DoubleAnimation, PresentationCore'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleAnimation, PresentationCore').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.DoubleAnimation, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -11590,27 +11590,27 @@ Class DoubleAnimationUsingKeyFrames from DoubleAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 
@@ -11646,41 +11646,41 @@ Class DoubleAnimationUsingPath from DoubleAnimationBase
 		return self
 
 	Func getPathGeometry
-		return dnRequest("get",[self,"PathGeometry"])
+		return dnSend("s3:get",nHandle,"s12:PathGeometry","")
 
 	Func setPathGeometry P1
-		dnRequest("set",[self,"PathGeometry",P1])
+		dnSend("s3:set",nHandle,"s12:PathGeometry",dnPackItem(P1))
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getPathGeometryProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.DoubleAnimationUsingPath, PresentationCore'),"PathGeometryProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleAnimationUsingPath, PresentationCore').nHandle,"s20:PathGeometryProperty","")
 
 	Func setPathGeometryProperty P1
 		raise("DotNet Error: PathGeometryProperty is a read-only property")
 
 	Func getSourceProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.DoubleAnimationUsingPath, PresentationCore'),"SourceProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.DoubleAnimationUsingPath, PresentationCore').nHandle,"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
@@ -11742,67 +11742,67 @@ Class Int16Animation from Int16AnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int16Animation, PresentationCore'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int16Animation, PresentationCore').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int16Animation, PresentationCore'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int16Animation, PresentationCore').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int16Animation, PresentationCore'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int16Animation, PresentationCore').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int16Animation, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int16Animation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -11837,27 +11837,27 @@ Class Int16AnimationUsingKeyFrames from Int16AnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 
@@ -11917,67 +11917,67 @@ Class Int32Animation from Int32AnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int32Animation, PresentationCore'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int32Animation, PresentationCore').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int32Animation, PresentationCore'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int32Animation, PresentationCore').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int32Animation, PresentationCore'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int32Animation, PresentationCore').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int32Animation, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int32Animation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -12012,27 +12012,27 @@ Class Int32AnimationUsingKeyFrames from Int32AnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 
@@ -12092,67 +12092,67 @@ Class Int64Animation from Int64AnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int64Animation, PresentationCore'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int64Animation, PresentationCore').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int64Animation, PresentationCore'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int64Animation, PresentationCore').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int64Animation, PresentationCore'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int64Animation, PresentationCore').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Int64Animation, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Int64Animation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -12187,27 +12187,27 @@ Class Int64AnimationUsingKeyFrames from Int64AnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 
@@ -12238,13 +12238,13 @@ Class MatrixAnimationUsingKeyFrames from MatrixAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 
@@ -12283,60 +12283,60 @@ Class MatrixAnimationUsingPath from MatrixAnimationBase
 		return self
 
 	Func getDoesRotateWithTangent
-		return dnRequest("get",[self,"DoesRotateWithTangent"])
+		return dnSend("s3:get",nHandle,"s21:DoesRotateWithTangent","")
 
 	Func setDoesRotateWithTangent P1
-		dnRequest("set",[self,"DoesRotateWithTangent",P1])
+		dnSend("s3:set",nHandle,"s21:DoesRotateWithTangent",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsAngleCumulative
-		return dnRequest("get",[self,"IsAngleCumulative"])
+		return dnSend("s3:get",nHandle,"s17:IsAngleCumulative","")
 
 	Func setIsAngleCumulative P1
-		dnRequest("set",[self,"IsAngleCumulative",P1])
+		dnSend("s3:set",nHandle,"s17:IsAngleCumulative",dnPackItem(P1))
 		return self
 
 	Func getIsOffsetCumulative
-		return dnRequest("get",[self,"IsOffsetCumulative"])
+		return dnSend("s3:get",nHandle,"s18:IsOffsetCumulative","")
 
 	Func setIsOffsetCumulative P1
-		dnRequest("set",[self,"IsOffsetCumulative",P1])
+		dnSend("s3:set",nHandle,"s18:IsOffsetCumulative",dnPackItem(P1))
 		return self
 
 	Func getPathGeometry
-		return dnRequest("get",[self,"PathGeometry"])
+		return dnSend("s3:get",nHandle,"s12:PathGeometry","")
 
 	Func setPathGeometry P1
-		dnRequest("set",[self,"PathGeometry",P1])
+		dnSend("s3:set",nHandle,"s12:PathGeometry",dnPackItem(P1))
 		return self
 
 	Func getDoesRotateWithTangentProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore'),"DoesRotateWithTangentProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore').nHandle,"s29:DoesRotateWithTangentProperty","")
 
 	Func setDoesRotateWithTangentProperty P1
 		raise("DotNet Error: DoesRotateWithTangentProperty is a read-only property")
 
 	Func getIsAngleCumulativeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore'),"IsAngleCumulativeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore').nHandle,"s25:IsAngleCumulativeProperty","")
 
 	Func setIsAngleCumulativeProperty P1
 		raise("DotNet Error: IsAngleCumulativeProperty is a read-only property")
 
 	Func getIsOffsetCumulativeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore'),"IsOffsetCumulativeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore').nHandle,"s26:IsOffsetCumulativeProperty","")
 
 	Func setIsOffsetCumulativeProperty P1
 		raise("DotNet Error: IsOffsetCumulativeProperty is a read-only property")
 
 	Func getPathGeometryProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore'),"PathGeometryProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore').nHandle,"s20:PathGeometryProperty","")
 
 	Func setPathGeometryProperty P1
 		raise("DotNet Error: PathGeometryProperty is a read-only property")
@@ -12369,13 +12369,13 @@ Class ObjectAnimationUsingKeyFrames from ObjectAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 
@@ -12435,67 +12435,67 @@ Class Point3DAnimation from Point3DAnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Point3DAnimation, PresentationCore'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Point3DAnimation, PresentationCore').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Point3DAnimation, PresentationCore'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Point3DAnimation, PresentationCore').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Point3DAnimation, PresentationCore'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Point3DAnimation, PresentationCore').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Point3DAnimation, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Point3DAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -12530,27 +12530,27 @@ Class Point3DAnimationUsingKeyFrames from Point3DAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 
@@ -12610,67 +12610,67 @@ Class PointAnimation from PointAnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.PointAnimation, PresentationCore'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PointAnimation, PresentationCore').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.PointAnimation, PresentationCore'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PointAnimation, PresentationCore').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.PointAnimation, PresentationCore'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PointAnimation, PresentationCore').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.PointAnimation, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PointAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -12705,27 +12705,27 @@ Class PointAnimationUsingKeyFrames from PointAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 
@@ -12759,28 +12759,28 @@ Class PointAnimationUsingPath from PointAnimationBase
 		return self
 
 	Func getPathGeometry
-		return dnRequest("get",[self,"PathGeometry"])
+		return dnSend("s3:get",nHandle,"s12:PathGeometry","")
 
 	Func setPathGeometry P1
-		dnRequest("set",[self,"PathGeometry",P1])
+		dnSend("s3:set",nHandle,"s12:PathGeometry",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getPathGeometryProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.PointAnimationUsingPath, PresentationCore'),"PathGeometryProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.PointAnimationUsingPath, PresentationCore').nHandle,"s20:PathGeometryProperty","")
 
 	Func setPathGeometryProperty P1
 		raise("DotNet Error: PathGeometryProperty is a read-only property")
@@ -12844,80 +12844,80 @@ Class QuaternionAnimation from QuaternionAnimationBase
 		return self
 
 	Func getUseShortestPath
-		return dnRequest("get",[self,"UseShortestPath"])
+		return dnSend("s3:get",nHandle,"s15:UseShortestPath","")
 
 	Func setUseShortestPath P1
-		dnRequest("set",[self,"UseShortestPath",P1])
+		dnSend("s3:set",nHandle,"s15:UseShortestPath",dnPackItem(P1))
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getUseShortestPathProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore'),"UseShortestPathProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore').nHandle,"s23:UseShortestPathProperty","")
 
 	Func setUseShortestPathProperty P1
 		raise("DotNet Error: UseShortestPathProperty is a read-only property")
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -12952,27 +12952,27 @@ Class QuaternionAnimationUsingKeyFrames from QuaternionAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 
@@ -13032,67 +13032,67 @@ Class RectAnimation from RectAnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.RectAnimation, PresentationCore'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.RectAnimation, PresentationCore').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.RectAnimation, PresentationCore'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.RectAnimation, PresentationCore').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.RectAnimation, PresentationCore'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.RectAnimation, PresentationCore').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.RectAnimation, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.RectAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -13127,27 +13127,27 @@ Class RectAnimationUsingKeyFrames from RectAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 
@@ -13207,67 +13207,67 @@ Class Rotation3DAnimation from Rotation3DAnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -13302,27 +13302,27 @@ Class Rotation3DAnimationUsingKeyFrames from Rotation3DAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 
@@ -13382,67 +13382,67 @@ Class SingleAnimation from SingleAnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SingleAnimation, PresentationCore'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SingleAnimation, PresentationCore').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SingleAnimation, PresentationCore'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SingleAnimation, PresentationCore').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SingleAnimation, PresentationCore'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SingleAnimation, PresentationCore').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SingleAnimation, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SingleAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -13477,27 +13477,27 @@ Class SingleAnimationUsingKeyFrames from SingleAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 
@@ -13557,67 +13557,67 @@ Class SizeAnimation from SizeAnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SizeAnimation, PresentationCore'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SizeAnimation, PresentationCore').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SizeAnimation, PresentationCore'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SizeAnimation, PresentationCore').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SizeAnimation, PresentationCore'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SizeAnimation, PresentationCore').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.SizeAnimation, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.SizeAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -13652,27 +13652,27 @@ Class SizeAnimationUsingKeyFrames from SizeAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 
@@ -13706,186 +13706,186 @@ Class Storyboard from ParallelTimeline
 
 	Func Begin P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Begin",P1])
+			dnSend("s9:callnamed",nHandle,"s5:Begin",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Begin"])
+			dnSend("s4:call",nHandle,"s5:Begin","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Begin",P1])
+		dnSend("s4:call",nHandle,"s5:Begin",dnPackItem(P1))
 		return self
 
 	Func GetCurrentGlobalSpeed P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCurrentGlobalSpeed",P1])
+			return dnSend("s9:callnamed",nHandle,"s21:GetCurrentGlobalSpeed",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentGlobalSpeed"])
+			return dnSend("s4:call",nHandle,"s21:GetCurrentGlobalSpeed","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentGlobalSpeed",P1])
+		return dnSend("s4:call",nHandle,"s21:GetCurrentGlobalSpeed",dnPackItem(P1))
 
 	Func GetCurrentIteration P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCurrentIteration",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:GetCurrentIteration",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentIteration"])
+			return dnSend("s4:call",nHandle,"s19:GetCurrentIteration","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentIteration",P1])
+		return dnSend("s4:call",nHandle,"s19:GetCurrentIteration",dnPackItem(P1))
 
 	Func GetCurrentProgress P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCurrentProgress",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:GetCurrentProgress",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentProgress"])
+			return dnSend("s4:call",nHandle,"s18:GetCurrentProgress","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentProgress",P1])
+		return dnSend("s4:call",nHandle,"s18:GetCurrentProgress",dnPackItem(P1))
 
 	Func GetCurrentState P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCurrentState",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:GetCurrentState",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentState"])
+			return dnSend("s4:call",nHandle,"s15:GetCurrentState","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentState",P1])
+		return dnSend("s4:call",nHandle,"s15:GetCurrentState",dnPackItem(P1))
 
 	Func GetCurrentTime P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCurrentTime",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:GetCurrentTime",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentTime"])
+			return dnSend("s4:call",nHandle,"s14:GetCurrentTime","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCurrentTime",P1])
+		return dnSend("s4:call",nHandle,"s14:GetCurrentTime",dnPackItem(P1))
 
 	Func GetIsPaused P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetIsPaused",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:GetIsPaused",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetIsPaused"])
+			return dnSend("s4:call",nHandle,"s11:GetIsPaused","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIsPaused",P1])
+		return dnSend("s4:call",nHandle,"s11:GetIsPaused",dnPackItem(P1))
 
 	Func Pause P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Pause",P1])
+			dnSend("s9:callnamed",nHandle,"s5:Pause",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Pause"])
+			dnSend("s4:call",nHandle,"s5:Pause","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Pause",P1])
+		dnSend("s4:call",nHandle,"s5:Pause",dnPackItem(P1))
 		return self
 
 	Func Remove P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Remove",P1])
+			dnSend("s9:callnamed",nHandle,"s6:Remove",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Remove"])
+			dnSend("s4:call",nHandle,"s6:Remove","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func Resume P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Resume",P1])
+			dnSend("s9:callnamed",nHandle,"s6:Resume",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Resume"])
+			dnSend("s4:call",nHandle,"s6:Resume","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Resume",P1])
+		dnSend("s4:call",nHandle,"s6:Resume",dnPackItem(P1))
 		return self
 
 	Func Seek P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Seek",P1])
+			dnSend("s9:callnamed",nHandle,"s4:Seek",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Seek",P1])
+		dnSend("s4:call",nHandle,"s4:Seek",dnPackItem(P1))
 		return self
 
 	Func SeekAlignedToLastTick P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SeekAlignedToLastTick",P1])
+			dnSend("s9:callnamed",nHandle,"s21:SeekAlignedToLastTick",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SeekAlignedToLastTick",P1])
+		dnSend("s4:call",nHandle,"s21:SeekAlignedToLastTick",dnPackItem(P1))
 		return self
 
 	Func SetSpeedRatio_ P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetSpeedRatio",P1])
+			dnSend("s9:callnamed",nHandle,"s13:SetSpeedRatio",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetSpeedRatio",P1])
+		dnSend("s4:call",nHandle,"s13:SetSpeedRatio",dnPackItem(P1))
 		return self
 
 	Func SkipToFill P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SkipToFill",P1])
+			dnSend("s9:callnamed",nHandle,"s10:SkipToFill",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"SkipToFill"])
+			dnSend("s4:call",nHandle,"s10:SkipToFill","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SkipToFill",P1])
+		dnSend("s4:call",nHandle,"s10:SkipToFill",dnPackItem(P1))
 		return self
 
 	Func Stop P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Stop",P1])
+			dnSend("s9:callnamed",nHandle,"s4:Stop",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Stop"])
+			dnSend("s4:call",nHandle,"s4:Stop","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Stop",P1])
+		dnSend("s4:call",nHandle,"s4:Stop",dnPackItem(P1))
 		return self
 
 	Func SetTarget P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"SetTarget",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s9:SetTarget",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetTarget P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"GetTarget",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s9:GetTarget",dnPackItem(P1))
 
 	Func SetTargetName P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"SetTargetName",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s13:SetTargetName",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetTargetName P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"GetTargetName",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s13:GetTargetName",dnPackItem(P1))
 
 	Func SetTargetProperty P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"SetTargetProperty",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s17:SetTargetProperty",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetTargetProperty_ P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"GetTargetProperty",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s17:GetTargetProperty",dnPackItem(P1))
 
 	Func getTargetProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"TargetProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s14:TargetProperty","")
 
 	Func getTargetNameProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"TargetNameProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s18:TargetNameProperty","")
 
 	Func setTargetNameProperty P1
 		raise("DotNet Error: TargetNameProperty is a read-only property")
 
 	Func getTargetPropertyProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"TargetPropertyProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework').nHandle,"s22:TargetPropertyProperty","")
 
 	Func setTargetPropertyProperty P1
 		raise("DotNet Error: TargetPropertyProperty is a read-only property")
@@ -13918,13 +13918,13 @@ Class StringAnimationUsingKeyFrames from StringAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 
@@ -13984,67 +13984,67 @@ Class ThicknessAnimation from ThicknessAnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -14079,27 +14079,27 @@ Class ThicknessAnimationUsingKeyFrames from ThicknessAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 
@@ -14159,67 +14159,67 @@ Class Vector3DAnimation from Vector3DAnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -14254,27 +14254,27 @@ Class Vector3DAnimationUsingKeyFrames from Vector3DAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 
@@ -14334,67 +14334,67 @@ Class VectorAnimation from VectorAnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnSend("s3:set",nHandle,"s2:To",dnPackItem(P1))
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnSend("s3:get",nHandle,"s2:By","")
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnSend("s3:set",nHandle,"s2:By",dnPackItem(P1))
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnSend("s3:get",nHandle,"s14:EasingFunction","")
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnSend("s3:set",nHandle,"s14:EasingFunction",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 	Func getFromProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.VectorAnimation, PresentationCore'),"FromProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.VectorAnimation, PresentationCore').nHandle,"s12:FromProperty","")
 
 	Func setFromProperty P1
 		raise("DotNet Error: FromProperty is a read-only property")
 
 	Func getToProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.VectorAnimation, PresentationCore'),"ToProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.VectorAnimation, PresentationCore').nHandle,"s10:ToProperty","")
 
 	Func setToProperty P1
 		raise("DotNet Error: ToProperty is a read-only property")
 
 	Func getByProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.VectorAnimation, PresentationCore'),"ByProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.VectorAnimation, PresentationCore').nHandle,"s10:ByProperty","")
 
 	Func setByProperty P1
 		raise("DotNet Error: ByProperty is a read-only property")
 
 	Func getEasingFunctionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.VectorAnimation, PresentationCore'),"EasingFunctionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Animation.VectorAnimation, PresentationCore').nHandle,"s22:EasingFunctionProperty","")
 
 	Func setEasingFunctionProperty P1
 		raise("DotNet Error: EasingFunctionProperty is a read-only property")
@@ -14429,27 +14429,27 @@ Class VectorAnimationUsingKeyFrames from VectorAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeKeyFrames"])
+		return dnSend("s4:call",nHandle,"s24:ShouldSerializeKeyFrames","")
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnSend("s3:get",nHandle,"s9:KeyFrames","")
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnSend("s3:set",nHandle,"s9:KeyFrames",dnPackItem(P1))
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnSend("s3:get",nHandle,"s10:IsAdditive","")
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnSend("s3:set",nHandle,"s10:IsAdditive",dnPackItem(P1))
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnSend("s3:get",nHandle,"s12:IsCumulative","")
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnSend("s3:set",nHandle,"s12:IsCumulative",dnPackItem(P1))
 		return self
 
 

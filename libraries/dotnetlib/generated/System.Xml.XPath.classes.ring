@@ -47,7 +47,7 @@ Class IXPathNavigable from DotNetObject
 		return self
 
 	Func CreateNavigator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateNavigator"])
+		return dnSend("s4:call",nHandle,"s15:CreateNavigator","")
 
 
 Class XPathDocument from Object
@@ -79,10 +79,10 @@ Class XPathDocument from Object
 		return self
 
 	Func CreateNavigator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateNavigator"])
+		return dnSend("s4:call",nHandle,"s15:CreateNavigator","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class XPathExpression from Object
@@ -101,35 +101,35 @@ Class XPathExpression from Object
 
 	Func AddSort P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddSort",P1])
+			dnSend("s9:callnamed",nHandle,"s7:AddSort",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: AddSort does not take one argument: use named arguments, AddSort([ :parameter = value, ... ])")
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func SetContext P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetContext",P1])
+		dnSend("s4:call",nHandle,"s10:SetContext",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Compile P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml'),"Compile",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml').nHandle,"s7:Compile",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml'),"Compile",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml').nHandle,"s7:Compile",dnPackItem(P1))
 
 	Func getExpression
-		return dnRequest("get",[self,"Expression"])
+		return dnSend("s3:get",nHandle,"s10:Expression","")
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getReturnType
-		return dnRequest("get",[self,"ReturnType"])
+		return dnSend("s3:get",nHandle,"s10:ReturnType","")
 
 	Func setReturnType P1
 		raise("DotNet Error: ReturnType is a read-only property")
@@ -159,69 +159,69 @@ Class XPathItem from Object
 
 	Func ValueAs P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ValueAs",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:ValueAs",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueAs",P1])
+		return dnSend("s4:call",nHandle,"s7:ValueAs",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getIsNode
-		return dnRequest("get",[self,"IsNode"])
+		return dnSend("s3:get",nHandle,"s6:IsNode","")
 
 	Func setIsNode P1
 		raise("DotNet Error: IsNode is a read-only property")
 
 	Func getXmlType
-		return dnRequest("get",[self,"XmlType"])
+		return dnSend("s3:get",nHandle,"s7:XmlType","")
 
 	Func setXmlType P1
 		raise("DotNet Error: XmlType is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getTypedValue
-		return dnRequest("get",[self,"TypedValue"])
+		return dnSend("s3:get",nHandle,"s10:TypedValue","")
 
 	Func setTypedValue P1
 		raise("DotNet Error: TypedValue is a read-only property")
 
 	Func getValueType
-		return dnRequest("get",[self,"ValueType"])
+		return dnSend("s3:get",nHandle,"s9:ValueType","")
 
 	Func setValueType P1
 		raise("DotNet Error: ValueType is a read-only property")
 
 	Func getValueAsBoolean
-		return dnRequest("get",[self,"ValueAsBoolean"])
+		return dnSend("s3:get",nHandle,"s14:ValueAsBoolean","")
 
 	Func setValueAsBoolean P1
 		raise("DotNet Error: ValueAsBoolean is a read-only property")
 
 	Func getValueAsDateTime
-		return dnRequest("get",[self,"ValueAsDateTime"])
+		return dnSend("s3:get",nHandle,"s15:ValueAsDateTime","")
 
 	Func setValueAsDateTime P1
 		raise("DotNet Error: ValueAsDateTime is a read-only property")
 
 	Func getValueAsDouble
-		return dnRequest("get",[self,"ValueAsDouble"])
+		return dnSend("s3:get",nHandle,"s13:ValueAsDouble","")
 
 	Func setValueAsDouble P1
 		raise("DotNet Error: ValueAsDouble is a read-only property")
 
 	Func getValueAsInt
-		return dnRequest("get",[self,"ValueAsInt"])
+		return dnSend("s3:get",nHandle,"s10:ValueAsInt","")
 
 	Func setValueAsInt P1
 		raise("DotNet Error: ValueAsInt is a read-only property")
 
 	Func getValueAsLong
-		return dnRequest("get",[self,"ValueAsLong"])
+		return dnSend("s3:get",nHandle,"s11:ValueAsLong","")
 
 	Func setValueAsLong P1
 		raise("DotNet Error: ValueAsLong is a read-only property")
@@ -243,31 +243,31 @@ Class XPathNodeIterator from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func MoveNext 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveNext"])
+		return dnSend("s4:call",nHandle,"s8:MoveNext","")
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCurrent
-		return dnRequest("get",[self,"Current"])
+		return dnSend("s3:get",nHandle,"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getCurrentPosition
-		return dnRequest("get",[self,"CurrentPosition"])
+		return dnSend("s3:get",nHandle,"s15:CurrentPosition","")
 
 	Func setCurrentPosition P1
 		raise("DotNet Error: CurrentPosition is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -303,346 +303,346 @@ Class XPathNavigator from XPathItem
 		return self
 
 	Func SetValue P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValue",P1])
+		dnSend("s4:call",nHandle,"s8:SetValue",dnPackItem(P1))
 		return self
 
 	Func SetTypedValue P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetTypedValue",P1])
+		dnSend("s4:call",nHandle,"s13:SetTypedValue",dnPackItem(P1))
 		return self
 
 	Func CreateNavigator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateNavigator"])
+		return dnSend("s4:call",nHandle,"s15:CreateNavigator","")
 
 	Func LookupNamespace P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LookupNamespace",P1])
+		return dnSend("s4:call",nHandle,"s15:LookupNamespace",dnPackItem(P1))
 
 	Func LookupPrefix P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LookupPrefix",P1])
+		return dnSend("s4:call",nHandle,"s12:LookupPrefix",dnPackItem(P1))
 
 	Func GetNamespacesInScope P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNamespacesInScope",P1])
+		return dnSend("s4:call",nHandle,"s20:GetNamespacesInScope",dnPackItem(P1))
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func ReadSubtree 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadSubtree"])
+		return dnSend("s4:call",nHandle,"s11:ReadSubtree","")
 
 	Func WriteSubtree P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteSubtree",P1])
+		dnSend("s4:call",nHandle,"s12:WriteSubtree",dnPackItem(P1))
 		return self
 
 	Func GetAttribute P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAttribute",P1,P2])
+		return dnSend("s4:call",nHandle,"s12:GetAttribute",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MoveToAttribute P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToAttribute",P1,P2])
+		return dnSend("s4:call",nHandle,"s15:MoveToAttribute",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MoveToFirstAttribute 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToFirstAttribute"])
+		return dnSend("s4:call",nHandle,"s20:MoveToFirstAttribute","")
 
 	Func MoveToNextAttribute 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToNextAttribute"])
+		return dnSend("s4:call",nHandle,"s19:MoveToNextAttribute","")
 
 	Func GetNamespace P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNamespace",P1])
+		return dnSend("s4:call",nHandle,"s12:GetNamespace",dnPackItem(P1))
 
 	Func MoveToNamespace P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToNamespace",P1])
+		return dnSend("s4:call",nHandle,"s15:MoveToNamespace",dnPackItem(P1))
 
 	Func MoveToFirstNamespace P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"MoveToFirstNamespace",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:MoveToFirstNamespace",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToFirstNamespace"])
+			return dnSend("s4:call",nHandle,"s20:MoveToFirstNamespace","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToFirstNamespace",P1])
+		return dnSend("s4:call",nHandle,"s20:MoveToFirstNamespace",dnPackItem(P1))
 
 	Func MoveToNextNamespace P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"MoveToNextNamespace",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:MoveToNextNamespace",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToNextNamespace"])
+			return dnSend("s4:call",nHandle,"s19:MoveToNextNamespace","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToNextNamespace",P1])
+		return dnSend("s4:call",nHandle,"s19:MoveToNextNamespace",dnPackItem(P1))
 
 	Func MoveToNext P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"MoveToNext",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:MoveToNext",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToNext"])
+			return dnSend("s4:call",nHandle,"s10:MoveToNext","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToNext",P1])
+		return dnSend("s4:call",nHandle,"s10:MoveToNext",dnPackItem(P1))
 
 	Func MoveToPrevious 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToPrevious"])
+		return dnSend("s4:call",nHandle,"s14:MoveToPrevious","")
 
 	Func MoveToFirst 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToFirst"])
+		return dnSend("s4:call",nHandle,"s11:MoveToFirst","")
 
 	Func MoveToFirstChild 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToFirstChild"])
+		return dnSend("s4:call",nHandle,"s16:MoveToFirstChild","")
 
 	Func MoveToParent 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToParent"])
+		return dnSend("s4:call",nHandle,"s12:MoveToParent","")
 
 	Func MoveToRoot 
-		dnRequest("call",[new DotNetObject(this.nHandle),"MoveToRoot"])
+		dnSend("s4:call",nHandle,"s10:MoveToRoot","")
 		return self
 
 	Func MoveTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveTo",P1])
+		return dnSend("s4:call",nHandle,"s6:MoveTo",dnPackItem(P1))
 
 	Func MoveToId P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToId",P1])
+		return dnSend("s4:call",nHandle,"s8:MoveToId",dnPackItem(P1))
 
 	Func MoveToChild P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"MoveToChild",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:MoveToChild",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToChild",P1])
+		return dnSend("s4:call",nHandle,"s11:MoveToChild",dnPackItem(P1))
 
 	Func MoveToFollowing P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"MoveToFollowing",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:MoveToFollowing",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToFollowing",P1])
+		return dnSend("s4:call",nHandle,"s15:MoveToFollowing",dnPackItem(P1))
 
 	Func IsSamePosition P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSamePosition",P1])
+		return dnSend("s4:call",nHandle,"s14:IsSamePosition",dnPackItem(P1))
 
 	Func IsDescendant P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsDescendant",P1])
+		return dnSend("s4:call",nHandle,"s12:IsDescendant",dnPackItem(P1))
 
 	Func ComparePosition P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ComparePosition",P1])
+		return dnSend("s4:call",nHandle,"s15:ComparePosition",dnPackItem(P1))
 
 	Func CheckValidity P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CheckValidity",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:CheckValidity",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Compile P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Compile",P1])
+		return dnSend("s4:call",nHandle,"s7:Compile",dnPackItem(P1))
 
 	Func SelectSingleNode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SelectSingleNode",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:SelectSingleNode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SelectSingleNode",P1])
+		return dnSend("s4:call",nHandle,"s16:SelectSingleNode",dnPackItem(P1))
 
 	Func Select P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Select",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Select",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Select",P1])
+		return dnSend("s4:call",nHandle,"s6:Select",dnPackItem(P1))
 
 	Func Evaluate P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Evaluate",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:Evaluate",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Evaluate",P1])
+		return dnSend("s4:call",nHandle,"s8:Evaluate",dnPackItem(P1))
 
 	Func Matches P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Matches",P1])
+		return dnSend("s4:call",nHandle,"s7:Matches",dnPackItem(P1))
 
 	Func SelectChildren P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SelectChildren",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:SelectChildren",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SelectChildren",P1])
+		return dnSend("s4:call",nHandle,"s14:SelectChildren",dnPackItem(P1))
 
 	Func SelectAncestors P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SelectAncestors",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:SelectAncestors",dnPackItem(P1))
 		ok
 		raise("DotNet Error: SelectAncestors does not take one argument: use named arguments, SelectAncestors([ :parameter = value, ... ])")
 
 	Func SelectDescendants P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SelectDescendants",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:SelectDescendants",dnPackItem(P1))
 		ok
 		raise("DotNet Error: SelectDescendants does not take one argument: use named arguments, SelectDescendants([ :parameter = value, ... ])")
 
 	Func PrependChild P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"PrependChild",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:PrependChild",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"PrependChild"])
+			return dnSend("s4:call",nHandle,"s12:PrependChild","")
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"PrependChild",P1])
+		dnSend("s4:call",nHandle,"s12:PrependChild",dnPackItem(P1))
 		return self
 
 	Func AppendChild P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AppendChild",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:AppendChild",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"AppendChild"])
+			return dnSend("s4:call",nHandle,"s11:AppendChild","")
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"AppendChild",P1])
+		dnSend("s4:call",nHandle,"s11:AppendChild",dnPackItem(P1))
 		return self
 
 	Func InsertAfter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"InsertAfter",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:InsertAfter",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"InsertAfter"])
+			return dnSend("s4:call",nHandle,"s11:InsertAfter","")
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"InsertAfter",P1])
+		dnSend("s4:call",nHandle,"s11:InsertAfter",dnPackItem(P1))
 		return self
 
 	Func InsertBefore P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"InsertBefore",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:InsertBefore",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"InsertBefore"])
+			return dnSend("s4:call",nHandle,"s12:InsertBefore","")
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"InsertBefore",P1])
+		dnSend("s4:call",nHandle,"s12:InsertBefore",dnPackItem(P1))
 		return self
 
 	Func CreateAttributes 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateAttributes"])
+		return dnSend("s4:call",nHandle,"s16:CreateAttributes","")
 
 	Func ReplaceRange P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReplaceRange",P1])
+		return dnSend("s4:call",nHandle,"s12:ReplaceRange",dnPackItem(P1))
 
 	Func ReplaceSelf P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ReplaceSelf",P1])
+		dnSend("s4:call",nHandle,"s11:ReplaceSelf",dnPackItem(P1))
 		return self
 
 	Func DeleteRange P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"DeleteRange",P1])
+		dnSend("s4:call",nHandle,"s11:DeleteRange",dnPackItem(P1))
 		return self
 
 	Func DeleteSelf 
-		dnRequest("call",[new DotNetObject(this.nHandle),"DeleteSelf"])
+		dnSend("s4:call",nHandle,"s10:DeleteSelf","")
 		return self
 
 	Func PrependChildElement P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(this.nHandle),"PrependChildElement",P1,P2,P3,P4])
+		dnSend("s4:call",nHandle,"s19:PrependChildElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func AppendChildElement P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(this.nHandle),"AppendChildElement",P1,P2,P3,P4])
+		dnSend("s4:call",nHandle,"s18:AppendChildElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func InsertElementBefore P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(this.nHandle),"InsertElementBefore",P1,P2,P3,P4])
+		dnSend("s4:call",nHandle,"s19:InsertElementBefore",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func InsertElementAfter P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(this.nHandle),"InsertElementAfter",P1,P2,P3,P4])
+		dnSend("s4:call",nHandle,"s18:InsertElementAfter",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func CreateAttribute P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(this.nHandle),"CreateAttribute",P1,P2,P3,P4])
+		dnSend("s4:call",nHandle,"s15:CreateAttribute",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func getNameTable
-		return dnRequest("get",[self,"NameTable"])
+		return dnSend("s3:get",nHandle,"s9:NameTable","")
 
 	Func setNameTable P1
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getNodeType
-		return dnRequest("get",[self,"NodeType"])
+		return dnSend("s3:get",nHandle,"s8:NodeType","")
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getLocalName
-		return dnRequest("get",[self,"LocalName"])
+		return dnSend("s3:get",nHandle,"s9:LocalName","")
 
 	Func setLocalName P1
 		raise("DotNet Error: LocalName is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getNamespaceURI
-		return dnRequest("get",[self,"NamespaceURI"])
+		return dnSend("s3:get",nHandle,"s12:NamespaceURI","")
 
 	Func setNamespaceURI P1
 		raise("DotNet Error: NamespaceURI is a read-only property")
 
 	Func getPrefix
-		return dnRequest("get",[self,"Prefix"])
+		return dnSend("s3:get",nHandle,"s6:Prefix","")
 
 	Func setPrefix P1
 		raise("DotNet Error: Prefix is a read-only property")
 
 	Func getBaseURI
-		return dnRequest("get",[self,"BaseURI"])
+		return dnSend("s3:get",nHandle,"s7:BaseURI","")
 
 	Func setBaseURI P1
 		raise("DotNet Error: BaseURI is a read-only property")
 
 	Func getIsEmptyElement
-		return dnRequest("get",[self,"IsEmptyElement"])
+		return dnSend("s3:get",nHandle,"s14:IsEmptyElement","")
 
 	Func setIsEmptyElement P1
 		raise("DotNet Error: IsEmptyElement is a read-only property")
 
 	Func getXmlLang
-		return dnRequest("get",[self,"XmlLang"])
+		return dnSend("s3:get",nHandle,"s7:XmlLang","")
 
 	Func setXmlLang P1
 		raise("DotNet Error: XmlLang is a read-only property")
 
 	Func getUnderlyingObject
-		return dnRequest("get",[self,"UnderlyingObject"])
+		return dnSend("s3:get",nHandle,"s16:UnderlyingObject","")
 
 	Func setUnderlyingObject P1
 		raise("DotNet Error: UnderlyingObject is a read-only property")
 
 	Func getHasAttributes
-		return dnRequest("get",[self,"HasAttributes"])
+		return dnSend("s3:get",nHandle,"s13:HasAttributes","")
 
 	Func setHasAttributes P1
 		raise("DotNet Error: HasAttributes is a read-only property")
 
 	Func getHasChildren
-		return dnRequest("get",[self,"HasChildren"])
+		return dnSend("s3:get",nHandle,"s11:HasChildren","")
 
 	Func setHasChildren P1
 		raise("DotNet Error: HasChildren is a read-only property")
 
 	Func getSchemaInfo
-		return dnRequest("get",[self,"SchemaInfo"])
+		return dnSend("s3:get",nHandle,"s10:SchemaInfo","")
 
 	Func setSchemaInfo P1
 		raise("DotNet Error: SchemaInfo is a read-only property")
 
 	Func getCanEdit
-		return dnRequest("get",[self,"CanEdit"])
+		return dnSend("s3:get",nHandle,"s7:CanEdit","")
 
 	Func setCanEdit P1
 		raise("DotNet Error: CanEdit is a read-only property")
 
 	Func getOuterXml
-		return dnRequest("get",[self,"OuterXml"])
+		return dnSend("s3:get",nHandle,"s8:OuterXml","")
 
 	Func setOuterXml P1
-		dnRequest("set",[self,"OuterXml",P1])
+		dnSend("s3:set",nHandle,"s8:OuterXml",dnPackItem(P1))
 		return self
 
 	Func getInnerXml
-		return dnRequest("get",[self,"InnerXml"])
+		return dnSend("s3:get",nHandle,"s8:InnerXml","")
 
 	Func setInnerXml P1
-		dnRequest("set",[self,"InnerXml",P1])
+		dnSend("s3:set",nHandle,"s8:InnerXml",dnPackItem(P1))
 		return self
 
 	Func getNavigatorComparer
-		return dnRequest("get",[dnTypeCached('System.Xml.XPath.XPathNavigator, System.Private.Xml'),"NavigatorComparer"])
+		return dnSend("s3:get",dnTypeCached('System.Xml.XPath.XPathNavigator, System.Private.Xml').nHandle,"s17:NavigatorComparer","")
 
 	Func setNavigatorComparer P1
 		raise("DotNet Error: NavigatorComparer is a read-only property")

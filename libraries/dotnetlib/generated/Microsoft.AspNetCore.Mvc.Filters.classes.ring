@@ -243,71 +243,71 @@ Class FilterCollection from DotNetObject
 
 	Func Add P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Add",P1])
+			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"Add"])
+			return dnSend("s4:call",nHandle,"s3:Add","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func AddService P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddService",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:AddService",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"AddService"])
+			return dnSend("s4:call",nHandle,"s10:AddService","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddService",P1])
+		return dnSend("s4:call",nHandle,"s10:AddService",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -327,13 +327,13 @@ Class FilterContext from ActionContext
 		return self
 
 	Func IsEffectivePolicy P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsEffectivePolicy",P1])
+		return dnSend("s4:call",nHandle,"s17:IsEffectivePolicy",dnPackItem(P1))
 
 	Func FindEffectivePolicy 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindEffectivePolicy"])
+		return dnSend("s4:call",nHandle,"s19:FindEffectivePolicy","")
 
 	Func getFilters
-		return dnRequest("get",[self,"Filters"])
+		return dnSend("s3:get",nHandle,"s7:Filters","")
 
 	Func setFilters P1
 		raise("DotNet Error: Filters is a read-only property")
@@ -357,23 +357,23 @@ Class FilterDescriptor from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getFilter
-		return dnRequest("get",[self,"Filter"])
+		return dnSend("s3:get",nHandle,"s6:Filter","")
 
 	Func setFilter P1
 		raise("DotNet Error: Filter is a read-only property")
 
 	Func getOrder
-		return dnRequest("get",[self,"Order"])
+		return dnSend("s3:get",nHandle,"s5:Order","")
 
 	Func setOrder P1
-		dnRequest("set",[self,"Order",P1])
+		dnSend("s3:set",nHandle,"s5:Order",dnPackItem(P1))
 		return self
 
 	Func getScope
-		return dnRequest("get",[self,"Scope"])
+		return dnSend("s3:get",nHandle,"s5:Scope","")
 
 	Func setScope P1
 		raise("DotNet Error: Scope is a read-only property")
@@ -412,26 +412,26 @@ Class FilterItem from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDescriptor
-		return dnRequest("get",[self,"Descriptor"])
+		return dnSend("s3:get",nHandle,"s10:Descriptor","")
 
 	Func setDescriptor P1
 		raise("DotNet Error: Descriptor is a read-only property")
 
 	Func getFilter
-		return dnRequest("get",[self,"Filter"])
+		return dnSend("s3:get",nHandle,"s6:Filter","")
 
 	Func setFilter P1
-		dnRequest("set",[self,"Filter",P1])
+		dnSend("s3:set",nHandle,"s6:Filter",dnPackItem(P1))
 		return self
 
 	Func getIsReusable
-		return dnRequest("get",[self,"IsReusable"])
+		return dnSend("s3:get",nHandle,"s10:IsReusable","")
 
 	Func setIsReusable P1
-		dnRequest("set",[self,"IsReusable",P1])
+		dnSend("s3:set",nHandle,"s10:IsReusable",dnPackItem(P1))
 		return self
 
 
@@ -452,20 +452,20 @@ Class FilterProviderContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getActionContext
-		return dnRequest("get",[self,"ActionContext"])
+		return dnSend("s3:get",nHandle,"s13:ActionContext","")
 
 	Func setActionContext P1
-		dnRequest("set",[self,"ActionContext",P1])
+		dnSend("s3:set",nHandle,"s13:ActionContext",dnPackItem(P1))
 		return self
 
 	Func getResults
-		return dnRequest("get",[self,"Results"])
+		return dnSend("s3:get",nHandle,"s7:Results","")
 
 	Func setResults P1
-		dnRequest("set",[self,"Results",P1])
+		dnSend("s3:set",nHandle,"s7:Results",dnPackItem(P1))
 		return self
 
 
@@ -487,34 +487,34 @@ Class FilterScope from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getFirst
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"First"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core').nHandle,"s5:First","")
 
 	Func setFirst P1
 		raise("DotNet Error: First is a read-only property")
 
 	Func getGlobal
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"Global"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core').nHandle,"s6:Global","")
 
 	Func setGlobal P1
 		raise("DotNet Error: Global is a read-only property")
 
 	Func getController
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"Controller"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core').nHandle,"s10:Controller","")
 
 	Func setController P1
 		raise("DotNet Error: Controller is a read-only property")
 
 	Func getAction
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"Action"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core').nHandle,"s6:Action","")
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
 
 	Func getLast
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core'),"Last"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core').nHandle,"s4:Last","")
 
 	Func setLast P1
 		raise("DotNet Error: Last is a read-only property")
@@ -532,11 +532,11 @@ Class IActionFilter from DotNetObject
 		return self
 
 	Func OnActionExecuting P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnActionExecuting",P1])
+		dnSend("s4:call",nHandle,"s17:OnActionExecuting",dnPackItem(P1))
 		return self
 
 	Func OnActionExecuted P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnActionExecuted",P1])
+		dnSend("s4:call",nHandle,"s16:OnActionExecuted",dnPackItem(P1))
 		return self
 
 
@@ -564,7 +564,7 @@ Class IAsyncActionFilter from DotNetObject
 		return self
 
 	Func OnActionExecutionAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"OnActionExecutionAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s22:OnActionExecutionAsync",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class IAsyncAlwaysRunResultFilter from DotNetObject
@@ -591,7 +591,7 @@ Class IAsyncAuthorizationFilter from DotNetObject
 		return self
 
 	Func OnAuthorizationAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"OnAuthorizationAsync",P1])
+		return dnSend("s4:call",nHandle,"s20:OnAuthorizationAsync",dnPackItem(P1))
 
 
 Class IAsyncExceptionFilter from DotNetObject
@@ -606,7 +606,7 @@ Class IAsyncExceptionFilter from DotNetObject
 		return self
 
 	Func OnExceptionAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"OnExceptionAsync",P1])
+		return dnSend("s4:call",nHandle,"s16:OnExceptionAsync",dnPackItem(P1))
 
 
 Class IAsyncPageFilter from DotNetObject
@@ -621,10 +621,10 @@ Class IAsyncPageFilter from DotNetObject
 		return self
 
 	Func OnPageHandlerSelectionAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"OnPageHandlerSelectionAsync",P1])
+		return dnSend("s4:call",nHandle,"s27:OnPageHandlerSelectionAsync",dnPackItem(P1))
 
 	Func OnPageHandlerExecutionAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"OnPageHandlerExecutionAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s27:OnPageHandlerExecutionAsync",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class IAsyncResourceFilter from DotNetObject
@@ -639,7 +639,7 @@ Class IAsyncResourceFilter from DotNetObject
 		return self
 
 	Func OnResourceExecutionAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"OnResourceExecutionAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s24:OnResourceExecutionAsync",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class IAsyncResultFilter from DotNetObject
@@ -654,7 +654,7 @@ Class IAsyncResultFilter from DotNetObject
 		return self
 
 	Func OnResultExecutionAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"OnResultExecutionAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s22:OnResultExecutionAsync",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class IAuthorizationFilter from DotNetObject
@@ -669,7 +669,7 @@ Class IAuthorizationFilter from DotNetObject
 		return self
 
 	Func OnAuthorization P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnAuthorization",P1])
+		dnSend("s4:call",nHandle,"s15:OnAuthorization",dnPackItem(P1))
 		return self
 
 
@@ -685,7 +685,7 @@ Class IExceptionFilter from DotNetObject
 		return self
 
 	Func OnException P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnException",P1])
+		dnSend("s4:call",nHandle,"s11:OnException",dnPackItem(P1))
 		return self
 
 
@@ -703,10 +703,10 @@ Class IFilterContainer from DotNetObject
 		return self
 
 	Func getFilterDefinition
-		return dnRequest("get",[self,"FilterDefinition"])
+		return dnSend("s3:get",nHandle,"s16:FilterDefinition","")
 
 	Func setFilterDefinition P1
-		dnRequest("set",[self,"FilterDefinition",P1])
+		dnSend("s3:set",nHandle,"s16:FilterDefinition",dnPackItem(P1))
 		return self
 
 
@@ -724,10 +724,10 @@ Class IFilterFactory from DotNetObject
 		return self
 
 	Func CreateInstance P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateInstance",P1])
+		return dnSend("s4:call",nHandle,"s14:CreateInstance",dnPackItem(P1))
 
 	Func getIsReusable
-		return dnRequest("get",[self,"IsReusable"])
+		return dnSend("s3:get",nHandle,"s10:IsReusable","")
 
 	Func setIsReusable P1
 		raise("DotNet Error: IsReusable is a read-only property")
@@ -759,15 +759,15 @@ Class IFilterProvider from DotNetObject
 		return self
 
 	Func OnProvidersExecuting P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnProvidersExecuting",P1])
+		dnSend("s4:call",nHandle,"s20:OnProvidersExecuting",dnPackItem(P1))
 		return self
 
 	Func OnProvidersExecuted P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnProvidersExecuted",P1])
+		dnSend("s4:call",nHandle,"s19:OnProvidersExecuted",dnPackItem(P1))
 		return self
 
 	Func getOrder
-		return dnRequest("get",[self,"Order"])
+		return dnSend("s3:get",nHandle,"s5:Order","")
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
@@ -787,7 +787,7 @@ Class IOrderedFilter from DotNetObject
 		return self
 
 	Func getOrder
-		return dnRequest("get",[self,"Order"])
+		return dnSend("s3:get",nHandle,"s5:Order","")
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
@@ -805,15 +805,15 @@ Class IPageFilter from DotNetObject
 		return self
 
 	Func OnPageHandlerSelected P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnPageHandlerSelected",P1])
+		dnSend("s4:call",nHandle,"s21:OnPageHandlerSelected",dnPackItem(P1))
 		return self
 
 	Func OnPageHandlerExecuting P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnPageHandlerExecuting",P1])
+		dnSend("s4:call",nHandle,"s22:OnPageHandlerExecuting",dnPackItem(P1))
 		return self
 
 	Func OnPageHandlerExecuted P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnPageHandlerExecuted",P1])
+		dnSend("s4:call",nHandle,"s21:OnPageHandlerExecuted",dnPackItem(P1))
 		return self
 
 
@@ -829,11 +829,11 @@ Class IResourceFilter from DotNetObject
 		return self
 
 	Func OnResourceExecuting P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnResourceExecuting",P1])
+		dnSend("s4:call",nHandle,"s19:OnResourceExecuting",dnPackItem(P1))
 		return self
 
 	Func OnResourceExecuted P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnResourceExecuted",P1])
+		dnSend("s4:call",nHandle,"s18:OnResourceExecuted",dnPackItem(P1))
 		return self
 
 
@@ -849,11 +849,11 @@ Class IResultFilter from DotNetObject
 		return self
 
 	Func OnResultExecuting P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnResultExecuting",P1])
+		dnSend("s4:call",nHandle,"s17:OnResultExecuting",dnPackItem(P1))
 		return self
 
 	Func OnResultExecuted P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnResultExecuted",P1])
+		dnSend("s4:call",nHandle,"s16:OnResultExecuted",dnPackItem(P1))
 		return self
 
 
@@ -878,44 +878,44 @@ Class ActionExecutedContext from FilterContext
 		return self
 
 	Func getCanceled
-		return dnRequest("get",[self,"Canceled"])
+		return dnSend("s3:get",nHandle,"s8:Canceled","")
 
 	Func setCanceled P1
-		dnRequest("set",[self,"Canceled",P1])
+		dnSend("s3:set",nHandle,"s8:Canceled",dnPackItem(P1))
 		return self
 
 	Func getController
-		return dnRequest("get",[self,"Controller"])
+		return dnSend("s3:get",nHandle,"s10:Controller","")
 
 	Func setController P1
 		raise("DotNet Error: Controller is a read-only property")
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnSend("s3:get",nHandle,"s9:Exception","")
 
 	Func setException P1
-		dnRequest("set",[self,"Exception",P1])
+		dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1))
 		return self
 
 	Func getExceptionDispatchInfo
-		return dnRequest("get",[self,"ExceptionDispatchInfo"])
+		return dnSend("s3:get",nHandle,"s21:ExceptionDispatchInfo","")
 
 	Func setExceptionDispatchInfo P1
-		dnRequest("set",[self,"ExceptionDispatchInfo",P1])
+		dnSend("s3:set",nHandle,"s21:ExceptionDispatchInfo",dnPackItem(P1))
 		return self
 
 	Func getExceptionHandled
-		return dnRequest("get",[self,"ExceptionHandled"])
+		return dnSend("s3:get",nHandle,"s16:ExceptionHandled","")
 
 	Func setExceptionHandled P1
-		dnRequest("set",[self,"ExceptionHandled",P1])
+		dnSend("s3:set",nHandle,"s16:ExceptionHandled",dnPackItem(P1))
 		return self
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnRequest("set",[self,"Result",P1])
+		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
 		return self
 
 
@@ -937,20 +937,20 @@ Class ActionExecutingContext from FilterContext
 		return self
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnRequest("set",[self,"Result",P1])
+		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
 		return self
 
 	Func getActionArguments
-		return dnRequest("get",[self,"ActionArguments"])
+		return dnSend("s3:get",nHandle,"s15:ActionArguments","")
 
 	Func setActionArguments P1
 		raise("DotNet Error: ActionArguments is a read-only property")
 
 	Func getController
-		return dnRequest("get",[self,"Controller"])
+		return dnSend("s3:get",nHandle,"s10:Controller","")
 
 	Func setController P1
 		raise("DotNet Error: Controller is a read-only property")
@@ -972,10 +972,10 @@ Class AuthorizationFilterContext from FilterContext
 		return self
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnRequest("set",[self,"Result",P1])
+		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
 		return self
 
 
@@ -998,31 +998,31 @@ Class ExceptionContext from FilterContext
 		return self
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnSend("s3:get",nHandle,"s9:Exception","")
 
 	Func setException P1
-		dnRequest("set",[self,"Exception",P1])
+		dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1))
 		return self
 
 	Func getExceptionDispatchInfo
-		return dnRequest("get",[self,"ExceptionDispatchInfo"])
+		return dnSend("s3:get",nHandle,"s21:ExceptionDispatchInfo","")
 
 	Func setExceptionDispatchInfo P1
-		dnRequest("set",[self,"ExceptionDispatchInfo",P1])
+		dnSend("s3:set",nHandle,"s21:ExceptionDispatchInfo",dnPackItem(P1))
 		return self
 
 	Func getExceptionHandled
-		return dnRequest("get",[self,"ExceptionHandled"])
+		return dnSend("s3:get",nHandle,"s16:ExceptionHandled","")
 
 	Func setExceptionHandled P1
-		dnRequest("set",[self,"ExceptionHandled",P1])
+		dnSend("s3:set",nHandle,"s16:ExceptionHandled",dnPackItem(P1))
 		return self
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnRequest("set",[self,"Result",P1])
+		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
 		return self
 
 
@@ -1051,50 +1051,50 @@ Class PageHandlerExecutedContext from FilterContext
 		raise("DotNet Error: ActionDescriptor is a read-only property")
 
 	Func getCanceled
-		return dnRequest("get",[self,"Canceled"])
+		return dnSend("s3:get",nHandle,"s8:Canceled","")
 
 	Func setCanceled P1
-		dnRequest("set",[self,"Canceled",P1])
+		dnSend("s3:set",nHandle,"s8:Canceled",dnPackItem(P1))
 		return self
 
 	Func getHandlerInstance
-		return dnRequest("get",[self,"HandlerInstance"])
+		return dnSend("s3:get",nHandle,"s15:HandlerInstance","")
 
 	Func setHandlerInstance P1
 		raise("DotNet Error: HandlerInstance is a read-only property")
 
 	Func getHandlerMethod
-		return dnRequest("get",[self,"HandlerMethod"])
+		return dnSend("s3:get",nHandle,"s13:HandlerMethod","")
 
 	Func setHandlerMethod P1
 		raise("DotNet Error: HandlerMethod is a read-only property")
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnSend("s3:get",nHandle,"s9:Exception","")
 
 	Func setException P1
-		dnRequest("set",[self,"Exception",P1])
+		dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1))
 		return self
 
 	Func getExceptionDispatchInfo
-		return dnRequest("get",[self,"ExceptionDispatchInfo"])
+		return dnSend("s3:get",nHandle,"s21:ExceptionDispatchInfo","")
 
 	Func setExceptionDispatchInfo P1
-		dnRequest("set",[self,"ExceptionDispatchInfo",P1])
+		dnSend("s3:set",nHandle,"s21:ExceptionDispatchInfo",dnPackItem(P1))
 		return self
 
 	Func getExceptionHandled
-		return dnRequest("get",[self,"ExceptionHandled"])
+		return dnSend("s3:get",nHandle,"s16:ExceptionHandled","")
 
 	Func setExceptionHandled P1
-		dnRequest("set",[self,"ExceptionHandled",P1])
+		dnSend("s3:set",nHandle,"s16:ExceptionHandled",dnPackItem(P1))
 		return self
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnRequest("set",[self,"Result",P1])
+		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
 		return self
 
 
@@ -1120,26 +1120,26 @@ Class PageHandlerExecutingContext from FilterContext
 		raise("DotNet Error: ActionDescriptor is a read-only property")
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnRequest("set",[self,"Result",P1])
+		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
 		return self
 
 	Func getHandlerArguments
-		return dnRequest("get",[self,"HandlerArguments"])
+		return dnSend("s3:get",nHandle,"s16:HandlerArguments","")
 
 	Func setHandlerArguments P1
 		raise("DotNet Error: HandlerArguments is a read-only property")
 
 	Func getHandlerMethod
-		return dnRequest("get",[self,"HandlerMethod"])
+		return dnSend("s3:get",nHandle,"s13:HandlerMethod","")
 
 	Func setHandlerMethod P1
 		raise("DotNet Error: HandlerMethod is a read-only property")
 
 	Func getHandlerInstance
-		return dnRequest("get",[self,"HandlerInstance"])
+		return dnSend("s3:get",nHandle,"s15:HandlerInstance","")
 
 	Func setHandlerInstance P1
 		raise("DotNet Error: HandlerInstance is a read-only property")
@@ -1165,14 +1165,14 @@ Class PageHandlerSelectedContext from FilterContext
 		raise("DotNet Error: ActionDescriptor is a read-only property")
 
 	Func getHandlerMethod
-		return dnRequest("get",[self,"HandlerMethod"])
+		return dnSend("s3:get",nHandle,"s13:HandlerMethod","")
 
 	Func setHandlerMethod P1
-		dnRequest("set",[self,"HandlerMethod",P1])
+		dnSend("s3:set",nHandle,"s13:HandlerMethod",dnPackItem(P1))
 		return self
 
 	Func getHandlerInstance
-		return dnRequest("get",[self,"HandlerInstance"])
+		return dnSend("s3:get",nHandle,"s15:HandlerInstance","")
 
 	Func setHandlerInstance P1
 		raise("DotNet Error: HandlerInstance is a read-only property")
@@ -1198,38 +1198,38 @@ Class ResourceExecutedContext from FilterContext
 		return self
 
 	Func getCanceled
-		return dnRequest("get",[self,"Canceled"])
+		return dnSend("s3:get",nHandle,"s8:Canceled","")
 
 	Func setCanceled P1
-		dnRequest("set",[self,"Canceled",P1])
+		dnSend("s3:set",nHandle,"s8:Canceled",dnPackItem(P1))
 		return self
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnSend("s3:get",nHandle,"s9:Exception","")
 
 	Func setException P1
-		dnRequest("set",[self,"Exception",P1])
+		dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1))
 		return self
 
 	Func getExceptionDispatchInfo
-		return dnRequest("get",[self,"ExceptionDispatchInfo"])
+		return dnSend("s3:get",nHandle,"s21:ExceptionDispatchInfo","")
 
 	Func setExceptionDispatchInfo P1
-		dnRequest("set",[self,"ExceptionDispatchInfo",P1])
+		dnSend("s3:set",nHandle,"s21:ExceptionDispatchInfo",dnPackItem(P1))
 		return self
 
 	Func getExceptionHandled
-		return dnRequest("get",[self,"ExceptionHandled"])
+		return dnSend("s3:get",nHandle,"s16:ExceptionHandled","")
 
 	Func setExceptionHandled P1
-		dnRequest("set",[self,"ExceptionHandled",P1])
+		dnSend("s3:set",nHandle,"s16:ExceptionHandled",dnPackItem(P1))
 		return self
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnRequest("set",[self,"Result",P1])
+		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
 		return self
 
 
@@ -1250,14 +1250,14 @@ Class ResourceExecutingContext from FilterContext
 		return self
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnRequest("set",[self,"Result",P1])
+		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
 		return self
 
 	Func getValueProviderFactories
-		return dnRequest("get",[self,"ValueProviderFactories"])
+		return dnSend("s3:get",nHandle,"s22:ValueProviderFactories","")
 
 	Func setValueProviderFactories P1
 		raise("DotNet Error: ValueProviderFactories is a read-only property")
@@ -1284,41 +1284,41 @@ Class ResultExecutedContext from FilterContext
 		return self
 
 	Func getCanceled
-		return dnRequest("get",[self,"Canceled"])
+		return dnSend("s3:get",nHandle,"s8:Canceled","")
 
 	Func setCanceled P1
-		dnRequest("set",[self,"Canceled",P1])
+		dnSend("s3:set",nHandle,"s8:Canceled",dnPackItem(P1))
 		return self
 
 	Func getController
-		return dnRequest("get",[self,"Controller"])
+		return dnSend("s3:get",nHandle,"s10:Controller","")
 
 	Func setController P1
 		raise("DotNet Error: Controller is a read-only property")
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnSend("s3:get",nHandle,"s9:Exception","")
 
 	Func setException P1
-		dnRequest("set",[self,"Exception",P1])
+		dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1))
 		return self
 
 	Func getExceptionDispatchInfo
-		return dnRequest("get",[self,"ExceptionDispatchInfo"])
+		return dnSend("s3:get",nHandle,"s21:ExceptionDispatchInfo","")
 
 	Func setExceptionDispatchInfo P1
-		dnRequest("set",[self,"ExceptionDispatchInfo",P1])
+		dnSend("s3:set",nHandle,"s21:ExceptionDispatchInfo",dnPackItem(P1))
 		return self
 
 	Func getExceptionHandled
-		return dnRequest("get",[self,"ExceptionHandled"])
+		return dnSend("s3:get",nHandle,"s16:ExceptionHandled","")
 
 	Func setExceptionHandled P1
-		dnRequest("set",[self,"ExceptionHandled",P1])
+		dnSend("s3:set",nHandle,"s16:ExceptionHandled",dnPackItem(P1))
 		return self
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
@@ -1342,23 +1342,23 @@ Class ResultExecutingContext from FilterContext
 		return self
 
 	Func getController
-		return dnRequest("get",[self,"Controller"])
+		return dnSend("s3:get",nHandle,"s10:Controller","")
 
 	Func setController P1
 		raise("DotNet Error: Controller is a read-only property")
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
-		dnRequest("set",[self,"Result",P1])
+		dnSend("s3:set",nHandle,"s6:Result",dnPackItem(P1))
 		return self
 
 	Func getCancel
-		return dnRequest("get",[self,"Cancel"])
+		return dnSend("s3:get",nHandle,"s6:Cancel","")
 
 	Func setCancel P1
-		dnRequest("set",[self,"Cancel",P1])
+		dnSend("s3:set",nHandle,"s6:Cancel",dnPackItem(P1))
 		return self
 
 

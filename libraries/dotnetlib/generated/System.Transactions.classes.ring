@@ -125,11 +125,11 @@ Class Enlistment from Object
 		return self
 
 	Func Done 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Done"])
+		dnSend("s4:call",nHandle,"s4:Done","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class IDtcTransaction from DotNetObject
@@ -144,15 +144,15 @@ Class IDtcTransaction from DotNetObject
 		return self
 
 	Func Commit P1,P2,P3
-		dnRequest("call",[new DotNetObject(this.nHandle),"Commit",P1,P2,P3])
+		dnSend("s4:call",nHandle,"s6:Commit",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func Abort P1,P2,P3
-		dnRequest("call",[new DotNetObject(this.nHandle),"Abort",P1,P2,P3])
+		dnSend("s4:call",nHandle,"s5:Abort",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func GetTransactionInfo P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetTransactionInfo",P1])
+		dnSend("s4:call",nHandle,"s18:GetTransactionInfo",dnPackItem(P1))
 		return self
 
 
@@ -168,19 +168,19 @@ Class IEnlistmentNotification from DotNetObject
 		return self
 
 	Func Prepare P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Prepare",P1])
+		dnSend("s4:call",nHandle,"s7:Prepare",dnPackItem(P1))
 		return self
 
 	Func Commit P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Commit",P1])
+		dnSend("s4:call",nHandle,"s6:Commit",dnPackItem(P1))
 		return self
 
 	Func Rollback P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Rollback",P1])
+		dnSend("s4:call",nHandle,"s8:Rollback",dnPackItem(P1))
 		return self
 
 	Func InDoubt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"InDoubt",P1])
+		dnSend("s4:call",nHandle,"s7:InDoubt",dnPackItem(P1))
 		return self
 
 
@@ -196,15 +196,15 @@ Class IPromotableSinglePhaseNotification from DotNetObject
 		return self
 
 	Func Initialize 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Initialize"])
+		dnSend("s4:call",nHandle,"s10:Initialize","")
 		return self
 
 	Func SinglePhaseCommit P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SinglePhaseCommit",P1])
+		dnSend("s4:call",nHandle,"s17:SinglePhaseCommit",dnPackItem(P1))
 		return self
 
 	Func Rollback P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Rollback",P1])
+		dnSend("s4:call",nHandle,"s8:Rollback",dnPackItem(P1))
 		return self
 
 
@@ -220,7 +220,7 @@ Class ISimpleTransactionSuperior from DotNetObject
 		return self
 
 	Func Rollback 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Rollback"])
+		dnSend("s4:call",nHandle,"s8:Rollback","")
 		return self
 
 
@@ -236,7 +236,7 @@ Class ISinglePhaseNotification from DotNetObject
 		return self
 
 	Func SinglePhaseCommit P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SinglePhaseCommit",P1])
+		dnSend("s4:call",nHandle,"s17:SinglePhaseCommit",dnPackItem(P1))
 		return self
 
 
@@ -252,7 +252,7 @@ Class ITransactionPromoter from DotNetObject
 		return self
 
 	Func Promote 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Promote"])
+		return dnSend("s4:call",nHandle,"s7:Promote","")
 
 
 Class Transaction from Object
@@ -272,50 +272,50 @@ Class Transaction from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetPromotedToken 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPromotedToken"])
+		return dnSend("s4:call",nHandle,"s16:GetPromotedToken","")
 
 	Func EnlistDurable P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnlistDurable",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s13:EnlistDurable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Rollback P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Rollback",P1])
+			dnSend("s9:callnamed",nHandle,"s8:Rollback",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Rollback"])
+			dnSend("s4:call",nHandle,"s8:Rollback","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Rollback",P1])
+		dnSend("s4:call",nHandle,"s8:Rollback",dnPackItem(P1))
 		return self
 
 	Func EnlistVolatile P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnlistVolatile",P1,P2])
+		return dnSend("s4:call",nHandle,"s14:EnlistVolatile",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func DependentClone P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DependentClone",P1])
+		return dnSend("s4:call",nHandle,"s14:DependentClone",dnPackItem(P1))
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func EnlistPromotableSinglePhase P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnlistPromotableSinglePhase",P1])
+			return dnSend("s9:callnamed",nHandle,"s27:EnlistPromotableSinglePhase",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnlistPromotableSinglePhase",P1])
+		return dnSend("s4:call",nHandle,"s27:EnlistPromotableSinglePhase",dnPackItem(P1))
 
 	Func PromoteAndEnlistDurable P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"PromoteAndEnlistDurable",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s23:PromoteAndEnlistDurable",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func SetDistributedTransactionIdentifier P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetDistributedTransactionIdentifier",P1,P2])
+		dnSend("s4:call",nHandle,"s35:SetDistributedTransactionIdentifier",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func setTransactionCompletedEvent P1
@@ -327,28 +327,28 @@ Class Transaction from Object
 		return self
 
 	Func getTransactionInformation
-		return dnRequest("get",[self,"TransactionInformation"])
+		return dnSend("s3:get",nHandle,"s22:TransactionInformation","")
 
 	Func setTransactionInformation P1
 		raise("DotNet Error: TransactionInformation is a read-only property")
 
 	Func getIsolationLevel
-		return dnRequest("get",[self,"IsolationLevel"])
+		return dnSend("s3:get",nHandle,"s14:IsolationLevel","")
 
 	Func setIsolationLevel P1
 		raise("DotNet Error: IsolationLevel is a read-only property")
 
 	Func getPromoterType
-		return dnRequest("get",[self,"PromoterType"])
+		return dnSend("s3:get",nHandle,"s12:PromoterType","")
 
 	Func setPromoterType P1
 		raise("DotNet Error: PromoterType is a read-only property")
 
 	Func getCurrent
-		return dnRequest("get",[dnTypeCached('System.Transactions.Transaction, System.Transactions.Local'),"Current"])
+		return dnSend("s3:get",dnTypeCached('System.Transactions.Transaction, System.Transactions.Local').nHandle,"s7:Current","")
 
 	Func setCurrent P1
-		dnRequest("set",[dnTypeCached('System.Transactions.Transaction, System.Transactions.Local'),"Current",P1])
+		dnSend("s3:set",dnTypeCached('System.Transactions.Transaction, System.Transactions.Local').nHandle,"s7:Current",dnPackItem(P1))
 		return self
 
 
@@ -379,7 +379,7 @@ Class TransactionEventArgs from EventArgs
 		return self
 
 	Func getTransaction
-		return dnRequest("get",[self,"Transaction"])
+		return dnSend("s3:get",nHandle,"s11:Transaction","")
 
 	Func setTransaction P1
 		raise("DotNet Error: Transaction is a read-only property")
@@ -402,28 +402,28 @@ Class TransactionInformation from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getLocalIdentifier
-		return dnRequest("get",[self,"LocalIdentifier"])
+		return dnSend("s3:get",nHandle,"s15:LocalIdentifier","")
 
 	Func setLocalIdentifier P1
 		raise("DotNet Error: LocalIdentifier is a read-only property")
 
 	Func getDistributedIdentifier
-		return dnRequest("get",[self,"DistributedIdentifier"])
+		return dnSend("s3:get",nHandle,"s21:DistributedIdentifier","")
 
 	Func setDistributedIdentifier P1
 		raise("DotNet Error: DistributedIdentifier is a read-only property")
 
 	Func getCreationTime
-		return dnRequest("get",[self,"CreationTime"])
+		return dnSend("s3:get",nHandle,"s12:CreationTime","")
 
 	Func setCreationTime P1
 		raise("DotNet Error: CreationTime is a read-only property")
 
 	Func getStatus
-		return dnRequest("get",[self,"Status"])
+		return dnSend("s3:get",nHandle,"s6:Status","")
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
@@ -443,31 +443,31 @@ Class TransactionInterop from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetExportCookie P1,P2
-		return dnRequest("call",[dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local'),"GetExportCookie",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local').nHandle,"s15:GetExportCookie",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetTransactionFromExportCookie P1
-		return dnRequest("call",[dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local'),"GetTransactionFromExportCookie",P1])
+		return dnSend("s4:call",dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local').nHandle,"s30:GetTransactionFromExportCookie",dnPackItem(P1))
 
 	Func GetTransmitterPropagationToken P1
-		return dnRequest("call",[dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local'),"GetTransmitterPropagationToken",P1])
+		return dnSend("s4:call",dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local').nHandle,"s30:GetTransmitterPropagationToken",dnPackItem(P1))
 
 	Func GetTransactionFromTransmitterPropagationToken P1
-		return dnRequest("call",[dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local'),"GetTransactionFromTransmitterPropagationToken",P1])
+		return dnSend("s4:call",dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local').nHandle,"s45:GetTransactionFromTransmitterPropagationToken",dnPackItem(P1))
 
 	Func GetDtcTransaction P1
-		return dnRequest("call",[dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local'),"GetDtcTransaction",P1])
+		return dnSend("s4:call",dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local').nHandle,"s17:GetDtcTransaction",dnPackItem(P1))
 
 	Func GetTransactionFromDtcTransaction P1
-		return dnRequest("call",[dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local'),"GetTransactionFromDtcTransaction",P1])
+		return dnSend("s4:call",dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local').nHandle,"s32:GetTransactionFromDtcTransaction",dnPackItem(P1))
 
 	Func GetWhereabouts 
-		return dnRequest("call",[dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local'),"GetWhereabouts"])
+		return dnSend("s4:call",dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local').nHandle,"s14:GetWhereabouts","")
 
 	Func getPromoterTypeDtc
-		return dnRequest("get",[dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local'),"PromoterTypeDtc"])
+		return dnSend("s3:get",dnTypeCached('System.Transactions.TransactionInterop, System.Transactions.Local').nHandle,"s15:PromoterTypeDtc","")
 
 	Func setPromoterTypeDtc P1
 		raise("DotNet Error: PromoterTypeDtc is a read-only property")
@@ -490,13 +490,13 @@ Class TransactionManager from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Reenlist P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local'),"Reenlist",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s8:Reenlist",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func RecoveryComplete P1
-		dnRequest("call",[dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local'),"RecoveryComplete",P1])
+		dnSend("s4:call",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s16:RecoveryComplete",dnPackItem(P1))
 		return self
 
 	Func setDistributedTransactionStartedEvent P1
@@ -508,31 +508,31 @@ Class TransactionManager from Object
 		return self
 
 	Func getHostCurrentCallback
-		return dnRequest("get",[dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local'),"HostCurrentCallback"])
+		return dnSend("s3:get",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s19:HostCurrentCallback","")
 
 	Func setHostCurrentCallback P1
-		dnRequest("set",[dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local'),"HostCurrentCallback",P1])
+		dnSend("s3:set",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s19:HostCurrentCallback",dnPackItem(P1))
 		return self
 
 	Func getDefaultTimeout
-		return dnRequest("get",[dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local'),"DefaultTimeout"])
+		return dnSend("s3:get",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s14:DefaultTimeout","")
 
 	Func setDefaultTimeout P1
-		dnRequest("set",[dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local'),"DefaultTimeout",P1])
+		dnSend("s3:set",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s14:DefaultTimeout",dnPackItem(P1))
 		return self
 
 	Func getMaximumTimeout
-		return dnRequest("get",[dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local'),"MaximumTimeout"])
+		return dnSend("s3:get",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s14:MaximumTimeout","")
 
 	Func setMaximumTimeout P1
-		dnRequest("set",[dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local'),"MaximumTimeout",P1])
+		dnSend("s3:set",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s14:MaximumTimeout",dnPackItem(P1))
 		return self
 
 	Func getImplicitDistributedTransactions
-		return dnRequest("get",[dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local'),"ImplicitDistributedTransactions"])
+		return dnSend("s3:get",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s31:ImplicitDistributedTransactions","")
 
 	Func setImplicitDistributedTransactions P1
-		dnRequest("set",[dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local'),"ImplicitDistributedTransactions",P1])
+		dnSend("s3:set",dnTypeCached('System.Transactions.TransactionManager, System.Transactions.Local').nHandle,"s31:ImplicitDistributedTransactions",dnPackItem(P1))
 		return self
 
 
@@ -564,17 +564,17 @@ Class TransactionOptions from ValueType
 		return self
 
 	Func getTimeout
-		return dnRequest("get",[self,"Timeout"])
+		return dnSend("s3:get",nHandle,"s7:Timeout","")
 
 	Func setTimeout P1
-		dnRequest("set",[self,"Timeout",P1])
+		dnSend("s3:set",nHandle,"s7:Timeout",dnPackItem(P1))
 		return self
 
 	Func getIsolationLevel
-		return dnRequest("get",[self,"IsolationLevel"])
+		return dnSend("s3:get",nHandle,"s14:IsolationLevel","")
 
 	Func setIsolationLevel P1
-		dnRequest("set",[self,"IsolationLevel",P1])
+		dnSend("s3:set",nHandle,"s14:IsolationLevel",dnPackItem(P1))
 		return self
 
 
@@ -623,15 +623,15 @@ Class TransactionScope from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Complete 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Complete"])
+		dnSend("s4:call",nHandle,"s8:Complete","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class CommittableTransaction from Transaction
@@ -679,14 +679,14 @@ Class CommittableTransaction from Transaction
 		return self
 
 	Func BeginCommit P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginCommit",P1,P2])
+		return dnSend("s4:call",nHandle,"s11:BeginCommit",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Commit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Commit"])
+		dnSend("s4:call",nHandle,"s6:Commit","")
 		return self
 
 	Func EndCommit P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndCommit",P1])
+		dnSend("s4:call",nHandle,"s9:EndCommit",dnPackItem(P1))
 		return self
 
 
@@ -702,7 +702,7 @@ Class DependentTransaction from Transaction
 		return self
 
 	Func Complete 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Complete"])
+		dnSend("s4:call",nHandle,"s8:Complete","")
 		return self
 
 
@@ -718,23 +718,23 @@ Class PreparingEnlistment from Enlistment
 		return self
 
 	Func Prepared 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Prepared"])
+		dnSend("s4:call",nHandle,"s8:Prepared","")
 		return self
 
 	Func ForceRollback P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ForceRollback",P1])
+			dnSend("s9:callnamed",nHandle,"s13:ForceRollback",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"ForceRollback"])
+			dnSend("s4:call",nHandle,"s13:ForceRollback","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"ForceRollback",P1])
+		dnSend("s4:call",nHandle,"s13:ForceRollback",dnPackItem(P1))
 		return self
 
 	Func RecoveryInformation 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RecoveryInformation"])
+		return dnSend("s4:call",nHandle,"s19:RecoveryInformation","")
 
 
 Class SinglePhaseEnlistment from Enlistment
@@ -750,30 +750,30 @@ Class SinglePhaseEnlistment from Enlistment
 
 	Func Aborted P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Aborted",P1])
+			dnSend("s9:callnamed",nHandle,"s7:Aborted",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Aborted"])
+			dnSend("s4:call",nHandle,"s7:Aborted","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Aborted",P1])
+		dnSend("s4:call",nHandle,"s7:Aborted",dnPackItem(P1))
 		return self
 
 	Func Committed 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Committed"])
+		dnSend("s4:call",nHandle,"s9:Committed","")
 		return self
 
 	Func InDoubt P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"InDoubt",P1])
+			dnSend("s9:callnamed",nHandle,"s7:InDoubt",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"InDoubt"])
+			dnSend("s4:call",nHandle,"s7:InDoubt","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"InDoubt",P1])
+		dnSend("s4:call",nHandle,"s7:InDoubt",dnPackItem(P1))
 		return self
 
 

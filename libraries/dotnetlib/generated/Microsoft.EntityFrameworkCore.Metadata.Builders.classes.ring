@@ -465,16 +465,16 @@ Class CheckConstraintBuilder from Object
 		return self
 
 	Func HasName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasName",P1])
+		return dnSend("s4:call",nHandle,"s7:HasName",dnPackItem(P1))
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -498,21 +498,21 @@ Class CollectionCollectionBuilder from Object
 
 	Func UsingEntity P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"UsingEntity",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:UsingEntity",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UsingEntity",P1])
+		return dnSend("s4:call",nHandle,"s11:UsingEntity",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getLeftNavigation
-		return dnRequest("get",[self,"LeftNavigation"])
+		return dnSend("s3:get",nHandle,"s14:LeftNavigation","")
 
 	Func setLeftNavigation P1
 		raise("DotNet Error: LeftNavigation is a read-only property")
 
 	Func getRightNavigation
-		return dnRequest("get",[self,"RightNavigation"])
+		return dnSend("s3:get",nHandle,"s15:RightNavigation","")
 
 	Func setRightNavigation P1
 		raise("DotNet Error: RightNavigation is a read-only property")
@@ -533,24 +533,24 @@ Class CollectionNavigationBuilder from Object
 
 	Func WithOne P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"WithOne",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:WithOne",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"WithOne"])
+			return dnSend("s4:call",nHandle,"s7:WithOne","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WithOne",P1])
+		return dnSend("s4:call",nHandle,"s7:WithOne",dnPackItem(P1))
 
 	Func WithMany P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"WithMany",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:WithMany",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"WithMany"])
+			return dnSend("s4:call",nHandle,"s8:WithMany","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WithMany",P1])
+		return dnSend("s4:call",nHandle,"s8:WithMany",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class ColumnBuilder from Object
@@ -569,16 +569,16 @@ Class ColumnBuilder from Object
 		return self
 
 	Func HasColumnName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasColumnName",P1])
+		return dnSend("s4:call",nHandle,"s13:HasColumnName",dnPackItem(P1))
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getOverrides
-		return dnRequest("get",[self,"Overrides"])
+		return dnSend("s3:get",nHandle,"s9:Overrides","")
 
 	Func setOverrides P1
 		raise("DotNet Error: Overrides is a read-only property")
@@ -598,7 +598,7 @@ Class ComplexPropertiesConfigurationBuilder from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class ComplexPropertyBuilder from Object
@@ -617,64 +617,64 @@ Class ComplexPropertyBuilder from Object
 		return self
 
 	Func HasPropertyAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasPropertyAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s21:HasPropertyAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HasTypeAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasTypeAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s17:HasTypeAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsRequired",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired"])
+			return dnSend("s4:call",nHandle,"s10:IsRequired","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired",P1])
+		return dnSend("s4:call",nHandle,"s10:IsRequired",dnPackItem(P1))
 
 	Func HasField P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasField",P1])
+		return dnSend("s4:call",nHandle,"s8:HasField",dnPackItem(P1))
 
 	Func Property P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Property",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:Property",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Property",P1])
+		return dnSend("s4:call",nHandle,"s8:Property",dnPackItem(P1))
 
 	Func PrimitiveCollection P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"PrimitiveCollection",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:PrimitiveCollection",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"PrimitiveCollection",P1])
+		return dnSend("s4:call",nHandle,"s19:PrimitiveCollection",dnPackItem(P1))
 
 	Func IndexerProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexerProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:IndexerProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexerProperty",P1])
+		return dnSend("s4:call",nHandle,"s15:IndexerProperty",dnPackItem(P1))
 
 	Func ComplexProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ComplexProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:ComplexProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ComplexProperty",P1])
+		return dnSend("s4:call",nHandle,"s15:ComplexProperty",dnPackItem(P1))
 
 	Func Ignore P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Ignore",P1])
+		return dnSend("s4:call",nHandle,"s6:Ignore",dnPackItem(P1))
 
 	Func HasChangeTrackingStrategy P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasChangeTrackingStrategy",P1])
+		return dnSend("s4:call",nHandle,"s25:HasChangeTrackingStrategy",dnPackItem(P1))
 
 	Func UsePropertyAccessMode P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UsePropertyAccessMode",P1])
+		return dnSend("s4:call",nHandle,"s21:UsePropertyAccessMode",dnPackItem(P1))
 
 	Func UseDefaultPropertyAccessMode P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UseDefaultPropertyAccessMode",P1])
+		return dnSend("s4:call",nHandle,"s28:UseDefaultPropertyAccessMode",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -696,94 +696,94 @@ Class ComplexTypePrimitiveCollectionBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsRequired",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired"])
+			return dnSend("s4:call",nHandle,"s10:IsRequired","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired",P1])
+		return dnSend("s4:call",nHandle,"s10:IsRequired",dnPackItem(P1))
 
 	Func HasMaxLength P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasMaxLength",P1])
+		return dnSend("s4:call",nHandle,"s12:HasMaxLength",dnPackItem(P1))
 
 	Func HasSentinel P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasSentinel",P1])
+		return dnSend("s4:call",nHandle,"s11:HasSentinel",dnPackItem(P1))
 
 	Func IsUnicode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsUnicode",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:IsUnicode",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnicode"])
+			return dnSend("s4:call",nHandle,"s9:IsUnicode","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnicode",P1])
+		return dnSend("s4:call",nHandle,"s9:IsUnicode",dnPackItem(P1))
 
 	Func HasValueGenerator P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasValueGenerator",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:HasValueGenerator",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGenerator"])
+			return dnSend("s4:call",nHandle,"s17:HasValueGenerator","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGenerator",P1])
+		return dnSend("s4:call",nHandle,"s17:HasValueGenerator",dnPackItem(P1))
 
 	Func HasValueGeneratorFactory P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasValueGeneratorFactory",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:HasValueGeneratorFactory",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGeneratorFactory"])
+			return dnSend("s4:call",nHandle,"s24:HasValueGeneratorFactory","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGeneratorFactory",P1])
+		return dnSend("s4:call",nHandle,"s24:HasValueGeneratorFactory",dnPackItem(P1))
 
 	Func IsConcurrencyToken P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsConcurrencyToken",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:IsConcurrencyToken",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsConcurrencyToken"])
+			return dnSend("s4:call",nHandle,"s18:IsConcurrencyToken","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsConcurrencyToken",P1])
+		return dnSend("s4:call",nHandle,"s18:IsConcurrencyToken",dnPackItem(P1))
 
 	Func ValueGeneratedNever 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedNever"])
+		return dnSend("s4:call",nHandle,"s19:ValueGeneratedNever","")
 
 	Func ValueGeneratedOnAdd 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedOnAdd"])
+		return dnSend("s4:call",nHandle,"s19:ValueGeneratedOnAdd","")
 
 	Func ValueGeneratedOnAddOrUpdate 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedOnAddOrUpdate"])
+		return dnSend("s4:call",nHandle,"s27:ValueGeneratedOnAddOrUpdate","")
 
 	Func ValueGeneratedOnUpdate 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedOnUpdate"])
+		return dnSend("s4:call",nHandle,"s22:ValueGeneratedOnUpdate","")
 
 	Func ValueGeneratedOnUpdateSometimes 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedOnUpdateSometimes"])
+		return dnSend("s4:call",nHandle,"s31:ValueGeneratedOnUpdateSometimes","")
 
 	Func HasField P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasField",P1])
+		return dnSend("s4:call",nHandle,"s8:HasField",dnPackItem(P1))
 
 	Func ElementType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ElementType",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:ElementType",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ElementType"])
+			return dnSend("s4:call",nHandle,"s11:ElementType","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ElementType",P1])
+		return dnSend("s4:call",nHandle,"s11:ElementType",dnPackItem(P1))
 
 	Func UsePropertyAccessMode P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UsePropertyAccessMode",P1])
+		return dnSend("s4:call",nHandle,"s21:UsePropertyAccessMode",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -805,103 +805,103 @@ Class ComplexTypePropertyBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsRequired",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired"])
+			return dnSend("s4:call",nHandle,"s10:IsRequired","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired",P1])
+		return dnSend("s4:call",nHandle,"s10:IsRequired",dnPackItem(P1))
 
 	Func HasMaxLength P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasMaxLength",P1])
+		return dnSend("s4:call",nHandle,"s12:HasMaxLength",dnPackItem(P1))
 
 	Func HasSentinel P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasSentinel",P1])
+		return dnSend("s4:call",nHandle,"s11:HasSentinel",dnPackItem(P1))
 
 	Func HasPrecision P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasPrecision",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasPrecision",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasPrecision",P1])
+		return dnSend("s4:call",nHandle,"s12:HasPrecision",dnPackItem(P1))
 
 	Func IsUnicode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsUnicode",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:IsUnicode",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnicode"])
+			return dnSend("s4:call",nHandle,"s9:IsUnicode","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnicode",P1])
+		return dnSend("s4:call",nHandle,"s9:IsUnicode",dnPackItem(P1))
 
 	Func IsRowVersion 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRowVersion"])
+		return dnSend("s4:call",nHandle,"s12:IsRowVersion","")
 
 	Func HasValueGenerator P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasValueGenerator",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:HasValueGenerator",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGenerator"])
+			return dnSend("s4:call",nHandle,"s17:HasValueGenerator","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGenerator",P1])
+		return dnSend("s4:call",nHandle,"s17:HasValueGenerator",dnPackItem(P1))
 
 	Func HasValueGeneratorFactory P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasValueGeneratorFactory",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:HasValueGeneratorFactory",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGeneratorFactory"])
+			return dnSend("s4:call",nHandle,"s24:HasValueGeneratorFactory","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGeneratorFactory",P1])
+		return dnSend("s4:call",nHandle,"s24:HasValueGeneratorFactory",dnPackItem(P1))
 
 	Func IsConcurrencyToken P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsConcurrencyToken",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:IsConcurrencyToken",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsConcurrencyToken"])
+			return dnSend("s4:call",nHandle,"s18:IsConcurrencyToken","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsConcurrencyToken",P1])
+		return dnSend("s4:call",nHandle,"s18:IsConcurrencyToken",dnPackItem(P1))
 
 	Func ValueGeneratedNever 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedNever"])
+		return dnSend("s4:call",nHandle,"s19:ValueGeneratedNever","")
 
 	Func ValueGeneratedOnAdd 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedOnAdd"])
+		return dnSend("s4:call",nHandle,"s19:ValueGeneratedOnAdd","")
 
 	Func ValueGeneratedOnAddOrUpdate 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedOnAddOrUpdate"])
+		return dnSend("s4:call",nHandle,"s27:ValueGeneratedOnAddOrUpdate","")
 
 	Func ValueGeneratedOnUpdate 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedOnUpdate"])
+		return dnSend("s4:call",nHandle,"s22:ValueGeneratedOnUpdate","")
 
 	Func ValueGeneratedOnUpdateSometimes 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedOnUpdateSometimes"])
+		return dnSend("s4:call",nHandle,"s31:ValueGeneratedOnUpdateSometimes","")
 
 	Func HasField P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasField",P1])
+		return dnSend("s4:call",nHandle,"s8:HasField",dnPackItem(P1))
 
 	Func UsePropertyAccessMode P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UsePropertyAccessMode",P1])
+		return dnSend("s4:call",nHandle,"s21:UsePropertyAccessMode",dnPackItem(P1))
 
 	Func HasConversion P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasConversion",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasConversion",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasConversion"])
+			return dnSend("s4:call",nHandle,"s13:HasConversion","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasConversion",P1])
+		return dnSend("s4:call",nHandle,"s13:HasConversion",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -921,27 +921,27 @@ Class ConventionSetBuilder from Object
 		return self
 
 	Func Replace P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Replace",P1])
+		dnSend("s4:call",nHandle,"s7:Replace",dnPackItem(P1))
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Remove P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Remove",P1])
+			dnSend("s9:callnamed",nHandle,"s6:Remove",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Remove"])
+			dnSend("s4:call",nHandle,"s6:Remove","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class DataBuilder from Object
@@ -969,7 +969,7 @@ Class DataBuilder from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class DbFunctionBuilderBase from Object
@@ -986,31 +986,31 @@ Class DbFunctionBuilderBase from Object
 		return self
 
 	Func HasName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasName",P1])
+		return dnSend("s4:call",nHandle,"s7:HasName",dnPackItem(P1))
 
 	Func HasSchema P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasSchema",P1])
+		return dnSend("s4:call",nHandle,"s9:HasSchema",dnPackItem(P1))
 
 	Func IsBuiltIn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsBuiltIn",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:IsBuiltIn",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsBuiltIn"])
+			return dnSend("s4:call",nHandle,"s9:IsBuiltIn","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsBuiltIn",P1])
+		return dnSend("s4:call",nHandle,"s9:IsBuiltIn",dnPackItem(P1))
 
 	Func HasParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasParameter",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasParameter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasParameter",P1])
+		return dnSend("s4:call",nHandle,"s12:HasParameter",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -1032,22 +1032,22 @@ Class DbFunctionParameterBuilder from Object
 		return self
 
 	Func HasStoreType P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasStoreType",P1])
+		return dnSend("s4:call",nHandle,"s12:HasStoreType",dnPackItem(P1))
 
 	Func PropagatesNullability P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"PropagatesNullability",P1])
+			return dnSend("s9:callnamed",nHandle,"s21:PropagatesNullability",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"PropagatesNullability"])
+			return dnSend("s4:call",nHandle,"s21:PropagatesNullability","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"PropagatesNullability",P1])
+		return dnSend("s4:call",nHandle,"s21:PropagatesNullability",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -1068,21 +1068,21 @@ Class DiscriminatorBuilder from Object
 
 	Func IsComplete P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsComplete",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsComplete",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsComplete"])
+			return dnSend("s4:call",nHandle,"s10:IsComplete","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsComplete",P1])
+		return dnSend("s4:call",nHandle,"s10:IsComplete",dnPackItem(P1))
 
 	Func HasValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasValue",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:HasValue",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasValue",P1])
+		return dnSend("s4:call",nHandle,"s8:HasValue",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class ElementTypeBuilder from Object
@@ -1101,49 +1101,49 @@ Class ElementTypeBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsRequired",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired"])
+			return dnSend("s4:call",nHandle,"s10:IsRequired","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired",P1])
+		return dnSend("s4:call",nHandle,"s10:IsRequired",dnPackItem(P1))
 
 	Func HasMaxLength P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasMaxLength",P1])
+		return dnSend("s4:call",nHandle,"s12:HasMaxLength",dnPackItem(P1))
 
 	Func HasPrecision P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasPrecision",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasPrecision",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasPrecision",P1])
+		return dnSend("s4:call",nHandle,"s12:HasPrecision",dnPackItem(P1))
 
 	Func IsUnicode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsUnicode",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:IsUnicode",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnicode"])
+			return dnSend("s4:call",nHandle,"s9:IsUnicode","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnicode",P1])
+		return dnSend("s4:call",nHandle,"s9:IsUnicode",dnPackItem(P1))
 
 	Func HasConversion P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasConversion",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasConversion",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasConversion"])
+			return dnSend("s4:call",nHandle,"s13:HasConversion","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasConversion",P1])
+		return dnSend("s4:call",nHandle,"s13:HasConversion",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -1165,112 +1165,112 @@ Class EntityTypeBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HasBaseType P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasBaseType",P1])
+		return dnSend("s4:call",nHandle,"s11:HasBaseType",dnPackItem(P1))
 
 	Func HasKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasKey",P1])
+		return dnSend("s4:call",nHandle,"s6:HasKey",dnPackItem(P1))
 
 	Func HasAlternateKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAlternateKey",P1])
+		return dnSend("s4:call",nHandle,"s15:HasAlternateKey",dnPackItem(P1))
 
 	Func HasNoKey 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoKey"])
+		return dnSend("s4:call",nHandle,"s8:HasNoKey","")
 
 	Func Property P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Property",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:Property",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Property",P1])
+		return dnSend("s4:call",nHandle,"s8:Property",dnPackItem(P1))
 
 	Func PrimitiveCollection P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"PrimitiveCollection",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:PrimitiveCollection",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"PrimitiveCollection",P1])
+		return dnSend("s4:call",nHandle,"s19:PrimitiveCollection",dnPackItem(P1))
 
 	Func IndexerProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexerProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:IndexerProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexerProperty",P1])
+		return dnSend("s4:call",nHandle,"s15:IndexerProperty",dnPackItem(P1))
 
 	Func ComplexProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ComplexProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:ComplexProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ComplexProperty",P1])
+		return dnSend("s4:call",nHandle,"s15:ComplexProperty",dnPackItem(P1))
 
 	Func Navigation P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Navigation",P1])
+		return dnSend("s4:call",nHandle,"s10:Navigation",dnPackItem(P1))
 
 	Func Ignore P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Ignore",P1])
+		return dnSend("s4:call",nHandle,"s6:Ignore",dnPackItem(P1))
 
 	Func HasQueryFilter P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasQueryFilter",P1])
+		return dnSend("s4:call",nHandle,"s14:HasQueryFilter",dnPackItem(P1))
 
 	Func HasIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:HasIndex",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasIndex",P1])
+		return dnSend("s4:call",nHandle,"s8:HasIndex",dnPackItem(P1))
 
 	Func OwnsOne P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"OwnsOne",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:OwnsOne",dnPackItem(P1))
 		ok
 		raise("DotNet Error: OwnsOne does not take one argument: use named arguments, OwnsOne([ :parameter = value, ... ])")
 
 	Func OwnsMany P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"OwnsMany",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:OwnsMany",dnPackItem(P1))
 		ok
 		raise("DotNet Error: OwnsMany does not take one argument: use named arguments, OwnsMany([ :parameter = value, ... ])")
 
 	Func HasOne P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasOne",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:HasOne",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasOne",P1])
+		return dnSend("s4:call",nHandle,"s6:HasOne",dnPackItem(P1))
 
 	Func HasMany P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasMany",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:HasMany",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasMany",P1])
+		return dnSend("s4:call",nHandle,"s7:HasMany",dnPackItem(P1))
 
 	Func HasChangeTrackingStrategy P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasChangeTrackingStrategy",P1])
+		return dnSend("s4:call",nHandle,"s25:HasChangeTrackingStrategy",dnPackItem(P1))
 
 	Func UsePropertyAccessMode P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UsePropertyAccessMode",P1])
+		return dnSend("s4:call",nHandle,"s21:UsePropertyAccessMode",dnPackItem(P1))
 
 	Func HasData P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasData",P1])
+		return dnSend("s4:call",nHandle,"s7:HasData",dnPackItem(P1))
 
 	Func HasDiscriminator P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasDiscriminator",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:HasDiscriminator",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasDiscriminator"])
+			return dnSend("s4:call",nHandle,"s16:HasDiscriminator","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasDiscriminator",P1])
+		return dnSend("s4:call",nHandle,"s16:HasDiscriminator",dnPackItem(P1))
 
 	Func HasNoDiscriminator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoDiscriminator"])
+		return dnSend("s4:call",nHandle,"s18:HasNoDiscriminator","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func HasTrigger P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder, Microsoft.EntityFrameworkCore'),"HasTrigger",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder, Microsoft.EntityFrameworkCore').nHandle,"s10:HasTrigger",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -1292,42 +1292,42 @@ Class IConventionAnnotatableBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func CanSetAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:CanSetAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func CanRemoveAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanRemoveAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanRemoveAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s19:CanRemoveAnnotation",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
 	Func getModelBuilder
-		return dnRequest("get",[self,"ModelBuilder"])
+		return dnSend("s3:get",nHandle,"s12:ModelBuilder","")
 
 	Func setModelBuilder P1
 		raise("DotNet Error: ModelBuilder is a read-only property")
@@ -1348,36 +1348,36 @@ Class IConventionCheckConstraintBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func HasName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasName",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:HasName",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasName",P1])
+		return dnSend("s4:call",nHandle,"s7:HasName",dnPackItem(P1))
 
 	Func CanSetName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetName",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:CanSetName",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetName",P1])
+		return dnSend("s4:call",nHandle,"s10:CanSetName",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -1398,18 +1398,18 @@ Class IConventionComplexPropertyBuilder from DotNetObject
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsRequired",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired",P1])
+		return dnSend("s4:call",nHandle,"s10:IsRequired",dnPackItem(P1))
 
 	Func CanSetIsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:CanSetIsRequired",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsRequired",P1])
+		return dnSend("s4:call",nHandle,"s16:CanSetIsRequired",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -1430,57 +1430,57 @@ Class IConventionComplexTypeBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func RemoveUnusedImplicitProperties P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveUnusedImplicitProperties",P1])
+		return dnSend("s4:call",nHandle,"s30:RemoveUnusedImplicitProperties",dnPackItem(P1))
 
 	Func HasNoProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasNoProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoProperty",P1])
+		return dnSend("s4:call",nHandle,"s13:HasNoProperty",dnPackItem(P1))
 
 	Func HasNoComplexProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoComplexProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNoComplexProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoComplexProperty",P1])
+		return dnSend("s4:call",nHandle,"s20:HasNoComplexProperty",dnPackItem(P1))
 
 	Func Ignore P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Ignore",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Ignore",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Ignore",P1])
+		return dnSend("s4:call",nHandle,"s6:Ignore",dnPackItem(P1))
 
 	Func HasChangeTrackingStrategy P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasChangeTrackingStrategy",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:HasChangeTrackingStrategy",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasChangeTrackingStrategy",P1])
+		return dnSend("s4:call",nHandle,"s25:HasChangeTrackingStrategy",dnPackItem(P1))
 
 	Func UsePropertyAccessMode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"UsePropertyAccessMode",P1])
+			return dnSend("s9:callnamed",nHandle,"s21:UsePropertyAccessMode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UsePropertyAccessMode",P1])
+		return dnSend("s4:call",nHandle,"s21:UsePropertyAccessMode",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -1501,114 +1501,114 @@ Class IConventionDbFunctionBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func HasName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasName",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:HasName",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasName",P1])
+		return dnSend("s4:call",nHandle,"s7:HasName",dnPackItem(P1))
 
 	Func CanSetName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetName",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:CanSetName",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetName",P1])
+		return dnSend("s4:call",nHandle,"s10:CanSetName",dnPackItem(P1))
 
 	Func HasSchema P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasSchema",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:HasSchema",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasSchema",P1])
+		return dnSend("s4:call",nHandle,"s9:HasSchema",dnPackItem(P1))
 
 	Func CanSetSchema P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetSchema",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:CanSetSchema",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetSchema",P1])
+		return dnSend("s4:call",nHandle,"s12:CanSetSchema",dnPackItem(P1))
 
 	Func IsBuiltIn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsBuiltIn",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:IsBuiltIn",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsBuiltIn",P1])
+		return dnSend("s4:call",nHandle,"s9:IsBuiltIn",dnPackItem(P1))
 
 	Func CanSetIsBuiltIn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsBuiltIn",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:CanSetIsBuiltIn",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsBuiltIn",P1])
+		return dnSend("s4:call",nHandle,"s15:CanSetIsBuiltIn",dnPackItem(P1))
 
 	Func IsNullable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsNullable",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsNullable",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsNullable",P1])
+		return dnSend("s4:call",nHandle,"s10:IsNullable",dnPackItem(P1))
 
 	Func CanSetIsNullable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsNullable",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:CanSetIsNullable",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsNullable",P1])
+		return dnSend("s4:call",nHandle,"s16:CanSetIsNullable",dnPackItem(P1))
 
 	Func HasStoreType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasStoreType",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasStoreType",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasStoreType",P1])
+		return dnSend("s4:call",nHandle,"s12:HasStoreType",dnPackItem(P1))
 
 	Func CanSetStoreType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetStoreType",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:CanSetStoreType",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetStoreType",P1])
+		return dnSend("s4:call",nHandle,"s15:CanSetStoreType",dnPackItem(P1))
 
 	Func HasTypeMapping P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasTypeMapping",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:HasTypeMapping",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasTypeMapping",P1])
+		return dnSend("s4:call",nHandle,"s14:HasTypeMapping",dnPackItem(P1))
 
 	Func CanSetTypeMapping P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetTypeMapping",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:CanSetTypeMapping",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetTypeMapping",P1])
+		return dnSend("s4:call",nHandle,"s17:CanSetTypeMapping",dnPackItem(P1))
 
 	Func HasTranslation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasTranslation",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:HasTranslation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasTranslation",P1])
+		return dnSend("s4:call",nHandle,"s14:HasTranslation",dnPackItem(P1))
 
 	Func CanSetTranslation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetTranslation",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:CanSetTranslation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetTranslation",P1])
+		return dnSend("s4:call",nHandle,"s17:CanSetTranslation",dnPackItem(P1))
 
 	Func HasParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasParameter",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasParameter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasParameter",P1])
+		return dnSend("s4:call",nHandle,"s12:HasParameter",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -1629,48 +1629,48 @@ Class IConventionDbFunctionParameterBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func HasStoreType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasStoreType",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasStoreType",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasStoreType",P1])
+		return dnSend("s4:call",nHandle,"s12:HasStoreType",dnPackItem(P1))
 
 	Func CanSetStoreType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetStoreType",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:CanSetStoreType",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetStoreType",P1])
+		return dnSend("s4:call",nHandle,"s15:CanSetStoreType",dnPackItem(P1))
 
 	Func HasTypeMapping P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasTypeMapping",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:HasTypeMapping",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasTypeMapping",P1])
+		return dnSend("s4:call",nHandle,"s14:HasTypeMapping",dnPackItem(P1))
 
 	Func CanSetTypeMapping P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetTypeMapping",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:CanSetTypeMapping",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetTypeMapping",P1])
+		return dnSend("s4:call",nHandle,"s17:CanSetTypeMapping",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -1691,30 +1691,30 @@ Class IConventionDiscriminatorBuilder from DotNetObject
 
 	Func IsComplete P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsComplete",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsComplete",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsComplete",P1])
+		return dnSend("s4:call",nHandle,"s10:IsComplete",dnPackItem(P1))
 
 	Func CanSetIsComplete P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsComplete",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:CanSetIsComplete",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsComplete",P1])
+		return dnSend("s4:call",nHandle,"s16:CanSetIsComplete",dnPackItem(P1))
 
 	Func HasValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasValue",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:HasValue",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasValue",P1])
+		return dnSend("s4:call",nHandle,"s8:HasValue",dnPackItem(P1))
 
 	Func CanSetValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetValue",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:CanSetValue",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetValue",P1])
+		return dnSend("s4:call",nHandle,"s11:CanSetValue",dnPackItem(P1))
 
 	Func getEntityType
-		return dnRequest("get",[self,"EntityType"])
+		return dnSend("s3:get",nHandle,"s10:EntityType","")
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
@@ -1735,132 +1735,132 @@ Class IConventionElementTypeBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsRequired",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired",P1])
+		return dnSend("s4:call",nHandle,"s10:IsRequired",dnPackItem(P1))
 
 	Func CanSetIsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:CanSetIsRequired",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsRequired",P1])
+		return dnSend("s4:call",nHandle,"s16:CanSetIsRequired",dnPackItem(P1))
 
 	Func HasMaxLength P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasMaxLength",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasMaxLength",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasMaxLength",P1])
+		return dnSend("s4:call",nHandle,"s12:HasMaxLength",dnPackItem(P1))
 
 	Func CanSetMaxLength P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetMaxLength",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:CanSetMaxLength",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetMaxLength",P1])
+		return dnSend("s4:call",nHandle,"s15:CanSetMaxLength",dnPackItem(P1))
 
 	Func IsUnicode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsUnicode",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:IsUnicode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnicode",P1])
+		return dnSend("s4:call",nHandle,"s9:IsUnicode",dnPackItem(P1))
 
 	Func CanSetIsUnicode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsUnicode",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:CanSetIsUnicode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsUnicode",P1])
+		return dnSend("s4:call",nHandle,"s15:CanSetIsUnicode",dnPackItem(P1))
 
 	Func HasPrecision P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasPrecision",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasPrecision",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasPrecision",P1])
+		return dnSend("s4:call",nHandle,"s12:HasPrecision",dnPackItem(P1))
 
 	Func CanSetPrecision P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetPrecision",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:CanSetPrecision",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetPrecision",P1])
+		return dnSend("s4:call",nHandle,"s15:CanSetPrecision",dnPackItem(P1))
 
 	Func HasScale P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasScale",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:HasScale",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasScale",P1])
+		return dnSend("s4:call",nHandle,"s8:HasScale",dnPackItem(P1))
 
 	Func CanSetScale P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetScale",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:CanSetScale",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetScale",P1])
+		return dnSend("s4:call",nHandle,"s11:CanSetScale",dnPackItem(P1))
 
 	Func HasConversion P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasConversion",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasConversion",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasConversion",P1])
+		return dnSend("s4:call",nHandle,"s13:HasConversion",dnPackItem(P1))
 
 	Func CanSetConversion P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetConversion",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:CanSetConversion",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetConversion",P1])
+		return dnSend("s4:call",nHandle,"s16:CanSetConversion",dnPackItem(P1))
 
 	Func HasConverter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasConverter",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasConverter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasConverter",P1])
+		return dnSend("s4:call",nHandle,"s12:HasConverter",dnPackItem(P1))
 
 	Func CanSetConverter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetConverter",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:CanSetConverter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetConverter",P1])
+		return dnSend("s4:call",nHandle,"s15:CanSetConverter",dnPackItem(P1))
 
 	Func HasTypeMapping P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasTypeMapping",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:HasTypeMapping",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasTypeMapping",P1])
+		return dnSend("s4:call",nHandle,"s14:HasTypeMapping",dnPackItem(P1))
 
 	Func CanSetTypeMapping P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetTypeMapping",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:CanSetTypeMapping",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetTypeMapping",P1])
+		return dnSend("s4:call",nHandle,"s17:CanSetTypeMapping",dnPackItem(P1))
 
 	Func HasValueComparer P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasValueComparer",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:HasValueComparer",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueComparer",P1])
+		return dnSend("s4:call",nHandle,"s16:HasValueComparer",dnPackItem(P1))
 
 	Func CanSetValueComparer P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetValueComparer",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:CanSetValueComparer",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetValueComparer",P1])
+		return dnSend("s4:call",nHandle,"s19:CanSetValueComparer",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -1881,294 +1881,294 @@ Class IConventionEntityTypeBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func HasBaseType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasBaseType",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:HasBaseType",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasBaseType",P1])
+		return dnSend("s4:call",nHandle,"s11:HasBaseType",dnPackItem(P1))
 
 	Func CanSetBaseType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetBaseType",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:CanSetBaseType",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetBaseType",P1])
+		return dnSend("s4:call",nHandle,"s14:CanSetBaseType",dnPackItem(P1))
 
 	Func RemoveUnusedImplicitProperties P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveUnusedImplicitProperties",P1])
+		return dnSend("s4:call",nHandle,"s30:RemoveUnusedImplicitProperties",dnPackItem(P1))
 
 	Func HasNoProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasNoProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoProperty",P1])
+		return dnSend("s4:call",nHandle,"s13:HasNoProperty",dnPackItem(P1))
 
 	Func HasNoComplexProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoComplexProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNoComplexProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoComplexProperty",P1])
+		return dnSend("s4:call",nHandle,"s20:HasNoComplexProperty",dnPackItem(P1))
 
 	Func ServiceProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ServiceProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:ServiceProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ServiceProperty",P1])
+		return dnSend("s4:call",nHandle,"s15:ServiceProperty",dnPackItem(P1))
 
 	Func CanHaveServiceProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanHaveServiceProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s22:CanHaveServiceProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanHaveServiceProperty",P1])
+		return dnSend("s4:call",nHandle,"s22:CanHaveServiceProperty",dnPackItem(P1))
 
 	Func HasNoServiceProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoServiceProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNoServiceProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoServiceProperty",P1])
+		return dnSend("s4:call",nHandle,"s20:HasNoServiceProperty",dnPackItem(P1))
 
 	Func CanRemoveServiceProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanRemoveServiceProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:CanRemoveServiceProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanRemoveServiceProperty",P1])
+		return dnSend("s4:call",nHandle,"s24:CanRemoveServiceProperty",dnPackItem(P1))
 
 	Func Ignore P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Ignore",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Ignore",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Ignore",P1])
+		return dnSend("s4:call",nHandle,"s6:Ignore",dnPackItem(P1))
 
 	Func PrimaryKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"PrimaryKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:PrimaryKey",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"PrimaryKey",P1])
+		return dnSend("s4:call",nHandle,"s10:PrimaryKey",dnPackItem(P1))
 
 	Func CanSetPrimaryKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetPrimaryKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:CanSetPrimaryKey",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetPrimaryKey",P1])
+		return dnSend("s4:call",nHandle,"s16:CanSetPrimaryKey",dnPackItem(P1))
 
 	Func HasKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:HasKey",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasKey",P1])
+		return dnSend("s4:call",nHandle,"s6:HasKey",dnPackItem(P1))
 
 	Func HasNoKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:HasNoKey",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoKey"])
+			return dnSend("s4:call",nHandle,"s8:HasNoKey","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoKey",P1])
+		return dnSend("s4:call",nHandle,"s8:HasNoKey",dnPackItem(P1))
 
 	Func CanRemoveKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanRemoveKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:CanRemoveKey",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"CanRemoveKey"])
+			return dnSend("s4:call",nHandle,"s12:CanRemoveKey","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanRemoveKey",P1])
+		return dnSend("s4:call",nHandle,"s12:CanRemoveKey",dnPackItem(P1))
 
 	Func HasIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:HasIndex",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasIndex",P1])
+		return dnSend("s4:call",nHandle,"s8:HasIndex",dnPackItem(P1))
 
 	Func CanHaveIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanHaveIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:CanHaveIndex",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanHaveIndex",P1])
+		return dnSend("s4:call",nHandle,"s12:CanHaveIndex",dnPackItem(P1))
 
 	Func HasNoIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:HasNoIndex",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoIndex",P1])
+		return dnSend("s4:call",nHandle,"s10:HasNoIndex",dnPackItem(P1))
 
 	Func CanRemoveIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanRemoveIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:CanRemoveIndex",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanRemoveIndex",P1])
+		return dnSend("s4:call",nHandle,"s14:CanRemoveIndex",dnPackItem(P1))
 
 	Func HasRelationship P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasRelationship",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasRelationship",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasRelationship",P1])
+		return dnSend("s4:call",nHandle,"s15:HasRelationship",dnPackItem(P1))
 
 	Func HasOwnership P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasOwnership",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasOwnership",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasOwnership does not take one argument: use named arguments, HasOwnership([ :parameter = value, ... ])")
 
 	Func HasNoRelationship P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoRelationship",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:HasNoRelationship",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoRelationship",P1])
+		return dnSend("s4:call",nHandle,"s17:HasNoRelationship",dnPackItem(P1))
 
 	Func CanRemoveRelationship P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanRemoveRelationship",P1])
+			return dnSend("s9:callnamed",nHandle,"s21:CanRemoveRelationship",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanRemoveRelationship",P1])
+		return dnSend("s4:call",nHandle,"s21:CanRemoveRelationship",dnPackItem(P1))
 
 	Func CanHaveNavigation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanHaveNavigation",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:CanHaveNavigation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanHaveNavigation",P1])
+		return dnSend("s4:call",nHandle,"s17:CanHaveNavigation",dnPackItem(P1))
 
 	Func HasNoNavigation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoNavigation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoNavigation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoNavigation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoNavigation",dnPackItem(P1))
 
 	Func CanRemoveNavigation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanRemoveNavigation",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:CanRemoveNavigation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanRemoveNavigation",P1])
+		return dnSend("s4:call",nHandle,"s19:CanRemoveNavigation",dnPackItem(P1))
 
 	Func CanHaveSkipNavigation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanHaveSkipNavigation",P1])
+			return dnSend("s9:callnamed",nHandle,"s21:CanHaveSkipNavigation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanHaveSkipNavigation",P1])
+		return dnSend("s4:call",nHandle,"s21:CanHaveSkipNavigation",dnPackItem(P1))
 
 	Func HasSkipNavigation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasSkipNavigation",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:HasSkipNavigation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasSkipNavigation does not take one argument: use named arguments, HasSkipNavigation([ :parameter = value, ... ])")
 
 	Func HasNoSkipNavigation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoSkipNavigation",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:HasNoSkipNavigation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoSkipNavigation",P1])
+		return dnSend("s4:call",nHandle,"s19:HasNoSkipNavigation",dnPackItem(P1))
 
 	Func CanRemoveSkipNavigation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanRemoveSkipNavigation",P1])
+			return dnSend("s9:callnamed",nHandle,"s23:CanRemoveSkipNavigation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanRemoveSkipNavigation",P1])
+		return dnSend("s4:call",nHandle,"s23:CanRemoveSkipNavigation",dnPackItem(P1))
 
 	Func HasTrigger P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasTrigger",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:HasTrigger",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasTrigger",P1])
+		return dnSend("s4:call",nHandle,"s10:HasTrigger",dnPackItem(P1))
 
 	Func CanHaveTrigger P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanHaveTrigger",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:CanHaveTrigger",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanHaveTrigger",P1])
+		return dnSend("s4:call",nHandle,"s14:CanHaveTrigger",dnPackItem(P1))
 
 	Func HasQueryFilter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasQueryFilter",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:HasQueryFilter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasQueryFilter",P1])
+		return dnSend("s4:call",nHandle,"s14:HasQueryFilter",dnPackItem(P1))
 
 	Func CanSetQueryFilter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetQueryFilter",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:CanSetQueryFilter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetQueryFilter",P1])
+		return dnSend("s4:call",nHandle,"s17:CanSetQueryFilter",dnPackItem(P1))
 
 	Func HasDefiningQuery P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasDefiningQuery",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:HasDefiningQuery",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasDefiningQuery",P1])
+		return dnSend("s4:call",nHandle,"s16:HasDefiningQuery",dnPackItem(P1))
 
 	Func CanSetDefiningQuery P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetDefiningQuery",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:CanSetDefiningQuery",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetDefiningQuery",P1])
+		return dnSend("s4:call",nHandle,"s19:CanSetDefiningQuery",dnPackItem(P1))
 
 	Func HasChangeTrackingStrategy P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasChangeTrackingStrategy",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:HasChangeTrackingStrategy",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasChangeTrackingStrategy",P1])
+		return dnSend("s4:call",nHandle,"s25:HasChangeTrackingStrategy",dnPackItem(P1))
 
 	Func UsePropertyAccessMode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"UsePropertyAccessMode",P1])
+			return dnSend("s9:callnamed",nHandle,"s21:UsePropertyAccessMode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UsePropertyAccessMode",P1])
+		return dnSend("s4:call",nHandle,"s21:UsePropertyAccessMode",dnPackItem(P1))
 
 	Func HasDiscriminator P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasDiscriminator",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:HasDiscriminator",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasDiscriminator"])
+			return dnSend("s4:call",nHandle,"s16:HasDiscriminator","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasDiscriminator",P1])
+		return dnSend("s4:call",nHandle,"s16:HasDiscriminator",dnPackItem(P1))
 
 	Func HasNoDiscriminator P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoDiscriminator",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:HasNoDiscriminator",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoDiscriminator"])
+			return dnSend("s4:call",nHandle,"s18:HasNoDiscriminator","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoDiscriminator",P1])
+		return dnSend("s4:call",nHandle,"s18:HasNoDiscriminator",dnPackItem(P1))
 
 	Func CanSetDiscriminator P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetDiscriminator",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:CanSetDiscriminator",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetDiscriminator",P1])
+		return dnSend("s4:call",nHandle,"s19:CanSetDiscriminator",dnPackItem(P1))
 
 	Func CanRemoveDiscriminator P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanRemoveDiscriminator",P1])
+			return dnSend("s9:callnamed",nHandle,"s22:CanRemoveDiscriminator",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"CanRemoveDiscriminator"])
+			return dnSend("s4:call",nHandle,"s22:CanRemoveDiscriminator","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanRemoveDiscriminator",P1])
+		return dnSend("s4:call",nHandle,"s22:CanRemoveDiscriminator",dnPackItem(P1))
 
 	Func GetTargetEntityTypeBuilder P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetTargetEntityTypeBuilder",P1])
+			return dnSend("s9:callnamed",nHandle,"s26:GetTargetEntityTypeBuilder",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetTargetEntityTypeBuilder does not take one argument: use named arguments, GetTargetEntityTypeBuilder([ :parameter = value, ... ])")
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -2188,7 +2188,7 @@ Class IConventionEntityTypeMappingFragmentBuilder from DotNetObject
 		return self
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -2209,150 +2209,150 @@ Class IConventionForeignKeyBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func HasEntityTypes P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasEntityTypes",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:HasEntityTypes",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasEntityTypes does not take one argument: use named arguments, HasEntityTypes([ :parameter = value, ... ])")
 
 	Func CanSetEntityTypes P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetEntityTypes",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:CanSetEntityTypes",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CanSetEntityTypes does not take one argument: use named arguments, CanSetEntityTypes([ :parameter = value, ... ])")
 
 	Func CanInvert P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanInvert",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:CanInvert",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanInvert",P1])
+		return dnSend("s4:call",nHandle,"s9:CanInvert",dnPackItem(P1))
 
 	Func HasForeignKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasForeignKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasForeignKey",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasForeignKey",P1])
+		return dnSend("s4:call",nHandle,"s13:HasForeignKey",dnPackItem(P1))
 
 	Func CanSetForeignKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetForeignKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:CanSetForeignKey",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetForeignKey",P1])
+		return dnSend("s4:call",nHandle,"s16:CanSetForeignKey",dnPackItem(P1))
 
 	Func HasPrincipalKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasPrincipalKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasPrincipalKey",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasPrincipalKey",P1])
+		return dnSend("s4:call",nHandle,"s15:HasPrincipalKey",dnPackItem(P1))
 
 	Func CanSetPrincipalKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetPrincipalKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:CanSetPrincipalKey",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetPrincipalKey",P1])
+		return dnSend("s4:call",nHandle,"s18:CanSetPrincipalKey",dnPackItem(P1))
 
 	Func HasNavigation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNavigation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasNavigation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNavigation does not take one argument: use named arguments, HasNavigation([ :parameter = value, ... ])")
 
 	Func HasNavigations P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNavigations",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:HasNavigations",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNavigations does not take one argument: use named arguments, HasNavigations([ :parameter = value, ... ])")
 
 	Func CanSetNavigation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetNavigation",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:CanSetNavigation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CanSetNavigation does not take one argument: use named arguments, CanSetNavigation([ :parameter = value, ... ])")
 
 	Func CanSetNavigations P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetNavigations",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:CanSetNavigations",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CanSetNavigations does not take one argument: use named arguments, CanSetNavigations([ :parameter = value, ... ])")
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsRequired",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired",P1])
+		return dnSend("s4:call",nHandle,"s10:IsRequired",dnPackItem(P1))
 
 	Func CanSetIsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:CanSetIsRequired",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsRequired",P1])
+		return dnSend("s4:call",nHandle,"s16:CanSetIsRequired",dnPackItem(P1))
 
 	Func IsRequiredDependent P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsRequiredDependent",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:IsRequiredDependent",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequiredDependent",P1])
+		return dnSend("s4:call",nHandle,"s19:IsRequiredDependent",dnPackItem(P1))
 
 	Func CanSetIsRequiredDependent P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsRequiredDependent",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:CanSetIsRequiredDependent",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsRequiredDependent",P1])
+		return dnSend("s4:call",nHandle,"s25:CanSetIsRequiredDependent",dnPackItem(P1))
 
 	Func IsOwnership P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsOwnership",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:IsOwnership",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsOwnership",P1])
+		return dnSend("s4:call",nHandle,"s11:IsOwnership",dnPackItem(P1))
 
 	Func CanSetIsOwnership P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsOwnership",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:CanSetIsOwnership",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsOwnership",P1])
+		return dnSend("s4:call",nHandle,"s17:CanSetIsOwnership",dnPackItem(P1))
 
 	Func IsUnique P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsUnique",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:IsUnique",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnique",P1])
+		return dnSend("s4:call",nHandle,"s8:IsUnique",dnPackItem(P1))
 
 	Func CanSetIsUnique P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsUnique",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:CanSetIsUnique",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsUnique",P1])
+		return dnSend("s4:call",nHandle,"s14:CanSetIsUnique",dnPackItem(P1))
 
 	Func OnDelete P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"OnDelete",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:OnDelete",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"OnDelete",P1])
+		return dnSend("s4:call",nHandle,"s8:OnDelete",dnPackItem(P1))
 
 	Func CanSetOnDelete P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetOnDelete",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:CanSetOnDelete",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetOnDelete",P1])
+		return dnSend("s4:call",nHandle,"s14:CanSetOnDelete",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -2373,48 +2373,48 @@ Class IConventionIndexBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func IsUnique P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsUnique",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:IsUnique",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnique",P1])
+		return dnSend("s4:call",nHandle,"s8:IsUnique",dnPackItem(P1))
 
 	Func CanSetIsUnique P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsUnique",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:CanSetIsUnique",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsUnique",P1])
+		return dnSend("s4:call",nHandle,"s14:CanSetIsUnique",dnPackItem(P1))
 
 	Func IsDescending P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsDescending",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:IsDescending",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsDescending",P1])
+		return dnSend("s4:call",nHandle,"s12:IsDescending",dnPackItem(P1))
 
 	Func CanSetIsDescending P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsDescending",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:CanSetIsDescending",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsDescending",P1])
+		return dnSend("s4:call",nHandle,"s18:CanSetIsDescending",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -2435,24 +2435,24 @@ Class IConventionKeyBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -2473,126 +2473,126 @@ Class IConventionModelBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func Entity P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Entity",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Entity",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Entity",P1])
+		return dnSend("s4:call",nHandle,"s6:Entity",dnPackItem(P1))
 
 	Func SharedTypeEntity P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SharedTypeEntity",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:SharedTypeEntity",dnPackItem(P1))
 		ok
 		raise("DotNet Error: SharedTypeEntity does not take one argument: use named arguments, SharedTypeEntity([ :parameter = value, ... ])")
 
 	Func Owned P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Owned",P1])
+			return dnSend("s9:callnamed",nHandle,"s5:Owned",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Owned",P1])
+		return dnSend("s4:call",nHandle,"s5:Owned",dnPackItem(P1))
 
 	Func ComplexType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ComplexType",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:ComplexType",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ComplexType",P1])
+		return dnSend("s4:call",nHandle,"s11:ComplexType",dnPackItem(P1))
 
 	Func IsIgnored P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsIgnored",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:IsIgnored",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsIgnored",P1])
+		return dnSend("s4:call",nHandle,"s9:IsIgnored",dnPackItem(P1))
 
 	Func Ignore P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Ignore",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Ignore",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Ignore",P1])
+		return dnSend("s4:call",nHandle,"s6:Ignore",dnPackItem(P1))
 
 	Func CanHaveEntity P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanHaveEntity",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:CanHaveEntity",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanHaveEntity",P1])
+		return dnSend("s4:call",nHandle,"s13:CanHaveEntity",dnPackItem(P1))
 
 	Func CanHaveSharedTypeEntity P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanHaveSharedTypeEntity",P1])
+			return dnSend("s9:callnamed",nHandle,"s23:CanHaveSharedTypeEntity",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CanHaveSharedTypeEntity does not take one argument: use named arguments, CanHaveSharedTypeEntity([ :parameter = value, ... ])")
 
 	Func HasNoEntityType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoEntityType",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoEntityType",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoEntityType",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoEntityType",dnPackItem(P1))
 
 	Func CanRemoveEntity P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanRemoveEntity",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:CanRemoveEntity",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanRemoveEntity",P1])
+		return dnSend("s4:call",nHandle,"s15:CanRemoveEntity",dnPackItem(P1))
 
 	Func CanIgnore P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanIgnore",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:CanIgnore",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanIgnore",P1])
+		return dnSend("s4:call",nHandle,"s9:CanIgnore",dnPackItem(P1))
 
 	Func HasChangeTrackingStrategy P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasChangeTrackingStrategy",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:HasChangeTrackingStrategy",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasChangeTrackingStrategy",P1])
+		return dnSend("s4:call",nHandle,"s25:HasChangeTrackingStrategy",dnPackItem(P1))
 
 	Func CanSetChangeTrackingStrategy P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetChangeTrackingStrategy",P1])
+			return dnSend("s9:callnamed",nHandle,"s28:CanSetChangeTrackingStrategy",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetChangeTrackingStrategy",P1])
+		return dnSend("s4:call",nHandle,"s28:CanSetChangeTrackingStrategy",dnPackItem(P1))
 
 	Func UsePropertyAccessMode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"UsePropertyAccessMode",P1])
+			return dnSend("s9:callnamed",nHandle,"s21:UsePropertyAccessMode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UsePropertyAccessMode",P1])
+		return dnSend("s4:call",nHandle,"s21:UsePropertyAccessMode",dnPackItem(P1))
 
 	Func CanSetPropertyAccessMode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetPropertyAccessMode",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetPropertyAccessMode",P1])
+		return dnSend("s4:call",nHandle,"s24:CanSetPropertyAccessMode",dnPackItem(P1))
 
 	Func HasEmbeddedDiscriminatorName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasEmbeddedDiscriminatorName",P1])
+			return dnSend("s9:callnamed",nHandle,"s28:HasEmbeddedDiscriminatorName",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasEmbeddedDiscriminatorName",P1])
+		return dnSend("s4:call",nHandle,"s28:HasEmbeddedDiscriminatorName",dnPackItem(P1))
 
 	Func CanSetEmbeddedDiscriminatorName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetEmbeddedDiscriminatorName",P1])
+			return dnSend("s9:callnamed",nHandle,"s31:CanSetEmbeddedDiscriminatorName",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetEmbeddedDiscriminatorName",P1])
+		return dnSend("s4:call",nHandle,"s31:CanSetEmbeddedDiscriminatorName",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -2613,42 +2613,42 @@ Class IConventionNavigationBuilder from DotNetObject
 
 	Func AutoInclude P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AutoInclude",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:AutoInclude",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AutoInclude",P1])
+		return dnSend("s4:call",nHandle,"s11:AutoInclude",dnPackItem(P1))
 
 	Func CanSetAutoInclude P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetAutoInclude",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:CanSetAutoInclude",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetAutoInclude",P1])
+		return dnSend("s4:call",nHandle,"s17:CanSetAutoInclude",dnPackItem(P1))
 
 	Func EnableLazyLoading P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnableLazyLoading",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:EnableLazyLoading",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnableLazyLoading",P1])
+		return dnSend("s4:call",nHandle,"s17:EnableLazyLoading",dnPackItem(P1))
 
 	Func CanSetLazyLoadingEnabled P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetLazyLoadingEnabled",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:CanSetLazyLoadingEnabled",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetLazyLoadingEnabled",P1])
+		return dnSend("s4:call",nHandle,"s24:CanSetLazyLoadingEnabled",dnPackItem(P1))
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsRequired",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired",P1])
+		return dnSend("s4:call",nHandle,"s10:IsRequired",dnPackItem(P1))
 
 	Func CanSetIsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:CanSetIsRequired",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsRequired",P1])
+		return dnSend("s4:call",nHandle,"s16:CanSetIsRequired",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -2681,222 +2681,222 @@ Class IConventionPropertyBuilder from DotNetObject
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsRequired",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired",P1])
+		return dnSend("s4:call",nHandle,"s10:IsRequired",dnPackItem(P1))
 
 	Func CanSetIsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:CanSetIsRequired",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsRequired",P1])
+		return dnSend("s4:call",nHandle,"s16:CanSetIsRequired",dnPackItem(P1))
 
 	Func ValueGenerated P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ValueGenerated",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:ValueGenerated",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGenerated",P1])
+		return dnSend("s4:call",nHandle,"s14:ValueGenerated",dnPackItem(P1))
 
 	Func CanSetValueGenerated P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetValueGenerated",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:CanSetValueGenerated",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetValueGenerated",P1])
+		return dnSend("s4:call",nHandle,"s20:CanSetValueGenerated",dnPackItem(P1))
 
 	Func IsConcurrencyToken P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsConcurrencyToken",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:IsConcurrencyToken",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsConcurrencyToken",P1])
+		return dnSend("s4:call",nHandle,"s18:IsConcurrencyToken",dnPackItem(P1))
 
 	Func CanSetIsConcurrencyToken P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsConcurrencyToken",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:CanSetIsConcurrencyToken",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsConcurrencyToken",P1])
+		return dnSend("s4:call",nHandle,"s24:CanSetIsConcurrencyToken",dnPackItem(P1))
 
 	Func HasSentinel P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasSentinel",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:HasSentinel",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasSentinel",P1])
+		return dnSend("s4:call",nHandle,"s11:HasSentinel",dnPackItem(P1))
 
 	Func CanSetSentinel P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetSentinel",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:CanSetSentinel",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetSentinel",P1])
+		return dnSend("s4:call",nHandle,"s14:CanSetSentinel",dnPackItem(P1))
 
 	Func HasMaxLength P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasMaxLength",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasMaxLength",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasMaxLength",P1])
+		return dnSend("s4:call",nHandle,"s12:HasMaxLength",dnPackItem(P1))
 
 	Func CanSetMaxLength P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetMaxLength",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:CanSetMaxLength",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetMaxLength",P1])
+		return dnSend("s4:call",nHandle,"s15:CanSetMaxLength",dnPackItem(P1))
 
 	Func IsUnicode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsUnicode",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:IsUnicode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnicode",P1])
+		return dnSend("s4:call",nHandle,"s9:IsUnicode",dnPackItem(P1))
 
 	Func CanSetIsUnicode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsUnicode",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:CanSetIsUnicode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsUnicode",P1])
+		return dnSend("s4:call",nHandle,"s15:CanSetIsUnicode",dnPackItem(P1))
 
 	Func HasPrecision P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasPrecision",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasPrecision",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasPrecision",P1])
+		return dnSend("s4:call",nHandle,"s12:HasPrecision",dnPackItem(P1))
 
 	Func CanSetPrecision P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetPrecision",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:CanSetPrecision",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetPrecision",P1])
+		return dnSend("s4:call",nHandle,"s15:CanSetPrecision",dnPackItem(P1))
 
 	Func HasScale P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasScale",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:HasScale",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasScale",P1])
+		return dnSend("s4:call",nHandle,"s8:HasScale",dnPackItem(P1))
 
 	Func CanSetScale P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetScale",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:CanSetScale",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetScale",P1])
+		return dnSend("s4:call",nHandle,"s11:CanSetScale",dnPackItem(P1))
 
 	Func BeforeSave P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeforeSave",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:BeforeSave",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"BeforeSave",P1])
+		return dnSend("s4:call",nHandle,"s10:BeforeSave",dnPackItem(P1))
 
 	Func CanSetBeforeSave P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetBeforeSave",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:CanSetBeforeSave",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetBeforeSave",P1])
+		return dnSend("s4:call",nHandle,"s16:CanSetBeforeSave",dnPackItem(P1))
 
 	Func AfterSave P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AfterSave",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:AfterSave",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AfterSave",P1])
+		return dnSend("s4:call",nHandle,"s9:AfterSave",dnPackItem(P1))
 
 	Func CanSetAfterSave P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetAfterSave",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:CanSetAfterSave",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetAfterSave",P1])
+		return dnSend("s4:call",nHandle,"s15:CanSetAfterSave",dnPackItem(P1))
 
 	Func HasValueGenerator P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasValueGenerator",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:HasValueGenerator",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGenerator",P1])
+		return dnSend("s4:call",nHandle,"s17:HasValueGenerator",dnPackItem(P1))
 
 	Func HasValueGeneratorFactory P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasValueGeneratorFactory",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:HasValueGeneratorFactory",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGeneratorFactory",P1])
+		return dnSend("s4:call",nHandle,"s24:HasValueGeneratorFactory",dnPackItem(P1))
 
 	Func CanSetValueGenerator P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetValueGenerator",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:CanSetValueGenerator",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetValueGenerator",P1])
+		return dnSend("s4:call",nHandle,"s20:CanSetValueGenerator",dnPackItem(P1))
 
 	Func CanSetValueGeneratorFactory P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetValueGeneratorFactory",P1])
+			return dnSend("s9:callnamed",nHandle,"s27:CanSetValueGeneratorFactory",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetValueGeneratorFactory",P1])
+		return dnSend("s4:call",nHandle,"s27:CanSetValueGeneratorFactory",dnPackItem(P1))
 
 	Func HasConversion P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasConversion",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasConversion",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasConversion",P1])
+		return dnSend("s4:call",nHandle,"s13:HasConversion",dnPackItem(P1))
 
 	Func CanSetConversion P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetConversion",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:CanSetConversion",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetConversion",P1])
+		return dnSend("s4:call",nHandle,"s16:CanSetConversion",dnPackItem(P1))
 
 	Func HasConverter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasConverter",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasConverter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasConverter",P1])
+		return dnSend("s4:call",nHandle,"s12:HasConverter",dnPackItem(P1))
 
 	Func CanSetConverter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetConverter",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:CanSetConverter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetConverter",P1])
+		return dnSend("s4:call",nHandle,"s15:CanSetConverter",dnPackItem(P1))
 
 	Func HasTypeMapping P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasTypeMapping",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:HasTypeMapping",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasTypeMapping",P1])
+		return dnSend("s4:call",nHandle,"s14:HasTypeMapping",dnPackItem(P1))
 
 	Func CanSetTypeMapping P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetTypeMapping",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:CanSetTypeMapping",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetTypeMapping",P1])
+		return dnSend("s4:call",nHandle,"s17:CanSetTypeMapping",dnPackItem(P1))
 
 	Func HasValueComparer P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasValueComparer",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:HasValueComparer",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueComparer",P1])
+		return dnSend("s4:call",nHandle,"s16:HasValueComparer",dnPackItem(P1))
 
 	Func CanSetValueComparer P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetValueComparer",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:CanSetValueComparer",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetValueComparer",P1])
+		return dnSend("s4:call",nHandle,"s19:CanSetValueComparer",dnPackItem(P1))
 
 	Func HasProviderValueComparer P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasProviderValueComparer",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:HasProviderValueComparer",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasProviderValueComparer",P1])
+		return dnSend("s4:call",nHandle,"s24:HasProviderValueComparer",dnPackItem(P1))
 
 	Func CanSetProviderValueComparer P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetProviderValueComparer",P1])
+			return dnSend("s9:callnamed",nHandle,"s27:CanSetProviderValueComparer",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetProviderValueComparer",P1])
+		return dnSend("s4:call",nHandle,"s27:CanSetProviderValueComparer",dnPackItem(P1))
 
 	Func SetElementType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetElementType",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:SetElementType",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SetElementType",P1])
+		return dnSend("s4:call",nHandle,"s14:SetElementType",dnPackItem(P1))
 
 	Func CanSetElementType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetElementType",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:CanSetElementType",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetElementType",P1])
+		return dnSend("s4:call",nHandle,"s17:CanSetElementType",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -2916,7 +2916,7 @@ Class IConventionRelationalPropertyOverridesBuilder from DotNetObject
 		return self
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -2937,96 +2937,96 @@ Class IConventionSequenceBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func HasType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasType",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:HasType",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasType",P1])
+		return dnSend("s4:call",nHandle,"s7:HasType",dnPackItem(P1))
 
 	Func CanSetType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetType",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:CanSetType",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetType",P1])
+		return dnSend("s4:call",nHandle,"s10:CanSetType",dnPackItem(P1))
 
 	Func IncrementsBy P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IncrementsBy",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:IncrementsBy",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IncrementsBy",P1])
+		return dnSend("s4:call",nHandle,"s12:IncrementsBy",dnPackItem(P1))
 
 	Func CanSetIncrementsBy P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIncrementsBy",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:CanSetIncrementsBy",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIncrementsBy",P1])
+		return dnSend("s4:call",nHandle,"s18:CanSetIncrementsBy",dnPackItem(P1))
 
 	Func StartsAt P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"StartsAt",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:StartsAt",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"StartsAt",P1])
+		return dnSend("s4:call",nHandle,"s8:StartsAt",dnPackItem(P1))
 
 	Func CanSetStartsAt P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetStartsAt",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:CanSetStartsAt",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetStartsAt",P1])
+		return dnSend("s4:call",nHandle,"s14:CanSetStartsAt",dnPackItem(P1))
 
 	Func HasMax P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasMax",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:HasMax",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasMax",P1])
+		return dnSend("s4:call",nHandle,"s6:HasMax",dnPackItem(P1))
 
 	Func CanSetMax P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetMax",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:CanSetMax",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetMax",P1])
+		return dnSend("s4:call",nHandle,"s9:CanSetMax",dnPackItem(P1))
 
 	Func HasMin P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasMin",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:HasMin",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasMin",P1])
+		return dnSend("s4:call",nHandle,"s6:HasMin",dnPackItem(P1))
 
 	Func CanSetMin P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetMin",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:CanSetMin",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetMin",P1])
+		return dnSend("s4:call",nHandle,"s9:CanSetMin",dnPackItem(P1))
 
 	Func IsCyclic P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsCyclic",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:IsCyclic",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsCyclic",P1])
+		return dnSend("s4:call",nHandle,"s8:IsCyclic",dnPackItem(P1))
 
 	Func CanSetIsCyclic P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetIsCyclic",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:CanSetIsCyclic",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetIsCyclic",P1])
+		return dnSend("s4:call",nHandle,"s14:CanSetIsCyclic",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -3047,18 +3047,18 @@ Class IConventionServicePropertyBuilder from DotNetObject
 
 	Func HasParameterBinding P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasParameterBinding",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:HasParameterBinding",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasParameterBinding",P1])
+		return dnSend("s4:call",nHandle,"s19:HasParameterBinding",dnPackItem(P1))
 
 	Func CanSetParameterBinding P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetParameterBinding",P1])
+			return dnSend("s9:callnamed",nHandle,"s22:CanSetParameterBinding",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetParameterBinding",P1])
+		return dnSend("s4:call",nHandle,"s22:CanSetParameterBinding",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -3079,54 +3079,54 @@ Class IConventionSkipNavigationBuilder from DotNetObject
 
 	Func HasForeignKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasForeignKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasForeignKey",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasForeignKey",P1])
+		return dnSend("s4:call",nHandle,"s13:HasForeignKey",dnPackItem(P1))
 
 	Func CanSetForeignKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetForeignKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:CanSetForeignKey",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetForeignKey",P1])
+		return dnSend("s4:call",nHandle,"s16:CanSetForeignKey",dnPackItem(P1))
 
 	Func HasInverse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasInverse",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:HasInverse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasInverse",P1])
+		return dnSend("s4:call",nHandle,"s10:HasInverse",dnPackItem(P1))
 
 	Func CanSetInverse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetInverse",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:CanSetInverse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetInverse",P1])
+		return dnSend("s4:call",nHandle,"s13:CanSetInverse",dnPackItem(P1))
 
 	Func CanSetAutoInclude P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetAutoInclude",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:CanSetAutoInclude",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetAutoInclude",P1])
+		return dnSend("s4:call",nHandle,"s17:CanSetAutoInclude",dnPackItem(P1))
 
 	Func AutoInclude P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AutoInclude",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:AutoInclude",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AutoInclude",P1])
+		return dnSend("s4:call",nHandle,"s11:AutoInclude",dnPackItem(P1))
 
 	Func CanSetLazyLoadingEnabled P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetLazyLoadingEnabled",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:CanSetLazyLoadingEnabled",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetLazyLoadingEnabled",P1])
+		return dnSend("s4:call",nHandle,"s24:CanSetLazyLoadingEnabled",dnPackItem(P1))
 
 	Func EnableLazyLoading P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnableLazyLoading",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:EnableLazyLoading",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnableLazyLoading",P1])
+		return dnSend("s4:call",nHandle,"s17:EnableLazyLoading",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -3147,120 +3147,120 @@ Class IConventionStoredProcedureBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func HasName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasName",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:HasName",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasName",P1])
+		return dnSend("s4:call",nHandle,"s7:HasName",dnPackItem(P1))
 
 	Func CanSetName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetName",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:CanSetName",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetName",P1])
+		return dnSend("s4:call",nHandle,"s10:CanSetName",dnPackItem(P1))
 
 	Func HasSchema P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasSchema",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:HasSchema",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasSchema",P1])
+		return dnSend("s4:call",nHandle,"s9:HasSchema",dnPackItem(P1))
 
 	Func CanSetSchema P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetSchema",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:CanSetSchema",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetSchema",P1])
+		return dnSend("s4:call",nHandle,"s12:CanSetSchema",dnPackItem(P1))
 
 	Func HasParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasParameter",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasParameter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasParameter",P1])
+		return dnSend("s4:call",nHandle,"s12:HasParameter",dnPackItem(P1))
 
 	Func CanHaveParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanHaveParameter",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:CanHaveParameter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanHaveParameter",P1])
+		return dnSend("s4:call",nHandle,"s16:CanHaveParameter",dnPackItem(P1))
 
 	Func HasOriginalValueParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasOriginalValueParameter",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:HasOriginalValueParameter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasOriginalValueParameter",P1])
+		return dnSend("s4:call",nHandle,"s25:HasOriginalValueParameter",dnPackItem(P1))
 
 	Func CanHaveOriginalValueParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanHaveOriginalValueParameter",P1])
+			return dnSend("s9:callnamed",nHandle,"s29:CanHaveOriginalValueParameter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanHaveOriginalValueParameter",P1])
+		return dnSend("s4:call",nHandle,"s29:CanHaveOriginalValueParameter",dnPackItem(P1))
 
 	Func HasRowsAffectedParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasRowsAffectedParameter",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:HasRowsAffectedParameter",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasRowsAffectedParameter"])
+			return dnSend("s4:call",nHandle,"s24:HasRowsAffectedParameter","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasRowsAffectedParameter",P1])
+		return dnSend("s4:call",nHandle,"s24:HasRowsAffectedParameter",dnPackItem(P1))
 
 	Func CanHaveRowsAffectedParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanHaveRowsAffectedParameter",P1])
+			return dnSend("s9:callnamed",nHandle,"s28:CanHaveRowsAffectedParameter",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"CanHaveRowsAffectedParameter"])
+			return dnSend("s4:call",nHandle,"s28:CanHaveRowsAffectedParameter","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanHaveRowsAffectedParameter",P1])
+		return dnSend("s4:call",nHandle,"s28:CanHaveRowsAffectedParameter",dnPackItem(P1))
 
 	Func HasResultColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasResultColumn",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasResultColumn",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasResultColumn",P1])
+		return dnSend("s4:call",nHandle,"s15:HasResultColumn",dnPackItem(P1))
 
 	Func CanHaveResultColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanHaveResultColumn",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:CanHaveResultColumn",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanHaveResultColumn",P1])
+		return dnSend("s4:call",nHandle,"s19:CanHaveResultColumn",dnPackItem(P1))
 
 	Func HasRowsAffectedResultColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasRowsAffectedResultColumn",P1])
+			return dnSend("s9:callnamed",nHandle,"s27:HasRowsAffectedResultColumn",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasRowsAffectedResultColumn"])
+			return dnSend("s4:call",nHandle,"s27:HasRowsAffectedResultColumn","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasRowsAffectedResultColumn",P1])
+		return dnSend("s4:call",nHandle,"s27:HasRowsAffectedResultColumn",dnPackItem(P1))
 
 	Func CanHaveRowsAffectedResultColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanHaveRowsAffectedResultColumn",P1])
+			return dnSend("s9:callnamed",nHandle,"s31:CanHaveRowsAffectedResultColumn",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"CanHaveRowsAffectedResultColumn"])
+			return dnSend("s4:call",nHandle,"s31:CanHaveRowsAffectedResultColumn","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanHaveRowsAffectedResultColumn",P1])
+		return dnSend("s4:call",nHandle,"s31:CanHaveRowsAffectedResultColumn",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -3281,48 +3281,48 @@ Class IConventionStoredProcedureParameterBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func HasName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasName",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:HasName",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasName",P1])
+		return dnSend("s4:call",nHandle,"s7:HasName",dnPackItem(P1))
 
 	Func CanSetName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetName",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:CanSetName",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetName",P1])
+		return dnSend("s4:call",nHandle,"s10:CanSetName",dnPackItem(P1))
 
 	Func HasDirection P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasDirection",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasDirection",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasDirection",P1])
+		return dnSend("s4:call",nHandle,"s12:HasDirection",dnPackItem(P1))
 
 	Func CanSetDirection P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetDirection",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:CanSetDirection",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetDirection",P1])
+		return dnSend("s4:call",nHandle,"s15:CanSetDirection",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -3343,36 +3343,36 @@ Class IConventionStoredProcedureResultColumnBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func HasName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasName",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:HasName",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasName",P1])
+		return dnSend("s4:call",nHandle,"s7:HasName",dnPackItem(P1))
 
 	Func CanSetName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetName",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:CanSetName",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetName",P1])
+		return dnSend("s4:call",nHandle,"s10:CanSetName",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -3393,24 +3393,24 @@ Class IConventionTriggerBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -3431,150 +3431,150 @@ Class IConventionTypeBaseBuilder from DotNetObject
 
 	Func HasAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasAnnotation does not take one argument: use named arguments, HasAnnotation([ :parameter = value, ... ])")
 
 	Func HasNonNullAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNonNullAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNonNullAnnotation",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HasNonNullAnnotation does not take one argument: use named arguments, HasNonNullAnnotation([ :parameter = value, ... ])")
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoAnnotation",P1])
+		return dnSend("s4:call",nHandle,"s15:HasNoAnnotation",dnPackItem(P1))
 
 	Func Property P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Property",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:Property",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Property",P1])
+		return dnSend("s4:call",nHandle,"s8:Property",dnPackItem(P1))
 
 	Func CanHaveProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanHaveProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:CanHaveProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanHaveProperty",P1])
+		return dnSend("s4:call",nHandle,"s15:CanHaveProperty",dnPackItem(P1))
 
 	Func IndexerProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexerProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:IndexerProperty",dnPackItem(P1))
 		ok
 		raise("DotNet Error: IndexerProperty does not take one argument: use named arguments, IndexerProperty([ :parameter = value, ... ])")
 
 	Func CanHaveIndexerProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanHaveIndexerProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s22:CanHaveIndexerProperty",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CanHaveIndexerProperty does not take one argument: use named arguments, CanHaveIndexerProperty([ :parameter = value, ... ])")
 
 	Func CreateUniqueProperty P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateUniqueProperty",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s20:CreateUniqueProperty",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func GetOrCreateProperties P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetOrCreateProperties",P1])
+			return dnSend("s9:callnamed",nHandle,"s21:GetOrCreateProperties",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetOrCreateProperties",P1])
+		return dnSend("s4:call",nHandle,"s21:GetOrCreateProperties",dnPackItem(P1))
 
 	Func RemoveUnusedImplicitProperties P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveUnusedImplicitProperties",P1])
+		return dnSend("s4:call",nHandle,"s30:RemoveUnusedImplicitProperties",dnPackItem(P1))
 
 	Func HasNoProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasNoProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoProperty",P1])
+		return dnSend("s4:call",nHandle,"s13:HasNoProperty",dnPackItem(P1))
 
 	Func CanRemoveProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanRemoveProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:CanRemoveProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanRemoveProperty",P1])
+		return dnSend("s4:call",nHandle,"s17:CanRemoveProperty",dnPackItem(P1))
 
 	Func ComplexProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ComplexProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:ComplexProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ComplexProperty",P1])
+		return dnSend("s4:call",nHandle,"s15:ComplexProperty",dnPackItem(P1))
 
 	Func CanHaveComplexProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanHaveComplexProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s22:CanHaveComplexProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanHaveComplexProperty",P1])
+		return dnSend("s4:call",nHandle,"s22:CanHaveComplexProperty",dnPackItem(P1))
 
 	Func ComplexIndexerProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ComplexIndexerProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s22:ComplexIndexerProperty",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ComplexIndexerProperty does not take one argument: use named arguments, ComplexIndexerProperty([ :parameter = value, ... ])")
 
 	Func CanHaveComplexIndexerProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanHaveComplexIndexerProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s29:CanHaveComplexIndexerProperty",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CanHaveComplexIndexerProperty does not take one argument: use named arguments, CanHaveComplexIndexerProperty([ :parameter = value, ... ])")
 
 	Func HasNoComplexProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasNoComplexProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:HasNoComplexProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNoComplexProperty",P1])
+		return dnSend("s4:call",nHandle,"s20:HasNoComplexProperty",dnPackItem(P1))
 
 	Func CanRemoveComplexProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanRemoveComplexProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:CanRemoveComplexProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanRemoveComplexProperty",P1])
+		return dnSend("s4:call",nHandle,"s24:CanRemoveComplexProperty",dnPackItem(P1))
 
 	Func IsIgnored P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsIgnored",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:IsIgnored",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsIgnored",P1])
+		return dnSend("s4:call",nHandle,"s9:IsIgnored",dnPackItem(P1))
 
 	Func Ignore P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Ignore",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Ignore",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Ignore",P1])
+		return dnSend("s4:call",nHandle,"s6:Ignore",dnPackItem(P1))
 
 	Func CanIgnore P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanIgnore",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:CanIgnore",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanIgnore",P1])
+		return dnSend("s4:call",nHandle,"s9:CanIgnore",dnPackItem(P1))
 
 	Func HasChangeTrackingStrategy P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasChangeTrackingStrategy",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:HasChangeTrackingStrategy",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasChangeTrackingStrategy",P1])
+		return dnSend("s4:call",nHandle,"s25:HasChangeTrackingStrategy",dnPackItem(P1))
 
 	Func CanSetChangeTrackingStrategy P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetChangeTrackingStrategy",P1])
+			return dnSend("s9:callnamed",nHandle,"s28:CanSetChangeTrackingStrategy",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetChangeTrackingStrategy",P1])
+		return dnSend("s4:call",nHandle,"s28:CanSetChangeTrackingStrategy",dnPackItem(P1))
 
 	Func UsePropertyAccessMode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"UsePropertyAccessMode",P1])
+			return dnSend("s9:callnamed",nHandle,"s21:UsePropertyAccessMode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UsePropertyAccessMode",P1])
+		return dnSend("s4:call",nHandle,"s21:UsePropertyAccessMode",dnPackItem(P1))
 
 	Func CanSetPropertyAccessMode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CanSetPropertyAccessMode",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CanSetPropertyAccessMode",P1])
+		return dnSend("s4:call",nHandle,"s24:CanSetPropertyAccessMode",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -3596,25 +3596,25 @@ Class IndexBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsUnique P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsUnique",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:IsUnique",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnique"])
+			return dnSend("s4:call",nHandle,"s8:IsUnique","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnique",P1])
+		return dnSend("s4:call",nHandle,"s8:IsUnique",dnPackItem(P1))
 
 	Func IsDescending P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsDescending",P1])
+		return dnSend("s4:call",nHandle,"s12:IsDescending",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -3634,10 +3634,10 @@ Class InvertibleRelationshipBuilderBase from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -3659,13 +3659,13 @@ Class KeyBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -3687,46 +3687,46 @@ Class NavigationBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UsePropertyAccessMode P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UsePropertyAccessMode",P1])
+		return dnSend("s4:call",nHandle,"s21:UsePropertyAccessMode",dnPackItem(P1))
 
 	Func HasField P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasField",P1])
+		return dnSend("s4:call",nHandle,"s8:HasField",dnPackItem(P1))
 
 	Func AutoInclude P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AutoInclude",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:AutoInclude",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"AutoInclude"])
+			return dnSend("s4:call",nHandle,"s11:AutoInclude","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AutoInclude",P1])
+		return dnSend("s4:call",nHandle,"s11:AutoInclude",dnPackItem(P1))
 
 	Func EnableLazyLoading P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnableLazyLoading",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:EnableLazyLoading",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"EnableLazyLoading"])
+			return dnSend("s4:call",nHandle,"s17:EnableLazyLoading","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnableLazyLoading",P1])
+		return dnSend("s4:call",nHandle,"s17:EnableLazyLoading",dnPackItem(P1))
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsRequired",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired"])
+			return dnSend("s4:call",nHandle,"s10:IsRequired","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired",P1])
+		return dnSend("s4:call",nHandle,"s10:IsRequired",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -3757,7 +3757,7 @@ Class OwnedEntityTypeBuilder from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class OwnedNavigationBuilder from Object
@@ -3777,88 +3777,88 @@ Class OwnedNavigationBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HasKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasKey",P1])
+		return dnSend("s4:call",nHandle,"s6:HasKey",dnPackItem(P1))
 
 	Func Property P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Property",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:Property",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Property",P1])
+		return dnSend("s4:call",nHandle,"s8:Property",dnPackItem(P1))
 
 	Func PrimitiveCollection P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"PrimitiveCollection",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:PrimitiveCollection",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"PrimitiveCollection",P1])
+		return dnSend("s4:call",nHandle,"s19:PrimitiveCollection",dnPackItem(P1))
 
 	Func IndexerProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexerProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:IndexerProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexerProperty",P1])
+		return dnSend("s4:call",nHandle,"s15:IndexerProperty",dnPackItem(P1))
 
 	Func Navigation P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Navigation",P1])
+		return dnSend("s4:call",nHandle,"s10:Navigation",dnPackItem(P1))
 
 	Func Ignore P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Ignore",P1])
+		return dnSend("s4:call",nHandle,"s6:Ignore",dnPackItem(P1))
 
 	Func HasIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:HasIndex",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasIndex",P1])
+		return dnSend("s4:call",nHandle,"s8:HasIndex",dnPackItem(P1))
 
 	Func WithOwner P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"WithOwner",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:WithOwner",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"WithOwner"])
+			return dnSend("s4:call",nHandle,"s9:WithOwner","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WithOwner",P1])
+		return dnSend("s4:call",nHandle,"s9:WithOwner",dnPackItem(P1))
 
 	Func OwnsOne P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"OwnsOne",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:OwnsOne",dnPackItem(P1))
 		ok
 		raise("DotNet Error: OwnsOne does not take one argument: use named arguments, OwnsOne([ :parameter = value, ... ])")
 
 	Func OwnsMany P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"OwnsMany",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:OwnsMany",dnPackItem(P1))
 		ok
 		raise("DotNet Error: OwnsMany does not take one argument: use named arguments, OwnsMany([ :parameter = value, ... ])")
 
 	Func HasOne P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasOne",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:HasOne",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasOne",P1])
+		return dnSend("s4:call",nHandle,"s6:HasOne",dnPackItem(P1))
 
 	Func HasChangeTrackingStrategy P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasChangeTrackingStrategy",P1])
+		return dnSend("s4:call",nHandle,"s25:HasChangeTrackingStrategy",dnPackItem(P1))
 
 	Func UsePropertyAccessMode P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UsePropertyAccessMode",P1])
+		return dnSend("s4:call",nHandle,"s21:UsePropertyAccessMode",dnPackItem(P1))
 
 	Func HasData P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasData",P1])
+		return dnSend("s4:call",nHandle,"s7:HasData",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
 	Func getOwnedEntityType
-		return dnRequest("get",[self,"OwnedEntityType"])
+		return dnSend("s3:get",nHandle,"s15:OwnedEntityType","")
 
 	Func setOwnedEntityType P1
 		raise("DotNet Error: OwnedEntityType is a read-only property")
@@ -3884,45 +3884,45 @@ Class OwnedNavigationSplitTableBuilder from Object
 
 	Func ExcludeFromMigrations P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ExcludeFromMigrations",P1])
+			return dnSend("s9:callnamed",nHandle,"s21:ExcludeFromMigrations",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ExcludeFromMigrations"])
+			return dnSend("s4:call",nHandle,"s21:ExcludeFromMigrations","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExcludeFromMigrations",P1])
+		return dnSend("s4:call",nHandle,"s21:ExcludeFromMigrations",dnPackItem(P1))
 
 	Func HasTrigger P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasTrigger",P1])
+		return dnSend("s4:call",nHandle,"s10:HasTrigger",dnPackItem(P1))
 
 	Func Property P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Property",P1])
+		return dnSend("s4:call",nHandle,"s8:Property",dnPackItem(P1))
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnSend("s3:get",nHandle,"s6:Schema","")
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getMappingFragment
-		return dnRequest("get",[self,"MappingFragment"])
+		return dnSend("s3:get",nHandle,"s15:MappingFragment","")
 
 	Func setMappingFragment P1
 		raise("DotNet Error: MappingFragment is a read-only property")
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -3946,28 +3946,28 @@ Class OwnedNavigationSplitViewBuilder from Object
 		return self
 
 	Func Property P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Property",P1])
+		return dnSend("s4:call",nHandle,"s8:Property",dnPackItem(P1))
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnSend("s3:get",nHandle,"s6:Schema","")
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getMappingFragment
-		return dnRequest("get",[self,"MappingFragment"])
+		return dnSend("s3:get",nHandle,"s15:MappingFragment","")
 
 	Func setMappingFragment P1
 		raise("DotNet Error: MappingFragment is a read-only property")
@@ -3990,57 +3990,57 @@ Class OwnedNavigationStoredProcedureBuilder from Object
 
 	Func HasParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasParameter",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasParameter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasParameter",P1])
+		return dnSend("s4:call",nHandle,"s12:HasParameter",dnPackItem(P1))
 
 	Func HasOriginalValueParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasOriginalValueParameter",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:HasOriginalValueParameter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasOriginalValueParameter",P1])
+		return dnSend("s4:call",nHandle,"s25:HasOriginalValueParameter",dnPackItem(P1))
 
 	Func HasRowsAffectedParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasRowsAffectedParameter",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:HasRowsAffectedParameter",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasRowsAffectedParameter"])
+			return dnSend("s4:call",nHandle,"s24:HasRowsAffectedParameter","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasRowsAffectedParameter",P1])
+		return dnSend("s4:call",nHandle,"s24:HasRowsAffectedParameter",dnPackItem(P1))
 
 	Func HasResultColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasResultColumn",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasResultColumn",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasResultColumn",P1])
+		return dnSend("s4:call",nHandle,"s15:HasResultColumn",dnPackItem(P1))
 
 	Func HasRowsAffectedResultColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasRowsAffectedResultColumn",P1])
+			return dnSend("s9:callnamed",nHandle,"s27:HasRowsAffectedResultColumn",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasRowsAffectedResultColumn"])
+			return dnSend("s4:call",nHandle,"s27:HasRowsAffectedResultColumn","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasRowsAffectedResultColumn",P1])
+		return dnSend("s4:call",nHandle,"s27:HasRowsAffectedResultColumn",dnPackItem(P1))
 
 	Func HasRowsAffectedReturnValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasRowsAffectedReturnValue",P1])
+			return dnSend("s9:callnamed",nHandle,"s26:HasRowsAffectedReturnValue",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasRowsAffectedReturnValue"])
+			return dnSend("s4:call",nHandle,"s26:HasRowsAffectedReturnValue","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasRowsAffectedReturnValue",P1])
+		return dnSend("s4:call",nHandle,"s26:HasRowsAffectedReturnValue",dnPackItem(P1))
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -4065,42 +4065,42 @@ Class OwnedNavigationTableBuilder from Object
 
 	Func ExcludeFromMigrations P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ExcludeFromMigrations",P1])
+			return dnSend("s9:callnamed",nHandle,"s21:ExcludeFromMigrations",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ExcludeFromMigrations"])
+			return dnSend("s4:call",nHandle,"s21:ExcludeFromMigrations","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExcludeFromMigrations",P1])
+		return dnSend("s4:call",nHandle,"s21:ExcludeFromMigrations",dnPackItem(P1))
 
 	Func HasTrigger P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasTrigger",P1])
+		return dnSend("s4:call",nHandle,"s10:HasTrigger",dnPackItem(P1))
 
 	Func HasCheckConstraint P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasCheckConstraint",P1,P2])
+		return dnSend("s4:call",nHandle,"s18:HasCheckConstraint",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HasComment P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasComment",P1])
+		return dnSend("s4:call",nHandle,"s10:HasComment",dnPackItem(P1))
 
 	Func Property P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Property",P1])
+		return dnSend("s4:call",nHandle,"s8:Property",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnSend("s3:get",nHandle,"s6:Schema","")
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -4123,19 +4123,19 @@ Class OwnedNavigationViewBuilder from Object
 		return self
 
 	Func Property P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Property",P1])
+		return dnSend("s4:call",nHandle,"s8:Property",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnSend("s3:get",nHandle,"s6:Schema","")
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -4157,94 +4157,94 @@ Class PrimitiveCollectionBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsRequired",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired"])
+			return dnSend("s4:call",nHandle,"s10:IsRequired","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired",P1])
+		return dnSend("s4:call",nHandle,"s10:IsRequired",dnPackItem(P1))
 
 	Func HasMaxLength P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasMaxLength",P1])
+		return dnSend("s4:call",nHandle,"s12:HasMaxLength",dnPackItem(P1))
 
 	Func HasSentinel P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasSentinel",P1])
+		return dnSend("s4:call",nHandle,"s11:HasSentinel",dnPackItem(P1))
 
 	Func IsUnicode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsUnicode",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:IsUnicode",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnicode"])
+			return dnSend("s4:call",nHandle,"s9:IsUnicode","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnicode",P1])
+		return dnSend("s4:call",nHandle,"s9:IsUnicode",dnPackItem(P1))
 
 	Func HasValueGenerator P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasValueGenerator",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:HasValueGenerator",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGenerator"])
+			return dnSend("s4:call",nHandle,"s17:HasValueGenerator","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGenerator",P1])
+		return dnSend("s4:call",nHandle,"s17:HasValueGenerator",dnPackItem(P1))
 
 	Func HasValueGeneratorFactory P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasValueGeneratorFactory",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:HasValueGeneratorFactory",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGeneratorFactory"])
+			return dnSend("s4:call",nHandle,"s24:HasValueGeneratorFactory","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGeneratorFactory",P1])
+		return dnSend("s4:call",nHandle,"s24:HasValueGeneratorFactory",dnPackItem(P1))
 
 	Func IsConcurrencyToken P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsConcurrencyToken",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:IsConcurrencyToken",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsConcurrencyToken"])
+			return dnSend("s4:call",nHandle,"s18:IsConcurrencyToken","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsConcurrencyToken",P1])
+		return dnSend("s4:call",nHandle,"s18:IsConcurrencyToken",dnPackItem(P1))
 
 	Func ValueGeneratedNever 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedNever"])
+		return dnSend("s4:call",nHandle,"s19:ValueGeneratedNever","")
 
 	Func ValueGeneratedOnAdd 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedOnAdd"])
+		return dnSend("s4:call",nHandle,"s19:ValueGeneratedOnAdd","")
 
 	Func ValueGeneratedOnAddOrUpdate 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedOnAddOrUpdate"])
+		return dnSend("s4:call",nHandle,"s27:ValueGeneratedOnAddOrUpdate","")
 
 	Func ValueGeneratedOnUpdate 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedOnUpdate"])
+		return dnSend("s4:call",nHandle,"s22:ValueGeneratedOnUpdate","")
 
 	Func ValueGeneratedOnUpdateSometimes 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedOnUpdateSometimes"])
+		return dnSend("s4:call",nHandle,"s31:ValueGeneratedOnUpdateSometimes","")
 
 	Func HasField P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasField",P1])
+		return dnSend("s4:call",nHandle,"s8:HasField",dnPackItem(P1))
 
 	Func ElementType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ElementType",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:ElementType",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ElementType"])
+			return dnSend("s4:call",nHandle,"s11:ElementType","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ElementType",P1])
+		return dnSend("s4:call",nHandle,"s11:ElementType",dnPackItem(P1))
 
 	Func UsePropertyAccessMode P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UsePropertyAccessMode",P1])
+		return dnSend("s4:call",nHandle,"s21:UsePropertyAccessMode",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -4264,40 +4264,40 @@ Class PropertiesConfigurationBuilder from Object
 		return self
 
 	Func HaveAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HaveAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s14:HaveAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HaveMaxLength P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HaveMaxLength",P1])
+		return dnSend("s4:call",nHandle,"s13:HaveMaxLength",dnPackItem(P1))
 
 	Func HaveSentinel P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HaveSentinel",P1])
+		return dnSend("s4:call",nHandle,"s12:HaveSentinel",dnPackItem(P1))
 
 	Func HavePrecision P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HavePrecision",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HavePrecision",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HavePrecision",P1])
+		return dnSend("s4:call",nHandle,"s13:HavePrecision",dnPackItem(P1))
 
 	Func AreUnicode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AreUnicode",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:AreUnicode",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"AreUnicode"])
+			return dnSend("s4:call",nHandle,"s10:AreUnicode","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AreUnicode",P1])
+		return dnSend("s4:call",nHandle,"s10:AreUnicode",dnPackItem(P1))
 
 	Func HaveConversion P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HaveConversion",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:HaveConversion",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HaveConversion"])
+			return dnSend("s4:call",nHandle,"s14:HaveConversion","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HaveConversion",P1])
+		return dnSend("s4:call",nHandle,"s14:HaveConversion",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class PropertyBuilder from Object
@@ -4316,103 +4316,103 @@ Class PropertyBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsRequired",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired"])
+			return dnSend("s4:call",nHandle,"s10:IsRequired","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired",P1])
+		return dnSend("s4:call",nHandle,"s10:IsRequired",dnPackItem(P1))
 
 	Func HasMaxLength P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasMaxLength",P1])
+		return dnSend("s4:call",nHandle,"s12:HasMaxLength",dnPackItem(P1))
 
 	Func HasSentinel P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasSentinel",P1])
+		return dnSend("s4:call",nHandle,"s11:HasSentinel",dnPackItem(P1))
 
 	Func HasPrecision P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasPrecision",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasPrecision",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasPrecision",P1])
+		return dnSend("s4:call",nHandle,"s12:HasPrecision",dnPackItem(P1))
 
 	Func IsUnicode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsUnicode",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:IsUnicode",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnicode"])
+			return dnSend("s4:call",nHandle,"s9:IsUnicode","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnicode",P1])
+		return dnSend("s4:call",nHandle,"s9:IsUnicode",dnPackItem(P1))
 
 	Func IsRowVersion 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRowVersion"])
+		return dnSend("s4:call",nHandle,"s12:IsRowVersion","")
 
 	Func HasValueGenerator P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasValueGenerator",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:HasValueGenerator",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGenerator"])
+			return dnSend("s4:call",nHandle,"s17:HasValueGenerator","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGenerator",P1])
+		return dnSend("s4:call",nHandle,"s17:HasValueGenerator",dnPackItem(P1))
 
 	Func HasValueGeneratorFactory P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasValueGeneratorFactory",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:HasValueGeneratorFactory",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGeneratorFactory"])
+			return dnSend("s4:call",nHandle,"s24:HasValueGeneratorFactory","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasValueGeneratorFactory",P1])
+		return dnSend("s4:call",nHandle,"s24:HasValueGeneratorFactory",dnPackItem(P1))
 
 	Func IsConcurrencyToken P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsConcurrencyToken",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:IsConcurrencyToken",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsConcurrencyToken"])
+			return dnSend("s4:call",nHandle,"s18:IsConcurrencyToken","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsConcurrencyToken",P1])
+		return dnSend("s4:call",nHandle,"s18:IsConcurrencyToken",dnPackItem(P1))
 
 	Func ValueGeneratedNever 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedNever"])
+		return dnSend("s4:call",nHandle,"s19:ValueGeneratedNever","")
 
 	Func ValueGeneratedOnAdd 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedOnAdd"])
+		return dnSend("s4:call",nHandle,"s19:ValueGeneratedOnAdd","")
 
 	Func ValueGeneratedOnAddOrUpdate 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedOnAddOrUpdate"])
+		return dnSend("s4:call",nHandle,"s27:ValueGeneratedOnAddOrUpdate","")
 
 	Func ValueGeneratedOnUpdate 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedOnUpdate"])
+		return dnSend("s4:call",nHandle,"s22:ValueGeneratedOnUpdate","")
 
 	Func ValueGeneratedOnUpdateSometimes 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueGeneratedOnUpdateSometimes"])
+		return dnSend("s4:call",nHandle,"s31:ValueGeneratedOnUpdateSometimes","")
 
 	Func HasField P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasField",P1])
+		return dnSend("s4:call",nHandle,"s8:HasField",dnPackItem(P1))
 
 	Func UsePropertyAccessMode P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UsePropertyAccessMode",P1])
+		return dnSend("s4:call",nHandle,"s21:UsePropertyAccessMode",dnPackItem(P1))
 
 	Func HasConversion P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasConversion",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasConversion",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasConversion"])
+			return dnSend("s4:call",nHandle,"s13:HasConversion","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasConversion",P1])
+		return dnSend("s4:call",nHandle,"s13:HasConversion",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -4433,24 +4433,24 @@ Class ReferenceNavigationBuilder from Object
 
 	Func WithMany P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"WithMany",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:WithMany",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"WithMany"])
+			return dnSend("s4:call",nHandle,"s8:WithMany","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WithMany",P1])
+		return dnSend("s4:call",nHandle,"s8:WithMany",dnPackItem(P1))
 
 	Func WithOne P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"WithOne",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:WithOne",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"WithOne"])
+			return dnSend("s4:call",nHandle,"s7:WithOne","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WithOne",P1])
+		return dnSend("s4:call",nHandle,"s7:WithOne",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class RelationshipBuilderBase from Object
@@ -4467,10 +4467,10 @@ Class RelationshipBuilderBase from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -4492,34 +4492,34 @@ Class SequenceBuilder from Object
 		return self
 
 	Func IncrementsBy P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IncrementsBy",P1])
+		return dnSend("s4:call",nHandle,"s12:IncrementsBy",dnPackItem(P1))
 
 	Func StartsAt P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"StartsAt",P1])
+		return dnSend("s4:call",nHandle,"s8:StartsAt",dnPackItem(P1))
 
 	Func HasMax P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasMax",P1])
+		return dnSend("s4:call",nHandle,"s6:HasMax",dnPackItem(P1))
 
 	Func HasMin P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasMin",P1])
+		return dnSend("s4:call",nHandle,"s6:HasMin",dnPackItem(P1))
 
 	Func IsCyclic P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsCyclic",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:IsCyclic",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsCyclic"])
+			return dnSend("s4:call",nHandle,"s8:IsCyclic","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsCyclic",P1])
+		return dnSend("s4:call",nHandle,"s8:IsCyclic",dnPackItem(P1))
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -4545,45 +4545,45 @@ Class SplitTableBuilder from Object
 
 	Func ExcludeFromMigrations P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ExcludeFromMigrations",P1])
+			return dnSend("s9:callnamed",nHandle,"s21:ExcludeFromMigrations",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ExcludeFromMigrations"])
+			return dnSend("s4:call",nHandle,"s21:ExcludeFromMigrations","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExcludeFromMigrations",P1])
+		return dnSend("s4:call",nHandle,"s21:ExcludeFromMigrations",dnPackItem(P1))
 
 	Func HasTrigger P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasTrigger",P1])
+		return dnSend("s4:call",nHandle,"s10:HasTrigger",dnPackItem(P1))
 
 	Func Property P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Property",P1])
+		return dnSend("s4:call",nHandle,"s8:Property",dnPackItem(P1))
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnSend("s3:get",nHandle,"s6:Schema","")
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getMappingFragment
-		return dnRequest("get",[self,"MappingFragment"])
+		return dnSend("s3:get",nHandle,"s15:MappingFragment","")
 
 	Func setMappingFragment P1
 		raise("DotNet Error: MappingFragment is a read-only property")
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -4607,28 +4607,28 @@ Class SplitViewBuilder from Object
 		return self
 
 	Func Property P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Property",P1])
+		return dnSend("s4:call",nHandle,"s8:Property",dnPackItem(P1))
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnSend("s3:get",nHandle,"s6:Schema","")
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getMappingFragment
-		return dnRequest("get",[self,"MappingFragment"])
+		return dnSend("s3:get",nHandle,"s15:MappingFragment","")
 
 	Func setMappingFragment P1
 		raise("DotNet Error: MappingFragment is a read-only property")
@@ -4651,57 +4651,57 @@ Class StoredProcedureBuilder from Object
 
 	Func HasParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasParameter",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasParameter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasParameter",P1])
+		return dnSend("s4:call",nHandle,"s12:HasParameter",dnPackItem(P1))
 
 	Func HasOriginalValueParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasOriginalValueParameter",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:HasOriginalValueParameter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasOriginalValueParameter",P1])
+		return dnSend("s4:call",nHandle,"s25:HasOriginalValueParameter",dnPackItem(P1))
 
 	Func HasRowsAffectedParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasRowsAffectedParameter",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:HasRowsAffectedParameter",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasRowsAffectedParameter"])
+			return dnSend("s4:call",nHandle,"s24:HasRowsAffectedParameter","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasRowsAffectedParameter",P1])
+		return dnSend("s4:call",nHandle,"s24:HasRowsAffectedParameter",dnPackItem(P1))
 
 	Func HasResultColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasResultColumn",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:HasResultColumn",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasResultColumn",P1])
+		return dnSend("s4:call",nHandle,"s15:HasResultColumn",dnPackItem(P1))
 
 	Func HasRowsAffectedResultColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasRowsAffectedResultColumn",P1])
+			return dnSend("s9:callnamed",nHandle,"s27:HasRowsAffectedResultColumn",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasRowsAffectedResultColumn"])
+			return dnSend("s4:call",nHandle,"s27:HasRowsAffectedResultColumn","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasRowsAffectedResultColumn",P1])
+		return dnSend("s4:call",nHandle,"s27:HasRowsAffectedResultColumn",dnPackItem(P1))
 
 	Func HasRowsAffectedReturnValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasRowsAffectedReturnValue",P1])
+			return dnSend("s9:callnamed",nHandle,"s26:HasRowsAffectedReturnValue",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasRowsAffectedReturnValue"])
+			return dnSend("s4:call",nHandle,"s26:HasRowsAffectedReturnValue","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasRowsAffectedReturnValue",P1])
+		return dnSend("s4:call",nHandle,"s26:HasRowsAffectedReturnValue",dnPackItem(P1))
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -4723,22 +4723,22 @@ Class StoredProcedureParameterBuilder from Object
 		return self
 
 	Func HasName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasName",P1])
+		return dnSend("s4:call",nHandle,"s7:HasName",dnPackItem(P1))
 
 	Func IsInputOutput 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsInputOutput"])
+		return dnSend("s4:call",nHandle,"s13:IsInputOutput","")
 
 	Func IsOutput 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsOutput"])
+		return dnSend("s4:call",nHandle,"s8:IsOutput","")
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -4760,16 +4760,16 @@ Class StoredProcedureResultColumnBuilder from Object
 		return self
 
 	Func HasName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasName",P1])
+		return dnSend("s4:call",nHandle,"s7:HasName",dnPackItem(P1))
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -4794,42 +4794,42 @@ Class TableBuilder from Object
 
 	Func ExcludeFromMigrations P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ExcludeFromMigrations",P1])
+			return dnSend("s9:callnamed",nHandle,"s21:ExcludeFromMigrations",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ExcludeFromMigrations"])
+			return dnSend("s4:call",nHandle,"s21:ExcludeFromMigrations","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExcludeFromMigrations",P1])
+		return dnSend("s4:call",nHandle,"s21:ExcludeFromMigrations",dnPackItem(P1))
 
 	Func HasTrigger P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasTrigger",P1])
+		return dnSend("s4:call",nHandle,"s10:HasTrigger",dnPackItem(P1))
 
 	Func HasCheckConstraint P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasCheckConstraint",P1,P2])
+		return dnSend("s4:call",nHandle,"s18:HasCheckConstraint",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HasComment P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasComment",P1])
+		return dnSend("s4:call",nHandle,"s10:HasComment",dnPackItem(P1))
 
 	Func Property P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Property",P1])
+		return dnSend("s4:call",nHandle,"s8:Property",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnSend("s3:get",nHandle,"s6:Schema","")
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -4851,13 +4851,13 @@ Class TriggerBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
@@ -4877,40 +4877,40 @@ Class TypeMappingConfigurationBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HasMaxLength P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasMaxLength",P1])
+		return dnSend("s4:call",nHandle,"s12:HasMaxLength",dnPackItem(P1))
 
 	Func HasSentinel P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasSentinel",P1])
+		return dnSend("s4:call",nHandle,"s11:HasSentinel",dnPackItem(P1))
 
 	Func HasPrecision P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasPrecision",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasPrecision",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasPrecision",P1])
+		return dnSend("s4:call",nHandle,"s12:HasPrecision",dnPackItem(P1))
 
 	Func IsUnicode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsUnicode",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:IsUnicode",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnicode"])
+			return dnSend("s4:call",nHandle,"s9:IsUnicode","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsUnicode",P1])
+		return dnSend("s4:call",nHandle,"s9:IsUnicode",dnPackItem(P1))
 
 	Func HasConversion P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasConversion",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:HasConversion",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"HasConversion"])
+			return dnSend("s4:call",nHandle,"s13:HasConversion","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasConversion",P1])
+		return dnSend("s4:call",nHandle,"s13:HasConversion",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class ViewBuilder from Object
@@ -4930,19 +4930,19 @@ Class ViewBuilder from Object
 		return self
 
 	Func Property P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Property",P1])
+		return dnSend("s4:call",nHandle,"s8:Property",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnSend("s3:get",nHandle,"s6:Schema","")
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -4964,16 +4964,16 @@ Class ViewColumnBuilder from Object
 		return self
 
 	Func HasColumnName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasColumnName",P1])
+		return dnSend("s4:call",nHandle,"s13:HasColumnName",dnPackItem(P1))
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getOverrides
-		return dnRequest("get",[self,"Overrides"])
+		return dnSend("s3:get",nHandle,"s9:Overrides","")
 
 	Func setOverrides P1
 		raise("DotNet Error: Overrides is a read-only property")
@@ -4994,21 +4994,21 @@ Class DbFunctionBuilder from DbFunctionBuilderBase
 
 	Func IsNullable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsNullable",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsNullable",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsNullable"])
+			return dnSend("s4:call",nHandle,"s10:IsNullable","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsNullable",P1])
+		return dnSend("s4:call",nHandle,"s10:IsNullable",dnPackItem(P1))
 
 	Func HasStoreType P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasStoreType",P1])
+		return dnSend("s4:call",nHandle,"s12:HasStoreType",dnPackItem(P1))
 
 	Func HasTranslation P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasTranslation",P1])
+		return dnSend("s4:call",nHandle,"s14:HasTranslation",dnPackItem(P1))
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class OwnedNavigationTableValuedFunctionBuilder from DbFunctionBuilderBase
@@ -5025,7 +5025,7 @@ Class OwnedNavigationTableValuedFunctionBuilder from DbFunctionBuilderBase
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class OwnershipBuilder from RelationshipBuilderBase
@@ -5042,13 +5042,13 @@ Class OwnershipBuilder from RelationshipBuilderBase
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HasForeignKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasForeignKey",P1])
+		return dnSend("s4:call",nHandle,"s13:HasForeignKey",dnPackItem(P1))
 
 	Func HasPrincipalKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasPrincipalKey",P1])
+		return dnSend("s4:call",nHandle,"s15:HasPrincipalKey",dnPackItem(P1))
 
 
 Class ReferenceCollectionBuilder from RelationshipBuilderBase
@@ -5065,25 +5065,25 @@ Class ReferenceCollectionBuilder from RelationshipBuilderBase
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HasForeignKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasForeignKey",P1])
+		return dnSend("s4:call",nHandle,"s13:HasForeignKey",dnPackItem(P1))
 
 	Func HasPrincipalKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasPrincipalKey",P1])
+		return dnSend("s4:call",nHandle,"s15:HasPrincipalKey",dnPackItem(P1))
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsRequired",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired"])
+			return dnSend("s4:call",nHandle,"s10:IsRequired","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired",P1])
+		return dnSend("s4:call",nHandle,"s10:IsRequired",dnPackItem(P1))
 
 	Func OnDelete P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"OnDelete",P1])
+		return dnSend("s4:call",nHandle,"s8:OnDelete",dnPackItem(P1))
 
 
 Class ReferenceReferenceBuilder from InvertibleRelationshipBuilderBase
@@ -5100,25 +5100,25 @@ Class ReferenceReferenceBuilder from InvertibleRelationshipBuilderBase
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HasForeignKey P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasForeignKey",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasForeignKey",dnPackItem(P1) + dnPackItem(P2))
 
 	Func HasPrincipalKey P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasPrincipalKey",P1,P2])
+		return dnSend("s4:call",nHandle,"s15:HasPrincipalKey",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsRequired",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsRequired",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired"])
+			return dnSend("s4:call",nHandle,"s10:IsRequired","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsRequired",P1])
+		return dnSend("s4:call",nHandle,"s10:IsRequired",dnPackItem(P1))
 
 	Func OnDelete P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"OnDelete",P1])
+		return dnSend("s4:call",nHandle,"s8:OnDelete",dnPackItem(P1))
 
 
 Class TableTriggerBuilder from TriggerBuilder
@@ -5135,7 +5135,7 @@ Class TableTriggerBuilder from TriggerBuilder
 		return self
 
 	Func HasDatabaseName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasDatabaseName",P1])
+		return dnSend("s4:call",nHandle,"s15:HasDatabaseName",dnPackItem(P1))
 
 
 Class TableValuedFunctionBuilder from DbFunctionBuilderBase
@@ -5152,6 +5152,6 @@ Class TableValuedFunctionBuilder from DbFunctionBuilderBase
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAnnotation",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:HasAnnotation",dnPackItem(P1) + dnPackItem(P2))
 
 

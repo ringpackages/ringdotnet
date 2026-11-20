@@ -103,13 +103,13 @@ Class BaseUriHelper from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetBaseUri P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Navigation.BaseUriHelper, PresentationCore'),"GetBaseUri",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Navigation.BaseUriHelper, PresentationCore').nHandle,"s10:GetBaseUri",dnPackItem(P1))
 
 	Func getBaseUriProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Navigation.BaseUriHelper, PresentationCore'),"BaseUriProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.BaseUriHelper, PresentationCore').nHandle,"s15:BaseUriProperty","")
 
 	Func setBaseUriProperty P1
 		raise("DotNet Error: BaseUriProperty is a read-only property")
@@ -129,14 +129,14 @@ Class CustomContentState from Object
 		return self
 
 	Func Replay P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Replay",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Replay",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getJournalEntryName
-		return dnRequest("get",[self,"JournalEntryName"])
+		return dnSend("s3:get",nHandle,"s16:JournalEntryName","")
 
 	Func setJournalEntryName P1
 		raise("DotNet Error: JournalEntryName is a read-only property")
@@ -158,20 +158,20 @@ Class FragmentNavigationEventArgs from EventArgs
 		return self
 
 	Func getFragment
-		return dnRequest("get",[self,"Fragment"])
+		return dnSend("s3:get",nHandle,"s8:Fragment","")
 
 	Func setFragment P1
 		raise("DotNet Error: Fragment is a read-only property")
 
 	Func getHandled
-		return dnRequest("get",[self,"Handled"])
+		return dnSend("s3:get",nHandle,"s7:Handled","")
 
 	Func setHandled P1
-		dnRequest("set",[self,"Handled",P1])
+		dnSend("s3:set",nHandle,"s7:Handled",dnPackItem(P1))
 		return self
 
 	Func getNavigator
-		return dnRequest("get",[self,"Navigator"])
+		return dnSend("s3:get",nHandle,"s9:Navigator","")
 
 	Func setNavigator P1
 		raise("DotNet Error: Navigator is a read-only property")
@@ -189,7 +189,7 @@ Class IProvideCustomContentState from DotNetObject
 		return self
 
 	Func GetContentState 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetContentState"])
+		return dnSend("s4:call",nHandle,"s15:GetContentState","")
 
 
 Class JournalEntry from DependencyObject
@@ -210,51 +210,51 @@ Class JournalEntry from DependencyObject
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetObjectData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetName_ P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework'),"GetName",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework').nHandle,"s7:GetName",dnPackItem(P1))
 
 	Func SetName_ P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework'),"SetName",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework').nHandle,"s7:SetName",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetKeepAlive P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework'),"GetKeepAlive",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework').nHandle,"s12:GetKeepAlive",dnPackItem(P1))
 
 	Func SetKeepAlive P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework'),"SetKeepAlive",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework').nHandle,"s12:SetKeepAlive",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1))
 		return self
 
 	Func getCustomContentState
-		return dnRequest("get",[self,"CustomContentState"])
+		return dnSend("s3:get",nHandle,"s18:CustomContentState","")
 
 	Func setCustomContentState P1
 		raise("DotNet Error: CustomContentState is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
 		return self
 
 	Func getNameProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework'),"NameProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework').nHandle,"s12:NameProperty","")
 
 	Func setNameProperty P1
 		raise("DotNet Error: NameProperty is a read-only property")
 
 	Func getKeepAliveProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework'),"KeepAliveProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework').nHandle,"s17:KeepAliveProperty","")
 
 	Func setKeepAliveProperty P1
 		raise("DotNet Error: KeepAliveProperty is a read-only property")
@@ -285,13 +285,13 @@ Class JournalEntryListConverter from Object
 		return self
 
 	Func Convert P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Convert",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s7:Convert",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ConvertBack P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConvertBack",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s11:ConvertBack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class JournalEntryUnifiedViewConverter from Object
@@ -321,23 +321,23 @@ Class JournalEntryUnifiedViewConverter from Object
 		return self
 
 	Func Convert P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Convert",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s7:Convert",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ConvertBack P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConvertBack",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s11:ConvertBack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetJournalEntryPosition P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework'),"GetJournalEntryPosition",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework').nHandle,"s23:GetJournalEntryPosition",dnPackItem(P1))
 
 	Func SetJournalEntryPosition P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework'),"SetJournalEntryPosition",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework').nHandle,"s23:SetJournalEntryPosition",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getJournalEntryPositionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework'),"JournalEntryPositionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework').nHandle,"s28:JournalEntryPositionProperty","")
 
 	Func setJournalEntryPositionProperty P1
 		raise("DotNet Error: JournalEntryPositionProperty is a read-only property")
@@ -365,56 +365,56 @@ Class NavigatingCancelEventArgs from CancelEventArgs
 		return self
 
 	Func getUri
-		return dnRequest("get",[self,"Uri"])
+		return dnSend("s3:get",nHandle,"s3:Uri","")
 
 	Func setUri P1
 		raise("DotNet Error: Uri is a read-only property")
 
 	Func getContent
-		return dnRequest("get",[self,"Content"])
+		return dnSend("s3:get",nHandle,"s7:Content","")
 
 	Func setContent P1
 		raise("DotNet Error: Content is a read-only property")
 
 	Func getTargetContentState
-		return dnRequest("get",[self,"TargetContentState"])
+		return dnSend("s3:get",nHandle,"s18:TargetContentState","")
 
 	Func setTargetContentState P1
 		raise("DotNet Error: TargetContentState is a read-only property")
 
 	Func getContentStateToSave
-		return dnRequest("get",[self,"ContentStateToSave"])
+		return dnSend("s3:get",nHandle,"s18:ContentStateToSave","")
 
 	Func setContentStateToSave P1
-		dnRequest("set",[self,"ContentStateToSave",P1])
+		dnSend("s3:set",nHandle,"s18:ContentStateToSave",dnPackItem(P1))
 		return self
 
 	Func getExtraData
-		return dnRequest("get",[self,"ExtraData"])
+		return dnSend("s3:get",nHandle,"s9:ExtraData","")
 
 	Func setExtraData P1
 		raise("DotNet Error: ExtraData is a read-only property")
 
 	Func getNavigationMode
-		return dnRequest("get",[self,"NavigationMode"])
+		return dnSend("s3:get",nHandle,"s14:NavigationMode","")
 
 	Func setNavigationMode P1
 		raise("DotNet Error: NavigationMode is a read-only property")
 
 	Func getWebRequest
-		return dnRequest("get",[self,"WebRequest"])
+		return dnSend("s3:get",nHandle,"s10:WebRequest","")
 
 	Func setWebRequest P1
 		raise("DotNet Error: WebRequest is a read-only property")
 
 	Func getIsNavigationInitiator
-		return dnRequest("get",[self,"IsNavigationInitiator"])
+		return dnSend("s3:get",nHandle,"s21:IsNavigationInitiator","")
 
 	Func setIsNavigationInitiator P1
 		raise("DotNet Error: IsNavigationInitiator is a read-only property")
 
 	Func getNavigator
-		return dnRequest("get",[self,"Navigator"])
+		return dnSend("s3:get",nHandle,"s9:Navigator","")
 
 	Func setNavigator P1
 		raise("DotNet Error: Navigator is a read-only property")
@@ -439,37 +439,37 @@ Class NavigationEventArgs from EventArgs
 		return self
 
 	Func getUri
-		return dnRequest("get",[self,"Uri"])
+		return dnSend("s3:get",nHandle,"s3:Uri","")
 
 	Func setUri P1
 		raise("DotNet Error: Uri is a read-only property")
 
 	Func getContent
-		return dnRequest("get",[self,"Content"])
+		return dnSend("s3:get",nHandle,"s7:Content","")
 
 	Func setContent P1
 		raise("DotNet Error: Content is a read-only property")
 
 	Func getIsNavigationInitiator
-		return dnRequest("get",[self,"IsNavigationInitiator"])
+		return dnSend("s3:get",nHandle,"s21:IsNavigationInitiator","")
 
 	Func setIsNavigationInitiator P1
 		raise("DotNet Error: IsNavigationInitiator is a read-only property")
 
 	Func getExtraData
-		return dnRequest("get",[self,"ExtraData"])
+		return dnSend("s3:get",nHandle,"s9:ExtraData","")
 
 	Func setExtraData P1
 		raise("DotNet Error: ExtraData is a read-only property")
 
 	Func getWebResponse
-		return dnRequest("get",[self,"WebResponse"])
+		return dnSend("s3:get",nHandle,"s11:WebResponse","")
 
 	Func setWebResponse P1
 		raise("DotNet Error: WebResponse is a read-only property")
 
 	Func getNavigator
-		return dnRequest("get",[self,"Navigator"])
+		return dnSend("s3:get",nHandle,"s9:Navigator","")
 
 	Func setNavigator P1
 		raise("DotNet Error: Navigator is a read-only property")
@@ -495,46 +495,46 @@ Class NavigationFailedEventArgs from EventArgs
 		return self
 
 	Func getUri
-		return dnRequest("get",[self,"Uri"])
+		return dnSend("s3:get",nHandle,"s3:Uri","")
 
 	Func setUri P1
 		raise("DotNet Error: Uri is a read-only property")
 
 	Func getExtraData
-		return dnRequest("get",[self,"ExtraData"])
+		return dnSend("s3:get",nHandle,"s9:ExtraData","")
 
 	Func setExtraData P1
 		raise("DotNet Error: ExtraData is a read-only property")
 
 	Func getNavigator
-		return dnRequest("get",[self,"Navigator"])
+		return dnSend("s3:get",nHandle,"s9:Navigator","")
 
 	Func setNavigator P1
 		raise("DotNet Error: Navigator is a read-only property")
 
 	Func getWebRequest
-		return dnRequest("get",[self,"WebRequest"])
+		return dnSend("s3:get",nHandle,"s10:WebRequest","")
 
 	Func setWebRequest P1
 		raise("DotNet Error: WebRequest is a read-only property")
 
 	Func getWebResponse
-		return dnRequest("get",[self,"WebResponse"])
+		return dnSend("s3:get",nHandle,"s11:WebResponse","")
 
 	Func setWebResponse P1
 		raise("DotNet Error: WebResponse is a read-only property")
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnSend("s3:get",nHandle,"s9:Exception","")
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getHandled
-		return dnRequest("get",[self,"Handled"])
+		return dnSend("s3:get",nHandle,"s7:Handled","")
 
 	Func setHandled P1
-		dnRequest("set",[self,"Handled",P1])
+		dnSend("s3:set",nHandle,"s7:Handled",dnPackItem(P1))
 		return self
 
 
@@ -555,25 +555,25 @@ Class NavigationProgressEventArgs from EventArgs
 		return self
 
 	Func getUri
-		return dnRequest("get",[self,"Uri"])
+		return dnSend("s3:get",nHandle,"s3:Uri","")
 
 	Func setUri P1
 		raise("DotNet Error: Uri is a read-only property")
 
 	Func getBytesRead
-		return dnRequest("get",[self,"BytesRead"])
+		return dnSend("s3:get",nHandle,"s9:BytesRead","")
 
 	Func setBytesRead P1
 		raise("DotNet Error: BytesRead is a read-only property")
 
 	Func getMaxBytes
-		return dnRequest("get",[self,"MaxBytes"])
+		return dnSend("s3:get",nHandle,"s8:MaxBytes","")
 
 	Func setMaxBytes P1
 		raise("DotNet Error: MaxBytes is a read-only property")
 
 	Func getNavigator
-		return dnRequest("get",[self,"Navigator"])
+		return dnSend("s3:get",nHandle,"s9:Navigator","")
 
 	Func setNavigator P1
 		raise("DotNet Error: Navigator is a read-only property")
@@ -597,39 +597,39 @@ Class NavigationService from Object
 		return self
 
 	Func AddBackEntry P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddBackEntry",P1])
+		dnSend("s4:call",nHandle,"s12:AddBackEntry",dnPackItem(P1))
 		return self
 
 	Func RemoveBackEntry 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveBackEntry"])
+		return dnSend("s4:call",nHandle,"s15:RemoveBackEntry","")
 
 	Func Navigate P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Navigate",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:Navigate",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Navigate",P1])
+		return dnSend("s4:call",nHandle,"s8:Navigate",dnPackItem(P1))
 
 	Func GoForward 
-		dnRequest("call",[new DotNetObject(this.nHandle),"GoForward"])
+		dnSend("s4:call",nHandle,"s9:GoForward","")
 		return self
 
 	Func GoBack 
-		dnRequest("call",[new DotNetObject(this.nHandle),"GoBack"])
+		dnSend("s4:call",nHandle,"s6:GoBack","")
 		return self
 
 	Func StopLoading 
-		dnRequest("call",[new DotNetObject(this.nHandle),"StopLoading"])
+		dnSend("s4:call",nHandle,"s11:StopLoading","")
 		return self
 
 	Func Refresh 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Refresh"])
+		dnSend("s4:call",nHandle,"s7:Refresh","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetNavigationService P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Navigation.NavigationService, PresentationFramework'),"GetNavigationService",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Navigation.NavigationService, PresentationFramework').nHandle,"s20:GetNavigationService",dnPackItem(P1))
 
 	Func setNavigationFailedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"NavigationFailed",dnCallback(P1)])
@@ -688,33 +688,33 @@ Class NavigationService from Object
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1))
 		return self
 
 	Func getCurrentSource
-		return dnRequest("get",[self,"CurrentSource"])
+		return dnSend("s3:get",nHandle,"s13:CurrentSource","")
 
 	Func setCurrentSource P1
 		raise("DotNet Error: CurrentSource is a read-only property")
 
 	Func getContent
-		return dnRequest("get",[self,"Content"])
+		return dnSend("s3:get",nHandle,"s7:Content","")
 
 	Func setContent P1
-		dnRequest("set",[self,"Content",P1])
+		dnSend("s3:set",nHandle,"s7:Content",dnPackItem(P1))
 		return self
 
 	Func getCanGoForward
-		return dnRequest("get",[self,"CanGoForward"])
+		return dnSend("s3:get",nHandle,"s12:CanGoForward","")
 
 	Func setCanGoForward P1
 		raise("DotNet Error: CanGoForward is a read-only property")
 
 	Func getCanGoBack
-		return dnRequest("get",[self,"CanGoBack"])
+		return dnSend("s3:get",nHandle,"s9:CanGoBack","")
 
 	Func setCanGoBack P1
 		raise("DotNet Error: CanGoBack is a read-only property")
@@ -763,32 +763,32 @@ Class NavigationWindow from Window
 
 	Func Navigate P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Navigate",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:Navigate",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Navigate",P1])
+		return dnSend("s4:call",nHandle,"s8:Navigate",dnPackItem(P1))
 
 	Func GoForward 
-		dnRequest("call",[new DotNetObject(this.nHandle),"GoForward"])
+		dnSend("s4:call",nHandle,"s9:GoForward","")
 		return self
 
 	Func GoBack 
-		dnRequest("call",[new DotNetObject(this.nHandle),"GoBack"])
+		dnSend("s4:call",nHandle,"s6:GoBack","")
 		return self
 
 	Func StopLoading 
-		dnRequest("call",[new DotNetObject(this.nHandle),"StopLoading"])
+		dnSend("s4:call",nHandle,"s11:StopLoading","")
 		return self
 
 	Func Refresh 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Refresh"])
+		dnSend("s4:call",nHandle,"s7:Refresh","")
 		return self
 
 	Func AddBackEntry P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddBackEntry",P1])
+		dnSend("s4:call",nHandle,"s12:AddBackEntry",dnPackItem(P1))
 		return self
 
 	Func RemoveBackEntry 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveBackEntry"])
+		return dnSend("s4:call",nHandle,"s15:RemoveBackEntry","")
 
 	Func setNavigatingEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"Navigating",dnCallback(P1)])
@@ -847,100 +847,100 @@ Class NavigationWindow from Window
 		return self
 
 	Func getSandboxExternalContent
-		return dnRequest("get",[self,"SandboxExternalContent"])
+		return dnSend("s3:get",nHandle,"s22:SandboxExternalContent","")
 
 	Func setSandboxExternalContent P1
-		dnRequest("set",[self,"SandboxExternalContent",P1])
+		dnSend("s3:set",nHandle,"s22:SandboxExternalContent",dnPackItem(P1))
 		return self
 
 	Func getNavigationService
-		return dnRequest("get",[self,"NavigationService"])
+		return dnSend("s3:get",nHandle,"s17:NavigationService","")
 
 	Func setNavigationService P1
 		raise("DotNet Error: NavigationService is a read-only property")
 
 	Func getBackStack
-		return dnRequest("get",[self,"BackStack"])
+		return dnSend("s3:get",nHandle,"s9:BackStack","")
 
 	Func setBackStack P1
 		raise("DotNet Error: BackStack is a read-only property")
 
 	Func getForwardStack
-		return dnRequest("get",[self,"ForwardStack"])
+		return dnSend("s3:get",nHandle,"s12:ForwardStack","")
 
 	Func setForwardStack P1
 		raise("DotNet Error: ForwardStack is a read-only property")
 
 	Func getShowsNavigationUI
-		return dnRequest("get",[self,"ShowsNavigationUI"])
+		return dnSend("s3:get",nHandle,"s17:ShowsNavigationUI","")
 
 	Func setShowsNavigationUI P1
-		dnRequest("set",[self,"ShowsNavigationUI",P1])
+		dnSend("s3:set",nHandle,"s17:ShowsNavigationUI",dnPackItem(P1))
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1))
 		return self
 
 	Func getCurrentSource
-		return dnRequest("get",[self,"CurrentSource"])
+		return dnSend("s3:get",nHandle,"s13:CurrentSource","")
 
 	Func setCurrentSource P1
 		raise("DotNet Error: CurrentSource is a read-only property")
 
 	Func getCanGoForward
-		return dnRequest("get",[self,"CanGoForward"])
+		return dnSend("s3:get",nHandle,"s12:CanGoForward","")
 
 	Func setCanGoForward P1
 		raise("DotNet Error: CanGoForward is a read-only property")
 
 	Func getCanGoBack
-		return dnRequest("get",[self,"CanGoBack"])
+		return dnSend("s3:get",nHandle,"s9:CanGoBack","")
 
 	Func setCanGoBack P1
 		raise("DotNet Error: CanGoBack is a read-only property")
 
 	Func getSandboxExternalContentProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework'),"SandboxExternalContentProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework').nHandle,"s30:SandboxExternalContentProperty","")
 
 	Func setSandboxExternalContentProperty P1
 		raise("DotNet Error: SandboxExternalContentProperty is a read-only property")
 
 	Func getShowsNavigationUIProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework'),"ShowsNavigationUIProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework').nHandle,"s25:ShowsNavigationUIProperty","")
 
 	Func setShowsNavigationUIProperty P1
 		raise("DotNet Error: ShowsNavigationUIProperty is a read-only property")
 
 	Func getBackStackProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework'),"BackStackProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework').nHandle,"s17:BackStackProperty","")
 
 	Func setBackStackProperty P1
 		raise("DotNet Error: BackStackProperty is a read-only property")
 
 	Func getForwardStackProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework'),"ForwardStackProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework').nHandle,"s20:ForwardStackProperty","")
 
 	Func setForwardStackProperty P1
 		raise("DotNet Error: ForwardStackProperty is a read-only property")
 
 	Func getCanGoBackProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework'),"CanGoBackProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework').nHandle,"s17:CanGoBackProperty","")
 
 	Func setCanGoBackProperty P1
 		raise("DotNet Error: CanGoBackProperty is a read-only property")
 
 	Func getCanGoForwardProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework'),"CanGoForwardProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework').nHandle,"s20:CanGoForwardProperty","")
 
 	Func setCanGoForwardProperty P1
 		raise("DotNet Error: CanGoForwardProperty is a read-only property")
 
 	Func getSourceProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework'),"SourceProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Navigation.NavigationWindow, PresentationFramework').nHandle,"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
@@ -960,10 +960,10 @@ Class PageFunctionBase from Page
 		return self
 
 	Func getRemoveFromJournal
-		return dnRequest("get",[self,"RemoveFromJournal"])
+		return dnSend("s3:get",nHandle,"s17:RemoveFromJournal","")
 
 	Func setRemoveFromJournal P1
-		dnRequest("set",[self,"RemoveFromJournal",P1])
+		dnSend("s3:set",nHandle,"s17:RemoveFromJournal",dnPackItem(P1))
 		return self
 
 
@@ -984,13 +984,13 @@ Class RequestNavigateEventArgs from RoutedEventArgs
 		return self
 
 	Func getUri
-		return dnRequest("get",[self,"Uri"])
+		return dnSend("s3:get",nHandle,"s3:Uri","")
 
 	Func setUri P1
 		raise("DotNet Error: Uri is a read-only property")
 
 	Func getTarget
-		return dnRequest("get",[self,"Target"])
+		return dnSend("s3:get",nHandle,"s6:Target","")
 
 	Func setTarget P1
 		raise("DotNet Error: Target is a read-only property")

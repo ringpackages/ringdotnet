@@ -98,13 +98,13 @@ Class BrotliCompressionOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getQuality
-		return dnRequest("get",[self,"Quality"])
+		return dnSend("s3:get",nHandle,"s7:Quality","")
 
 	Func setQuality P1
-		dnRequest("set",[self,"Quality",P1])
+		dnSend("s3:set",nHandle,"s7:Quality",dnPackItem(P1))
 		return self
 
 
@@ -133,7 +133,7 @@ Class BrotliDecoder from ValueType
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 
@@ -182,11 +182,11 @@ Class BrotliEncoder from ValueType
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func GetMaxCompressedLength P1
-		return dnRequest("call",[dnTypeCached('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli'),"GetMaxCompressedLength",P1])
+		return dnSend("s4:call",dnTypeCached('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli').nHandle,"s22:GetMaxCompressedLength",dnPackItem(P1))
 
 
 Class BrotliStream from Stream
@@ -220,7 +220,7 @@ Class BrotliStream from Stream
 		return self
 
 	Func getBaseStream
-		return dnRequest("get",[self,"BaseStream"])
+		return dnSend("s3:get",nHandle,"s10:BaseStream","")
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")
@@ -258,12 +258,12 @@ Class DeflateStream from Stream
 
 	Func WriteAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:WriteAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
 	Func getBaseStream
-		return dnRequest("get",[self,"BaseStream"])
+		return dnSend("s3:get",nHandle,"s10:BaseStream","")
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")
@@ -300,7 +300,7 @@ Class GZipStream from Stream
 		return self
 
 	Func getBaseStream
-		return dnRequest("get",[self,"BaseStream"])
+		return dnSend("s3:get",nHandle,"s10:BaseStream","")
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")
@@ -334,20 +334,20 @@ Class ZLibCompressionOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCompressionLevel
-		return dnRequest("get",[self,"CompressionLevel"])
+		return dnSend("s3:get",nHandle,"s16:CompressionLevel","")
 
 	Func setCompressionLevel P1
-		dnRequest("set",[self,"CompressionLevel",P1])
+		dnSend("s3:set",nHandle,"s16:CompressionLevel",dnPackItem(P1))
 		return self
 
 	Func getCompressionStrategy
-		return dnRequest("get",[self,"CompressionStrategy"])
+		return dnSend("s3:get",nHandle,"s19:CompressionStrategy","")
 
 	Func setCompressionStrategy P1
-		dnRequest("set",[self,"CompressionStrategy",P1])
+		dnSend("s3:set",nHandle,"s19:CompressionStrategy",dnPackItem(P1))
 		return self
 
 
@@ -382,7 +382,7 @@ Class ZLibStream from Stream
 		return self
 
 	Func getBaseStream
-		return dnRequest("get",[self,"BaseStream"])
+		return dnSend("s3:get",nHandle,"s10:BaseStream","")
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")
@@ -422,35 +422,35 @@ Class ZipArchive from Object
 
 	Func CreateEntry P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateEntry",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:CreateEntry",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateEntry",P1])
+		return dnSend("s4:call",nHandle,"s11:CreateEntry",dnPackItem(P1))
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func GetEntry P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEntry",P1])
+		return dnSend("s4:call",nHandle,"s8:GetEntry",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getComment
-		return dnRequest("get",[self,"Comment"])
+		return dnSend("s3:get",nHandle,"s7:Comment","")
 
 	Func setComment P1
-		dnRequest("set",[self,"Comment",P1])
+		dnSend("s3:set",nHandle,"s7:Comment",dnPackItem(P1))
 		return self
 
 	Func getEntries
-		return dnRequest("get",[self,"Entries"])
+		return dnSend("s3:get",nHandle,"s7:Entries","")
 
 	Func setEntries P1
 		raise("DotNet Error: Entries is a read-only property")
 
 	Func getMode
-		return dnRequest("get",[self,"Mode"])
+		return dnSend("s3:get",nHandle,"s4:Mode","")
 
 	Func setMode P1
 		raise("DotNet Error: Mode is a read-only property")
@@ -479,74 +479,74 @@ Class ZipArchiveEntry from Object
 		return self
 
 	Func Delete 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Delete"])
+		dnSend("s4:call",nHandle,"s6:Delete","")
 		return self
 
 	Func Open 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Open"])
+		return dnSend("s4:call",nHandle,"s4:Open","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getArchive
-		return dnRequest("get",[self,"Archive"])
+		return dnSend("s3:get",nHandle,"s7:Archive","")
 
 	Func setArchive P1
 		raise("DotNet Error: Archive is a read-only property")
 
 	Func getCrc32
-		return dnRequest("get",[self,"Crc32"])
+		return dnSend("s3:get",nHandle,"s5:Crc32","")
 
 	Func setCrc32 P1
 		raise("DotNet Error: Crc32 is a read-only property")
 
 	Func getIsEncrypted
-		return dnRequest("get",[self,"IsEncrypted"])
+		return dnSend("s3:get",nHandle,"s11:IsEncrypted","")
 
 	Func setIsEncrypted P1
 		raise("DotNet Error: IsEncrypted is a read-only property")
 
 	Func getCompressedLength
-		return dnRequest("get",[self,"CompressedLength"])
+		return dnSend("s3:get",nHandle,"s16:CompressedLength","")
 
 	Func setCompressedLength P1
 		raise("DotNet Error: CompressedLength is a read-only property")
 
 	Func getExternalAttributes
-		return dnRequest("get",[self,"ExternalAttributes"])
+		return dnSend("s3:get",nHandle,"s18:ExternalAttributes","")
 
 	Func setExternalAttributes P1
-		dnRequest("set",[self,"ExternalAttributes",P1])
+		dnSend("s3:set",nHandle,"s18:ExternalAttributes",dnPackItem(P1))
 		return self
 
 	Func getComment
-		return dnRequest("get",[self,"Comment"])
+		return dnSend("s3:get",nHandle,"s7:Comment","")
 
 	Func setComment P1
-		dnRequest("set",[self,"Comment",P1])
+		dnSend("s3:set",nHandle,"s7:Comment",dnPackItem(P1))
 		return self
 
 	Func getFullName
-		return dnRequest("get",[self,"FullName"])
+		return dnSend("s3:get",nHandle,"s8:FullName","")
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
 
 	Func getLastWriteTime
-		return dnRequest("get",[self,"LastWriteTime"])
+		return dnSend("s3:get",nHandle,"s13:LastWriteTime","")
 
 	Func setLastWriteTime P1
-		dnRequest("set",[self,"LastWriteTime",P1])
+		dnSend("s3:set",nHandle,"s13:LastWriteTime",dnPackItem(P1))
 		return self
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnSend("s3:get",nHandle,"s6:Length","")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -564,27 +564,27 @@ Class ZipFile from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func OpenRead P1
-		return dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"OpenRead",P1])
+		return dnSend("s4:call",dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile').nHandle,"s8:OpenRead",dnPackItem(P1))
 
 	Func Open P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"Open",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile').nHandle,"s4:Open",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Open does not take one argument: use named arguments, Open([ :parameter = value, ... ])")
 
 	Func CreateFromDirectory P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"CreateFromDirectory",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile').nHandle,"s19:CreateFromDirectory",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: CreateFromDirectory does not take one argument: use named arguments, CreateFromDirectory([ :parameter = value, ... ])")
 
 	Func ExtractToDirectory P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"ExtractToDirectory",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile').nHandle,"s18:ExtractToDirectory",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: ExtractToDirectory does not take one argument: use named arguments, ExtractToDirectory([ :parameter = value, ... ])")
@@ -602,24 +602,24 @@ Class ZipFileExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateEntryFromFile P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"CreateEntryFromFile",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile').nHandle,"s19:CreateEntryFromFile",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateEntryFromFile does not take one argument: use named arguments, CreateEntryFromFile([ :parameter = value, ... ])")
 
 	Func ExtractToDirectory P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"ExtractToDirectory",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile').nHandle,"s18:ExtractToDirectory",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: ExtractToDirectory does not take one argument: use named arguments, ExtractToDirectory([ :parameter = value, ... ])")
 
 	Func ExtractToFile P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"ExtractToFile",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile').nHandle,"s13:ExtractToFile",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: ExtractToFile does not take one argument: use named arguments, ExtractToFile([ :parameter = value, ... ])")

@@ -205,161 +205,161 @@ Class Calendar from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func AddMilliseconds P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddMilliseconds",P1,P2])
+		return dnSend("s4:call",nHandle,"s15:AddMilliseconds",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddDays P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddDays",P1,P2])
+		return dnSend("s4:call",nHandle,"s7:AddDays",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddHours P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddHours",P1,P2])
+		return dnSend("s4:call",nHandle,"s8:AddHours",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddMinutes P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddMinutes",P1,P2])
+		return dnSend("s4:call",nHandle,"s10:AddMinutes",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddMonths P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddMonths",P1,P2])
+		return dnSend("s4:call",nHandle,"s9:AddMonths",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddSeconds P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddSeconds",P1,P2])
+		return dnSend("s4:call",nHandle,"s10:AddSeconds",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddWeeks P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddWeeks",P1,P2])
+		return dnSend("s4:call",nHandle,"s8:AddWeeks",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddYears P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddYears",P1,P2])
+		return dnSend("s4:call",nHandle,"s8:AddYears",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetDayOfMonth P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDayOfMonth",P1])
+		return dnSend("s4:call",nHandle,"s13:GetDayOfMonth",dnPackItem(P1))
 
 	Func GetDayOfWeek P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDayOfWeek",P1])
+		return dnSend("s4:call",nHandle,"s12:GetDayOfWeek",dnPackItem(P1))
 
 	Func GetDayOfYear P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDayOfYear",P1])
+		return dnSend("s4:call",nHandle,"s12:GetDayOfYear",dnPackItem(P1))
 
 	Func GetDaysInMonth P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetDaysInMonth",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:GetDaysInMonth",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetDaysInMonth does not take one argument: use named arguments, GetDaysInMonth([ :parameter = value, ... ])")
 
 	Func GetDaysInYear P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetDaysInYear",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:GetDaysInYear",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDaysInYear",P1])
+		return dnSend("s4:call",nHandle,"s13:GetDaysInYear",dnPackItem(P1))
 
 	Func GetEra P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEra",P1])
+		return dnSend("s4:call",nHandle,"s6:GetEra",dnPackItem(P1))
 
 	Func GetHour P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHour",P1])
+		return dnSend("s4:call",nHandle,"s7:GetHour",dnPackItem(P1))
 
 	Func GetMilliseconds P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMilliseconds",P1])
+		return dnSend("s4:call",nHandle,"s15:GetMilliseconds",dnPackItem(P1))
 
 	Func GetMinute P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMinute",P1])
+		return dnSend("s4:call",nHandle,"s9:GetMinute",dnPackItem(P1))
 
 	Func GetMonth P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMonth",P1])
+		return dnSend("s4:call",nHandle,"s8:GetMonth",dnPackItem(P1))
 
 	Func GetMonthsInYear P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetMonthsInYear",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:GetMonthsInYear",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMonthsInYear",P1])
+		return dnSend("s4:call",nHandle,"s15:GetMonthsInYear",dnPackItem(P1))
 
 	Func GetSecond P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSecond",P1])
+		return dnSend("s4:call",nHandle,"s9:GetSecond",dnPackItem(P1))
 
 	Func GetWeekOfYear P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetWeekOfYear",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s13:GetWeekOfYear",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func GetYear P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetYear",P1])
+		return dnSend("s4:call",nHandle,"s7:GetYear",dnPackItem(P1))
 
 	Func IsLeapDay P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsLeapDay",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:IsLeapDay",dnPackItem(P1))
 		ok
 		raise("DotNet Error: IsLeapDay does not take one argument: use named arguments, IsLeapDay([ :parameter = value, ... ])")
 
 	Func IsLeapMonth P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsLeapMonth",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:IsLeapMonth",dnPackItem(P1))
 		ok
 		raise("DotNet Error: IsLeapMonth does not take one argument: use named arguments, IsLeapMonth([ :parameter = value, ... ])")
 
 	Func GetLeapMonth P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetLeapMonth",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:GetLeapMonth",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetLeapMonth",P1])
+		return dnSend("s4:call",nHandle,"s12:GetLeapMonth",dnPackItem(P1))
 
 	Func IsLeapYear P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsLeapYear",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IsLeapYear",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsLeapYear",P1])
+		return dnSend("s4:call",nHandle,"s10:IsLeapYear",dnPackItem(P1))
 
 	Func ToDateTime P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToDateTime",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:ToDateTime",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ToDateTime does not take one argument: use named arguments, ToDateTime([ :parameter = value, ... ])")
 
 	Func ToFourDigitYear P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToFourDigitYear",P1])
+		return dnSend("s4:call",nHandle,"s15:ToFourDigitYear",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ReadOnly P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.Calendar, System.Private.CoreLib'),"ReadOnly",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.Calendar, System.Private.CoreLib').nHandle,"s8:ReadOnly",dnPackItem(P1))
 
 	Func getMinSupportedDateTime
-		return dnRequest("get",[self,"MinSupportedDateTime"])
+		return dnSend("s3:get",nHandle,"s20:MinSupportedDateTime","")
 
 	Func setMinSupportedDateTime P1
 		raise("DotNet Error: MinSupportedDateTime is a read-only property")
 
 	Func getMaxSupportedDateTime
-		return dnRequest("get",[self,"MaxSupportedDateTime"])
+		return dnSend("s3:get",nHandle,"s20:MaxSupportedDateTime","")
 
 	Func setMaxSupportedDateTime P1
 		raise("DotNet Error: MaxSupportedDateTime is a read-only property")
 
 	Func getAlgorithmType
-		return dnRequest("get",[self,"AlgorithmType"])
+		return dnSend("s3:get",nHandle,"s13:AlgorithmType","")
 
 	Func setAlgorithmType P1
 		raise("DotNet Error: AlgorithmType is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEras
-		return dnRequest("get",[self,"Eras"])
+		return dnSend("s3:get",nHandle,"s4:Eras","")
 
 	Func setEras P1
 		raise("DotNet Error: Eras is a read-only property")
 
 	Func getTwoDigitYearMax
-		return dnRequest("get",[self,"TwoDigitYearMax"])
+		return dnSend("s3:get",nHandle,"s15:TwoDigitYearMax","")
 
 	Func setTwoDigitYearMax P1
-		dnRequest("set",[self,"TwoDigitYearMax",P1])
+		dnSend("s3:set",nHandle,"s15:TwoDigitYearMax",dnPackItem(P1))
 		return self
 
 	Func getCurrentEra
-		return dnRequest("get",[dnTypeCached('System.Globalization.Calendar, System.Private.CoreLib'),"CurrentEra"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.Calendar, System.Private.CoreLib').nHandle,"s10:CurrentEra","")
 
 	Func setCurrentEra P1
 		raise("DotNet Error: CurrentEra is a read-only property")
@@ -377,31 +377,31 @@ Class CharUnicodeInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetDecimalDigitValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetDecimalDigitValue",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib').nHandle,"s20:GetDecimalDigitValue",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetDecimalDigitValue",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib').nHandle,"s20:GetDecimalDigitValue",dnPackItem(P1))
 
 	Func GetDigitValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetDigitValue",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib').nHandle,"s13:GetDigitValue",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetDigitValue",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib').nHandle,"s13:GetDigitValue",dnPackItem(P1))
 
 	Func GetNumericValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetNumericValue",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib').nHandle,"s15:GetNumericValue",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetNumericValue",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib').nHandle,"s15:GetNumericValue",dnPackItem(P1))
 
 	Func GetUnicodeCategory P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetUnicodeCategory",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib').nHandle,"s18:GetUnicodeCategory",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetUnicodeCategory",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib').nHandle,"s18:GetUnicodeCategory",dnPackItem(P1))
 
 
 Class CompareInfo from Object
@@ -421,75 +421,75 @@ Class CompareInfo from Object
 
 	Func Compare P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Compare",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:Compare",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Compare does not take one argument: use named arguments, Compare([ :parameter = value, ... ])")
 
 	Func IsPrefix P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsPrefix",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:IsPrefix",dnPackItem(P1))
 		ok
 		raise("DotNet Error: IsPrefix does not take one argument: use named arguments, IsPrefix([ :parameter = value, ... ])")
 
 	Func IsSuffix P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsSuffix",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:IsSuffix",dnPackItem(P1))
 		ok
 		raise("DotNet Error: IsSuffix does not take one argument: use named arguments, IsSuffix([ :parameter = value, ... ])")
 
 	Func IndexOf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexOf",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:IndexOf",dnPackItem(P1))
 		ok
 		raise("DotNet Error: IndexOf does not take one argument: use named arguments, IndexOf([ :parameter = value, ... ])")
 
 	Func LastIndexOf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:LastIndexOf",dnPackItem(P1))
 		ok
 		raise("DotNet Error: LastIndexOf does not take one argument: use named arguments, LastIndexOf([ :parameter = value, ... ])")
 
 	Func GetSortKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetSortKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:GetSortKey",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSortKey",P1])
+		return dnSend("s4:call",nHandle,"s10:GetSortKey",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetHashCode",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+			return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 		ok
 		raise("DotNet Error: GetHashCode does not take one argument: use named arguments, GetHashCode([ :parameter = value, ... ])")
 
 	Func GetCompareInfo P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib'),"GetCompareInfo",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib').nHandle,"s14:GetCompareInfo",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib'),"GetCompareInfo",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib').nHandle,"s14:GetCompareInfo",dnPackItem(P1))
 
 	Func IsSortable P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib'),"IsSortable",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib').nHandle,"s10:IsSortable",dnPackItem(P1))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnSend("s3:get",nHandle,"s7:Version","")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getLCID
-		return dnRequest("get",[self,"LCID"])
+		return dnSend("s3:get",nHandle,"s4:LCID","")
 
 	Func setLCID P1
 		raise("DotNet Error: LCID is a read-only property")
@@ -552,203 +552,203 @@ Class CultureInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetFormat P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFormat",P1])
+		return dnSend("s4:call",nHandle,"s9:GetFormat",dnPackItem(P1))
 
 	Func ClearCachedData 
-		dnRequest("call",[new DotNetObject(this.nHandle),"ClearCachedData"])
+		dnSend("s4:call",nHandle,"s15:ClearCachedData","")
 		return self
 
 	Func GetConsoleFallbackUICulture 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetConsoleFallbackUICulture"])
+		return dnSend("s4:call",nHandle,"s27:GetConsoleFallbackUICulture","")
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func CreateSpecificCulture P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"CreateSpecificCulture",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s21:CreateSpecificCulture",dnPackItem(P1))
 
 	Func GetCultures P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"GetCultures",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s11:GetCultures",dnPackItem(P1))
 
 	Func ReadOnly P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"ReadOnly",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s8:ReadOnly",dnPackItem(P1))
 
 	Func GetCultureInfo P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"GetCultureInfo",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s14:GetCultureInfo",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"GetCultureInfo",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s14:GetCultureInfo",dnPackItem(P1))
 
 	Func GetCultureInfoByIetfLanguageTag P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"GetCultureInfoByIetfLanguageTag",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s31:GetCultureInfoByIetfLanguageTag",dnPackItem(P1))
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnSend("s3:get",nHandle,"s6:Parent","")
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getLCID
-		return dnRequest("get",[self,"LCID"])
+		return dnSend("s3:get",nHandle,"s4:LCID","")
 
 	Func setLCID P1
 		raise("DotNet Error: LCID is a read-only property")
 
 	Func getKeyboardLayoutId
-		return dnRequest("get",[self,"KeyboardLayoutId"])
+		return dnSend("s3:get",nHandle,"s16:KeyboardLayoutId","")
 
 	Func setKeyboardLayoutId P1
 		raise("DotNet Error: KeyboardLayoutId is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getIetfLanguageTag
-		return dnRequest("get",[self,"IetfLanguageTag"])
+		return dnSend("s3:get",nHandle,"s15:IetfLanguageTag","")
 
 	Func setIetfLanguageTag P1
 		raise("DotNet Error: IetfLanguageTag is a read-only property")
 
 	Func getDisplayName
-		return dnRequest("get",[self,"DisplayName"])
+		return dnSend("s3:get",nHandle,"s11:DisplayName","")
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getNativeName
-		return dnRequest("get",[self,"NativeName"])
+		return dnSend("s3:get",nHandle,"s10:NativeName","")
 
 	Func setNativeName P1
 		raise("DotNet Error: NativeName is a read-only property")
 
 	Func getEnglishName
-		return dnRequest("get",[self,"EnglishName"])
+		return dnSend("s3:get",nHandle,"s11:EnglishName","")
 
 	Func setEnglishName P1
 		raise("DotNet Error: EnglishName is a read-only property")
 
 	Func getTwoLetterISOLanguageName
-		return dnRequest("get",[self,"TwoLetterISOLanguageName"])
+		return dnSend("s3:get",nHandle,"s24:TwoLetterISOLanguageName","")
 
 	Func setTwoLetterISOLanguageName P1
 		raise("DotNet Error: TwoLetterISOLanguageName is a read-only property")
 
 	Func getThreeLetterISOLanguageName
-		return dnRequest("get",[self,"ThreeLetterISOLanguageName"])
+		return dnSend("s3:get",nHandle,"s26:ThreeLetterISOLanguageName","")
 
 	Func setThreeLetterISOLanguageName P1
 		raise("DotNet Error: ThreeLetterISOLanguageName is a read-only property")
 
 	Func getThreeLetterWindowsLanguageName
-		return dnRequest("get",[self,"ThreeLetterWindowsLanguageName"])
+		return dnSend("s3:get",nHandle,"s30:ThreeLetterWindowsLanguageName","")
 
 	Func setThreeLetterWindowsLanguageName P1
 		raise("DotNet Error: ThreeLetterWindowsLanguageName is a read-only property")
 
 	Func getCompareInfo
-		return dnRequest("get",[self,"CompareInfo"])
+		return dnSend("s3:get",nHandle,"s11:CompareInfo","")
 
 	Func setCompareInfo P1
 		raise("DotNet Error: CompareInfo is a read-only property")
 
 	Func getTextInfo
-		return dnRequest("get",[self,"TextInfo"])
+		return dnSend("s3:get",nHandle,"s8:TextInfo","")
 
 	Func setTextInfo P1
 		raise("DotNet Error: TextInfo is a read-only property")
 
 	Func getIsNeutralCulture
-		return dnRequest("get",[self,"IsNeutralCulture"])
+		return dnSend("s3:get",nHandle,"s16:IsNeutralCulture","")
 
 	Func setIsNeutralCulture P1
 		raise("DotNet Error: IsNeutralCulture is a read-only property")
 
 	Func getCultureTypes
-		return dnRequest("get",[self,"CultureTypes"])
+		return dnSend("s3:get",nHandle,"s12:CultureTypes","")
 
 	Func setCultureTypes P1
 		raise("DotNet Error: CultureTypes is a read-only property")
 
 	Func getNumberFormat
-		return dnRequest("get",[self,"NumberFormat"])
+		return dnSend("s3:get",nHandle,"s12:NumberFormat","")
 
 	Func setNumberFormat P1
-		dnRequest("set",[self,"NumberFormat",P1])
+		dnSend("s3:set",nHandle,"s12:NumberFormat",dnPackItem(P1))
 		return self
 
 	Func getDateTimeFormat
-		return dnRequest("get",[self,"DateTimeFormat"])
+		return dnSend("s3:get",nHandle,"s14:DateTimeFormat","")
 
 	Func setDateTimeFormat P1
-		dnRequest("set",[self,"DateTimeFormat",P1])
+		dnSend("s3:set",nHandle,"s14:DateTimeFormat",dnPackItem(P1))
 		return self
 
 	Func getCalendar
-		return dnRequest("get",[self,"Calendar"])
+		return dnSend("s3:get",nHandle,"s8:Calendar","")
 
 	Func setCalendar P1
 		raise("DotNet Error: Calendar is a read-only property")
 
 	Func getOptionalCalendars
-		return dnRequest("get",[self,"OptionalCalendars"])
+		return dnSend("s3:get",nHandle,"s17:OptionalCalendars","")
 
 	Func setOptionalCalendars P1
 		raise("DotNet Error: OptionalCalendars is a read-only property")
 
 	Func getUseUserOverride
-		return dnRequest("get",[self,"UseUserOverride"])
+		return dnSend("s3:get",nHandle,"s15:UseUserOverride","")
 
 	Func setUseUserOverride P1
 		raise("DotNet Error: UseUserOverride is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCurrentCulture
-		return dnRequest("get",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"CurrentCulture"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s14:CurrentCulture","")
 
 	Func setCurrentCulture P1
-		dnRequest("set",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"CurrentCulture",P1])
+		dnSend("s3:set",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s14:CurrentCulture",dnPackItem(P1))
 		return self
 
 	Func getCurrentUICulture
-		return dnRequest("get",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"CurrentUICulture"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s16:CurrentUICulture","")
 
 	Func setCurrentUICulture P1
-		dnRequest("set",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"CurrentUICulture",P1])
+		dnSend("s3:set",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s16:CurrentUICulture",dnPackItem(P1))
 		return self
 
 	Func getInstalledUICulture
-		return dnRequest("get",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"InstalledUICulture"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s18:InstalledUICulture","")
 
 	Func setInstalledUICulture P1
 		raise("DotNet Error: InstalledUICulture is a read-only property")
 
 	Func getDefaultThreadCurrentCulture
-		return dnRequest("get",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"DefaultThreadCurrentCulture"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s27:DefaultThreadCurrentCulture","")
 
 	Func setDefaultThreadCurrentCulture P1
-		dnRequest("set",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"DefaultThreadCurrentCulture",P1])
+		dnSend("s3:set",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s27:DefaultThreadCurrentCulture",dnPackItem(P1))
 		return self
 
 	Func getDefaultThreadCurrentUICulture
-		return dnRequest("get",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"DefaultThreadCurrentUICulture"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s29:DefaultThreadCurrentUICulture","")
 
 	Func setDefaultThreadCurrentUICulture P1
-		dnRequest("set",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"DefaultThreadCurrentUICulture",P1])
+		dnSend("s3:set",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s29:DefaultThreadCurrentUICulture",dnPackItem(P1))
 		return self
 
 	Func getInvariantCulture
-		return dnRequest("get",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"InvariantCulture"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib').nHandle,"s16:InvariantCulture","")
 
 	Func setInvariantCulture P1
 		raise("DotNet Error: InvariantCulture is a read-only property")
@@ -808,242 +808,242 @@ Class DateTimeFormatInfo from Object
 		return self
 
 	Func GetFormat P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFormat",P1])
+		return dnSend("s4:call",nHandle,"s9:GetFormat",dnPackItem(P1))
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func GetEra P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEra",P1])
+		return dnSend("s4:call",nHandle,"s6:GetEra",dnPackItem(P1))
 
 	Func GetEraName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEraName",P1])
+		return dnSend("s4:call",nHandle,"s10:GetEraName",dnPackItem(P1))
 
 	Func GetAbbreviatedEraName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAbbreviatedEraName",P1])
+		return dnSend("s4:call",nHandle,"s21:GetAbbreviatedEraName",dnPackItem(P1))
 
 	Func GetAbbreviatedDayName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAbbreviatedDayName",P1])
+		return dnSend("s4:call",nHandle,"s21:GetAbbreviatedDayName",dnPackItem(P1))
 
 	Func GetShortestDayName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetShortestDayName",P1])
+		return dnSend("s4:call",nHandle,"s18:GetShortestDayName",dnPackItem(P1))
 
 	Func GetAllDateTimePatterns P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetAllDateTimePatterns",P1])
+			return dnSend("s9:callnamed",nHandle,"s22:GetAllDateTimePatterns",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetAllDateTimePatterns"])
+			return dnSend("s4:call",nHandle,"s22:GetAllDateTimePatterns","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAllDateTimePatterns",P1])
+		return dnSend("s4:call",nHandle,"s22:GetAllDateTimePatterns",dnPackItem(P1))
 
 	Func GetDayName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDayName",P1])
+		return dnSend("s4:call",nHandle,"s10:GetDayName",dnPackItem(P1))
 
 	Func GetAbbreviatedMonthName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAbbreviatedMonthName",P1])
+		return dnSend("s4:call",nHandle,"s23:GetAbbreviatedMonthName",dnPackItem(P1))
 
 	Func GetMonthName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMonthName",P1])
+		return dnSend("s4:call",nHandle,"s12:GetMonthName",dnPackItem(P1))
 
 	Func SetAllDateTimePatterns P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetAllDateTimePatterns",P1,P2])
+		dnSend("s4:call",nHandle,"s22:SetAllDateTimePatterns",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetInstance P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"GetInstance",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib').nHandle,"s11:GetInstance",dnPackItem(P1))
 
 	Func ReadOnly P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"ReadOnly",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib').nHandle,"s8:ReadOnly",dnPackItem(P1))
 
 	Func getAMDesignator
-		return dnRequest("get",[self,"AMDesignator"])
+		return dnSend("s3:get",nHandle,"s12:AMDesignator","")
 
 	Func setAMDesignator P1
-		dnRequest("set",[self,"AMDesignator",P1])
+		dnSend("s3:set",nHandle,"s12:AMDesignator",dnPackItem(P1))
 		return self
 
 	Func getCalendar
-		return dnRequest("get",[self,"Calendar"])
+		return dnSend("s3:get",nHandle,"s8:Calendar","")
 
 	Func setCalendar P1
-		dnRequest("set",[self,"Calendar",P1])
+		dnSend("s3:set",nHandle,"s8:Calendar",dnPackItem(P1))
 		return self
 
 	Func getDateSeparator
-		return dnRequest("get",[self,"DateSeparator"])
+		return dnSend("s3:get",nHandle,"s13:DateSeparator","")
 
 	Func setDateSeparator P1
-		dnRequest("set",[self,"DateSeparator",P1])
+		dnSend("s3:set",nHandle,"s13:DateSeparator",dnPackItem(P1))
 		return self
 
 	Func getFirstDayOfWeek
-		return dnRequest("get",[self,"FirstDayOfWeek"])
+		return dnSend("s3:get",nHandle,"s14:FirstDayOfWeek","")
 
 	Func setFirstDayOfWeek P1
-		dnRequest("set",[self,"FirstDayOfWeek",P1])
+		dnSend("s3:set",nHandle,"s14:FirstDayOfWeek",dnPackItem(P1))
 		return self
 
 	Func getCalendarWeekRule
-		return dnRequest("get",[self,"CalendarWeekRule"])
+		return dnSend("s3:get",nHandle,"s16:CalendarWeekRule","")
 
 	Func setCalendarWeekRule P1
-		dnRequest("set",[self,"CalendarWeekRule",P1])
+		dnSend("s3:set",nHandle,"s16:CalendarWeekRule",dnPackItem(P1))
 		return self
 
 	Func getFullDateTimePattern
-		return dnRequest("get",[self,"FullDateTimePattern"])
+		return dnSend("s3:get",nHandle,"s19:FullDateTimePattern","")
 
 	Func setFullDateTimePattern P1
-		dnRequest("set",[self,"FullDateTimePattern",P1])
+		dnSend("s3:set",nHandle,"s19:FullDateTimePattern",dnPackItem(P1))
 		return self
 
 	Func getLongDatePattern
-		return dnRequest("get",[self,"LongDatePattern"])
+		return dnSend("s3:get",nHandle,"s15:LongDatePattern","")
 
 	Func setLongDatePattern P1
-		dnRequest("set",[self,"LongDatePattern",P1])
+		dnSend("s3:set",nHandle,"s15:LongDatePattern",dnPackItem(P1))
 		return self
 
 	Func getLongTimePattern
-		return dnRequest("get",[self,"LongTimePattern"])
+		return dnSend("s3:get",nHandle,"s15:LongTimePattern","")
 
 	Func setLongTimePattern P1
-		dnRequest("set",[self,"LongTimePattern",P1])
+		dnSend("s3:set",nHandle,"s15:LongTimePattern",dnPackItem(P1))
 		return self
 
 	Func getMonthDayPattern
-		return dnRequest("get",[self,"MonthDayPattern"])
+		return dnSend("s3:get",nHandle,"s15:MonthDayPattern","")
 
 	Func setMonthDayPattern P1
-		dnRequest("set",[self,"MonthDayPattern",P1])
+		dnSend("s3:set",nHandle,"s15:MonthDayPattern",dnPackItem(P1))
 		return self
 
 	Func getPMDesignator
-		return dnRequest("get",[self,"PMDesignator"])
+		return dnSend("s3:get",nHandle,"s12:PMDesignator","")
 
 	Func setPMDesignator P1
-		dnRequest("set",[self,"PMDesignator",P1])
+		dnSend("s3:set",nHandle,"s12:PMDesignator",dnPackItem(P1))
 		return self
 
 	Func getRFC1123Pattern
-		return dnRequest("get",[self,"RFC1123Pattern"])
+		return dnSend("s3:get",nHandle,"s14:RFC1123Pattern","")
 
 	Func setRFC1123Pattern P1
 		raise("DotNet Error: RFC1123Pattern is a read-only property")
 
 	Func getShortDatePattern
-		return dnRequest("get",[self,"ShortDatePattern"])
+		return dnSend("s3:get",nHandle,"s16:ShortDatePattern","")
 
 	Func setShortDatePattern P1
-		dnRequest("set",[self,"ShortDatePattern",P1])
+		dnSend("s3:set",nHandle,"s16:ShortDatePattern",dnPackItem(P1))
 		return self
 
 	Func getShortTimePattern
-		return dnRequest("get",[self,"ShortTimePattern"])
+		return dnSend("s3:get",nHandle,"s16:ShortTimePattern","")
 
 	Func setShortTimePattern P1
-		dnRequest("set",[self,"ShortTimePattern",P1])
+		dnSend("s3:set",nHandle,"s16:ShortTimePattern",dnPackItem(P1))
 		return self
 
 	Func getSortableDateTimePattern
-		return dnRequest("get",[self,"SortableDateTimePattern"])
+		return dnSend("s3:get",nHandle,"s23:SortableDateTimePattern","")
 
 	Func setSortableDateTimePattern P1
 		raise("DotNet Error: SortableDateTimePattern is a read-only property")
 
 	Func getTimeSeparator
-		return dnRequest("get",[self,"TimeSeparator"])
+		return dnSend("s3:get",nHandle,"s13:TimeSeparator","")
 
 	Func setTimeSeparator P1
-		dnRequest("set",[self,"TimeSeparator",P1])
+		dnSend("s3:set",nHandle,"s13:TimeSeparator",dnPackItem(P1))
 		return self
 
 	Func getUniversalSortableDateTimePattern
-		return dnRequest("get",[self,"UniversalSortableDateTimePattern"])
+		return dnSend("s3:get",nHandle,"s32:UniversalSortableDateTimePattern","")
 
 	Func setUniversalSortableDateTimePattern P1
 		raise("DotNet Error: UniversalSortableDateTimePattern is a read-only property")
 
 	Func getYearMonthPattern
-		return dnRequest("get",[self,"YearMonthPattern"])
+		return dnSend("s3:get",nHandle,"s16:YearMonthPattern","")
 
 	Func setYearMonthPattern P1
-		dnRequest("set",[self,"YearMonthPattern",P1])
+		dnSend("s3:set",nHandle,"s16:YearMonthPattern",dnPackItem(P1))
 		return self
 
 	Func getAbbreviatedDayNames
-		return dnRequest("get",[self,"AbbreviatedDayNames"])
+		return dnSend("s3:get",nHandle,"s19:AbbreviatedDayNames","")
 
 	Func setAbbreviatedDayNames P1
-		dnRequest("set",[self,"AbbreviatedDayNames",P1])
+		dnSend("s3:set",nHandle,"s19:AbbreviatedDayNames",dnPackItem(P1))
 		return self
 
 	Func getShortestDayNames
-		return dnRequest("get",[self,"ShortestDayNames"])
+		return dnSend("s3:get",nHandle,"s16:ShortestDayNames","")
 
 	Func setShortestDayNames P1
-		dnRequest("set",[self,"ShortestDayNames",P1])
+		dnSend("s3:set",nHandle,"s16:ShortestDayNames",dnPackItem(P1))
 		return self
 
 	Func getDayNames
-		return dnRequest("get",[self,"DayNames"])
+		return dnSend("s3:get",nHandle,"s8:DayNames","")
 
 	Func setDayNames P1
-		dnRequest("set",[self,"DayNames",P1])
+		dnSend("s3:set",nHandle,"s8:DayNames",dnPackItem(P1))
 		return self
 
 	Func getAbbreviatedMonthNames
-		return dnRequest("get",[self,"AbbreviatedMonthNames"])
+		return dnSend("s3:get",nHandle,"s21:AbbreviatedMonthNames","")
 
 	Func setAbbreviatedMonthNames P1
-		dnRequest("set",[self,"AbbreviatedMonthNames",P1])
+		dnSend("s3:set",nHandle,"s21:AbbreviatedMonthNames",dnPackItem(P1))
 		return self
 
 	Func getMonthNames
-		return dnRequest("get",[self,"MonthNames"])
+		return dnSend("s3:get",nHandle,"s10:MonthNames","")
 
 	Func setMonthNames P1
-		dnRequest("set",[self,"MonthNames",P1])
+		dnSend("s3:set",nHandle,"s10:MonthNames",dnPackItem(P1))
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getNativeCalendarName
-		return dnRequest("get",[self,"NativeCalendarName"])
+		return dnSend("s3:get",nHandle,"s18:NativeCalendarName","")
 
 	Func setNativeCalendarName P1
 		raise("DotNet Error: NativeCalendarName is a read-only property")
 
 	Func getAbbreviatedMonthGenitiveNames
-		return dnRequest("get",[self,"AbbreviatedMonthGenitiveNames"])
+		return dnSend("s3:get",nHandle,"s29:AbbreviatedMonthGenitiveNames","")
 
 	Func setAbbreviatedMonthGenitiveNames P1
-		dnRequest("set",[self,"AbbreviatedMonthGenitiveNames",P1])
+		dnSend("s3:set",nHandle,"s29:AbbreviatedMonthGenitiveNames",dnPackItem(P1))
 		return self
 
 	Func getMonthGenitiveNames
-		return dnRequest("get",[self,"MonthGenitiveNames"])
+		return dnSend("s3:get",nHandle,"s18:MonthGenitiveNames","")
 
 	Func setMonthGenitiveNames P1
-		dnRequest("set",[self,"MonthGenitiveNames",P1])
+		dnSend("s3:set",nHandle,"s18:MonthGenitiveNames",dnPackItem(P1))
 		return self
 
 	Func getInvariantInfo
-		return dnRequest("get",[dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"InvariantInfo"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib').nHandle,"s13:InvariantInfo","")
 
 	Func setInvariantInfo P1
 		raise("DotNet Error: InvariantInfo is a read-only property")
 
 	Func getCurrentInfo
-		return dnRequest("get",[dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"CurrentInfo"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib').nHandle,"s11:CurrentInfo","")
 
 	Func setCurrentInfo P1
 		raise("DotNet Error: CurrentInfo is a read-only property")
@@ -1066,19 +1066,19 @@ Class DaylightTime from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getStart
-		return dnRequest("get",[self,"Start"])
+		return dnSend("s3:get",nHandle,"s5:Start","")
 
 	Func setStart P1
 		raise("DotNet Error: Start is a read-only property")
 
 	Func getEnd
-		return dnRequest("get",[self,"End"])
+		return dnSend("s3:get",nHandle,"s3:End","")
 
 	Func getDelta
-		return dnRequest("get",[self,"Delta"])
+		return dnSend("s3:get",nHandle,"s5:Delta","")
 
 	Func setDelta P1
 		raise("DotNet Error: Delta is a read-only property")
@@ -1096,10 +1096,10 @@ Class GlobalizationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetStringComparer P1,P2
-		return dnRequest("call",[dnTypeCached('System.Globalization.GlobalizationExtensions, System.Private.CoreLib'),"GetStringComparer",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.GlobalizationExtensions, System.Private.CoreLib').nHandle,"s17:GetStringComparer",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class ISOWeek from Object
@@ -1114,25 +1114,25 @@ Class ISOWeek from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetWeekOfYear P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib'),"GetWeekOfYear",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib').nHandle,"s13:GetWeekOfYear",dnPackItem(P1))
 
 	Func GetYear P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib'),"GetYear",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib').nHandle,"s7:GetYear",dnPackItem(P1))
 
 	Func GetYearStart P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib'),"GetYearStart",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib').nHandle,"s12:GetYearStart",dnPackItem(P1))
 
 	Func GetYearEnd P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib'),"GetYearEnd",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib').nHandle,"s10:GetYearEnd",dnPackItem(P1))
 
 	Func GetWeeksInYear P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib'),"GetWeeksInYear",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib').nHandle,"s14:GetWeeksInYear",dnPackItem(P1))
 
 	Func ToDateTime P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib'),"ToDateTime",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib').nHandle,"s10:ToDateTime",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class IdnMapping from Object
@@ -1164,31 +1164,31 @@ Class IdnMapping from Object
 
 	Func GetAscii P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetAscii",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:GetAscii",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAscii",P1])
+		return dnSend("s4:call",nHandle,"s8:GetAscii",dnPackItem(P1))
 
 	Func GetUnicode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetUnicode",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:GetUnicode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUnicode",P1])
+		return dnSend("s4:call",nHandle,"s10:GetUnicode",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAllowUnassigned
-		return dnRequest("get",[self,"AllowUnassigned"])
+		return dnSend("s3:get",nHandle,"s15:AllowUnassigned","")
 
 	Func setAllowUnassigned P1
-		dnRequest("set",[self,"AllowUnassigned",P1])
+		dnSend("s3:set",nHandle,"s15:AllowUnassigned",dnPackItem(P1))
 		return self
 
 	Func getUseStd3AsciiRules
-		return dnRequest("get",[self,"UseStd3AsciiRules"])
+		return dnSend("s3:get",nHandle,"s17:UseStd3AsciiRules","")
 
 	Func setUseStd3AsciiRules P1
-		dnRequest("set",[self,"UseStd3AsciiRules",P1])
+		dnSend("s3:set",nHandle,"s17:UseStd3AsciiRules",dnPackItem(P1))
 		return self
 
 
@@ -1248,223 +1248,223 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func GetFormat P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFormat",P1])
+		return dnSend("s4:call",nHandle,"s9:GetFormat",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetInstance P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.NumberFormatInfo, System.Private.CoreLib'),"GetInstance",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.NumberFormatInfo, System.Private.CoreLib').nHandle,"s11:GetInstance",dnPackItem(P1))
 
 	Func ReadOnly P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.NumberFormatInfo, System.Private.CoreLib'),"ReadOnly",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.NumberFormatInfo, System.Private.CoreLib').nHandle,"s8:ReadOnly",dnPackItem(P1))
 
 	Func getCurrencyDecimalDigits
-		return dnRequest("get",[self,"CurrencyDecimalDigits"])
+		return dnSend("s3:get",nHandle,"s21:CurrencyDecimalDigits","")
 
 	Func setCurrencyDecimalDigits P1
-		dnRequest("set",[self,"CurrencyDecimalDigits",P1])
+		dnSend("s3:set",nHandle,"s21:CurrencyDecimalDigits",dnPackItem(P1))
 		return self
 
 	Func getCurrencyDecimalSeparator
-		return dnRequest("get",[self,"CurrencyDecimalSeparator"])
+		return dnSend("s3:get",nHandle,"s24:CurrencyDecimalSeparator","")
 
 	Func setCurrencyDecimalSeparator P1
-		dnRequest("set",[self,"CurrencyDecimalSeparator",P1])
+		dnSend("s3:set",nHandle,"s24:CurrencyDecimalSeparator",dnPackItem(P1))
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCurrencyGroupSizes
-		return dnRequest("get",[self,"CurrencyGroupSizes"])
+		return dnSend("s3:get",nHandle,"s18:CurrencyGroupSizes","")
 
 	Func setCurrencyGroupSizes P1
-		dnRequest("set",[self,"CurrencyGroupSizes",P1])
+		dnSend("s3:set",nHandle,"s18:CurrencyGroupSizes",dnPackItem(P1))
 		return self
 
 	Func getNumberGroupSizes
-		return dnRequest("get",[self,"NumberGroupSizes"])
+		return dnSend("s3:get",nHandle,"s16:NumberGroupSizes","")
 
 	Func setNumberGroupSizes P1
-		dnRequest("set",[self,"NumberGroupSizes",P1])
+		dnSend("s3:set",nHandle,"s16:NumberGroupSizes",dnPackItem(P1))
 		return self
 
 	Func getPercentGroupSizes
-		return dnRequest("get",[self,"PercentGroupSizes"])
+		return dnSend("s3:get",nHandle,"s17:PercentGroupSizes","")
 
 	Func setPercentGroupSizes P1
-		dnRequest("set",[self,"PercentGroupSizes",P1])
+		dnSend("s3:set",nHandle,"s17:PercentGroupSizes",dnPackItem(P1))
 		return self
 
 	Func getCurrencyGroupSeparator
-		return dnRequest("get",[self,"CurrencyGroupSeparator"])
+		return dnSend("s3:get",nHandle,"s22:CurrencyGroupSeparator","")
 
 	Func setCurrencyGroupSeparator P1
-		dnRequest("set",[self,"CurrencyGroupSeparator",P1])
+		dnSend("s3:set",nHandle,"s22:CurrencyGroupSeparator",dnPackItem(P1))
 		return self
 
 	Func getCurrencySymbol
-		return dnRequest("get",[self,"CurrencySymbol"])
+		return dnSend("s3:get",nHandle,"s14:CurrencySymbol","")
 
 	Func setCurrencySymbol P1
-		dnRequest("set",[self,"CurrencySymbol",P1])
+		dnSend("s3:set",nHandle,"s14:CurrencySymbol",dnPackItem(P1))
 		return self
 
 	Func getNaNSymbol
-		return dnRequest("get",[self,"NaNSymbol"])
+		return dnSend("s3:get",nHandle,"s9:NaNSymbol","")
 
 	Func setNaNSymbol P1
-		dnRequest("set",[self,"NaNSymbol",P1])
+		dnSend("s3:set",nHandle,"s9:NaNSymbol",dnPackItem(P1))
 		return self
 
 	Func getCurrencyNegativePattern
-		return dnRequest("get",[self,"CurrencyNegativePattern"])
+		return dnSend("s3:get",nHandle,"s23:CurrencyNegativePattern","")
 
 	Func setCurrencyNegativePattern P1
-		dnRequest("set",[self,"CurrencyNegativePattern",P1])
+		dnSend("s3:set",nHandle,"s23:CurrencyNegativePattern",dnPackItem(P1))
 		return self
 
 	Func getNumberNegativePattern
-		return dnRequest("get",[self,"NumberNegativePattern"])
+		return dnSend("s3:get",nHandle,"s21:NumberNegativePattern","")
 
 	Func setNumberNegativePattern P1
-		dnRequest("set",[self,"NumberNegativePattern",P1])
+		dnSend("s3:set",nHandle,"s21:NumberNegativePattern",dnPackItem(P1))
 		return self
 
 	Func getPercentPositivePattern
-		return dnRequest("get",[self,"PercentPositivePattern"])
+		return dnSend("s3:get",nHandle,"s22:PercentPositivePattern","")
 
 	Func setPercentPositivePattern P1
-		dnRequest("set",[self,"PercentPositivePattern",P1])
+		dnSend("s3:set",nHandle,"s22:PercentPositivePattern",dnPackItem(P1))
 		return self
 
 	Func getPercentNegativePattern
-		return dnRequest("get",[self,"PercentNegativePattern"])
+		return dnSend("s3:get",nHandle,"s22:PercentNegativePattern","")
 
 	Func setPercentNegativePattern P1
-		dnRequest("set",[self,"PercentNegativePattern",P1])
+		dnSend("s3:set",nHandle,"s22:PercentNegativePattern",dnPackItem(P1))
 		return self
 
 	Func getNegativeInfinitySymbol
-		return dnRequest("get",[self,"NegativeInfinitySymbol"])
+		return dnSend("s3:get",nHandle,"s22:NegativeInfinitySymbol","")
 
 	Func setNegativeInfinitySymbol P1
-		dnRequest("set",[self,"NegativeInfinitySymbol",P1])
+		dnSend("s3:set",nHandle,"s22:NegativeInfinitySymbol",dnPackItem(P1))
 		return self
 
 	Func getNegativeSign
-		return dnRequest("get",[self,"NegativeSign"])
+		return dnSend("s3:get",nHandle,"s12:NegativeSign","")
 
 	Func setNegativeSign P1
-		dnRequest("set",[self,"NegativeSign",P1])
+		dnSend("s3:set",nHandle,"s12:NegativeSign",dnPackItem(P1))
 		return self
 
 	Func getNumberDecimalDigits
-		return dnRequest("get",[self,"NumberDecimalDigits"])
+		return dnSend("s3:get",nHandle,"s19:NumberDecimalDigits","")
 
 	Func setNumberDecimalDigits P1
-		dnRequest("set",[self,"NumberDecimalDigits",P1])
+		dnSend("s3:set",nHandle,"s19:NumberDecimalDigits",dnPackItem(P1))
 		return self
 
 	Func getNumberDecimalSeparator
-		return dnRequest("get",[self,"NumberDecimalSeparator"])
+		return dnSend("s3:get",nHandle,"s22:NumberDecimalSeparator","")
 
 	Func setNumberDecimalSeparator P1
-		dnRequest("set",[self,"NumberDecimalSeparator",P1])
+		dnSend("s3:set",nHandle,"s22:NumberDecimalSeparator",dnPackItem(P1))
 		return self
 
 	Func getNumberGroupSeparator
-		return dnRequest("get",[self,"NumberGroupSeparator"])
+		return dnSend("s3:get",nHandle,"s20:NumberGroupSeparator","")
 
 	Func setNumberGroupSeparator P1
-		dnRequest("set",[self,"NumberGroupSeparator",P1])
+		dnSend("s3:set",nHandle,"s20:NumberGroupSeparator",dnPackItem(P1))
 		return self
 
 	Func getCurrencyPositivePattern
-		return dnRequest("get",[self,"CurrencyPositivePattern"])
+		return dnSend("s3:get",nHandle,"s23:CurrencyPositivePattern","")
 
 	Func setCurrencyPositivePattern P1
-		dnRequest("set",[self,"CurrencyPositivePattern",P1])
+		dnSend("s3:set",nHandle,"s23:CurrencyPositivePattern",dnPackItem(P1))
 		return self
 
 	Func getPositiveInfinitySymbol
-		return dnRequest("get",[self,"PositiveInfinitySymbol"])
+		return dnSend("s3:get",nHandle,"s22:PositiveInfinitySymbol","")
 
 	Func setPositiveInfinitySymbol P1
-		dnRequest("set",[self,"PositiveInfinitySymbol",P1])
+		dnSend("s3:set",nHandle,"s22:PositiveInfinitySymbol",dnPackItem(P1))
 		return self
 
 	Func getPositiveSign
-		return dnRequest("get",[self,"PositiveSign"])
+		return dnSend("s3:get",nHandle,"s12:PositiveSign","")
 
 	Func setPositiveSign P1
-		dnRequest("set",[self,"PositiveSign",P1])
+		dnSend("s3:set",nHandle,"s12:PositiveSign",dnPackItem(P1))
 		return self
 
 	Func getPercentDecimalDigits
-		return dnRequest("get",[self,"PercentDecimalDigits"])
+		return dnSend("s3:get",nHandle,"s20:PercentDecimalDigits","")
 
 	Func setPercentDecimalDigits P1
-		dnRequest("set",[self,"PercentDecimalDigits",P1])
+		dnSend("s3:set",nHandle,"s20:PercentDecimalDigits",dnPackItem(P1))
 		return self
 
 	Func getPercentDecimalSeparator
-		return dnRequest("get",[self,"PercentDecimalSeparator"])
+		return dnSend("s3:get",nHandle,"s23:PercentDecimalSeparator","")
 
 	Func setPercentDecimalSeparator P1
-		dnRequest("set",[self,"PercentDecimalSeparator",P1])
+		dnSend("s3:set",nHandle,"s23:PercentDecimalSeparator",dnPackItem(P1))
 		return self
 
 	Func getPercentGroupSeparator
-		return dnRequest("get",[self,"PercentGroupSeparator"])
+		return dnSend("s3:get",nHandle,"s21:PercentGroupSeparator","")
 
 	Func setPercentGroupSeparator P1
-		dnRequest("set",[self,"PercentGroupSeparator",P1])
+		dnSend("s3:set",nHandle,"s21:PercentGroupSeparator",dnPackItem(P1))
 		return self
 
 	Func getPercentSymbol
-		return dnRequest("get",[self,"PercentSymbol"])
+		return dnSend("s3:get",nHandle,"s13:PercentSymbol","")
 
 	Func setPercentSymbol P1
-		dnRequest("set",[self,"PercentSymbol",P1])
+		dnSend("s3:set",nHandle,"s13:PercentSymbol",dnPackItem(P1))
 		return self
 
 	Func getPerMilleSymbol
-		return dnRequest("get",[self,"PerMilleSymbol"])
+		return dnSend("s3:get",nHandle,"s14:PerMilleSymbol","")
 
 	Func setPerMilleSymbol P1
-		dnRequest("set",[self,"PerMilleSymbol",P1])
+		dnSend("s3:set",nHandle,"s14:PerMilleSymbol",dnPackItem(P1))
 		return self
 
 	Func getNativeDigits
-		return dnRequest("get",[self,"NativeDigits"])
+		return dnSend("s3:get",nHandle,"s12:NativeDigits","")
 
 	Func setNativeDigits P1
-		dnRequest("set",[self,"NativeDigits",P1])
+		dnSend("s3:set",nHandle,"s12:NativeDigits",dnPackItem(P1))
 		return self
 
 	Func getDigitSubstitution
-		return dnRequest("get",[self,"DigitSubstitution"])
+		return dnSend("s3:get",nHandle,"s17:DigitSubstitution","")
 
 	Func setDigitSubstitution P1
-		dnRequest("set",[self,"DigitSubstitution",P1])
+		dnSend("s3:set",nHandle,"s17:DigitSubstitution",dnPackItem(P1))
 		return self
 
 	Func getInvariantInfo
-		return dnRequest("get",[dnTypeCached('System.Globalization.NumberFormatInfo, System.Private.CoreLib'),"InvariantInfo"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.NumberFormatInfo, System.Private.CoreLib').nHandle,"s13:InvariantInfo","")
 
 	Func setInvariantInfo P1
 		raise("DotNet Error: InvariantInfo is a read-only property")
 
 	Func getCurrentInfo
-		return dnRequest("get",[dnTypeCached('System.Globalization.NumberFormatInfo, System.Private.CoreLib'),"CurrentInfo"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.NumberFormatInfo, System.Private.CoreLib').nHandle,"s11:CurrentInfo","")
 
 	Func setCurrentInfo P1
 		raise("DotNet Error: CurrentInfo is a read-only property")
@@ -1499,88 +1499,88 @@ Class RegionInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getEnglishName
-		return dnRequest("get",[self,"EnglishName"])
+		return dnSend("s3:get",nHandle,"s11:EnglishName","")
 
 	Func setEnglishName P1
 		raise("DotNet Error: EnglishName is a read-only property")
 
 	Func getDisplayName
-		return dnRequest("get",[self,"DisplayName"])
+		return dnSend("s3:get",nHandle,"s11:DisplayName","")
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getNativeName
-		return dnRequest("get",[self,"NativeName"])
+		return dnSend("s3:get",nHandle,"s10:NativeName","")
 
 	Func setNativeName P1
 		raise("DotNet Error: NativeName is a read-only property")
 
 	Func getTwoLetterISORegionName
-		return dnRequest("get",[self,"TwoLetterISORegionName"])
+		return dnSend("s3:get",nHandle,"s22:TwoLetterISORegionName","")
 
 	Func setTwoLetterISORegionName P1
 		raise("DotNet Error: TwoLetterISORegionName is a read-only property")
 
 	Func getThreeLetterISORegionName
-		return dnRequest("get",[self,"ThreeLetterISORegionName"])
+		return dnSend("s3:get",nHandle,"s24:ThreeLetterISORegionName","")
 
 	Func setThreeLetterISORegionName P1
 		raise("DotNet Error: ThreeLetterISORegionName is a read-only property")
 
 	Func getThreeLetterWindowsRegionName
-		return dnRequest("get",[self,"ThreeLetterWindowsRegionName"])
+		return dnSend("s3:get",nHandle,"s28:ThreeLetterWindowsRegionName","")
 
 	Func setThreeLetterWindowsRegionName P1
 		raise("DotNet Error: ThreeLetterWindowsRegionName is a read-only property")
 
 	Func getIsMetric
-		return dnRequest("get",[self,"IsMetric"])
+		return dnSend("s3:get",nHandle,"s8:IsMetric","")
 
 	Func setIsMetric P1
 		raise("DotNet Error: IsMetric is a read-only property")
 
 	Func getGeoId
-		return dnRequest("get",[self,"GeoId"])
+		return dnSend("s3:get",nHandle,"s5:GeoId","")
 
 	Func setGeoId P1
 		raise("DotNet Error: GeoId is a read-only property")
 
 	Func getCurrencyEnglishName
-		return dnRequest("get",[self,"CurrencyEnglishName"])
+		return dnSend("s3:get",nHandle,"s19:CurrencyEnglishName","")
 
 	Func setCurrencyEnglishName P1
 		raise("DotNet Error: CurrencyEnglishName is a read-only property")
 
 	Func getCurrencyNativeName
-		return dnRequest("get",[self,"CurrencyNativeName"])
+		return dnSend("s3:get",nHandle,"s18:CurrencyNativeName","")
 
 	Func setCurrencyNativeName P1
 		raise("DotNet Error: CurrencyNativeName is a read-only property")
 
 	Func getCurrencySymbol
-		return dnRequest("get",[self,"CurrencySymbol"])
+		return dnSend("s3:get",nHandle,"s14:CurrencySymbol","")
 
 	Func setCurrencySymbol P1
 		raise("DotNet Error: CurrencySymbol is a read-only property")
 
 	Func getISOCurrencySymbol
-		return dnRequest("get",[self,"ISOCurrencySymbol"])
+		return dnSend("s3:get",nHandle,"s17:ISOCurrencySymbol","")
 
 	Func setISOCurrencySymbol P1
 		raise("DotNet Error: ISOCurrencySymbol is a read-only property")
 
 	Func getCurrentRegion
-		return dnRequest("get",[dnTypeCached('System.Globalization.RegionInfo, System.Private.CoreLib'),"CurrentRegion"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.RegionInfo, System.Private.CoreLib').nHandle,"s13:CurrentRegion","")
 
 	Func setCurrentRegion P1
 		raise("DotNet Error: CurrentRegion is a read-only property")
@@ -1601,19 +1601,19 @@ Class SortKey from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Compare P1,P2
-		return dnRequest("call",[dnTypeCached('System.Globalization.SortKey, System.Private.CoreLib'),"Compare",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.SortKey, System.Private.CoreLib').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getOriginalString
-		return dnRequest("get",[self,"OriginalString"])
+		return dnSend("s3:get",nHandle,"s14:OriginalString","")
 
 	Func setOriginalString P1
 		raise("DotNet Error: OriginalString is a read-only property")
 
 	Func getKeyData
-		return dnRequest("get",[self,"KeyData"])
+		return dnSend("s3:get",nHandle,"s7:KeyData","")
 
 	Func setKeyData P1
 		raise("DotNet Error: KeyData is a read-only property")
@@ -1636,16 +1636,16 @@ Class SortVersion from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getFullVersion
-		return dnRequest("get",[self,"FullVersion"])
+		return dnSend("s3:get",nHandle,"s11:FullVersion","")
 
 	Func setFullVersion P1
 		raise("DotNet Error: FullVersion is a read-only property")
 
 	Func getSortId
-		return dnRequest("get",[self,"SortId"])
+		return dnSend("s3:get",nHandle,"s6:SortId","")
 
 	Func setSortId P1
 		raise("DotNet Error: SortId is a read-only property")
@@ -1699,44 +1699,44 @@ Class StringInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SubstringByTextElements P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SubstringByTextElements",P1])
+			return dnSend("s9:callnamed",nHandle,"s23:SubstringByTextElements",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SubstringByTextElements",P1])
+		return dnSend("s4:call",nHandle,"s23:SubstringByTextElements",dnPackItem(P1))
 
 	Func GetNextTextElement P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetNextTextElement",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib').nHandle,"s18:GetNextTextElement",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetNextTextElement",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib').nHandle,"s18:GetNextTextElement",dnPackItem(P1))
 
 	Func GetNextTextElementLength P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetNextTextElementLength",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib').nHandle,"s24:GetNextTextElementLength",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetNextTextElementLength",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib').nHandle,"s24:GetNextTextElementLength",dnPackItem(P1))
 
 	Func GetTextElementEnumerator P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetTextElementEnumerator",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib').nHandle,"s24:GetTextElementEnumerator",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetTextElementEnumerator",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib').nHandle,"s24:GetTextElementEnumerator",dnPackItem(P1))
 
 	Func ParseCombiningCharacters P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"ParseCombiningCharacters",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib').nHandle,"s24:ParseCombiningCharacters",dnPackItem(P1))
 
 	Func getString
-		return dnRequest("get",[self,"String"])
+		return dnSend("s3:get",nHandle,"s6:String","")
 
 	Func setString P1
-		dnRequest("set",[self,"String",P1])
+		dnSend("s3:set",nHandle,"s6:String",dnPackItem(P1))
 		return self
 
 	Func getLengthInTextElements
-		return dnRequest("get",[self,"LengthInTextElements"])
+		return dnSend("s3:get",nHandle,"s20:LengthInTextElements","")
 
 	Func setLengthInTextElements P1
 		raise("DotNet Error: LengthInTextElements is a read-only property")
@@ -1757,26 +1757,26 @@ Class TextElementEnumerator from Object
 		return self
 
 	Func MoveNext 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveNext"])
+		return dnSend("s4:call",nHandle,"s8:MoveNext","")
 
 	Func GetTextElement 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTextElement"])
+		return dnSend("s4:call",nHandle,"s14:GetTextElement","")
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCurrent
-		return dnRequest("get",[self,"Current"])
+		return dnSend("s3:get",nHandle,"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getElementIndex
-		return dnRequest("get",[self,"ElementIndex"])
+		return dnSend("s3:get",nHandle,"s12:ElementIndex","")
 
 	Func setElementIndex P1
 		raise("DotNet Error: ElementIndex is a read-only property")
@@ -1804,74 +1804,74 @@ Class TextInfo from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func ToLower P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToLower",P1])
+		return dnSend("s4:call",nHandle,"s7:ToLower",dnPackItem(P1))
 
 	Func ToUpper P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToUpper",P1])
+		return dnSend("s4:call",nHandle,"s7:ToUpper",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ToTitleCase P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToTitleCase",P1])
+		return dnSend("s4:call",nHandle,"s11:ToTitleCase",dnPackItem(P1))
 
 	Func ReadOnly P1
-		return dnRequest("call",[dnTypeCached('System.Globalization.TextInfo, System.Private.CoreLib'),"ReadOnly",P1])
+		return dnSend("s4:call",dnTypeCached('System.Globalization.TextInfo, System.Private.CoreLib').nHandle,"s8:ReadOnly",dnPackItem(P1))
 
 	Func getANSICodePage
-		return dnRequest("get",[self,"ANSICodePage"])
+		return dnSend("s3:get",nHandle,"s12:ANSICodePage","")
 
 	Func setANSICodePage P1
 		raise("DotNet Error: ANSICodePage is a read-only property")
 
 	Func getOEMCodePage
-		return dnRequest("get",[self,"OEMCodePage"])
+		return dnSend("s3:get",nHandle,"s11:OEMCodePage","")
 
 	Func setOEMCodePage P1
 		raise("DotNet Error: OEMCodePage is a read-only property")
 
 	Func getMacCodePage
-		return dnRequest("get",[self,"MacCodePage"])
+		return dnSend("s3:get",nHandle,"s11:MacCodePage","")
 
 	Func setMacCodePage P1
 		raise("DotNet Error: MacCodePage is a read-only property")
 
 	Func getEBCDICCodePage
-		return dnRequest("get",[self,"EBCDICCodePage"])
+		return dnSend("s3:get",nHandle,"s14:EBCDICCodePage","")
 
 	Func setEBCDICCodePage P1
 		raise("DotNet Error: EBCDICCodePage is a read-only property")
 
 	Func getLCID
-		return dnRequest("get",[self,"LCID"])
+		return dnSend("s3:get",nHandle,"s4:LCID","")
 
 	Func setLCID P1
 		raise("DotNet Error: LCID is a read-only property")
 
 	Func getCultureName
-		return dnRequest("get",[self,"CultureName"])
+		return dnSend("s3:get",nHandle,"s11:CultureName","")
 
 	Func setCultureName P1
 		raise("DotNet Error: CultureName is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getListSeparator
-		return dnRequest("get",[self,"ListSeparator"])
+		return dnSend("s3:get",nHandle,"s13:ListSeparator","")
 
 	Func setListSeparator P1
-		dnRequest("set",[self,"ListSeparator",P1])
+		dnSend("s3:set",nHandle,"s13:ListSeparator",dnPackItem(P1))
 		return self
 
 	Func getIsRightToLeft
-		return dnRequest("get",[self,"IsRightToLeft"])
+		return dnSend("s3:get",nHandle,"s13:IsRightToLeft","")
 
 	Func setIsRightToLeft P1
 		raise("DotNet Error: IsRightToLeft is a read-only property")
@@ -1889,13 +1889,13 @@ Class EastAsianLunisolarCalendar from Calendar
 		return self
 
 	Func GetSexagenaryYear P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSexagenaryYear",P1])
+		return dnSend("s4:call",nHandle,"s17:GetSexagenaryYear",dnPackItem(P1))
 
 	Func GetCelestialStem P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCelestialStem",P1])
+		return dnSend("s4:call",nHandle,"s16:GetCelestialStem",dnPackItem(P1))
 
 	Func GetTerrestrialBranch P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTerrestrialBranch",P1])
+		return dnSend("s4:call",nHandle,"s20:GetTerrestrialBranch",dnPackItem(P1))
 
 
 Class GregorianCalendar from Calendar
@@ -1946,14 +1946,14 @@ Class GregorianCalendar from Calendar
 		return self
 
 	Func getCalendarType
-		return dnRequest("get",[self,"CalendarType"])
+		return dnSend("s3:get",nHandle,"s12:CalendarType","")
 
 	Func setCalendarType P1
-		dnRequest("set",[self,"CalendarType",P1])
+		dnSend("s3:set",nHandle,"s12:CalendarType",dnPackItem(P1))
 		return self
 
 	Func getADEra
-		return dnRequest("get",[dnTypeCached('System.Globalization.GregorianCalendar, System.Private.CoreLib'),"ADEra"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.GregorianCalendar, System.Private.CoreLib').nHandle,"s5:ADEra","")
 
 	Func setADEra P1
 		raise("DotNet Error: ADEra is a read-only property")
@@ -1986,7 +1986,7 @@ Class HebrewCalendar from Calendar
 		return self
 
 	Func getHebrewEra
-		return dnRequest("get",[dnTypeCached('System.Globalization.HebrewCalendar, System.Private.CoreLib'),"HebrewEra"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.HebrewCalendar, System.Private.CoreLib').nHandle,"s9:HebrewEra","")
 
 	Func setHebrewEra P1
 		raise("DotNet Error: HebrewEra is a read-only property")
@@ -2020,14 +2020,14 @@ Class HijriCalendar from Calendar
 		return self
 
 	Func getHijriAdjustment
-		return dnRequest("get",[self,"HijriAdjustment"])
+		return dnSend("s3:get",nHandle,"s15:HijriAdjustment","")
 
 	Func setHijriAdjustment P1
-		dnRequest("set",[self,"HijriAdjustment",P1])
+		dnSend("s3:set",nHandle,"s15:HijriAdjustment",dnPackItem(P1))
 		return self
 
 	Func getHijriEra
-		return dnRequest("get",[dnTypeCached('System.Globalization.HijriCalendar, System.Private.CoreLib'),"HijriEra"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.HijriCalendar, System.Private.CoreLib').nHandle,"s8:HijriEra","")
 
 	Func setHijriEra P1
 		raise("DotNet Error: HijriEra is a read-only property")
@@ -2085,7 +2085,7 @@ Class JulianCalendar from Calendar
 		return self
 
 	Func getJulianEra
-		return dnRequest("get",[dnTypeCached('System.Globalization.JulianCalendar, System.Private.CoreLib'),"JulianEra"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.JulianCalendar, System.Private.CoreLib').nHandle,"s9:JulianEra","")
 
 	Func setJulianEra P1
 		raise("DotNet Error: JulianEra is a read-only property")
@@ -2118,7 +2118,7 @@ Class KoreanCalendar from Calendar
 		return self
 
 	Func getKoreanEra
-		return dnRequest("get",[dnTypeCached('System.Globalization.KoreanCalendar, System.Private.CoreLib'),"KoreanEra"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.KoreanCalendar, System.Private.CoreLib').nHandle,"s9:KoreanEra","")
 
 	Func setKoreanEra P1
 		raise("DotNet Error: KoreanEra is a read-only property")
@@ -2151,7 +2151,7 @@ Class PersianCalendar from Calendar
 		return self
 
 	Func getPersianEra
-		return dnRequest("get",[dnTypeCached('System.Globalization.PersianCalendar, System.Private.CoreLib'),"PersianEra"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.PersianCalendar, System.Private.CoreLib').nHandle,"s10:PersianEra","")
 
 	Func setPersianEra P1
 		raise("DotNet Error: PersianEra is a read-only property")
@@ -2209,7 +2209,7 @@ Class ThaiBuddhistCalendar from Calendar
 		return self
 
 	Func getThaiBuddhistEra
-		return dnRequest("get",[dnTypeCached('System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib'),"ThaiBuddhistEra"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib').nHandle,"s15:ThaiBuddhistEra","")
 
 	Func setThaiBuddhistEra P1
 		raise("DotNet Error: ThaiBuddhistEra is a read-only property")
@@ -2242,7 +2242,7 @@ Class UmAlQuraCalendar from Calendar
 		return self
 
 	Func getUmAlQuraEra
-		return dnRequest("get",[dnTypeCached('System.Globalization.UmAlQuraCalendar, System.Private.CoreLib'),"UmAlQuraEra"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.UmAlQuraCalendar, System.Private.CoreLib').nHandle,"s11:UmAlQuraEra","")
 
 	Func setUmAlQuraEra P1
 		raise("DotNet Error: UmAlQuraEra is a read-only property")
@@ -2275,7 +2275,7 @@ Class ChineseLunisolarCalendar from EastAsianLunisolarCalendar
 		return self
 
 	Func getChineseEra
-		return dnRequest("get",[dnTypeCached('System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib'),"ChineseEra"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib').nHandle,"s10:ChineseEra","")
 
 	Func setChineseEra P1
 		raise("DotNet Error: ChineseEra is a read-only property")
@@ -2308,7 +2308,7 @@ Class JapaneseLunisolarCalendar from EastAsianLunisolarCalendar
 		return self
 
 	Func getJapaneseEra
-		return dnRequest("get",[dnTypeCached('System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib'),"JapaneseEra"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib').nHandle,"s11:JapaneseEra","")
 
 	Func setJapaneseEra P1
 		raise("DotNet Error: JapaneseEra is a read-only property")
@@ -2341,7 +2341,7 @@ Class KoreanLunisolarCalendar from EastAsianLunisolarCalendar
 		return self
 
 	Func getGregorianEra
-		return dnRequest("get",[dnTypeCached('System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib'),"GregorianEra"])
+		return dnSend("s3:get",dnTypeCached('System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib').nHandle,"s12:GregorianEra","")
 
 	Func setGregorianEra P1
 		raise("DotNet Error: GregorianEra is a read-only property")

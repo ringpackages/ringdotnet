@@ -64,28 +64,28 @@ Class IXsltContextFunction from DotNetObject
 		return self
 
 	Func Invoke P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Invoke",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getMinargs
-		return dnRequest("get",[self,"Minargs"])
+		return dnSend("s3:get",nHandle,"s7:Minargs","")
 
 	Func setMinargs P1
 		raise("DotNet Error: Minargs is a read-only property")
 
 	Func getMaxargs
-		return dnRequest("get",[self,"Maxargs"])
+		return dnSend("s3:get",nHandle,"s7:Maxargs","")
 
 	Func setMaxargs P1
 		raise("DotNet Error: Maxargs is a read-only property")
 
 	Func getReturnType
-		return dnRequest("get",[self,"ReturnType"])
+		return dnSend("s3:get",nHandle,"s10:ReturnType","")
 
 	Func setReturnType P1
 		raise("DotNet Error: ReturnType is a read-only property")
 
 	Func getArgTypes
-		return dnRequest("get",[self,"ArgTypes"])
+		return dnSend("s3:get",nHandle,"s8:ArgTypes","")
 
 	Func setArgTypes P1
 		raise("DotNet Error: ArgTypes is a read-only property")
@@ -107,22 +107,22 @@ Class IXsltContextVariable from DotNetObject
 		return self
 
 	Func Evaluate P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Evaluate",P1])
+		return dnSend("s4:call",nHandle,"s8:Evaluate",dnPackItem(P1))
 
 	Func getIsLocal
-		return dnRequest("get",[self,"IsLocal"])
+		return dnSend("s3:get",nHandle,"s7:IsLocal","")
 
 	Func setIsLocal P1
 		raise("DotNet Error: IsLocal is a read-only property")
 
 	Func getIsParam
-		return dnRequest("get",[self,"IsParam"])
+		return dnSend("s3:get",nHandle,"s7:IsParam","")
 
 	Func setIsParam P1
 		raise("DotNet Error: IsParam is a read-only property")
 
 	Func getVariableType
-		return dnRequest("get",[self,"VariableType"])
+		return dnSend("s3:get",nHandle,"s12:VariableType","")
 
 	Func setVariableType P1
 		raise("DotNet Error: VariableType is a read-only property")
@@ -176,24 +176,24 @@ Class XslCompiledTransform from Object
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Load",P1])
+			dnSend("s9:callnamed",nHandle,"s4:Load",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Load",P1])
+		dnSend("s4:call",nHandle,"s4:Load",dnPackItem(P1))
 		return self
 
 	Func Transform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Transform",P1])
+			dnSend("s9:callnamed",nHandle,"s9:Transform",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: Transform does not take one argument: use named arguments, Transform([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getOutputSettings
-		return dnRequest("get",[self,"OutputSettings"])
+		return dnSend("s3:get",nHandle,"s14:OutputSettings","")
 
 	Func setOutputSettings P1
 		raise("DotNet Error: OutputSettings is a read-only property")
@@ -227,23 +227,23 @@ Class XslTransform from Object
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Load",P1])
+			dnSend("s9:callnamed",nHandle,"s4:Load",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Load",P1])
+		dnSend("s4:call",nHandle,"s4:Load",dnPackItem(P1))
 		return self
 
 	Func Transform P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Transform",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:Transform",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Transform does not take one argument: use named arguments, Transform([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func setXmlResolver P1
-		dnRequest("set",[self,"XmlResolver",P1])
+		dnSend("s3:set",nHandle,"s11:XmlResolver",dnPackItem(P1))
 		return self
 
 
@@ -272,31 +272,31 @@ Class XsltArgumentList from Object
 		return self
 
 	Func GetParam P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetParam",P1,P2])
+		return dnSend("s4:call",nHandle,"s8:GetParam",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetExtensionObject P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetExtensionObject",P1])
+		return dnSend("s4:call",nHandle,"s18:GetExtensionObject",dnPackItem(P1))
 
 	Func AddParam P1,P2,P3
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddParam",P1,P2,P3])
+		dnSend("s4:call",nHandle,"s8:AddParam",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func AddExtensionObject P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddExtensionObject",P1,P2])
+		dnSend("s4:call",nHandle,"s18:AddExtensionObject",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveParam P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveParam",P1,P2])
+		return dnSend("s4:call",nHandle,"s11:RemoveParam",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RemoveExtensionObject P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveExtensionObject",P1])
+		return dnSend("s4:call",nHandle,"s21:RemoveExtensionObject",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func setXsltMessageEncounteredEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"XsltMessageEncountered",dnCallback(P1)])
@@ -321,19 +321,19 @@ Class XsltContext from XmlNamespaceManager
 		return self
 
 	Func ResolveVariable P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveVariable",P1,P2])
+		return dnSend("s4:call",nHandle,"s15:ResolveVariable",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ResolveFunction P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveFunction",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s15:ResolveFunction",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func PreserveWhitespace P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"PreserveWhitespace",P1])
+		return dnSend("s4:call",nHandle,"s18:PreserveWhitespace",dnPackItem(P1))
 
 	Func CompareDocument P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareDocument",P1,P2])
+		return dnSend("s4:call",nHandle,"s15:CompareDocument",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getWhitespace
-		return dnRequest("get",[self,"Whitespace"])
+		return dnSend("s3:get",nHandle,"s10:Whitespace","")
 
 	Func setWhitespace P1
 		raise("DotNet Error: Whitespace is a read-only property")
@@ -353,7 +353,7 @@ Class XsltMessageEncounteredEventArgs from EventArgs
 		return self
 
 	Func getMessage
-		return dnRequest("get",[self,"Message"])
+		return dnSend("s3:get",nHandle,"s7:Message","")
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")
@@ -409,30 +409,30 @@ Class XsltSettings from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getEnableDocumentFunction
-		return dnRequest("get",[self,"EnableDocumentFunction"])
+		return dnSend("s3:get",nHandle,"s22:EnableDocumentFunction","")
 
 	Func setEnableDocumentFunction P1
-		dnRequest("set",[self,"EnableDocumentFunction",P1])
+		dnSend("s3:set",nHandle,"s22:EnableDocumentFunction",dnPackItem(P1))
 		return self
 
 	Func getEnableScript
-		return dnRequest("get",[self,"EnableScript"])
+		return dnSend("s3:get",nHandle,"s12:EnableScript","")
 
 	Func setEnableScript P1
-		dnRequest("set",[self,"EnableScript",P1])
+		dnSend("s3:set",nHandle,"s12:EnableScript",dnPackItem(P1))
 		return self
 
 	Func getDefault
-		return dnRequest("get",[dnTypeCached('System.Xml.Xsl.XsltSettings, System.Private.Xml'),"Default"])
+		return dnSend("s3:get",dnTypeCached('System.Xml.Xsl.XsltSettings, System.Private.Xml').nHandle,"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getTrustedXslt
-		return dnRequest("get",[dnTypeCached('System.Xml.Xsl.XsltSettings, System.Private.Xml'),"TrustedXslt"])
+		return dnSend("s3:get",dnTypeCached('System.Xml.Xsl.XsltSettings, System.Private.Xml').nHandle,"s11:TrustedXslt","")
 
 	Func setTrustedXslt P1
 		raise("DotNet Error: TrustedXslt is a read-only property")

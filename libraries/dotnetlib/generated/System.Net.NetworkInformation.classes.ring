@@ -181,10 +181,10 @@ Class GatewayIPAddressInformation from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAddress
-		return dnRequest("get",[self,"Address"])
+		return dnSend("s3:get",nHandle,"s7:Address","")
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")
@@ -205,40 +205,40 @@ Class GatewayIPAddressInformationCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -260,22 +260,22 @@ Class IPAddressInformation from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAddress
-		return dnRequest("get",[self,"Address"])
+		return dnSend("s3:get",nHandle,"s7:Address","")
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")
 
 	Func getIsDnsEligible
-		return dnRequest("get",[self,"IsDnsEligible"])
+		return dnSend("s3:get",nHandle,"s13:IsDnsEligible","")
 
 	Func setIsDnsEligible P1
 		raise("DotNet Error: IsDnsEligible is a read-only property")
 
 	Func getIsTransient
-		return dnRequest("get",[self,"IsTransient"])
+		return dnSend("s3:get",nHandle,"s11:IsTransient","")
 
 	Func setIsTransient P1
 		raise("DotNet Error: IsTransient is a read-only property")
@@ -296,40 +296,40 @@ Class IPAddressInformationCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -353,82 +353,82 @@ Class IPGlobalProperties from Object
 		return self
 
 	Func GetActiveUdpListeners 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetActiveUdpListeners"])
+		return dnSend("s4:call",nHandle,"s21:GetActiveUdpListeners","")
 
 	Func GetActiveTcpListeners 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetActiveTcpListeners"])
+		return dnSend("s4:call",nHandle,"s21:GetActiveTcpListeners","")
 
 	Func GetActiveTcpConnections 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetActiveTcpConnections"])
+		return dnSend("s4:call",nHandle,"s23:GetActiveTcpConnections","")
 
 	Func BeginGetUnicastAddresses P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginGetUnicastAddresses",P1,P2])
+		return dnSend("s4:call",nHandle,"s24:BeginGetUnicastAddresses",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EndGetUnicastAddresses P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EndGetUnicastAddresses",P1])
+		return dnSend("s4:call",nHandle,"s22:EndGetUnicastAddresses",dnPackItem(P1))
 
 	Func GetTcpIPv4Statistics 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTcpIPv4Statistics"])
+		return dnSend("s4:call",nHandle,"s20:GetTcpIPv4Statistics","")
 
 	Func GetTcpIPv6Statistics 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTcpIPv6Statistics"])
+		return dnSend("s4:call",nHandle,"s20:GetTcpIPv6Statistics","")
 
 	Func GetUdpIPv4Statistics 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUdpIPv4Statistics"])
+		return dnSend("s4:call",nHandle,"s20:GetUdpIPv4Statistics","")
 
 	Func GetUdpIPv6Statistics 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUdpIPv6Statistics"])
+		return dnSend("s4:call",nHandle,"s20:GetUdpIPv6Statistics","")
 
 	Func GetIcmpV4Statistics 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIcmpV4Statistics"])
+		return dnSend("s4:call",nHandle,"s19:GetIcmpV4Statistics","")
 
 	Func GetIcmpV6Statistics 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIcmpV6Statistics"])
+		return dnSend("s4:call",nHandle,"s19:GetIcmpV6Statistics","")
 
 	Func GetIPv4GlobalStatistics 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIPv4GlobalStatistics"])
+		return dnSend("s4:call",nHandle,"s23:GetIPv4GlobalStatistics","")
 
 	Func GetIPv6GlobalStatistics 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIPv6GlobalStatistics"])
+		return dnSend("s4:call",nHandle,"s23:GetIPv6GlobalStatistics","")
 
 	Func GetUnicastAddresses 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUnicastAddresses"])
+		return dnSend("s4:call",nHandle,"s19:GetUnicastAddresses","")
 
 	Func GetUnicastAddressesAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUnicastAddressesAsync"])
+		return dnSend("s4:call",nHandle,"s24:GetUnicastAddressesAsync","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetIPGlobalProperties 
-		return dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.IPGlobalProperties, System.Net.NetworkInformation'),"GetIPGlobalProperties"])
+		return dnSend("s4:call",dnTypeCached('System.Net.NetworkInformation.IPGlobalProperties, System.Net.NetworkInformation').nHandle,"s21:GetIPGlobalProperties","")
 
 	Func getDhcpScopeName
-		return dnRequest("get",[self,"DhcpScopeName"])
+		return dnSend("s3:get",nHandle,"s13:DhcpScopeName","")
 
 	Func setDhcpScopeName P1
 		raise("DotNet Error: DhcpScopeName is a read-only property")
 
 	Func getDomainName
-		return dnRequest("get",[self,"DomainName"])
+		return dnSend("s3:get",nHandle,"s10:DomainName","")
 
 	Func setDomainName P1
 		raise("DotNet Error: DomainName is a read-only property")
 
 	Func getHostName
-		return dnRequest("get",[self,"HostName"])
+		return dnSend("s3:get",nHandle,"s8:HostName","")
 
 	Func setHostName P1
 		raise("DotNet Error: HostName is a read-only property")
 
 	Func getIsWinsProxy
-		return dnRequest("get",[self,"IsWinsProxy"])
+		return dnSend("s3:get",nHandle,"s11:IsWinsProxy","")
 
 	Func setIsWinsProxy P1
 		raise("DotNet Error: IsWinsProxy is a read-only property")
 
 	Func getNodeType
-		return dnRequest("get",[self,"NodeType"])
+		return dnSend("s3:get",nHandle,"s8:NodeType","")
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
@@ -469,136 +469,136 @@ Class IPGlobalStatistics from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDefaultTtl
-		return dnRequest("get",[self,"DefaultTtl"])
+		return dnSend("s3:get",nHandle,"s10:DefaultTtl","")
 
 	Func setDefaultTtl P1
 		raise("DotNet Error: DefaultTtl is a read-only property")
 
 	Func getForwardingEnabled
-		return dnRequest("get",[self,"ForwardingEnabled"])
+		return dnSend("s3:get",nHandle,"s17:ForwardingEnabled","")
 
 	Func setForwardingEnabled P1
 		raise("DotNet Error: ForwardingEnabled is a read-only property")
 
 	Func getNumberOfInterfaces
-		return dnRequest("get",[self,"NumberOfInterfaces"])
+		return dnSend("s3:get",nHandle,"s18:NumberOfInterfaces","")
 
 	Func setNumberOfInterfaces P1
 		raise("DotNet Error: NumberOfInterfaces is a read-only property")
 
 	Func getNumberOfIPAddresses
-		return dnRequest("get",[self,"NumberOfIPAddresses"])
+		return dnSend("s3:get",nHandle,"s19:NumberOfIPAddresses","")
 
 	Func setNumberOfIPAddresses P1
 		raise("DotNet Error: NumberOfIPAddresses is a read-only property")
 
 	Func getOutputPacketRequests
-		return dnRequest("get",[self,"OutputPacketRequests"])
+		return dnSend("s3:get",nHandle,"s20:OutputPacketRequests","")
 
 	Func setOutputPacketRequests P1
 		raise("DotNet Error: OutputPacketRequests is a read-only property")
 
 	Func getOutputPacketRoutingDiscards
-		return dnRequest("get",[self,"OutputPacketRoutingDiscards"])
+		return dnSend("s3:get",nHandle,"s27:OutputPacketRoutingDiscards","")
 
 	Func setOutputPacketRoutingDiscards P1
 		raise("DotNet Error: OutputPacketRoutingDiscards is a read-only property")
 
 	Func getOutputPacketsDiscarded
-		return dnRequest("get",[self,"OutputPacketsDiscarded"])
+		return dnSend("s3:get",nHandle,"s22:OutputPacketsDiscarded","")
 
 	Func setOutputPacketsDiscarded P1
 		raise("DotNet Error: OutputPacketsDiscarded is a read-only property")
 
 	Func getOutputPacketsWithNoRoute
-		return dnRequest("get",[self,"OutputPacketsWithNoRoute"])
+		return dnSend("s3:get",nHandle,"s24:OutputPacketsWithNoRoute","")
 
 	Func setOutputPacketsWithNoRoute P1
 		raise("DotNet Error: OutputPacketsWithNoRoute is a read-only property")
 
 	Func getPacketFragmentFailures
-		return dnRequest("get",[self,"PacketFragmentFailures"])
+		return dnSend("s3:get",nHandle,"s22:PacketFragmentFailures","")
 
 	Func setPacketFragmentFailures P1
 		raise("DotNet Error: PacketFragmentFailures is a read-only property")
 
 	Func getPacketReassembliesRequired
-		return dnRequest("get",[self,"PacketReassembliesRequired"])
+		return dnSend("s3:get",nHandle,"s26:PacketReassembliesRequired","")
 
 	Func setPacketReassembliesRequired P1
 		raise("DotNet Error: PacketReassembliesRequired is a read-only property")
 
 	Func getPacketReassemblyFailures
-		return dnRequest("get",[self,"PacketReassemblyFailures"])
+		return dnSend("s3:get",nHandle,"s24:PacketReassemblyFailures","")
 
 	Func setPacketReassemblyFailures P1
 		raise("DotNet Error: PacketReassemblyFailures is a read-only property")
 
 	Func getPacketReassemblyTimeout
-		return dnRequest("get",[self,"PacketReassemblyTimeout"])
+		return dnSend("s3:get",nHandle,"s23:PacketReassemblyTimeout","")
 
 	Func setPacketReassemblyTimeout P1
 		raise("DotNet Error: PacketReassemblyTimeout is a read-only property")
 
 	Func getPacketsFragmented
-		return dnRequest("get",[self,"PacketsFragmented"])
+		return dnSend("s3:get",nHandle,"s17:PacketsFragmented","")
 
 	Func setPacketsFragmented P1
 		raise("DotNet Error: PacketsFragmented is a read-only property")
 
 	Func getPacketsReassembled
-		return dnRequest("get",[self,"PacketsReassembled"])
+		return dnSend("s3:get",nHandle,"s18:PacketsReassembled","")
 
 	Func setPacketsReassembled P1
 		raise("DotNet Error: PacketsReassembled is a read-only property")
 
 	Func getReceivedPackets
-		return dnRequest("get",[self,"ReceivedPackets"])
+		return dnSend("s3:get",nHandle,"s15:ReceivedPackets","")
 
 	Func setReceivedPackets P1
 		raise("DotNet Error: ReceivedPackets is a read-only property")
 
 	Func getReceivedPacketsDelivered
-		return dnRequest("get",[self,"ReceivedPacketsDelivered"])
+		return dnSend("s3:get",nHandle,"s24:ReceivedPacketsDelivered","")
 
 	Func setReceivedPacketsDelivered P1
 		raise("DotNet Error: ReceivedPacketsDelivered is a read-only property")
 
 	Func getReceivedPacketsDiscarded
-		return dnRequest("get",[self,"ReceivedPacketsDiscarded"])
+		return dnSend("s3:get",nHandle,"s24:ReceivedPacketsDiscarded","")
 
 	Func setReceivedPacketsDiscarded P1
 		raise("DotNet Error: ReceivedPacketsDiscarded is a read-only property")
 
 	Func getReceivedPacketsForwarded
-		return dnRequest("get",[self,"ReceivedPacketsForwarded"])
+		return dnSend("s3:get",nHandle,"s24:ReceivedPacketsForwarded","")
 
 	Func setReceivedPacketsForwarded P1
 		raise("DotNet Error: ReceivedPacketsForwarded is a read-only property")
 
 	Func getReceivedPacketsWithAddressErrors
-		return dnRequest("get",[self,"ReceivedPacketsWithAddressErrors"])
+		return dnSend("s3:get",nHandle,"s32:ReceivedPacketsWithAddressErrors","")
 
 	Func setReceivedPacketsWithAddressErrors P1
 		raise("DotNet Error: ReceivedPacketsWithAddressErrors is a read-only property")
 
 	Func getReceivedPacketsWithHeadersErrors
-		return dnRequest("get",[self,"ReceivedPacketsWithHeadersErrors"])
+		return dnSend("s3:get",nHandle,"s32:ReceivedPacketsWithHeadersErrors","")
 
 	Func setReceivedPacketsWithHeadersErrors P1
 		raise("DotNet Error: ReceivedPacketsWithHeadersErrors is a read-only property")
 
 	Func getReceivedPacketsWithUnknownProtocol
-		return dnRequest("get",[self,"ReceivedPacketsWithUnknownProtocol"])
+		return dnSend("s3:get",nHandle,"s34:ReceivedPacketsWithUnknownProtocol","")
 
 	Func setReceivedPacketsWithUnknownProtocol P1
 		raise("DotNet Error: ReceivedPacketsWithUnknownProtocol is a read-only property")
 
 	Func getNumberOfRoutes
-		return dnRequest("get",[self,"NumberOfRoutes"])
+		return dnSend("s3:get",nHandle,"s14:NumberOfRoutes","")
 
 	Func setNumberOfRoutes P1
 		raise("DotNet Error: NumberOfRoutes is a read-only property")
@@ -627,70 +627,70 @@ Class IPInterfaceProperties from Object
 		return self
 
 	Func GetIPv4Properties 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIPv4Properties"])
+		return dnSend("s4:call",nHandle,"s17:GetIPv4Properties","")
 
 	Func GetIPv6Properties 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIPv6Properties"])
+		return dnSend("s4:call",nHandle,"s17:GetIPv6Properties","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getIsDnsEnabled
-		return dnRequest("get",[self,"IsDnsEnabled"])
+		return dnSend("s3:get",nHandle,"s12:IsDnsEnabled","")
 
 	Func setIsDnsEnabled P1
 		raise("DotNet Error: IsDnsEnabled is a read-only property")
 
 	Func getDnsSuffix
-		return dnRequest("get",[self,"DnsSuffix"])
+		return dnSend("s3:get",nHandle,"s9:DnsSuffix","")
 
 	Func setDnsSuffix P1
 		raise("DotNet Error: DnsSuffix is a read-only property")
 
 	Func getIsDynamicDnsEnabled
-		return dnRequest("get",[self,"IsDynamicDnsEnabled"])
+		return dnSend("s3:get",nHandle,"s19:IsDynamicDnsEnabled","")
 
 	Func setIsDynamicDnsEnabled P1
 		raise("DotNet Error: IsDynamicDnsEnabled is a read-only property")
 
 	Func getUnicastAddresses
-		return dnRequest("get",[self,"UnicastAddresses"])
+		return dnSend("s3:get",nHandle,"s16:UnicastAddresses","")
 
 	Func setUnicastAddresses P1
 		raise("DotNet Error: UnicastAddresses is a read-only property")
 
 	Func getMulticastAddresses
-		return dnRequest("get",[self,"MulticastAddresses"])
+		return dnSend("s3:get",nHandle,"s18:MulticastAddresses","")
 
 	Func setMulticastAddresses P1
 		raise("DotNet Error: MulticastAddresses is a read-only property")
 
 	Func getAnycastAddresses
-		return dnRequest("get",[self,"AnycastAddresses"])
+		return dnSend("s3:get",nHandle,"s16:AnycastAddresses","")
 
 	Func setAnycastAddresses P1
 		raise("DotNet Error: AnycastAddresses is a read-only property")
 
 	Func getDnsAddresses
-		return dnRequest("get",[self,"DnsAddresses"])
+		return dnSend("s3:get",nHandle,"s12:DnsAddresses","")
 
 	Func setDnsAddresses P1
 		raise("DotNet Error: DnsAddresses is a read-only property")
 
 	Func getGatewayAddresses
-		return dnRequest("get",[self,"GatewayAddresses"])
+		return dnSend("s3:get",nHandle,"s16:GatewayAddresses","")
 
 	Func setGatewayAddresses P1
 		raise("DotNet Error: GatewayAddresses is a read-only property")
 
 	Func getDhcpServerAddresses
-		return dnRequest("get",[self,"DhcpServerAddresses"])
+		return dnSend("s3:get",nHandle,"s19:DhcpServerAddresses","")
 
 	Func setDhcpServerAddresses P1
 		raise("DotNet Error: DhcpServerAddresses is a read-only property")
 
 	Func getWinsServersAddresses
-		return dnRequest("get",[self,"WinsServersAddresses"])
+		return dnSend("s3:get",nHandle,"s20:WinsServersAddresses","")
 
 	Func setWinsServersAddresses P1
 		raise("DotNet Error: WinsServersAddresses is a read-only property")
@@ -721,76 +721,76 @@ Class IPInterfaceStatistics from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getBytesReceived
-		return dnRequest("get",[self,"BytesReceived"])
+		return dnSend("s3:get",nHandle,"s13:BytesReceived","")
 
 	Func setBytesReceived P1
 		raise("DotNet Error: BytesReceived is a read-only property")
 
 	Func getBytesSent
-		return dnRequest("get",[self,"BytesSent"])
+		return dnSend("s3:get",nHandle,"s9:BytesSent","")
 
 	Func setBytesSent P1
 		raise("DotNet Error: BytesSent is a read-only property")
 
 	Func getIncomingPacketsDiscarded
-		return dnRequest("get",[self,"IncomingPacketsDiscarded"])
+		return dnSend("s3:get",nHandle,"s24:IncomingPacketsDiscarded","")
 
 	Func setIncomingPacketsDiscarded P1
 		raise("DotNet Error: IncomingPacketsDiscarded is a read-only property")
 
 	Func getIncomingPacketsWithErrors
-		return dnRequest("get",[self,"IncomingPacketsWithErrors"])
+		return dnSend("s3:get",nHandle,"s25:IncomingPacketsWithErrors","")
 
 	Func setIncomingPacketsWithErrors P1
 		raise("DotNet Error: IncomingPacketsWithErrors is a read-only property")
 
 	Func getIncomingUnknownProtocolPackets
-		return dnRequest("get",[self,"IncomingUnknownProtocolPackets"])
+		return dnSend("s3:get",nHandle,"s30:IncomingUnknownProtocolPackets","")
 
 	Func setIncomingUnknownProtocolPackets P1
 		raise("DotNet Error: IncomingUnknownProtocolPackets is a read-only property")
 
 	Func getNonUnicastPacketsReceived
-		return dnRequest("get",[self,"NonUnicastPacketsReceived"])
+		return dnSend("s3:get",nHandle,"s25:NonUnicastPacketsReceived","")
 
 	Func setNonUnicastPacketsReceived P1
 		raise("DotNet Error: NonUnicastPacketsReceived is a read-only property")
 
 	Func getNonUnicastPacketsSent
-		return dnRequest("get",[self,"NonUnicastPacketsSent"])
+		return dnSend("s3:get",nHandle,"s21:NonUnicastPacketsSent","")
 
 	Func setNonUnicastPacketsSent P1
 		raise("DotNet Error: NonUnicastPacketsSent is a read-only property")
 
 	Func getOutgoingPacketsDiscarded
-		return dnRequest("get",[self,"OutgoingPacketsDiscarded"])
+		return dnSend("s3:get",nHandle,"s24:OutgoingPacketsDiscarded","")
 
 	Func setOutgoingPacketsDiscarded P1
 		raise("DotNet Error: OutgoingPacketsDiscarded is a read-only property")
 
 	Func getOutgoingPacketsWithErrors
-		return dnRequest("get",[self,"OutgoingPacketsWithErrors"])
+		return dnSend("s3:get",nHandle,"s25:OutgoingPacketsWithErrors","")
 
 	Func setOutgoingPacketsWithErrors P1
 		raise("DotNet Error: OutgoingPacketsWithErrors is a read-only property")
 
 	Func getOutputQueueLength
-		return dnRequest("get",[self,"OutputQueueLength"])
+		return dnSend("s3:get",nHandle,"s17:OutputQueueLength","")
 
 	Func setOutputQueueLength P1
 		raise("DotNet Error: OutputQueueLength is a read-only property")
 
 	Func getUnicastPacketsReceived
-		return dnRequest("get",[self,"UnicastPacketsReceived"])
+		return dnSend("s3:get",nHandle,"s22:UnicastPacketsReceived","")
 
 	Func setUnicastPacketsReceived P1
 		raise("DotNet Error: UnicastPacketsReceived is a read-only property")
 
 	Func getUnicastPacketsSent
-		return dnRequest("get",[self,"UnicastPacketsSent"])
+		return dnSend("s3:get",nHandle,"s18:UnicastPacketsSent","")
 
 	Func setUnicastPacketsSent P1
 		raise("DotNet Error: UnicastPacketsSent is a read-only property")
@@ -816,46 +816,46 @@ Class IPv4InterfaceProperties from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getUsesWins
-		return dnRequest("get",[self,"UsesWins"])
+		return dnSend("s3:get",nHandle,"s8:UsesWins","")
 
 	Func setUsesWins P1
 		raise("DotNet Error: UsesWins is a read-only property")
 
 	Func getIsDhcpEnabled
-		return dnRequest("get",[self,"IsDhcpEnabled"])
+		return dnSend("s3:get",nHandle,"s13:IsDhcpEnabled","")
 
 	Func setIsDhcpEnabled P1
 		raise("DotNet Error: IsDhcpEnabled is a read-only property")
 
 	Func getIsAutomaticPrivateAddressingActive
-		return dnRequest("get",[self,"IsAutomaticPrivateAddressingActive"])
+		return dnSend("s3:get",nHandle,"s34:IsAutomaticPrivateAddressingActive","")
 
 	Func setIsAutomaticPrivateAddressingActive P1
 		raise("DotNet Error: IsAutomaticPrivateAddressingActive is a read-only property")
 
 	Func getIsAutomaticPrivateAddressingEnabled
-		return dnRequest("get",[self,"IsAutomaticPrivateAddressingEnabled"])
+		return dnSend("s3:get",nHandle,"s35:IsAutomaticPrivateAddressingEnabled","")
 
 	Func setIsAutomaticPrivateAddressingEnabled P1
 		raise("DotNet Error: IsAutomaticPrivateAddressingEnabled is a read-only property")
 
 	Func getIndex
-		return dnRequest("get",[self,"Index"])
+		return dnSend("s3:get",nHandle,"s5:Index","")
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getIsForwardingEnabled
-		return dnRequest("get",[self,"IsForwardingEnabled"])
+		return dnSend("s3:get",nHandle,"s19:IsForwardingEnabled","")
 
 	Func setIsForwardingEnabled P1
 		raise("DotNet Error: IsForwardingEnabled is a read-only property")
 
 	Func getMtu
-		return dnRequest("get",[self,"Mtu"])
+		return dnSend("s3:get",nHandle,"s3:Mtu","")
 
 	Func setMtu P1
 		raise("DotNet Error: Mtu is a read-only property")
@@ -886,76 +886,76 @@ Class IPv4InterfaceStatistics from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getBytesReceived
-		return dnRequest("get",[self,"BytesReceived"])
+		return dnSend("s3:get",nHandle,"s13:BytesReceived","")
 
 	Func setBytesReceived P1
 		raise("DotNet Error: BytesReceived is a read-only property")
 
 	Func getBytesSent
-		return dnRequest("get",[self,"BytesSent"])
+		return dnSend("s3:get",nHandle,"s9:BytesSent","")
 
 	Func setBytesSent P1
 		raise("DotNet Error: BytesSent is a read-only property")
 
 	Func getIncomingPacketsDiscarded
-		return dnRequest("get",[self,"IncomingPacketsDiscarded"])
+		return dnSend("s3:get",nHandle,"s24:IncomingPacketsDiscarded","")
 
 	Func setIncomingPacketsDiscarded P1
 		raise("DotNet Error: IncomingPacketsDiscarded is a read-only property")
 
 	Func getIncomingPacketsWithErrors
-		return dnRequest("get",[self,"IncomingPacketsWithErrors"])
+		return dnSend("s3:get",nHandle,"s25:IncomingPacketsWithErrors","")
 
 	Func setIncomingPacketsWithErrors P1
 		raise("DotNet Error: IncomingPacketsWithErrors is a read-only property")
 
 	Func getIncomingUnknownProtocolPackets
-		return dnRequest("get",[self,"IncomingUnknownProtocolPackets"])
+		return dnSend("s3:get",nHandle,"s30:IncomingUnknownProtocolPackets","")
 
 	Func setIncomingUnknownProtocolPackets P1
 		raise("DotNet Error: IncomingUnknownProtocolPackets is a read-only property")
 
 	Func getNonUnicastPacketsReceived
-		return dnRequest("get",[self,"NonUnicastPacketsReceived"])
+		return dnSend("s3:get",nHandle,"s25:NonUnicastPacketsReceived","")
 
 	Func setNonUnicastPacketsReceived P1
 		raise("DotNet Error: NonUnicastPacketsReceived is a read-only property")
 
 	Func getNonUnicastPacketsSent
-		return dnRequest("get",[self,"NonUnicastPacketsSent"])
+		return dnSend("s3:get",nHandle,"s21:NonUnicastPacketsSent","")
 
 	Func setNonUnicastPacketsSent P1
 		raise("DotNet Error: NonUnicastPacketsSent is a read-only property")
 
 	Func getOutgoingPacketsDiscarded
-		return dnRequest("get",[self,"OutgoingPacketsDiscarded"])
+		return dnSend("s3:get",nHandle,"s24:OutgoingPacketsDiscarded","")
 
 	Func setOutgoingPacketsDiscarded P1
 		raise("DotNet Error: OutgoingPacketsDiscarded is a read-only property")
 
 	Func getOutgoingPacketsWithErrors
-		return dnRequest("get",[self,"OutgoingPacketsWithErrors"])
+		return dnSend("s3:get",nHandle,"s25:OutgoingPacketsWithErrors","")
 
 	Func setOutgoingPacketsWithErrors P1
 		raise("DotNet Error: OutgoingPacketsWithErrors is a read-only property")
 
 	Func getOutputQueueLength
-		return dnRequest("get",[self,"OutputQueueLength"])
+		return dnSend("s3:get",nHandle,"s17:OutputQueueLength","")
 
 	Func setOutputQueueLength P1
 		raise("DotNet Error: OutputQueueLength is a read-only property")
 
 	Func getUnicastPacketsReceived
-		return dnRequest("get",[self,"UnicastPacketsReceived"])
+		return dnSend("s3:get",nHandle,"s22:UnicastPacketsReceived","")
 
 	Func setUnicastPacketsReceived P1
 		raise("DotNet Error: UnicastPacketsReceived is a read-only property")
 
 	Func getUnicastPacketsSent
-		return dnRequest("get",[self,"UnicastPacketsSent"])
+		return dnSend("s3:get",nHandle,"s18:UnicastPacketsSent","")
 
 	Func setUnicastPacketsSent P1
 		raise("DotNet Error: UnicastPacketsSent is a read-only property")
@@ -976,19 +976,19 @@ Class IPv6InterfaceProperties from Object
 		return self
 
 	Func GetScopeId P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetScopeId",P1])
+		return dnSend("s4:call",nHandle,"s10:GetScopeId",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getIndex
-		return dnRequest("get",[self,"Index"])
+		return dnSend("s3:get",nHandle,"s5:Index","")
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getMtu
-		return dnRequest("get",[self,"Mtu"])
+		return dnSend("s3:get",nHandle,"s3:Mtu","")
 
 	Func setMtu P1
 		raise("DotNet Error: Mtu is a read-only property")
@@ -1033,160 +1033,160 @@ Class IcmpV4Statistics from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAddressMaskRepliesReceived
-		return dnRequest("get",[self,"AddressMaskRepliesReceived"])
+		return dnSend("s3:get",nHandle,"s26:AddressMaskRepliesReceived","")
 
 	Func setAddressMaskRepliesReceived P1
 		raise("DotNet Error: AddressMaskRepliesReceived is a read-only property")
 
 	Func getAddressMaskRepliesSent
-		return dnRequest("get",[self,"AddressMaskRepliesSent"])
+		return dnSend("s3:get",nHandle,"s22:AddressMaskRepliesSent","")
 
 	Func setAddressMaskRepliesSent P1
 		raise("DotNet Error: AddressMaskRepliesSent is a read-only property")
 
 	Func getAddressMaskRequestsReceived
-		return dnRequest("get",[self,"AddressMaskRequestsReceived"])
+		return dnSend("s3:get",nHandle,"s27:AddressMaskRequestsReceived","")
 
 	Func setAddressMaskRequestsReceived P1
 		raise("DotNet Error: AddressMaskRequestsReceived is a read-only property")
 
 	Func getAddressMaskRequestsSent
-		return dnRequest("get",[self,"AddressMaskRequestsSent"])
+		return dnSend("s3:get",nHandle,"s23:AddressMaskRequestsSent","")
 
 	Func setAddressMaskRequestsSent P1
 		raise("DotNet Error: AddressMaskRequestsSent is a read-only property")
 
 	Func getDestinationUnreachableMessagesReceived
-		return dnRequest("get",[self,"DestinationUnreachableMessagesReceived"])
+		return dnSend("s3:get",nHandle,"s38:DestinationUnreachableMessagesReceived","")
 
 	Func setDestinationUnreachableMessagesReceived P1
 		raise("DotNet Error: DestinationUnreachableMessagesReceived is a read-only property")
 
 	Func getDestinationUnreachableMessagesSent
-		return dnRequest("get",[self,"DestinationUnreachableMessagesSent"])
+		return dnSend("s3:get",nHandle,"s34:DestinationUnreachableMessagesSent","")
 
 	Func setDestinationUnreachableMessagesSent P1
 		raise("DotNet Error: DestinationUnreachableMessagesSent is a read-only property")
 
 	Func getEchoRepliesReceived
-		return dnRequest("get",[self,"EchoRepliesReceived"])
+		return dnSend("s3:get",nHandle,"s19:EchoRepliesReceived","")
 
 	Func setEchoRepliesReceived P1
 		raise("DotNet Error: EchoRepliesReceived is a read-only property")
 
 	Func getEchoRepliesSent
-		return dnRequest("get",[self,"EchoRepliesSent"])
+		return dnSend("s3:get",nHandle,"s15:EchoRepliesSent","")
 
 	Func setEchoRepliesSent P1
 		raise("DotNet Error: EchoRepliesSent is a read-only property")
 
 	Func getEchoRequestsReceived
-		return dnRequest("get",[self,"EchoRequestsReceived"])
+		return dnSend("s3:get",nHandle,"s20:EchoRequestsReceived","")
 
 	Func setEchoRequestsReceived P1
 		raise("DotNet Error: EchoRequestsReceived is a read-only property")
 
 	Func getEchoRequestsSent
-		return dnRequest("get",[self,"EchoRequestsSent"])
+		return dnSend("s3:get",nHandle,"s16:EchoRequestsSent","")
 
 	Func setEchoRequestsSent P1
 		raise("DotNet Error: EchoRequestsSent is a read-only property")
 
 	Func getErrorsReceived
-		return dnRequest("get",[self,"ErrorsReceived"])
+		return dnSend("s3:get",nHandle,"s14:ErrorsReceived","")
 
 	Func setErrorsReceived P1
 		raise("DotNet Error: ErrorsReceived is a read-only property")
 
 	Func getErrorsSent
-		return dnRequest("get",[self,"ErrorsSent"])
+		return dnSend("s3:get",nHandle,"s10:ErrorsSent","")
 
 	Func setErrorsSent P1
 		raise("DotNet Error: ErrorsSent is a read-only property")
 
 	Func getMessagesReceived
-		return dnRequest("get",[self,"MessagesReceived"])
+		return dnSend("s3:get",nHandle,"s16:MessagesReceived","")
 
 	Func setMessagesReceived P1
 		raise("DotNet Error: MessagesReceived is a read-only property")
 
 	Func getMessagesSent
-		return dnRequest("get",[self,"MessagesSent"])
+		return dnSend("s3:get",nHandle,"s12:MessagesSent","")
 
 	Func setMessagesSent P1
 		raise("DotNet Error: MessagesSent is a read-only property")
 
 	Func getParameterProblemsReceived
-		return dnRequest("get",[self,"ParameterProblemsReceived"])
+		return dnSend("s3:get",nHandle,"s25:ParameterProblemsReceived","")
 
 	Func setParameterProblemsReceived P1
 		raise("DotNet Error: ParameterProblemsReceived is a read-only property")
 
 	Func getParameterProblemsSent
-		return dnRequest("get",[self,"ParameterProblemsSent"])
+		return dnSend("s3:get",nHandle,"s21:ParameterProblemsSent","")
 
 	Func setParameterProblemsSent P1
 		raise("DotNet Error: ParameterProblemsSent is a read-only property")
 
 	Func getRedirectsReceived
-		return dnRequest("get",[self,"RedirectsReceived"])
+		return dnSend("s3:get",nHandle,"s17:RedirectsReceived","")
 
 	Func setRedirectsReceived P1
 		raise("DotNet Error: RedirectsReceived is a read-only property")
 
 	Func getRedirectsSent
-		return dnRequest("get",[self,"RedirectsSent"])
+		return dnSend("s3:get",nHandle,"s13:RedirectsSent","")
 
 	Func setRedirectsSent P1
 		raise("DotNet Error: RedirectsSent is a read-only property")
 
 	Func getSourceQuenchesReceived
-		return dnRequest("get",[self,"SourceQuenchesReceived"])
+		return dnSend("s3:get",nHandle,"s22:SourceQuenchesReceived","")
 
 	Func setSourceQuenchesReceived P1
 		raise("DotNet Error: SourceQuenchesReceived is a read-only property")
 
 	Func getSourceQuenchesSent
-		return dnRequest("get",[self,"SourceQuenchesSent"])
+		return dnSend("s3:get",nHandle,"s18:SourceQuenchesSent","")
 
 	Func setSourceQuenchesSent P1
 		raise("DotNet Error: SourceQuenchesSent is a read-only property")
 
 	Func getTimeExceededMessagesReceived
-		return dnRequest("get",[self,"TimeExceededMessagesReceived"])
+		return dnSend("s3:get",nHandle,"s28:TimeExceededMessagesReceived","")
 
 	Func setTimeExceededMessagesReceived P1
 		raise("DotNet Error: TimeExceededMessagesReceived is a read-only property")
 
 	Func getTimeExceededMessagesSent
-		return dnRequest("get",[self,"TimeExceededMessagesSent"])
+		return dnSend("s3:get",nHandle,"s24:TimeExceededMessagesSent","")
 
 	Func setTimeExceededMessagesSent P1
 		raise("DotNet Error: TimeExceededMessagesSent is a read-only property")
 
 	Func getTimestampRepliesReceived
-		return dnRequest("get",[self,"TimestampRepliesReceived"])
+		return dnSend("s3:get",nHandle,"s24:TimestampRepliesReceived","")
 
 	Func setTimestampRepliesReceived P1
 		raise("DotNet Error: TimestampRepliesReceived is a read-only property")
 
 	Func getTimestampRepliesSent
-		return dnRequest("get",[self,"TimestampRepliesSent"])
+		return dnSend("s3:get",nHandle,"s20:TimestampRepliesSent","")
 
 	Func setTimestampRepliesSent P1
 		raise("DotNet Error: TimestampRepliesSent is a read-only property")
 
 	Func getTimestampRequestsReceived
-		return dnRequest("get",[self,"TimestampRequestsReceived"])
+		return dnSend("s3:get",nHandle,"s25:TimestampRequestsReceived","")
 
 	Func setTimestampRequestsReceived P1
 		raise("DotNet Error: TimestampRequestsReceived is a read-only property")
 
 	Func getTimestampRequestsSent
-		return dnRequest("get",[self,"TimestampRequestsSent"])
+		return dnSend("s3:get",nHandle,"s21:TimestampRequestsSent","")
 
 	Func setTimestampRequestsSent P1
 		raise("DotNet Error: TimestampRequestsSent is a read-only property")
@@ -1237,196 +1237,196 @@ Class IcmpV6Statistics from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDestinationUnreachableMessagesReceived
-		return dnRequest("get",[self,"DestinationUnreachableMessagesReceived"])
+		return dnSend("s3:get",nHandle,"s38:DestinationUnreachableMessagesReceived","")
 
 	Func setDestinationUnreachableMessagesReceived P1
 		raise("DotNet Error: DestinationUnreachableMessagesReceived is a read-only property")
 
 	Func getDestinationUnreachableMessagesSent
-		return dnRequest("get",[self,"DestinationUnreachableMessagesSent"])
+		return dnSend("s3:get",nHandle,"s34:DestinationUnreachableMessagesSent","")
 
 	Func setDestinationUnreachableMessagesSent P1
 		raise("DotNet Error: DestinationUnreachableMessagesSent is a read-only property")
 
 	Func getEchoRepliesReceived
-		return dnRequest("get",[self,"EchoRepliesReceived"])
+		return dnSend("s3:get",nHandle,"s19:EchoRepliesReceived","")
 
 	Func setEchoRepliesReceived P1
 		raise("DotNet Error: EchoRepliesReceived is a read-only property")
 
 	Func getEchoRepliesSent
-		return dnRequest("get",[self,"EchoRepliesSent"])
+		return dnSend("s3:get",nHandle,"s15:EchoRepliesSent","")
 
 	Func setEchoRepliesSent P1
 		raise("DotNet Error: EchoRepliesSent is a read-only property")
 
 	Func getEchoRequestsReceived
-		return dnRequest("get",[self,"EchoRequestsReceived"])
+		return dnSend("s3:get",nHandle,"s20:EchoRequestsReceived","")
 
 	Func setEchoRequestsReceived P1
 		raise("DotNet Error: EchoRequestsReceived is a read-only property")
 
 	Func getEchoRequestsSent
-		return dnRequest("get",[self,"EchoRequestsSent"])
+		return dnSend("s3:get",nHandle,"s16:EchoRequestsSent","")
 
 	Func setEchoRequestsSent P1
 		raise("DotNet Error: EchoRequestsSent is a read-only property")
 
 	Func getErrorsReceived
-		return dnRequest("get",[self,"ErrorsReceived"])
+		return dnSend("s3:get",nHandle,"s14:ErrorsReceived","")
 
 	Func setErrorsReceived P1
 		raise("DotNet Error: ErrorsReceived is a read-only property")
 
 	Func getErrorsSent
-		return dnRequest("get",[self,"ErrorsSent"])
+		return dnSend("s3:get",nHandle,"s10:ErrorsSent","")
 
 	Func setErrorsSent P1
 		raise("DotNet Error: ErrorsSent is a read-only property")
 
 	Func getMembershipQueriesReceived
-		return dnRequest("get",[self,"MembershipQueriesReceived"])
+		return dnSend("s3:get",nHandle,"s25:MembershipQueriesReceived","")
 
 	Func setMembershipQueriesReceived P1
 		raise("DotNet Error: MembershipQueriesReceived is a read-only property")
 
 	Func getMembershipQueriesSent
-		return dnRequest("get",[self,"MembershipQueriesSent"])
+		return dnSend("s3:get",nHandle,"s21:MembershipQueriesSent","")
 
 	Func setMembershipQueriesSent P1
 		raise("DotNet Error: MembershipQueriesSent is a read-only property")
 
 	Func getMembershipReductionsReceived
-		return dnRequest("get",[self,"MembershipReductionsReceived"])
+		return dnSend("s3:get",nHandle,"s28:MembershipReductionsReceived","")
 
 	Func setMembershipReductionsReceived P1
 		raise("DotNet Error: MembershipReductionsReceived is a read-only property")
 
 	Func getMembershipReductionsSent
-		return dnRequest("get",[self,"MembershipReductionsSent"])
+		return dnSend("s3:get",nHandle,"s24:MembershipReductionsSent","")
 
 	Func setMembershipReductionsSent P1
 		raise("DotNet Error: MembershipReductionsSent is a read-only property")
 
 	Func getMembershipReportsReceived
-		return dnRequest("get",[self,"MembershipReportsReceived"])
+		return dnSend("s3:get",nHandle,"s25:MembershipReportsReceived","")
 
 	Func setMembershipReportsReceived P1
 		raise("DotNet Error: MembershipReportsReceived is a read-only property")
 
 	Func getMembershipReportsSent
-		return dnRequest("get",[self,"MembershipReportsSent"])
+		return dnSend("s3:get",nHandle,"s21:MembershipReportsSent","")
 
 	Func setMembershipReportsSent P1
 		raise("DotNet Error: MembershipReportsSent is a read-only property")
 
 	Func getMessagesReceived
-		return dnRequest("get",[self,"MessagesReceived"])
+		return dnSend("s3:get",nHandle,"s16:MessagesReceived","")
 
 	Func setMessagesReceived P1
 		raise("DotNet Error: MessagesReceived is a read-only property")
 
 	Func getMessagesSent
-		return dnRequest("get",[self,"MessagesSent"])
+		return dnSend("s3:get",nHandle,"s12:MessagesSent","")
 
 	Func setMessagesSent P1
 		raise("DotNet Error: MessagesSent is a read-only property")
 
 	Func getNeighborAdvertisementsReceived
-		return dnRequest("get",[self,"NeighborAdvertisementsReceived"])
+		return dnSend("s3:get",nHandle,"s30:NeighborAdvertisementsReceived","")
 
 	Func setNeighborAdvertisementsReceived P1
 		raise("DotNet Error: NeighborAdvertisementsReceived is a read-only property")
 
 	Func getNeighborAdvertisementsSent
-		return dnRequest("get",[self,"NeighborAdvertisementsSent"])
+		return dnSend("s3:get",nHandle,"s26:NeighborAdvertisementsSent","")
 
 	Func setNeighborAdvertisementsSent P1
 		raise("DotNet Error: NeighborAdvertisementsSent is a read-only property")
 
 	Func getNeighborSolicitsReceived
-		return dnRequest("get",[self,"NeighborSolicitsReceived"])
+		return dnSend("s3:get",nHandle,"s24:NeighborSolicitsReceived","")
 
 	Func setNeighborSolicitsReceived P1
 		raise("DotNet Error: NeighborSolicitsReceived is a read-only property")
 
 	Func getNeighborSolicitsSent
-		return dnRequest("get",[self,"NeighborSolicitsSent"])
+		return dnSend("s3:get",nHandle,"s20:NeighborSolicitsSent","")
 
 	Func setNeighborSolicitsSent P1
 		raise("DotNet Error: NeighborSolicitsSent is a read-only property")
 
 	Func getPacketTooBigMessagesReceived
-		return dnRequest("get",[self,"PacketTooBigMessagesReceived"])
+		return dnSend("s3:get",nHandle,"s28:PacketTooBigMessagesReceived","")
 
 	Func setPacketTooBigMessagesReceived P1
 		raise("DotNet Error: PacketTooBigMessagesReceived is a read-only property")
 
 	Func getPacketTooBigMessagesSent
-		return dnRequest("get",[self,"PacketTooBigMessagesSent"])
+		return dnSend("s3:get",nHandle,"s24:PacketTooBigMessagesSent","")
 
 	Func setPacketTooBigMessagesSent P1
 		raise("DotNet Error: PacketTooBigMessagesSent is a read-only property")
 
 	Func getParameterProblemsReceived
-		return dnRequest("get",[self,"ParameterProblemsReceived"])
+		return dnSend("s3:get",nHandle,"s25:ParameterProblemsReceived","")
 
 	Func setParameterProblemsReceived P1
 		raise("DotNet Error: ParameterProblemsReceived is a read-only property")
 
 	Func getParameterProblemsSent
-		return dnRequest("get",[self,"ParameterProblemsSent"])
+		return dnSend("s3:get",nHandle,"s21:ParameterProblemsSent","")
 
 	Func setParameterProblemsSent P1
 		raise("DotNet Error: ParameterProblemsSent is a read-only property")
 
 	Func getRedirectsReceived
-		return dnRequest("get",[self,"RedirectsReceived"])
+		return dnSend("s3:get",nHandle,"s17:RedirectsReceived","")
 
 	Func setRedirectsReceived P1
 		raise("DotNet Error: RedirectsReceived is a read-only property")
 
 	Func getRedirectsSent
-		return dnRequest("get",[self,"RedirectsSent"])
+		return dnSend("s3:get",nHandle,"s13:RedirectsSent","")
 
 	Func setRedirectsSent P1
 		raise("DotNet Error: RedirectsSent is a read-only property")
 
 	Func getRouterAdvertisementsReceived
-		return dnRequest("get",[self,"RouterAdvertisementsReceived"])
+		return dnSend("s3:get",nHandle,"s28:RouterAdvertisementsReceived","")
 
 	Func setRouterAdvertisementsReceived P1
 		raise("DotNet Error: RouterAdvertisementsReceived is a read-only property")
 
 	Func getRouterAdvertisementsSent
-		return dnRequest("get",[self,"RouterAdvertisementsSent"])
+		return dnSend("s3:get",nHandle,"s24:RouterAdvertisementsSent","")
 
 	Func setRouterAdvertisementsSent P1
 		raise("DotNet Error: RouterAdvertisementsSent is a read-only property")
 
 	Func getRouterSolicitsReceived
-		return dnRequest("get",[self,"RouterSolicitsReceived"])
+		return dnSend("s3:get",nHandle,"s22:RouterSolicitsReceived","")
 
 	Func setRouterSolicitsReceived P1
 		raise("DotNet Error: RouterSolicitsReceived is a read-only property")
 
 	Func getRouterSolicitsSent
-		return dnRequest("get",[self,"RouterSolicitsSent"])
+		return dnSend("s3:get",nHandle,"s18:RouterSolicitsSent","")
 
 	Func setRouterSolicitsSent P1
 		raise("DotNet Error: RouterSolicitsSent is a read-only property")
 
 	Func getTimeExceededMessagesReceived
-		return dnRequest("get",[self,"TimeExceededMessagesReceived"])
+		return dnSend("s3:get",nHandle,"s28:TimeExceededMessagesReceived","")
 
 	Func setTimeExceededMessagesReceived P1
 		raise("DotNet Error: TimeExceededMessagesReceived is a read-only property")
 
 	Func getTimeExceededMessagesSent
-		return dnRequest("get",[self,"TimeExceededMessagesSent"])
+		return dnSend("s3:get",nHandle,"s24:TimeExceededMessagesSent","")
 
 	Func setTimeExceededMessagesSent P1
 		raise("DotNet Error: TimeExceededMessagesSent is a read-only property")
@@ -1447,40 +1447,40 @@ Class MulticastIPAddressInformationCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1500,7 +1500,7 @@ Class NetworkAvailabilityEventArgs from EventArgs
 		return self
 
 	Func getIsAvailable
-		return dnRequest("get",[self,"IsAvailable"])
+		return dnSend("s3:get",nHandle,"s11:IsAvailable","")
 
 	Func setIsAvailable P1
 		raise("DotNet Error: IsAvailable is a read-only property")
@@ -1531,10 +1531,10 @@ Class NetworkChange from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func RegisterNetworkChange P1
-		dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.NetworkChange, System.Net.NetworkInformation'),"RegisterNetworkChange",P1])
+		dnSend("s4:call",dnTypeCached('System.Net.NetworkInformation.NetworkChange, System.Net.NetworkInformation').nHandle,"s21:RegisterNetworkChange",dnPackItem(P1))
 		return self
 
 	Func setNetworkAvailabilityChangedEvent P1
@@ -1577,85 +1577,85 @@ Class NetworkInterface from Object
 		return self
 
 	Func GetIPProperties 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIPProperties"])
+		return dnSend("s4:call",nHandle,"s15:GetIPProperties","")
 
 	Func GetIPStatistics 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIPStatistics"])
+		return dnSend("s4:call",nHandle,"s15:GetIPStatistics","")
 
 	Func GetIPv4Statistics 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIPv4Statistics"])
+		return dnSend("s4:call",nHandle,"s17:GetIPv4Statistics","")
 
 	Func GetPhysicalAddress 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPhysicalAddress"])
+		return dnSend("s4:call",nHandle,"s18:GetPhysicalAddress","")
 
 	Func Supports P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Supports",P1])
+		return dnSend("s4:call",nHandle,"s8:Supports",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetAllNetworkInterfaces 
-		return dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"GetAllNetworkInterfaces"])
+		return dnSend("s4:call",dnTypeCached('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation').nHandle,"s23:GetAllNetworkInterfaces","")
 
 	Func GetIsNetworkAvailable 
-		return dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"GetIsNetworkAvailable"])
+		return dnSend("s4:call",dnTypeCached('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation').nHandle,"s21:GetIsNetworkAvailable","")
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnSend("s3:get",nHandle,"s2:Id","")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDescription
-		return dnRequest("get",[self,"Description"])
+		return dnSend("s3:get",nHandle,"s11:Description","")
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getOperationalStatus
-		return dnRequest("get",[self,"OperationalStatus"])
+		return dnSend("s3:get",nHandle,"s17:OperationalStatus","")
 
 	Func setOperationalStatus P1
 		raise("DotNet Error: OperationalStatus is a read-only property")
 
 	Func getSpeed
-		return dnRequest("get",[self,"Speed"])
+		return dnSend("s3:get",nHandle,"s5:Speed","")
 
 	Func setSpeed P1
 		raise("DotNet Error: Speed is a read-only property")
 
 	Func getIsReceiveOnly
-		return dnRequest("get",[self,"IsReceiveOnly"])
+		return dnSend("s3:get",nHandle,"s13:IsReceiveOnly","")
 
 	Func setIsReceiveOnly P1
 		raise("DotNet Error: IsReceiveOnly is a read-only property")
 
 	Func getSupportsMulticast
-		return dnRequest("get",[self,"SupportsMulticast"])
+		return dnSend("s3:get",nHandle,"s17:SupportsMulticast","")
 
 	Func setSupportsMulticast P1
 		raise("DotNet Error: SupportsMulticast is a read-only property")
 
 	Func getNetworkInterfaceType
-		return dnRequest("get",[self,"NetworkInterfaceType"])
+		return dnSend("s3:get",nHandle,"s20:NetworkInterfaceType","")
 
 	Func setNetworkInterfaceType P1
 		raise("DotNet Error: NetworkInterfaceType is a read-only property")
 
 	Func getIPv6LoopbackInterfaceIndex
-		return dnRequest("get",[dnTypeCached('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"IPv6LoopbackInterfaceIndex"])
+		return dnSend("s3:get",dnTypeCached('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation').nHandle,"s26:IPv6LoopbackInterfaceIndex","")
 
 	Func setIPv6LoopbackInterfaceIndex P1
 		raise("DotNet Error: IPv6LoopbackInterfaceIndex is a read-only property")
 
 	Func getLoopbackInterfaceIndex
-		return dnRequest("get",[dnTypeCached('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"LoopbackInterfaceIndex"])
+		return dnSend("s3:get",dnTypeCached('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation').nHandle,"s22:LoopbackInterfaceIndex","")
 
 	Func setLoopbackInterfaceIndex P1
 		raise("DotNet Error: LoopbackInterfaceIndex is a read-only property")
@@ -1677,19 +1677,19 @@ Class PhysicalAddress from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetAddressBytes 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAddressBytes"])
+		return dnSend("s4:call",nHandle,"s15:GetAddressBytes","")
 
 	Func Parse P1
-		return dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func getNone
-		return dnRequest("get",[dnTypeCached('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation'),"None"])
+		return dnSend("s3:get",dnTypeCached('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation').nHandle,"s4:None","")
 
 	Func setNone P1
 		raise("DotNet Error: None is a read-only property")
@@ -1721,25 +1721,25 @@ Class Ping from Component
 
 	Func Send P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Send",P1])
+			return dnSend("s9:callnamed",nHandle,"s4:Send",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Send",P1])
+		return dnSend("s4:call",nHandle,"s4:Send",dnPackItem(P1))
 
 	Func SendAsync P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendAsync",P1])
+			dnSend("s9:callnamed",nHandle,"s9:SendAsync",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: SendAsync does not take one argument: use named arguments, SendAsync([ :parameter = value, ... ])")
 
 	Func SendPingAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendPingAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:SendPingAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SendPingAsync",P1])
+		return dnSend("s4:call",nHandle,"s13:SendPingAsync",dnPackItem(P1))
 
 	Func SendAsyncCancel 
-		dnRequest("call",[new DotNetObject(this.nHandle),"SendAsyncCancel"])
+		dnSend("s4:call",nHandle,"s15:SendAsyncCancel","")
 		return self
 
 	Func setPingCompletedEvent P1
@@ -1765,7 +1765,7 @@ Class PingCompletedEventArgs from AsyncCompletedEventArgs
 		return self
 
 	Func getReply
-		return dnRequest("get",[self,"Reply"])
+		return dnSend("s3:get",nHandle,"s5:Reply","")
 
 	Func setReply P1
 		raise("DotNet Error: Reply is a read-only property")
@@ -1819,20 +1819,20 @@ Class PingOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getTtl
-		return dnRequest("get",[self,"Ttl"])
+		return dnSend("s3:get",nHandle,"s3:Ttl","")
 
 	Func setTtl P1
-		dnRequest("set",[self,"Ttl",P1])
+		dnSend("s3:set",nHandle,"s3:Ttl",dnPackItem(P1))
 		return self
 
 	Func getDontFragment
-		return dnRequest("get",[self,"DontFragment"])
+		return dnSend("s3:get",nHandle,"s12:DontFragment","")
 
 	Func setDontFragment P1
-		dnRequest("set",[self,"DontFragment",P1])
+		dnSend("s3:set",nHandle,"s12:DontFragment",dnPackItem(P1))
 		return self
 
 
@@ -1854,34 +1854,34 @@ Class PingReply from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getStatus
-		return dnRequest("get",[self,"Status"])
+		return dnSend("s3:get",nHandle,"s6:Status","")
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
 
 	Func getAddress
-		return dnRequest("get",[self,"Address"])
+		return dnSend("s3:get",nHandle,"s7:Address","")
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")
 
 	Func getRoundtripTime
-		return dnRequest("get",[self,"RoundtripTime"])
+		return dnSend("s3:get",nHandle,"s13:RoundtripTime","")
 
 	Func setRoundtripTime P1
 		raise("DotNet Error: RoundtripTime is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnSend("s3:get",nHandle,"s7:Options","")
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getBuffer
-		return dnRequest("get",[self,"Buffer"])
+		return dnSend("s3:get",nHandle,"s6:Buffer","")
 
 	Func setBuffer P1
 		raise("DotNet Error: Buffer is a read-only property")
@@ -1903,22 +1903,22 @@ Class TcpConnectionInformation from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getLocalEndPoint
-		return dnRequest("get",[self,"LocalEndPoint"])
+		return dnSend("s3:get",nHandle,"s13:LocalEndPoint","")
 
 	Func setLocalEndPoint P1
 		raise("DotNet Error: LocalEndPoint is a read-only property")
 
 	Func getRemoteEndPoint
-		return dnRequest("get",[self,"RemoteEndPoint"])
+		return dnSend("s3:get",nHandle,"s14:RemoteEndPoint","")
 
 	Func setRemoteEndPoint P1
 		raise("DotNet Error: RemoteEndPoint is a read-only property")
 
 	Func getState
-		return dnRequest("get",[self,"State"])
+		return dnSend("s3:get",nHandle,"s5:State","")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -1951,88 +1951,88 @@ Class TcpStatistics from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getConnectionsAccepted
-		return dnRequest("get",[self,"ConnectionsAccepted"])
+		return dnSend("s3:get",nHandle,"s19:ConnectionsAccepted","")
 
 	Func setConnectionsAccepted P1
 		raise("DotNet Error: ConnectionsAccepted is a read-only property")
 
 	Func getConnectionsInitiated
-		return dnRequest("get",[self,"ConnectionsInitiated"])
+		return dnSend("s3:get",nHandle,"s20:ConnectionsInitiated","")
 
 	Func setConnectionsInitiated P1
 		raise("DotNet Error: ConnectionsInitiated is a read-only property")
 
 	Func getCumulativeConnections
-		return dnRequest("get",[self,"CumulativeConnections"])
+		return dnSend("s3:get",nHandle,"s21:CumulativeConnections","")
 
 	Func setCumulativeConnections P1
 		raise("DotNet Error: CumulativeConnections is a read-only property")
 
 	Func getCurrentConnections
-		return dnRequest("get",[self,"CurrentConnections"])
+		return dnSend("s3:get",nHandle,"s18:CurrentConnections","")
 
 	Func setCurrentConnections P1
 		raise("DotNet Error: CurrentConnections is a read-only property")
 
 	Func getErrorsReceived
-		return dnRequest("get",[self,"ErrorsReceived"])
+		return dnSend("s3:get",nHandle,"s14:ErrorsReceived","")
 
 	Func setErrorsReceived P1
 		raise("DotNet Error: ErrorsReceived is a read-only property")
 
 	Func getFailedConnectionAttempts
-		return dnRequest("get",[self,"FailedConnectionAttempts"])
+		return dnSend("s3:get",nHandle,"s24:FailedConnectionAttempts","")
 
 	Func setFailedConnectionAttempts P1
 		raise("DotNet Error: FailedConnectionAttempts is a read-only property")
 
 	Func getMaximumConnections
-		return dnRequest("get",[self,"MaximumConnections"])
+		return dnSend("s3:get",nHandle,"s18:MaximumConnections","")
 
 	Func setMaximumConnections P1
 		raise("DotNet Error: MaximumConnections is a read-only property")
 
 	Func getMaximumTransmissionTimeout
-		return dnRequest("get",[self,"MaximumTransmissionTimeout"])
+		return dnSend("s3:get",nHandle,"s26:MaximumTransmissionTimeout","")
 
 	Func setMaximumTransmissionTimeout P1
 		raise("DotNet Error: MaximumTransmissionTimeout is a read-only property")
 
 	Func getMinimumTransmissionTimeout
-		return dnRequest("get",[self,"MinimumTransmissionTimeout"])
+		return dnSend("s3:get",nHandle,"s26:MinimumTransmissionTimeout","")
 
 	Func setMinimumTransmissionTimeout P1
 		raise("DotNet Error: MinimumTransmissionTimeout is a read-only property")
 
 	Func getResetConnections
-		return dnRequest("get",[self,"ResetConnections"])
+		return dnSend("s3:get",nHandle,"s16:ResetConnections","")
 
 	Func setResetConnections P1
 		raise("DotNet Error: ResetConnections is a read-only property")
 
 	Func getSegmentsReceived
-		return dnRequest("get",[self,"SegmentsReceived"])
+		return dnSend("s3:get",nHandle,"s16:SegmentsReceived","")
 
 	Func setSegmentsReceived P1
 		raise("DotNet Error: SegmentsReceived is a read-only property")
 
 	Func getSegmentsResent
-		return dnRequest("get",[self,"SegmentsResent"])
+		return dnSend("s3:get",nHandle,"s14:SegmentsResent","")
 
 	Func setSegmentsResent P1
 		raise("DotNet Error: SegmentsResent is a read-only property")
 
 	Func getSegmentsSent
-		return dnRequest("get",[self,"SegmentsSent"])
+		return dnSend("s3:get",nHandle,"s12:SegmentsSent","")
 
 	Func setSegmentsSent P1
 		raise("DotNet Error: SegmentsSent is a read-only property")
 
 	Func getResetsSent
-		return dnRequest("get",[self,"ResetsSent"])
+		return dnSend("s3:get",nHandle,"s10:ResetsSent","")
 
 	Func setResetsSent P1
 		raise("DotNet Error: ResetsSent is a read-only property")
@@ -2056,34 +2056,34 @@ Class UdpStatistics from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDatagramsReceived
-		return dnRequest("get",[self,"DatagramsReceived"])
+		return dnSend("s3:get",nHandle,"s17:DatagramsReceived","")
 
 	Func setDatagramsReceived P1
 		raise("DotNet Error: DatagramsReceived is a read-only property")
 
 	Func getDatagramsSent
-		return dnRequest("get",[self,"DatagramsSent"])
+		return dnSend("s3:get",nHandle,"s13:DatagramsSent","")
 
 	Func setDatagramsSent P1
 		raise("DotNet Error: DatagramsSent is a read-only property")
 
 	Func getIncomingDatagramsDiscarded
-		return dnRequest("get",[self,"IncomingDatagramsDiscarded"])
+		return dnSend("s3:get",nHandle,"s26:IncomingDatagramsDiscarded","")
 
 	Func setIncomingDatagramsDiscarded P1
 		raise("DotNet Error: IncomingDatagramsDiscarded is a read-only property")
 
 	Func getIncomingDatagramsWithErrors
-		return dnRequest("get",[self,"IncomingDatagramsWithErrors"])
+		return dnSend("s3:get",nHandle,"s27:IncomingDatagramsWithErrors","")
 
 	Func setIncomingDatagramsWithErrors P1
 		raise("DotNet Error: IncomingDatagramsWithErrors is a read-only property")
 
 	Func getUdpListeners
-		return dnRequest("get",[self,"UdpListeners"])
+		return dnSend("s3:get",nHandle,"s12:UdpListeners","")
 
 	Func setUdpListeners P1
 		raise("DotNet Error: UdpListeners is a read-only property")
@@ -2104,40 +2104,40 @@ Class UnicastIPAddressInformationCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2162,37 +2162,37 @@ Class MulticastIPAddressInformation from IPAddressInformation
 		return self
 
 	Func getAddressPreferredLifetime
-		return dnRequest("get",[self,"AddressPreferredLifetime"])
+		return dnSend("s3:get",nHandle,"s24:AddressPreferredLifetime","")
 
 	Func setAddressPreferredLifetime P1
 		raise("DotNet Error: AddressPreferredLifetime is a read-only property")
 
 	Func getAddressValidLifetime
-		return dnRequest("get",[self,"AddressValidLifetime"])
+		return dnSend("s3:get",nHandle,"s20:AddressValidLifetime","")
 
 	Func setAddressValidLifetime P1
 		raise("DotNet Error: AddressValidLifetime is a read-only property")
 
 	Func getDhcpLeaseLifetime
-		return dnRequest("get",[self,"DhcpLeaseLifetime"])
+		return dnSend("s3:get",nHandle,"s17:DhcpLeaseLifetime","")
 
 	Func setDhcpLeaseLifetime P1
 		raise("DotNet Error: DhcpLeaseLifetime is a read-only property")
 
 	Func getDuplicateAddressDetectionState
-		return dnRequest("get",[self,"DuplicateAddressDetectionState"])
+		return dnSend("s3:get",nHandle,"s30:DuplicateAddressDetectionState","")
 
 	Func setDuplicateAddressDetectionState P1
 		raise("DotNet Error: DuplicateAddressDetectionState is a read-only property")
 
 	Func getPrefixOrigin
-		return dnRequest("get",[self,"PrefixOrigin"])
+		return dnSend("s3:get",nHandle,"s12:PrefixOrigin","")
 
 	Func setPrefixOrigin P1
 		raise("DotNet Error: PrefixOrigin is a read-only property")
 
 	Func getSuffixOrigin
-		return dnRequest("get",[self,"SuffixOrigin"])
+		return dnSend("s3:get",nHandle,"s12:SuffixOrigin","")
 
 	Func setSuffixOrigin P1
 		raise("DotNet Error: SuffixOrigin is a read-only property")
@@ -2219,49 +2219,49 @@ Class UnicastIPAddressInformation from IPAddressInformation
 		return self
 
 	Func getAddressPreferredLifetime
-		return dnRequest("get",[self,"AddressPreferredLifetime"])
+		return dnSend("s3:get",nHandle,"s24:AddressPreferredLifetime","")
 
 	Func setAddressPreferredLifetime P1
 		raise("DotNet Error: AddressPreferredLifetime is a read-only property")
 
 	Func getAddressValidLifetime
-		return dnRequest("get",[self,"AddressValidLifetime"])
+		return dnSend("s3:get",nHandle,"s20:AddressValidLifetime","")
 
 	Func setAddressValidLifetime P1
 		raise("DotNet Error: AddressValidLifetime is a read-only property")
 
 	Func getDhcpLeaseLifetime
-		return dnRequest("get",[self,"DhcpLeaseLifetime"])
+		return dnSend("s3:get",nHandle,"s17:DhcpLeaseLifetime","")
 
 	Func setDhcpLeaseLifetime P1
 		raise("DotNet Error: DhcpLeaseLifetime is a read-only property")
 
 	Func getDuplicateAddressDetectionState
-		return dnRequest("get",[self,"DuplicateAddressDetectionState"])
+		return dnSend("s3:get",nHandle,"s30:DuplicateAddressDetectionState","")
 
 	Func setDuplicateAddressDetectionState P1
 		raise("DotNet Error: DuplicateAddressDetectionState is a read-only property")
 
 	Func getPrefixOrigin
-		return dnRequest("get",[self,"PrefixOrigin"])
+		return dnSend("s3:get",nHandle,"s12:PrefixOrigin","")
 
 	Func setPrefixOrigin P1
 		raise("DotNet Error: PrefixOrigin is a read-only property")
 
 	Func getSuffixOrigin
-		return dnRequest("get",[self,"SuffixOrigin"])
+		return dnSend("s3:get",nHandle,"s12:SuffixOrigin","")
 
 	Func setSuffixOrigin P1
 		raise("DotNet Error: SuffixOrigin is a read-only property")
 
 	Func getIPv4Mask
-		return dnRequest("get",[self,"IPv4Mask"])
+		return dnSend("s3:get",nHandle,"s8:IPv4Mask","")
 
 	Func setIPv4Mask P1
 		raise("DotNet Error: IPv4Mask is a read-only property")
 
 	Func getPrefixLength
-		return dnRequest("get",[self,"PrefixLength"])
+		return dnSend("s3:get",nHandle,"s12:PrefixLength","")
 
 	Func setPrefixLength P1
 		raise("DotNet Error: PrefixLength is a read-only property")

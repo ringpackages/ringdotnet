@@ -133,48 +133,48 @@ Class BitmapData from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnSend("s3:get",nHandle,"s5:Width","")
 
 	Func setWidth P1
-		dnRequest("set",[self,"Width",P1])
+		dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1))
 		return self
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnSend("s3:get",nHandle,"s6:Height","")
 
 	Func setHeight P1
-		dnRequest("set",[self,"Height",P1])
+		dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1))
 		return self
 
 	Func getStride
-		return dnRequest("get",[self,"Stride"])
+		return dnSend("s3:get",nHandle,"s6:Stride","")
 
 	Func setStride P1
-		dnRequest("set",[self,"Stride",P1])
+		dnSend("s3:set",nHandle,"s6:Stride",dnPackItem(P1))
 		return self
 
 	Func getPixelFormat
-		return dnRequest("get",[self,"PixelFormat"])
+		return dnSend("s3:get",nHandle,"s11:PixelFormat","")
 
 	Func setPixelFormat P1
-		dnRequest("set",[self,"PixelFormat",P1])
+		dnSend("s3:set",nHandle,"s11:PixelFormat",dnPackItem(P1))
 		return self
 
 	Func getScan0
-		return dnRequest("get",[self,"Scan0"])
+		return dnSend("s3:get",nHandle,"s5:Scan0","")
 
 	Func setScan0 P1
-		dnRequest("set",[self,"Scan0",P1])
+		dnSend("s3:set",nHandle,"s5:Scan0",dnPackItem(P1))
 		return self
 
 	Func getReserved
-		return dnRequest("get",[self,"Reserved"])
+		return dnSend("s3:get",nHandle,"s8:Reserved","")
 
 	Func setReserved P1
-		dnRequest("set",[self,"Reserved",P1])
+		dnSend("s3:set",nHandle,"s8:Reserved",dnPackItem(P1))
 		return self
 
 
@@ -192,11 +192,11 @@ Class CachedBitmap from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class ColorMap from Object
@@ -227,20 +227,20 @@ Class ColorMap from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getOldColor
-		return dnRequest("get",[self,"OldColor"])
+		return dnSend("s3:get",nHandle,"s8:OldColor","")
 
 	Func setOldColor P1
-		dnRequest("set",[self,"OldColor",P1])
+		dnSend("s3:set",nHandle,"s8:OldColor",dnPackItem(P1))
 		return self
 
 	Func getNewColor
-		return dnRequest("get",[self,"NewColor"])
+		return dnSend("s3:get",nHandle,"s8:NewColor","")
 
 	Func setNewColor P1
-		dnRequest("set",[self,"NewColor",P1])
+		dnSend("s3:set",nHandle,"s8:NewColor",dnPackItem(P1))
 		return self
 
 
@@ -315,181 +315,181 @@ Class ColorMatrix from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMatrix00
-		return dnRequest("get",[self,"Matrix00"])
+		return dnSend("s3:get",nHandle,"s8:Matrix00","")
 
 	Func setMatrix00 P1
-		dnRequest("set",[self,"Matrix00",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix00",dnPackItem(P1))
 		return self
 
 	Func getMatrix01
-		return dnRequest("get",[self,"Matrix01"])
+		return dnSend("s3:get",nHandle,"s8:Matrix01","")
 
 	Func setMatrix01 P1
-		dnRequest("set",[self,"Matrix01",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix01",dnPackItem(P1))
 		return self
 
 	Func getMatrix02
-		return dnRequest("get",[self,"Matrix02"])
+		return dnSend("s3:get",nHandle,"s8:Matrix02","")
 
 	Func setMatrix02 P1
-		dnRequest("set",[self,"Matrix02",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix02",dnPackItem(P1))
 		return self
 
 	Func getMatrix03
-		return dnRequest("get",[self,"Matrix03"])
+		return dnSend("s3:get",nHandle,"s8:Matrix03","")
 
 	Func setMatrix03 P1
-		dnRequest("set",[self,"Matrix03",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix03",dnPackItem(P1))
 		return self
 
 	Func getMatrix04
-		return dnRequest("get",[self,"Matrix04"])
+		return dnSend("s3:get",nHandle,"s8:Matrix04","")
 
 	Func setMatrix04 P1
-		dnRequest("set",[self,"Matrix04",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix04",dnPackItem(P1))
 		return self
 
 	Func getMatrix10
-		return dnRequest("get",[self,"Matrix10"])
+		return dnSend("s3:get",nHandle,"s8:Matrix10","")
 
 	Func setMatrix10 P1
-		dnRequest("set",[self,"Matrix10",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix10",dnPackItem(P1))
 		return self
 
 	Func getMatrix11
-		return dnRequest("get",[self,"Matrix11"])
+		return dnSend("s3:get",nHandle,"s8:Matrix11","")
 
 	Func setMatrix11 P1
-		dnRequest("set",[self,"Matrix11",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix11",dnPackItem(P1))
 		return self
 
 	Func getMatrix12
-		return dnRequest("get",[self,"Matrix12"])
+		return dnSend("s3:get",nHandle,"s8:Matrix12","")
 
 	Func setMatrix12 P1
-		dnRequest("set",[self,"Matrix12",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix12",dnPackItem(P1))
 		return self
 
 	Func getMatrix13
-		return dnRequest("get",[self,"Matrix13"])
+		return dnSend("s3:get",nHandle,"s8:Matrix13","")
 
 	Func setMatrix13 P1
-		dnRequest("set",[self,"Matrix13",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix13",dnPackItem(P1))
 		return self
 
 	Func getMatrix14
-		return dnRequest("get",[self,"Matrix14"])
+		return dnSend("s3:get",nHandle,"s8:Matrix14","")
 
 	Func setMatrix14 P1
-		dnRequest("set",[self,"Matrix14",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix14",dnPackItem(P1))
 		return self
 
 	Func getMatrix20
-		return dnRequest("get",[self,"Matrix20"])
+		return dnSend("s3:get",nHandle,"s8:Matrix20","")
 
 	Func setMatrix20 P1
-		dnRequest("set",[self,"Matrix20",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix20",dnPackItem(P1))
 		return self
 
 	Func getMatrix21
-		return dnRequest("get",[self,"Matrix21"])
+		return dnSend("s3:get",nHandle,"s8:Matrix21","")
 
 	Func setMatrix21 P1
-		dnRequest("set",[self,"Matrix21",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix21",dnPackItem(P1))
 		return self
 
 	Func getMatrix22
-		return dnRequest("get",[self,"Matrix22"])
+		return dnSend("s3:get",nHandle,"s8:Matrix22","")
 
 	Func setMatrix22 P1
-		dnRequest("set",[self,"Matrix22",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix22",dnPackItem(P1))
 		return self
 
 	Func getMatrix23
-		return dnRequest("get",[self,"Matrix23"])
+		return dnSend("s3:get",nHandle,"s8:Matrix23","")
 
 	Func setMatrix23 P1
-		dnRequest("set",[self,"Matrix23",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix23",dnPackItem(P1))
 		return self
 
 	Func getMatrix24
-		return dnRequest("get",[self,"Matrix24"])
+		return dnSend("s3:get",nHandle,"s8:Matrix24","")
 
 	Func setMatrix24 P1
-		dnRequest("set",[self,"Matrix24",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix24",dnPackItem(P1))
 		return self
 
 	Func getMatrix30
-		return dnRequest("get",[self,"Matrix30"])
+		return dnSend("s3:get",nHandle,"s8:Matrix30","")
 
 	Func setMatrix30 P1
-		dnRequest("set",[self,"Matrix30",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix30",dnPackItem(P1))
 		return self
 
 	Func getMatrix31
-		return dnRequest("get",[self,"Matrix31"])
+		return dnSend("s3:get",nHandle,"s8:Matrix31","")
 
 	Func setMatrix31 P1
-		dnRequest("set",[self,"Matrix31",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix31",dnPackItem(P1))
 		return self
 
 	Func getMatrix32
-		return dnRequest("get",[self,"Matrix32"])
+		return dnSend("s3:get",nHandle,"s8:Matrix32","")
 
 	Func setMatrix32 P1
-		dnRequest("set",[self,"Matrix32",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix32",dnPackItem(P1))
 		return self
 
 	Func getMatrix33
-		return dnRequest("get",[self,"Matrix33"])
+		return dnSend("s3:get",nHandle,"s8:Matrix33","")
 
 	Func setMatrix33 P1
-		dnRequest("set",[self,"Matrix33",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix33",dnPackItem(P1))
 		return self
 
 	Func getMatrix34
-		return dnRequest("get",[self,"Matrix34"])
+		return dnSend("s3:get",nHandle,"s8:Matrix34","")
 
 	Func setMatrix34 P1
-		dnRequest("set",[self,"Matrix34",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix34",dnPackItem(P1))
 		return self
 
 	Func getMatrix40
-		return dnRequest("get",[self,"Matrix40"])
+		return dnSend("s3:get",nHandle,"s8:Matrix40","")
 
 	Func setMatrix40 P1
-		dnRequest("set",[self,"Matrix40",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix40",dnPackItem(P1))
 		return self
 
 	Func getMatrix41
-		return dnRequest("get",[self,"Matrix41"])
+		return dnSend("s3:get",nHandle,"s8:Matrix41","")
 
 	Func setMatrix41 P1
-		dnRequest("set",[self,"Matrix41",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix41",dnPackItem(P1))
 		return self
 
 	Func getMatrix42
-		return dnRequest("get",[self,"Matrix42"])
+		return dnSend("s3:get",nHandle,"s8:Matrix42","")
 
 	Func setMatrix42 P1
-		dnRequest("set",[self,"Matrix42",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix42",dnPackItem(P1))
 		return self
 
 	Func getMatrix43
-		return dnRequest("get",[self,"Matrix43"])
+		return dnSend("s3:get",nHandle,"s8:Matrix43","")
 
 	Func setMatrix43 P1
-		dnRequest("set",[self,"Matrix43",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix43",dnPackItem(P1))
 		return self
 
 	Func getMatrix44
-		return dnRequest("get",[self,"Matrix44"])
+		return dnSend("s3:get",nHandle,"s8:Matrix44","")
 
 	Func setMatrix44 P1
-		dnRequest("set",[self,"Matrix44",P1])
+		dnSend("s3:set",nHandle,"s8:Matrix44",dnPackItem(P1))
 		return self
 
 
@@ -510,19 +510,19 @@ Class ColorPalette from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateOptimalPalette P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.ColorPalette, System.Drawing.Common'),"CreateOptimalPalette",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Drawing.Imaging.ColorPalette, System.Drawing.Common').nHandle,"s20:CreateOptimalPalette",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getFlags
-		return dnRequest("get",[self,"Flags"])
+		return dnSend("s3:get",nHandle,"s5:Flags","")
 
 	Func setFlags P1
 		raise("DotNet Error: Flags is a read-only property")
 
 	Func getEntries
-		return dnRequest("get",[self,"Entries"])
+		return dnSend("s3:get",nHandle,"s7:Entries","")
 
 	Func setEntries P1
 		raise("DotNet Error: Entries is a read-only property")
@@ -557,88 +557,88 @@ Class ImagingEncoder from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getGuid
-		return dnRequest("get",[self,"Guid"])
+		return dnSend("s3:get",nHandle,"s4:Guid","")
 
 	Func setGuid P1
 		raise("DotNet Error: Guid is a read-only property")
 
 	Func getCompression
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"Compression"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s11:Compression","")
 
 	Func setCompression P1
 		raise("DotNet Error: Compression is a read-only property")
 
 	Func getColorDepth
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"ColorDepth"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s10:ColorDepth","")
 
 	Func setColorDepth P1
 		raise("DotNet Error: ColorDepth is a read-only property")
 
 	Func getScanMethod
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"ScanMethod"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s10:ScanMethod","")
 
 	Func setScanMethod P1
 		raise("DotNet Error: ScanMethod is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"Version"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s7:Version","")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getRenderMethod
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"RenderMethod"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s12:RenderMethod","")
 
 	Func setRenderMethod P1
 		raise("DotNet Error: RenderMethod is a read-only property")
 
 	Func getQuality
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"Quality"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s7:Quality","")
 
 	Func setQuality P1
 		raise("DotNet Error: Quality is a read-only property")
 
 	Func getTransformation
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"Transformation"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s14:Transformation","")
 
 	Func setTransformation P1
 		raise("DotNet Error: Transformation is a read-only property")
 
 	Func getLuminanceTable
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"LuminanceTable"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s14:LuminanceTable","")
 
 	Func setLuminanceTable P1
 		raise("DotNet Error: LuminanceTable is a read-only property")
 
 	Func getChrominanceTable
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"ChrominanceTable"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s16:ChrominanceTable","")
 
 	Func setChrominanceTable P1
 		raise("DotNet Error: ChrominanceTable is a read-only property")
 
 	Func getSaveFlag
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"SaveFlag"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s8:SaveFlag","")
 
 	Func setSaveFlag P1
 		raise("DotNet Error: SaveFlag is a read-only property")
 
 	Func getColorSpace
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"ColorSpace"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s10:ColorSpace","")
 
 	Func setColorSpace P1
 		raise("DotNet Error: ColorSpace is a read-only property")
 
 	Func getImageItems
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"ImageItems"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s10:ImageItems","")
 
 	Func setImageItems P1
 		raise("DotNet Error: ImageItems is a read-only property")
 
 	Func getSaveAsCmyk
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common'),"SaveAsCmyk"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.Encoder, System.Drawing.Common').nHandle,"s10:SaveAsCmyk","")
 
 	Func setSaveAsCmyk P1
 		raise("DotNet Error: SaveAsCmyk is a read-only property")
@@ -678,36 +678,36 @@ Class EncoderParameter from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getEncoder
-		return dnRequest("get",[self,"Encoder"])
+		return dnSend("s3:get",nHandle,"s7:Encoder","")
 
 	Func setEncoder P1
-		dnRequest("set",[self,"Encoder",P1])
+		dnSend("s3:set",nHandle,"s7:Encoder",dnPackItem(P1))
 		return self
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnSend("s3:get",nHandle,"s4:Type","")
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getValueType
-		return dnRequest("get",[self,"ValueType"])
+		return dnSend("s3:get",nHandle,"s9:ValueType","")
 
 	Func setValueType P1
 		raise("DotNet Error: ValueType is a read-only property")
 
 	Func getNumberOfValues
-		return dnRequest("get",[self,"NumberOfValues"])
+		return dnSend("s3:get",nHandle,"s14:NumberOfValues","")
 
 	Func setNumberOfValues P1
 		raise("DotNet Error: NumberOfValues is a read-only property")
@@ -760,17 +760,17 @@ Class EncoderParameters from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getParam
-		return dnRequest("get",[self,"Param"])
+		return dnSend("s3:get",nHandle,"s5:Param","")
 
 	Func setParam P1
-		dnRequest("set",[self,"Param",P1])
+		dnSend("s3:set",nHandle,"s5:Param",dnPackItem(P1))
 		return self
 
 
@@ -793,28 +793,28 @@ Class FrameDimension from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getGuid
-		return dnRequest("get",[self,"Guid"])
+		return dnSend("s3:get",nHandle,"s4:Guid","")
 
 	Func setGuid P1
 		raise("DotNet Error: Guid is a read-only property")
 
 	Func getTime
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.FrameDimension, System.Drawing.Common'),"Time"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.FrameDimension, System.Drawing.Common').nHandle,"s4:Time","")
 
 	Func setTime P1
 		raise("DotNet Error: Time is a read-only property")
 
 	Func getResolution
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.FrameDimension, System.Drawing.Common'),"Resolution"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.FrameDimension, System.Drawing.Common').nHandle,"s10:Resolution","")
 
 	Func setResolution P1
 		raise("DotNet Error: Resolution is a read-only property")
 
 	Func getPage
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.FrameDimension, System.Drawing.Common'),"Page"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.FrameDimension, System.Drawing.Common').nHandle,"s4:Page","")
 
 	Func setPage P1
 		raise("DotNet Error: Page is a read-only property")
@@ -845,204 +845,204 @@ Class ImageAttributes from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func SetColorMatrix P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetColorMatrix",P1])
+			dnSend("s9:callnamed",nHandle,"s14:SetColorMatrix",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetColorMatrix",P1])
+		dnSend("s4:call",nHandle,"s14:SetColorMatrix",dnPackItem(P1))
 		return self
 
 	Func ClearColorMatrix P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ClearColorMatrix",P1])
+			dnSend("s9:callnamed",nHandle,"s16:ClearColorMatrix",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"ClearColorMatrix"])
+			dnSend("s4:call",nHandle,"s16:ClearColorMatrix","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"ClearColorMatrix",P1])
+		dnSend("s4:call",nHandle,"s16:ClearColorMatrix",dnPackItem(P1))
 		return self
 
 	Func SetColorMatrices P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetColorMatrices",P1])
+			dnSend("s9:callnamed",nHandle,"s16:SetColorMatrices",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: SetColorMatrices does not take one argument: use named arguments, SetColorMatrices([ :parameter = value, ... ])")
 
 	Func SetThreshold P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetThreshold",P1])
+			dnSend("s9:callnamed",nHandle,"s12:SetThreshold",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetThreshold",P1])
+		dnSend("s4:call",nHandle,"s12:SetThreshold",dnPackItem(P1))
 		return self
 
 	Func ClearThreshold P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ClearThreshold",P1])
+			dnSend("s9:callnamed",nHandle,"s14:ClearThreshold",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"ClearThreshold"])
+			dnSend("s4:call",nHandle,"s14:ClearThreshold","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"ClearThreshold",P1])
+		dnSend("s4:call",nHandle,"s14:ClearThreshold",dnPackItem(P1))
 		return self
 
 	Func SetGamma P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetGamma",P1])
+			dnSend("s9:callnamed",nHandle,"s8:SetGamma",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetGamma",P1])
+		dnSend("s4:call",nHandle,"s8:SetGamma",dnPackItem(P1))
 		return self
 
 	Func ClearGamma P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ClearGamma",P1])
+			dnSend("s9:callnamed",nHandle,"s10:ClearGamma",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"ClearGamma"])
+			dnSend("s4:call",nHandle,"s10:ClearGamma","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"ClearGamma",P1])
+		dnSend("s4:call",nHandle,"s10:ClearGamma",dnPackItem(P1))
 		return self
 
 	Func SetNoOp P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetNoOp",P1])
+			dnSend("s9:callnamed",nHandle,"s7:SetNoOp",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"SetNoOp"])
+			dnSend("s4:call",nHandle,"s7:SetNoOp","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetNoOp",P1])
+		dnSend("s4:call",nHandle,"s7:SetNoOp",dnPackItem(P1))
 		return self
 
 	Func ClearNoOp P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ClearNoOp",P1])
+			dnSend("s9:callnamed",nHandle,"s9:ClearNoOp",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"ClearNoOp"])
+			dnSend("s4:call",nHandle,"s9:ClearNoOp","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"ClearNoOp",P1])
+		dnSend("s4:call",nHandle,"s9:ClearNoOp",dnPackItem(P1))
 		return self
 
 	Func SetColorKey P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetColorKey",P1])
+			dnSend("s9:callnamed",nHandle,"s11:SetColorKey",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: SetColorKey does not take one argument: use named arguments, SetColorKey([ :parameter = value, ... ])")
 
 	Func ClearColorKey P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ClearColorKey",P1])
+			dnSend("s9:callnamed",nHandle,"s13:ClearColorKey",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"ClearColorKey"])
+			dnSend("s4:call",nHandle,"s13:ClearColorKey","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"ClearColorKey",P1])
+		dnSend("s4:call",nHandle,"s13:ClearColorKey",dnPackItem(P1))
 		return self
 
 	Func SetOutputChannel P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetOutputChannel",P1])
+			dnSend("s9:callnamed",nHandle,"s16:SetOutputChannel",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetOutputChannel",P1])
+		dnSend("s4:call",nHandle,"s16:SetOutputChannel",dnPackItem(P1))
 		return self
 
 	Func ClearOutputChannel P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ClearOutputChannel",P1])
+			dnSend("s9:callnamed",nHandle,"s18:ClearOutputChannel",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"ClearOutputChannel"])
+			dnSend("s4:call",nHandle,"s18:ClearOutputChannel","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"ClearOutputChannel",P1])
+		dnSend("s4:call",nHandle,"s18:ClearOutputChannel",dnPackItem(P1))
 		return self
 
 	Func SetOutputChannelColorProfile P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetOutputChannelColorProfile",P1])
+			dnSend("s9:callnamed",nHandle,"s28:SetOutputChannelColorProfile",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetOutputChannelColorProfile",P1])
+		dnSend("s4:call",nHandle,"s28:SetOutputChannelColorProfile",dnPackItem(P1))
 		return self
 
 	Func ClearOutputChannelColorProfile P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ClearOutputChannelColorProfile",P1])
+			dnSend("s9:callnamed",nHandle,"s30:ClearOutputChannelColorProfile",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"ClearOutputChannelColorProfile"])
+			dnSend("s4:call",nHandle,"s30:ClearOutputChannelColorProfile","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"ClearOutputChannelColorProfile",P1])
+		dnSend("s4:call",nHandle,"s30:ClearOutputChannelColorProfile",dnPackItem(P1))
 		return self
 
 	Func SetRemapTable P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetRemapTable",P1])
+			dnSend("s9:callnamed",nHandle,"s13:SetRemapTable",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetRemapTable",P1])
+		dnSend("s4:call",nHandle,"s13:SetRemapTable",dnPackItem(P1))
 		return self
 
 	Func ClearRemapTable P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ClearRemapTable",P1])
+			dnSend("s9:callnamed",nHandle,"s15:ClearRemapTable",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"ClearRemapTable"])
+			dnSend("s4:call",nHandle,"s15:ClearRemapTable","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"ClearRemapTable",P1])
+		dnSend("s4:call",nHandle,"s15:ClearRemapTable",dnPackItem(P1))
 		return self
 
 	Func SetBrushRemapTable P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetBrushRemapTable",P1])
+		dnSend("s4:call",nHandle,"s18:SetBrushRemapTable",dnPackItem(P1))
 		return self
 
 	Func ClearBrushRemapTable 
-		dnRequest("call",[new DotNetObject(this.nHandle),"ClearBrushRemapTable"])
+		dnSend("s4:call",nHandle,"s20:ClearBrushRemapTable","")
 		return self
 
 	Func SetWrapMode P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetWrapMode",P1])
+			dnSend("s9:callnamed",nHandle,"s11:SetWrapMode",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetWrapMode",P1])
+		dnSend("s4:call",nHandle,"s11:SetWrapMode",dnPackItem(P1))
 		return self
 
 	Func GetAdjustedPalette P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetAdjustedPalette",P1,P2])
+		dnSend("s4:call",nHandle,"s18:GetAdjustedPalette",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class ImageCodecInfo from Object
@@ -1069,89 +1069,89 @@ Class ImageCodecInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetImageDecoders 
-		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.ImageCodecInfo, System.Drawing.Common'),"GetImageDecoders"])
+		return dnSend("s4:call",dnTypeCached('System.Drawing.Imaging.ImageCodecInfo, System.Drawing.Common').nHandle,"s16:GetImageDecoders","")
 
 	Func GetImageEncoders 
-		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.ImageCodecInfo, System.Drawing.Common'),"GetImageEncoders"])
+		return dnSend("s4:call",dnTypeCached('System.Drawing.Imaging.ImageCodecInfo, System.Drawing.Common').nHandle,"s16:GetImageEncoders","")
 
 	Func getClsid
-		return dnRequest("get",[self,"Clsid"])
+		return dnSend("s3:get",nHandle,"s5:Clsid","")
 
 	Func setClsid P1
-		dnRequest("set",[self,"Clsid",P1])
+		dnSend("s3:set",nHandle,"s5:Clsid",dnPackItem(P1))
 		return self
 
 	Func getFormatID
-		return dnRequest("get",[self,"FormatID"])
+		return dnSend("s3:get",nHandle,"s8:FormatID","")
 
 	Func setFormatID P1
-		dnRequest("set",[self,"FormatID",P1])
+		dnSend("s3:set",nHandle,"s8:FormatID",dnPackItem(P1))
 		return self
 
 	Func getCodecName
-		return dnRequest("get",[self,"CodecName"])
+		return dnSend("s3:get",nHandle,"s9:CodecName","")
 
 	Func setCodecName P1
-		dnRequest("set",[self,"CodecName",P1])
+		dnSend("s3:set",nHandle,"s9:CodecName",dnPackItem(P1))
 		return self
 
 	Func getDllName
-		return dnRequest("get",[self,"DllName"])
+		return dnSend("s3:get",nHandle,"s7:DllName","")
 
 	Func setDllName P1
-		dnRequest("set",[self,"DllName",P1])
+		dnSend("s3:set",nHandle,"s7:DllName",dnPackItem(P1))
 		return self
 
 	Func getFormatDescription
-		return dnRequest("get",[self,"FormatDescription"])
+		return dnSend("s3:get",nHandle,"s17:FormatDescription","")
 
 	Func setFormatDescription P1
-		dnRequest("set",[self,"FormatDescription",P1])
+		dnSend("s3:set",nHandle,"s17:FormatDescription",dnPackItem(P1))
 		return self
 
 	Func getFilenameExtension
-		return dnRequest("get",[self,"FilenameExtension"])
+		return dnSend("s3:get",nHandle,"s17:FilenameExtension","")
 
 	Func setFilenameExtension P1
-		dnRequest("set",[self,"FilenameExtension",P1])
+		dnSend("s3:set",nHandle,"s17:FilenameExtension",dnPackItem(P1))
 		return self
 
 	Func getMimeType
-		return dnRequest("get",[self,"MimeType"])
+		return dnSend("s3:get",nHandle,"s8:MimeType","")
 
 	Func setMimeType P1
-		dnRequest("set",[self,"MimeType",P1])
+		dnSend("s3:set",nHandle,"s8:MimeType",dnPackItem(P1))
 		return self
 
 	Func getFlags
-		return dnRequest("get",[self,"Flags"])
+		return dnSend("s3:get",nHandle,"s5:Flags","")
 
 	Func setFlags P1
-		dnRequest("set",[self,"Flags",P1])
+		dnSend("s3:set",nHandle,"s5:Flags",dnPackItem(P1))
 		return self
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnSend("s3:get",nHandle,"s7:Version","")
 
 	Func setVersion P1
-		dnRequest("set",[self,"Version",P1])
+		dnSend("s3:set",nHandle,"s7:Version",dnPackItem(P1))
 		return self
 
 	Func getSignaturePatterns
-		return dnRequest("get",[self,"SignaturePatterns"])
+		return dnSend("s3:get",nHandle,"s17:SignaturePatterns","")
 
 	Func setSignaturePatterns P1
-		dnRequest("set",[self,"SignaturePatterns",P1])
+		dnSend("s3:set",nHandle,"s17:SignaturePatterns",dnPackItem(P1))
 		return self
 
 	Func getSignatureMasks
-		return dnRequest("get",[self,"SignatureMasks"])
+		return dnSend("s3:get",nHandle,"s14:SignatureMasks","")
 
 	Func setSignatureMasks P1
-		dnRequest("set",[self,"SignatureMasks",P1])
+		dnSend("s3:set",nHandle,"s14:SignatureMasks",dnPackItem(P1))
 		return self
 
 
@@ -1196,82 +1196,82 @@ Class ImageFormat from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getGuid
-		return dnRequest("get",[self,"Guid"])
+		return dnSend("s3:get",nHandle,"s4:Guid","")
 
 	Func setGuid P1
 		raise("DotNet Error: Guid is a read-only property")
 
 	Func getMemoryBmp
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"MemoryBmp"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s9:MemoryBmp","")
 
 	Func setMemoryBmp P1
 		raise("DotNet Error: MemoryBmp is a read-only property")
 
 	Func getBmp
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"Bmp"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s3:Bmp","")
 
 	Func setBmp P1
 		raise("DotNet Error: Bmp is a read-only property")
 
 	Func getEmf
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"Emf"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s3:Emf","")
 
 	Func setEmf P1
 		raise("DotNet Error: Emf is a read-only property")
 
 	Func getWmf
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"Wmf"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s3:Wmf","")
 
 	Func setWmf P1
 		raise("DotNet Error: Wmf is a read-only property")
 
 	Func getGif
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"Gif"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s3:Gif","")
 
 	Func setGif P1
 		raise("DotNet Error: Gif is a read-only property")
 
 	Func getJpeg
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"Jpeg"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s4:Jpeg","")
 
 	Func setJpeg P1
 		raise("DotNet Error: Jpeg is a read-only property")
 
 	Func getPng
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"Png"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s3:Png","")
 
 	Func setPng P1
 		raise("DotNet Error: Png is a read-only property")
 
 	Func getTiff
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"Tiff"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s4:Tiff","")
 
 	Func setTiff P1
 		raise("DotNet Error: Tiff is a read-only property")
 
 	Func getExif
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"Exif"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s4:Exif","")
 
 	Func setExif P1
 		raise("DotNet Error: Exif is a read-only property")
 
 	Func getIcon
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"Icon"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s4:Icon","")
 
 	Func setIcon P1
 		raise("DotNet Error: Icon is a read-only property")
 
 	Func getHeif
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"Heif"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s4:Heif","")
 
 	Func setHeif P1
 		raise("DotNet Error: Heif is a read-only property")
 
 	Func getWebp
-		return dnRequest("get",[dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common'),"Webp"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Imaging.ImageFormat, System.Drawing.Common').nHandle,"s4:Webp","")
 
 	Func setWebp P1
 		raise("DotNet Error: Webp is a read-only property")
@@ -1310,58 +1310,58 @@ Class MetaHeader from Object
 		return self
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnSend("s3:get",nHandle,"s4:Type","")
 
 	Func setType P1
-		dnRequest("set",[self,"Type",P1])
+		dnSend("s3:set",nHandle,"s4:Type",dnPackItem(P1))
 		return self
 
 	Func getHeaderSize
-		return dnRequest("get",[self,"HeaderSize"])
+		return dnSend("s3:get",nHandle,"s10:HeaderSize","")
 
 	Func setHeaderSize P1
-		dnRequest("set",[self,"HeaderSize",P1])
+		dnSend("s3:set",nHandle,"s10:HeaderSize",dnPackItem(P1))
 		return self
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnSend("s3:get",nHandle,"s7:Version","")
 
 	Func setVersion P1
-		dnRequest("set",[self,"Version",P1])
+		dnSend("s3:set",nHandle,"s7:Version",dnPackItem(P1))
 		return self
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnSend("s3:get",nHandle,"s4:Size","")
 
 	Func setSize P1
-		dnRequest("set",[self,"Size",P1])
+		dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1))
 		return self
 
 	Func getNoObjects
-		return dnRequest("get",[self,"NoObjects"])
+		return dnSend("s3:get",nHandle,"s9:NoObjects","")
 
 	Func setNoObjects P1
-		dnRequest("set",[self,"NoObjects",P1])
+		dnSend("s3:set",nHandle,"s9:NoObjects",dnPackItem(P1))
 		return self
 
 	Func getMaxRecord
-		return dnRequest("get",[self,"MaxRecord"])
+		return dnSend("s3:get",nHandle,"s9:MaxRecord","")
 
 	Func setMaxRecord P1
-		dnRequest("set",[self,"MaxRecord",P1])
+		dnSend("s3:set",nHandle,"s9:MaxRecord",dnPackItem(P1))
 		return self
 
 	Func getNoParameters
-		return dnRequest("get",[self,"NoParameters"])
+		return dnSend("s3:get",nHandle,"s12:NoParameters","")
 
 	Func setNoParameters P1
-		dnRequest("set",[self,"NoParameters",P1])
+		dnSend("s3:set",nHandle,"s12:NoParameters",dnPackItem(P1))
 		return self
 
 
@@ -1394,23 +1394,23 @@ Class Metafile from Image
 		return self
 
 	Func PlayRecord P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(this.nHandle),"PlayRecord",P1,P2,P3,P4])
+		dnSend("s4:call",nHandle,"s10:PlayRecord",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func GetMetafileHeader P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Drawing.Imaging.Metafile, System.Drawing.Common'),"GetMetafileHeader",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Drawing.Imaging.Metafile, System.Drawing.Common').nHandle,"s17:GetMetafileHeader",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetMetafileHeader",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:GetMetafileHeader",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetMetafileHeader"])
+			return dnSend("s4:call",nHandle,"s17:GetMetafileHeader","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.Metafile, System.Drawing.Common'),"GetMetafileHeader",P1])
+		return dnSend("s4:call",dnTypeCached('System.Drawing.Imaging.Metafile, System.Drawing.Common').nHandle,"s17:GetMetafileHeader",dnPackItem(P1))
 
 	Func GetHenhmetafile 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHenhmetafile"])
+		return dnSend("s4:call",nHandle,"s15:GetHenhmetafile","")
 
 
 Class MetafileHeader from Object
@@ -1436,91 +1436,91 @@ Class MetafileHeader from Object
 		return self
 
 	Func IsWmf 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsWmf"])
+		return dnSend("s4:call",nHandle,"s5:IsWmf","")
 
 	Func IsWmfPlaceable 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsWmfPlaceable"])
+		return dnSend("s4:call",nHandle,"s14:IsWmfPlaceable","")
 
 	Func IsEmf 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsEmf"])
+		return dnSend("s4:call",nHandle,"s5:IsEmf","")
 
 	Func IsEmfOrEmfPlus 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsEmfOrEmfPlus"])
+		return dnSend("s4:call",nHandle,"s14:IsEmfOrEmfPlus","")
 
 	Func IsEmfPlus 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsEmfPlus"])
+		return dnSend("s4:call",nHandle,"s9:IsEmfPlus","")
 
 	Func IsEmfPlusDual 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsEmfPlusDual"])
+		return dnSend("s4:call",nHandle,"s13:IsEmfPlusDual","")
 
 	Func IsEmfPlusOnly 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsEmfPlusOnly"])
+		return dnSend("s4:call",nHandle,"s13:IsEmfPlusOnly","")
 
 	Func IsDisplay 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsDisplay"])
+		return dnSend("s4:call",nHandle,"s9:IsDisplay","")
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnSend("s3:get",nHandle,"s4:Type","")
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getMetafileSize
-		return dnRequest("get",[self,"MetafileSize"])
+		return dnSend("s3:get",nHandle,"s12:MetafileSize","")
 
 	Func setMetafileSize P1
 		raise("DotNet Error: MetafileSize is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnSend("s3:get",nHandle,"s7:Version","")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getDpiX
-		return dnRequest("get",[self,"DpiX"])
+		return dnSend("s3:get",nHandle,"s4:DpiX","")
 
 	Func setDpiX P1
 		raise("DotNet Error: DpiX is a read-only property")
 
 	Func getDpiY
-		return dnRequest("get",[self,"DpiY"])
+		return dnSend("s3:get",nHandle,"s4:DpiY","")
 
 	Func setDpiY P1
 		raise("DotNet Error: DpiY is a read-only property")
 
 	Func getBounds
-		return dnRequest("get",[self,"Bounds"])
+		return dnSend("s3:get",nHandle,"s6:Bounds","")
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getWmfHeader
-		return dnRequest("get",[self,"WmfHeader"])
+		return dnSend("s3:get",nHandle,"s9:WmfHeader","")
 
 	Func setWmfHeader P1
 		raise("DotNet Error: WmfHeader is a read-only property")
 
 	Func getEmfPlusHeaderSize
-		return dnRequest("get",[self,"EmfPlusHeaderSize"])
+		return dnSend("s3:get",nHandle,"s17:EmfPlusHeaderSize","")
 
 	Func setEmfPlusHeaderSize P1
 		raise("DotNet Error: EmfPlusHeaderSize is a read-only property")
 
 	Func getLogicalDpiX
-		return dnRequest("get",[self,"LogicalDpiX"])
+		return dnSend("s3:get",nHandle,"s11:LogicalDpiX","")
 
 	Func setLogicalDpiX P1
 		raise("DotNet Error: LogicalDpiX is a read-only property")
 
 	Func getLogicalDpiY
-		return dnRequest("get",[self,"LogicalDpiY"])
+		return dnSend("s3:get",nHandle,"s11:LogicalDpiY","")
 
 	Func setLogicalDpiY P1
 		raise("DotNet Error: LogicalDpiY is a read-only property")
@@ -1543,37 +1543,37 @@ Class PropertyItem from Object
 		return self
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnSend("s3:get",nHandle,"s2:Id","")
 
 	Func setId P1
-		dnRequest("set",[self,"Id",P1])
+		dnSend("s3:set",nHandle,"s2:Id",dnPackItem(P1))
 		return self
 
 	Func getLen
-		return dnRequest("get",[self,"Len"])
+		return dnSend("s3:get",nHandle,"s3:Len","")
 
 	Func setLen P1
-		dnRequest("set",[self,"Len",P1])
+		dnSend("s3:set",nHandle,"s3:Len",dnPackItem(P1))
 		return self
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnSend("s3:get",nHandle,"s4:Type","")
 
 	Func setType P1
-		dnRequest("set",[self,"Type",P1])
+		dnSend("s3:set",nHandle,"s4:Type",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 
@@ -1612,69 +1612,69 @@ Class WmfPlaceableFileHeader from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnSend("s3:get",nHandle,"s3:Key","")
 
 	Func setKey P1
-		dnRequest("set",[self,"Key",P1])
+		dnSend("s3:set",nHandle,"s3:Key",dnPackItem(P1))
 		return self
 
 	Func getHmf
-		return dnRequest("get",[self,"Hmf"])
+		return dnSend("s3:get",nHandle,"s3:Hmf","")
 
 	Func setHmf P1
-		dnRequest("set",[self,"Hmf",P1])
+		dnSend("s3:set",nHandle,"s3:Hmf",dnPackItem(P1))
 		return self
 
 	Func getBboxLeft
-		return dnRequest("get",[self,"BboxLeft"])
+		return dnSend("s3:get",nHandle,"s8:BboxLeft","")
 
 	Func setBboxLeft P1
-		dnRequest("set",[self,"BboxLeft",P1])
+		dnSend("s3:set",nHandle,"s8:BboxLeft",dnPackItem(P1))
 		return self
 
 	Func getBboxTop
-		return dnRequest("get",[self,"BboxTop"])
+		return dnSend("s3:get",nHandle,"s7:BboxTop","")
 
 	Func setBboxTop P1
-		dnRequest("set",[self,"BboxTop",P1])
+		dnSend("s3:set",nHandle,"s7:BboxTop",dnPackItem(P1))
 		return self
 
 	Func getBboxRight
-		return dnRequest("get",[self,"BboxRight"])
+		return dnSend("s3:get",nHandle,"s9:BboxRight","")
 
 	Func setBboxRight P1
-		dnRequest("set",[self,"BboxRight",P1])
+		dnSend("s3:set",nHandle,"s9:BboxRight",dnPackItem(P1))
 		return self
 
 	Func getBboxBottom
-		return dnRequest("get",[self,"BboxBottom"])
+		return dnSend("s3:get",nHandle,"s10:BboxBottom","")
 
 	Func setBboxBottom P1
-		dnRequest("set",[self,"BboxBottom",P1])
+		dnSend("s3:set",nHandle,"s10:BboxBottom",dnPackItem(P1))
 		return self
 
 	Func getInch
-		return dnRequest("get",[self,"Inch"])
+		return dnSend("s3:get",nHandle,"s4:Inch","")
 
 	Func setInch P1
-		dnRequest("set",[self,"Inch",P1])
+		dnSend("s3:set",nHandle,"s4:Inch",dnPackItem(P1))
 		return self
 
 	Func getReserved
-		return dnRequest("get",[self,"Reserved"])
+		return dnSend("s3:get",nHandle,"s8:Reserved","")
 
 	Func setReserved P1
-		dnRequest("set",[self,"Reserved",P1])
+		dnSend("s3:set",nHandle,"s8:Reserved",dnPackItem(P1))
 		return self
 
 	Func getChecksum
-		return dnRequest("get",[self,"Checksum"])
+		return dnSend("s3:get",nHandle,"s8:Checksum","")
 
 	Func setChecksum P1
-		dnRequest("set",[self,"Checksum",P1])
+		dnSend("s3:set",nHandle,"s8:Checksum",dnPackItem(P1))
 		return self
 
 

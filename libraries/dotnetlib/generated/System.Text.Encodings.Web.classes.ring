@@ -43,19 +43,19 @@ Class TextEncoder from Object
 		return self
 
 	Func WillEncode P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WillEncode",P1])
+		return dnSend("s4:call",nHandle,"s10:WillEncode",dnPackItem(P1))
 
 	Func Encode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Encode",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Encode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Encode",P1])
+		return dnSend("s4:call",nHandle,"s6:Encode",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMaxOutputCharactersPerInputCharacter
-		return dnRequest("get",[self,"MaxOutputCharactersPerInputCharacter"])
+		return dnSend("s3:get",nHandle,"s36:MaxOutputCharactersPerInputCharacter","")
 
 	Func setMaxOutputCharactersPerInputCharacter P1
 		raise("DotNet Error: MaxOutputCharactersPerInputCharacter is a read-only property")
@@ -106,50 +106,50 @@ Class TextEncoderSettings from Object
 		return self
 
 	Func AllowCharacter P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AllowCharacter",P1])
+		dnSend("s4:call",nHandle,"s14:AllowCharacter",dnPackItem(P1))
 		return self
 
 	Func AllowCharacters P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AllowCharacters",P1])
+		dnSend("s4:call",nHandle,"s15:AllowCharacters",dnPackItem(P1))
 		return self
 
 	Func AllowCodePoints P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AllowCodePoints",P1])
+		dnSend("s4:call",nHandle,"s15:AllowCodePoints",dnPackItem(P1))
 		return self
 
 	Func AllowRange P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AllowRange",P1])
+		dnSend("s4:call",nHandle,"s10:AllowRange",dnPackItem(P1))
 		return self
 
 	Func AllowRanges P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AllowRanges",P1])
+		dnSend("s4:call",nHandle,"s11:AllowRanges",dnPackItem(P1))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func ForbidCharacter P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ForbidCharacter",P1])
+		dnSend("s4:call",nHandle,"s15:ForbidCharacter",dnPackItem(P1))
 		return self
 
 	Func ForbidCharacters P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ForbidCharacters",P1])
+		dnSend("s4:call",nHandle,"s16:ForbidCharacters",dnPackItem(P1))
 		return self
 
 	Func ForbidRange P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ForbidRange",P1])
+		dnSend("s4:call",nHandle,"s11:ForbidRange",dnPackItem(P1))
 		return self
 
 	Func ForbidRanges P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ForbidRanges",P1])
+		dnSend("s4:call",nHandle,"s12:ForbidRanges",dnPackItem(P1))
 		return self
 
 	Func GetAllowedCodePoints 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAllowedCodePoints"])
+		return dnSend("s4:call",nHandle,"s20:GetAllowedCodePoints","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class HtmlEncoder from TextEncoder
@@ -166,10 +166,10 @@ Class HtmlEncoder from TextEncoder
 		return self
 
 	Func Create P1
-		return dnRequest("call",[dnTypeCached('System.Text.Encodings.Web.HtmlEncoder, System.Text.Encodings.Web'),"Create",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Encodings.Web.HtmlEncoder, System.Text.Encodings.Web').nHandle,"s6:Create",dnPackItem(P1))
 
 	Func getDefault
-		return dnRequest("get",[dnTypeCached('System.Text.Encodings.Web.HtmlEncoder, System.Text.Encodings.Web'),"Default"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Encodings.Web.HtmlEncoder, System.Text.Encodings.Web').nHandle,"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -190,16 +190,16 @@ Class JavaScriptEncoder from TextEncoder
 		return self
 
 	Func Create P1
-		return dnRequest("call",[dnTypeCached('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web'),"Create",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web').nHandle,"s6:Create",dnPackItem(P1))
 
 	Func getDefault
-		return dnRequest("get",[dnTypeCached('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web'),"Default"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web').nHandle,"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getUnsafeRelaxedJsonEscaping
-		return dnRequest("get",[dnTypeCached('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web'),"UnsafeRelaxedJsonEscaping"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web').nHandle,"s25:UnsafeRelaxedJsonEscaping","")
 
 	Func setUnsafeRelaxedJsonEscaping P1
 		raise("DotNet Error: UnsafeRelaxedJsonEscaping is a read-only property")
@@ -219,10 +219,10 @@ Class UrlEncoder from TextEncoder
 		return self
 
 	Func Create P1
-		return dnRequest("call",[dnTypeCached('System.Text.Encodings.Web.UrlEncoder, System.Text.Encodings.Web'),"Create",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Encodings.Web.UrlEncoder, System.Text.Encodings.Web').nHandle,"s6:Create",dnPackItem(P1))
 
 	Func getDefault
-		return dnRequest("get",[dnTypeCached('System.Text.Encodings.Web.UrlEncoder, System.Text.Encodings.Web'),"Default"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Encodings.Web.UrlEncoder, System.Text.Encodings.Web').nHandle,"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")

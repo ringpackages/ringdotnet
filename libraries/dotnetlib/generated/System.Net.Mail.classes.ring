@@ -79,62 +79,62 @@ Class AlternateViewCollection from DotNetObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -157,37 +157,37 @@ Class AttachmentBase from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getContentStream
-		return dnRequest("get",[self,"ContentStream"])
+		return dnSend("s3:get",nHandle,"s13:ContentStream","")
 
 	Func setContentStream P1
 		raise("DotNet Error: ContentStream is a read-only property")
 
 	Func getContentId
-		return dnRequest("get",[self,"ContentId"])
+		return dnSend("s3:get",nHandle,"s9:ContentId","")
 
 	Func setContentId P1
-		dnRequest("set",[self,"ContentId",P1])
+		dnSend("s3:set",nHandle,"s9:ContentId",dnPackItem(P1))
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnSend("s3:get",nHandle,"s11:ContentType","")
 
 	Func setContentType P1
-		dnRequest("set",[self,"ContentType",P1])
+		dnSend("s3:set",nHandle,"s11:ContentType",dnPackItem(P1))
 		return self
 
 	Func getTransferEncoding
-		return dnRequest("get",[self,"TransferEncoding"])
+		return dnSend("s3:get",nHandle,"s16:TransferEncoding","")
 
 	Func setTransferEncoding P1
-		dnRequest("set",[self,"TransferEncoding",P1])
+		dnSend("s3:set",nHandle,"s16:TransferEncoding",dnPackItem(P1))
 		return self
 
 
@@ -205,62 +205,62 @@ Class AttachmentCollection from DotNetObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -280,62 +280,62 @@ Class LinkedResourceCollection from DotNetObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -375,34 +375,34 @@ Class MailAddress from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func TryCreate P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail'),"TryCreate",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail').nHandle,"s9:TryCreate",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail'),"TryCreate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail').nHandle,"s9:TryCreate",dnPackItem(P1))
 
 	Func getDisplayName
-		return dnRequest("get",[self,"DisplayName"])
+		return dnSend("s3:get",nHandle,"s11:DisplayName","")
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getUser
-		return dnRequest("get",[self,"User"])
+		return dnSend("s3:get",nHandle,"s4:User","")
 
 	Func setUser P1
 		raise("DotNet Error: User is a read-only property")
 
 	Func getHost
-		return dnRequest("get",[self,"Host"])
+		return dnSend("s3:get",nHandle,"s4:Host","")
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
 
 	Func getAddress
-		return dnRequest("get",[self,"Address"])
+		return dnSend("s3:get",nHandle,"s7:Address","")
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")
@@ -435,58 +435,58 @@ Class MailAddressCollection from DotNetObject
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -557,134 +557,134 @@ Class MailMessage from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnSend("s3:get",nHandle,"s4:From","")
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnSend("s3:set",nHandle,"s4:From",dnPackItem(P1))
 		return self
 
 	Func getSender
-		return dnRequest("get",[self,"Sender"])
+		return dnSend("s3:get",nHandle,"s6:Sender","")
 
 	Func setSender P1
-		dnRequest("set",[self,"Sender",P1])
+		dnSend("s3:set",nHandle,"s6:Sender",dnPackItem(P1))
 		return self
 
 	Func getReplyTo
-		return dnRequest("get",[self,"ReplyTo"])
+		return dnSend("s3:get",nHandle,"s7:ReplyTo","")
 
 	Func setReplyTo P1
-		dnRequest("set",[self,"ReplyTo",P1])
+		dnSend("s3:set",nHandle,"s7:ReplyTo",dnPackItem(P1))
 		return self
 
 	Func getReplyToList
-		return dnRequest("get",[self,"ReplyToList"])
+		return dnSend("s3:get",nHandle,"s11:ReplyToList","")
 
 	Func setReplyToList P1
 		raise("DotNet Error: ReplyToList is a read-only property")
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnSend("s3:get",nHandle,"s2:To","")
 
 	Func setTo P1
 		raise("DotNet Error: To is a read-only property")
 
 	Func getBcc
-		return dnRequest("get",[self,"Bcc"])
+		return dnSend("s3:get",nHandle,"s3:Bcc","")
 
 	Func setBcc P1
 		raise("DotNet Error: Bcc is a read-only property")
 
 	Func getCC
-		return dnRequest("get",[self,"CC"])
+		return dnSend("s3:get",nHandle,"s2:CC","")
 
 	Func setCC P1
 		raise("DotNet Error: CC is a read-only property")
 
 	Func getPriority
-		return dnRequest("get",[self,"Priority"])
+		return dnSend("s3:get",nHandle,"s8:Priority","")
 
 	Func setPriority P1
-		dnRequest("set",[self,"Priority",P1])
+		dnSend("s3:set",nHandle,"s8:Priority",dnPackItem(P1))
 		return self
 
 	Func getDeliveryNotificationOptions
-		return dnRequest("get",[self,"DeliveryNotificationOptions"])
+		return dnSend("s3:get",nHandle,"s27:DeliveryNotificationOptions","")
 
 	Func setDeliveryNotificationOptions P1
-		dnRequest("set",[self,"DeliveryNotificationOptions",P1])
+		dnSend("s3:set",nHandle,"s27:DeliveryNotificationOptions",dnPackItem(P1))
 		return self
 
 	Func getSubject
-		return dnRequest("get",[self,"Subject"])
+		return dnSend("s3:get",nHandle,"s7:Subject","")
 
 	Func setSubject P1
-		dnRequest("set",[self,"Subject",P1])
+		dnSend("s3:set",nHandle,"s7:Subject",dnPackItem(P1))
 		return self
 
 	Func getSubjectEncoding
-		return dnRequest("get",[self,"SubjectEncoding"])
+		return dnSend("s3:get",nHandle,"s15:SubjectEncoding","")
 
 	Func setSubjectEncoding P1
-		dnRequest("set",[self,"SubjectEncoding",P1])
+		dnSend("s3:set",nHandle,"s15:SubjectEncoding",dnPackItem(P1))
 		return self
 
 	Func getHeaders
-		return dnRequest("get",[self,"Headers"])
+		return dnSend("s3:get",nHandle,"s7:Headers","")
 
 	Func setHeaders P1
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getHeadersEncoding
-		return dnRequest("get",[self,"HeadersEncoding"])
+		return dnSend("s3:get",nHandle,"s15:HeadersEncoding","")
 
 	Func setHeadersEncoding P1
-		dnRequest("set",[self,"HeadersEncoding",P1])
+		dnSend("s3:set",nHandle,"s15:HeadersEncoding",dnPackItem(P1))
 		return self
 
 	Func getBody
-		return dnRequest("get",[self,"Body"])
+		return dnSend("s3:get",nHandle,"s4:Body","")
 
 	Func setBody P1
-		dnRequest("set",[self,"Body",P1])
+		dnSend("s3:set",nHandle,"s4:Body",dnPackItem(P1))
 		return self
 
 	Func getBodyEncoding
-		return dnRequest("get",[self,"BodyEncoding"])
+		return dnSend("s3:get",nHandle,"s12:BodyEncoding","")
 
 	Func setBodyEncoding P1
-		dnRequest("set",[self,"BodyEncoding",P1])
+		dnSend("s3:set",nHandle,"s12:BodyEncoding",dnPackItem(P1))
 		return self
 
 	Func getBodyTransferEncoding
-		return dnRequest("get",[self,"BodyTransferEncoding"])
+		return dnSend("s3:get",nHandle,"s20:BodyTransferEncoding","")
 
 	Func setBodyTransferEncoding P1
-		dnRequest("set",[self,"BodyTransferEncoding",P1])
+		dnSend("s3:set",nHandle,"s20:BodyTransferEncoding",dnPackItem(P1))
 		return self
 
 	Func getIsBodyHtml
-		return dnRequest("get",[self,"IsBodyHtml"])
+		return dnSend("s3:get",nHandle,"s10:IsBodyHtml","")
 
 	Func setIsBodyHtml P1
-		dnRequest("set",[self,"IsBodyHtml",P1])
+		dnSend("s3:set",nHandle,"s10:IsBodyHtml",dnPackItem(P1))
 		return self
 
 	Func getAttachments
-		return dnRequest("get",[self,"Attachments"])
+		return dnSend("s3:get",nHandle,"s11:Attachments","")
 
 	Func setAttachments P1
 		raise("DotNet Error: Attachments is a read-only property")
 
 	Func getAlternateViews
-		return dnRequest("get",[self,"AlternateViews"])
+		return dnSend("s3:get",nHandle,"s14:AlternateViews","")
 
 	Func setAlternateViews P1
 		raise("DotNet Error: AlternateViews is a read-only property")
@@ -749,35 +749,35 @@ Class SmtpClient from Object
 
 	Func Send P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Send",P1])
+			dnSend("s9:callnamed",nHandle,"s4:Send",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Send",P1])
+		dnSend("s4:call",nHandle,"s4:Send",dnPackItem(P1))
 		return self
 
 	Func SendAsync P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendAsync",P1])
+			dnSend("s9:callnamed",nHandle,"s9:SendAsync",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: SendAsync does not take one argument: use named arguments, SendAsync([ :parameter = value, ... ])")
 
 	Func SendAsyncCancel 
-		dnRequest("call",[new DotNetObject(this.nHandle),"SendAsyncCancel"])
+		dnSend("s4:call",nHandle,"s15:SendAsyncCancel","")
 		return self
 
 	Func SendMailAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendMailAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:SendMailAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SendMailAsync",P1])
+		return dnSend("s4:call",nHandle,"s13:SendMailAsync",dnPackItem(P1))
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func setSendCompletedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"SendCompleted",dnCallback(P1)])
@@ -788,85 +788,85 @@ Class SmtpClient from Object
 		return self
 
 	Func getHost
-		return dnRequest("get",[self,"Host"])
+		return dnSend("s3:get",nHandle,"s4:Host","")
 
 	Func setHost P1
-		dnRequest("set",[self,"Host",P1])
+		dnSend("s3:set",nHandle,"s4:Host",dnPackItem(P1))
 		return self
 
 	Func getPort
-		return dnRequest("get",[self,"Port"])
+		return dnSend("s3:get",nHandle,"s4:Port","")
 
 	Func setPort P1
-		dnRequest("set",[self,"Port",P1])
+		dnSend("s3:set",nHandle,"s4:Port",dnPackItem(P1))
 		return self
 
 	Func getUseDefaultCredentials
-		return dnRequest("get",[self,"UseDefaultCredentials"])
+		return dnSend("s3:get",nHandle,"s21:UseDefaultCredentials","")
 
 	Func setUseDefaultCredentials P1
-		dnRequest("set",[self,"UseDefaultCredentials",P1])
+		dnSend("s3:set",nHandle,"s21:UseDefaultCredentials",dnPackItem(P1))
 		return self
 
 	Func getCredentials
-		return dnRequest("get",[self,"Credentials"])
+		return dnSend("s3:get",nHandle,"s11:Credentials","")
 
 	Func setCredentials P1
-		dnRequest("set",[self,"Credentials",P1])
+		dnSend("s3:set",nHandle,"s11:Credentials",dnPackItem(P1))
 		return self
 
 	Func getTimeout
-		return dnRequest("get",[self,"Timeout"])
+		return dnSend("s3:get",nHandle,"s7:Timeout","")
 
 	Func setTimeout P1
-		dnRequest("set",[self,"Timeout",P1])
+		dnSend("s3:set",nHandle,"s7:Timeout",dnPackItem(P1))
 		return self
 
 	Func getServicePoint
-		return dnRequest("get",[self,"ServicePoint"])
+		return dnSend("s3:get",nHandle,"s12:ServicePoint","")
 
 	Func setServicePoint P1
 		raise("DotNet Error: ServicePoint is a read-only property")
 
 	Func getDeliveryMethod
-		return dnRequest("get",[self,"DeliveryMethod"])
+		return dnSend("s3:get",nHandle,"s14:DeliveryMethod","")
 
 	Func setDeliveryMethod P1
-		dnRequest("set",[self,"DeliveryMethod",P1])
+		dnSend("s3:set",nHandle,"s14:DeliveryMethod",dnPackItem(P1))
 		return self
 
 	Func getDeliveryFormat
-		return dnRequest("get",[self,"DeliveryFormat"])
+		return dnSend("s3:get",nHandle,"s14:DeliveryFormat","")
 
 	Func setDeliveryFormat P1
-		dnRequest("set",[self,"DeliveryFormat",P1])
+		dnSend("s3:set",nHandle,"s14:DeliveryFormat",dnPackItem(P1))
 		return self
 
 	Func getPickupDirectoryLocation
-		return dnRequest("get",[self,"PickupDirectoryLocation"])
+		return dnSend("s3:get",nHandle,"s23:PickupDirectoryLocation","")
 
 	Func setPickupDirectoryLocation P1
-		dnRequest("set",[self,"PickupDirectoryLocation",P1])
+		dnSend("s3:set",nHandle,"s23:PickupDirectoryLocation",dnPackItem(P1))
 		return self
 
 	Func getEnableSsl
-		return dnRequest("get",[self,"EnableSsl"])
+		return dnSend("s3:get",nHandle,"s9:EnableSsl","")
 
 	Func setEnableSsl P1
-		dnRequest("set",[self,"EnableSsl",P1])
+		dnSend("s3:set",nHandle,"s9:EnableSsl",dnPackItem(P1))
 		return self
 
 	Func getClientCertificates
-		return dnRequest("get",[self,"ClientCertificates"])
+		return dnSend("s3:get",nHandle,"s18:ClientCertificates","")
 
 	Func setClientCertificates P1
 		raise("DotNet Error: ClientCertificates is a read-only property")
 
 	Func getTargetName
-		return dnRequest("get",[self,"TargetName"])
+		return dnSend("s3:get",nHandle,"s10:TargetName","")
 
 	Func setTargetName P1
-		dnRequest("set",[self,"TargetName",P1])
+		dnSend("s3:set",nHandle,"s10:TargetName",dnPackItem(P1))
 		return self
 
 
@@ -903,21 +903,21 @@ Class AlternateView from AttachmentBase
 
 	Func CreateAlternateViewFromString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Net.Mail.AlternateView, System.Net.Mail'),"CreateAlternateViewFromString",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Net.Mail.AlternateView, System.Net.Mail').nHandle,"s29:CreateAlternateViewFromString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Net.Mail.AlternateView, System.Net.Mail'),"CreateAlternateViewFromString",P1])
+		return dnSend("s4:call",dnTypeCached('System.Net.Mail.AlternateView, System.Net.Mail').nHandle,"s29:CreateAlternateViewFromString",dnPackItem(P1))
 
 	Func getLinkedResources
-		return dnRequest("get",[self,"LinkedResources"])
+		return dnSend("s3:get",nHandle,"s15:LinkedResources","")
 
 	Func setLinkedResources P1
 		raise("DotNet Error: LinkedResources is a read-only property")
 
 	Func getBaseUri
-		return dnRequest("get",[self,"BaseUri"])
+		return dnSend("s3:get",nHandle,"s7:BaseUri","")
 
 	Func setBaseUri P1
-		dnRequest("set",[self,"BaseUri",P1])
+		dnSend("s3:set",nHandle,"s7:BaseUri",dnPackItem(P1))
 		return self
 
 
@@ -955,26 +955,26 @@ Class Attachment from AttachmentBase
 
 	Func CreateAttachmentFromString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Net.Mail.Attachment, System.Net.Mail'),"CreateAttachmentFromString",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Net.Mail.Attachment, System.Net.Mail').nHandle,"s26:CreateAttachmentFromString",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateAttachmentFromString does not take one argument: use named arguments, CreateAttachmentFromString([ :parameter = value, ... ])")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
 		return self
 
 	Func getNameEncoding
-		return dnRequest("get",[self,"NameEncoding"])
+		return dnSend("s3:get",nHandle,"s12:NameEncoding","")
 
 	Func setNameEncoding P1
-		dnRequest("set",[self,"NameEncoding",P1])
+		dnSend("s3:set",nHandle,"s12:NameEncoding",dnPackItem(P1))
 		return self
 
 	Func getContentDisposition
-		return dnRequest("get",[self,"ContentDisposition"])
+		return dnSend("s3:get",nHandle,"s18:ContentDisposition","")
 
 	Func setContentDisposition P1
 		raise("DotNet Error: ContentDisposition is a read-only property")
@@ -1012,15 +1012,15 @@ Class LinkedResource from AttachmentBase
 
 	Func CreateLinkedResourceFromString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Net.Mail.LinkedResource, System.Net.Mail'),"CreateLinkedResourceFromString",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Net.Mail.LinkedResource, System.Net.Mail').nHandle,"s30:CreateLinkedResourceFromString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Net.Mail.LinkedResource, System.Net.Mail'),"CreateLinkedResourceFromString",P1])
+		return dnSend("s4:call",dnTypeCached('System.Net.Mail.LinkedResource, System.Net.Mail').nHandle,"s30:CreateLinkedResourceFromString",dnPackItem(P1))
 
 	Func getContentLink
-		return dnRequest("get",[self,"ContentLink"])
+		return dnSend("s3:get",nHandle,"s11:ContentLink","")
 
 	Func setContentLink P1
-		dnRequest("set",[self,"ContentLink",P1])
+		dnSend("s3:set",nHandle,"s11:ContentLink",dnPackItem(P1))
 		return self
 
 

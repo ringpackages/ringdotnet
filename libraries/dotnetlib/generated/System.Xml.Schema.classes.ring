@@ -445,43 +445,43 @@ Class IXmlSchemaInfo from DotNetObject
 		return self
 
 	Func getValidity
-		return dnRequest("get",[self,"Validity"])
+		return dnSend("s3:get",nHandle,"s8:Validity","")
 
 	Func setValidity P1
 		raise("DotNet Error: Validity is a read-only property")
 
 	Func getIsDefault
-		return dnRequest("get",[self,"IsDefault"])
+		return dnSend("s3:get",nHandle,"s9:IsDefault","")
 
 	Func setIsDefault P1
 		raise("DotNet Error: IsDefault is a read-only property")
 
 	Func getIsNil
-		return dnRequest("get",[self,"IsNil"])
+		return dnSend("s3:get",nHandle,"s5:IsNil","")
 
 	Func setIsNil P1
 		raise("DotNet Error: IsNil is a read-only property")
 
 	Func getMemberType
-		return dnRequest("get",[self,"MemberType"])
+		return dnSend("s3:get",nHandle,"s10:MemberType","")
 
 	Func setMemberType P1
 		raise("DotNet Error: MemberType is a read-only property")
 
 	Func getSchemaType
-		return dnRequest("get",[self,"SchemaType"])
+		return dnSend("s3:get",nHandle,"s10:SchemaType","")
 
 	Func setSchemaType P1
 		raise("DotNet Error: SchemaType is a read-only property")
 
 	Func getSchemaElement
-		return dnRequest("get",[self,"SchemaElement"])
+		return dnSend("s3:get",nHandle,"s13:SchemaElement","")
 
 	Func setSchemaElement P1
 		raise("DotNet Error: SchemaElement is a read-only property")
 
 	Func getSchemaAttribute
-		return dnRequest("get",[self,"SchemaAttribute"])
+		return dnSend("s3:get",nHandle,"s15:SchemaAttribute","")
 
 	Func setSchemaAttribute P1
 		raise("DotNet Error: SchemaAttribute is a read-only property")
@@ -503,19 +503,19 @@ Class ValidationEventArgs from EventArgs
 		return self
 
 	Func getSeverity
-		return dnRequest("get",[self,"Severity"])
+		return dnSend("s3:get",nHandle,"s8:Severity","")
 
 	Func setSeverity P1
 		raise("DotNet Error: Severity is a read-only property")
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnSend("s3:get",nHandle,"s9:Exception","")
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getMessage
-		return dnRequest("get",[self,"Message"])
+		return dnSend("s3:get",nHandle,"s7:Message","")
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")
@@ -533,7 +533,7 @@ Class XmlAtomicValue from XPathItem
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 
 Class XmlSchemaCollectionEnumerator from Object
@@ -550,13 +550,13 @@ Class XmlSchemaCollectionEnumerator from Object
 		return self
 
 	Func MoveNext 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveNext"])
+		return dnSend("s4:call",nHandle,"s8:MoveNext","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCurrent
-		return dnRequest("get",[self,"Current"])
+		return dnSend("s3:get",nHandle,"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -589,13 +589,13 @@ Class XmlSchemaCompilationSettings from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getEnableUpaCheck
-		return dnRequest("get",[self,"EnableUpaCheck"])
+		return dnSend("s3:get",nHandle,"s14:EnableUpaCheck","")
 
 	Func setEnableUpaCheck P1
-		dnRequest("set",[self,"EnableUpaCheck",P1])
+		dnSend("s3:set",nHandle,"s14:EnableUpaCheck",dnPackItem(P1))
 		return self
 
 
@@ -616,40 +616,40 @@ Class XmlSchemaDatatype from Object
 		return self
 
 	Func ParseValue P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ParseValue",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s10:ParseValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ChangeType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ChangeType",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:ChangeType",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ChangeType does not take one argument: use named arguments, ChangeType([ :parameter = value, ... ])")
 
 	Func IsDerivedFrom P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsDerivedFrom",P1])
+		return dnSend("s4:call",nHandle,"s13:IsDerivedFrom",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getValueType
-		return dnRequest("get",[self,"ValueType"])
+		return dnSend("s3:get",nHandle,"s9:ValueType","")
 
 	Func setValueType P1
 		raise("DotNet Error: ValueType is a read-only property")
 
 	Func getTokenizedType
-		return dnRequest("get",[self,"TokenizedType"])
+		return dnSend("s3:get",nHandle,"s13:TokenizedType","")
 
 	Func setTokenizedType P1
 		raise("DotNet Error: TokenizedType is a read-only property")
 
 	Func getVariety
-		return dnRequest("get",[self,"Variety"])
+		return dnSend("s3:get",nHandle,"s7:Variety","")
 
 	Func setVariety P1
 		raise("DotNet Error: Variety is a read-only property")
 
 	Func getTypeCode
-		return dnRequest("get",[self,"TypeCode"])
+		return dnSend("s3:get",nHandle,"s8:TypeCode","")
 
 	Func setTypeCode P1
 		raise("DotNet Error: TypeCode is a read-only property")
@@ -684,25 +684,25 @@ Class XmlSchemaInference from Object
 
 	Func InferSchema P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"InferSchema",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:InferSchema",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InferSchema",P1])
+		return dnSend("s4:call",nHandle,"s11:InferSchema",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getOccurrence
-		return dnRequest("get",[self,"Occurrence"])
+		return dnSend("s3:get",nHandle,"s10:Occurrence","")
 
 	Func setOccurrence P1
-		dnRequest("set",[self,"Occurrence",P1])
+		dnSend("s3:set",nHandle,"s10:Occurrence",dnPackItem(P1))
 		return self
 
 	Func getTypeInference
-		return dnRequest("get",[self,"TypeInference"])
+		return dnSend("s3:get",nHandle,"s13:TypeInference","")
 
 	Func setTypeInference P1
-		dnRequest("set",[self,"TypeInference",P1])
+		dnSend("s3:set",nHandle,"s13:TypeInference",dnPackItem(P1))
 		return self
 
 
@@ -740,62 +740,62 @@ Class XmlSchemaInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getValidity
-		return dnRequest("get",[self,"Validity"])
+		return dnSend("s3:get",nHandle,"s8:Validity","")
 
 	Func setValidity P1
-		dnRequest("set",[self,"Validity",P1])
+		dnSend("s3:set",nHandle,"s8:Validity",dnPackItem(P1))
 		return self
 
 	Func getIsDefault
-		return dnRequest("get",[self,"IsDefault"])
+		return dnSend("s3:get",nHandle,"s9:IsDefault","")
 
 	Func setIsDefault P1
-		dnRequest("set",[self,"IsDefault",P1])
+		dnSend("s3:set",nHandle,"s9:IsDefault",dnPackItem(P1))
 		return self
 
 	Func getIsNil
-		return dnRequest("get",[self,"IsNil"])
+		return dnSend("s3:get",nHandle,"s5:IsNil","")
 
 	Func setIsNil P1
-		dnRequest("set",[self,"IsNil",P1])
+		dnSend("s3:set",nHandle,"s5:IsNil",dnPackItem(P1))
 		return self
 
 	Func getMemberType
-		return dnRequest("get",[self,"MemberType"])
+		return dnSend("s3:get",nHandle,"s10:MemberType","")
 
 	Func setMemberType P1
-		dnRequest("set",[self,"MemberType",P1])
+		dnSend("s3:set",nHandle,"s10:MemberType",dnPackItem(P1))
 		return self
 
 	Func getSchemaType
-		return dnRequest("get",[self,"SchemaType"])
+		return dnSend("s3:get",nHandle,"s10:SchemaType","")
 
 	Func setSchemaType P1
-		dnRequest("set",[self,"SchemaType",P1])
+		dnSend("s3:set",nHandle,"s10:SchemaType",dnPackItem(P1))
 		return self
 
 	Func getSchemaElement
-		return dnRequest("get",[self,"SchemaElement"])
+		return dnSend("s3:get",nHandle,"s13:SchemaElement","")
 
 	Func setSchemaElement P1
-		dnRequest("set",[self,"SchemaElement",P1])
+		dnSend("s3:set",nHandle,"s13:SchemaElement",dnPackItem(P1))
 		return self
 
 	Func getSchemaAttribute
-		return dnRequest("get",[self,"SchemaAttribute"])
+		return dnSend("s3:get",nHandle,"s15:SchemaAttribute","")
 
 	Func setSchemaAttribute P1
-		dnRequest("set",[self,"SchemaAttribute",P1])
+		dnSend("s3:set",nHandle,"s15:SchemaAttribute",dnPackItem(P1))
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnSend("s3:get",nHandle,"s11:ContentType","")
 
 	Func setContentType P1
-		dnRequest("set",[self,"ContentType",P1])
+		dnSend("s3:set",nHandle,"s11:ContentType",dnPackItem(P1))
 		return self
 
 
@@ -817,41 +817,41 @@ Class XmlSchemaObject from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getLineNumber
-		return dnRequest("get",[self,"LineNumber"])
+		return dnSend("s3:get",nHandle,"s10:LineNumber","")
 
 	Func setLineNumber P1
-		dnRequest("set",[self,"LineNumber",P1])
+		dnSend("s3:set",nHandle,"s10:LineNumber",dnPackItem(P1))
 		return self
 
 	Func getLinePosition
-		return dnRequest("get",[self,"LinePosition"])
+		return dnSend("s3:get",nHandle,"s12:LinePosition","")
 
 	Func setLinePosition P1
-		dnRequest("set",[self,"LinePosition",P1])
+		dnSend("s3:set",nHandle,"s12:LinePosition",dnPackItem(P1))
 		return self
 
 	Func getSourceUri
-		return dnRequest("get",[self,"SourceUri"])
+		return dnSend("s3:get",nHandle,"s9:SourceUri","")
 
 	Func setSourceUri P1
-		dnRequest("set",[self,"SourceUri",P1])
+		dnSend("s3:set",nHandle,"s9:SourceUri",dnPackItem(P1))
 		return self
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnSend("s3:get",nHandle,"s6:Parent","")
 
 	Func setParent P1
-		dnRequest("set",[self,"Parent",P1])
+		dnSend("s3:set",nHandle,"s6:Parent",dnPackItem(P1))
 		return self
 
 	Func getNamespaces
-		return dnRequest("get",[self,"Namespaces"])
+		return dnSend("s3:get",nHandle,"s10:Namespaces","")
 
 	Func setNamespaces P1
-		dnRequest("set",[self,"Namespaces",P1])
+		dnSend("s3:set",nHandle,"s10:Namespaces",dnPackItem(P1))
 		return self
 
 
@@ -900,31 +900,31 @@ Class XmlSchemaObjectCollection from CollectionBase
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -942,17 +942,17 @@ Class XmlSchemaObjectEnumerator from Object
 		return self
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func MoveNext 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveNext"])
+		return dnSend("s4:call",nHandle,"s8:MoveNext","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCurrent
-		return dnRequest("get",[self,"Current"])
+		return dnSend("s3:get",nHandle,"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -974,31 +974,31 @@ Class XmlSchemaObjectTable from Object
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getNames
-		return dnRequest("get",[self,"Names"])
+		return dnSend("s3:get",nHandle,"s5:Names","")
 
 	Func setNames P1
 		raise("DotNet Error: Names is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnSend("s3:get",nHandle,"s6:Values","")
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
@@ -1059,42 +1059,42 @@ Class XmlSchemaSet from Object
 
 	Func Add P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Add",P1])
+			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveRecursive P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveRecursive",P1])
+		return dnSend("s4:call",nHandle,"s15:RemoveRecursive",dnPackItem(P1))
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func Compile 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Compile"])
+		dnSend("s4:call",nHandle,"s7:Compile","")
 		return self
 
 	Func Reprocess P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Reprocess",P1])
+		return dnSend("s4:call",nHandle,"s9:Reprocess",dnPackItem(P1))
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Schemas P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Schemas",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:Schemas",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"Schemas"])
+			return dnSend("s4:call",nHandle,"s7:Schemas","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Schemas",P1])
+		return dnSend("s4:call",nHandle,"s7:Schemas",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func setValidationEventHandlerEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ValidationEventHandler",dnCallback(P1)])
@@ -1105,48 +1105,48 @@ Class XmlSchemaSet from Object
 		return self
 
 	Func getNameTable
-		return dnRequest("get",[self,"NameTable"])
+		return dnSend("s3:get",nHandle,"s9:NameTable","")
 
 	Func setNameTable P1
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getIsCompiled
-		return dnRequest("get",[self,"IsCompiled"])
+		return dnSend("s3:get",nHandle,"s10:IsCompiled","")
 
 	Func setIsCompiled P1
 		raise("DotNet Error: IsCompiled is a read-only property")
 
 	Func setXmlResolver P1
-		dnRequest("set",[self,"XmlResolver",P1])
+		dnSend("s3:set",nHandle,"s11:XmlResolver",dnPackItem(P1))
 		return self
 
 	Func getCompilationSettings
-		return dnRequest("get",[self,"CompilationSettings"])
+		return dnSend("s3:get",nHandle,"s19:CompilationSettings","")
 
 	Func setCompilationSettings P1
-		dnRequest("set",[self,"CompilationSettings",P1])
+		dnSend("s3:set",nHandle,"s19:CompilationSettings",dnPackItem(P1))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getGlobalElements
-		return dnRequest("get",[self,"GlobalElements"])
+		return dnSend("s3:get",nHandle,"s14:GlobalElements","")
 
 	Func setGlobalElements P1
 		raise("DotNet Error: GlobalElements is a read-only property")
 
 	Func getGlobalAttributes
-		return dnRequest("get",[self,"GlobalAttributes"])
+		return dnSend("s3:get",nHandle,"s16:GlobalAttributes","")
 
 	Func setGlobalAttributes P1
 		raise("DotNet Error: GlobalAttributes is a read-only property")
 
 	Func getGlobalTypes
-		return dnRequest("get",[self,"GlobalTypes"])
+		return dnSend("s3:get",nHandle,"s11:GlobalTypes","")
 
 	Func setGlobalTypes P1
 		raise("DotNet Error: GlobalTypes is a read-only property")
@@ -1171,69 +1171,69 @@ Class XmlSchemaValidator from Object
 		return self
 
 	Func AddSchema P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddSchema",P1])
+		dnSend("s4:call",nHandle,"s9:AddSchema",dnPackItem(P1))
 		return self
 
 	Func Initialize P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Initialize",P1])
+			dnSend("s9:callnamed",nHandle,"s10:Initialize",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Initialize"])
+			dnSend("s4:call",nHandle,"s10:Initialize","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Initialize",P1])
+		dnSend("s4:call",nHandle,"s10:Initialize",dnPackItem(P1))
 		return self
 
 	Func ValidateElement P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ValidateElement",P1])
+			dnSend("s9:callnamed",nHandle,"s15:ValidateElement",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: ValidateElement does not take one argument: use named arguments, ValidateElement([ :parameter = value, ... ])")
 
 	Func ValidateAttribute P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValidateAttribute",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s17:ValidateAttribute",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func GetUnspecifiedDefaultAttributes P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetUnspecifiedDefaultAttributes",P1])
+		dnSend("s4:call",nHandle,"s31:GetUnspecifiedDefaultAttributes",dnPackItem(P1))
 		return self
 
 	Func ValidateEndOfAttributes P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ValidateEndOfAttributes",P1])
+		dnSend("s4:call",nHandle,"s23:ValidateEndOfAttributes",dnPackItem(P1))
 		return self
 
 	Func ValidateText P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ValidateText",P1])
+		dnSend("s4:call",nHandle,"s12:ValidateText",dnPackItem(P1))
 		return self
 
 	Func ValidateWhitespace P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ValidateWhitespace",P1])
+		dnSend("s4:call",nHandle,"s18:ValidateWhitespace",dnPackItem(P1))
 		return self
 
 	Func ValidateEndElement P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ValidateEndElement",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:ValidateEndElement",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValidateEndElement",P1])
+		return dnSend("s4:call",nHandle,"s18:ValidateEndElement",dnPackItem(P1))
 
 	Func SkipToEndElement P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SkipToEndElement",P1])
+		dnSend("s4:call",nHandle,"s16:SkipToEndElement",dnPackItem(P1))
 		return self
 
 	Func EndValidation 
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndValidation"])
+		dnSend("s4:call",nHandle,"s13:EndValidation","")
 		return self
 
 	Func GetExpectedParticles 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetExpectedParticles"])
+		return dnSend("s4:call",nHandle,"s20:GetExpectedParticles","")
 
 	Func GetExpectedAttributes 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetExpectedAttributes"])
+		return dnSend("s4:call",nHandle,"s21:GetExpectedAttributes","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func setValidationEventHandlerEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ValidationEventHandler",dnCallback(P1)])
@@ -1244,28 +1244,28 @@ Class XmlSchemaValidator from Object
 		return self
 
 	Func setXmlResolver P1
-		dnRequest("set",[self,"XmlResolver",P1])
+		dnSend("s3:set",nHandle,"s11:XmlResolver",dnPackItem(P1))
 		return self
 
 	Func getLineInfoProvider
-		return dnRequest("get",[self,"LineInfoProvider"])
+		return dnSend("s3:get",nHandle,"s16:LineInfoProvider","")
 
 	Func setLineInfoProvider P1
-		dnRequest("set",[self,"LineInfoProvider",P1])
+		dnSend("s3:set",nHandle,"s16:LineInfoProvider",dnPackItem(P1))
 		return self
 
 	Func getSourceUri
-		return dnRequest("get",[self,"SourceUri"])
+		return dnSend("s3:get",nHandle,"s9:SourceUri","")
 
 	Func setSourceUri P1
-		dnRequest("set",[self,"SourceUri",P1])
+		dnSend("s3:set",nHandle,"s9:SourceUri",dnPackItem(P1))
 		return self
 
 	Func getValidationEventSender
-		return dnRequest("get",[self,"ValidationEventSender"])
+		return dnSend("s3:get",nHandle,"s21:ValidationEventSender","")
 
 	Func setValidationEventSender P1
-		dnRequest("set",[self,"ValidationEventSender",P1])
+		dnSend("s3:set",nHandle,"s21:ValidationEventSender",dnPackItem(P1))
 		return self
 
 
@@ -1315,141 +1315,141 @@ Class XmlSchema from XmlSchemaObject
 
 	Func Write P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Write",P1])
+			dnSend("s9:callnamed",nHandle,"s5:Write",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Write",P1])
+		dnSend("s4:call",nHandle,"s5:Write",dnPackItem(P1))
 		return self
 
 	Func Compile P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Compile",P1])
+			dnSend("s9:callnamed",nHandle,"s7:Compile",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Compile",P1])
+		dnSend("s4:call",nHandle,"s7:Compile",dnPackItem(P1))
 		return self
 
 	Func Read P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.Schema.XmlSchema, System.Private.Xml'),"Read",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Xml.Schema.XmlSchema, System.Private.Xml').nHandle,"s4:Read",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getAttributeFormDefault
-		return dnRequest("get",[self,"AttributeFormDefault"])
+		return dnSend("s3:get",nHandle,"s20:AttributeFormDefault","")
 
 	Func setAttributeFormDefault P1
-		dnRequest("set",[self,"AttributeFormDefault",P1])
+		dnSend("s3:set",nHandle,"s20:AttributeFormDefault",dnPackItem(P1))
 		return self
 
 	Func getBlockDefault
-		return dnRequest("get",[self,"BlockDefault"])
+		return dnSend("s3:get",nHandle,"s12:BlockDefault","")
 
 	Func setBlockDefault P1
-		dnRequest("set",[self,"BlockDefault",P1])
+		dnSend("s3:set",nHandle,"s12:BlockDefault",dnPackItem(P1))
 		return self
 
 	Func getFinalDefault
-		return dnRequest("get",[self,"FinalDefault"])
+		return dnSend("s3:get",nHandle,"s12:FinalDefault","")
 
 	Func setFinalDefault P1
-		dnRequest("set",[self,"FinalDefault",P1])
+		dnSend("s3:set",nHandle,"s12:FinalDefault",dnPackItem(P1))
 		return self
 
 	Func getElementFormDefault
-		return dnRequest("get",[self,"ElementFormDefault"])
+		return dnSend("s3:get",nHandle,"s18:ElementFormDefault","")
 
 	Func setElementFormDefault P1
-		dnRequest("set",[self,"ElementFormDefault",P1])
+		dnSend("s3:set",nHandle,"s18:ElementFormDefault",dnPackItem(P1))
 		return self
 
 	Func getTargetNamespace
-		return dnRequest("get",[self,"TargetNamespace"])
+		return dnSend("s3:get",nHandle,"s15:TargetNamespace","")
 
 	Func setTargetNamespace P1
-		dnRequest("set",[self,"TargetNamespace",P1])
+		dnSend("s3:set",nHandle,"s15:TargetNamespace",dnPackItem(P1))
 		return self
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnSend("s3:get",nHandle,"s7:Version","")
 
 	Func setVersion P1
-		dnRequest("set",[self,"Version",P1])
+		dnSend("s3:set",nHandle,"s7:Version",dnPackItem(P1))
 		return self
 
 	Func getIncludes
-		return dnRequest("get",[self,"Includes"])
+		return dnSend("s3:get",nHandle,"s8:Includes","")
 
 	Func setIncludes P1
 		raise("DotNet Error: Includes is a read-only property")
 
 	Func getItems
-		return dnRequest("get",[self,"Items"])
+		return dnSend("s3:get",nHandle,"s5:Items","")
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getIsCompiled
-		return dnRequest("get",[self,"IsCompiled"])
+		return dnSend("s3:get",nHandle,"s10:IsCompiled","")
 
 	Func setIsCompiled P1
 		raise("DotNet Error: IsCompiled is a read-only property")
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnSend("s3:get",nHandle,"s10:Attributes","")
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAttributeGroups
-		return dnRequest("get",[self,"AttributeGroups"])
+		return dnSend("s3:get",nHandle,"s15:AttributeGroups","")
 
 	Func setAttributeGroups P1
 		raise("DotNet Error: AttributeGroups is a read-only property")
 
 	Func getSchemaTypes
-		return dnRequest("get",[self,"SchemaTypes"])
+		return dnSend("s3:get",nHandle,"s11:SchemaTypes","")
 
 	Func setSchemaTypes P1
 		raise("DotNet Error: SchemaTypes is a read-only property")
 
 	Func getElements
-		return dnRequest("get",[self,"Elements"])
+		return dnSend("s3:get",nHandle,"s8:Elements","")
 
 	Func setElements P1
 		raise("DotNet Error: Elements is a read-only property")
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnSend("s3:get",nHandle,"s2:Id","")
 
 	Func setId P1
-		dnRequest("set",[self,"Id",P1])
+		dnSend("s3:set",nHandle,"s2:Id",dnPackItem(P1))
 		return self
 
 	Func getUnhandledAttributes
-		return dnRequest("get",[self,"UnhandledAttributes"])
+		return dnSend("s3:get",nHandle,"s19:UnhandledAttributes","")
 
 	Func setUnhandledAttributes P1
-		dnRequest("set",[self,"UnhandledAttributes",P1])
+		dnSend("s3:set",nHandle,"s19:UnhandledAttributes",dnPackItem(P1))
 		return self
 
 	Func getGroups
-		return dnRequest("get",[self,"Groups"])
+		return dnSend("s3:get",nHandle,"s6:Groups","")
 
 	Func setGroups P1
 		raise("DotNet Error: Groups is a read-only property")
 
 	Func getNotations
-		return dnRequest("get",[self,"Notations"])
+		return dnSend("s3:get",nHandle,"s9:Notations","")
 
 	Func setNotations P1
 		raise("DotNet Error: Notations is a read-only property")
 
 	Func getNamespace
-		return dnRequest("get",[dnTypeCached('System.Xml.Schema.XmlSchema, System.Private.Xml'),"Namespace"])
+		return dnSend("s3:get",dnTypeCached('System.Xml.Schema.XmlSchema, System.Private.Xml').nHandle,"s9:Namespace","")
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getInstanceNamespace
-		return dnRequest("get",[dnTypeCached('System.Xml.Schema.XmlSchema, System.Private.Xml'),"InstanceNamespace"])
+		return dnSend("s3:get",dnTypeCached('System.Xml.Schema.XmlSchema, System.Private.Xml').nHandle,"s17:InstanceNamespace","")
 
 	Func setInstanceNamespace P1
 		raise("DotNet Error: InstanceNamespace is a read-only property")
@@ -1484,24 +1484,24 @@ Class XmlSchemaAnnotated from XmlSchemaObject
 		return self
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnSend("s3:get",nHandle,"s2:Id","")
 
 	Func setId P1
-		dnRequest("set",[self,"Id",P1])
+		dnSend("s3:set",nHandle,"s2:Id",dnPackItem(P1))
 		return self
 
 	Func getAnnotation
-		return dnRequest("get",[self,"Annotation"])
+		return dnSend("s3:get",nHandle,"s10:Annotation","")
 
 	Func setAnnotation P1
-		dnRequest("set",[self,"Annotation",P1])
+		dnSend("s3:set",nHandle,"s10:Annotation",dnPackItem(P1))
 		return self
 
 	Func getUnhandledAttributes
-		return dnRequest("get",[self,"UnhandledAttributes"])
+		return dnSend("s3:get",nHandle,"s19:UnhandledAttributes","")
 
 	Func setUnhandledAttributes P1
-		dnRequest("set",[self,"UnhandledAttributes",P1])
+		dnSend("s3:set",nHandle,"s19:UnhandledAttributes",dnPackItem(P1))
 		return self
 
 
@@ -1534,23 +1534,23 @@ Class XmlSchemaAnnotation from XmlSchemaObject
 		return self
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnSend("s3:get",nHandle,"s2:Id","")
 
 	Func setId P1
-		dnRequest("set",[self,"Id",P1])
+		dnSend("s3:set",nHandle,"s2:Id",dnPackItem(P1))
 		return self
 
 	Func getItems
-		return dnRequest("get",[self,"Items"])
+		return dnSend("s3:get",nHandle,"s5:Items","")
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getUnhandledAttributes
-		return dnRequest("get",[self,"UnhandledAttributes"])
+		return dnSend("s3:get",nHandle,"s19:UnhandledAttributes","")
 
 	Func setUnhandledAttributes P1
-		dnRequest("set",[self,"UnhandledAttributes",P1])
+		dnSend("s3:set",nHandle,"s19:UnhandledAttributes",dnPackItem(P1))
 		return self
 
 
@@ -1582,17 +1582,17 @@ Class XmlSchemaAppInfo from XmlSchemaObject
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1))
 		return self
 
 	Func getMarkup
-		return dnRequest("get",[self,"Markup"])
+		return dnSend("s3:get",nHandle,"s6:Markup","")
 
 	Func setMarkup P1
-		dnRequest("set",[self,"Markup",P1])
+		dnSend("s3:set",nHandle,"s6:Markup",dnPackItem(P1))
 		return self
 
 
@@ -1625,24 +1625,24 @@ Class XmlSchemaDocumentation from XmlSchemaObject
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1))
 		return self
 
 	Func getLanguage
-		return dnRequest("get",[self,"Language"])
+		return dnSend("s3:get",nHandle,"s8:Language","")
 
 	Func setLanguage P1
-		dnRequest("set",[self,"Language",P1])
+		dnSend("s3:set",nHandle,"s8:Language",dnPackItem(P1))
 		return self
 
 	Func getMarkup
-		return dnRequest("get",[self,"Markup"])
+		return dnSend("s3:get",nHandle,"s6:Markup","")
 
 	Func setMarkup P1
-		dnRequest("set",[self,"Markup",P1])
+		dnSend("s3:set",nHandle,"s6:Markup",dnPackItem(P1))
 		return self
 
 
@@ -1663,31 +1663,31 @@ Class XmlSchemaExternal from XmlSchemaObject
 		return self
 
 	Func getSchemaLocation
-		return dnRequest("get",[self,"SchemaLocation"])
+		return dnSend("s3:get",nHandle,"s14:SchemaLocation","")
 
 	Func setSchemaLocation P1
-		dnRequest("set",[self,"SchemaLocation",P1])
+		dnSend("s3:set",nHandle,"s14:SchemaLocation",dnPackItem(P1))
 		return self
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnSend("s3:get",nHandle,"s6:Schema","")
 
 	Func setSchema P1
-		dnRequest("set",[self,"Schema",P1])
+		dnSend("s3:set",nHandle,"s6:Schema",dnPackItem(P1))
 		return self
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnSend("s3:get",nHandle,"s2:Id","")
 
 	Func setId P1
-		dnRequest("set",[self,"Id",P1])
+		dnSend("s3:set",nHandle,"s2:Id",dnPackItem(P1))
 		return self
 
 	Func getUnhandledAttributes
-		return dnRequest("get",[self,"UnhandledAttributes"])
+		return dnSend("s3:get",nHandle,"s19:UnhandledAttributes","")
 
 	Func setUnhandledAttributes P1
-		dnRequest("set",[self,"UnhandledAttributes",P1])
+		dnSend("s3:set",nHandle,"s19:UnhandledAttributes",dnPackItem(P1))
 		return self
 
 
@@ -1719,17 +1719,17 @@ Class XmlSchemaAnyAttribute from XmlSchemaAnnotated
 		return self
 
 	Func getNamespace
-		return dnRequest("get",[self,"Namespace"])
+		return dnSend("s3:get",nHandle,"s9:Namespace","")
 
 	Func setNamespace P1
-		dnRequest("set",[self,"Namespace",P1])
+		dnSend("s3:set",nHandle,"s9:Namespace",dnPackItem(P1))
 		return self
 
 	Func getProcessContents
-		return dnRequest("get",[self,"ProcessContents"])
+		return dnSend("s3:get",nHandle,"s15:ProcessContents","")
 
 	Func setProcessContents P1
-		dnRequest("set",[self,"ProcessContents",P1])
+		dnSend("s3:set",nHandle,"s15:ProcessContents",dnPackItem(P1))
 		return self
 
 
@@ -1770,75 +1770,75 @@ Class XmlSchemaAttribute from XmlSchemaAnnotated
 		return self
 
 	Func getDefaultValue
-		return dnRequest("get",[self,"DefaultValue"])
+		return dnSend("s3:get",nHandle,"s12:DefaultValue","")
 
 	Func setDefaultValue P1
-		dnRequest("set",[self,"DefaultValue",P1])
+		dnSend("s3:set",nHandle,"s12:DefaultValue",dnPackItem(P1))
 		return self
 
 	Func getFixedValue
-		return dnRequest("get",[self,"FixedValue"])
+		return dnSend("s3:get",nHandle,"s10:FixedValue","")
 
 	Func setFixedValue P1
-		dnRequest("set",[self,"FixedValue",P1])
+		dnSend("s3:set",nHandle,"s10:FixedValue",dnPackItem(P1))
 		return self
 
 	Func getForm
-		return dnRequest("get",[self,"Form"])
+		return dnSend("s3:get",nHandle,"s4:Form","")
 
 	Func setForm P1
-		dnRequest("set",[self,"Form",P1])
+		dnSend("s3:set",nHandle,"s4:Form",dnPackItem(P1))
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
 		return self
 
 	Func getRefName
-		return dnRequest("get",[self,"RefName"])
+		return dnSend("s3:get",nHandle,"s7:RefName","")
 
 	Func setRefName P1
-		dnRequest("set",[self,"RefName",P1])
+		dnSend("s3:set",nHandle,"s7:RefName",dnPackItem(P1))
 		return self
 
 	Func getSchemaTypeName
-		return dnRequest("get",[self,"SchemaTypeName"])
+		return dnSend("s3:get",nHandle,"s14:SchemaTypeName","")
 
 	Func setSchemaTypeName P1
-		dnRequest("set",[self,"SchemaTypeName",P1])
+		dnSend("s3:set",nHandle,"s14:SchemaTypeName",dnPackItem(P1))
 		return self
 
 	Func getSchemaType
-		return dnRequest("get",[self,"SchemaType"])
+		return dnSend("s3:get",nHandle,"s10:SchemaType","")
 
 	Func setSchemaType P1
-		dnRequest("set",[self,"SchemaType",P1])
+		dnSend("s3:set",nHandle,"s10:SchemaType",dnPackItem(P1))
 		return self
 
 	Func getUse
-		return dnRequest("get",[self,"Use"])
+		return dnSend("s3:get",nHandle,"s3:Use","")
 
 	Func setUse P1
-		dnRequest("set",[self,"Use",P1])
+		dnSend("s3:set",nHandle,"s3:Use",dnPackItem(P1))
 		return self
 
 	Func getQualifiedName
-		return dnRequest("get",[self,"QualifiedName"])
+		return dnSend("s3:get",nHandle,"s13:QualifiedName","")
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")
 
 	Func getAttributeType
-		return dnRequest("get",[self,"AttributeType"])
+		return dnSend("s3:get",nHandle,"s13:AttributeType","")
 
 	Func setAttributeType P1
 		raise("DotNet Error: AttributeType is a read-only property")
 
 	Func getAttributeSchemaType
-		return dnRequest("get",[self,"AttributeSchemaType"])
+		return dnSend("s3:get",nHandle,"s19:AttributeSchemaType","")
 
 	Func setAttributeSchemaType P1
 		raise("DotNet Error: AttributeSchemaType is a read-only property")
@@ -1875,33 +1875,33 @@ Class XmlSchemaAttributeGroup from XmlSchemaAnnotated
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
 		return self
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnSend("s3:get",nHandle,"s10:Attributes","")
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAnyAttribute
-		return dnRequest("get",[self,"AnyAttribute"])
+		return dnSend("s3:get",nHandle,"s12:AnyAttribute","")
 
 	Func setAnyAttribute P1
-		dnRequest("set",[self,"AnyAttribute",P1])
+		dnSend("s3:set",nHandle,"s12:AnyAttribute",dnPackItem(P1))
 		return self
 
 	Func getQualifiedName
-		return dnRequest("get",[self,"QualifiedName"])
+		return dnSend("s3:get",nHandle,"s13:QualifiedName","")
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")
 
 	Func getRedefinedAttributeGroup
-		return dnRequest("get",[self,"RedefinedAttributeGroup"])
+		return dnSend("s3:get",nHandle,"s23:RedefinedAttributeGroup","")
 
 	Func setRedefinedAttributeGroup P1
 		raise("DotNet Error: RedefinedAttributeGroup is a read-only property")
@@ -1934,10 +1934,10 @@ Class XmlSchemaAttributeGroupRef from XmlSchemaAnnotated
 		return self
 
 	Func getRefName
-		return dnRequest("get",[self,"RefName"])
+		return dnSend("s3:get",nHandle,"s7:RefName","")
 
 	Func setRefName P1
-		dnRequest("set",[self,"RefName",P1])
+		dnSend("s3:set",nHandle,"s7:RefName",dnPackItem(P1))
 		return self
 
 
@@ -1967,10 +1967,10 @@ Class XmlSchemaContentModel from XmlSchemaAnnotated
 		return self
 
 	Func getContent
-		return dnRequest("get",[self,"Content"])
+		return dnSend("s3:get",nHandle,"s7:Content","")
 
 	Func setContent P1
-		dnRequest("set",[self,"Content",P1])
+		dnSend("s3:set",nHandle,"s7:Content",dnPackItem(P1))
 		return self
 
 
@@ -1989,17 +1989,17 @@ Class XmlSchemaFacet from XmlSchemaAnnotated
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getIsFixed
-		return dnRequest("get",[self,"IsFixed"])
+		return dnSend("s3:get",nHandle,"s7:IsFixed","")
 
 	Func setIsFixed P1
-		dnRequest("set",[self,"IsFixed",P1])
+		dnSend("s3:set",nHandle,"s7:IsFixed",dnPackItem(P1))
 		return self
 
 
@@ -2032,21 +2032,21 @@ Class XmlSchemaGroup from XmlSchemaAnnotated
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
 		return self
 
 	Func getParticle
-		return dnRequest("get",[self,"Particle"])
+		return dnSend("s3:get",nHandle,"s8:Particle","")
 
 	Func setParticle P1
-		dnRequest("set",[self,"Particle",P1])
+		dnSend("s3:set",nHandle,"s8:Particle",dnPackItem(P1))
 		return self
 
 	Func getQualifiedName
-		return dnRequest("get",[self,"QualifiedName"])
+		return dnSend("s3:get",nHandle,"s13:QualifiedName","")
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")
@@ -2082,27 +2082,27 @@ Class XmlSchemaIdentityConstraint from XmlSchemaAnnotated
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
 		return self
 
 	Func getSelector
-		return dnRequest("get",[self,"Selector"])
+		return dnSend("s3:get",nHandle,"s8:Selector","")
 
 	Func setSelector P1
-		dnRequest("set",[self,"Selector",P1])
+		dnSend("s3:set",nHandle,"s8:Selector",dnPackItem(P1))
 		return self
 
 	Func getFields
-		return dnRequest("get",[self,"Fields"])
+		return dnSend("s3:get",nHandle,"s6:Fields","")
 
 	Func setFields P1
 		raise("DotNet Error: Fields is a read-only property")
 
 	Func getQualifiedName
-		return dnRequest("get",[self,"QualifiedName"])
+		return dnSend("s3:get",nHandle,"s13:QualifiedName","")
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")
@@ -2136,17 +2136,17 @@ Class XmlSchemaImport from XmlSchemaExternal
 		return self
 
 	Func getNamespace
-		return dnRequest("get",[self,"Namespace"])
+		return dnSend("s3:get",nHandle,"s9:Namespace","")
 
 	Func setNamespace P1
-		dnRequest("set",[self,"Namespace",P1])
+		dnSend("s3:set",nHandle,"s9:Namespace",dnPackItem(P1))
 		return self
 
 	Func getAnnotation
-		return dnRequest("get",[self,"Annotation"])
+		return dnSend("s3:get",nHandle,"s10:Annotation","")
 
 	Func setAnnotation P1
-		dnRequest("set",[self,"Annotation",P1])
+		dnSend("s3:set",nHandle,"s10:Annotation",dnPackItem(P1))
 		return self
 
 
@@ -2177,10 +2177,10 @@ Class XmlSchemaInclude from XmlSchemaExternal
 		return self
 
 	Func getAnnotation
-		return dnRequest("get",[self,"Annotation"])
+		return dnSend("s3:get",nHandle,"s10:Annotation","")
 
 	Func setAnnotation P1
-		dnRequest("set",[self,"Annotation",P1])
+		dnSend("s3:set",nHandle,"s10:Annotation",dnPackItem(P1))
 		return self
 
 
@@ -2213,24 +2213,24 @@ Class XmlSchemaNotation from XmlSchemaAnnotated
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
 		return self
 
 	Func getPublic
-		return dnRequest("get",[self,"Public"])
+		return dnSend("s3:get",nHandle,"s6:Public","")
 
 	Func setPublic P1
-		dnRequest("set",[self,"Public",P1])
+		dnSend("s3:set",nHandle,"s6:Public",dnPackItem(P1))
 		return self
 
 	Func getSystem
-		return dnRequest("get",[self,"System"])
+		return dnSend("s3:get",nHandle,"s6:System","")
 
 	Func setSystem P1
-		dnRequest("set",[self,"System",P1])
+		dnSend("s3:set",nHandle,"s6:System",dnPackItem(P1))
 		return self
 
 
@@ -2251,31 +2251,31 @@ Class XmlSchemaParticle from XmlSchemaAnnotated
 		return self
 
 	Func getMinOccursString
-		return dnRequest("get",[self,"MinOccursString"])
+		return dnSend("s3:get",nHandle,"s15:MinOccursString","")
 
 	Func setMinOccursString P1
-		dnRequest("set",[self,"MinOccursString",P1])
+		dnSend("s3:set",nHandle,"s15:MinOccursString",dnPackItem(P1))
 		return self
 
 	Func getMaxOccursString
-		return dnRequest("get",[self,"MaxOccursString"])
+		return dnSend("s3:get",nHandle,"s15:MaxOccursString","")
 
 	Func setMaxOccursString P1
-		dnRequest("set",[self,"MaxOccursString",P1])
+		dnSend("s3:set",nHandle,"s15:MaxOccursString",dnPackItem(P1))
 		return self
 
 	Func getMinOccurs
-		return dnRequest("get",[self,"MinOccurs"])
+		return dnSend("s3:get",nHandle,"s9:MinOccurs","")
 
 	Func setMinOccurs P1
-		dnRequest("set",[self,"MinOccurs",P1])
+		dnSend("s3:set",nHandle,"s9:MinOccurs",dnPackItem(P1))
 		return self
 
 	Func getMaxOccurs
-		return dnRequest("get",[self,"MaxOccurs"])
+		return dnSend("s3:get",nHandle,"s9:MaxOccurs","")
 
 	Func setMaxOccurs P1
-		dnRequest("set",[self,"MaxOccurs",P1])
+		dnSend("s3:set",nHandle,"s9:MaxOccurs",dnPackItem(P1))
 		return self
 
 
@@ -2309,25 +2309,25 @@ Class XmlSchemaRedefine from XmlSchemaExternal
 		return self
 
 	Func getItems
-		return dnRequest("get",[self,"Items"])
+		return dnSend("s3:get",nHandle,"s5:Items","")
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getAttributeGroups
-		return dnRequest("get",[self,"AttributeGroups"])
+		return dnSend("s3:get",nHandle,"s15:AttributeGroups","")
 
 	Func setAttributeGroups P1
 		raise("DotNet Error: AttributeGroups is a read-only property")
 
 	Func getSchemaTypes
-		return dnRequest("get",[self,"SchemaTypes"])
+		return dnSend("s3:get",nHandle,"s11:SchemaTypes","")
 
 	Func setSchemaTypes P1
 		raise("DotNet Error: SchemaTypes is a read-only property")
 
 	Func getGroups
-		return dnRequest("get",[self,"Groups"])
+		return dnSend("s3:get",nHandle,"s6:Groups","")
 
 	Func setGroups P1
 		raise("DotNet Error: Groups is a read-only property")
@@ -2381,73 +2381,73 @@ Class XmlSchemaType from XmlSchemaAnnotated
 		return self
 
 	Func GetBuiltInSimpleType P1
-		return dnRequest("call",[dnTypeCached('System.Xml.Schema.XmlSchemaType, System.Private.Xml'),"GetBuiltInSimpleType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.Schema.XmlSchemaType, System.Private.Xml').nHandle,"s20:GetBuiltInSimpleType",dnPackItem(P1))
 
 	Func GetBuiltInComplexType P1
-		return dnRequest("call",[dnTypeCached('System.Xml.Schema.XmlSchemaType, System.Private.Xml'),"GetBuiltInComplexType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.Schema.XmlSchemaType, System.Private.Xml').nHandle,"s21:GetBuiltInComplexType",dnPackItem(P1))
 
 	Func IsDerivedFrom P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Xml.Schema.XmlSchemaType, System.Private.Xml'),"IsDerivedFrom",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Xml.Schema.XmlSchemaType, System.Private.Xml').nHandle,"s13:IsDerivedFrom",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
 		return self
 
 	Func getFinal
-		return dnRequest("get",[self,"Final"])
+		return dnSend("s3:get",nHandle,"s5:Final","")
 
 	Func setFinal P1
-		dnRequest("set",[self,"Final",P1])
+		dnSend("s3:set",nHandle,"s5:Final",dnPackItem(P1))
 		return self
 
 	Func getQualifiedName
-		return dnRequest("get",[self,"QualifiedName"])
+		return dnSend("s3:get",nHandle,"s13:QualifiedName","")
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")
 
 	Func getFinalResolved
-		return dnRequest("get",[self,"FinalResolved"])
+		return dnSend("s3:get",nHandle,"s13:FinalResolved","")
 
 	Func setFinalResolved P1
 		raise("DotNet Error: FinalResolved is a read-only property")
 
 	Func getBaseSchemaType
-		return dnRequest("get",[self,"BaseSchemaType"])
+		return dnSend("s3:get",nHandle,"s14:BaseSchemaType","")
 
 	Func setBaseSchemaType P1
 		raise("DotNet Error: BaseSchemaType is a read-only property")
 
 	Func getBaseXmlSchemaType
-		return dnRequest("get",[self,"BaseXmlSchemaType"])
+		return dnSend("s3:get",nHandle,"s17:BaseXmlSchemaType","")
 
 	Func setBaseXmlSchemaType P1
 		raise("DotNet Error: BaseXmlSchemaType is a read-only property")
 
 	Func getDerivedBy
-		return dnRequest("get",[self,"DerivedBy"])
+		return dnSend("s3:get",nHandle,"s9:DerivedBy","")
 
 	Func setDerivedBy P1
 		raise("DotNet Error: DerivedBy is a read-only property")
 
 	Func getDatatype
-		return dnRequest("get",[self,"Datatype"])
+		return dnSend("s3:get",nHandle,"s8:Datatype","")
 
 	Func setDatatype P1
 		raise("DotNet Error: Datatype is a read-only property")
 
 	Func getIsMixed
-		return dnRequest("get",[self,"IsMixed"])
+		return dnSend("s3:get",nHandle,"s7:IsMixed","")
 
 	Func setIsMixed P1
-		dnRequest("set",[self,"IsMixed",P1])
+		dnSend("s3:set",nHandle,"s7:IsMixed",dnPackItem(P1))
 		return self
 
 	Func getTypeCode
-		return dnRequest("get",[self,"TypeCode"])
+		return dnSend("s3:get",nHandle,"s8:TypeCode","")
 
 	Func setTypeCode P1
 		raise("DotNet Error: TypeCode is a read-only property")
@@ -2480,10 +2480,10 @@ Class XmlSchemaXPath from XmlSchemaAnnotated
 		return self
 
 	Func getXPath
-		return dnRequest("get",[self,"XPath"])
+		return dnSend("s3:get",nHandle,"s5:XPath","")
 
 	Func setXPath P1
-		dnRequest("set",[self,"XPath",P1])
+		dnSend("s3:set",nHandle,"s5:XPath",dnPackItem(P1))
 		return self
 
 
@@ -2515,17 +2515,17 @@ Class XmlSchemaAny from XmlSchemaParticle
 		return self
 
 	Func getNamespace
-		return dnRequest("get",[self,"Namespace"])
+		return dnSend("s3:get",nHandle,"s9:Namespace","")
 
 	Func setNamespace P1
-		dnRequest("set",[self,"Namespace",P1])
+		dnSend("s3:set",nHandle,"s9:Namespace",dnPackItem(P1))
 		return self
 
 	Func getProcessContents
-		return dnRequest("get",[self,"ProcessContents"])
+		return dnSend("s3:get",nHandle,"s15:ProcessContents","")
 
 	Func setProcessContents P1
-		dnRequest("set",[self,"ProcessContents",P1])
+		dnSend("s3:set",nHandle,"s15:ProcessContents",dnPackItem(P1))
 		return self
 
 
@@ -2556,10 +2556,10 @@ Class XmlSchemaComplexContent from XmlSchemaContentModel
 		return self
 
 	Func getIsMixed
-		return dnRequest("get",[self,"IsMixed"])
+		return dnSend("s3:get",nHandle,"s7:IsMixed","")
 
 	Func setIsMixed P1
-		dnRequest("set",[self,"IsMixed",P1])
+		dnSend("s3:set",nHandle,"s7:IsMixed",dnPackItem(P1))
 		return self
 
 
@@ -2593,30 +2593,30 @@ Class XmlSchemaComplexContentExtension from XmlSchemaContent
 		return self
 
 	Func getBaseTypeName
-		return dnRequest("get",[self,"BaseTypeName"])
+		return dnSend("s3:get",nHandle,"s12:BaseTypeName","")
 
 	Func setBaseTypeName P1
-		dnRequest("set",[self,"BaseTypeName",P1])
+		dnSend("s3:set",nHandle,"s12:BaseTypeName",dnPackItem(P1))
 		return self
 
 	Func getParticle
-		return dnRequest("get",[self,"Particle"])
+		return dnSend("s3:get",nHandle,"s8:Particle","")
 
 	Func setParticle P1
-		dnRequest("set",[self,"Particle",P1])
+		dnSend("s3:set",nHandle,"s8:Particle",dnPackItem(P1))
 		return self
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnSend("s3:get",nHandle,"s10:Attributes","")
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAnyAttribute
-		return dnRequest("get",[self,"AnyAttribute"])
+		return dnSend("s3:get",nHandle,"s12:AnyAttribute","")
 
 	Func setAnyAttribute P1
-		dnRequest("set",[self,"AnyAttribute",P1])
+		dnSend("s3:set",nHandle,"s12:AnyAttribute",dnPackItem(P1))
 		return self
 
 
@@ -2650,30 +2650,30 @@ Class XmlSchemaComplexContentRestriction from XmlSchemaContent
 		return self
 
 	Func getBaseTypeName
-		return dnRequest("get",[self,"BaseTypeName"])
+		return dnSend("s3:get",nHandle,"s12:BaseTypeName","")
 
 	Func setBaseTypeName P1
-		dnRequest("set",[self,"BaseTypeName",P1])
+		dnSend("s3:set",nHandle,"s12:BaseTypeName",dnPackItem(P1))
 		return self
 
 	Func getParticle
-		return dnRequest("get",[self,"Particle"])
+		return dnSend("s3:get",nHandle,"s8:Particle","")
 
 	Func setParticle P1
-		dnRequest("set",[self,"Particle",P1])
+		dnSend("s3:set",nHandle,"s8:Particle",dnPackItem(P1))
 		return self
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnSend("s3:get",nHandle,"s10:Attributes","")
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAnyAttribute
-		return dnRequest("get",[self,"AnyAttribute"])
+		return dnSend("s3:get",nHandle,"s12:AnyAttribute","")
 
 	Func setAnyAttribute P1
-		dnRequest("set",[self,"AnyAttribute",P1])
+		dnSend("s3:set",nHandle,"s12:AnyAttribute",dnPackItem(P1))
 		return self
 
 
@@ -2714,72 +2714,72 @@ Class XmlSchemaComplexType from XmlSchemaType
 		return self
 
 	Func getIsAbstract
-		return dnRequest("get",[self,"IsAbstract"])
+		return dnSend("s3:get",nHandle,"s10:IsAbstract","")
 
 	Func setIsAbstract P1
-		dnRequest("set",[self,"IsAbstract",P1])
+		dnSend("s3:set",nHandle,"s10:IsAbstract",dnPackItem(P1))
 		return self
 
 	Func getBlock
-		return dnRequest("get",[self,"Block"])
+		return dnSend("s3:get",nHandle,"s5:Block","")
 
 	Func setBlock P1
-		dnRequest("set",[self,"Block",P1])
+		dnSend("s3:set",nHandle,"s5:Block",dnPackItem(P1))
 		return self
 
 	Func getContentModel
-		return dnRequest("get",[self,"ContentModel"])
+		return dnSend("s3:get",nHandle,"s12:ContentModel","")
 
 	Func setContentModel P1
-		dnRequest("set",[self,"ContentModel",P1])
+		dnSend("s3:set",nHandle,"s12:ContentModel",dnPackItem(P1))
 		return self
 
 	Func getParticle
-		return dnRequest("get",[self,"Particle"])
+		return dnSend("s3:get",nHandle,"s8:Particle","")
 
 	Func setParticle P1
-		dnRequest("set",[self,"Particle",P1])
+		dnSend("s3:set",nHandle,"s8:Particle",dnPackItem(P1))
 		return self
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnSend("s3:get",nHandle,"s10:Attributes","")
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAnyAttribute
-		return dnRequest("get",[self,"AnyAttribute"])
+		return dnSend("s3:get",nHandle,"s12:AnyAttribute","")
 
 	Func setAnyAttribute P1
-		dnRequest("set",[self,"AnyAttribute",P1])
+		dnSend("s3:set",nHandle,"s12:AnyAttribute",dnPackItem(P1))
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnSend("s3:get",nHandle,"s11:ContentType","")
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getContentTypeParticle
-		return dnRequest("get",[self,"ContentTypeParticle"])
+		return dnSend("s3:get",nHandle,"s19:ContentTypeParticle","")
 
 	Func setContentTypeParticle P1
 		raise("DotNet Error: ContentTypeParticle is a read-only property")
 
 	Func getBlockResolved
-		return dnRequest("get",[self,"BlockResolved"])
+		return dnSend("s3:get",nHandle,"s13:BlockResolved","")
 
 	Func setBlockResolved P1
 		raise("DotNet Error: BlockResolved is a read-only property")
 
 	Func getAttributeUses
-		return dnRequest("get",[self,"AttributeUses"])
+		return dnSend("s3:get",nHandle,"s13:AttributeUses","")
 
 	Func setAttributeUses P1
 		raise("DotNet Error: AttributeUses is a read-only property")
 
 	Func getAttributeWildcard
-		return dnRequest("get",[self,"AttributeWildcard"])
+		return dnSend("s3:get",nHandle,"s17:AttributeWildcard","")
 
 	Func setAttributeWildcard P1
 		raise("DotNet Error: AttributeWildcard is a read-only property")
@@ -2829,121 +2829,121 @@ Class XmlSchemaElement from XmlSchemaParticle
 		return self
 
 	Func getIsAbstract
-		return dnRequest("get",[self,"IsAbstract"])
+		return dnSend("s3:get",nHandle,"s10:IsAbstract","")
 
 	Func setIsAbstract P1
-		dnRequest("set",[self,"IsAbstract",P1])
+		dnSend("s3:set",nHandle,"s10:IsAbstract",dnPackItem(P1))
 		return self
 
 	Func getBlock
-		return dnRequest("get",[self,"Block"])
+		return dnSend("s3:get",nHandle,"s5:Block","")
 
 	Func setBlock P1
-		dnRequest("set",[self,"Block",P1])
+		dnSend("s3:set",nHandle,"s5:Block",dnPackItem(P1))
 		return self
 
 	Func getDefaultValue
-		return dnRequest("get",[self,"DefaultValue"])
+		return dnSend("s3:get",nHandle,"s12:DefaultValue","")
 
 	Func setDefaultValue P1
-		dnRequest("set",[self,"DefaultValue",P1])
+		dnSend("s3:set",nHandle,"s12:DefaultValue",dnPackItem(P1))
 		return self
 
 	Func getFinal
-		return dnRequest("get",[self,"Final"])
+		return dnSend("s3:get",nHandle,"s5:Final","")
 
 	Func setFinal P1
-		dnRequest("set",[self,"Final",P1])
+		dnSend("s3:set",nHandle,"s5:Final",dnPackItem(P1))
 		return self
 
 	Func getFixedValue
-		return dnRequest("get",[self,"FixedValue"])
+		return dnSend("s3:get",nHandle,"s10:FixedValue","")
 
 	Func setFixedValue P1
-		dnRequest("set",[self,"FixedValue",P1])
+		dnSend("s3:set",nHandle,"s10:FixedValue",dnPackItem(P1))
 		return self
 
 	Func getForm
-		return dnRequest("get",[self,"Form"])
+		return dnSend("s3:get",nHandle,"s4:Form","")
 
 	Func setForm P1
-		dnRequest("set",[self,"Form",P1])
+		dnSend("s3:set",nHandle,"s4:Form",dnPackItem(P1))
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
 		return self
 
 	Func getIsNillable
-		return dnRequest("get",[self,"IsNillable"])
+		return dnSend("s3:get",nHandle,"s10:IsNillable","")
 
 	Func setIsNillable P1
-		dnRequest("set",[self,"IsNillable",P1])
+		dnSend("s3:set",nHandle,"s10:IsNillable",dnPackItem(P1))
 		return self
 
 	Func getRefName
-		return dnRequest("get",[self,"RefName"])
+		return dnSend("s3:get",nHandle,"s7:RefName","")
 
 	Func setRefName P1
-		dnRequest("set",[self,"RefName",P1])
+		dnSend("s3:set",nHandle,"s7:RefName",dnPackItem(P1))
 		return self
 
 	Func getSubstitutionGroup
-		return dnRequest("get",[self,"SubstitutionGroup"])
+		return dnSend("s3:get",nHandle,"s17:SubstitutionGroup","")
 
 	Func setSubstitutionGroup P1
-		dnRequest("set",[self,"SubstitutionGroup",P1])
+		dnSend("s3:set",nHandle,"s17:SubstitutionGroup",dnPackItem(P1))
 		return self
 
 	Func getSchemaTypeName
-		return dnRequest("get",[self,"SchemaTypeName"])
+		return dnSend("s3:get",nHandle,"s14:SchemaTypeName","")
 
 	Func setSchemaTypeName P1
-		dnRequest("set",[self,"SchemaTypeName",P1])
+		dnSend("s3:set",nHandle,"s14:SchemaTypeName",dnPackItem(P1))
 		return self
 
 	Func getSchemaType
-		return dnRequest("get",[self,"SchemaType"])
+		return dnSend("s3:get",nHandle,"s10:SchemaType","")
 
 	Func setSchemaType P1
-		dnRequest("set",[self,"SchemaType",P1])
+		dnSend("s3:set",nHandle,"s10:SchemaType",dnPackItem(P1))
 		return self
 
 	Func getConstraints
-		return dnRequest("get",[self,"Constraints"])
+		return dnSend("s3:get",nHandle,"s11:Constraints","")
 
 	Func setConstraints P1
 		raise("DotNet Error: Constraints is a read-only property")
 
 	Func getQualifiedName
-		return dnRequest("get",[self,"QualifiedName"])
+		return dnSend("s3:get",nHandle,"s13:QualifiedName","")
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")
 
 	Func getElementType
-		return dnRequest("get",[self,"ElementType"])
+		return dnSend("s3:get",nHandle,"s11:ElementType","")
 
 	Func setElementType P1
 		raise("DotNet Error: ElementType is a read-only property")
 
 	Func getElementSchemaType
-		return dnRequest("get",[self,"ElementSchemaType"])
+		return dnSend("s3:get",nHandle,"s17:ElementSchemaType","")
 
 	Func setElementSchemaType P1
 		raise("DotNet Error: ElementSchemaType is a read-only property")
 
 	Func getBlockResolved
-		return dnRequest("get",[self,"BlockResolved"])
+		return dnSend("s3:get",nHandle,"s13:BlockResolved","")
 
 	Func setBlockResolved P1
 		raise("DotNet Error: BlockResolved is a read-only property")
 
 	Func getFinalResolved
-		return dnRequest("get",[self,"FinalResolved"])
+		return dnSend("s3:get",nHandle,"s13:FinalResolved","")
 
 	Func setFinalResolved P1
 		raise("DotNet Error: FinalResolved is a read-only property")
@@ -2988,7 +2988,7 @@ Class XmlSchemaGroupBase from XmlSchemaParticle
 		return self
 
 	Func getItems
-		return dnRequest("get",[self,"Items"])
+		return dnSend("s3:get",nHandle,"s5:Items","")
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
@@ -3022,14 +3022,14 @@ Class XmlSchemaGroupRef from XmlSchemaParticle
 		return self
 
 	Func getRefName
-		return dnRequest("get",[self,"RefName"])
+		return dnSend("s3:get",nHandle,"s7:RefName","")
 
 	Func setRefName P1
-		dnRequest("set",[self,"RefName",P1])
+		dnSend("s3:set",nHandle,"s7:RefName",dnPackItem(P1))
 		return self
 
 	Func getParticle
-		return dnRequest("get",[self,"Particle"])
+		return dnSend("s3:get",nHandle,"s8:Particle","")
 
 	Func setParticle P1
 		raise("DotNet Error: Particle is a read-only property")
@@ -3087,10 +3087,10 @@ Class XmlSchemaKeyref from XmlSchemaIdentityConstraint
 		return self
 
 	Func getRefer
-		return dnRequest("get",[self,"Refer"])
+		return dnSend("s3:get",nHandle,"s5:Refer","")
 
 	Func setRefer P1
-		dnRequest("set",[self,"Refer",P1])
+		dnSend("s3:set",nHandle,"s5:Refer",dnPackItem(P1))
 		return self
 
 
@@ -3285,23 +3285,23 @@ Class XmlSchemaSimpleContentExtension from XmlSchemaContent
 		return self
 
 	Func getBaseTypeName
-		return dnRequest("get",[self,"BaseTypeName"])
+		return dnSend("s3:get",nHandle,"s12:BaseTypeName","")
 
 	Func setBaseTypeName P1
-		dnRequest("set",[self,"BaseTypeName",P1])
+		dnSend("s3:set",nHandle,"s12:BaseTypeName",dnPackItem(P1))
 		return self
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnSend("s3:get",nHandle,"s10:Attributes","")
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAnyAttribute
-		return dnRequest("get",[self,"AnyAttribute"])
+		return dnSend("s3:get",nHandle,"s12:AnyAttribute","")
 
 	Func setAnyAttribute P1
-		dnRequest("set",[self,"AnyAttribute",P1])
+		dnSend("s3:set",nHandle,"s12:AnyAttribute",dnPackItem(P1))
 		return self
 
 
@@ -3336,36 +3336,36 @@ Class XmlSchemaSimpleContentRestriction from XmlSchemaContent
 		return self
 
 	Func getBaseTypeName
-		return dnRequest("get",[self,"BaseTypeName"])
+		return dnSend("s3:get",nHandle,"s12:BaseTypeName","")
 
 	Func setBaseTypeName P1
-		dnRequest("set",[self,"BaseTypeName",P1])
+		dnSend("s3:set",nHandle,"s12:BaseTypeName",dnPackItem(P1))
 		return self
 
 	Func getBaseType
-		return dnRequest("get",[self,"BaseType"])
+		return dnSend("s3:get",nHandle,"s8:BaseType","")
 
 	Func setBaseType P1
-		dnRequest("set",[self,"BaseType",P1])
+		dnSend("s3:set",nHandle,"s8:BaseType",dnPackItem(P1))
 		return self
 
 	Func getFacets
-		return dnRequest("get",[self,"Facets"])
+		return dnSend("s3:get",nHandle,"s6:Facets","")
 
 	Func setFacets P1
 		raise("DotNet Error: Facets is a read-only property")
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnSend("s3:get",nHandle,"s10:Attributes","")
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAnyAttribute
-		return dnRequest("get",[self,"AnyAttribute"])
+		return dnSend("s3:get",nHandle,"s12:AnyAttribute","")
 
 	Func setAnyAttribute P1
-		dnRequest("set",[self,"AnyAttribute",P1])
+		dnSend("s3:set",nHandle,"s12:AnyAttribute",dnPackItem(P1))
 		return self
 
 
@@ -3396,10 +3396,10 @@ Class XmlSchemaSimpleType from XmlSchemaType
 		return self
 
 	Func getContent
-		return dnRequest("get",[self,"Content"])
+		return dnSend("s3:get",nHandle,"s7:Content","")
 
 	Func setContent P1
-		dnRequest("set",[self,"Content",P1])
+		dnSend("s3:set",nHandle,"s7:Content",dnPackItem(P1))
 		return self
 
 
@@ -3432,24 +3432,24 @@ Class XmlSchemaSimpleTypeList from XmlSchemaSimpleTypeContent
 		return self
 
 	Func getItemTypeName
-		return dnRequest("get",[self,"ItemTypeName"])
+		return dnSend("s3:get",nHandle,"s12:ItemTypeName","")
 
 	Func setItemTypeName P1
-		dnRequest("set",[self,"ItemTypeName",P1])
+		dnSend("s3:set",nHandle,"s12:ItemTypeName",dnPackItem(P1))
 		return self
 
 	Func getItemType
-		return dnRequest("get",[self,"ItemType"])
+		return dnSend("s3:get",nHandle,"s8:ItemType","")
 
 	Func setItemType P1
-		dnRequest("set",[self,"ItemType",P1])
+		dnSend("s3:set",nHandle,"s8:ItemType",dnPackItem(P1))
 		return self
 
 	Func getBaseItemType
-		return dnRequest("get",[self,"BaseItemType"])
+		return dnSend("s3:get",nHandle,"s12:BaseItemType","")
 
 	Func setBaseItemType P1
-		dnRequest("set",[self,"BaseItemType",P1])
+		dnSend("s3:set",nHandle,"s12:BaseItemType",dnPackItem(P1))
 		return self
 
 
@@ -3482,21 +3482,21 @@ Class XmlSchemaSimpleTypeRestriction from XmlSchemaSimpleTypeContent
 		return self
 
 	Func getBaseTypeName
-		return dnRequest("get",[self,"BaseTypeName"])
+		return dnSend("s3:get",nHandle,"s12:BaseTypeName","")
 
 	Func setBaseTypeName P1
-		dnRequest("set",[self,"BaseTypeName",P1])
+		dnSend("s3:set",nHandle,"s12:BaseTypeName",dnPackItem(P1))
 		return self
 
 	Func getBaseType
-		return dnRequest("get",[self,"BaseType"])
+		return dnSend("s3:get",nHandle,"s8:BaseType","")
 
 	Func setBaseType P1
-		dnRequest("set",[self,"BaseType",P1])
+		dnSend("s3:set",nHandle,"s8:BaseType",dnPackItem(P1))
 		return self
 
 	Func getFacets
-		return dnRequest("get",[self,"Facets"])
+		return dnSend("s3:get",nHandle,"s6:Facets","")
 
 	Func setFacets P1
 		raise("DotNet Error: Facets is a read-only property")
@@ -3531,20 +3531,20 @@ Class XmlSchemaSimpleTypeUnion from XmlSchemaSimpleTypeContent
 		return self
 
 	Func getBaseTypes
-		return dnRequest("get",[self,"BaseTypes"])
+		return dnSend("s3:get",nHandle,"s9:BaseTypes","")
 
 	Func setBaseTypes P1
 		raise("DotNet Error: BaseTypes is a read-only property")
 
 	Func getMemberTypes
-		return dnRequest("get",[self,"MemberTypes"])
+		return dnSend("s3:get",nHandle,"s11:MemberTypes","")
 
 	Func setMemberTypes P1
-		dnRequest("set",[self,"MemberTypes",P1])
+		dnSend("s3:set",nHandle,"s11:MemberTypes",dnPackItem(P1))
 		return self
 
 	Func getBaseMemberTypes
-		return dnRequest("get",[self,"BaseMemberTypes"])
+		return dnSend("s3:get",nHandle,"s15:BaseMemberTypes","")
 
 	Func setBaseMemberTypes P1
 		raise("DotNet Error: BaseMemberTypes is a read-only property")

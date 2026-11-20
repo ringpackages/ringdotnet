@@ -257,7 +257,7 @@ Class IHasXmlNode from DotNetObject
 		return self
 
 	Func GetNode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNode"])
+		return dnSend("s4:call",nHandle,"s7:GetNode","")
 
 
 Class IXmlLineInfo from DotNetObject
@@ -275,16 +275,16 @@ Class IXmlLineInfo from DotNetObject
 		return self
 
 	Func HasLineInfo 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasLineInfo"])
+		return dnSend("s4:call",nHandle,"s11:HasLineInfo","")
 
 	Func getLineNumber
-		return dnRequest("get",[self,"LineNumber"])
+		return dnSend("s3:get",nHandle,"s10:LineNumber","")
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getLinePosition
-		return dnRequest("get",[self,"LinePosition"])
+		return dnSend("s3:get",nHandle,"s12:LinePosition","")
 
 	Func setLinePosition P1
 		raise("DotNet Error: LinePosition is a read-only property")
@@ -302,13 +302,13 @@ Class IXmlNamespaceResolver from DotNetObject
 		return self
 
 	Func GetNamespacesInScope P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNamespacesInScope",P1])
+		return dnSend("s4:call",nHandle,"s20:GetNamespacesInScope",dnPackItem(P1))
 
 	Func LookupNamespace P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LookupNamespace",P1])
+		return dnSend("s4:call",nHandle,"s15:LookupNamespace",dnPackItem(P1))
 
 	Func LookupPrefix P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LookupPrefix",P1])
+		return dnSend("s4:call",nHandle,"s12:LookupPrefix",dnPackItem(P1))
 
 
 Class XmlConvert from Object
@@ -338,122 +338,122 @@ Class XmlConvert from Object
 	Func Format P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToString",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s8:ToString",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToString",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func EncodeName P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"EncodeName",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s10:EncodeName",dnPackItem(P1))
 
 	Func EncodeNmToken P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"EncodeNmToken",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s13:EncodeNmToken",dnPackItem(P1))
 
 	Func EncodeLocalName P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"EncodeLocalName",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s15:EncodeLocalName",dnPackItem(P1))
 
 	Func DecodeName P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"DecodeName",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s10:DecodeName",dnPackItem(P1))
 
 	Func VerifyName P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"VerifyName",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s10:VerifyName",dnPackItem(P1))
 
 	Func VerifyNCName P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"VerifyNCName",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s12:VerifyNCName",dnPackItem(P1))
 
 	Func VerifyTOKEN P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"VerifyTOKEN",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s11:VerifyTOKEN",dnPackItem(P1))
 
 	Func VerifyNMTOKEN P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"VerifyNMTOKEN",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s13:VerifyNMTOKEN",dnPackItem(P1))
 
 	Func VerifyXmlChars P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"VerifyXmlChars",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s14:VerifyXmlChars",dnPackItem(P1))
 
 	Func VerifyPublicId P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"VerifyPublicId",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s14:VerifyPublicId",dnPackItem(P1))
 
 	Func VerifyWhitespace P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"VerifyWhitespace",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s16:VerifyWhitespace",dnPackItem(P1))
 
 	Func IsStartNCNameChar P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"IsStartNCNameChar",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s17:IsStartNCNameChar",dnPackItem(P1))
 
 	Func IsNCNameChar P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"IsNCNameChar",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s12:IsNCNameChar",dnPackItem(P1))
 
 	Func IsXmlChar P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"IsXmlChar",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s9:IsXmlChar",dnPackItem(P1))
 
 	Func IsXmlSurrogatePair P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"IsXmlSurrogatePair",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s18:IsXmlSurrogatePair",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsPublicIdChar P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"IsPublicIdChar",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s14:IsPublicIdChar",dnPackItem(P1))
 
 	Func IsWhitespaceChar P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"IsWhitespaceChar",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s16:IsWhitespaceChar",dnPackItem(P1))
 
 	Func ToBoolean P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToBoolean",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s9:ToBoolean",dnPackItem(P1))
 
 	Func ToChar P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToChar",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s6:ToChar",dnPackItem(P1))
 
 	Func ToDecimal P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDecimal",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s9:ToDecimal",dnPackItem(P1))
 
 	Func ToSByte P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToSByte",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s7:ToSByte",dnPackItem(P1))
 
 	Func ToInt16 P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToInt16",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s7:ToInt16",dnPackItem(P1))
 
 	Func ToInt32 P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToInt32",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s7:ToInt32",dnPackItem(P1))
 
 	Func ToInt64 P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToInt64",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s7:ToInt64",dnPackItem(P1))
 
 	Func ToByte P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToByte",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s6:ToByte",dnPackItem(P1))
 
 	Func ToUInt16 P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToUInt16",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s8:ToUInt16",dnPackItem(P1))
 
 	Func ToUInt32 P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToUInt32",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s8:ToUInt32",dnPackItem(P1))
 
 	Func ToUInt64 P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToUInt64",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s8:ToUInt64",dnPackItem(P1))
 
 	Func ToSingle P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToSingle",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s8:ToSingle",dnPackItem(P1))
 
 	Func ToDouble P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDouble",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s8:ToDouble",dnPackItem(P1))
 
 	Func ToTimeSpan P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToTimeSpan",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s10:ToTimeSpan",dnPackItem(P1))
 
 	Func ToDateTime P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTime",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s10:ToDateTime",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTime",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s10:ToDateTime",dnPackItem(P1))
 
 	Func ToDateTimeOffset P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTimeOffset",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s16:ToDateTimeOffset",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTimeOffset",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s16:ToDateTimeOffset",dnPackItem(P1))
 
 	Func ToGuid P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToGuid",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlConvert, System.Private.Xml').nHandle,"s6:ToGuid",dnPackItem(P1))
 
 
 Class XmlImplementation from Object
@@ -501,13 +501,13 @@ Class XmlImplementation from Object
 		return self
 
 	Func HasFeature P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasFeature",P1,P2])
+		return dnSend("s4:call",nHandle,"s10:HasFeature",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateDocument 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateDocument"])
+		return dnSend("s4:call",nHandle,"s14:CreateDocument","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class XmlNameTable from Object
@@ -523,18 +523,18 @@ Class XmlNameTable from Object
 
 	Func Get_ P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Get",P1])
+			return dnSend("s9:callnamed",nHandle,"s3:Get",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Get",P1])
+		return dnSend("s4:call",nHandle,"s3:Get",dnPackItem(P1))
 
 	Func Add P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Add",P1])
+			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class XmlNamedNodeMap from Object
@@ -552,30 +552,30 @@ Class XmlNamedNodeMap from Object
 
 	Func GetNamedItem P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetNamedItem",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:GetNamedItem",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNamedItem",P1])
+		return dnSend("s4:call",nHandle,"s12:GetNamedItem",dnPackItem(P1))
 
 	Func SetNamedItem P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SetNamedItem",P1])
+		return dnSend("s4:call",nHandle,"s12:SetNamedItem",dnPackItem(P1))
 
 	Func RemoveNamedItem P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RemoveNamedItem",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:RemoveNamedItem",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveNamedItem",P1])
+		return dnSend("s4:call",nHandle,"s15:RemoveNamedItem",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Item",P1])
+		return dnSend("s4:call",nHandle,"s4:Item",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -598,46 +598,46 @@ Class XmlNamespaceManager from Object
 		return self
 
 	Func PushScope 
-		dnRequest("call",[new DotNetObject(this.nHandle),"PushScope"])
+		dnSend("s4:call",nHandle,"s9:PushScope","")
 		return self
 
 	Func PopScope 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"PopScope"])
+		return dnSend("s4:call",nHandle,"s8:PopScope","")
 
 	Func AddNamespace P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddNamespace",P1,P2])
+		dnSend("s4:call",nHandle,"s12:AddNamespace",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveNamespace P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveNamespace",P1,P2])
+		dnSend("s4:call",nHandle,"s15:RemoveNamespace",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func GetNamespacesInScope P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNamespacesInScope",P1])
+		return dnSend("s4:call",nHandle,"s20:GetNamespacesInScope",dnPackItem(P1))
 
 	Func LookupNamespace P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LookupNamespace",P1])
+		return dnSend("s4:call",nHandle,"s15:LookupNamespace",dnPackItem(P1))
 
 	Func LookupPrefix P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LookupPrefix",P1])
+		return dnSend("s4:call",nHandle,"s12:LookupPrefix",dnPackItem(P1))
 
 	Func HasNamespace P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasNamespace",P1])
+		return dnSend("s4:call",nHandle,"s12:HasNamespace",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getNameTable
-		return dnRequest("get",[self,"NameTable"])
+		return dnSend("s3:get",nHandle,"s9:NameTable","")
 
 	Func setNameTable P1
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getDefaultNamespace
-		return dnRequest("get",[self,"DefaultNamespace"])
+		return dnSend("s3:get",nHandle,"s16:DefaultNamespace","")
 
 	Func setDefaultNamespace P1
 		raise("DotNet Error: DefaultNamespace is a read-only property")
@@ -678,210 +678,210 @@ Class XmlNode from Object
 		return self
 
 	Func CreateNavigator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateNavigator"])
+		return dnSend("s4:call",nHandle,"s15:CreateNavigator","")
 
 	Func SelectSingleNode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SelectSingleNode",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:SelectSingleNode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SelectSingleNode",P1])
+		return dnSend("s4:call",nHandle,"s16:SelectSingleNode",dnPackItem(P1))
 
 	Func SelectNodes P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SelectNodes",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:SelectNodes",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SelectNodes",P1])
+		return dnSend("s4:call",nHandle,"s11:SelectNodes",dnPackItem(P1))
 
 	Func InsertBefore P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InsertBefore",P1,P2])
+		return dnSend("s4:call",nHandle,"s12:InsertBefore",dnPackItem(P1) + dnPackItem(P2))
 
 	Func InsertAfter P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InsertAfter",P1,P2])
+		return dnSend("s4:call",nHandle,"s11:InsertAfter",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ReplaceChild P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReplaceChild",P1,P2])
+		return dnSend("s4:call",nHandle,"s12:ReplaceChild",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RemoveChild P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveChild",P1])
+		return dnSend("s4:call",nHandle,"s11:RemoveChild",dnPackItem(P1))
 
 	Func PrependChild P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"PrependChild",P1])
+		return dnSend("s4:call",nHandle,"s12:PrependChild",dnPackItem(P1))
 
 	Func AppendChild P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AppendChild",P1])
+		return dnSend("s4:call",nHandle,"s11:AppendChild",dnPackItem(P1))
 
 	Func CloneNode P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CloneNode",P1])
+		return dnSend("s4:call",nHandle,"s9:CloneNode",dnPackItem(P1))
 
 	Func Normalize 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Normalize"])
+		dnSend("s4:call",nHandle,"s9:Normalize","")
 		return self
 
 	Func Supports P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Supports",P1,P2])
+		return dnSend("s4:call",nHandle,"s8:Supports",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func WriteTo P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteTo",P1])
+		dnSend("s4:call",nHandle,"s7:WriteTo",dnPackItem(P1))
 		return self
 
 	Func WriteContentTo P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteContentTo",P1])
+		dnSend("s4:call",nHandle,"s14:WriteContentTo",dnPackItem(P1))
 		return self
 
 	Func RemoveAll 
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAll"])
+		dnSend("s4:call",nHandle,"s9:RemoveAll","")
 		return self
 
 	Func GetNamespaceOfPrefix P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNamespaceOfPrefix",P1])
+		return dnSend("s4:call",nHandle,"s20:GetNamespaceOfPrefix",dnPackItem(P1))
 
 	Func GetPrefixOfNamespace P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPrefixOfNamespace",P1])
+		return dnSend("s4:call",nHandle,"s20:GetPrefixOfNamespace",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 	Func getNodeType
-		return dnRequest("get",[self,"NodeType"])
+		return dnSend("s3:get",nHandle,"s8:NodeType","")
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getParentNode
-		return dnRequest("get",[self,"ParentNode"])
+		return dnSend("s3:get",nHandle,"s10:ParentNode","")
 
 	Func setParentNode P1
 		raise("DotNet Error: ParentNode is a read-only property")
 
 	Func getChildNodes
-		return dnRequest("get",[self,"ChildNodes"])
+		return dnSend("s3:get",nHandle,"s10:ChildNodes","")
 
 	Func setChildNodes P1
 		raise("DotNet Error: ChildNodes is a read-only property")
 
 	Func getPreviousSibling
-		return dnRequest("get",[self,"PreviousSibling"])
+		return dnSend("s3:get",nHandle,"s15:PreviousSibling","")
 
 	Func setPreviousSibling P1
 		raise("DotNet Error: PreviousSibling is a read-only property")
 
 	Func getNextSibling
-		return dnRequest("get",[self,"NextSibling"])
+		return dnSend("s3:get",nHandle,"s11:NextSibling","")
 
 	Func setNextSibling P1
 		raise("DotNet Error: NextSibling is a read-only property")
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnSend("s3:get",nHandle,"s10:Attributes","")
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getOwnerDocument
-		return dnRequest("get",[self,"OwnerDocument"])
+		return dnSend("s3:get",nHandle,"s13:OwnerDocument","")
 
 	Func setOwnerDocument P1
 		raise("DotNet Error: OwnerDocument is a read-only property")
 
 	Func getFirstChild
-		return dnRequest("get",[self,"FirstChild"])
+		return dnSend("s3:get",nHandle,"s10:FirstChild","")
 
 	Func setFirstChild P1
 		raise("DotNet Error: FirstChild is a read-only property")
 
 	Func getLastChild
-		return dnRequest("get",[self,"LastChild"])
+		return dnSend("s3:get",nHandle,"s9:LastChild","")
 
 	Func setLastChild P1
 		raise("DotNet Error: LastChild is a read-only property")
 
 	Func getHasChildNodes
-		return dnRequest("get",[self,"HasChildNodes"])
+		return dnSend("s3:get",nHandle,"s13:HasChildNodes","")
 
 	Func setHasChildNodes P1
 		raise("DotNet Error: HasChildNodes is a read-only property")
 
 	Func getNamespaceURI
-		return dnRequest("get",[self,"NamespaceURI"])
+		return dnSend("s3:get",nHandle,"s12:NamespaceURI","")
 
 	Func setNamespaceURI P1
 		raise("DotNet Error: NamespaceURI is a read-only property")
 
 	Func getPrefix
-		return dnRequest("get",[self,"Prefix"])
+		return dnSend("s3:get",nHandle,"s6:Prefix","")
 
 	Func setPrefix P1
-		dnRequest("set",[self,"Prefix",P1])
+		dnSend("s3:set",nHandle,"s6:Prefix",dnPackItem(P1))
 		return self
 
 	Func getLocalName
-		return dnRequest("get",[self,"LocalName"])
+		return dnSend("s3:get",nHandle,"s9:LocalName","")
 
 	Func setLocalName P1
 		raise("DotNet Error: LocalName is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getInnerText
-		return dnRequest("get",[self,"InnerText"])
+		return dnSend("s3:get",nHandle,"s9:InnerText","")
 
 	Func setInnerText P1
-		dnRequest("set",[self,"InnerText",P1])
+		dnSend("s3:set",nHandle,"s9:InnerText",dnPackItem(P1))
 		return self
 
 	Func getOuterXml
-		return dnRequest("get",[self,"OuterXml"])
+		return dnSend("s3:get",nHandle,"s8:OuterXml","")
 
 	Func setOuterXml P1
 		raise("DotNet Error: OuterXml is a read-only property")
 
 	Func getInnerXml
-		return dnRequest("get",[self,"InnerXml"])
+		return dnSend("s3:get",nHandle,"s8:InnerXml","")
 
 	Func setInnerXml P1
-		dnRequest("set",[self,"InnerXml",P1])
+		dnSend("s3:set",nHandle,"s8:InnerXml",dnPackItem(P1))
 		return self
 
 	Func getSchemaInfo
-		return dnRequest("get",[self,"SchemaInfo"])
+		return dnSend("s3:get",nHandle,"s10:SchemaInfo","")
 
 	Func setSchemaInfo P1
 		raise("DotNet Error: SchemaInfo is a read-only property")
 
 	Func getBaseURI
-		return dnRequest("get",[self,"BaseURI"])
+		return dnSend("s3:get",nHandle,"s7:BaseURI","")
 
 	Func setBaseURI P1
 		raise("DotNet Error: BaseURI is a read-only property")
 
 	Func getPreviousText
-		return dnRequest("get",[self,"PreviousText"])
+		return dnSend("s3:get",nHandle,"s12:PreviousText","")
 
 	Func setPreviousText P1
 		raise("DotNet Error: PreviousText is a read-only property")
@@ -908,37 +908,37 @@ Class XmlNodeChangedEventArgs from EventArgs
 		return self
 
 	Func getAction
-		return dnRequest("get",[self,"Action"])
+		return dnSend("s3:get",nHandle,"s6:Action","")
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
 
 	Func getNode
-		return dnRequest("get",[self,"Node"])
+		return dnSend("s3:get",nHandle,"s4:Node","")
 
 	Func setNode P1
 		raise("DotNet Error: Node is a read-only property")
 
 	Func getOldParent
-		return dnRequest("get",[self,"OldParent"])
+		return dnSend("s3:get",nHandle,"s9:OldParent","")
 
 	Func setOldParent P1
 		raise("DotNet Error: OldParent is a read-only property")
 
 	Func getNewParent
-		return dnRequest("get",[self,"NewParent"])
+		return dnSend("s3:get",nHandle,"s9:NewParent","")
 
 	Func setNewParent P1
 		raise("DotNet Error: NewParent is a read-only property")
 
 	Func getOldValue
-		return dnRequest("get",[self,"OldValue"])
+		return dnSend("s3:get",nHandle,"s8:OldValue","")
 
 	Func setOldValue P1
 		raise("DotNet Error: OldValue is a read-only property")
 
 	Func getNewValue
-		return dnRequest("get",[self,"NewValue"])
+		return dnSend("s3:get",nHandle,"s8:NewValue","")
 
 	Func setNewValue P1
 		raise("DotNet Error: NewValue is a read-only property")
@@ -958,16 +958,16 @@ Class XmlNodeList from Object
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Item",P1])
+		return dnSend("s4:call",nHandle,"s4:Item",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1013,76 +1013,76 @@ Class XmlParserContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getNameTable
-		return dnRequest("get",[self,"NameTable"])
+		return dnSend("s3:get",nHandle,"s9:NameTable","")
 
 	Func setNameTable P1
-		dnRequest("set",[self,"NameTable",P1])
+		dnSend("s3:set",nHandle,"s9:NameTable",dnPackItem(P1))
 		return self
 
 	Func getNamespaceManager
-		return dnRequest("get",[self,"NamespaceManager"])
+		return dnSend("s3:get",nHandle,"s16:NamespaceManager","")
 
 	Func setNamespaceManager P1
-		dnRequest("set",[self,"NamespaceManager",P1])
+		dnSend("s3:set",nHandle,"s16:NamespaceManager",dnPackItem(P1))
 		return self
 
 	Func getDocTypeName
-		return dnRequest("get",[self,"DocTypeName"])
+		return dnSend("s3:get",nHandle,"s11:DocTypeName","")
 
 	Func setDocTypeName P1
-		dnRequest("set",[self,"DocTypeName",P1])
+		dnSend("s3:set",nHandle,"s11:DocTypeName",dnPackItem(P1))
 		return self
 
 	Func getPublicId
-		return dnRequest("get",[self,"PublicId"])
+		return dnSend("s3:get",nHandle,"s8:PublicId","")
 
 	Func setPublicId P1
-		dnRequest("set",[self,"PublicId",P1])
+		dnSend("s3:set",nHandle,"s8:PublicId",dnPackItem(P1))
 		return self
 
 	Func getSystemId
-		return dnRequest("get",[self,"SystemId"])
+		return dnSend("s3:get",nHandle,"s8:SystemId","")
 
 	Func setSystemId P1
-		dnRequest("set",[self,"SystemId",P1])
+		dnSend("s3:set",nHandle,"s8:SystemId",dnPackItem(P1))
 		return self
 
 	Func getBaseURI
-		return dnRequest("get",[self,"BaseURI"])
+		return dnSend("s3:get",nHandle,"s7:BaseURI","")
 
 	Func setBaseURI P1
-		dnRequest("set",[self,"BaseURI",P1])
+		dnSend("s3:set",nHandle,"s7:BaseURI",dnPackItem(P1))
 		return self
 
 	Func getInternalSubset
-		return dnRequest("get",[self,"InternalSubset"])
+		return dnSend("s3:get",nHandle,"s14:InternalSubset","")
 
 	Func setInternalSubset P1
-		dnRequest("set",[self,"InternalSubset",P1])
+		dnSend("s3:set",nHandle,"s14:InternalSubset",dnPackItem(P1))
 		return self
 
 	Func getXmlLang
-		return dnRequest("get",[self,"XmlLang"])
+		return dnSend("s3:get",nHandle,"s7:XmlLang","")
 
 	Func setXmlLang P1
-		dnRequest("set",[self,"XmlLang",P1])
+		dnSend("s3:set",nHandle,"s7:XmlLang",dnPackItem(P1))
 		return self
 
 	Func getXmlSpace
-		return dnRequest("get",[self,"XmlSpace"])
+		return dnSend("s3:get",nHandle,"s8:XmlSpace","")
 
 	Func setXmlSpace P1
-		dnRequest("set",[self,"XmlSpace",P1])
+		dnSend("s3:set",nHandle,"s8:XmlSpace",dnPackItem(P1))
 		return self
 
 	Func getEncoding
-		return dnRequest("get",[self,"Encoding"])
+		return dnSend("s3:get",nHandle,"s8:Encoding","")
 
 	Func setEncoding P1
-		dnRequest("set",[self,"Encoding",P1])
+		dnSend("s3:set",nHandle,"s8:Encoding",dnPackItem(P1))
 		return self
 
 
@@ -1138,35 +1138,35 @@ Class XmlQualifiedName from Object
 	Func Format P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlQualifiedName, System.Private.Xml'),"ToString",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Xml.XmlQualifiedName, System.Private.Xml').nHandle,"s8:ToString",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getNamespace
-		return dnRequest("get",[self,"Namespace"])
+		return dnSend("s3:get",nHandle,"s9:Namespace","")
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getIsEmpty
-		return dnRequest("get",[self,"IsEmpty"])
+		return dnSend("s3:get",nHandle,"s7:IsEmpty","")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Xml.XmlQualifiedName, System.Private.Xml'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Xml.XmlQualifiedName, System.Private.Xml').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -1210,468 +1210,468 @@ Class XmlReader from Object
 		return self
 
 	Func ReadContentAsObject 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsObject"])
+		return dnSend("s4:call",nHandle,"s19:ReadContentAsObject","")
 
 	Func ReadContentAsBoolean 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsBoolean"])
+		return dnSend("s4:call",nHandle,"s20:ReadContentAsBoolean","")
 
 	Func ReadContentAsDateTime 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsDateTime"])
+		return dnSend("s4:call",nHandle,"s21:ReadContentAsDateTime","")
 
 	Func ReadContentAsDateTimeOffset 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsDateTimeOffset"])
+		return dnSend("s4:call",nHandle,"s27:ReadContentAsDateTimeOffset","")
 
 	Func ReadContentAsDouble 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsDouble"])
+		return dnSend("s4:call",nHandle,"s19:ReadContentAsDouble","")
 
 	Func ReadContentAsFloat 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsFloat"])
+		return dnSend("s4:call",nHandle,"s18:ReadContentAsFloat","")
 
 	Func ReadContentAsDecimal 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsDecimal"])
+		return dnSend("s4:call",nHandle,"s20:ReadContentAsDecimal","")
 
 	Func ReadContentAsInt 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsInt"])
+		return dnSend("s4:call",nHandle,"s16:ReadContentAsInt","")
 
 	Func ReadContentAsLong 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsLong"])
+		return dnSend("s4:call",nHandle,"s17:ReadContentAsLong","")
 
 	Func ReadContentAsString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsString"])
+		return dnSend("s4:call",nHandle,"s19:ReadContentAsString","")
 
 	Func ReadContentAs P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAs",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:ReadContentAs",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ReadElementContentAsObject P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadElementContentAsObject",P1])
+			return dnSend("s9:callnamed",nHandle,"s26:ReadElementContentAsObject",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementContentAsObject"])
+			return dnSend("s4:call",nHandle,"s26:ReadElementContentAsObject","")
 		ok
 		raise("DotNet Error: ReadElementContentAsObject does not take one argument: use named arguments, ReadElementContentAsObject([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsBoolean P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadElementContentAsBoolean",P1])
+			return dnSend("s9:callnamed",nHandle,"s27:ReadElementContentAsBoolean",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementContentAsBoolean"])
+			return dnSend("s4:call",nHandle,"s27:ReadElementContentAsBoolean","")
 		ok
 		raise("DotNet Error: ReadElementContentAsBoolean does not take one argument: use named arguments, ReadElementContentAsBoolean([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsDateTime P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadElementContentAsDateTime",P1])
+			return dnSend("s9:callnamed",nHandle,"s28:ReadElementContentAsDateTime",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementContentAsDateTime"])
+			return dnSend("s4:call",nHandle,"s28:ReadElementContentAsDateTime","")
 		ok
 		raise("DotNet Error: ReadElementContentAsDateTime does not take one argument: use named arguments, ReadElementContentAsDateTime([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsDouble P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadElementContentAsDouble",P1])
+			return dnSend("s9:callnamed",nHandle,"s26:ReadElementContentAsDouble",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementContentAsDouble"])
+			return dnSend("s4:call",nHandle,"s26:ReadElementContentAsDouble","")
 		ok
 		raise("DotNet Error: ReadElementContentAsDouble does not take one argument: use named arguments, ReadElementContentAsDouble([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsFloat P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadElementContentAsFloat",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:ReadElementContentAsFloat",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementContentAsFloat"])
+			return dnSend("s4:call",nHandle,"s25:ReadElementContentAsFloat","")
 		ok
 		raise("DotNet Error: ReadElementContentAsFloat does not take one argument: use named arguments, ReadElementContentAsFloat([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsDecimal P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadElementContentAsDecimal",P1])
+			return dnSend("s9:callnamed",nHandle,"s27:ReadElementContentAsDecimal",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementContentAsDecimal"])
+			return dnSend("s4:call",nHandle,"s27:ReadElementContentAsDecimal","")
 		ok
 		raise("DotNet Error: ReadElementContentAsDecimal does not take one argument: use named arguments, ReadElementContentAsDecimal([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsInt P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadElementContentAsInt",P1])
+			return dnSend("s9:callnamed",nHandle,"s23:ReadElementContentAsInt",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementContentAsInt"])
+			return dnSend("s4:call",nHandle,"s23:ReadElementContentAsInt","")
 		ok
 		raise("DotNet Error: ReadElementContentAsInt does not take one argument: use named arguments, ReadElementContentAsInt([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsLong P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadElementContentAsLong",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:ReadElementContentAsLong",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementContentAsLong"])
+			return dnSend("s4:call",nHandle,"s24:ReadElementContentAsLong","")
 		ok
 		raise("DotNet Error: ReadElementContentAsLong does not take one argument: use named arguments, ReadElementContentAsLong([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadElementContentAsString",P1])
+			return dnSend("s9:callnamed",nHandle,"s26:ReadElementContentAsString",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementContentAsString"])
+			return dnSend("s4:call",nHandle,"s26:ReadElementContentAsString","")
 		ok
 		raise("DotNet Error: ReadElementContentAsString does not take one argument: use named arguments, ReadElementContentAsString([ :parameter = value, ... ])")
 
 	Func ReadElementContentAs P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadElementContentAs",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:ReadElementContentAs",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ReadElementContentAs does not take one argument: use named arguments, ReadElementContentAs([ :parameter = value, ... ])")
 
 	Func GetAttribute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetAttribute",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:GetAttribute",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAttribute",P1])
+		return dnSend("s4:call",nHandle,"s12:GetAttribute",dnPackItem(P1))
 
 	Func MoveToAttribute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"MoveToAttribute",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:MoveToAttribute",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToAttribute",P1])
+		return dnSend("s4:call",nHandle,"s15:MoveToAttribute",dnPackItem(P1))
 
 	Func MoveToFirstAttribute 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToFirstAttribute"])
+		return dnSend("s4:call",nHandle,"s20:MoveToFirstAttribute","")
 
 	Func MoveToNextAttribute 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToNextAttribute"])
+		return dnSend("s4:call",nHandle,"s19:MoveToNextAttribute","")
 
 	Func MoveToElement 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToElement"])
+		return dnSend("s4:call",nHandle,"s13:MoveToElement","")
 
 	Func ReadAttributeValue 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadAttributeValue"])
+		return dnSend("s4:call",nHandle,"s18:ReadAttributeValue","")
 
 	Func Read 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Read"])
+		return dnSend("s4:call",nHandle,"s4:Read","")
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
+		dnSend("s4:call",nHandle,"s5:Close","")
 		return self
 
 	Func Skip 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Skip"])
+		dnSend("s4:call",nHandle,"s4:Skip","")
 		return self
 
 	Func LookupNamespace P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LookupNamespace",P1])
+		return dnSend("s4:call",nHandle,"s15:LookupNamespace",dnPackItem(P1))
 
 	Func ResolveEntity 
-		dnRequest("call",[new DotNetObject(this.nHandle),"ResolveEntity"])
+		dnSend("s4:call",nHandle,"s13:ResolveEntity","")
 		return self
 
 	Func ReadContentAsBase64 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsBase64",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s19:ReadContentAsBase64",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReadElementContentAsBase64 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementContentAsBase64",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s26:ReadElementContentAsBase64",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReadContentAsBinHex P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsBinHex",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s19:ReadContentAsBinHex",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReadElementContentAsBinHex P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementContentAsBinHex",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s26:ReadElementContentAsBinHex",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReadValueChunk P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadValueChunk",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s14:ReadValueChunk",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReadString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadString"])
+		return dnSend("s4:call",nHandle,"s10:ReadString","")
 
 	Func MoveToContent 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToContent"])
+		return dnSend("s4:call",nHandle,"s13:MoveToContent","")
 
 	Func ReadStartElement P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadStartElement",P1])
+			dnSend("s9:callnamed",nHandle,"s16:ReadStartElement",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"ReadStartElement"])
+			dnSend("s4:call",nHandle,"s16:ReadStartElement","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"ReadStartElement",P1])
+		dnSend("s4:call",nHandle,"s16:ReadStartElement",dnPackItem(P1))
 		return self
 
 	Func ReadElementString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadElementString",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:ReadElementString",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementString"])
+			return dnSend("s4:call",nHandle,"s17:ReadElementString","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementString",P1])
+		return dnSend("s4:call",nHandle,"s17:ReadElementString",dnPackItem(P1))
 
 	Func ReadEndElement 
-		dnRequest("call",[new DotNetObject(this.nHandle),"ReadEndElement"])
+		dnSend("s4:call",nHandle,"s14:ReadEndElement","")
 		return self
 
 	Func IsStartElement P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsStartElement",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:IsStartElement",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsStartElement"])
+			return dnSend("s4:call",nHandle,"s14:IsStartElement","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsStartElement",P1])
+		return dnSend("s4:call",nHandle,"s14:IsStartElement",dnPackItem(P1))
 
 	Func ReadToFollowing P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadToFollowing",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:ReadToFollowing",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadToFollowing",P1])
+		return dnSend("s4:call",nHandle,"s15:ReadToFollowing",dnPackItem(P1))
 
 	Func ReadToDescendant P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadToDescendant",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:ReadToDescendant",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadToDescendant",P1])
+		return dnSend("s4:call",nHandle,"s16:ReadToDescendant",dnPackItem(P1))
 
 	Func ReadToNextSibling P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadToNextSibling",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:ReadToNextSibling",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadToNextSibling",P1])
+		return dnSend("s4:call",nHandle,"s17:ReadToNextSibling",dnPackItem(P1))
 
 	Func ReadInnerXml 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadInnerXml"])
+		return dnSend("s4:call",nHandle,"s12:ReadInnerXml","")
 
 	Func ReadOuterXml 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadOuterXml"])
+		return dnSend("s4:call",nHandle,"s12:ReadOuterXml","")
 
 	Func ReadSubtree 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadSubtree"])
+		return dnSend("s4:call",nHandle,"s11:ReadSubtree","")
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func GetValueAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValueAsync"])
+		return dnSend("s4:call",nHandle,"s13:GetValueAsync","")
 
 	Func ReadContentAsObjectAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsObjectAsync"])
+		return dnSend("s4:call",nHandle,"s24:ReadContentAsObjectAsync","")
 
 	Func ReadContentAsStringAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsStringAsync"])
+		return dnSend("s4:call",nHandle,"s24:ReadContentAsStringAsync","")
 
 	Func ReadContentAsAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s18:ReadContentAsAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ReadElementContentAsObjectAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementContentAsObjectAsync"])
+		return dnSend("s4:call",nHandle,"s31:ReadElementContentAsObjectAsync","")
 
 	Func ReadElementContentAsStringAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementContentAsStringAsync"])
+		return dnSend("s4:call",nHandle,"s31:ReadElementContentAsStringAsync","")
 
 	Func ReadElementContentAsAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementContentAsAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s25:ReadElementContentAsAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ReadAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadAsync"])
+		return dnSend("s4:call",nHandle,"s9:ReadAsync","")
 
 	Func SkipAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SkipAsync"])
+		return dnSend("s4:call",nHandle,"s9:SkipAsync","")
 
 	Func ReadContentAsBase64Async P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsBase64Async",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s24:ReadContentAsBase64Async",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReadElementContentAsBase64Async P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementContentAsBase64Async",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s31:ReadElementContentAsBase64Async",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReadContentAsBinHexAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadContentAsBinHexAsync",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s24:ReadContentAsBinHexAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReadElementContentAsBinHexAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadElementContentAsBinHexAsync",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s31:ReadElementContentAsBinHexAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReadValueChunkAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadValueChunkAsync",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s19:ReadValueChunkAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MoveToContentAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveToContentAsync"])
+		return dnSend("s4:call",nHandle,"s18:MoveToContentAsync","")
 
 	Func ReadInnerXmlAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadInnerXmlAsync"])
+		return dnSend("s4:call",nHandle,"s17:ReadInnerXmlAsync","")
 
 	Func ReadOuterXmlAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadOuterXmlAsync"])
+		return dnSend("s4:call",nHandle,"s17:ReadOuterXmlAsync","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsName P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"IsName",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlReader, System.Private.Xml').nHandle,"s6:IsName",dnPackItem(P1))
 
 	Func IsNameToken P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"IsNameToken",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlReader, System.Private.Xml').nHandle,"s11:IsNameToken",dnPackItem(P1))
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"Create",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Xml.XmlReader, System.Private.Xml').nHandle,"s6:Create",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"Create",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlReader, System.Private.Xml').nHandle,"s6:Create",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getSettings
-		return dnRequest("get",[self,"Settings"])
+		return dnSend("s3:get",nHandle,"s8:Settings","")
 
 	Func setSettings P1
 		raise("DotNet Error: Settings is a read-only property")
 
 	Func getNodeType
-		return dnRequest("get",[self,"NodeType"])
+		return dnSend("s3:get",nHandle,"s8:NodeType","")
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getLocalName
-		return dnRequest("get",[self,"LocalName"])
+		return dnSend("s3:get",nHandle,"s9:LocalName","")
 
 	Func setLocalName P1
 		raise("DotNet Error: LocalName is a read-only property")
 
 	Func getNamespaceURI
-		return dnRequest("get",[self,"NamespaceURI"])
+		return dnSend("s3:get",nHandle,"s12:NamespaceURI","")
 
 	Func setNamespaceURI P1
 		raise("DotNet Error: NamespaceURI is a read-only property")
 
 	Func getPrefix
-		return dnRequest("get",[self,"Prefix"])
+		return dnSend("s3:get",nHandle,"s6:Prefix","")
 
 	Func setPrefix P1
 		raise("DotNet Error: Prefix is a read-only property")
 
 	Func getHasValue
-		return dnRequest("get",[self,"HasValue"])
+		return dnSend("s3:get",nHandle,"s8:HasValue","")
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getDepth
-		return dnRequest("get",[self,"Depth"])
+		return dnSend("s3:get",nHandle,"s5:Depth","")
 
 	Func setDepth P1
 		raise("DotNet Error: Depth is a read-only property")
 
 	Func getBaseURI
-		return dnRequest("get",[self,"BaseURI"])
+		return dnSend("s3:get",nHandle,"s7:BaseURI","")
 
 	Func setBaseURI P1
 		raise("DotNet Error: BaseURI is a read-only property")
 
 	Func getIsEmptyElement
-		return dnRequest("get",[self,"IsEmptyElement"])
+		return dnSend("s3:get",nHandle,"s14:IsEmptyElement","")
 
 	Func setIsEmptyElement P1
 		raise("DotNet Error: IsEmptyElement is a read-only property")
 
 	Func getIsDefault
-		return dnRequest("get",[self,"IsDefault"])
+		return dnSend("s3:get",nHandle,"s9:IsDefault","")
 
 	Func setIsDefault P1
 		raise("DotNet Error: IsDefault is a read-only property")
 
 	Func getQuoteChar
-		return dnRequest("get",[self,"QuoteChar"])
+		return dnSend("s3:get",nHandle,"s9:QuoteChar","")
 
 	Func setQuoteChar P1
 		raise("DotNet Error: QuoteChar is a read-only property")
 
 	Func getXmlSpace
-		return dnRequest("get",[self,"XmlSpace"])
+		return dnSend("s3:get",nHandle,"s8:XmlSpace","")
 
 	Func setXmlSpace P1
 		raise("DotNet Error: XmlSpace is a read-only property")
 
 	Func getXmlLang
-		return dnRequest("get",[self,"XmlLang"])
+		return dnSend("s3:get",nHandle,"s7:XmlLang","")
 
 	Func setXmlLang P1
 		raise("DotNet Error: XmlLang is a read-only property")
 
 	Func getSchemaInfo
-		return dnRequest("get",[self,"SchemaInfo"])
+		return dnSend("s3:get",nHandle,"s10:SchemaInfo","")
 
 	Func setSchemaInfo P1
 		raise("DotNet Error: SchemaInfo is a read-only property")
 
 	Func getValueType
-		return dnRequest("get",[self,"ValueType"])
+		return dnSend("s3:get",nHandle,"s9:ValueType","")
 
 	Func setValueType P1
 		raise("DotNet Error: ValueType is a read-only property")
 
 	Func getAttributeCount
-		return dnRequest("get",[self,"AttributeCount"])
+		return dnSend("s3:get",nHandle,"s14:AttributeCount","")
 
 	Func setAttributeCount P1
 		raise("DotNet Error: AttributeCount is a read-only property")
 
 	Func getEOF
-		return dnRequest("get",[self,"EOF"])
+		return dnSend("s3:get",nHandle,"s3:EOF","")
 
 	Func setEOF P1
 		raise("DotNet Error: EOF is a read-only property")
 
 	Func getReadState
-		return dnRequest("get",[self,"ReadState"])
+		return dnSend("s3:get",nHandle,"s9:ReadState","")
 
 	Func setReadState P1
 		raise("DotNet Error: ReadState is a read-only property")
 
 	Func getNameTable
-		return dnRequest("get",[self,"NameTable"])
+		return dnSend("s3:get",nHandle,"s9:NameTable","")
 
 	Func setNameTable P1
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getCanResolveEntity
-		return dnRequest("get",[self,"CanResolveEntity"])
+		return dnSend("s3:get",nHandle,"s16:CanResolveEntity","")
 
 	Func setCanResolveEntity P1
 		raise("DotNet Error: CanResolveEntity is a read-only property")
 
 	Func getCanReadBinaryContent
-		return dnRequest("get",[self,"CanReadBinaryContent"])
+		return dnSend("s3:get",nHandle,"s20:CanReadBinaryContent","")
 
 	Func setCanReadBinaryContent P1
 		raise("DotNet Error: CanReadBinaryContent is a read-only property")
 
 	Func getCanReadValueChunk
-		return dnRequest("get",[self,"CanReadValueChunk"])
+		return dnSend("s3:get",nHandle,"s17:CanReadValueChunk","")
 
 	Func setCanReadValueChunk P1
 		raise("DotNet Error: CanReadValueChunk is a read-only property")
 
 	Func getHasAttributes
-		return dnRequest("get",[self,"HasAttributes"])
+		return dnSend("s3:get",nHandle,"s13:HasAttributes","")
 
 	Func setHasAttributes P1
 		raise("DotNet Error: HasAttributes is a read-only property")
@@ -1721,14 +1721,14 @@ Class XmlReaderSettings from Object
 		return self
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func setValidationEventHandlerEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ValidationEventHandler",dnCallback(P1)])
@@ -1739,126 +1739,126 @@ Class XmlReaderSettings from Object
 		return self
 
 	Func getAsync
-		return dnRequest("get",[self,"Async"])
+		return dnSend("s3:get",nHandle,"s5:Async","")
 
 	Func setAsync P1
-		dnRequest("set",[self,"Async",P1])
+		dnSend("s3:set",nHandle,"s5:Async",dnPackItem(P1))
 		return self
 
 	Func getNameTable
-		return dnRequest("get",[self,"NameTable"])
+		return dnSend("s3:get",nHandle,"s9:NameTable","")
 
 	Func setNameTable P1
-		dnRequest("set",[self,"NameTable",P1])
+		dnSend("s3:set",nHandle,"s9:NameTable",dnPackItem(P1))
 		return self
 
 	Func setXmlResolver P1
-		dnRequest("set",[self,"XmlResolver",P1])
+		dnSend("s3:set",nHandle,"s11:XmlResolver",dnPackItem(P1))
 		return self
 
 	Func getLineNumberOffset
-		return dnRequest("get",[self,"LineNumberOffset"])
+		return dnSend("s3:get",nHandle,"s16:LineNumberOffset","")
 
 	Func setLineNumberOffset P1
-		dnRequest("set",[self,"LineNumberOffset",P1])
+		dnSend("s3:set",nHandle,"s16:LineNumberOffset",dnPackItem(P1))
 		return self
 
 	Func getLinePositionOffset
-		return dnRequest("get",[self,"LinePositionOffset"])
+		return dnSend("s3:get",nHandle,"s18:LinePositionOffset","")
 
 	Func setLinePositionOffset P1
-		dnRequest("set",[self,"LinePositionOffset",P1])
+		dnSend("s3:set",nHandle,"s18:LinePositionOffset",dnPackItem(P1))
 		return self
 
 	Func getConformanceLevel
-		return dnRequest("get",[self,"ConformanceLevel"])
+		return dnSend("s3:get",nHandle,"s16:ConformanceLevel","")
 
 	Func setConformanceLevel P1
-		dnRequest("set",[self,"ConformanceLevel",P1])
+		dnSend("s3:set",nHandle,"s16:ConformanceLevel",dnPackItem(P1))
 		return self
 
 	Func getCheckCharacters
-		return dnRequest("get",[self,"CheckCharacters"])
+		return dnSend("s3:get",nHandle,"s15:CheckCharacters","")
 
 	Func setCheckCharacters P1
-		dnRequest("set",[self,"CheckCharacters",P1])
+		dnSend("s3:set",nHandle,"s15:CheckCharacters",dnPackItem(P1))
 		return self
 
 	Func getMaxCharactersInDocument
-		return dnRequest("get",[self,"MaxCharactersInDocument"])
+		return dnSend("s3:get",nHandle,"s23:MaxCharactersInDocument","")
 
 	Func setMaxCharactersInDocument P1
-		dnRequest("set",[self,"MaxCharactersInDocument",P1])
+		dnSend("s3:set",nHandle,"s23:MaxCharactersInDocument",dnPackItem(P1))
 		return self
 
 	Func getMaxCharactersFromEntities
-		return dnRequest("get",[self,"MaxCharactersFromEntities"])
+		return dnSend("s3:get",nHandle,"s25:MaxCharactersFromEntities","")
 
 	Func setMaxCharactersFromEntities P1
-		dnRequest("set",[self,"MaxCharactersFromEntities",P1])
+		dnSend("s3:set",nHandle,"s25:MaxCharactersFromEntities",dnPackItem(P1))
 		return self
 
 	Func getIgnoreWhitespace
-		return dnRequest("get",[self,"IgnoreWhitespace"])
+		return dnSend("s3:get",nHandle,"s16:IgnoreWhitespace","")
 
 	Func setIgnoreWhitespace P1
-		dnRequest("set",[self,"IgnoreWhitespace",P1])
+		dnSend("s3:set",nHandle,"s16:IgnoreWhitespace",dnPackItem(P1))
 		return self
 
 	Func getIgnoreProcessingInstructions
-		return dnRequest("get",[self,"IgnoreProcessingInstructions"])
+		return dnSend("s3:get",nHandle,"s28:IgnoreProcessingInstructions","")
 
 	Func setIgnoreProcessingInstructions P1
-		dnRequest("set",[self,"IgnoreProcessingInstructions",P1])
+		dnSend("s3:set",nHandle,"s28:IgnoreProcessingInstructions",dnPackItem(P1))
 		return self
 
 	Func getIgnoreComments
-		return dnRequest("get",[self,"IgnoreComments"])
+		return dnSend("s3:get",nHandle,"s14:IgnoreComments","")
 
 	Func setIgnoreComments P1
-		dnRequest("set",[self,"IgnoreComments",P1])
+		dnSend("s3:set",nHandle,"s14:IgnoreComments",dnPackItem(P1))
 		return self
 
 	Func getProhibitDtd
-		return dnRequest("get",[self,"ProhibitDtd"])
+		return dnSend("s3:get",nHandle,"s11:ProhibitDtd","")
 
 	Func setProhibitDtd P1
-		dnRequest("set",[self,"ProhibitDtd",P1])
+		dnSend("s3:set",nHandle,"s11:ProhibitDtd",dnPackItem(P1))
 		return self
 
 	Func getDtdProcessing
-		return dnRequest("get",[self,"DtdProcessing"])
+		return dnSend("s3:get",nHandle,"s13:DtdProcessing","")
 
 	Func setDtdProcessing P1
-		dnRequest("set",[self,"DtdProcessing",P1])
+		dnSend("s3:set",nHandle,"s13:DtdProcessing",dnPackItem(P1))
 		return self
 
 	Func getCloseInput
-		return dnRequest("get",[self,"CloseInput"])
+		return dnSend("s3:get",nHandle,"s10:CloseInput","")
 
 	Func setCloseInput P1
-		dnRequest("set",[self,"CloseInput",P1])
+		dnSend("s3:set",nHandle,"s10:CloseInput",dnPackItem(P1))
 		return self
 
 	Func getValidationType
-		return dnRequest("get",[self,"ValidationType"])
+		return dnSend("s3:get",nHandle,"s14:ValidationType","")
 
 	Func setValidationType P1
-		dnRequest("set",[self,"ValidationType",P1])
+		dnSend("s3:set",nHandle,"s14:ValidationType",dnPackItem(P1))
 		return self
 
 	Func getValidationFlags
-		return dnRequest("get",[self,"ValidationFlags"])
+		return dnSend("s3:get",nHandle,"s15:ValidationFlags","")
 
 	Func setValidationFlags P1
-		dnRequest("set",[self,"ValidationFlags",P1])
+		dnSend("s3:set",nHandle,"s15:ValidationFlags",dnPackItem(P1))
 		return self
 
 	Func getSchemas
-		return dnRequest("get",[self,"Schemas"])
+		return dnSend("s3:get",nHandle,"s7:Schemas","")
 
 	Func setSchemas P1
-		dnRequest("set",[self,"Schemas",P1])
+		dnSend("s3:set",nHandle,"s7:Schemas",dnPackItem(P1))
 		return self
 
 
@@ -1878,32 +1878,32 @@ Class XmlResolver from Object
 		return self
 
 	Func GetEntity P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEntity",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s9:GetEntity",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func GetEntityAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEntityAsync",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s14:GetEntityAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ResolveUri P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveUri",P1,P2])
+		return dnSend("s4:call",nHandle,"s10:ResolveUri",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SupportsType P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SupportsType",P1,P2])
+		return dnSend("s4:call",nHandle,"s12:SupportsType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func setCredentials P1
-		dnRequest("set",[self,"Credentials",P1])
+		dnSend("s3:set",nHandle,"s11:Credentials",dnPackItem(P1))
 		return self
 
 	Func getFileSystemResolver
-		return dnRequest("get",[dnTypeCached('System.Xml.XmlResolver, System.Private.Xml'),"FileSystemResolver"])
+		return dnSend("s3:get",dnTypeCached('System.Xml.XmlResolver, System.Private.Xml').nHandle,"s18:FileSystemResolver","")
 
 	Func setFileSystemResolver P1
 		raise("DotNet Error: FileSystemResolver is a read-only property")
 
 	Func getThrowingResolver
-		return dnRequest("get",[dnTypeCached('System.Xml.XmlResolver, System.Private.Xml'),"ThrowingResolver"])
+		return dnSend("s3:get",dnTypeCached('System.Xml.XmlResolver, System.Private.Xml').nHandle,"s16:ThrowingResolver","")
 
 	Func setThrowingResolver P1
 		raise("DotNet Error: ThrowingResolver is a read-only property")
@@ -1927,276 +1927,276 @@ Class XmlWriter from Object
 
 	Func WriteStartDocument P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteStartDocument",P1])
+			dnSend("s9:callnamed",nHandle,"s18:WriteStartDocument",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"WriteStartDocument"])
+			dnSend("s4:call",nHandle,"s18:WriteStartDocument","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteStartDocument",P1])
+		dnSend("s4:call",nHandle,"s18:WriteStartDocument",dnPackItem(P1))
 		return self
 
 	Func WriteEndDocument 
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteEndDocument"])
+		dnSend("s4:call",nHandle,"s16:WriteEndDocument","")
 		return self
 
 	Func WriteDocType P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteDocType",P1,P2,P3,P4])
+		dnSend("s4:call",nHandle,"s12:WriteDocType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func WriteStartElement P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteStartElement",P1])
+			dnSend("s9:callnamed",nHandle,"s17:WriteStartElement",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteStartElement",P1])
+		dnSend("s4:call",nHandle,"s17:WriteStartElement",dnPackItem(P1))
 		return self
 
 	Func WriteEndElement 
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteEndElement"])
+		dnSend("s4:call",nHandle,"s15:WriteEndElement","")
 		return self
 
 	Func WriteFullEndElement 
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteFullEndElement"])
+		dnSend("s4:call",nHandle,"s19:WriteFullEndElement","")
 		return self
 
 	Func WriteAttributeString P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteAttributeString",P1])
+			dnSend("s9:callnamed",nHandle,"s20:WriteAttributeString",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: WriteAttributeString does not take one argument: use named arguments, WriteAttributeString([ :parameter = value, ... ])")
 
 	Func WriteStartAttribute P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteStartAttribute",P1])
+			dnSend("s9:callnamed",nHandle,"s19:WriteStartAttribute",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteStartAttribute",P1])
+		dnSend("s4:call",nHandle,"s19:WriteStartAttribute",dnPackItem(P1))
 		return self
 
 	Func WriteEndAttribute 
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteEndAttribute"])
+		dnSend("s4:call",nHandle,"s17:WriteEndAttribute","")
 		return self
 
 	Func WriteCData P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteCData",P1])
+		dnSend("s4:call",nHandle,"s10:WriteCData",dnPackItem(P1))
 		return self
 
 	Func WriteComment P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteComment",P1])
+		dnSend("s4:call",nHandle,"s12:WriteComment",dnPackItem(P1))
 		return self
 
 	Func WriteProcessingInstruction P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteProcessingInstruction",P1,P2])
+		dnSend("s4:call",nHandle,"s26:WriteProcessingInstruction",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func WriteEntityRef P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteEntityRef",P1])
+		dnSend("s4:call",nHandle,"s14:WriteEntityRef",dnPackItem(P1))
 		return self
 
 	Func WriteCharEntity P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteCharEntity",P1])
+		dnSend("s4:call",nHandle,"s15:WriteCharEntity",dnPackItem(P1))
 		return self
 
 	Func WriteWhitespace P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteWhitespace",P1])
+		dnSend("s4:call",nHandle,"s15:WriteWhitespace",dnPackItem(P1))
 		return self
 
 	Func WriteString P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteString",P1])
+		dnSend("s4:call",nHandle,"s11:WriteString",dnPackItem(P1))
 		return self
 
 	Func WriteSurrogateCharEntity P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteSurrogateCharEntity",P1,P2])
+		dnSend("s4:call",nHandle,"s24:WriteSurrogateCharEntity",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func WriteChars P1,P2,P3
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteChars",P1,P2,P3])
+		dnSend("s4:call",nHandle,"s10:WriteChars",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func WriteRaw P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteRaw",P1])
+			dnSend("s9:callnamed",nHandle,"s8:WriteRaw",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteRaw",P1])
+		dnSend("s4:call",nHandle,"s8:WriteRaw",dnPackItem(P1))
 		return self
 
 	Func WriteBase64 P1,P2,P3
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteBase64",P1,P2,P3])
+		dnSend("s4:call",nHandle,"s11:WriteBase64",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func WriteBinHex P1,P2,P3
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteBinHex",P1,P2,P3])
+		dnSend("s4:call",nHandle,"s11:WriteBinHex",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
+		dnSend("s4:call",nHandle,"s5:Close","")
 		return self
 
 	Func Flush 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Flush"])
+		dnSend("s4:call",nHandle,"s5:Flush","")
 		return self
 
 	Func LookupPrefix P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LookupPrefix",P1])
+		return dnSend("s4:call",nHandle,"s12:LookupPrefix",dnPackItem(P1))
 
 	Func WriteNmToken P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteNmToken",P1])
+		dnSend("s4:call",nHandle,"s12:WriteNmToken",dnPackItem(P1))
 		return self
 
 	Func WriteName P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteName",P1])
+		dnSend("s4:call",nHandle,"s9:WriteName",dnPackItem(P1))
 		return self
 
 	Func WriteQualifiedName P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteQualifiedName",P1,P2])
+		dnSend("s4:call",nHandle,"s18:WriteQualifiedName",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func WriteValue P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteValue",P1])
+		dnSend("s4:call",nHandle,"s10:WriteValue",dnPackItem(P1))
 		return self
 
 	Func WriteAttributes P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteAttributes",P1,P2])
+		dnSend("s4:call",nHandle,"s15:WriteAttributes",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func WriteNode P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteNode",P1,P2])
+		dnSend("s4:call",nHandle,"s9:WriteNode",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func WriteElementString P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteElementString",P1])
+			dnSend("s9:callnamed",nHandle,"s18:WriteElementString",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: WriteElementString does not take one argument: use named arguments, WriteElementString([ :parameter = value, ... ])")
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func WriteStartDocumentAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteStartDocumentAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s23:WriteStartDocumentAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"WriteStartDocumentAsync"])
+			return dnSend("s4:call",nHandle,"s23:WriteStartDocumentAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteStartDocumentAsync",P1])
+		return dnSend("s4:call",nHandle,"s23:WriteStartDocumentAsync",dnPackItem(P1))
 
 	Func WriteEndDocumentAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteEndDocumentAsync"])
+		return dnSend("s4:call",nHandle,"s21:WriteEndDocumentAsync","")
 
 	Func WriteDocTypeAsync P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteDocTypeAsync",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s17:WriteDocTypeAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func WriteStartElementAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteStartElementAsync",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s22:WriteStartElementAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func WriteEndElementAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteEndElementAsync"])
+		return dnSend("s4:call",nHandle,"s20:WriteEndElementAsync","")
 
 	Func WriteFullEndElementAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteFullEndElementAsync"])
+		return dnSend("s4:call",nHandle,"s24:WriteFullEndElementAsync","")
 
 	Func WriteAttributeStringAsync P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteAttributeStringAsync",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s25:WriteAttributeStringAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func WriteCDataAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteCDataAsync",P1])
+		return dnSend("s4:call",nHandle,"s15:WriteCDataAsync",dnPackItem(P1))
 
 	Func WriteCommentAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteCommentAsync",P1])
+		return dnSend("s4:call",nHandle,"s17:WriteCommentAsync",dnPackItem(P1))
 
 	Func WriteProcessingInstructionAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteProcessingInstructionAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s31:WriteProcessingInstructionAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WriteEntityRefAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteEntityRefAsync",P1])
+		return dnSend("s4:call",nHandle,"s19:WriteEntityRefAsync",dnPackItem(P1))
 
 	Func WriteCharEntityAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteCharEntityAsync",P1])
+		return dnSend("s4:call",nHandle,"s20:WriteCharEntityAsync",dnPackItem(P1))
 
 	Func WriteWhitespaceAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteWhitespaceAsync",P1])
+		return dnSend("s4:call",nHandle,"s20:WriteWhitespaceAsync",dnPackItem(P1))
 
 	Func WriteStringAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteStringAsync",P1])
+		return dnSend("s4:call",nHandle,"s16:WriteStringAsync",dnPackItem(P1))
 
 	Func WriteSurrogateCharEntityAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteSurrogateCharEntityAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s29:WriteSurrogateCharEntityAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WriteCharsAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteCharsAsync",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s15:WriteCharsAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func WriteRawAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteRawAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:WriteRawAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteRawAsync",P1])
+		return dnSend("s4:call",nHandle,"s13:WriteRawAsync",dnPackItem(P1))
 
 	Func WriteBase64Async P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteBase64Async",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s16:WriteBase64Async",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func WriteBinHexAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteBinHexAsync",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s16:WriteBinHexAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func FlushAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FlushAsync"])
+		return dnSend("s4:call",nHandle,"s10:FlushAsync","")
 
 	Func WriteNmTokenAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteNmTokenAsync",P1])
+		return dnSend("s4:call",nHandle,"s17:WriteNmTokenAsync",dnPackItem(P1))
 
 	Func WriteNameAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteNameAsync",P1])
+		return dnSend("s4:call",nHandle,"s14:WriteNameAsync",dnPackItem(P1))
 
 	Func WriteQualifiedNameAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteQualifiedNameAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s23:WriteQualifiedNameAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WriteAttributesAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteAttributesAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s20:WriteAttributesAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WriteNodeAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteNodeAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s14:WriteNodeAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WriteElementStringAsync P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteElementStringAsync",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s23:WriteElementStringAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DisposeAsync"])
+		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlWriter, System.Private.Xml'),"Create",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Xml.XmlWriter, System.Private.Xml').nHandle,"s6:Create",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlWriter, System.Private.Xml'),"Create",P1])
+		return dnSend("s4:call",dnTypeCached('System.Xml.XmlWriter, System.Private.Xml').nHandle,"s6:Create",dnPackItem(P1))
 
 	Func getSettings
-		return dnRequest("get",[self,"Settings"])
+		return dnSend("s3:get",nHandle,"s8:Settings","")
 
 	Func setSettings P1
 		raise("DotNet Error: Settings is a read-only property")
 
 	Func getWriteState
-		return dnRequest("get",[self,"WriteState"])
+		return dnSend("s3:get",nHandle,"s10:WriteState","")
 
 	Func setWriteState P1
 		raise("DotNet Error: WriteState is a read-only property")
 
 	Func getXmlSpace
-		return dnRequest("get",[self,"XmlSpace"])
+		return dnSend("s3:get",nHandle,"s8:XmlSpace","")
 
 	Func setXmlSpace P1
 		raise("DotNet Error: XmlSpace is a read-only property")
 
 	Func getXmlLang
-		return dnRequest("get",[self,"XmlLang"])
+		return dnSend("s3:get",nHandle,"s7:XmlLang","")
 
 	Func setXmlLang P1
 		raise("DotNet Error: XmlLang is a read-only property")
@@ -2243,117 +2243,117 @@ Class XmlWriterSettings from Object
 		return self
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAsync
-		return dnRequest("get",[self,"Async"])
+		return dnSend("s3:get",nHandle,"s5:Async","")
 
 	Func setAsync P1
-		dnRequest("set",[self,"Async",P1])
+		dnSend("s3:set",nHandle,"s5:Async",dnPackItem(P1))
 		return self
 
 	Func getEncoding
-		return dnRequest("get",[self,"Encoding"])
+		return dnSend("s3:get",nHandle,"s8:Encoding","")
 
 	Func setEncoding P1
-		dnRequest("set",[self,"Encoding",P1])
+		dnSend("s3:set",nHandle,"s8:Encoding",dnPackItem(P1))
 		return self
 
 	Func getOmitXmlDeclaration
-		return dnRequest("get",[self,"OmitXmlDeclaration"])
+		return dnSend("s3:get",nHandle,"s18:OmitXmlDeclaration","")
 
 	Func setOmitXmlDeclaration P1
-		dnRequest("set",[self,"OmitXmlDeclaration",P1])
+		dnSend("s3:set",nHandle,"s18:OmitXmlDeclaration",dnPackItem(P1))
 		return self
 
 	Func getNewLineHandling
-		return dnRequest("get",[self,"NewLineHandling"])
+		return dnSend("s3:get",nHandle,"s15:NewLineHandling","")
 
 	Func setNewLineHandling P1
-		dnRequest("set",[self,"NewLineHandling",P1])
+		dnSend("s3:set",nHandle,"s15:NewLineHandling",dnPackItem(P1))
 		return self
 
 	Func getNewLineChars
-		return dnRequest("get",[self,"NewLineChars"])
+		return dnSend("s3:get",nHandle,"s12:NewLineChars","")
 
 	Func setNewLineChars P1
-		dnRequest("set",[self,"NewLineChars",P1])
+		dnSend("s3:set",nHandle,"s12:NewLineChars",dnPackItem(P1))
 		return self
 
 	Func getIndent
-		return dnRequest("get",[self,"Indent"])
+		return dnSend("s3:get",nHandle,"s6:Indent","")
 
 	Func setIndent P1
-		dnRequest("set",[self,"Indent",P1])
+		dnSend("s3:set",nHandle,"s6:Indent",dnPackItem(P1))
 		return self
 
 	Func getIndentChars
-		return dnRequest("get",[self,"IndentChars"])
+		return dnSend("s3:get",nHandle,"s11:IndentChars","")
 
 	Func setIndentChars P1
-		dnRequest("set",[self,"IndentChars",P1])
+		dnSend("s3:set",nHandle,"s11:IndentChars",dnPackItem(P1))
 		return self
 
 	Func getNewLineOnAttributes
-		return dnRequest("get",[self,"NewLineOnAttributes"])
+		return dnSend("s3:get",nHandle,"s19:NewLineOnAttributes","")
 
 	Func setNewLineOnAttributes P1
-		dnRequest("set",[self,"NewLineOnAttributes",P1])
+		dnSend("s3:set",nHandle,"s19:NewLineOnAttributes",dnPackItem(P1))
 		return self
 
 	Func getCloseOutput
-		return dnRequest("get",[self,"CloseOutput"])
+		return dnSend("s3:get",nHandle,"s11:CloseOutput","")
 
 	Func setCloseOutput P1
-		dnRequest("set",[self,"CloseOutput",P1])
+		dnSend("s3:set",nHandle,"s11:CloseOutput",dnPackItem(P1))
 		return self
 
 	Func getConformanceLevel
-		return dnRequest("get",[self,"ConformanceLevel"])
+		return dnSend("s3:get",nHandle,"s16:ConformanceLevel","")
 
 	Func setConformanceLevel P1
-		dnRequest("set",[self,"ConformanceLevel",P1])
+		dnSend("s3:set",nHandle,"s16:ConformanceLevel",dnPackItem(P1))
 		return self
 
 	Func getCheckCharacters
-		return dnRequest("get",[self,"CheckCharacters"])
+		return dnSend("s3:get",nHandle,"s15:CheckCharacters","")
 
 	Func setCheckCharacters P1
-		dnRequest("set",[self,"CheckCharacters",P1])
+		dnSend("s3:set",nHandle,"s15:CheckCharacters",dnPackItem(P1))
 		return self
 
 	Func getNamespaceHandling
-		return dnRequest("get",[self,"NamespaceHandling"])
+		return dnSend("s3:get",nHandle,"s17:NamespaceHandling","")
 
 	Func setNamespaceHandling P1
-		dnRequest("set",[self,"NamespaceHandling",P1])
+		dnSend("s3:set",nHandle,"s17:NamespaceHandling",dnPackItem(P1))
 		return self
 
 	Func getWriteEndDocumentOnClose
-		return dnRequest("get",[self,"WriteEndDocumentOnClose"])
+		return dnSend("s3:get",nHandle,"s23:WriteEndDocumentOnClose","")
 
 	Func setWriteEndDocumentOnClose P1
-		dnRequest("set",[self,"WriteEndDocumentOnClose",P1])
+		dnSend("s3:set",nHandle,"s23:WriteEndDocumentOnClose",dnPackItem(P1))
 		return self
 
 	Func getOutputMethod
-		return dnRequest("get",[self,"OutputMethod"])
+		return dnSend("s3:get",nHandle,"s12:OutputMethod","")
 
 	Func setOutputMethod P1
 		raise("DotNet Error: OutputMethod is a read-only property")
 
 	Func getDoNotEscapeUriAttributes
-		return dnRequest("get",[self,"DoNotEscapeUriAttributes"])
+		return dnSend("s3:get",nHandle,"s24:DoNotEscapeUriAttributes","")
 
 	Func setDoNotEscapeUriAttributes P1
-		dnRequest("set",[self,"DoNotEscapeUriAttributes",P1])
+		dnSend("s3:set",nHandle,"s24:DoNotEscapeUriAttributes",dnPackItem(P1))
 		return self
 
 
@@ -2397,13 +2397,13 @@ Class XmlAttribute from XmlNode
 		return self
 
 	Func getSpecified
-		return dnRequest("get",[self,"Specified"])
+		return dnSend("s3:get",nHandle,"s9:Specified","")
 
 	Func setSpecified P1
 		raise("DotNet Error: Specified is a read-only property")
 
 	Func getOwnerElement
-		return dnRequest("get",[self,"OwnerElement"])
+		return dnSend("s3:get",nHandle,"s12:OwnerElement","")
 
 	Func setOwnerElement P1
 		raise("DotNet Error: OwnerElement is a read-only property")
@@ -2421,29 +2421,29 @@ Class XmlAttributeCollection from XmlNamedNodeMap
 		return self
 
 	Func Prepend P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Prepend",P1])
+		return dnSend("s4:call",nHandle,"s7:Prepend",dnPackItem(P1))
 
 	Func Append P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Append",P1])
+		return dnSend("s4:call",nHandle,"s6:Append",dnPackItem(P1))
 
 	Func InsertBefore P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InsertBefore",P1,P2])
+		return dnSend("s4:call",nHandle,"s12:InsertBefore",dnPackItem(P1) + dnPackItem(P2))
 
 	Func InsertAfter P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InsertAfter",P1,P2])
+		return dnSend("s4:call",nHandle,"s11:InsertAfter",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveAt P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		return dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 
 	Func RemoveAll 
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAll"])
+		dnSend("s4:call",nHandle,"s9:RemoveAll","")
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -2501,85 +2501,85 @@ Class XmlDocument from XmlNode
 
 	Func CreateAttribute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateAttribute",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:CreateAttribute",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateAttribute",P1])
+		return dnSend("s4:call",nHandle,"s15:CreateAttribute",dnPackItem(P1))
 
 	Func CreateCDataSection P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateCDataSection",P1])
+		return dnSend("s4:call",nHandle,"s18:CreateCDataSection",dnPackItem(P1))
 
 	Func CreateComment P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateComment",P1])
+		return dnSend("s4:call",nHandle,"s13:CreateComment",dnPackItem(P1))
 
 	Func CreateDocumentType P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateDocumentType",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s18:CreateDocumentType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func CreateDocumentFragment 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateDocumentFragment"])
+		return dnSend("s4:call",nHandle,"s22:CreateDocumentFragment","")
 
 	Func CreateElement P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateElement",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:CreateElement",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateElement",P1])
+		return dnSend("s4:call",nHandle,"s13:CreateElement",dnPackItem(P1))
 
 	Func CreateEntityReference P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateEntityReference",P1])
+		return dnSend("s4:call",nHandle,"s21:CreateEntityReference",dnPackItem(P1))
 
 	Func CreateProcessingInstruction P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateProcessingInstruction",P1,P2])
+		return dnSend("s4:call",nHandle,"s27:CreateProcessingInstruction",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateXmlDeclaration P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateXmlDeclaration",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s20:CreateXmlDeclaration",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CreateTextNode P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateTextNode",P1])
+		return dnSend("s4:call",nHandle,"s14:CreateTextNode",dnPackItem(P1))
 
 	Func CreateSignificantWhitespace P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateSignificantWhitespace",P1])
+		return dnSend("s4:call",nHandle,"s27:CreateSignificantWhitespace",dnPackItem(P1))
 
 	Func CreateWhitespace P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateWhitespace",P1])
+		return dnSend("s4:call",nHandle,"s16:CreateWhitespace",dnPackItem(P1))
 
 	Func GetElementsByTagName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetElementsByTagName",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:GetElementsByTagName",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetElementsByTagName",P1])
+		return dnSend("s4:call",nHandle,"s20:GetElementsByTagName",dnPackItem(P1))
 
 	Func GetElementById P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetElementById",P1])
+		return dnSend("s4:call",nHandle,"s14:GetElementById",dnPackItem(P1))
 
 	Func ImportNode P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ImportNode",P1,P2])
+		return dnSend("s4:call",nHandle,"s10:ImportNode",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateNode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateNode",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:CreateNode",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateNode does not take one argument: use named arguments, CreateNode([ :parameter = value, ... ])")
 
 	Func ReadNode P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadNode",P1])
+		return dnSend("s4:call",nHandle,"s8:ReadNode",dnPackItem(P1))
 
 	Func Load_ P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Load",P1])
+		dnSend("s4:call",nHandle,"s4:Load",dnPackItem(P1))
 		return self
 
 	Func LoadXml P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"LoadXml",P1])
+		dnSend("s4:call",nHandle,"s7:LoadXml",dnPackItem(P1))
 		return self
 
 	Func Save P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Save",P1])
+		dnSend("s4:call",nHandle,"s4:Save",dnPackItem(P1))
 		return self
 
 	Func Validate P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Validate",P1])
+			dnSend("s9:callnamed",nHandle,"s8:Validate",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Validate",P1])
+		dnSend("s4:call",nHandle,"s8:Validate",dnPackItem(P1))
 		return self
 
 	Func setNodeInsertingEvent P1
@@ -2631,45 +2631,45 @@ Class XmlDocument from XmlNode
 		return self
 
 	Func getDocumentType
-		return dnRequest("get",[self,"DocumentType"])
+		return dnSend("s3:get",nHandle,"s12:DocumentType","")
 
 	Func setDocumentType P1
 		raise("DotNet Error: DocumentType is a read-only property")
 
 	Func getImplementation
-		return dnRequest("get",[self,"Implementation"])
+		return dnSend("s3:get",nHandle,"s14:Implementation","")
 
 	Func setImplementation P1
 		raise("DotNet Error: Implementation is a read-only property")
 
 	Func getDocumentElement
-		return dnRequest("get",[self,"DocumentElement"])
+		return dnSend("s3:get",nHandle,"s15:DocumentElement","")
 
 	Func setDocumentElement P1
 		raise("DotNet Error: DocumentElement is a read-only property")
 
 	Func getSchemas
-		return dnRequest("get",[self,"Schemas"])
+		return dnSend("s3:get",nHandle,"s7:Schemas","")
 
 	Func setSchemas P1
-		dnRequest("set",[self,"Schemas",P1])
+		dnSend("s3:set",nHandle,"s7:Schemas",dnPackItem(P1))
 		return self
 
 	Func setXmlResolver P1
-		dnRequest("set",[self,"XmlResolver",P1])
+		dnSend("s3:set",nHandle,"s11:XmlResolver",dnPackItem(P1))
 		return self
 
 	Func getNameTable
-		return dnRequest("get",[self,"NameTable"])
+		return dnSend("s3:get",nHandle,"s9:NameTable","")
 
 	Func setNameTable P1
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getPreserveWhitespace
-		return dnRequest("get",[self,"PreserveWhitespace"])
+		return dnSend("s3:get",nHandle,"s18:PreserveWhitespace","")
 
 	Func setPreserveWhitespace P1
-		dnRequest("set",[self,"PreserveWhitespace",P1])
+		dnSend("s3:set",nHandle,"s18:PreserveWhitespace",dnPackItem(P1))
 		return self
 
 
@@ -2701,19 +2701,19 @@ Class XmlEntity from XmlNode
 		return self
 
 	Func getPublicId
-		return dnRequest("get",[self,"PublicId"])
+		return dnSend("s3:get",nHandle,"s8:PublicId","")
 
 	Func setPublicId P1
 		raise("DotNet Error: PublicId is a read-only property")
 
 	Func getSystemId
-		return dnRequest("get",[self,"SystemId"])
+		return dnSend("s3:get",nHandle,"s8:SystemId","")
 
 	Func setSystemId P1
 		raise("DotNet Error: SystemId is a read-only property")
 
 	Func getNotationName
-		return dnRequest("get",[self,"NotationName"])
+		return dnSend("s3:get",nHandle,"s12:NotationName","")
 
 	Func setNotationName P1
 		raise("DotNet Error: NotationName is a read-only property")
@@ -2760,13 +2760,13 @@ Class XmlNotation from XmlNode
 		return self
 
 	Func getPublicId
-		return dnRequest("get",[self,"PublicId"])
+		return dnSend("s3:get",nHandle,"s8:PublicId","")
 
 	Func setPublicId P1
 		raise("DotNet Error: PublicId is a read-only property")
 
 	Func getSystemId
-		return dnRequest("get",[self,"SystemId"])
+		return dnSend("s3:get",nHandle,"s8:SystemId","")
 
 	Func setSystemId P1
 		raise("DotNet Error: SystemId is a read-only property")
@@ -2812,89 +2812,89 @@ Class XmlTextReader from XmlReader
 		return self
 
 	Func HasLineInfo 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasLineInfo"])
+		return dnSend("s4:call",nHandle,"s11:HasLineInfo","")
 
 	Func GetNamespacesInScope P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNamespacesInScope",P1])
+		return dnSend("s4:call",nHandle,"s20:GetNamespacesInScope",dnPackItem(P1))
 
 	Func ResetState 
-		dnRequest("call",[new DotNetObject(this.nHandle),"ResetState"])
+		dnSend("s4:call",nHandle,"s10:ResetState","")
 		return self
 
 	Func GetRemainder 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRemainder"])
+		return dnSend("s4:call",nHandle,"s12:GetRemainder","")
 
 	Func ReadChars P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadChars",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s9:ReadChars",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReadBase64 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadBase64",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s10:ReadBase64",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReadBinHex P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadBinHex",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s10:ReadBinHex",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getLineNumber
-		return dnRequest("get",[self,"LineNumber"])
+		return dnSend("s3:get",nHandle,"s10:LineNumber","")
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getLinePosition
-		return dnRequest("get",[self,"LinePosition"])
+		return dnSend("s3:get",nHandle,"s12:LinePosition","")
 
 	Func setLinePosition P1
 		raise("DotNet Error: LinePosition is a read-only property")
 
 	Func getNamespaces
-		return dnRequest("get",[self,"Namespaces"])
+		return dnSend("s3:get",nHandle,"s10:Namespaces","")
 
 	Func setNamespaces P1
-		dnRequest("set",[self,"Namespaces",P1])
+		dnSend("s3:set",nHandle,"s10:Namespaces",dnPackItem(P1))
 		return self
 
 	Func getNormalization
-		return dnRequest("get",[self,"Normalization"])
+		return dnSend("s3:get",nHandle,"s13:Normalization","")
 
 	Func setNormalization P1
-		dnRequest("set",[self,"Normalization",P1])
+		dnSend("s3:set",nHandle,"s13:Normalization",dnPackItem(P1))
 		return self
 
 	Func getEncoding
-		return dnRequest("get",[self,"Encoding"])
+		return dnSend("s3:get",nHandle,"s8:Encoding","")
 
 	Func setEncoding P1
 		raise("DotNet Error: Encoding is a read-only property")
 
 	Func getWhitespaceHandling
-		return dnRequest("get",[self,"WhitespaceHandling"])
+		return dnSend("s3:get",nHandle,"s18:WhitespaceHandling","")
 
 	Func setWhitespaceHandling P1
-		dnRequest("set",[self,"WhitespaceHandling",P1])
+		dnSend("s3:set",nHandle,"s18:WhitespaceHandling",dnPackItem(P1))
 		return self
 
 	Func getProhibitDtd
-		return dnRequest("get",[self,"ProhibitDtd"])
+		return dnSend("s3:get",nHandle,"s11:ProhibitDtd","")
 
 	Func setProhibitDtd P1
-		dnRequest("set",[self,"ProhibitDtd",P1])
+		dnSend("s3:set",nHandle,"s11:ProhibitDtd",dnPackItem(P1))
 		return self
 
 	Func getDtdProcessing
-		return dnRequest("get",[self,"DtdProcessing"])
+		return dnSend("s3:get",nHandle,"s13:DtdProcessing","")
 
 	Func setDtdProcessing P1
-		dnRequest("set",[self,"DtdProcessing",P1])
+		dnSend("s3:set",nHandle,"s13:DtdProcessing",dnPackItem(P1))
 		return self
 
 	Func getEntityHandling
-		return dnRequest("get",[self,"EntityHandling"])
+		return dnSend("s3:get",nHandle,"s14:EntityHandling","")
 
 	Func setEntityHandling P1
-		dnRequest("set",[self,"EntityHandling",P1])
+		dnSend("s3:set",nHandle,"s14:EntityHandling",dnPackItem(P1))
 		return self
 
 	Func setXmlResolver P1
-		dnRequest("set",[self,"XmlResolver",P1])
+		dnSend("s3:set",nHandle,"s11:XmlResolver",dnPackItem(P1))
 		return self
 
 
@@ -2934,44 +2934,44 @@ Class XmlTextWriter from XmlWriter
 		return self
 
 	Func getBaseStream
-		return dnRequest("get",[self,"BaseStream"])
+		return dnSend("s3:get",nHandle,"s10:BaseStream","")
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")
 
 	Func getNamespaces
-		return dnRequest("get",[self,"Namespaces"])
+		return dnSend("s3:get",nHandle,"s10:Namespaces","")
 
 	Func setNamespaces P1
-		dnRequest("set",[self,"Namespaces",P1])
+		dnSend("s3:set",nHandle,"s10:Namespaces",dnPackItem(P1))
 		return self
 
 	Func getFormatting
-		return dnRequest("get",[self,"Formatting"])
+		return dnSend("s3:get",nHandle,"s10:Formatting","")
 
 	Func setFormatting P1
-		dnRequest("set",[self,"Formatting",P1])
+		dnSend("s3:set",nHandle,"s10:Formatting",dnPackItem(P1))
 		return self
 
 	Func getIndentation
-		return dnRequest("get",[self,"Indentation"])
+		return dnSend("s3:get",nHandle,"s11:Indentation","")
 
 	Func setIndentation P1
-		dnRequest("set",[self,"Indentation",P1])
+		dnSend("s3:set",nHandle,"s11:Indentation",dnPackItem(P1))
 		return self
 
 	Func getIndentChar
-		return dnRequest("get",[self,"IndentChar"])
+		return dnSend("s3:get",nHandle,"s10:IndentChar","")
 
 	Func setIndentChar P1
-		dnRequest("set",[self,"IndentChar",P1])
+		dnSend("s3:set",nHandle,"s10:IndentChar",dnPackItem(P1))
 		return self
 
 	Func getQuoteChar
-		return dnRequest("get",[self,"QuoteChar"])
+		return dnSend("s3:get",nHandle,"s9:QuoteChar","")
 
 	Func setQuoteChar P1
-		dnRequest("set",[self,"QuoteChar",P1])
+		dnSend("s3:set",nHandle,"s9:QuoteChar",dnPackItem(P1))
 		return self
 
 
@@ -3003,11 +3003,11 @@ Class XmlUrlResolver from XmlResolver
 		return self
 
 	Func setProxy P1
-		dnRequest("set",[self,"Proxy",P1])
+		dnSend("s3:set",nHandle,"s5:Proxy",dnPackItem(P1))
 		return self
 
 	Func setCachePolicy P1
-		dnRequest("set",[self,"CachePolicy",P1])
+		dnSend("s3:set",nHandle,"s11:CachePolicy",dnPackItem(P1))
 		return self
 
 
@@ -3026,33 +3026,33 @@ Class XmlCharacterData from XmlLinkedNode
 		return self
 
 	Func Substring P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Substring",P1,P2])
+		return dnSend("s4:call",nHandle,"s9:Substring",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AppendData P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AppendData",P1])
+		dnSend("s4:call",nHandle,"s10:AppendData",dnPackItem(P1))
 		return self
 
 	Func InsertData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"InsertData",P1,P2])
+		dnSend("s4:call",nHandle,"s10:InsertData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func DeleteData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"DeleteData",P1,P2])
+		dnSend("s4:call",nHandle,"s10:DeleteData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ReplaceData P1,P2,P3
-		dnRequest("call",[new DotNetObject(this.nHandle),"ReplaceData",P1,P2,P3])
+		dnSend("s4:call",nHandle,"s11:ReplaceData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func getData
-		return dnRequest("get",[self,"Data"])
+		return dnSend("s3:get",nHandle,"s4:Data","")
 
 	Func setData P1
-		dnRequest("set",[self,"Data",P1])
+		dnSend("s3:set",nHandle,"s4:Data",dnPackItem(P1))
 		return self
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnSend("s3:get",nHandle,"s6:Length","")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
@@ -3074,23 +3074,23 @@ Class XmlDeclaration from XmlLinkedNode
 		return self
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnSend("s3:get",nHandle,"s7:Version","")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getEncoding
-		return dnRequest("get",[self,"Encoding"])
+		return dnSend("s3:get",nHandle,"s8:Encoding","")
 
 	Func setEncoding P1
-		dnRequest("set",[self,"Encoding",P1])
+		dnSend("s3:set",nHandle,"s8:Encoding",dnPackItem(P1))
 		return self
 
 	Func getStandalone
-		return dnRequest("get",[self,"Standalone"])
+		return dnSend("s3:get",nHandle,"s10:Standalone","")
 
 	Func setStandalone P1
-		dnRequest("set",[self,"Standalone",P1])
+		dnSend("s3:set",nHandle,"s10:Standalone",dnPackItem(P1))
 		return self
 
 
@@ -3112,31 +3112,31 @@ Class XmlDocumentType from XmlLinkedNode
 		return self
 
 	Func getEntities
-		return dnRequest("get",[self,"Entities"])
+		return dnSend("s3:get",nHandle,"s8:Entities","")
 
 	Func setEntities P1
 		raise("DotNet Error: Entities is a read-only property")
 
 	Func getNotations
-		return dnRequest("get",[self,"Notations"])
+		return dnSend("s3:get",nHandle,"s9:Notations","")
 
 	Func setNotations P1
 		raise("DotNet Error: Notations is a read-only property")
 
 	Func getPublicId
-		return dnRequest("get",[self,"PublicId"])
+		return dnSend("s3:get",nHandle,"s8:PublicId","")
 
 	Func setPublicId P1
 		raise("DotNet Error: PublicId is a read-only property")
 
 	Func getSystemId
-		return dnRequest("get",[self,"SystemId"])
+		return dnSend("s3:get",nHandle,"s8:SystemId","")
 
 	Func setSystemId P1
 		raise("DotNet Error: SystemId is a read-only property")
 
 	Func getInternalSubset
-		return dnRequest("get",[self,"InternalSubset"])
+		return dnSend("s3:get",nHandle,"s14:InternalSubset","")
 
 	Func setInternalSubset P1
 		raise("DotNet Error: InternalSubset is a read-only property")
@@ -3158,70 +3158,70 @@ Class XmlElement from XmlLinkedNode
 
 	Func GetAttribute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetAttribute",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:GetAttribute",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAttribute",P1])
+		return dnSend("s4:call",nHandle,"s12:GetAttribute",dnPackItem(P1))
 
 	Func SetAttribute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetAttribute",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:SetAttribute",dnPackItem(P1))
 		ok
 		raise("DotNet Error: SetAttribute does not take one argument: use named arguments, SetAttribute([ :parameter = value, ... ])")
 
 	Func RemoveAttribute P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"RemoveAttribute",P1])
+			dnSend("s9:callnamed",nHandle,"s15:RemoveAttribute",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAttribute",P1])
+		dnSend("s4:call",nHandle,"s15:RemoveAttribute",dnPackItem(P1))
 		return self
 
 	Func GetAttributeNode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetAttributeNode",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:GetAttributeNode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAttributeNode",P1])
+		return dnSend("s4:call",nHandle,"s16:GetAttributeNode",dnPackItem(P1))
 
 	Func SetAttributeNode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetAttributeNode",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:SetAttributeNode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SetAttributeNode",P1])
+		return dnSend("s4:call",nHandle,"s16:SetAttributeNode",dnPackItem(P1))
 
 	Func RemoveAttributeNode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RemoveAttributeNode",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:RemoveAttributeNode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAttributeNode",P1])
+		return dnSend("s4:call",nHandle,"s19:RemoveAttributeNode",dnPackItem(P1))
 
 	Func GetElementsByTagName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetElementsByTagName",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:GetElementsByTagName",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetElementsByTagName",P1])
+		return dnSend("s4:call",nHandle,"s20:GetElementsByTagName",dnPackItem(P1))
 
 	Func HasAttribute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HasAttribute",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:HasAttribute",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasAttribute",P1])
+		return dnSend("s4:call",nHandle,"s12:HasAttribute",dnPackItem(P1))
 
 	Func RemoveAttributeAt P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAttributeAt",P1])
+		return dnSend("s4:call",nHandle,"s17:RemoveAttributeAt",dnPackItem(P1))
 
 	Func RemoveAllAttributes 
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAllAttributes"])
+		dnSend("s4:call",nHandle,"s19:RemoveAllAttributes","")
 		return self
 
 	Func getIsEmpty
-		return dnRequest("get",[self,"IsEmpty"])
+		return dnSend("s3:get",nHandle,"s7:IsEmpty","")
 
 	Func setIsEmpty P1
-		dnRequest("set",[self,"IsEmpty",P1])
+		dnSend("s3:set",nHandle,"s7:IsEmpty",dnPackItem(P1))
 		return self
 
 	Func getHasAttributes
-		return dnRequest("get",[self,"HasAttributes"])
+		return dnSend("s3:get",nHandle,"s13:HasAttributes","")
 
 	Func setHasAttributes P1
 		raise("DotNet Error: HasAttributes is a read-only property")
@@ -3254,16 +3254,16 @@ Class XmlProcessingInstruction from XmlLinkedNode
 		return self
 
 	Func getTarget
-		return dnRequest("get",[self,"Target"])
+		return dnSend("s3:get",nHandle,"s6:Target","")
 
 	Func setTarget P1
 		raise("DotNet Error: Target is a read-only property")
 
 	Func getData
-		return dnRequest("get",[self,"Data"])
+		return dnSend("s3:get",nHandle,"s4:Data","")
 
 	Func setData P1
-		dnRequest("set",[self,"Data",P1])
+		dnSend("s3:set",nHandle,"s4:Data",dnPackItem(P1))
 		return self
 
 
@@ -3315,7 +3315,7 @@ Class XmlText from XmlCharacterData
 		return self
 
 	Func SplitText P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SplitText",P1])
+		return dnSend("s4:call",nHandle,"s9:SplitText",dnPackItem(P1))
 
 
 Class XmlWhitespace from XmlCharacterData

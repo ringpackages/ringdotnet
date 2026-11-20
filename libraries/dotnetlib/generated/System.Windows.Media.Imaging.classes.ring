@@ -228,76 +228,76 @@ Class BitmapCodecInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getContainerFormat
-		return dnRequest("get",[self,"ContainerFormat"])
+		return dnSend("s3:get",nHandle,"s15:ContainerFormat","")
 
 	Func setContainerFormat P1
 		raise("DotNet Error: ContainerFormat is a read-only property")
 
 	Func getAuthor
-		return dnRequest("get",[self,"Author"])
+		return dnSend("s3:get",nHandle,"s6:Author","")
 
 	Func setAuthor P1
 		raise("DotNet Error: Author is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnSend("s3:get",nHandle,"s7:Version","")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getSpecificationVersion
-		return dnRequest("get",[self,"SpecificationVersion"])
+		return dnSend("s3:get",nHandle,"s20:SpecificationVersion","")
 
 	Func setSpecificationVersion P1
 		raise("DotNet Error: SpecificationVersion is a read-only property")
 
 	Func getFriendlyName
-		return dnRequest("get",[self,"FriendlyName"])
+		return dnSend("s3:get",nHandle,"s12:FriendlyName","")
 
 	Func setFriendlyName P1
 		raise("DotNet Error: FriendlyName is a read-only property")
 
 	Func getDeviceManufacturer
-		return dnRequest("get",[self,"DeviceManufacturer"])
+		return dnSend("s3:get",nHandle,"s18:DeviceManufacturer","")
 
 	Func setDeviceManufacturer P1
 		raise("DotNet Error: DeviceManufacturer is a read-only property")
 
 	Func getDeviceModels
-		return dnRequest("get",[self,"DeviceModels"])
+		return dnSend("s3:get",nHandle,"s12:DeviceModels","")
 
 	Func setDeviceModels P1
 		raise("DotNet Error: DeviceModels is a read-only property")
 
 	Func getMimeTypes
-		return dnRequest("get",[self,"MimeTypes"])
+		return dnSend("s3:get",nHandle,"s9:MimeTypes","")
 
 	Func setMimeTypes P1
 		raise("DotNet Error: MimeTypes is a read-only property")
 
 	Func getFileExtensions
-		return dnRequest("get",[self,"FileExtensions"])
+		return dnSend("s3:get",nHandle,"s14:FileExtensions","")
 
 	Func setFileExtensions P1
 		raise("DotNet Error: FileExtensions is a read-only property")
 
 	Func getSupportsAnimation
-		return dnRequest("get",[self,"SupportsAnimation"])
+		return dnSend("s3:get",nHandle,"s17:SupportsAnimation","")
 
 	Func setSupportsAnimation P1
 		raise("DotNet Error: SupportsAnimation is a read-only property")
 
 	Func getSupportsLossless
-		return dnRequest("get",[self,"SupportsLossless"])
+		return dnSend("s3:get",nHandle,"s16:SupportsLossless","")
 
 	Func setSupportsLossless P1
 		raise("DotNet Error: SupportsLossless is a read-only property")
 
 	Func getSupportsMultipleFrames
-		return dnRequest("get",[self,"SupportsMultipleFrames"])
+		return dnSend("s3:get",nHandle,"s22:SupportsMultipleFrames","")
 
 	Func setSupportsMultipleFrames P1
 		raise("DotNet Error: SupportsMultipleFrames is a read-only property")
@@ -324,11 +324,11 @@ Class BitmapDecoder from DispatcherObject
 		return self
 
 	Func CreateInPlaceBitmapMetadataWriter 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateInPlaceBitmapMetadataWriter"])
+		return dnSend("s4:call",nHandle,"s33:CreateInPlaceBitmapMetadataWriter","")
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Imaging.BitmapDecoder, PresentationCore'),"Create",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Imaging.BitmapDecoder, PresentationCore').nHandle,"s6:Create",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
@@ -357,49 +357,49 @@ Class BitmapDecoder from DispatcherObject
 		return self
 
 	Func getPalette
-		return dnRequest("get",[self,"Palette"])
+		return dnSend("s3:get",nHandle,"s7:Palette","")
 
 	Func setPalette P1
 		raise("DotNet Error: Palette is a read-only property")
 
 	Func getColorContexts
-		return dnRequest("get",[self,"ColorContexts"])
+		return dnSend("s3:get",nHandle,"s13:ColorContexts","")
 
 	Func setColorContexts P1
 		raise("DotNet Error: ColorContexts is a read-only property")
 
 	Func getThumbnail
-		return dnRequest("get",[self,"Thumbnail"])
+		return dnSend("s3:get",nHandle,"s9:Thumbnail","")
 
 	Func setThumbnail P1
 		raise("DotNet Error: Thumbnail is a read-only property")
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
 	Func getCodecInfo
-		return dnRequest("get",[self,"CodecInfo"])
+		return dnSend("s3:get",nHandle,"s9:CodecInfo","")
 
 	Func setCodecInfo P1
 		raise("DotNet Error: CodecInfo is a read-only property")
 
 	Func getFrames
-		return dnRequest("get",[self,"Frames"])
+		return dnSend("s3:get",nHandle,"s6:Frames","")
 
 	Func setFrames P1
 		raise("DotNet Error: Frames is a read-only property")
 
 	Func getPreview
-		return dnRequest("get",[self,"Preview"])
+		return dnSend("s3:get",nHandle,"s7:Preview","")
 
 	Func setPreview P1
 		raise("DotNet Error: Preview is a read-only property")
 
 	Func getIsDownloading
-		return dnRequest("get",[self,"IsDownloading"])
+		return dnSend("s3:get",nHandle,"s13:IsDownloading","")
 
 	Func setIsDownloading P1
 		raise("DotNet Error: IsDownloading is a read-only property")
@@ -425,58 +425,58 @@ Class BitmapEncoder from DispatcherObject
 		return self
 
 	Func Save P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Save",P1])
+		dnSend("s4:call",nHandle,"s4:Save",dnPackItem(P1))
 		return self
 
 	Func Create P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapEncoder, PresentationCore'),"Create",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Imaging.BitmapEncoder, PresentationCore').nHandle,"s6:Create",dnPackItem(P1))
 
 	Func getColorContexts
-		return dnRequest("get",[self,"ColorContexts"])
+		return dnSend("s3:get",nHandle,"s13:ColorContexts","")
 
 	Func setColorContexts P1
-		dnRequest("set",[self,"ColorContexts",P1])
+		dnSend("s3:set",nHandle,"s13:ColorContexts",dnPackItem(P1))
 		return self
 
 	Func getThumbnail
-		return dnRequest("get",[self,"Thumbnail"])
+		return dnSend("s3:get",nHandle,"s9:Thumbnail","")
 
 	Func setThumbnail P1
-		dnRequest("set",[self,"Thumbnail",P1])
+		dnSend("s3:set",nHandle,"s9:Thumbnail",dnPackItem(P1))
 		return self
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
-		dnRequest("set",[self,"Metadata",P1])
+		dnSend("s3:set",nHandle,"s8:Metadata",dnPackItem(P1))
 		return self
 
 	Func getPreview
-		return dnRequest("get",[self,"Preview"])
+		return dnSend("s3:get",nHandle,"s7:Preview","")
 
 	Func setPreview P1
-		dnRequest("set",[self,"Preview",P1])
+		dnSend("s3:set",nHandle,"s7:Preview",dnPackItem(P1))
 		return self
 
 	Func getCodecInfo
-		return dnRequest("get",[self,"CodecInfo"])
+		return dnSend("s3:get",nHandle,"s9:CodecInfo","")
 
 	Func setCodecInfo P1
 		raise("DotNet Error: CodecInfo is a read-only property")
 
 	Func getPalette
-		return dnRequest("get",[self,"Palette"])
+		return dnSend("s3:get",nHandle,"s7:Palette","")
 
 	Func setPalette P1
-		dnRequest("set",[self,"Palette",P1])
+		dnSend("s3:set",nHandle,"s7:Palette",dnPackItem(P1))
 		return self
 
 	Func getFrames
-		return dnRequest("get",[self,"Frames"])
+		return dnSend("s3:get",nHandle,"s6:Frames","")
 
 	Func setFrames P1
-		dnRequest("set",[self,"Frames",P1])
+		dnSend("s3:set",nHandle,"s6:Frames",dnPackItem(P1))
 		return self
 
 
@@ -510,118 +510,118 @@ Class BitmapMetadata from ImageMetadata
 		return self
 
 	Func SetQuery P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetQuery",P1,P2])
+		dnSend("s4:call",nHandle,"s8:SetQuery",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetQuery P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetQuery",P1])
+		return dnSend("s4:call",nHandle,"s8:GetQuery",dnPackItem(P1))
 
 	Func RemoveQuery P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveQuery",P1])
+		dnSend("s4:call",nHandle,"s11:RemoveQuery",dnPackItem(P1))
 		return self
 
 	Func ContainsQuery P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsQuery",P1])
+		return dnSend("s4:call",nHandle,"s13:ContainsQuery",dnPackItem(P1))
 
 	Func getFormat
-		return dnRequest("get",[self,"Format"])
+		return dnSend("s3:get",nHandle,"s6:Format","")
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getLocation
-		return dnRequest("get",[self,"Location"])
+		return dnSend("s3:get",nHandle,"s8:Location","")
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getAuthor
-		return dnRequest("get",[self,"Author"])
+		return dnSend("s3:get",nHandle,"s6:Author","")
 
 	Func setAuthor P1
-		dnRequest("set",[self,"Author",P1])
+		dnSend("s3:set",nHandle,"s6:Author",dnPackItem(P1))
 		return self
 
 	Func getTitle
-		return dnRequest("get",[self,"Title"])
+		return dnSend("s3:get",nHandle,"s5:Title","")
 
 	Func setTitle P1
-		dnRequest("set",[self,"Title",P1])
+		dnSend("s3:set",nHandle,"s5:Title",dnPackItem(P1))
 		return self
 
 	Func getRating
-		return dnRequest("get",[self,"Rating"])
+		return dnSend("s3:get",nHandle,"s6:Rating","")
 
 	Func setRating P1
-		dnRequest("set",[self,"Rating",P1])
+		dnSend("s3:set",nHandle,"s6:Rating",dnPackItem(P1))
 		return self
 
 	Func getSubject
-		return dnRequest("get",[self,"Subject"])
+		return dnSend("s3:get",nHandle,"s7:Subject","")
 
 	Func setSubject P1
-		dnRequest("set",[self,"Subject",P1])
+		dnSend("s3:set",nHandle,"s7:Subject",dnPackItem(P1))
 		return self
 
 	Func getComment
-		return dnRequest("get",[self,"Comment"])
+		return dnSend("s3:get",nHandle,"s7:Comment","")
 
 	Func setComment P1
-		dnRequest("set",[self,"Comment",P1])
+		dnSend("s3:set",nHandle,"s7:Comment",dnPackItem(P1))
 		return self
 
 	Func getDateTaken
-		return dnRequest("get",[self,"DateTaken"])
+		return dnSend("s3:get",nHandle,"s9:DateTaken","")
 
 	Func setDateTaken P1
-		dnRequest("set",[self,"DateTaken",P1])
+		dnSend("s3:set",nHandle,"s9:DateTaken",dnPackItem(P1))
 		return self
 
 	Func getApplicationName
-		return dnRequest("get",[self,"ApplicationName"])
+		return dnSend("s3:get",nHandle,"s15:ApplicationName","")
 
 	Func setApplicationName P1
-		dnRequest("set",[self,"ApplicationName",P1])
+		dnSend("s3:set",nHandle,"s15:ApplicationName",dnPackItem(P1))
 		return self
 
 	Func getCopyright
-		return dnRequest("get",[self,"Copyright"])
+		return dnSend("s3:get",nHandle,"s9:Copyright","")
 
 	Func setCopyright P1
-		dnRequest("set",[self,"Copyright",P1])
+		dnSend("s3:set",nHandle,"s9:Copyright",dnPackItem(P1))
 		return self
 
 	Func getCameraManufacturer
-		return dnRequest("get",[self,"CameraManufacturer"])
+		return dnSend("s3:get",nHandle,"s18:CameraManufacturer","")
 
 	Func setCameraManufacturer P1
-		dnRequest("set",[self,"CameraManufacturer",P1])
+		dnSend("s3:set",nHandle,"s18:CameraManufacturer",dnPackItem(P1))
 		return self
 
 	Func getCameraModel
-		return dnRequest("get",[self,"CameraModel"])
+		return dnSend("s3:get",nHandle,"s11:CameraModel","")
 
 	Func setCameraModel P1
-		dnRequest("set",[self,"CameraModel",P1])
+		dnSend("s3:set",nHandle,"s11:CameraModel",dnPackItem(P1))
 		return self
 
 	Func getKeywords
-		return dnRequest("get",[self,"Keywords"])
+		return dnSend("s3:get",nHandle,"s8:Keywords","")
 
 	Func setKeywords P1
-		dnRequest("set",[self,"Keywords",P1])
+		dnSend("s3:set",nHandle,"s8:Keywords",dnPackItem(P1))
 		return self
 
 
@@ -639,10 +639,10 @@ Class BitmapMetadataBlob from Object
 		return self
 
 	Func GetBlobValue 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBlobValue"])
+		return dnSend("s4:call",nHandle,"s12:GetBlobValue","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class BitmapPalette from DispatcherObject
@@ -676,7 +676,7 @@ Class BitmapPalette from DispatcherObject
 		return self
 
 	Func getColors
-		return dnRequest("get",[self,"Colors"])
+		return dnSend("s3:get",nHandle,"s6:Colors","")
 
 	Func setColors P1
 		raise("DotNet Error: Colors is a read-only property")
@@ -719,148 +719,148 @@ Class BitmapPalettes from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getBlackAndWhite
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"BlackAndWhite"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s13:BlackAndWhite","")
 
 	Func setBlackAndWhite P1
 		raise("DotNet Error: BlackAndWhite is a read-only property")
 
 	Func getBlackAndWhiteTransparent
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"BlackAndWhiteTransparent"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s24:BlackAndWhiteTransparent","")
 
 	Func setBlackAndWhiteTransparent P1
 		raise("DotNet Error: BlackAndWhiteTransparent is a read-only property")
 
 	Func getHalftone8
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Halftone8"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s9:Halftone8","")
 
 	Func setHalftone8 P1
 		raise("DotNet Error: Halftone8 is a read-only property")
 
 	Func getHalftone8Transparent
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Halftone8Transparent"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s20:Halftone8Transparent","")
 
 	Func setHalftone8Transparent P1
 		raise("DotNet Error: Halftone8Transparent is a read-only property")
 
 	Func getHalftone27
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Halftone27"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s10:Halftone27","")
 
 	Func setHalftone27 P1
 		raise("DotNet Error: Halftone27 is a read-only property")
 
 	Func getHalftone27Transparent
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Halftone27Transparent"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s21:Halftone27Transparent","")
 
 	Func setHalftone27Transparent P1
 		raise("DotNet Error: Halftone27Transparent is a read-only property")
 
 	Func getHalftone64
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Halftone64"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s10:Halftone64","")
 
 	Func setHalftone64 P1
 		raise("DotNet Error: Halftone64 is a read-only property")
 
 	Func getHalftone64Transparent
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Halftone64Transparent"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s21:Halftone64Transparent","")
 
 	Func setHalftone64Transparent P1
 		raise("DotNet Error: Halftone64Transparent is a read-only property")
 
 	Func getHalftone125
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Halftone125"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s11:Halftone125","")
 
 	Func setHalftone125 P1
 		raise("DotNet Error: Halftone125 is a read-only property")
 
 	Func getHalftone125Transparent
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Halftone125Transparent"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s22:Halftone125Transparent","")
 
 	Func setHalftone125Transparent P1
 		raise("DotNet Error: Halftone125Transparent is a read-only property")
 
 	Func getHalftone216
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Halftone216"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s11:Halftone216","")
 
 	Func setHalftone216 P1
 		raise("DotNet Error: Halftone216 is a read-only property")
 
 	Func getHalftone216Transparent
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Halftone216Transparent"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s22:Halftone216Transparent","")
 
 	Func setHalftone216Transparent P1
 		raise("DotNet Error: Halftone216Transparent is a read-only property")
 
 	Func getHalftone252
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Halftone252"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s11:Halftone252","")
 
 	Func setHalftone252 P1
 		raise("DotNet Error: Halftone252 is a read-only property")
 
 	Func getHalftone252Transparent
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Halftone252Transparent"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s22:Halftone252Transparent","")
 
 	Func setHalftone252Transparent P1
 		raise("DotNet Error: Halftone252Transparent is a read-only property")
 
 	Func getHalftone256
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Halftone256"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s11:Halftone256","")
 
 	Func setHalftone256 P1
 		raise("DotNet Error: Halftone256 is a read-only property")
 
 	Func getHalftone256Transparent
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Halftone256Transparent"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s22:Halftone256Transparent","")
 
 	Func setHalftone256Transparent P1
 		raise("DotNet Error: Halftone256Transparent is a read-only property")
 
 	Func getGray4
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Gray4"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s5:Gray4","")
 
 	Func setGray4 P1
 		raise("DotNet Error: Gray4 is a read-only property")
 
 	Func getGray4Transparent
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Gray4Transparent"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s16:Gray4Transparent","")
 
 	Func setGray4Transparent P1
 		raise("DotNet Error: Gray4Transparent is a read-only property")
 
 	Func getGray16
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Gray16"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s6:Gray16","")
 
 	Func setGray16 P1
 		raise("DotNet Error: Gray16 is a read-only property")
 
 	Func getGray16Transparent
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Gray16Transparent"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s17:Gray16Transparent","")
 
 	Func setGray16Transparent P1
 		raise("DotNet Error: Gray16Transparent is a read-only property")
 
 	Func getGray256
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Gray256"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s7:Gray256","")
 
 	Func setGray256 P1
 		raise("DotNet Error: Gray256 is a read-only property")
 
 	Func getGray256Transparent
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"Gray256Transparent"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s18:Gray256Transparent","")
 
 	Func setGray256Transparent P1
 		raise("DotNet Error: Gray256Transparent is a read-only property")
 
 	Func getWebPalette
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"WebPalette"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s10:WebPalette","")
 
 	Func setWebPalette P1
 		raise("DotNet Error: WebPalette is a read-only property")
 
 	Func getWebPaletteTransparent
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore'),"WebPaletteTransparent"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapPalettes, PresentationCore').nHandle,"s21:WebPaletteTransparent","")
 
 	Func setWebPaletteTransparent P1
 		raise("DotNet Error: WebPaletteTransparent is a read-only property")
@@ -883,43 +883,43 @@ Class BitmapSizeOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FromEmptyOptions 
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"FromEmptyOptions"])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore').nHandle,"s16:FromEmptyOptions","")
 
 	Func FromHeight P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"FromHeight",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore').nHandle,"s10:FromHeight",dnPackItem(P1))
 
 	Func FromWidth P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"FromWidth",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore').nHandle,"s9:FromWidth",dnPackItem(P1))
 
 	Func FromWidthAndHeight P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"FromWidthAndHeight",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore').nHandle,"s18:FromWidthAndHeight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FromRotation P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"FromRotation",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore').nHandle,"s12:FromRotation",dnPackItem(P1))
 
 	Func getPreservesAspectRatio
-		return dnRequest("get",[self,"PreservesAspectRatio"])
+		return dnSend("s3:get",nHandle,"s20:PreservesAspectRatio","")
 
 	Func setPreservesAspectRatio P1
 		raise("DotNet Error: PreservesAspectRatio is a read-only property")
 
 	Func getPixelWidth
-		return dnRequest("get",[self,"PixelWidth"])
+		return dnSend("s3:get",nHandle,"s10:PixelWidth","")
 
 	Func setPixelWidth P1
 		raise("DotNet Error: PixelWidth is a read-only property")
 
 	Func getPixelHeight
-		return dnRequest("get",[self,"PixelHeight"])
+		return dnSend("s3:get",nHandle,"s11:PixelHeight","")
 
 	Func setPixelHeight P1
 		raise("DotNet Error: PixelHeight is a read-only property")
 
 	Func getRotation
-		return dnRequest("get",[self,"Rotation"])
+		return dnSend("s3:get",nHandle,"s8:Rotation","")
 
 	Func setRotation P1
 		raise("DotNet Error: Rotation is a read-only property")
@@ -946,14 +946,14 @@ Class BitmapSource from ImageSource
 
 	Func CopyPixels P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyPixels",P1])
+			dnSend("s9:callnamed",nHandle,"s10:CopyPixels",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: CopyPixels does not take one argument: use named arguments, CopyPixels([ :parameter = value, ... ])")
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Imaging.BitmapSource, PresentationCore'),"Create",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Imaging.BitmapSource, PresentationCore').nHandle,"s6:Create",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
@@ -990,43 +990,43 @@ Class BitmapSource from ImageSource
 		return self
 
 	Func getFormat
-		return dnRequest("get",[self,"Format"])
+		return dnSend("s3:get",nHandle,"s6:Format","")
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getPixelWidth
-		return dnRequest("get",[self,"PixelWidth"])
+		return dnSend("s3:get",nHandle,"s10:PixelWidth","")
 
 	Func setPixelWidth P1
 		raise("DotNet Error: PixelWidth is a read-only property")
 
 	Func getPixelHeight
-		return dnRequest("get",[self,"PixelHeight"])
+		return dnSend("s3:get",nHandle,"s11:PixelHeight","")
 
 	Func setPixelHeight P1
 		raise("DotNet Error: PixelHeight is a read-only property")
 
 	Func getDpiX
-		return dnRequest("get",[self,"DpiX"])
+		return dnSend("s3:get",nHandle,"s4:DpiX","")
 
 	Func setDpiX P1
 		raise("DotNet Error: DpiX is a read-only property")
 
 	Func getDpiY
-		return dnRequest("get",[self,"DpiY"])
+		return dnSend("s3:get",nHandle,"s4:DpiY","")
 
 	Func setDpiY P1
 		raise("DotNet Error: DpiY is a read-only property")
 
 	Func getPalette
-		return dnRequest("get",[self,"Palette"])
+		return dnSend("s3:get",nHandle,"s7:Palette","")
 
 	Func setPalette P1
 		raise("DotNet Error: Palette is a read-only property")
 
 	Func getIsDownloading
-		return dnRequest("get",[self,"IsDownloading"])
+		return dnSend("s3:get",nHandle,"s13:IsDownloading","")
 
 	Func setIsDownloading P1
 		raise("DotNet Error: IsDownloading is a read-only property")
@@ -1046,7 +1046,7 @@ Class DownloadProgressEventArgs from EventArgs
 		return self
 
 	Func getProgress
-		return dnRequest("get",[self,"Progress"])
+		return dnSend("s3:get",nHandle,"s8:Progress","")
 
 	Func setProgress P1
 		raise("DotNet Error: Progress is a read-only property")
@@ -1069,35 +1069,35 @@ Class BitmapFrame from BitmapSource
 		return self
 
 	Func CreateInPlaceBitmapMetadataWriter 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateInPlaceBitmapMetadataWriter"])
+		return dnSend("s4:call",nHandle,"s33:CreateInPlaceBitmapMetadataWriter","")
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Imaging.BitmapFrame, PresentationCore'),"Create",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Media.Imaging.BitmapFrame, PresentationCore').nHandle,"s6:Create",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapFrame, PresentationCore'),"Create",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Media.Imaging.BitmapFrame, PresentationCore').nHandle,"s6:Create",dnPackItem(P1))
 
 	Func getBaseUri
-		return dnRequest("get",[self,"BaseUri"])
+		return dnSend("s3:get",nHandle,"s7:BaseUri","")
 
 	Func setBaseUri P1
-		dnRequest("set",[self,"BaseUri",P1])
+		dnSend("s3:set",nHandle,"s7:BaseUri",dnPackItem(P1))
 		return self
 
 	Func getThumbnail
-		return dnRequest("get",[self,"Thumbnail"])
+		return dnSend("s3:get",nHandle,"s9:Thumbnail","")
 
 	Func setThumbnail P1
 		raise("DotNet Error: Thumbnail is a read-only property")
 
 	Func getDecoder
-		return dnRequest("get",[self,"Decoder"])
+		return dnSend("s3:get",nHandle,"s7:Decoder","")
 
 	Func setDecoder P1
 		raise("DotNet Error: Decoder is a read-only property")
 
 	Func getColorContexts
-		return dnRequest("get",[self,"ColorContexts"])
+		return dnSend("s3:get",nHandle,"s13:ColorContexts","")
 
 	Func setColorContexts P1
 		raise("DotNet Error: ColorContexts is a read-only property")
@@ -1168,133 +1168,133 @@ Class BitmapImage from BitmapSource
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"BeginInit"])
+		dnSend("s4:call",nHandle,"s9:BeginInit","")
 		return self
 
 	Func EndInit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndInit"])
+		dnSend("s4:call",nHandle,"s7:EndInit","")
 		return self
 
 	Func getBaseUri
-		return dnRequest("get",[self,"BaseUri"])
+		return dnSend("s3:get",nHandle,"s7:BaseUri","")
 
 	Func setBaseUri P1
-		dnRequest("set",[self,"BaseUri",P1])
+		dnSend("s3:set",nHandle,"s7:BaseUri",dnPackItem(P1))
 		return self
 
 	Func getUriCachePolicy
-		return dnRequest("get",[self,"UriCachePolicy"])
+		return dnSend("s3:get",nHandle,"s14:UriCachePolicy","")
 
 	Func setUriCachePolicy P1
-		dnRequest("set",[self,"UriCachePolicy",P1])
+		dnSend("s3:set",nHandle,"s14:UriCachePolicy",dnPackItem(P1))
 		return self
 
 	Func getUriSource
-		return dnRequest("get",[self,"UriSource"])
+		return dnSend("s3:get",nHandle,"s9:UriSource","")
 
 	Func setUriSource P1
-		dnRequest("set",[self,"UriSource",P1])
+		dnSend("s3:set",nHandle,"s9:UriSource",dnPackItem(P1))
 		return self
 
 	Func getStreamSource
-		return dnRequest("get",[self,"StreamSource"])
+		return dnSend("s3:get",nHandle,"s12:StreamSource","")
 
 	Func setStreamSource P1
-		dnRequest("set",[self,"StreamSource",P1])
+		dnSend("s3:set",nHandle,"s12:StreamSource",dnPackItem(P1))
 		return self
 
 	Func getDecodePixelWidth
-		return dnRequest("get",[self,"DecodePixelWidth"])
+		return dnSend("s3:get",nHandle,"s16:DecodePixelWidth","")
 
 	Func setDecodePixelWidth P1
-		dnRequest("set",[self,"DecodePixelWidth",P1])
+		dnSend("s3:set",nHandle,"s16:DecodePixelWidth",dnPackItem(P1))
 		return self
 
 	Func getDecodePixelHeight
-		return dnRequest("get",[self,"DecodePixelHeight"])
+		return dnSend("s3:get",nHandle,"s17:DecodePixelHeight","")
 
 	Func setDecodePixelHeight P1
-		dnRequest("set",[self,"DecodePixelHeight",P1])
+		dnSend("s3:set",nHandle,"s17:DecodePixelHeight",dnPackItem(P1))
 		return self
 
 	Func getRotation
-		return dnRequest("get",[self,"Rotation"])
+		return dnSend("s3:get",nHandle,"s8:Rotation","")
 
 	Func setRotation P1
-		dnRequest("set",[self,"Rotation",P1])
+		dnSend("s3:set",nHandle,"s8:Rotation",dnPackItem(P1))
 		return self
 
 	Func getSourceRect
-		return dnRequest("get",[self,"SourceRect"])
+		return dnSend("s3:get",nHandle,"s10:SourceRect","")
 
 	Func setSourceRect P1
-		dnRequest("set",[self,"SourceRect",P1])
+		dnSend("s3:set",nHandle,"s10:SourceRect",dnPackItem(P1))
 		return self
 
 	Func getCreateOptions
-		return dnRequest("get",[self,"CreateOptions"])
+		return dnSend("s3:get",nHandle,"s13:CreateOptions","")
 
 	Func setCreateOptions P1
-		dnRequest("set",[self,"CreateOptions",P1])
+		dnSend("s3:set",nHandle,"s13:CreateOptions",dnPackItem(P1))
 		return self
 
 	Func getCacheOption
-		return dnRequest("get",[self,"CacheOption"])
+		return dnSend("s3:get",nHandle,"s11:CacheOption","")
 
 	Func setCacheOption P1
-		dnRequest("set",[self,"CacheOption",P1])
+		dnSend("s3:set",nHandle,"s11:CacheOption",dnPackItem(P1))
 		return self
 
 	Func getUriCachePolicyProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"UriCachePolicyProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s22:UriCachePolicyProperty","")
 
 	Func setUriCachePolicyProperty P1
 		raise("DotNet Error: UriCachePolicyProperty is a read-only property")
 
 	Func getUriSourceProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"UriSourceProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s17:UriSourceProperty","")
 
 	Func setUriSourceProperty P1
 		raise("DotNet Error: UriSourceProperty is a read-only property")
 
 	Func getStreamSourceProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"StreamSourceProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s20:StreamSourceProperty","")
 
 	Func setStreamSourceProperty P1
 		raise("DotNet Error: StreamSourceProperty is a read-only property")
 
 	Func getDecodePixelWidthProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"DecodePixelWidthProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s24:DecodePixelWidthProperty","")
 
 	Func setDecodePixelWidthProperty P1
 		raise("DotNet Error: DecodePixelWidthProperty is a read-only property")
 
 	Func getDecodePixelHeightProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"DecodePixelHeightProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s25:DecodePixelHeightProperty","")
 
 	Func setDecodePixelHeightProperty P1
 		raise("DotNet Error: DecodePixelHeightProperty is a read-only property")
 
 	Func getRotationProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"RotationProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s16:RotationProperty","")
 
 	Func setRotationProperty P1
 		raise("DotNet Error: RotationProperty is a read-only property")
 
 	Func getSourceRectProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"SourceRectProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s18:SourceRectProperty","")
 
 	Func setSourceRectProperty P1
 		raise("DotNet Error: SourceRectProperty is a read-only property")
 
 	Func getCreateOptionsProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"CreateOptionsProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s21:CreateOptionsProperty","")
 
 	Func setCreateOptionsProperty P1
 		raise("DotNet Error: CreateOptionsProperty is a read-only property")
 
 	Func getCacheOptionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore'),"CacheOptionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.BitmapImage, PresentationCore').nHandle,"s19:CacheOptionProperty","")
 
 	Func setCacheOptionProperty P1
 		raise("DotNet Error: CacheOptionProperty is a read-only property")
@@ -1407,61 +1407,61 @@ Class ColorConvertedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"BeginInit"])
+		dnSend("s4:call",nHandle,"s9:BeginInit","")
 		return self
 
 	Func EndInit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndInit"])
+		dnSend("s4:call",nHandle,"s7:EndInit","")
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1))
 		return self
 
 	Func getSourceColorContext
-		return dnRequest("get",[self,"SourceColorContext"])
+		return dnSend("s3:get",nHandle,"s18:SourceColorContext","")
 
 	Func setSourceColorContext P1
-		dnRequest("set",[self,"SourceColorContext",P1])
+		dnSend("s3:set",nHandle,"s18:SourceColorContext",dnPackItem(P1))
 		return self
 
 	Func getDestinationColorContext
-		return dnRequest("get",[self,"DestinationColorContext"])
+		return dnSend("s3:get",nHandle,"s23:DestinationColorContext","")
 
 	Func setDestinationColorContext P1
-		dnRequest("set",[self,"DestinationColorContext",P1])
+		dnSend("s3:set",nHandle,"s23:DestinationColorContext",dnPackItem(P1))
 		return self
 
 	Func getDestinationFormat
-		return dnRequest("get",[self,"DestinationFormat"])
+		return dnSend("s3:get",nHandle,"s17:DestinationFormat","")
 
 	Func setDestinationFormat P1
-		dnRequest("set",[self,"DestinationFormat",P1])
+		dnSend("s3:set",nHandle,"s17:DestinationFormat",dnPackItem(P1))
 		return self
 
 	Func getSourceProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore'),"SourceProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore').nHandle,"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
 
 	Func getSourceColorContextProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore'),"SourceColorContextProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore').nHandle,"s26:SourceColorContextProperty","")
 
 	Func setSourceColorContextProperty P1
 		raise("DotNet Error: SourceColorContextProperty is a read-only property")
 
 	Func getDestinationColorContextProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore'),"DestinationColorContextProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore').nHandle,"s31:DestinationColorContextProperty","")
 
 	Func setDestinationColorContextProperty P1
 		raise("DotNet Error: DestinationColorContextProperty is a read-only property")
 
 	Func getDestinationFormatProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore'),"DestinationFormatProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore').nHandle,"s25:DestinationFormatProperty","")
 
 	Func setDestinationFormatProperty P1
 		raise("DotNet Error: DestinationFormatProperty is a read-only property")
@@ -1517,35 +1517,35 @@ Class CroppedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"BeginInit"])
+		dnSend("s4:call",nHandle,"s9:BeginInit","")
 		return self
 
 	Func EndInit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndInit"])
+		dnSend("s4:call",nHandle,"s7:EndInit","")
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1))
 		return self
 
 	Func getSourceRect
-		return dnRequest("get",[self,"SourceRect"])
+		return dnSend("s3:get",nHandle,"s10:SourceRect","")
 
 	Func setSourceRect P1
-		dnRequest("set",[self,"SourceRect",P1])
+		dnSend("s3:set",nHandle,"s10:SourceRect",dnPackItem(P1))
 		return self
 
 	Func getSourceProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore'),"SourceProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore').nHandle,"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
 
 	Func getSourceRectProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore'),"SourceRectProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore').nHandle,"s18:SourceRectProperty","")
 
 	Func setSourceRectProperty P1
 		raise("DotNet Error: SourceRectProperty is a read-only property")
@@ -1605,61 +1605,61 @@ Class FormatConvertedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"BeginInit"])
+		dnSend("s4:call",nHandle,"s9:BeginInit","")
 		return self
 
 	Func EndInit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndInit"])
+		dnSend("s4:call",nHandle,"s7:EndInit","")
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1))
 		return self
 
 	Func getDestinationFormat
-		return dnRequest("get",[self,"DestinationFormat"])
+		return dnSend("s3:get",nHandle,"s17:DestinationFormat","")
 
 	Func setDestinationFormat P1
-		dnRequest("set",[self,"DestinationFormat",P1])
+		dnSend("s3:set",nHandle,"s17:DestinationFormat",dnPackItem(P1))
 		return self
 
 	Func getDestinationPalette
-		return dnRequest("get",[self,"DestinationPalette"])
+		return dnSend("s3:get",nHandle,"s18:DestinationPalette","")
 
 	Func setDestinationPalette P1
-		dnRequest("set",[self,"DestinationPalette",P1])
+		dnSend("s3:set",nHandle,"s18:DestinationPalette",dnPackItem(P1))
 		return self
 
 	Func getAlphaThreshold
-		return dnRequest("get",[self,"AlphaThreshold"])
+		return dnSend("s3:get",nHandle,"s14:AlphaThreshold","")
 
 	Func setAlphaThreshold P1
-		dnRequest("set",[self,"AlphaThreshold",P1])
+		dnSend("s3:set",nHandle,"s14:AlphaThreshold",dnPackItem(P1))
 		return self
 
 	Func getSourceProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore'),"SourceProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore').nHandle,"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
 
 	Func getDestinationFormatProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore'),"DestinationFormatProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore').nHandle,"s25:DestinationFormatProperty","")
 
 	Func setDestinationFormatProperty P1
 		raise("DotNet Error: DestinationFormatProperty is a read-only property")
 
 	Func getDestinationPaletteProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore'),"DestinationPaletteProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore').nHandle,"s26:DestinationPaletteProperty","")
 
 	Func setDestinationPaletteProperty P1
 		raise("DotNet Error: DestinationPaletteProperty is a read-only property")
 
 	Func getAlphaThresholdProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore'),"AlphaThresholdProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore').nHandle,"s22:AlphaThresholdProperty","")
 
 	Func setAlphaThresholdProperty P1
 		raise("DotNet Error: AlphaThresholdProperty is a read-only property")
@@ -1730,7 +1730,7 @@ Class InPlaceBitmapMetadataWriter from BitmapMetadata
 		return self
 
 	Func TrySave 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TrySave"])
+		return dnSend("s4:call",nHandle,"s7:TrySave","")
 
 
 Class JpegBitmapDecoder from BitmapDecoder
@@ -1777,31 +1777,31 @@ Class JpegBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getQualityLevel
-		return dnRequest("get",[self,"QualityLevel"])
+		return dnSend("s3:get",nHandle,"s12:QualityLevel","")
 
 	Func setQualityLevel P1
-		dnRequest("set",[self,"QualityLevel",P1])
+		dnSend("s3:set",nHandle,"s12:QualityLevel",dnPackItem(P1))
 		return self
 
 	Func getRotation
-		return dnRequest("get",[self,"Rotation"])
+		return dnSend("s3:get",nHandle,"s8:Rotation","")
 
 	Func setRotation P1
-		dnRequest("set",[self,"Rotation",P1])
+		dnSend("s3:set",nHandle,"s8:Rotation",dnPackItem(P1))
 		return self
 
 	Func getFlipHorizontal
-		return dnRequest("get",[self,"FlipHorizontal"])
+		return dnSend("s3:get",nHandle,"s14:FlipHorizontal","")
 
 	Func setFlipHorizontal P1
-		dnRequest("set",[self,"FlipHorizontal",P1])
+		dnSend("s3:set",nHandle,"s14:FlipHorizontal",dnPackItem(P1))
 		return self
 
 	Func getFlipVertical
-		return dnRequest("get",[self,"FlipVertical"])
+		return dnSend("s3:get",nHandle,"s12:FlipVertical","")
 
 	Func setFlipVertical P1
-		dnRequest("set",[self,"FlipVertical",P1])
+		dnSend("s3:set",nHandle,"s12:FlipVertical",dnPackItem(P1))
 		return self
 
 
@@ -1819,7 +1819,7 @@ Class LateBoundBitmapDecoder from BitmapDecoder
 		return self
 
 	Func getDecoder
-		return dnRequest("get",[self,"Decoder"])
+		return dnSend("s3:get",nHandle,"s7:Decoder","")
 
 	Func setDecoder P1
 		raise("DotNet Error: Decoder is a read-only property")
@@ -1866,10 +1866,10 @@ Class PngBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getInterlace
-		return dnRequest("get",[self,"Interlace"])
+		return dnSend("s3:get",nHandle,"s9:Interlace","")
 
 	Func setInterlace P1
-		dnRequest("set",[self,"Interlace",P1])
+		dnSend("s3:set",nHandle,"s9:Interlace",dnPackItem(P1))
 		return self
 
 
@@ -1887,11 +1887,11 @@ Class RenderTargetBitmap from BitmapSource
 		return self
 
 	Func Render P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Render",P1])
+		dnSend("s4:call",nHandle,"s6:Render",dnPackItem(P1))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 
@@ -1936,10 +1936,10 @@ Class TiffBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getCompression
-		return dnRequest("get",[self,"Compression"])
+		return dnSend("s3:get",nHandle,"s11:Compression","")
 
 	Func setCompression P1
-		dnRequest("set",[self,"Compression",P1])
+		dnSend("s3:set",nHandle,"s11:Compression",dnPackItem(P1))
 		return self
 
 
@@ -1993,35 +1993,35 @@ Class TransformedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"BeginInit"])
+		dnSend("s4:call",nHandle,"s9:BeginInit","")
 		return self
 
 	Func EndInit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndInit"])
+		dnSend("s4:call",nHandle,"s7:EndInit","")
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1))
 		return self
 
 	Func getTransform
-		return dnRequest("get",[self,"Transform"])
+		return dnSend("s3:get",nHandle,"s9:Transform","")
 
 	Func setTransform P1
-		dnRequest("set",[self,"Transform",P1])
+		dnSend("s3:set",nHandle,"s9:Transform",dnPackItem(P1))
 		return self
 
 	Func getSourceProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore'),"SourceProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore').nHandle,"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
 
 	Func getTransformProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore'),"TransformProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore').nHandle,"s17:TransformProperty","")
 
 	Func setTransformProperty P1
 		raise("DotNet Error: TransformProperty is a read-only property")
@@ -2085,129 +2085,129 @@ Class WmpBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getImageQualityLevel
-		return dnRequest("get",[self,"ImageQualityLevel"])
+		return dnSend("s3:get",nHandle,"s17:ImageQualityLevel","")
 
 	Func setImageQualityLevel P1
-		dnRequest("set",[self,"ImageQualityLevel",P1])
+		dnSend("s3:set",nHandle,"s17:ImageQualityLevel",dnPackItem(P1))
 		return self
 
 	Func getLossless
-		return dnRequest("get",[self,"Lossless"])
+		return dnSend("s3:get",nHandle,"s8:Lossless","")
 
 	Func setLossless P1
-		dnRequest("set",[self,"Lossless",P1])
+		dnSend("s3:set",nHandle,"s8:Lossless",dnPackItem(P1))
 		return self
 
 	Func getRotation
-		return dnRequest("get",[self,"Rotation"])
+		return dnSend("s3:get",nHandle,"s8:Rotation","")
 
 	Func setRotation P1
-		dnRequest("set",[self,"Rotation",P1])
+		dnSend("s3:set",nHandle,"s8:Rotation",dnPackItem(P1))
 		return self
 
 	Func getFlipHorizontal
-		return dnRequest("get",[self,"FlipHorizontal"])
+		return dnSend("s3:get",nHandle,"s14:FlipHorizontal","")
 
 	Func setFlipHorizontal P1
-		dnRequest("set",[self,"FlipHorizontal",P1])
+		dnSend("s3:set",nHandle,"s14:FlipHorizontal",dnPackItem(P1))
 		return self
 
 	Func getFlipVertical
-		return dnRequest("get",[self,"FlipVertical"])
+		return dnSend("s3:get",nHandle,"s12:FlipVertical","")
 
 	Func setFlipVertical P1
-		dnRequest("set",[self,"FlipVertical",P1])
+		dnSend("s3:set",nHandle,"s12:FlipVertical",dnPackItem(P1))
 		return self
 
 	Func getUseCodecOptions
-		return dnRequest("get",[self,"UseCodecOptions"])
+		return dnSend("s3:get",nHandle,"s15:UseCodecOptions","")
 
 	Func setUseCodecOptions P1
-		dnRequest("set",[self,"UseCodecOptions",P1])
+		dnSend("s3:set",nHandle,"s15:UseCodecOptions",dnPackItem(P1))
 		return self
 
 	Func getQualityLevel
-		return dnRequest("get",[self,"QualityLevel"])
+		return dnSend("s3:get",nHandle,"s12:QualityLevel","")
 
 	Func setQualityLevel P1
-		dnRequest("set",[self,"QualityLevel",P1])
+		dnSend("s3:set",nHandle,"s12:QualityLevel",dnPackItem(P1))
 		return self
 
 	Func getSubsamplingLevel
-		return dnRequest("get",[self,"SubsamplingLevel"])
+		return dnSend("s3:get",nHandle,"s16:SubsamplingLevel","")
 
 	Func setSubsamplingLevel P1
-		dnRequest("set",[self,"SubsamplingLevel",P1])
+		dnSend("s3:set",nHandle,"s16:SubsamplingLevel",dnPackItem(P1))
 		return self
 
 	Func getOverlapLevel
-		return dnRequest("get",[self,"OverlapLevel"])
+		return dnSend("s3:get",nHandle,"s12:OverlapLevel","")
 
 	Func setOverlapLevel P1
-		dnRequest("set",[self,"OverlapLevel",P1])
+		dnSend("s3:set",nHandle,"s12:OverlapLevel",dnPackItem(P1))
 		return self
 
 	Func getHorizontalTileSlices
-		return dnRequest("get",[self,"HorizontalTileSlices"])
+		return dnSend("s3:get",nHandle,"s20:HorizontalTileSlices","")
 
 	Func setHorizontalTileSlices P1
-		dnRequest("set",[self,"HorizontalTileSlices",P1])
+		dnSend("s3:set",nHandle,"s20:HorizontalTileSlices",dnPackItem(P1))
 		return self
 
 	Func getVerticalTileSlices
-		return dnRequest("get",[self,"VerticalTileSlices"])
+		return dnSend("s3:get",nHandle,"s18:VerticalTileSlices","")
 
 	Func setVerticalTileSlices P1
-		dnRequest("set",[self,"VerticalTileSlices",P1])
+		dnSend("s3:set",nHandle,"s18:VerticalTileSlices",dnPackItem(P1))
 		return self
 
 	Func getFrequencyOrder
-		return dnRequest("get",[self,"FrequencyOrder"])
+		return dnSend("s3:get",nHandle,"s14:FrequencyOrder","")
 
 	Func setFrequencyOrder P1
-		dnRequest("set",[self,"FrequencyOrder",P1])
+		dnSend("s3:set",nHandle,"s14:FrequencyOrder",dnPackItem(P1))
 		return self
 
 	Func getInterleavedAlpha
-		return dnRequest("get",[self,"InterleavedAlpha"])
+		return dnSend("s3:get",nHandle,"s16:InterleavedAlpha","")
 
 	Func setInterleavedAlpha P1
-		dnRequest("set",[self,"InterleavedAlpha",P1])
+		dnSend("s3:set",nHandle,"s16:InterleavedAlpha",dnPackItem(P1))
 		return self
 
 	Func getAlphaQualityLevel
-		return dnRequest("get",[self,"AlphaQualityLevel"])
+		return dnSend("s3:get",nHandle,"s17:AlphaQualityLevel","")
 
 	Func setAlphaQualityLevel P1
-		dnRequest("set",[self,"AlphaQualityLevel",P1])
+		dnSend("s3:set",nHandle,"s17:AlphaQualityLevel",dnPackItem(P1))
 		return self
 
 	Func getCompressedDomainTranscode
-		return dnRequest("get",[self,"CompressedDomainTranscode"])
+		return dnSend("s3:get",nHandle,"s25:CompressedDomainTranscode","")
 
 	Func setCompressedDomainTranscode P1
-		dnRequest("set",[self,"CompressedDomainTranscode",P1])
+		dnSend("s3:set",nHandle,"s25:CompressedDomainTranscode",dnPackItem(P1))
 		return self
 
 	Func getImageDataDiscardLevel
-		return dnRequest("get",[self,"ImageDataDiscardLevel"])
+		return dnSend("s3:get",nHandle,"s21:ImageDataDiscardLevel","")
 
 	Func setImageDataDiscardLevel P1
-		dnRequest("set",[self,"ImageDataDiscardLevel",P1])
+		dnSend("s3:set",nHandle,"s21:ImageDataDiscardLevel",dnPackItem(P1))
 		return self
 
 	Func getAlphaDataDiscardLevel
-		return dnRequest("get",[self,"AlphaDataDiscardLevel"])
+		return dnSend("s3:get",nHandle,"s21:AlphaDataDiscardLevel","")
 
 	Func setAlphaDataDiscardLevel P1
-		dnRequest("set",[self,"AlphaDataDiscardLevel",P1])
+		dnSend("s3:set",nHandle,"s21:AlphaDataDiscardLevel",dnPackItem(P1))
 		return self
 
 	Func getIgnoreOverlap
-		return dnRequest("get",[self,"IgnoreOverlap"])
+		return dnSend("s3:get",nHandle,"s13:IgnoreOverlap","")
 
 	Func setIgnoreOverlap P1
-		dnRequest("set",[self,"IgnoreOverlap",P1])
+		dnSend("s3:set",nHandle,"s13:IgnoreOverlap",dnPackItem(P1))
 		return self
 
 
@@ -2243,35 +2243,35 @@ Class WriteableBitmap from BitmapSource
 		return self
 
 	Func AddDirtyRect P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddDirtyRect",P1])
+		dnSend("s4:call",nHandle,"s12:AddDirtyRect",dnPackItem(P1))
 		return self
 
 	Func Lock 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Lock"])
+		dnSend("s4:call",nHandle,"s4:Lock","")
 		return self
 
 	Func TryLock P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryLock",P1])
+		return dnSend("s4:call",nHandle,"s7:TryLock",dnPackItem(P1))
 
 	Func Unlock 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Unlock"])
+		dnSend("s4:call",nHandle,"s6:Unlock","")
 		return self
 
 	Func WritePixels P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"WritePixels",P1])
+			dnSend("s9:callnamed",nHandle,"s11:WritePixels",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: WritePixels does not take one argument: use named arguments, WritePixels([ :parameter = value, ... ])")
 
 	Func getBackBuffer
-		return dnRequest("get",[self,"BackBuffer"])
+		return dnSend("s3:get",nHandle,"s10:BackBuffer","")
 
 	Func setBackBuffer P1
 		raise("DotNet Error: BackBuffer is a read-only property")
 
 	Func getBackBufferStride
-		return dnRequest("get",[self,"BackBufferStride"])
+		return dnSend("s3:get",nHandle,"s16:BackBufferStride","")
 
 	Func setBackBufferStride P1
 		raise("DotNet Error: BackBufferStride is a read-only property")

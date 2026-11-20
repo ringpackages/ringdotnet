@@ -31,14 +31,14 @@ Class FontCollection from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getFamilies
-		return dnRequest("get",[self,"Families"])
+		return dnSend("s3:get",nHandle,"s8:Families","")
 
 	Func setFamilies P1
 		raise("DotNet Error: Families is a read-only property")
@@ -94,11 +94,11 @@ Class PrivateFontCollection from FontCollection
 		return self
 
 	Func AddFontFile P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddFontFile",P1])
+		dnSend("s4:call",nHandle,"s11:AddFontFile",dnPackItem(P1))
 		return self
 
 	Func AddMemoryFont P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddMemoryFont",P1,P2])
+		dnSend("s4:call",nHandle,"s13:AddMemoryFont",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 

@@ -203,44 +203,44 @@ Class BindingBase from MarkupExtension
 		return self
 
 	Func ShouldSerializeFallbackValue 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeFallbackValue"])
+		return dnSend("s4:call",nHandle,"s28:ShouldSerializeFallbackValue","")
 
 	Func ShouldSerializeTargetNullValue 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeTargetNullValue"])
+		return dnSend("s4:call",nHandle,"s30:ShouldSerializeTargetNullValue","")
 
 	Func getFallbackValue
-		return dnRequest("get",[self,"FallbackValue"])
+		return dnSend("s3:get",nHandle,"s13:FallbackValue","")
 
 	Func setFallbackValue P1
-		dnRequest("set",[self,"FallbackValue",P1])
+		dnSend("s3:set",nHandle,"s13:FallbackValue",dnPackItem(P1))
 		return self
 
 	Func getStringFormat
-		return dnRequest("get",[self,"StringFormat"])
+		return dnSend("s3:get",nHandle,"s12:StringFormat","")
 
 	Func setStringFormat P1
-		dnRequest("set",[self,"StringFormat",P1])
+		dnSend("s3:set",nHandle,"s12:StringFormat",dnPackItem(P1))
 		return self
 
 	Func getTargetNullValue
-		return dnRequest("get",[self,"TargetNullValue"])
+		return dnSend("s3:get",nHandle,"s15:TargetNullValue","")
 
 	Func setTargetNullValue P1
-		dnRequest("set",[self,"TargetNullValue",P1])
+		dnSend("s3:set",nHandle,"s15:TargetNullValue",dnPackItem(P1))
 		return self
 
 	Func getBindingGroupName
-		return dnRequest("get",[self,"BindingGroupName"])
+		return dnSend("s3:get",nHandle,"s16:BindingGroupName","")
 
 	Func setBindingGroupName P1
-		dnRequest("set",[self,"BindingGroupName",P1])
+		dnSend("s3:set",nHandle,"s16:BindingGroupName",dnPackItem(P1))
 		return self
 
 	Func getDelay
-		return dnRequest("get",[self,"Delay"])
+		return dnSend("s3:get",nHandle,"s5:Delay","")
 
 	Func setDelay P1
-		dnRequest("set",[self,"Delay",P1])
+		dnSend("s3:set",nHandle,"s5:Delay",dnPackItem(P1))
 		return self
 
 
@@ -267,72 +267,72 @@ Class BindingExpressionBase from Expression
 		return self
 
 	Func UpdateTarget 
-		dnRequest("call",[new DotNetObject(this.nHandle),"UpdateTarget"])
+		dnSend("s4:call",nHandle,"s12:UpdateTarget","")
 		return self
 
 	Func UpdateSource 
-		dnRequest("call",[new DotNetObject(this.nHandle),"UpdateSource"])
+		dnSend("s4:call",nHandle,"s12:UpdateSource","")
 		return self
 
 	Func ValidateWithoutUpdate 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValidateWithoutUpdate"])
+		return dnSend("s4:call",nHandle,"s21:ValidateWithoutUpdate","")
 
 	Func getTarget
-		return dnRequest("get",[self,"Target"])
+		return dnSend("s3:get",nHandle,"s6:Target","")
 
 	Func setTarget P1
 		raise("DotNet Error: Target is a read-only property")
 
 	Func getTargetProperty
-		return dnRequest("get",[self,"TargetProperty"])
+		return dnSend("s3:get",nHandle,"s14:TargetProperty","")
 
 	Func setTargetProperty P1
 		raise("DotNet Error: TargetProperty is a read-only property")
 
 	Func getParentBindingBase
-		return dnRequest("get",[self,"ParentBindingBase"])
+		return dnSend("s3:get",nHandle,"s17:ParentBindingBase","")
 
 	Func setParentBindingBase P1
 		raise("DotNet Error: ParentBindingBase is a read-only property")
 
 	Func getBindingGroup
-		return dnRequest("get",[self,"BindingGroup"])
+		return dnSend("s3:get",nHandle,"s12:BindingGroup","")
 
 	Func setBindingGroup P1
 		raise("DotNet Error: BindingGroup is a read-only property")
 
 	Func getStatus
-		return dnRequest("get",[self,"Status"])
+		return dnSend("s3:get",nHandle,"s6:Status","")
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
 
 	Func getValidationError
-		return dnRequest("get",[self,"ValidationError"])
+		return dnSend("s3:get",nHandle,"s15:ValidationError","")
 
 	Func setValidationError P1
 		raise("DotNet Error: ValidationError is a read-only property")
 
 	Func getHasError
-		return dnRequest("get",[self,"HasError"])
+		return dnSend("s3:get",nHandle,"s8:HasError","")
 
 	Func setHasError P1
 		raise("DotNet Error: HasError is a read-only property")
 
 	Func getHasValidationError
-		return dnRequest("get",[self,"HasValidationError"])
+		return dnSend("s3:get",nHandle,"s18:HasValidationError","")
 
 	Func setHasValidationError P1
 		raise("DotNet Error: HasValidationError is a read-only property")
 
 	Func getIsDirty
-		return dnRequest("get",[self,"IsDirty"])
+		return dnSend("s3:get",nHandle,"s7:IsDirty","")
 
 	Func setIsDirty P1
 		raise("DotNet Error: IsDirty is a read-only property")
 
 	Func getValidationErrors
-		return dnRequest("get",[self,"ValidationErrors"])
+		return dnSend("s3:get",nHandle,"s16:ValidationErrors","")
 
 	Func setValidationErrors P1
 		raise("DotNet Error: ValidationErrors is a read-only property")
@@ -376,103 +376,103 @@ Class BindingGroup from DependencyObject
 		return self
 
 	Func BeginEdit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"BeginEdit"])
+		dnSend("s4:call",nHandle,"s9:BeginEdit","")
 		return self
 
 	Func CommitEdit 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CommitEdit"])
+		return dnSend("s4:call",nHandle,"s10:CommitEdit","")
 
 	Func CancelEdit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"CancelEdit"])
+		dnSend("s4:call",nHandle,"s10:CancelEdit","")
 		return self
 
 	Func ValidateWithoutUpdate 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValidateWithoutUpdate"])
+		return dnSend("s4:call",nHandle,"s21:ValidateWithoutUpdate","")
 
 	Func UpdateSources 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UpdateSources"])
+		return dnSend("s4:call",nHandle,"s13:UpdateSources","")
 
 	Func GetValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetValue",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:GetValue",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func TryGetValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getOwner
-		return dnRequest("get",[self,"Owner"])
+		return dnSend("s3:get",nHandle,"s5:Owner","")
 
 	Func setOwner P1
 		raise("DotNet Error: Owner is a read-only property")
 
 	Func getValidationRules
-		return dnRequest("get",[self,"ValidationRules"])
+		return dnSend("s3:get",nHandle,"s15:ValidationRules","")
 
 	Func setValidationRules P1
 		raise("DotNet Error: ValidationRules is a read-only property")
 
 	Func getBindingExpressions
-		return dnRequest("get",[self,"BindingExpressions"])
+		return dnSend("s3:get",nHandle,"s18:BindingExpressions","")
 
 	Func setBindingExpressions P1
 		raise("DotNet Error: BindingExpressions is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
 		return self
 
 	Func getNotifyOnValidationError
-		return dnRequest("get",[self,"NotifyOnValidationError"])
+		return dnSend("s3:get",nHandle,"s23:NotifyOnValidationError","")
 
 	Func setNotifyOnValidationError P1
-		dnRequest("set",[self,"NotifyOnValidationError",P1])
+		dnSend("s3:set",nHandle,"s23:NotifyOnValidationError",dnPackItem(P1))
 		return self
 
 	Func getValidatesOnNotifyDataError
-		return dnRequest("get",[self,"ValidatesOnNotifyDataError"])
+		return dnSend("s3:get",nHandle,"s26:ValidatesOnNotifyDataError","")
 
 	Func setValidatesOnNotifyDataError P1
-		dnRequest("set",[self,"ValidatesOnNotifyDataError",P1])
+		dnSend("s3:set",nHandle,"s26:ValidatesOnNotifyDataError",dnPackItem(P1))
 		return self
 
 	Func getSharesProposedValues
-		return dnRequest("get",[self,"SharesProposedValues"])
+		return dnSend("s3:get",nHandle,"s20:SharesProposedValues","")
 
 	Func setSharesProposedValues P1
-		dnRequest("set",[self,"SharesProposedValues",P1])
+		dnSend("s3:set",nHandle,"s20:SharesProposedValues",dnPackItem(P1))
 		return self
 
 	Func getCanRestoreValues
-		return dnRequest("get",[self,"CanRestoreValues"])
+		return dnSend("s3:get",nHandle,"s16:CanRestoreValues","")
 
 	Func setCanRestoreValues P1
 		raise("DotNet Error: CanRestoreValues is a read-only property")
 
 	Func getItems
-		return dnRequest("get",[self,"Items"])
+		return dnSend("s3:get",nHandle,"s5:Items","")
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getIsDirty
-		return dnRequest("get",[self,"IsDirty"])
+		return dnSend("s3:get",nHandle,"s7:IsDirty","")
 
 	Func setIsDirty P1
 		raise("DotNet Error: IsDirty is a read-only property")
 
 	Func getHasValidationError
-		return dnRequest("get",[self,"HasValidationError"])
+		return dnSend("s3:get",nHandle,"s18:HasValidationError","")
 
 	Func setHasValidationError P1
 		raise("DotNet Error: HasValidationError is a read-only property")
 
 	Func getValidationErrors
-		return dnRequest("get",[self,"ValidationErrors"])
+		return dnSend("s3:get",nHandle,"s16:ValidationErrors","")
 
 	Func setValidationErrors P1
 		raise("DotNet Error: ValidationErrors is a read-only property")
@@ -492,66 +492,66 @@ Class BindingOperations from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SetBinding P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"SetBinding",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s10:SetBinding",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func GetBindingBase P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"GetBindingBase",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s14:GetBindingBase",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetBinding P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"GetBinding",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s10:GetBinding",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetPriorityBinding P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"GetPriorityBinding",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s18:GetPriorityBinding",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetMultiBinding P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"GetMultiBinding",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s15:GetMultiBinding",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetBindingExpressionBase P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"GetBindingExpressionBase",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s24:GetBindingExpressionBase",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetBindingExpression P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"GetBindingExpression",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s20:GetBindingExpression",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetMultiBindingExpression P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"GetMultiBindingExpression",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s25:GetMultiBindingExpression",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetPriorityBindingExpression P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"GetPriorityBindingExpression",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s28:GetPriorityBindingExpression",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ClearBinding P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"ClearBinding",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s12:ClearBinding",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ClearAllBindings P1
-		dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"ClearAllBindings",P1])
+		dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s16:ClearAllBindings",dnPackItem(P1))
 		return self
 
 	Func IsDataBound P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"IsDataBound",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s11:IsDataBound",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EnableCollectionSynchronization P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"EnableCollectionSynchronization",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s31:EnableCollectionSynchronization",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: EnableCollectionSynchronization does not take one argument: use named arguments, EnableCollectionSynchronization([ :parameter = value, ... ])")
 
 	Func DisableCollectionSynchronization P1
-		dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"DisableCollectionSynchronization",P1])
+		dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s32:DisableCollectionSynchronization",dnPackItem(P1))
 		return self
 
 	Func AccessCollection P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"AccessCollection",P1,P2,P3])
+		dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s16:AccessCollection",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func GetSourceUpdatingBindings P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"GetSourceUpdatingBindings",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s25:GetSourceUpdatingBindings",dnPackItem(P1))
 
 	Func GetSourceUpdatingBindingGroups P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"GetSourceUpdatingBindingGroups",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s30:GetSourceUpdatingBindingGroups",dnPackItem(P1))
 
 	Func setCollectionRegisteringEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"CollectionRegistering",dnCallback(P1)])
@@ -570,7 +570,7 @@ Class BindingOperations from Object
 		return self
 
 	Func getDisconnectedSource
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"DisconnectedSource"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework').nHandle,"s18:DisconnectedSource","")
 
 	Func setDisconnectedSource P1
 		raise("DotNet Error: DisconnectedSource is a read-only property")
@@ -604,17 +604,17 @@ Class CollectionContainer from DependencyObject
 		return self
 
 	Func ShouldSerializeCollection 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeCollection"])
+		return dnSend("s4:call",nHandle,"s25:ShouldSerializeCollection","")
 
 	Func getCollection
-		return dnRequest("get",[self,"Collection"])
+		return dnSend("s3:get",nHandle,"s10:Collection","")
 
 	Func setCollection P1
-		dnRequest("set",[self,"Collection",P1])
+		dnSend("s3:set",nHandle,"s10:Collection",dnPackItem(P1))
 		return self
 
 	Func getCollectionProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.CollectionContainer, PresentationFramework'),"CollectionProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionContainer, PresentationFramework').nHandle,"s18:CollectionProperty","")
 
 	Func setCollectionProperty P1
 		raise("DotNet Error: CollectionProperty is a read-only property")
@@ -635,13 +635,13 @@ Class CollectionRegisteringEventArgs from EventArgs
 		return self
 
 	Func getCollection
-		return dnRequest("get",[self,"Collection"])
+		return dnSend("s3:get",nHandle,"s10:Collection","")
 
 	Func setCollection P1
 		raise("DotNet Error: Collection is a read-only property")
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnSend("s3:get",nHandle,"s6:Parent","")
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
@@ -681,44 +681,44 @@ Class CollectionView from DispatcherObject
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func Refresh 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Refresh"])
+		dnSend("s4:call",nHandle,"s7:Refresh","")
 		return self
 
 	Func DeferRefresh 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DeferRefresh"])
+		return dnSend("s4:call",nHandle,"s12:DeferRefresh","")
 
 	Func MoveCurrentToFirst 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveCurrentToFirst"])
+		return dnSend("s4:call",nHandle,"s18:MoveCurrentToFirst","")
 
 	Func MoveCurrentToLast 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveCurrentToLast"])
+		return dnSend("s4:call",nHandle,"s17:MoveCurrentToLast","")
 
 	Func MoveCurrentToNext 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveCurrentToNext"])
+		return dnSend("s4:call",nHandle,"s17:MoveCurrentToNext","")
 
 	Func MoveCurrentToPrevious 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveCurrentToPrevious"])
+		return dnSend("s4:call",nHandle,"s21:MoveCurrentToPrevious","")
 
 	Func MoveCurrentTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveCurrentTo",P1])
+		return dnSend("s4:call",nHandle,"s13:MoveCurrentTo",dnPackItem(P1))
 
 	Func MoveCurrentToPosition P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveCurrentToPosition",P1])
+		return dnSend("s4:call",nHandle,"s21:MoveCurrentToPosition",dnPackItem(P1))
 
 	Func PassesFilter P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"PassesFilter",P1])
+		return dnSend("s4:call",nHandle,"s12:PassesFilter",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func GetItemAt P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetItemAt",P1])
+		return dnSend("s4:call",nHandle,"s9:GetItemAt",dnPackItem(P1))
 
 	Func DetachFromSourceCollection 
-		dnRequest("call",[new DotNetObject(this.nHandle),"DetachFromSourceCollection"])
+		dnSend("s4:call",nHandle,"s26:DetachFromSourceCollection","")
 		return self
 
 	Func setCurrentChangingEvent P1
@@ -738,117 +738,117 @@ Class CollectionView from DispatcherObject
 		return self
 
 	Func getCulture
-		return dnRequest("get",[self,"Culture"])
+		return dnSend("s3:get",nHandle,"s7:Culture","")
 
 	Func setCulture P1
-		dnRequest("set",[self,"Culture",P1])
+		dnSend("s3:set",nHandle,"s7:Culture",dnPackItem(P1))
 		return self
 
 	Func getSourceCollection
-		return dnRequest("get",[self,"SourceCollection"])
+		return dnSend("s3:get",nHandle,"s16:SourceCollection","")
 
 	Func setSourceCollection P1
 		raise("DotNet Error: SourceCollection is a read-only property")
 
 	Func getFilter
-		return dnRequest("get",[self,"Filter"])
+		return dnSend("s3:get",nHandle,"s6:Filter","")
 
 	Func setFilter P1
-		dnRequest("set",[self,"Filter",P1])
+		dnSend("s3:set",nHandle,"s6:Filter",dnPackItem(P1))
 		return self
 
 	Func getCanFilter
-		return dnRequest("get",[self,"CanFilter"])
+		return dnSend("s3:get",nHandle,"s9:CanFilter","")
 
 	Func setCanFilter P1
 		raise("DotNet Error: CanFilter is a read-only property")
 
 	Func getSortDescriptions
-		return dnRequest("get",[self,"SortDescriptions"])
+		return dnSend("s3:get",nHandle,"s16:SortDescriptions","")
 
 	Func setSortDescriptions P1
 		raise("DotNet Error: SortDescriptions is a read-only property")
 
 	Func getCanSort
-		return dnRequest("get",[self,"CanSort"])
+		return dnSend("s3:get",nHandle,"s7:CanSort","")
 
 	Func setCanSort P1
 		raise("DotNet Error: CanSort is a read-only property")
 
 	Func getCanGroup
-		return dnRequest("get",[self,"CanGroup"])
+		return dnSend("s3:get",nHandle,"s8:CanGroup","")
 
 	Func setCanGroup P1
 		raise("DotNet Error: CanGroup is a read-only property")
 
 	Func getGroupDescriptions
-		return dnRequest("get",[self,"GroupDescriptions"])
+		return dnSend("s3:get",nHandle,"s17:GroupDescriptions","")
 
 	Func setGroupDescriptions P1
 		raise("DotNet Error: GroupDescriptions is a read-only property")
 
 	Func getGroups
-		return dnRequest("get",[self,"Groups"])
+		return dnSend("s3:get",nHandle,"s6:Groups","")
 
 	Func setGroups P1
 		raise("DotNet Error: Groups is a read-only property")
 
 	Func getCurrentItem
-		return dnRequest("get",[self,"CurrentItem"])
+		return dnSend("s3:get",nHandle,"s11:CurrentItem","")
 
 	Func setCurrentItem P1
 		raise("DotNet Error: CurrentItem is a read-only property")
 
 	Func getCurrentPosition
-		return dnRequest("get",[self,"CurrentPosition"])
+		return dnSend("s3:get",nHandle,"s15:CurrentPosition","")
 
 	Func setCurrentPosition P1
 		raise("DotNet Error: CurrentPosition is a read-only property")
 
 	Func getIsCurrentAfterLast
-		return dnRequest("get",[self,"IsCurrentAfterLast"])
+		return dnSend("s3:get",nHandle,"s18:IsCurrentAfterLast","")
 
 	Func setIsCurrentAfterLast P1
 		raise("DotNet Error: IsCurrentAfterLast is a read-only property")
 
 	Func getIsCurrentBeforeFirst
-		return dnRequest("get",[self,"IsCurrentBeforeFirst"])
+		return dnSend("s3:get",nHandle,"s20:IsCurrentBeforeFirst","")
 
 	Func setIsCurrentBeforeFirst P1
 		raise("DotNet Error: IsCurrentBeforeFirst is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsEmpty
-		return dnRequest("get",[self,"IsEmpty"])
+		return dnSend("s3:get",nHandle,"s7:IsEmpty","")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnSend("s3:get",nHandle,"s8:Comparer","")
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getNeedsRefresh
-		return dnRequest("get",[self,"NeedsRefresh"])
+		return dnSend("s3:get",nHandle,"s12:NeedsRefresh","")
 
 	Func setNeedsRefresh P1
 		raise("DotNet Error: NeedsRefresh is a read-only property")
 
 	Func getIsInUse
-		return dnRequest("get",[self,"IsInUse"])
+		return dnSend("s3:get",nHandle,"s7:IsInUse","")
 
 	Func setIsInUse P1
 		raise("DotNet Error: IsInUse is a read-only property")
 
 	Func getNewItemPlaceholder
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.CollectionView, PresentationFramework'),"NewItemPlaceholder"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionView, PresentationFramework').nHandle,"s18:NewItemPlaceholder","")
 
 	Func setNewItemPlaceholder P1
 		raise("DotNet Error: NewItemPlaceholder is a read-only property")
@@ -871,28 +871,28 @@ Class CollectionViewGroup from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getItems
-		return dnRequest("get",[self,"Items"])
+		return dnSend("s3:get",nHandle,"s5:Items","")
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getItemCount
-		return dnRequest("get",[self,"ItemCount"])
+		return dnSend("s3:get",nHandle,"s9:ItemCount","")
 
 	Func setItemCount P1
 		raise("DotNet Error: ItemCount is a read-only property")
 
 	Func getIsBottomLevel
-		return dnRequest("get",[self,"IsBottomLevel"])
+		return dnSend("s3:get",nHandle,"s13:IsBottomLevel","")
 
 	Func setIsBottomLevel P1
 		raise("DotNet Error: IsBottomLevel is a read-only property")
@@ -912,7 +912,7 @@ Class CollectionViewRegisteringEventArgs from EventArgs
 		return self
 
 	Func getCollectionView
-		return dnRequest("get",[self,"CollectionView"])
+		return dnSend("s3:get",nHandle,"s14:CollectionView","")
 
 	Func setCollectionView P1
 		raise("DotNet Error: CollectionView is a read-only property")
@@ -974,13 +974,13 @@ Class CollectionViewSource from DependencyObject
 		return self
 
 	Func DeferRefresh 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DeferRefresh"])
+		return dnSend("s4:call",nHandle,"s12:DeferRefresh","")
 
 	Func GetDefaultView P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework'),"GetDefaultView",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s14:GetDefaultView",dnPackItem(P1))
 
 	Func IsDefaultView P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework'),"IsDefaultView",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s13:IsDefaultView",dnPackItem(P1))
 
 	Func setFilterEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"Filter",dnCallback(P1)])
@@ -991,187 +991,187 @@ Class CollectionViewSource from DependencyObject
 		return self
 
 	Func getView
-		return dnRequest("get",[self,"View"])
+		return dnSend("s3:get",nHandle,"s4:View","")
 
 	Func setView P1
 		raise("DotNet Error: View is a read-only property")
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1))
 		return self
 
 	Func getCollectionViewType
-		return dnRequest("get",[self,"CollectionViewType"])
+		return dnSend("s3:get",nHandle,"s18:CollectionViewType","")
 
 	Func setCollectionViewType P1
-		dnRequest("set",[self,"CollectionViewType",P1])
+		dnSend("s3:set",nHandle,"s18:CollectionViewType",dnPackItem(P1))
 		return self
 
 	Func getCulture
-		return dnRequest("get",[self,"Culture"])
+		return dnSend("s3:get",nHandle,"s7:Culture","")
 
 	Func setCulture P1
-		dnRequest("set",[self,"Culture",P1])
+		dnSend("s3:set",nHandle,"s7:Culture",dnPackItem(P1))
 		return self
 
 	Func getSortDescriptions
-		return dnRequest("get",[self,"SortDescriptions"])
+		return dnSend("s3:get",nHandle,"s16:SortDescriptions","")
 
 	Func setSortDescriptions P1
 		raise("DotNet Error: SortDescriptions is a read-only property")
 
 	Func getGroupDescriptions
-		return dnRequest("get",[self,"GroupDescriptions"])
+		return dnSend("s3:get",nHandle,"s17:GroupDescriptions","")
 
 	Func setGroupDescriptions P1
 		raise("DotNet Error: GroupDescriptions is a read-only property")
 
 	Func getCanChangeLiveSorting
-		return dnRequest("get",[self,"CanChangeLiveSorting"])
+		return dnSend("s3:get",nHandle,"s20:CanChangeLiveSorting","")
 
 	Func setCanChangeLiveSorting P1
 		raise("DotNet Error: CanChangeLiveSorting is a read-only property")
 
 	Func getIsLiveSortingRequested
-		return dnRequest("get",[self,"IsLiveSortingRequested"])
+		return dnSend("s3:get",nHandle,"s22:IsLiveSortingRequested","")
 
 	Func setIsLiveSortingRequested P1
-		dnRequest("set",[self,"IsLiveSortingRequested",P1])
+		dnSend("s3:set",nHandle,"s22:IsLiveSortingRequested",dnPackItem(P1))
 		return self
 
 	Func getIsLiveSorting
-		return dnRequest("get",[self,"IsLiveSorting"])
+		return dnSend("s3:get",nHandle,"s13:IsLiveSorting","")
 
 	Func setIsLiveSorting P1
 		raise("DotNet Error: IsLiveSorting is a read-only property")
 
 	Func getLiveSortingProperties
-		return dnRequest("get",[self,"LiveSortingProperties"])
+		return dnSend("s3:get",nHandle,"s21:LiveSortingProperties","")
 
 	Func setLiveSortingProperties P1
 		raise("DotNet Error: LiveSortingProperties is a read-only property")
 
 	Func getCanChangeLiveFiltering
-		return dnRequest("get",[self,"CanChangeLiveFiltering"])
+		return dnSend("s3:get",nHandle,"s22:CanChangeLiveFiltering","")
 
 	Func setCanChangeLiveFiltering P1
 		raise("DotNet Error: CanChangeLiveFiltering is a read-only property")
 
 	Func getIsLiveFilteringRequested
-		return dnRequest("get",[self,"IsLiveFilteringRequested"])
+		return dnSend("s3:get",nHandle,"s24:IsLiveFilteringRequested","")
 
 	Func setIsLiveFilteringRequested P1
-		dnRequest("set",[self,"IsLiveFilteringRequested",P1])
+		dnSend("s3:set",nHandle,"s24:IsLiveFilteringRequested",dnPackItem(P1))
 		return self
 
 	Func getIsLiveFiltering
-		return dnRequest("get",[self,"IsLiveFiltering"])
+		return dnSend("s3:get",nHandle,"s15:IsLiveFiltering","")
 
 	Func setIsLiveFiltering P1
 		raise("DotNet Error: IsLiveFiltering is a read-only property")
 
 	Func getLiveFilteringProperties
-		return dnRequest("get",[self,"LiveFilteringProperties"])
+		return dnSend("s3:get",nHandle,"s23:LiveFilteringProperties","")
 
 	Func setLiveFilteringProperties P1
 		raise("DotNet Error: LiveFilteringProperties is a read-only property")
 
 	Func getCanChangeLiveGrouping
-		return dnRequest("get",[self,"CanChangeLiveGrouping"])
+		return dnSend("s3:get",nHandle,"s21:CanChangeLiveGrouping","")
 
 	Func setCanChangeLiveGrouping P1
 		raise("DotNet Error: CanChangeLiveGrouping is a read-only property")
 
 	Func getIsLiveGroupingRequested
-		return dnRequest("get",[self,"IsLiveGroupingRequested"])
+		return dnSend("s3:get",nHandle,"s23:IsLiveGroupingRequested","")
 
 	Func setIsLiveGroupingRequested P1
-		dnRequest("set",[self,"IsLiveGroupingRequested",P1])
+		dnSend("s3:set",nHandle,"s23:IsLiveGroupingRequested",dnPackItem(P1))
 		return self
 
 	Func getIsLiveGrouping
-		return dnRequest("get",[self,"IsLiveGrouping"])
+		return dnSend("s3:get",nHandle,"s14:IsLiveGrouping","")
 
 	Func setIsLiveGrouping P1
 		raise("DotNet Error: IsLiveGrouping is a read-only property")
 
 	Func getLiveGroupingProperties
-		return dnRequest("get",[self,"LiveGroupingProperties"])
+		return dnSend("s3:get",nHandle,"s22:LiveGroupingProperties","")
 
 	Func setLiveGroupingProperties P1
 		raise("DotNet Error: LiveGroupingProperties is a read-only property")
 
 	Func getViewProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework'),"ViewProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s12:ViewProperty","")
 
 	Func setViewProperty P1
 		raise("DotNet Error: ViewProperty is a read-only property")
 
 	Func getSourceProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework'),"SourceProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s14:SourceProperty","")
 
 	Func setSourceProperty P1
 		raise("DotNet Error: SourceProperty is a read-only property")
 
 	Func getCollectionViewTypeProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework'),"CollectionViewTypeProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s26:CollectionViewTypeProperty","")
 
 	Func setCollectionViewTypeProperty P1
 		raise("DotNet Error: CollectionViewTypeProperty is a read-only property")
 
 	Func getCanChangeLiveSortingProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework'),"CanChangeLiveSortingProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s28:CanChangeLiveSortingProperty","")
 
 	Func setCanChangeLiveSortingProperty P1
 		raise("DotNet Error: CanChangeLiveSortingProperty is a read-only property")
 
 	Func getIsLiveSortingRequestedProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework'),"IsLiveSortingRequestedProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s30:IsLiveSortingRequestedProperty","")
 
 	Func setIsLiveSortingRequestedProperty P1
 		raise("DotNet Error: IsLiveSortingRequestedProperty is a read-only property")
 
 	Func getIsLiveSortingProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework'),"IsLiveSortingProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s21:IsLiveSortingProperty","")
 
 	Func setIsLiveSortingProperty P1
 		raise("DotNet Error: IsLiveSortingProperty is a read-only property")
 
 	Func getCanChangeLiveFilteringProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework'),"CanChangeLiveFilteringProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s30:CanChangeLiveFilteringProperty","")
 
 	Func setCanChangeLiveFilteringProperty P1
 		raise("DotNet Error: CanChangeLiveFilteringProperty is a read-only property")
 
 	Func getIsLiveFilteringRequestedProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework'),"IsLiveFilteringRequestedProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s32:IsLiveFilteringRequestedProperty","")
 
 	Func setIsLiveFilteringRequestedProperty P1
 		raise("DotNet Error: IsLiveFilteringRequestedProperty is a read-only property")
 
 	Func getIsLiveFilteringProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework'),"IsLiveFilteringProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s23:IsLiveFilteringProperty","")
 
 	Func setIsLiveFilteringProperty P1
 		raise("DotNet Error: IsLiveFilteringProperty is a read-only property")
 
 	Func getCanChangeLiveGroupingProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework'),"CanChangeLiveGroupingProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s29:CanChangeLiveGroupingProperty","")
 
 	Func setCanChangeLiveGroupingProperty P1
 		raise("DotNet Error: CanChangeLiveGroupingProperty is a read-only property")
 
 	Func getIsLiveGroupingRequestedProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework'),"IsLiveGroupingRequestedProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s31:IsLiveGroupingRequestedProperty","")
 
 	Func setIsLiveGroupingRequestedProperty P1
 		raise("DotNet Error: IsLiveGroupingRequestedProperty is a read-only property")
 
 	Func getIsLiveGroupingProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework'),"IsLiveGroupingProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.CollectionViewSource, PresentationFramework').nHandle,"s22:IsLiveGroupingProperty","")
 
 	Func setIsLiveGroupingProperty P1
 		raise("DotNet Error: IsLiveGroupingProperty is a read-only property")
@@ -1224,46 +1224,46 @@ Class CompositeCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1281,19 +1281,19 @@ Class DataChangedEventManager from WeakEventManager
 		return self
 
 	Func AddListener P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Data.DataChangedEventManager, PresentationFramework'),"AddListener",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Data.DataChangedEventManager, PresentationFramework').nHandle,"s11:AddListener",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveListener P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Data.DataChangedEventManager, PresentationFramework'),"RemoveListener",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Data.DataChangedEventManager, PresentationFramework').nHandle,"s14:RemoveListener",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddHandler P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Data.DataChangedEventManager, PresentationFramework'),"AddHandler",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Data.DataChangedEventManager, PresentationFramework').nHandle,"s10:AddHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveHandler P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Data.DataChangedEventManager, PresentationFramework'),"RemoveHandler",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Data.DataChangedEventManager, PresentationFramework').nHandle,"s13:RemoveHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -1313,18 +1313,18 @@ Class DataSourceProvider from Object
 		return self
 
 	Func InitialLoad 
-		dnRequest("call",[new DotNetObject(this.nHandle),"InitialLoad"])
+		dnSend("s4:call",nHandle,"s11:InitialLoad","")
 		return self
 
 	Func Refresh 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Refresh"])
+		dnSend("s4:call",nHandle,"s7:Refresh","")
 		return self
 
 	Func DeferRefresh 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DeferRefresh"])
+		return dnSend("s4:call",nHandle,"s12:DeferRefresh","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func setDataChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"DataChanged",dnCallback(P1)])
@@ -1335,20 +1335,20 @@ Class DataSourceProvider from Object
 		return self
 
 	Func getIsInitialLoadEnabled
-		return dnRequest("get",[self,"IsInitialLoadEnabled"])
+		return dnSend("s3:get",nHandle,"s20:IsInitialLoadEnabled","")
 
 	Func setIsInitialLoadEnabled P1
-		dnRequest("set",[self,"IsInitialLoadEnabled",P1])
+		dnSend("s3:set",nHandle,"s20:IsInitialLoadEnabled",dnPackItem(P1))
 		return self
 
 	Func getData
-		return dnRequest("get",[self,"Data"])
+		return dnSend("s3:get",nHandle,"s4:Data","")
 
 	Func setData P1
 		raise("DotNet Error: Data is a read-only property")
 
 	Func getError
-		return dnRequest("get",[self,"Error"])
+		return dnSend("s3:get",nHandle,"s5:Error","")
 
 	Func setError P1
 		raise("DotNet Error: Error is a read-only property")
@@ -1369,13 +1369,13 @@ Class DataTransferEventArgs from RoutedEventArgs
 		return self
 
 	Func getTargetObject
-		return dnRequest("get",[self,"TargetObject"])
+		return dnSend("s3:get",nHandle,"s12:TargetObject","")
 
 	Func setTargetObject P1
 		raise("DotNet Error: TargetObject is a read-only property")
 
 	Func getProperty
-		return dnRequest("get",[self,"Property"])
+		return dnSend("s3:get",nHandle,"s8:Property","")
 
 	Func setProperty P1
 		raise("DotNet Error: Property is a read-only property")
@@ -1396,16 +1396,16 @@ Class FilterEventArgs from EventArgs
 		return self
 
 	Func getItem
-		return dnRequest("get",[self,"Item"])
+		return dnSend("s3:get",nHandle,"s4:Item","")
 
 	Func setItem P1
 		raise("DotNet Error: Item is a read-only property")
 
 	Func getAccepted
-		return dnRequest("get",[self,"Accepted"])
+		return dnSend("s3:get",nHandle,"s8:Accepted","")
 
 	Func setAccepted P1
-		dnRequest("set",[self,"Accepted",P1])
+		dnSend("s3:set",nHandle,"s8:Accepted",dnPackItem(P1))
 		return self
 
 
@@ -1421,10 +1421,10 @@ Class IMultiValueConverter from DotNetObject
 		return self
 
 	Func Convert P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Convert",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s7:Convert",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ConvertBack P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConvertBack",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s11:ConvertBack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 
 Class IValueConverter from DotNetObject
@@ -1439,10 +1439,10 @@ Class IValueConverter from DotNetObject
 		return self
 
 	Func Convert P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Convert",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s7:Convert",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ConvertBack P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConvertBack",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s11:ConvertBack",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 
 Class PropertyGroupDescription from DotNetObject
@@ -1499,77 +1499,77 @@ Class PropertyGroupDescription from DotNetObject
 		return self
 
 	Func GroupNameFromItem P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GroupNameFromItem",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s17:GroupNameFromItem",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func NamesMatch P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"NamesMatch",P1,P2])
+		return dnSend("s4:call",nHandle,"s10:NamesMatch",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ShouldSerializeGroupNames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeGroupNames"])
+		return dnSend("s4:call",nHandle,"s25:ShouldSerializeGroupNames","")
 
 	Func ShouldSerializeSortDescriptions 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeSortDescriptions"])
+		return dnSend("s4:call",nHandle,"s31:ShouldSerializeSortDescriptions","")
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func getPropertyName
-		return dnRequest("get",[self,"PropertyName"])
+		return dnSend("s3:get",nHandle,"s12:PropertyName","")
 
 	Func setPropertyName P1
-		dnRequest("set",[self,"PropertyName",P1])
+		dnSend("s3:set",nHandle,"s12:PropertyName",dnPackItem(P1))
 		return self
 
 	Func getConverter
-		return dnRequest("get",[self,"Converter"])
+		return dnSend("s3:get",nHandle,"s9:Converter","")
 
 	Func setConverter P1
-		dnRequest("set",[self,"Converter",P1])
+		dnSend("s3:set",nHandle,"s9:Converter",dnPackItem(P1))
 		return self
 
 	Func getStringComparison
-		return dnRequest("get",[self,"StringComparison"])
+		return dnSend("s3:get",nHandle,"s16:StringComparison","")
 
 	Func setStringComparison P1
-		dnRequest("set",[self,"StringComparison",P1])
+		dnSend("s3:set",nHandle,"s16:StringComparison",dnPackItem(P1))
 		return self
 
 	Func getGroupNames
-		return dnRequest("get",[self,"GroupNames"])
+		return dnSend("s3:get",nHandle,"s10:GroupNames","")
 
 	Func setGroupNames P1
 		raise("DotNet Error: GroupNames is a read-only property")
 
 	Func getSortDescriptions
-		return dnRequest("get",[self,"SortDescriptions"])
+		return dnSend("s3:get",nHandle,"s16:SortDescriptions","")
 
 	Func setSortDescriptions P1
 		raise("DotNet Error: SortDescriptions is a read-only property")
 
 	Func getCustomSort
-		return dnRequest("get",[self,"CustomSort"])
+		return dnSend("s3:get",nHandle,"s10:CustomSort","")
 
 	Func setCustomSort P1
-		dnRequest("set",[self,"CustomSort",P1])
+		dnSend("s3:set",nHandle,"s10:CustomSort",dnPackItem(P1))
 		return self
 
 	Func getCompareNameAscending
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.PropertyGroupDescription, PresentationFramework'),"CompareNameAscending"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.PropertyGroupDescription, PresentationFramework').nHandle,"s20:CompareNameAscending","")
 
 	Func setCompareNameAscending P1
 		raise("DotNet Error: CompareNameAscending is a read-only property")
 
 	Func getCompareNameDescending
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.PropertyGroupDescription, PresentationFramework'),"CompareNameDescending"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.PropertyGroupDescription, PresentationFramework').nHandle,"s21:CompareNameDescending","")
 
 	Func setCompareNameDescending P1
 		raise("DotNet Error: CompareNameDescending is a read-only property")
@@ -1626,46 +1626,46 @@ Class RelativeSource from MarkupExtension
 		return self
 
 	Func ShouldSerializeAncestorType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeAncestorType"])
+		return dnSend("s4:call",nHandle,"s27:ShouldSerializeAncestorType","")
 
 	Func ShouldSerializeAncestorLevel 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeAncestorLevel"])
+		return dnSend("s4:call",nHandle,"s28:ShouldSerializeAncestorLevel","")
 
 	Func getMode
-		return dnRequest("get",[self,"Mode"])
+		return dnSend("s3:get",nHandle,"s4:Mode","")
 
 	Func setMode P1
-		dnRequest("set",[self,"Mode",P1])
+		dnSend("s3:set",nHandle,"s4:Mode",dnPackItem(P1))
 		return self
 
 	Func getAncestorType
-		return dnRequest("get",[self,"AncestorType"])
+		return dnSend("s3:get",nHandle,"s12:AncestorType","")
 
 	Func setAncestorType P1
-		dnRequest("set",[self,"AncestorType",P1])
+		dnSend("s3:set",nHandle,"s12:AncestorType",dnPackItem(P1))
 		return self
 
 	Func getAncestorLevel
-		return dnRequest("get",[self,"AncestorLevel"])
+		return dnSend("s3:get",nHandle,"s13:AncestorLevel","")
 
 	Func setAncestorLevel P1
-		dnRequest("set",[self,"AncestorLevel",P1])
+		dnSend("s3:set",nHandle,"s13:AncestorLevel",dnPackItem(P1))
 		return self
 
 	Func getPreviousData
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.RelativeSource, PresentationFramework'),"PreviousData"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.RelativeSource, PresentationFramework').nHandle,"s12:PreviousData","")
 
 	Func setPreviousData P1
 		raise("DotNet Error: PreviousData is a read-only property")
 
 	Func getTemplatedParent
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.RelativeSource, PresentationFramework'),"TemplatedParent"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.RelativeSource, PresentationFramework').nHandle,"s15:TemplatedParent","")
 
 	Func setTemplatedParent P1
 		raise("DotNet Error: TemplatedParent is a read-only property")
 
 	Func getSelf
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.RelativeSource, PresentationFramework'),"Self"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.RelativeSource, PresentationFramework').nHandle,"s4:Self","")
 
 
 Class XmlNamespaceMapping from Object
@@ -1716,20 +1716,20 @@ Class XmlNamespaceMapping from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getPrefix
-		return dnRequest("get",[self,"Prefix"])
+		return dnSend("s3:get",nHandle,"s6:Prefix","")
 
 	Func setPrefix P1
-		dnRequest("set",[self,"Prefix",P1])
+		dnSend("s3:set",nHandle,"s6:Prefix",dnPackItem(P1))
 		return self
 
 	Func getUri
-		return dnRequest("get",[self,"Uri"])
+		return dnSend("s3:get",nHandle,"s3:Uri","")
 
 	Func setUri P1
-		dnRequest("set",[self,"Uri",P1])
+		dnSend("s3:set",nHandle,"s3:Uri",dnPackItem(P1))
 		return self
 
 
@@ -1761,31 +1761,31 @@ Class XmlNamespaceMappingCollection from XmlNamespaceManager
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1863,209 +1863,209 @@ Class WpfBinding from BindingBase
 		return self
 
 	Func ShouldSerializeValidationRules 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeValidationRules"])
+		return dnSend("s4:call",nHandle,"s30:ShouldSerializeValidationRules","")
 
 	Func ShouldSerializePath 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializePath"])
+		return dnSend("s4:call",nHandle,"s19:ShouldSerializePath","")
 
 	Func ShouldSerializeSource 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeSource"])
+		return dnSend("s4:call",nHandle,"s21:ShouldSerializeSource","")
 
 	Func AddSourceUpdatedHandler P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Data.Binding, PresentationFramework'),"AddSourceUpdatedHandler",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s23:AddSourceUpdatedHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveSourceUpdatedHandler P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Data.Binding, PresentationFramework'),"RemoveSourceUpdatedHandler",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s26:RemoveSourceUpdatedHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddTargetUpdatedHandler P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Data.Binding, PresentationFramework'),"AddTargetUpdatedHandler",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s23:AddTargetUpdatedHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveTargetUpdatedHandler P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Data.Binding, PresentationFramework'),"RemoveTargetUpdatedHandler",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s26:RemoveTargetUpdatedHandler",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetXmlNamespaceManager P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Data.Binding, PresentationFramework'),"GetXmlNamespaceManager",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s22:GetXmlNamespaceManager",dnPackItem(P1))
 
 	Func SetXmlNamespaceManager P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Data.Binding, PresentationFramework'),"SetXmlNamespaceManager",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s22:SetXmlNamespaceManager",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getValidationRules
-		return dnRequest("get",[self,"ValidationRules"])
+		return dnSend("s3:get",nHandle,"s15:ValidationRules","")
 
 	Func setValidationRules P1
 		raise("DotNet Error: ValidationRules is a read-only property")
 
 	Func getValidatesOnExceptions
-		return dnRequest("get",[self,"ValidatesOnExceptions"])
+		return dnSend("s3:get",nHandle,"s21:ValidatesOnExceptions","")
 
 	Func setValidatesOnExceptions P1
-		dnRequest("set",[self,"ValidatesOnExceptions",P1])
+		dnSend("s3:set",nHandle,"s21:ValidatesOnExceptions",dnPackItem(P1))
 		return self
 
 	Func getValidatesOnDataErrors
-		return dnRequest("get",[self,"ValidatesOnDataErrors"])
+		return dnSend("s3:get",nHandle,"s21:ValidatesOnDataErrors","")
 
 	Func setValidatesOnDataErrors P1
-		dnRequest("set",[self,"ValidatesOnDataErrors",P1])
+		dnSend("s3:set",nHandle,"s21:ValidatesOnDataErrors",dnPackItem(P1))
 		return self
 
 	Func getValidatesOnNotifyDataErrors
-		return dnRequest("get",[self,"ValidatesOnNotifyDataErrors"])
+		return dnSend("s3:get",nHandle,"s27:ValidatesOnNotifyDataErrors","")
 
 	Func setValidatesOnNotifyDataErrors P1
-		dnRequest("set",[self,"ValidatesOnNotifyDataErrors",P1])
+		dnSend("s3:set",nHandle,"s27:ValidatesOnNotifyDataErrors",dnPackItem(P1))
 		return self
 
 	Func getPath
-		return dnRequest("get",[self,"Path"])
+		return dnSend("s3:get",nHandle,"s4:Path","")
 
 	Func setPath P1
-		dnRequest("set",[self,"Path",P1])
+		dnSend("s3:set",nHandle,"s4:Path",dnPackItem(P1))
 		return self
 
 	Func getXPath
-		return dnRequest("get",[self,"XPath"])
+		return dnSend("s3:get",nHandle,"s5:XPath","")
 
 	Func setXPath P1
-		dnRequest("set",[self,"XPath",P1])
+		dnSend("s3:set",nHandle,"s5:XPath",dnPackItem(P1))
 		return self
 
 	Func getMode
-		return dnRequest("get",[self,"Mode"])
+		return dnSend("s3:get",nHandle,"s4:Mode","")
 
 	Func setMode P1
-		dnRequest("set",[self,"Mode",P1])
+		dnSend("s3:set",nHandle,"s4:Mode",dnPackItem(P1))
 		return self
 
 	Func getUpdateSourceTrigger
-		return dnRequest("get",[self,"UpdateSourceTrigger"])
+		return dnSend("s3:get",nHandle,"s19:UpdateSourceTrigger","")
 
 	Func setUpdateSourceTrigger P1
-		dnRequest("set",[self,"UpdateSourceTrigger",P1])
+		dnSend("s3:set",nHandle,"s19:UpdateSourceTrigger",dnPackItem(P1))
 		return self
 
 	Func getNotifyOnSourceUpdated
-		return dnRequest("get",[self,"NotifyOnSourceUpdated"])
+		return dnSend("s3:get",nHandle,"s21:NotifyOnSourceUpdated","")
 
 	Func setNotifyOnSourceUpdated P1
-		dnRequest("set",[self,"NotifyOnSourceUpdated",P1])
+		dnSend("s3:set",nHandle,"s21:NotifyOnSourceUpdated",dnPackItem(P1))
 		return self
 
 	Func getNotifyOnTargetUpdated
-		return dnRequest("get",[self,"NotifyOnTargetUpdated"])
+		return dnSend("s3:get",nHandle,"s21:NotifyOnTargetUpdated","")
 
 	Func setNotifyOnTargetUpdated P1
-		dnRequest("set",[self,"NotifyOnTargetUpdated",P1])
+		dnSend("s3:set",nHandle,"s21:NotifyOnTargetUpdated",dnPackItem(P1))
 		return self
 
 	Func getNotifyOnValidationError
-		return dnRequest("get",[self,"NotifyOnValidationError"])
+		return dnSend("s3:get",nHandle,"s23:NotifyOnValidationError","")
 
 	Func setNotifyOnValidationError P1
-		dnRequest("set",[self,"NotifyOnValidationError",P1])
+		dnSend("s3:set",nHandle,"s23:NotifyOnValidationError",dnPackItem(P1))
 		return self
 
 	Func getConverter
-		return dnRequest("get",[self,"Converter"])
+		return dnSend("s3:get",nHandle,"s9:Converter","")
 
 	Func setConverter P1
-		dnRequest("set",[self,"Converter",P1])
+		dnSend("s3:set",nHandle,"s9:Converter",dnPackItem(P1))
 		return self
 
 	Func getConverterParameter
-		return dnRequest("get",[self,"ConverterParameter"])
+		return dnSend("s3:get",nHandle,"s18:ConverterParameter","")
 
 	Func setConverterParameter P1
-		dnRequest("set",[self,"ConverterParameter",P1])
+		dnSend("s3:set",nHandle,"s18:ConverterParameter",dnPackItem(P1))
 		return self
 
 	Func getConverterCulture
-		return dnRequest("get",[self,"ConverterCulture"])
+		return dnSend("s3:get",nHandle,"s16:ConverterCulture","")
 
 	Func setConverterCulture P1
-		dnRequest("set",[self,"ConverterCulture",P1])
+		dnSend("s3:set",nHandle,"s16:ConverterCulture",dnPackItem(P1))
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1))
 		return self
 
 	Func getRelativeSource
-		return dnRequest("get",[self,"RelativeSource"])
+		return dnSend("s3:get",nHandle,"s14:RelativeSource","")
 
 	Func setRelativeSource P1
-		dnRequest("set",[self,"RelativeSource",P1])
+		dnSend("s3:set",nHandle,"s14:RelativeSource",dnPackItem(P1))
 		return self
 
 	Func getElementName
-		return dnRequest("get",[self,"ElementName"])
+		return dnSend("s3:get",nHandle,"s11:ElementName","")
 
 	Func setElementName P1
-		dnRequest("set",[self,"ElementName",P1])
+		dnSend("s3:set",nHandle,"s11:ElementName",dnPackItem(P1))
 		return self
 
 	Func getIsAsync
-		return dnRequest("get",[self,"IsAsync"])
+		return dnSend("s3:get",nHandle,"s7:IsAsync","")
 
 	Func setIsAsync P1
-		dnRequest("set",[self,"IsAsync",P1])
+		dnSend("s3:set",nHandle,"s7:IsAsync",dnPackItem(P1))
 		return self
 
 	Func getAsyncState
-		return dnRequest("get",[self,"AsyncState"])
+		return dnSend("s3:get",nHandle,"s10:AsyncState","")
 
 	Func setAsyncState P1
-		dnRequest("set",[self,"AsyncState",P1])
+		dnSend("s3:set",nHandle,"s10:AsyncState",dnPackItem(P1))
 		return self
 
 	Func getBindsDirectlyToSource
-		return dnRequest("get",[self,"BindsDirectlyToSource"])
+		return dnSend("s3:get",nHandle,"s21:BindsDirectlyToSource","")
 
 	Func setBindsDirectlyToSource P1
-		dnRequest("set",[self,"BindsDirectlyToSource",P1])
+		dnSend("s3:set",nHandle,"s21:BindsDirectlyToSource",dnPackItem(P1))
 		return self
 
 	Func getUpdateSourceExceptionFilter
-		return dnRequest("get",[self,"UpdateSourceExceptionFilter"])
+		return dnSend("s3:get",nHandle,"s27:UpdateSourceExceptionFilter","")
 
 	Func setUpdateSourceExceptionFilter P1
-		dnRequest("set",[self,"UpdateSourceExceptionFilter",P1])
+		dnSend("s3:set",nHandle,"s27:UpdateSourceExceptionFilter",dnPackItem(P1))
 		return self
 
 	Func getSourceUpdatedEvent
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.Binding, PresentationFramework'),"SourceUpdatedEvent"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s18:SourceUpdatedEvent","")
 
 	Func setSourceUpdatedEvent P1
 		raise("DotNet Error: SourceUpdatedEvent is a read-only property")
 
 	Func getTargetUpdatedEvent
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.Binding, PresentationFramework'),"TargetUpdatedEvent"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s18:TargetUpdatedEvent","")
 
 	Func setTargetUpdatedEvent P1
 		raise("DotNet Error: TargetUpdatedEvent is a read-only property")
 
 	Func getXmlNamespaceManagerProperty
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.Binding, PresentationFramework'),"XmlNamespaceManagerProperty"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s27:XmlNamespaceManagerProperty","")
 
 	Func setXmlNamespaceManagerProperty P1
 		raise("DotNet Error: XmlNamespaceManagerProperty is a read-only property")
 
 	Func getDoNothing
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.Binding, PresentationFramework'),"DoNothing"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s9:DoNothing","")
 
 	Func setDoNothing P1
 		raise("DotNet Error: DoNothing is a read-only property")
 
 	Func getIndexerName
-		return dnRequest("get",[dnTypeCached('System.Windows.Data.Binding, PresentationFramework'),"IndexerName"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Data.Binding, PresentationFramework').nHandle,"s11:IndexerName","")
 
 	Func setIndexerName P1
 		raise("DotNet Error: IndexerName is a read-only property")
@@ -2088,25 +2088,25 @@ Class BindingExpression from BindingExpressionBase
 		return self
 
 	Func getParentBinding
-		return dnRequest("get",[self,"ParentBinding"])
+		return dnSend("s3:get",nHandle,"s13:ParentBinding","")
 
 	Func setParentBinding P1
 		raise("DotNet Error: ParentBinding is a read-only property")
 
 	Func getDataItem
-		return dnRequest("get",[self,"DataItem"])
+		return dnSend("s3:get",nHandle,"s8:DataItem","")
 
 	Func setDataItem P1
 		raise("DotNet Error: DataItem is a read-only property")
 
 	Func getResolvedSource
-		return dnRequest("get",[self,"ResolvedSource"])
+		return dnSend("s3:get",nHandle,"s14:ResolvedSource","")
 
 	Func setResolvedSource P1
 		raise("DotNet Error: ResolvedSource is a read-only property")
 
 	Func getResolvedSourcePropertyName
-		return dnRequest("get",[self,"ResolvedSourcePropertyName"])
+		return dnSend("s3:get",nHandle,"s26:ResolvedSourcePropertyName","")
 
 	Func setResolvedSourcePropertyName P1
 		raise("DotNet Error: ResolvedSourcePropertyName is a read-only property")
@@ -2149,171 +2149,171 @@ Class BindingListCollectionView from CollectionView
 		return self
 
 	Func AddNew 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddNew"])
+		return dnSend("s4:call",nHandle,"s6:AddNew","")
 
 	Func CommitNew 
-		dnRequest("call",[new DotNetObject(this.nHandle),"CommitNew"])
+		dnSend("s4:call",nHandle,"s9:CommitNew","")
 		return self
 
 	Func CancelNew 
-		dnRequest("call",[new DotNetObject(this.nHandle),"CancelNew"])
+		dnSend("s4:call",nHandle,"s9:CancelNew","")
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func EditItem P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"EditItem",P1])
+		dnSend("s4:call",nHandle,"s8:EditItem",dnPackItem(P1))
 		return self
 
 	Func CommitEdit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"CommitEdit"])
+		dnSend("s4:call",nHandle,"s10:CommitEdit","")
 		return self
 
 	Func CancelEdit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"CancelEdit"])
+		dnSend("s4:call",nHandle,"s10:CancelEdit","")
 		return self
 
 	Func getCustomFilter
-		return dnRequest("get",[self,"CustomFilter"])
+		return dnSend("s3:get",nHandle,"s12:CustomFilter","")
 
 	Func setCustomFilter P1
-		dnRequest("set",[self,"CustomFilter",P1])
+		dnSend("s3:set",nHandle,"s12:CustomFilter",dnPackItem(P1))
 		return self
 
 	Func getCanCustomFilter
-		return dnRequest("get",[self,"CanCustomFilter"])
+		return dnSend("s3:get",nHandle,"s15:CanCustomFilter","")
 
 	Func setCanCustomFilter P1
 		raise("DotNet Error: CanCustomFilter is a read-only property")
 
 	Func getGroupBySelector
-		return dnRequest("get",[self,"GroupBySelector"])
+		return dnSend("s3:get",nHandle,"s15:GroupBySelector","")
 
 	Func setGroupBySelector P1
-		dnRequest("set",[self,"GroupBySelector",P1])
+		dnSend("s3:set",nHandle,"s15:GroupBySelector",dnPackItem(P1))
 		return self
 
 	Func getIsDataInGroupOrder
-		return dnRequest("get",[self,"IsDataInGroupOrder"])
+		return dnSend("s3:get",nHandle,"s18:IsDataInGroupOrder","")
 
 	Func setIsDataInGroupOrder P1
-		dnRequest("set",[self,"IsDataInGroupOrder",P1])
+		dnSend("s3:set",nHandle,"s18:IsDataInGroupOrder",dnPackItem(P1))
 		return self
 
 	Func getNewItemPlaceholderPosition
-		return dnRequest("get",[self,"NewItemPlaceholderPosition"])
+		return dnSend("s3:get",nHandle,"s26:NewItemPlaceholderPosition","")
 
 	Func setNewItemPlaceholderPosition P1
-		dnRequest("set",[self,"NewItemPlaceholderPosition",P1])
+		dnSend("s3:set",nHandle,"s26:NewItemPlaceholderPosition",dnPackItem(P1))
 		return self
 
 	Func getCanAddNew
-		return dnRequest("get",[self,"CanAddNew"])
+		return dnSend("s3:get",nHandle,"s9:CanAddNew","")
 
 	Func setCanAddNew P1
 		raise("DotNet Error: CanAddNew is a read-only property")
 
 	Func getIsAddingNew
-		return dnRequest("get",[self,"IsAddingNew"])
+		return dnSend("s3:get",nHandle,"s11:IsAddingNew","")
 
 	Func setIsAddingNew P1
 		raise("DotNet Error: IsAddingNew is a read-only property")
 
 	Func getCurrentAddItem
-		return dnRequest("get",[self,"CurrentAddItem"])
+		return dnSend("s3:get",nHandle,"s14:CurrentAddItem","")
 
 	Func setCurrentAddItem P1
 		raise("DotNet Error: CurrentAddItem is a read-only property")
 
 	Func getCanRemove
-		return dnRequest("get",[self,"CanRemove"])
+		return dnSend("s3:get",nHandle,"s9:CanRemove","")
 
 	Func setCanRemove P1
 		raise("DotNet Error: CanRemove is a read-only property")
 
 	Func getCanCancelEdit
-		return dnRequest("get",[self,"CanCancelEdit"])
+		return dnSend("s3:get",nHandle,"s13:CanCancelEdit","")
 
 	Func setCanCancelEdit P1
 		raise("DotNet Error: CanCancelEdit is a read-only property")
 
 	Func getIsEditingItem
-		return dnRequest("get",[self,"IsEditingItem"])
+		return dnSend("s3:get",nHandle,"s13:IsEditingItem","")
 
 	Func setIsEditingItem P1
 		raise("DotNet Error: IsEditingItem is a read-only property")
 
 	Func getCurrentEditItem
-		return dnRequest("get",[self,"CurrentEditItem"])
+		return dnSend("s3:get",nHandle,"s15:CurrentEditItem","")
 
 	Func setCurrentEditItem P1
 		raise("DotNet Error: CurrentEditItem is a read-only property")
 
 	Func getCanChangeLiveSorting
-		return dnRequest("get",[self,"CanChangeLiveSorting"])
+		return dnSend("s3:get",nHandle,"s20:CanChangeLiveSorting","")
 
 	Func setCanChangeLiveSorting P1
 		raise("DotNet Error: CanChangeLiveSorting is a read-only property")
 
 	Func getCanChangeLiveFiltering
-		return dnRequest("get",[self,"CanChangeLiveFiltering"])
+		return dnSend("s3:get",nHandle,"s22:CanChangeLiveFiltering","")
 
 	Func setCanChangeLiveFiltering P1
 		raise("DotNet Error: CanChangeLiveFiltering is a read-only property")
 
 	Func getCanChangeLiveGrouping
-		return dnRequest("get",[self,"CanChangeLiveGrouping"])
+		return dnSend("s3:get",nHandle,"s21:CanChangeLiveGrouping","")
 
 	Func setCanChangeLiveGrouping P1
 		raise("DotNet Error: CanChangeLiveGrouping is a read-only property")
 
 	Func getIsLiveSorting
-		return dnRequest("get",[self,"IsLiveSorting"])
+		return dnSend("s3:get",nHandle,"s13:IsLiveSorting","")
 
 	Func setIsLiveSorting P1
-		dnRequest("set",[self,"IsLiveSorting",P1])
+		dnSend("s3:set",nHandle,"s13:IsLiveSorting",dnPackItem(P1))
 		return self
 
 	Func getIsLiveFiltering
-		return dnRequest("get",[self,"IsLiveFiltering"])
+		return dnSend("s3:get",nHandle,"s15:IsLiveFiltering","")
 
 	Func setIsLiveFiltering P1
-		dnRequest("set",[self,"IsLiveFiltering",P1])
+		dnSend("s3:set",nHandle,"s15:IsLiveFiltering",dnPackItem(P1))
 		return self
 
 	Func getIsLiveGrouping
-		return dnRequest("get",[self,"IsLiveGrouping"])
+		return dnSend("s3:get",nHandle,"s14:IsLiveGrouping","")
 
 	Func setIsLiveGrouping P1
-		dnRequest("set",[self,"IsLiveGrouping",P1])
+		dnSend("s3:set",nHandle,"s14:IsLiveGrouping",dnPackItem(P1))
 		return self
 
 	Func getLiveSortingProperties
-		return dnRequest("get",[self,"LiveSortingProperties"])
+		return dnSend("s3:get",nHandle,"s21:LiveSortingProperties","")
 
 	Func setLiveSortingProperties P1
 		raise("DotNet Error: LiveSortingProperties is a read-only property")
 
 	Func getLiveFilteringProperties
-		return dnRequest("get",[self,"LiveFilteringProperties"])
+		return dnSend("s3:get",nHandle,"s23:LiveFilteringProperties","")
 
 	Func setLiveFilteringProperties P1
 		raise("DotNet Error: LiveFilteringProperties is a read-only property")
 
 	Func getLiveGroupingProperties
-		return dnRequest("get",[self,"LiveGroupingProperties"])
+		return dnSend("s3:get",nHandle,"s22:LiveGroupingProperties","")
 
 	Func setLiveGroupingProperties P1
 		raise("DotNet Error: LiveGroupingProperties is a read-only property")
 
 	Func getItemProperties
-		return dnRequest("get",[self,"ItemProperties"])
+		return dnSend("s3:get",nHandle,"s14:ItemProperties","")
 
 	Func setItemProperties P1
 		raise("DotNet Error: ItemProperties is a read-only property")
@@ -2356,174 +2356,174 @@ Class ListCollectionView from CollectionView
 		return self
 
 	Func AddNew 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddNew"])
+		return dnSend("s4:call",nHandle,"s6:AddNew","")
 
 	Func AddNewItem P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddNewItem",P1])
+		return dnSend("s4:call",nHandle,"s10:AddNewItem",dnPackItem(P1))
 
 	Func CommitNew 
-		dnRequest("call",[new DotNetObject(this.nHandle),"CommitNew"])
+		dnSend("s4:call",nHandle,"s9:CommitNew","")
 		return self
 
 	Func CancelNew 
-		dnRequest("call",[new DotNetObject(this.nHandle),"CancelNew"])
+		dnSend("s4:call",nHandle,"s9:CancelNew","")
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func EditItem P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"EditItem",P1])
+		dnSend("s4:call",nHandle,"s8:EditItem",dnPackItem(P1))
 		return self
 
 	Func CommitEdit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"CommitEdit"])
+		dnSend("s4:call",nHandle,"s10:CommitEdit","")
 		return self
 
 	Func CancelEdit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"CancelEdit"])
+		dnSend("s4:call",nHandle,"s10:CancelEdit","")
 		return self
 
 	Func getCustomSort
-		return dnRequest("get",[self,"CustomSort"])
+		return dnSend("s3:get",nHandle,"s10:CustomSort","")
 
 	Func setCustomSort P1
-		dnRequest("set",[self,"CustomSort",P1])
+		dnSend("s3:set",nHandle,"s10:CustomSort",dnPackItem(P1))
 		return self
 
 	Func getGroupBySelector
-		return dnRequest("get",[self,"GroupBySelector"])
+		return dnSend("s3:get",nHandle,"s15:GroupBySelector","")
 
 	Func setGroupBySelector P1
-		dnRequest("set",[self,"GroupBySelector",P1])
+		dnSend("s3:set",nHandle,"s15:GroupBySelector",dnPackItem(P1))
 		return self
 
 	Func getIsDataInGroupOrder
-		return dnRequest("get",[self,"IsDataInGroupOrder"])
+		return dnSend("s3:get",nHandle,"s18:IsDataInGroupOrder","")
 
 	Func setIsDataInGroupOrder P1
-		dnRequest("set",[self,"IsDataInGroupOrder",P1])
+		dnSend("s3:set",nHandle,"s18:IsDataInGroupOrder",dnPackItem(P1))
 		return self
 
 	Func getNewItemPlaceholderPosition
-		return dnRequest("get",[self,"NewItemPlaceholderPosition"])
+		return dnSend("s3:get",nHandle,"s26:NewItemPlaceholderPosition","")
 
 	Func setNewItemPlaceholderPosition P1
-		dnRequest("set",[self,"NewItemPlaceholderPosition",P1])
+		dnSend("s3:set",nHandle,"s26:NewItemPlaceholderPosition",dnPackItem(P1))
 		return self
 
 	Func getCanAddNew
-		return dnRequest("get",[self,"CanAddNew"])
+		return dnSend("s3:get",nHandle,"s9:CanAddNew","")
 
 	Func setCanAddNew P1
 		raise("DotNet Error: CanAddNew is a read-only property")
 
 	Func getCanAddNewItem
-		return dnRequest("get",[self,"CanAddNewItem"])
+		return dnSend("s3:get",nHandle,"s13:CanAddNewItem","")
 
 	Func setCanAddNewItem P1
 		raise("DotNet Error: CanAddNewItem is a read-only property")
 
 	Func getIsAddingNew
-		return dnRequest("get",[self,"IsAddingNew"])
+		return dnSend("s3:get",nHandle,"s11:IsAddingNew","")
 
 	Func setIsAddingNew P1
 		raise("DotNet Error: IsAddingNew is a read-only property")
 
 	Func getCurrentAddItem
-		return dnRequest("get",[self,"CurrentAddItem"])
+		return dnSend("s3:get",nHandle,"s14:CurrentAddItem","")
 
 	Func setCurrentAddItem P1
 		raise("DotNet Error: CurrentAddItem is a read-only property")
 
 	Func getCanRemove
-		return dnRequest("get",[self,"CanRemove"])
+		return dnSend("s3:get",nHandle,"s9:CanRemove","")
 
 	Func setCanRemove P1
 		raise("DotNet Error: CanRemove is a read-only property")
 
 	Func getCanCancelEdit
-		return dnRequest("get",[self,"CanCancelEdit"])
+		return dnSend("s3:get",nHandle,"s13:CanCancelEdit","")
 
 	Func setCanCancelEdit P1
 		raise("DotNet Error: CanCancelEdit is a read-only property")
 
 	Func getIsEditingItem
-		return dnRequest("get",[self,"IsEditingItem"])
+		return dnSend("s3:get",nHandle,"s13:IsEditingItem","")
 
 	Func setIsEditingItem P1
 		raise("DotNet Error: IsEditingItem is a read-only property")
 
 	Func getCurrentEditItem
-		return dnRequest("get",[self,"CurrentEditItem"])
+		return dnSend("s3:get",nHandle,"s15:CurrentEditItem","")
 
 	Func setCurrentEditItem P1
 		raise("DotNet Error: CurrentEditItem is a read-only property")
 
 	Func getCanChangeLiveSorting
-		return dnRequest("get",[self,"CanChangeLiveSorting"])
+		return dnSend("s3:get",nHandle,"s20:CanChangeLiveSorting","")
 
 	Func setCanChangeLiveSorting P1
 		raise("DotNet Error: CanChangeLiveSorting is a read-only property")
 
 	Func getCanChangeLiveFiltering
-		return dnRequest("get",[self,"CanChangeLiveFiltering"])
+		return dnSend("s3:get",nHandle,"s22:CanChangeLiveFiltering","")
 
 	Func setCanChangeLiveFiltering P1
 		raise("DotNet Error: CanChangeLiveFiltering is a read-only property")
 
 	Func getCanChangeLiveGrouping
-		return dnRequest("get",[self,"CanChangeLiveGrouping"])
+		return dnSend("s3:get",nHandle,"s21:CanChangeLiveGrouping","")
 
 	Func setCanChangeLiveGrouping P1
 		raise("DotNet Error: CanChangeLiveGrouping is a read-only property")
 
 	Func getIsLiveSorting
-		return dnRequest("get",[self,"IsLiveSorting"])
+		return dnSend("s3:get",nHandle,"s13:IsLiveSorting","")
 
 	Func setIsLiveSorting P1
-		dnRequest("set",[self,"IsLiveSorting",P1])
+		dnSend("s3:set",nHandle,"s13:IsLiveSorting",dnPackItem(P1))
 		return self
 
 	Func getIsLiveFiltering
-		return dnRequest("get",[self,"IsLiveFiltering"])
+		return dnSend("s3:get",nHandle,"s15:IsLiveFiltering","")
 
 	Func setIsLiveFiltering P1
-		dnRequest("set",[self,"IsLiveFiltering",P1])
+		dnSend("s3:set",nHandle,"s15:IsLiveFiltering",dnPackItem(P1))
 		return self
 
 	Func getIsLiveGrouping
-		return dnRequest("get",[self,"IsLiveGrouping"])
+		return dnSend("s3:get",nHandle,"s14:IsLiveGrouping","")
 
 	Func setIsLiveGrouping P1
-		dnRequest("set",[self,"IsLiveGrouping",P1])
+		dnSend("s3:set",nHandle,"s14:IsLiveGrouping",dnPackItem(P1))
 		return self
 
 	Func getLiveSortingProperties
-		return dnRequest("get",[self,"LiveSortingProperties"])
+		return dnSend("s3:get",nHandle,"s21:LiveSortingProperties","")
 
 	Func setLiveSortingProperties P1
 		raise("DotNet Error: LiveSortingProperties is a read-only property")
 
 	Func getLiveFilteringProperties
-		return dnRequest("get",[self,"LiveFilteringProperties"])
+		return dnSend("s3:get",nHandle,"s23:LiveFilteringProperties","")
 
 	Func setLiveFilteringProperties P1
 		raise("DotNet Error: LiveFilteringProperties is a read-only property")
 
 	Func getLiveGroupingProperties
-		return dnRequest("get",[self,"LiveGroupingProperties"])
+		return dnSend("s3:get",nHandle,"s22:LiveGroupingProperties","")
 
 	Func setLiveGroupingProperties P1
 		raise("DotNet Error: LiveGroupingProperties is a read-only property")
 
 	Func getItemProperties
-		return dnRequest("get",[self,"ItemProperties"])
+		return dnSend("s3:get",nHandle,"s14:ItemProperties","")
 
 	Func setItemProperties P1
 		raise("DotNet Error: ItemProperties is a read-only property")
@@ -2569,105 +2569,105 @@ Class MultiBinding from BindingBase
 		return self
 
 	Func ShouldSerializeBindings 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeBindings"])
+		return dnSend("s4:call",nHandle,"s23:ShouldSerializeBindings","")
 
 	Func ShouldSerializeValidationRules 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeValidationRules"])
+		return dnSend("s4:call",nHandle,"s30:ShouldSerializeValidationRules","")
 
 	Func getBindings
-		return dnRequest("get",[self,"Bindings"])
+		return dnSend("s3:get",nHandle,"s8:Bindings","")
 
 	Func setBindings P1
 		raise("DotNet Error: Bindings is a read-only property")
 
 	Func getMode
-		return dnRequest("get",[self,"Mode"])
+		return dnSend("s3:get",nHandle,"s4:Mode","")
 
 	Func setMode P1
-		dnRequest("set",[self,"Mode",P1])
+		dnSend("s3:set",nHandle,"s4:Mode",dnPackItem(P1))
 		return self
 
 	Func getUpdateSourceTrigger
-		return dnRequest("get",[self,"UpdateSourceTrigger"])
+		return dnSend("s3:get",nHandle,"s19:UpdateSourceTrigger","")
 
 	Func setUpdateSourceTrigger P1
-		dnRequest("set",[self,"UpdateSourceTrigger",P1])
+		dnSend("s3:set",nHandle,"s19:UpdateSourceTrigger",dnPackItem(P1))
 		return self
 
 	Func getNotifyOnSourceUpdated
-		return dnRequest("get",[self,"NotifyOnSourceUpdated"])
+		return dnSend("s3:get",nHandle,"s21:NotifyOnSourceUpdated","")
 
 	Func setNotifyOnSourceUpdated P1
-		dnRequest("set",[self,"NotifyOnSourceUpdated",P1])
+		dnSend("s3:set",nHandle,"s21:NotifyOnSourceUpdated",dnPackItem(P1))
 		return self
 
 	Func getNotifyOnTargetUpdated
-		return dnRequest("get",[self,"NotifyOnTargetUpdated"])
+		return dnSend("s3:get",nHandle,"s21:NotifyOnTargetUpdated","")
 
 	Func setNotifyOnTargetUpdated P1
-		dnRequest("set",[self,"NotifyOnTargetUpdated",P1])
+		dnSend("s3:set",nHandle,"s21:NotifyOnTargetUpdated",dnPackItem(P1))
 		return self
 
 	Func getNotifyOnValidationError
-		return dnRequest("get",[self,"NotifyOnValidationError"])
+		return dnSend("s3:get",nHandle,"s23:NotifyOnValidationError","")
 
 	Func setNotifyOnValidationError P1
-		dnRequest("set",[self,"NotifyOnValidationError",P1])
+		dnSend("s3:set",nHandle,"s23:NotifyOnValidationError",dnPackItem(P1))
 		return self
 
 	Func getConverter
-		return dnRequest("get",[self,"Converter"])
+		return dnSend("s3:get",nHandle,"s9:Converter","")
 
 	Func setConverter P1
-		dnRequest("set",[self,"Converter",P1])
+		dnSend("s3:set",nHandle,"s9:Converter",dnPackItem(P1))
 		return self
 
 	Func getConverterParameter
-		return dnRequest("get",[self,"ConverterParameter"])
+		return dnSend("s3:get",nHandle,"s18:ConverterParameter","")
 
 	Func setConverterParameter P1
-		dnRequest("set",[self,"ConverterParameter",P1])
+		dnSend("s3:set",nHandle,"s18:ConverterParameter",dnPackItem(P1))
 		return self
 
 	Func getConverterCulture
-		return dnRequest("get",[self,"ConverterCulture"])
+		return dnSend("s3:get",nHandle,"s16:ConverterCulture","")
 
 	Func setConverterCulture P1
-		dnRequest("set",[self,"ConverterCulture",P1])
+		dnSend("s3:set",nHandle,"s16:ConverterCulture",dnPackItem(P1))
 		return self
 
 	Func getValidationRules
-		return dnRequest("get",[self,"ValidationRules"])
+		return dnSend("s3:get",nHandle,"s15:ValidationRules","")
 
 	Func setValidationRules P1
 		raise("DotNet Error: ValidationRules is a read-only property")
 
 	Func getUpdateSourceExceptionFilter
-		return dnRequest("get",[self,"UpdateSourceExceptionFilter"])
+		return dnSend("s3:get",nHandle,"s27:UpdateSourceExceptionFilter","")
 
 	Func setUpdateSourceExceptionFilter P1
-		dnRequest("set",[self,"UpdateSourceExceptionFilter",P1])
+		dnSend("s3:set",nHandle,"s27:UpdateSourceExceptionFilter",dnPackItem(P1))
 		return self
 
 	Func getValidatesOnExceptions
-		return dnRequest("get",[self,"ValidatesOnExceptions"])
+		return dnSend("s3:get",nHandle,"s21:ValidatesOnExceptions","")
 
 	Func setValidatesOnExceptions P1
-		dnRequest("set",[self,"ValidatesOnExceptions",P1])
+		dnSend("s3:set",nHandle,"s21:ValidatesOnExceptions",dnPackItem(P1))
 		return self
 
 	Func getValidatesOnDataErrors
-		return dnRequest("get",[self,"ValidatesOnDataErrors"])
+		return dnSend("s3:get",nHandle,"s21:ValidatesOnDataErrors","")
 
 	Func setValidatesOnDataErrors P1
-		dnRequest("set",[self,"ValidatesOnDataErrors",P1])
+		dnSend("s3:set",nHandle,"s21:ValidatesOnDataErrors",dnPackItem(P1))
 		return self
 
 	Func getValidatesOnNotifyDataErrors
-		return dnRequest("get",[self,"ValidatesOnNotifyDataErrors"])
+		return dnSend("s3:get",nHandle,"s27:ValidatesOnNotifyDataErrors","")
 
 	Func setValidatesOnNotifyDataErrors P1
-		dnRequest("set",[self,"ValidatesOnNotifyDataErrors",P1])
+		dnSend("s3:set",nHandle,"s27:ValidatesOnNotifyDataErrors",dnPackItem(P1))
 		return self
 
 
@@ -2686,13 +2686,13 @@ Class MultiBindingExpression from BindingExpressionBase
 		return self
 
 	Func getParentMultiBinding
-		return dnRequest("get",[self,"ParentMultiBinding"])
+		return dnSend("s3:get",nHandle,"s18:ParentMultiBinding","")
 
 	Func setParentMultiBinding P1
 		raise("DotNet Error: ParentMultiBinding is a read-only property")
 
 	Func getBindingExpressions
-		return dnRequest("get",[self,"BindingExpressions"])
+		return dnSend("s3:get",nHandle,"s18:BindingExpressions","")
 
 	Func setBindingExpressions P1
 		raise("DotNet Error: BindingExpressions is a read-only property")
@@ -2730,55 +2730,55 @@ Class ObjectDataProvider from DataSourceProvider
 		return self
 
 	Func ShouldSerializeObjectType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeObjectType"])
+		return dnSend("s4:call",nHandle,"s25:ShouldSerializeObjectType","")
 
 	Func ShouldSerializeObjectInstance 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeObjectInstance"])
+		return dnSend("s4:call",nHandle,"s29:ShouldSerializeObjectInstance","")
 
 	Func ShouldSerializeConstructorParameters 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeConstructorParameters"])
+		return dnSend("s4:call",nHandle,"s36:ShouldSerializeConstructorParameters","")
 
 	Func ShouldSerializeMethodParameters 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeMethodParameters"])
+		return dnSend("s4:call",nHandle,"s31:ShouldSerializeMethodParameters","")
 
 	Func getObjectType
-		return dnRequest("get",[self,"ObjectType"])
+		return dnSend("s3:get",nHandle,"s10:ObjectType","")
 
 	Func setObjectType P1
-		dnRequest("set",[self,"ObjectType",P1])
+		dnSend("s3:set",nHandle,"s10:ObjectType",dnPackItem(P1))
 		return self
 
 	Func getObjectInstance
-		return dnRequest("get",[self,"ObjectInstance"])
+		return dnSend("s3:get",nHandle,"s14:ObjectInstance","")
 
 	Func setObjectInstance P1
-		dnRequest("set",[self,"ObjectInstance",P1])
+		dnSend("s3:set",nHandle,"s14:ObjectInstance",dnPackItem(P1))
 		return self
 
 	Func getMethodName
-		return dnRequest("get",[self,"MethodName"])
+		return dnSend("s3:get",nHandle,"s10:MethodName","")
 
 	Func setMethodName P1
-		dnRequest("set",[self,"MethodName",P1])
+		dnSend("s3:set",nHandle,"s10:MethodName",dnPackItem(P1))
 		return self
 
 	Func getConstructorParameters
-		return dnRequest("get",[self,"ConstructorParameters"])
+		return dnSend("s3:get",nHandle,"s21:ConstructorParameters","")
 
 	Func setConstructorParameters P1
 		raise("DotNet Error: ConstructorParameters is a read-only property")
 
 	Func getMethodParameters
-		return dnRequest("get",[self,"MethodParameters"])
+		return dnSend("s3:get",nHandle,"s16:MethodParameters","")
 
 	Func setMethodParameters P1
 		raise("DotNet Error: MethodParameters is a read-only property")
 
 	Func getIsAsynchronous
-		return dnRequest("get",[self,"IsAsynchronous"])
+		return dnSend("s3:get",nHandle,"s14:IsAsynchronous","")
 
 	Func setIsAsynchronous P1
-		dnRequest("set",[self,"IsAsynchronous",P1])
+		dnSend("s3:set",nHandle,"s14:IsAsynchronous",dnPackItem(P1))
 		return self
 
 
@@ -2809,10 +2809,10 @@ Class PriorityBinding from BindingBase
 		return self
 
 	Func ShouldSerializeBindings 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeBindings"])
+		return dnSend("s4:call",nHandle,"s23:ShouldSerializeBindings","")
 
 	Func getBindings
-		return dnRequest("get",[self,"Bindings"])
+		return dnSend("s3:get",nHandle,"s8:Bindings","")
 
 	Func setBindings P1
 		raise("DotNet Error: Bindings is a read-only property")
@@ -2834,19 +2834,19 @@ Class PriorityBindingExpression from BindingExpressionBase
 		return self
 
 	Func getParentPriorityBinding
-		return dnRequest("get",[self,"ParentPriorityBinding"])
+		return dnSend("s3:get",nHandle,"s21:ParentPriorityBinding","")
 
 	Func setParentPriorityBinding P1
 		raise("DotNet Error: ParentPriorityBinding is a read-only property")
 
 	Func getBindingExpressions
-		return dnRequest("get",[self,"BindingExpressions"])
+		return dnSend("s3:get",nHandle,"s18:BindingExpressions","")
 
 	Func setBindingExpressions P1
 		raise("DotNet Error: BindingExpressions is a read-only property")
 
 	Func getActiveBindingExpression
-		return dnRequest("get",[self,"ActiveBindingExpression"])
+		return dnSend("s3:get",nHandle,"s23:ActiveBindingExpression","")
 
 	Func setActiveBindingExpression P1
 		raise("DotNet Error: ActiveBindingExpression is a read-only property")
@@ -2884,51 +2884,51 @@ Class XmlDataProvider from DataSourceProvider
 		return self
 
 	Func ShouldSerializeSource 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeSource"])
+		return dnSend("s4:call",nHandle,"s21:ShouldSerializeSource","")
 
 	Func ShouldSerializeXPath 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeXPath"])
+		return dnSend("s4:call",nHandle,"s20:ShouldSerializeXPath","")
 
 	Func ShouldSerializeXmlSerializer 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShouldSerializeXmlSerializer"])
+		return dnSend("s4:call",nHandle,"s28:ShouldSerializeXmlSerializer","")
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnSend("s3:set",nHandle,"s6:Source",dnPackItem(P1))
 		return self
 
 	Func getDocument
-		return dnRequest("get",[self,"Document"])
+		return dnSend("s3:get",nHandle,"s8:Document","")
 
 	Func setDocument P1
-		dnRequest("set",[self,"Document",P1])
+		dnSend("s3:set",nHandle,"s8:Document",dnPackItem(P1))
 		return self
 
 	Func getXPath
-		return dnRequest("get",[self,"XPath"])
+		return dnSend("s3:get",nHandle,"s5:XPath","")
 
 	Func setXPath P1
-		dnRequest("set",[self,"XPath",P1])
+		dnSend("s3:set",nHandle,"s5:XPath",dnPackItem(P1))
 		return self
 
 	Func getXmlNamespaceManager
-		return dnRequest("get",[self,"XmlNamespaceManager"])
+		return dnSend("s3:get",nHandle,"s19:XmlNamespaceManager","")
 
 	Func setXmlNamespaceManager P1
-		dnRequest("set",[self,"XmlNamespaceManager",P1])
+		dnSend("s3:set",nHandle,"s19:XmlNamespaceManager",dnPackItem(P1))
 		return self
 
 	Func getIsAsynchronous
-		return dnRequest("get",[self,"IsAsynchronous"])
+		return dnSend("s3:get",nHandle,"s14:IsAsynchronous","")
 
 	Func setIsAsynchronous P1
-		dnRequest("set",[self,"IsAsynchronous",P1])
+		dnSend("s3:set",nHandle,"s14:IsAsynchronous",dnPackItem(P1))
 		return self
 
 	Func getXmlSerializer
-		return dnRequest("get",[self,"XmlSerializer"])
+		return dnSend("s3:get",nHandle,"s13:XmlSerializer","")
 
 	Func setXmlSerializer P1
 		raise("DotNet Error: XmlSerializer is a read-only property")

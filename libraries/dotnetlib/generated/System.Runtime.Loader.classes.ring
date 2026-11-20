@@ -25,13 +25,13 @@ Class AssemblyDependencyResolver from Object
 		return self
 
 	Func ResolveAssemblyToPath P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveAssemblyToPath",P1])
+		return dnSend("s4:call",nHandle,"s21:ResolveAssemblyToPath",dnPackItem(P1))
 
 	Func ResolveUnmanagedDllToPath P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveUnmanagedDllToPath",P1])
+		return dnSend("s4:call",nHandle,"s25:ResolveUnmanagedDllToPath",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class AssemblyLoadContext from Object
@@ -70,52 +70,52 @@ Class AssemblyLoadContext from Object
 		return self
 
 	Func SetProfileOptimizationRoot P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetProfileOptimizationRoot",P1])
+		dnSend("s4:call",nHandle,"s26:SetProfileOptimizationRoot",dnPackItem(P1))
 		return self
 
 	Func StartProfileOptimization P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"StartProfileOptimization",P1])
+		dnSend("s4:call",nHandle,"s24:StartProfileOptimization",dnPackItem(P1))
 		return self
 
 	Func LoadFromAssemblyName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LoadFromAssemblyName",P1])
+		return dnSend("s4:call",nHandle,"s20:LoadFromAssemblyName",dnPackItem(P1))
 
 	Func LoadFromAssemblyPath P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LoadFromAssemblyPath",P1])
+		return dnSend("s4:call",nHandle,"s20:LoadFromAssemblyPath",dnPackItem(P1))
 
 	Func LoadFromNativeImagePath P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LoadFromNativeImagePath",P1,P2])
+		return dnSend("s4:call",nHandle,"s23:LoadFromNativeImagePath",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LoadFromStream P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"LoadFromStream",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:LoadFromStream",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LoadFromStream",P1])
+		return dnSend("s4:call",nHandle,"s14:LoadFromStream",dnPackItem(P1))
 
 	Func Unload 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Unload"])
+		dnSend("s4:call",nHandle,"s6:Unload","")
 		return self
 
 	Func EnterContextualReflection P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"EnterContextualReflection",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib').nHandle,"s25:EnterContextualReflection",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnterContextualReflection",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:EnterContextualReflection",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"EnterContextualReflection"])
+			return dnSend("s4:call",nHandle,"s25:EnterContextualReflection","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"EnterContextualReflection",P1])
+		return dnSend("s4:call",dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib').nHandle,"s25:EnterContextualReflection",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetLoadContext P1
-		return dnRequest("call",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"GetLoadContext",P1])
+		return dnSend("s4:call",dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib').nHandle,"s14:GetLoadContext",dnPackItem(P1))
 
 	Func GetAssemblyName P1
-		return dnRequest("call",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"GetAssemblyName",P1])
+		return dnSend("s4:call",dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib').nHandle,"s15:GetAssemblyName",dnPackItem(P1))
 
 	Func setResolvingUnmanagedDllEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ResolvingUnmanagedDll",dnCallback(P1)])
@@ -142,37 +142,37 @@ Class AssemblyLoadContext from Object
 		return self
 
 	Func getAssemblies
-		return dnRequest("get",[self,"Assemblies"])
+		return dnSend("s3:get",nHandle,"s10:Assemblies","")
 
 	Func setAssemblies P1
 		raise("DotNet Error: Assemblies is a read-only property")
 
 	Func getIsCollectible
-		return dnRequest("get",[self,"IsCollectible"])
+		return dnSend("s3:get",nHandle,"s13:IsCollectible","")
 
 	Func setIsCollectible P1
 		raise("DotNet Error: IsCollectible is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDefault
-		return dnRequest("get",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"Default"])
+		return dnSend("s3:get",dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib').nHandle,"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getAll
-		return dnRequest("get",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"All"])
+		return dnSend("s3:get",dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib').nHandle,"s3:All","")
 
 	Func setAll P1
 		raise("DotNet Error: All is a read-only property")
 
 	Func getCurrentContextualReflectionContext
-		return dnRequest("get",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"CurrentContextualReflectionContext"])
+		return dnSend("s3:get",dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib').nHandle,"s34:CurrentContextualReflectionContext","")
 
 	Func setCurrentContextualReflectionContext P1
 		raise("DotNet Error: CurrentContextualReflectionContext is a read-only property")

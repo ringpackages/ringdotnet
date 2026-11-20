@@ -127,46 +127,46 @@ Class DrawingAttributeIds from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getColor
-		return dnRequest("get",[dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"Color"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore').nHandle,"s5:Color","")
 
 	Func setColor P1
 		raise("DotNet Error: Color is a read-only property")
 
 	Func getStylusTip
-		return dnRequest("get",[dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"StylusTip"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore').nHandle,"s9:StylusTip","")
 
 	Func setStylusTip P1
 		raise("DotNet Error: StylusTip is a read-only property")
 
 	Func getStylusTipTransform
-		return dnRequest("get",[dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"StylusTipTransform"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore').nHandle,"s18:StylusTipTransform","")
 
 	Func setStylusTipTransform P1
 		raise("DotNet Error: StylusTipTransform is a read-only property")
 
 	Func getStylusHeight
-		return dnRequest("get",[dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"StylusHeight"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore').nHandle,"s12:StylusHeight","")
 
 	Func setStylusHeight P1
 		raise("DotNet Error: StylusHeight is a read-only property")
 
 	Func getStylusWidth
-		return dnRequest("get",[dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"StylusWidth"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore').nHandle,"s11:StylusWidth","")
 
 	Func setStylusWidth P1
 		raise("DotNet Error: StylusWidth is a read-only property")
 
 	Func getDrawingFlags
-		return dnRequest("get",[dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"DrawingFlags"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore').nHandle,"s12:DrawingFlags","")
 
 	Func setDrawingFlags P1
 		raise("DotNet Error: DrawingFlags is a read-only property")
 
 	Func getIsHighlighter
-		return dnRequest("get",[dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"IsHighlighter"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore').nHandle,"s13:IsHighlighter","")
 
 	Func setIsHighlighter P1
 		raise("DotNet Error: IsHighlighter is a read-only property")
@@ -210,27 +210,27 @@ Class DrawingAttributes from Object
 		return self
 
 	Func AddPropertyData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddPropertyData",P1,P2])
+		dnSend("s4:call",nHandle,"s15:AddPropertyData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePropertyData P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemovePropertyData",P1])
+		dnSend("s4:call",nHandle,"s18:RemovePropertyData",dnPackItem(P1))
 		return self
 
 	Func GetPropertyData P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPropertyData",P1])
+		return dnSend("s4:call",nHandle,"s15:GetPropertyData",dnPackItem(P1))
 
 	Func GetPropertyDataIds 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPropertyDataIds"])
+		return dnSend("s4:call",nHandle,"s18:GetPropertyDataIds","")
 
 	Func ContainsPropertyData P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsPropertyData",P1])
+		return dnSend("s4:call",nHandle,"s20:ContainsPropertyData",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func setAttributeChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"AttributeChanged",dnCallback(P1)])
@@ -249,81 +249,81 @@ Class DrawingAttributes from Object
 		return self
 
 	Func getColor
-		return dnRequest("get",[self,"Color"])
+		return dnSend("s3:get",nHandle,"s5:Color","")
 
 	Func setColor P1
-		dnRequest("set",[self,"Color",P1])
+		dnSend("s3:set",nHandle,"s5:Color",dnPackItem(P1))
 		return self
 
 	Func getStylusTip
-		return dnRequest("get",[self,"StylusTip"])
+		return dnSend("s3:get",nHandle,"s9:StylusTip","")
 
 	Func setStylusTip P1
-		dnRequest("set",[self,"StylusTip",P1])
+		dnSend("s3:set",nHandle,"s9:StylusTip",dnPackItem(P1))
 		return self
 
 	Func getStylusTipTransform
-		return dnRequest("get",[self,"StylusTipTransform"])
+		return dnSend("s3:get",nHandle,"s18:StylusTipTransform","")
 
 	Func setStylusTipTransform P1
-		dnRequest("set",[self,"StylusTipTransform",P1])
+		dnSend("s3:set",nHandle,"s18:StylusTipTransform",dnPackItem(P1))
 		return self
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnSend("s3:get",nHandle,"s6:Height","")
 
 	Func setHeight P1
-		dnRequest("set",[self,"Height",P1])
+		dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1))
 		return self
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnSend("s3:get",nHandle,"s5:Width","")
 
 	Func setWidth P1
-		dnRequest("set",[self,"Width",P1])
+		dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1))
 		return self
 
 	Func getFitToCurve
-		return dnRequest("get",[self,"FitToCurve"])
+		return dnSend("s3:get",nHandle,"s10:FitToCurve","")
 
 	Func setFitToCurve P1
-		dnRequest("set",[self,"FitToCurve",P1])
+		dnSend("s3:set",nHandle,"s10:FitToCurve",dnPackItem(P1))
 		return self
 
 	Func getIgnorePressure
-		return dnRequest("get",[self,"IgnorePressure"])
+		return dnSend("s3:get",nHandle,"s14:IgnorePressure","")
 
 	Func setIgnorePressure P1
-		dnRequest("set",[self,"IgnorePressure",P1])
+		dnSend("s3:set",nHandle,"s14:IgnorePressure",dnPackItem(P1))
 		return self
 
 	Func getIsHighlighter
-		return dnRequest("get",[self,"IsHighlighter"])
+		return dnSend("s3:get",nHandle,"s13:IsHighlighter","")
 
 	Func setIsHighlighter P1
-		dnRequest("set",[self,"IsHighlighter",P1])
+		dnSend("s3:set",nHandle,"s13:IsHighlighter",dnPackItem(P1))
 		return self
 
 	Func getMinHeight
-		return dnRequest("get",[dnTypeCached('System.Windows.Ink.DrawingAttributes, PresentationCore'),"MinHeight"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributes, PresentationCore').nHandle,"s9:MinHeight","")
 
 	Func setMinHeight P1
 		raise("DotNet Error: MinHeight is a read-only property")
 
 	Func getMinWidth
-		return dnRequest("get",[dnTypeCached('System.Windows.Ink.DrawingAttributes, PresentationCore'),"MinWidth"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributes, PresentationCore').nHandle,"s8:MinWidth","")
 
 	Func setMinWidth P1
 		raise("DotNet Error: MinWidth is a read-only property")
 
 	Func getMaxHeight
-		return dnRequest("get",[dnTypeCached('System.Windows.Ink.DrawingAttributes, PresentationCore'),"MaxHeight"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributes, PresentationCore').nHandle,"s9:MaxHeight","")
 
 	Func setMaxHeight P1
 		raise("DotNet Error: MaxHeight is a read-only property")
 
 	Func getMaxWidth
-		return dnRequest("get",[dnTypeCached('System.Windows.Ink.DrawingAttributes, PresentationCore'),"MaxWidth"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.DrawingAttributes, PresentationCore').nHandle,"s8:MaxWidth","")
 
 	Func setMaxWidth P1
 		raise("DotNet Error: MaxWidth is a read-only property")
@@ -346,13 +346,13 @@ Class DrawingAttributesReplacedEventArgs from EventArgs
 		return self
 
 	Func getNewDrawingAttributes
-		return dnRequest("get",[self,"NewDrawingAttributes"])
+		return dnSend("s3:get",nHandle,"s20:NewDrawingAttributes","")
 
 	Func setNewDrawingAttributes P1
 		raise("DotNet Error: NewDrawingAttributes is a read-only property")
 
 	Func getPreviousDrawingAttributes
-		return dnRequest("get",[self,"PreviousDrawingAttributes"])
+		return dnSend("s3:get",nHandle,"s25:PreviousDrawingAttributes","")
 
 	Func setPreviousDrawingAttributes P1
 		raise("DotNet Error: PreviousDrawingAttributes is a read-only property")
@@ -373,16 +373,16 @@ Class GestureRecognitionResult from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getRecognitionConfidence
-		return dnRequest("get",[self,"RecognitionConfidence"])
+		return dnSend("s3:get",nHandle,"s21:RecognitionConfidence","")
 
 	Func setRecognitionConfidence P1
 		raise("DotNet Error: RecognitionConfidence is a read-only property")
 
 	Func getApplicationGesture
-		return dnRequest("get",[self,"ApplicationGesture"])
+		return dnSend("s3:get",nHandle,"s18:ApplicationGesture","")
 
 	Func setApplicationGesture P1
 		raise("DotNet Error: ApplicationGesture is a read-only property")
@@ -435,21 +435,21 @@ Class GestureRecognizer from DependencyObject
 		return self
 
 	Func SetEnabledGestures P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetEnabledGestures",P1])
+		dnSend("s4:call",nHandle,"s18:SetEnabledGestures",dnPackItem(P1))
 		return self
 
 	Func GetEnabledGestures 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnabledGestures"])
+		return dnSend("s4:call",nHandle,"s18:GetEnabledGestures","")
 
 	Func Recognize P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Recognize",P1])
+		return dnSend("s4:call",nHandle,"s9:Recognize",dnPackItem(P1))
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func getIsRecognizerAvailable
-		return dnRequest("get",[self,"IsRecognizerAvailable"])
+		return dnSend("s3:get",nHandle,"s21:IsRecognizerAvailable","")
 
 	Func setIsRecognizerAvailable P1
 		raise("DotNet Error: IsRecognizerAvailable is a read-only property")
@@ -469,22 +469,22 @@ Class IncrementalHitTester from Object
 		return self
 
 	Func AddPoint P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddPoint",P1])
+		dnSend("s4:call",nHandle,"s8:AddPoint",dnPackItem(P1))
 		return self
 
 	Func AddPoints P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddPoints",P1])
+		dnSend("s4:call",nHandle,"s9:AddPoints",dnPackItem(P1))
 		return self
 
 	Func EndHitTesting 
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndHitTesting"])
+		dnSend("s4:call",nHandle,"s13:EndHitTesting","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getIsValid
-		return dnRequest("get",[self,"IsValid"])
+		return dnSend("s3:get",nHandle,"s7:IsValid","")
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")
@@ -505,13 +505,13 @@ Class LassoSelectionChangedEventArgs from EventArgs
 		return self
 
 	Func getSelectedStrokes
-		return dnRequest("get",[self,"SelectedStrokes"])
+		return dnSend("s3:get",nHandle,"s15:SelectedStrokes","")
 
 	Func setSelectedStrokes P1
 		raise("DotNet Error: SelectedStrokes is a read-only property")
 
 	Func getDeselectedStrokes
-		return dnRequest("get",[self,"DeselectedStrokes"])
+		return dnSend("s3:get",nHandle,"s17:DeselectedStrokes","")
 
 	Func setDeselectedStrokes P1
 		raise("DotNet Error: DeselectedStrokes is a read-only property")
@@ -535,19 +535,19 @@ Class PropertyDataChangedEventArgs from EventArgs
 		return self
 
 	Func getPropertyGuid
-		return dnRequest("get",[self,"PropertyGuid"])
+		return dnSend("s3:get",nHandle,"s12:PropertyGuid","")
 
 	Func setPropertyGuid P1
 		raise("DotNet Error: PropertyGuid is a read-only property")
 
 	Func getNewValue
-		return dnRequest("get",[self,"NewValue"])
+		return dnSend("s3:get",nHandle,"s8:NewValue","")
 
 	Func setNewValue P1
 		raise("DotNet Error: NewValue is a read-only property")
 
 	Func getPreviousValue
-		return dnRequest("get",[self,"PreviousValue"])
+		return dnSend("s3:get",nHandle,"s13:PreviousValue","")
 
 	Func setPreviousValue P1
 		raise("DotNet Error: PreviousValue is a read-only property")
@@ -585,69 +585,69 @@ Class Stroke from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Transform P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Transform",P1,P2])
+		dnSend("s4:call",nHandle,"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetBezierStylusPoints 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBezierStylusPoints"])
+		return dnSend("s4:call",nHandle,"s21:GetBezierStylusPoints","")
 
 	Func AddPropertyData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddPropertyData",P1,P2])
+		dnSend("s4:call",nHandle,"s15:AddPropertyData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePropertyData P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemovePropertyData",P1])
+		dnSend("s4:call",nHandle,"s18:RemovePropertyData",dnPackItem(P1))
 		return self
 
 	Func GetPropertyData P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPropertyData",P1])
+		return dnSend("s4:call",nHandle,"s15:GetPropertyData",dnPackItem(P1))
 
 	Func GetPropertyDataIds 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPropertyDataIds"])
+		return dnSend("s4:call",nHandle,"s18:GetPropertyDataIds","")
 
 	Func ContainsPropertyData P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsPropertyData",P1])
+		return dnSend("s4:call",nHandle,"s20:ContainsPropertyData",dnPackItem(P1))
 
 	Func GetBounds 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBounds"])
+		return dnSend("s4:call",nHandle,"s9:GetBounds","")
 
 	Func Draw P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Draw",P1])
+			dnSend("s9:callnamed",nHandle,"s4:Draw",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Draw",P1])
+		dnSend("s4:call",nHandle,"s4:Draw",dnPackItem(P1))
 		return self
 
 	Func GetClipResult P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetClipResult",P1])
+		return dnSend("s4:call",nHandle,"s13:GetClipResult",dnPackItem(P1))
 
 	Func GetEraseResult P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetEraseResult",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:GetEraseResult",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEraseResult",P1])
+		return dnSend("s4:call",nHandle,"s14:GetEraseResult",dnPackItem(P1))
 
 	Func HitTest P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HitTest",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:HitTest",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HitTest",P1])
+		return dnSend("s4:call",nHandle,"s7:HitTest",dnPackItem(P1))
 
 	Func GetGeometry P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetGeometry",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:GetGeometry",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetGeometry"])
+			return dnSend("s4:call",nHandle,"s11:GetGeometry","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetGeometry",P1])
+		return dnSend("s4:call",nHandle,"s11:GetGeometry",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func setDrawingAttributesChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"DrawingAttributesChanged",dnCallback(P1)])
@@ -698,17 +698,17 @@ Class Stroke from Object
 		return self
 
 	Func getDrawingAttributes
-		return dnRequest("get",[self,"DrawingAttributes"])
+		return dnSend("s3:get",nHandle,"s17:DrawingAttributes","")
 
 	Func setDrawingAttributes P1
-		dnRequest("set",[self,"DrawingAttributes",P1])
+		dnSend("s3:set",nHandle,"s17:DrawingAttributes",dnPackItem(P1))
 		return self
 
 	Func getStylusPoints
-		return dnRequest("get",[self,"StylusPoints"])
+		return dnSend("s3:get",nHandle,"s12:StylusPoints","")
 
 	Func setStylusPoints P1
-		dnRequest("set",[self,"StylusPoints",P1])
+		dnSend("s3:set",nHandle,"s12:StylusPoints",dnPackItem(P1))
 		return self
 
 
@@ -761,121 +761,121 @@ Class StrokeCollection from DotNetObject
 
 	Func Save P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Save",P1])
+			dnSend("s9:callnamed",nHandle,"s4:Save",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Save",P1])
+		dnSend("s4:call",nHandle,"s4:Save",dnPackItem(P1))
 		return self
 
 	Func AddPropertyData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddPropertyData",P1,P2])
+		dnSend("s4:call",nHandle,"s15:AddPropertyData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemovePropertyData P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemovePropertyData",P1])
+		dnSend("s4:call",nHandle,"s18:RemovePropertyData",dnPackItem(P1))
 		return self
 
 	Func GetPropertyData P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPropertyData",P1])
+		return dnSend("s4:call",nHandle,"s15:GetPropertyData",dnPackItem(P1))
 
 	Func GetPropertyDataIds 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPropertyDataIds"])
+		return dnSend("s4:call",nHandle,"s18:GetPropertyDataIds","")
 
 	Func ContainsPropertyData P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsPropertyData",P1])
+		return dnSend("s4:call",nHandle,"s20:ContainsPropertyData",dnPackItem(P1))
 
 	Func Transform P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Transform",P1,P2])
+		dnSend("s4:call",nHandle,"s9:Transform",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Replace P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Replace",P1,P2])
+		dnSend("s4:call",nHandle,"s7:Replace",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetBounds 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBounds"])
+		return dnSend("s4:call",nHandle,"s9:GetBounds","")
 
 	Func HitTest P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HitTest",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:HitTest",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HitTest",P1])
+		return dnSend("s4:call",nHandle,"s7:HitTest",dnPackItem(P1))
 
 	Func Clip P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clip",P1])
+		dnSend("s4:call",nHandle,"s4:Clip",dnPackItem(P1))
 		return self
 
 	Func Erase P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Erase",P1])
+			dnSend("s9:callnamed",nHandle,"s5:Erase",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Erase",P1])
+		dnSend("s4:call",nHandle,"s5:Erase",dnPackItem(P1))
 		return self
 
 	Func Draw P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Draw",P1])
+		dnSend("s4:call",nHandle,"s4:Draw",dnPackItem(P1))
 		return self
 
 	Func GetIncrementalStrokeHitTester P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIncrementalStrokeHitTester",P1])
+		return dnSend("s4:call",nHandle,"s29:GetIncrementalStrokeHitTester",dnPackItem(P1))
 
 	Func GetIncrementalLassoHitTester P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIncrementalLassoHitTester",P1])
+		return dnSend("s4:call",nHandle,"s28:GetIncrementalLassoHitTester",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func setStrokesChangedEvent P1
@@ -895,13 +895,13 @@ Class StrokeCollection from DotNetObject
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getInkSerializedFormat
-		return dnRequest("get",[dnTypeCached('System.Windows.Ink.StrokeCollection, PresentationCore'),"InkSerializedFormat"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Ink.StrokeCollection, PresentationCore').nHandle,"s19:InkSerializedFormat","")
 
 	Func setInkSerializedFormat P1
 		raise("DotNet Error: InkSerializedFormat is a read-only property")
@@ -924,13 +924,13 @@ Class StrokeCollectionChangedEventArgs from EventArgs
 		return self
 
 	Func getAdded
-		return dnRequest("get",[self,"Added"])
+		return dnSend("s3:get",nHandle,"s5:Added","")
 
 	Func setAdded P1
 		raise("DotNet Error: Added is a read-only property")
 
 	Func getRemoved
-		return dnRequest("get",[self,"Removed"])
+		return dnSend("s3:get",nHandle,"s7:Removed","")
 
 	Func setRemoved P1
 		raise("DotNet Error: Removed is a read-only property")
@@ -950,10 +950,10 @@ Class StrokeHitEventArgs from EventArgs
 		return self
 
 	Func GetPointEraseResults 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPointEraseResults"])
+		return dnSend("s4:call",nHandle,"s20:GetPointEraseResults","")
 
 	Func getHitStroke
-		return dnRequest("get",[self,"HitStroke"])
+		return dnSend("s3:get",nHandle,"s9:HitStroke","")
 
 	Func setHitStroke P1
 		raise("DotNet Error: HitStroke is a read-only property")
@@ -976,13 +976,13 @@ Class StylusPointsReplacedEventArgs from EventArgs
 		return self
 
 	Func getNewStylusPoints
-		return dnRequest("get",[self,"NewStylusPoints"])
+		return dnSend("s3:get",nHandle,"s15:NewStylusPoints","")
 
 	Func setNewStylusPoints P1
 		raise("DotNet Error: NewStylusPoints is a read-only property")
 
 	Func getPreviousStylusPoints
-		return dnRequest("get",[self,"PreviousStylusPoints"])
+		return dnSend("s3:get",nHandle,"s20:PreviousStylusPoints","")
 
 	Func setPreviousStylusPoints P1
 		raise("DotNet Error: PreviousStylusPoints is a read-only property")
@@ -1004,22 +1004,22 @@ Class StylusShape from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnSend("s3:get",nHandle,"s5:Width","")
 
 	Func setWidth P1
 		raise("DotNet Error: Width is a read-only property")
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnSend("s3:get",nHandle,"s6:Height","")
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
 
 	Func getRotation
-		return dnRequest("get",[self,"Rotation"])
+		return dnSend("s3:get",nHandle,"s8:Rotation","")
 
 	Func setRotation P1
 		raise("DotNet Error: Rotation is a read-only property")

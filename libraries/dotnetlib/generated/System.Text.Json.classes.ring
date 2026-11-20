@@ -85,30 +85,30 @@ Class JsonDocument from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func WriteTo P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteTo",P1])
+		dnSend("s4:call",nHandle,"s7:WriteTo",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func ParseAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"ParseAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json').nHandle,"s10:ParseAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"ParseAsync",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json').nHandle,"s10:ParseAsync",dnPackItem(P1))
 
 	Func getRootElement
-		return dnRequest("get",[self,"RootElement"])
+		return dnSend("s3:get",nHandle,"s11:RootElement","")
 
 	Func setRootElement P1
 		raise("DotNet Error: RootElement is a read-only property")
@@ -143,24 +143,24 @@ Class JsonDocumentOptions from ValueType
 		return self
 
 	Func getCommentHandling
-		return dnRequest("get",[self,"CommentHandling"])
+		return dnSend("s3:get",nHandle,"s15:CommentHandling","")
 
 	Func setCommentHandling P1
-		dnRequest("set",[self,"CommentHandling",P1])
+		dnSend("s3:set",nHandle,"s15:CommentHandling",dnPackItem(P1))
 		return self
 
 	Func getMaxDepth
-		return dnRequest("get",[self,"MaxDepth"])
+		return dnSend("s3:get",nHandle,"s8:MaxDepth","")
 
 	Func setMaxDepth P1
-		dnRequest("set",[self,"MaxDepth",P1])
+		dnSend("s3:set",nHandle,"s8:MaxDepth",dnPackItem(P1))
 		return self
 
 	Func getAllowTrailingCommas
-		return dnRequest("get",[self,"AllowTrailingCommas"])
+		return dnSend("s3:get",nHandle,"s19:AllowTrailingCommas","")
 
 	Func setAllowTrailingCommas P1
-		dnRequest("set",[self,"AllowTrailingCommas",P1])
+		dnSend("s3:set",nHandle,"s19:AllowTrailingCommas",dnPackItem(P1))
 		return self
 
 
@@ -191,140 +191,140 @@ Class JsonElement from ValueType
 		return self
 
 	Func GetArrayLength 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetArrayLength"])
+		return dnSend("s4:call",nHandle,"s14:GetArrayLength","")
 
 	Func GetPropertyCount 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPropertyCount"])
+		return dnSend("s4:call",nHandle,"s16:GetPropertyCount","")
 
 	Func GetProperty P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetProperty",P1])
+		return dnSend("s4:call",nHandle,"s11:GetProperty",dnPackItem(P1))
 
 	Func TryGetProperty P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetProperty",P1])
+		return dnSend("s4:call",nHandle,"s14:TryGetProperty",dnPackItem(P1))
 
 	Func GetBoolean 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBoolean"])
+		return dnSend("s4:call",nHandle,"s10:GetBoolean","")
 
 	Func GetString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetString"])
+		return dnSend("s4:call",nHandle,"s9:GetString","")
 
 	Func TryGetBytesFromBase64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetBytesFromBase64"])
+		return dnSend("s4:call",nHandle,"s21:TryGetBytesFromBase64","")
 
 	Func GetBytesFromBase64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBytesFromBase64"])
+		return dnSend("s4:call",nHandle,"s18:GetBytesFromBase64","")
 
 	Func TryGetSByte 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetSByte"])
+		return dnSend("s4:call",nHandle,"s11:TryGetSByte","")
 
 	Func GetSByte 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSByte"])
+		return dnSend("s4:call",nHandle,"s8:GetSByte","")
 
 	Func TryGetByte 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetByte"])
+		return dnSend("s4:call",nHandle,"s10:TryGetByte","")
 
 	Func GetByte 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetByte"])
+		return dnSend("s4:call",nHandle,"s7:GetByte","")
 
 	Func TryGetInt16 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetInt16"])
+		return dnSend("s4:call",nHandle,"s11:TryGetInt16","")
 
 	Func GetInt16 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetInt16"])
+		return dnSend("s4:call",nHandle,"s8:GetInt16","")
 
 	Func TryGetUInt16 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetUInt16"])
+		return dnSend("s4:call",nHandle,"s12:TryGetUInt16","")
 
 	Func GetUInt16 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUInt16"])
+		return dnSend("s4:call",nHandle,"s9:GetUInt16","")
 
 	Func TryGetInt32 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetInt32"])
+		return dnSend("s4:call",nHandle,"s11:TryGetInt32","")
 
 	Func GetInt32 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetInt32"])
+		return dnSend("s4:call",nHandle,"s8:GetInt32","")
 
 	Func TryGetUInt32 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetUInt32"])
+		return dnSend("s4:call",nHandle,"s12:TryGetUInt32","")
 
 	Func GetUInt32 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUInt32"])
+		return dnSend("s4:call",nHandle,"s9:GetUInt32","")
 
 	Func TryGetInt64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetInt64"])
+		return dnSend("s4:call",nHandle,"s11:TryGetInt64","")
 
 	Func GetInt64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetInt64"])
+		return dnSend("s4:call",nHandle,"s8:GetInt64","")
 
 	Func TryGetUInt64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetUInt64"])
+		return dnSend("s4:call",nHandle,"s12:TryGetUInt64","")
 
 	Func GetUInt64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUInt64"])
+		return dnSend("s4:call",nHandle,"s9:GetUInt64","")
 
 	Func TryGetDouble 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetDouble"])
+		return dnSend("s4:call",nHandle,"s12:TryGetDouble","")
 
 	Func GetDouble 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDouble"])
+		return dnSend("s4:call",nHandle,"s9:GetDouble","")
 
 	Func TryGetSingle 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetSingle"])
+		return dnSend("s4:call",nHandle,"s12:TryGetSingle","")
 
 	Func GetSingle 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSingle"])
+		return dnSend("s4:call",nHandle,"s9:GetSingle","")
 
 	Func TryGetDecimal 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetDecimal"])
+		return dnSend("s4:call",nHandle,"s13:TryGetDecimal","")
 
 	Func GetDecimal 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDecimal"])
+		return dnSend("s4:call",nHandle,"s10:GetDecimal","")
 
 	Func TryGetDateTime 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetDateTime"])
+		return dnSend("s4:call",nHandle,"s14:TryGetDateTime","")
 
 	Func GetDateTime 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDateTime"])
+		return dnSend("s4:call",nHandle,"s11:GetDateTime","")
 
 	Func TryGetDateTimeOffset 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetDateTimeOffset"])
+		return dnSend("s4:call",nHandle,"s20:TryGetDateTimeOffset","")
 
 	Func GetDateTimeOffset 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDateTimeOffset"])
+		return dnSend("s4:call",nHandle,"s17:GetDateTimeOffset","")
 
 	Func TryGetGuid 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetGuid"])
+		return dnSend("s4:call",nHandle,"s10:TryGetGuid","")
 
 	Func GetGuid 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetGuid"])
+		return dnSend("s4:call",nHandle,"s7:GetGuid","")
 
 	Func GetRawText 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRawText"])
+		return dnSend("s4:call",nHandle,"s10:GetRawText","")
 
 	Func ValueEquals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ValueEquals",P1])
+		return dnSend("s4:call",nHandle,"s11:ValueEquals",dnPackItem(P1))
 
 	Func WriteTo P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteTo",P1])
+		dnSend("s4:call",nHandle,"s7:WriteTo",dnPackItem(P1))
 		return self
 
 	Func EnumerateArray 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateArray"])
+		return dnSend("s4:call",nHandle,"s14:EnumerateArray","")
 
 	Func EnumerateObject 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateObject"])
+		return dnSend("s4:call",nHandle,"s15:EnumerateObject","")
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func DeepEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonElement, System.Text.Json'),"DeepEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonElement, System.Text.Json').nHandle,"s10:DeepEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getValueKind
-		return dnRequest("get",[self,"ValueKind"])
+		return dnSend("s3:get",nHandle,"s9:ValueKind","")
 
 	Func setValueKind P1
 		raise("DotNet Error: ValueKind is a read-only property")
@@ -359,18 +359,18 @@ Class JsonEncodedText from ValueType
 
 	Func Encode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonEncodedText, System.Text.Json'),"Encode",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonEncodedText, System.Text.Json').nHandle,"s6:Encode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonEncodedText, System.Text.Json'),"Encode",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonEncodedText, System.Text.Json').nHandle,"s6:Encode",dnPackItem(P1))
 
 	Func getEncodedUtf8Bytes
-		return dnRequest("get",[self,"EncodedUtf8Bytes"])
+		return dnSend("s3:get",nHandle,"s16:EncodedUtf8Bytes","")
 
 	Func setEncodedUtf8Bytes P1
 		raise("DotNet Error: EncodedUtf8Bytes is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -394,37 +394,37 @@ Class JsonNamingPolicy from Object
 		return self
 
 	Func ConvertName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConvertName",P1])
+		return dnSend("s4:call",nHandle,"s11:ConvertName",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCamelCase
-		return dnRequest("get",[dnTypeCached('System.Text.Json.JsonNamingPolicy, System.Text.Json'),"CamelCase"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Json.JsonNamingPolicy, System.Text.Json').nHandle,"s9:CamelCase","")
 
 	Func setCamelCase P1
 		raise("DotNet Error: CamelCase is a read-only property")
 
 	Func getSnakeCaseLower
-		return dnRequest("get",[dnTypeCached('System.Text.Json.JsonNamingPolicy, System.Text.Json'),"SnakeCaseLower"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Json.JsonNamingPolicy, System.Text.Json').nHandle,"s14:SnakeCaseLower","")
 
 	Func setSnakeCaseLower P1
 		raise("DotNet Error: SnakeCaseLower is a read-only property")
 
 	Func getSnakeCaseUpper
-		return dnRequest("get",[dnTypeCached('System.Text.Json.JsonNamingPolicy, System.Text.Json'),"SnakeCaseUpper"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Json.JsonNamingPolicy, System.Text.Json').nHandle,"s14:SnakeCaseUpper","")
 
 	Func setSnakeCaseUpper P1
 		raise("DotNet Error: SnakeCaseUpper is a read-only property")
 
 	Func getKebabCaseLower
-		return dnRequest("get",[dnTypeCached('System.Text.Json.JsonNamingPolicy, System.Text.Json'),"KebabCaseLower"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Json.JsonNamingPolicy, System.Text.Json').nHandle,"s14:KebabCaseLower","")
 
 	Func setKebabCaseLower P1
 		raise("DotNet Error: KebabCaseLower is a read-only property")
 
 	Func getKebabCaseUpper
-		return dnRequest("get",[dnTypeCached('System.Text.Json.JsonNamingPolicy, System.Text.Json'),"KebabCaseUpper"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Json.JsonNamingPolicy, System.Text.Json').nHandle,"s14:KebabCaseUpper","")
 
 	Func setKebabCaseUpper P1
 		raise("DotNet Error: KebabCaseUpper is a read-only property")
@@ -458,20 +458,20 @@ Class JsonProperty from ValueType
 		return self
 
 	Func NameEquals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"NameEquals",P1])
+		return dnSend("s4:call",nHandle,"s10:NameEquals",dnPackItem(P1))
 
 	Func WriteTo P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteTo",P1])
+		dnSend("s4:call",nHandle,"s7:WriteTo",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -507,31 +507,31 @@ Class JsonReaderOptions from ValueType
 		return self
 
 	Func getCommentHandling
-		return dnRequest("get",[self,"CommentHandling"])
+		return dnSend("s3:get",nHandle,"s15:CommentHandling","")
 
 	Func setCommentHandling P1
-		dnRequest("set",[self,"CommentHandling",P1])
+		dnSend("s3:set",nHandle,"s15:CommentHandling",dnPackItem(P1))
 		return self
 
 	Func getMaxDepth
-		return dnRequest("get",[self,"MaxDepth"])
+		return dnSend("s3:get",nHandle,"s8:MaxDepth","")
 
 	Func setMaxDepth P1
-		dnRequest("set",[self,"MaxDepth",P1])
+		dnSend("s3:set",nHandle,"s8:MaxDepth",dnPackItem(P1))
 		return self
 
 	Func getAllowTrailingCommas
-		return dnRequest("get",[self,"AllowTrailingCommas"])
+		return dnSend("s3:get",nHandle,"s19:AllowTrailingCommas","")
 
 	Func setAllowTrailingCommas P1
-		dnRequest("set",[self,"AllowTrailingCommas",P1])
+		dnSend("s3:set",nHandle,"s19:AllowTrailingCommas",dnPackItem(P1))
 		return self
 
 	Func getAllowMultipleValues
-		return dnRequest("get",[self,"AllowMultipleValues"])
+		return dnSend("s3:get",nHandle,"s19:AllowMultipleValues","")
 
 	Func setAllowMultipleValues P1
-		dnRequest("set",[self,"AllowMultipleValues",P1])
+		dnSend("s3:set",nHandle,"s19:AllowMultipleValues",dnPackItem(P1))
 		return self
 
 
@@ -582,7 +582,7 @@ Class JsonReaderState from ValueType
 		return self
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnSend("s3:get",nHandle,"s7:Options","")
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
@@ -602,64 +602,64 @@ Class JsonSerializer from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Deserialize P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"Deserialize",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s11:Deserialize",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"Deserialize",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s11:Deserialize",dnPackItem(P1))
 
 	Func SerializeToDocument P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"SerializeToDocument",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s19:SerializeToDocument",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"SerializeToDocument",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s19:SerializeToDocument",dnPackItem(P1))
 
 	Func SerializeToElement P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"SerializeToElement",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s18:SerializeToElement",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"SerializeToElement",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s18:SerializeToElement",dnPackItem(P1))
 
 	Func SerializeToNode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"SerializeToNode",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s15:SerializeToNode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"SerializeToNode",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s15:SerializeToNode",dnPackItem(P1))
 
 	Func DeserializeAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"DeserializeAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s16:DeserializeAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"DeserializeAsync",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s16:DeserializeAsync",dnPackItem(P1))
 
 	Func DeserializeAsyncEnumerable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"DeserializeAsyncEnumerable",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s26:DeserializeAsyncEnumerable",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"DeserializeAsyncEnumerable",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s26:DeserializeAsyncEnumerable",dnPackItem(P1))
 
 	Func SerializeToUtf8Bytes P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"SerializeToUtf8Bytes",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s20:SerializeToUtf8Bytes",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"SerializeToUtf8Bytes",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s20:SerializeToUtf8Bytes",dnPackItem(P1))
 
 	Func SerializeAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"SerializeAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s14:SerializeAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: SerializeAsync does not take one argument: use named arguments, SerializeAsync([ :parameter = value, ... ])")
 
 	Func Serialize P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"Serialize",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s9:Serialize",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"Serialize",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s9:Serialize",dnPackItem(P1))
 
 	Func getIsReflectionEnabledByDefault
-		return dnRequest("get",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"IsReflectionEnabledByDefault"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json').nHandle,"s28:IsReflectionEnabledByDefault","")
 
 	Func setIsReflectionEnabledByDefault P1
 		raise("DotNet Error: IsReflectionEnabledByDefault is a read-only property")
@@ -742,241 +742,241 @@ Class JsonSerializerOptions from Object
 		return self
 
 	Func GetTypeInfo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeInfo",P1])
+		return dnSend("s4:call",nHandle,"s11:GetTypeInfo",dnPackItem(P1))
 
 	Func TryGetTypeInfo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetTypeInfo",P1])
+		return dnSend("s4:call",nHandle,"s14:TryGetTypeInfo",dnPackItem(P1))
 
 	Func GetConverter P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetConverter",P1])
+		return dnSend("s4:call",nHandle,"s12:GetConverter",dnPackItem(P1))
 
 	Func AddContext 
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddContext"])
+		dnSend("s4:call",nHandle,"s10:AddContext","")
 		return self
 
 	Func MakeReadOnly P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"MakeReadOnly",P1])
+			dnSend("s9:callnamed",nHandle,"s12:MakeReadOnly",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"MakeReadOnly"])
+			dnSend("s4:call",nHandle,"s12:MakeReadOnly","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"MakeReadOnly",P1])
+		dnSend("s4:call",nHandle,"s12:MakeReadOnly",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getConverters
-		return dnRequest("get",[self,"Converters"])
+		return dnSend("s3:get",nHandle,"s10:Converters","")
 
 	Func setConverters P1
 		raise("DotNet Error: Converters is a read-only property")
 
 	Func getTypeInfoResolver
-		return dnRequest("get",[self,"TypeInfoResolver"])
+		return dnSend("s3:get",nHandle,"s16:TypeInfoResolver","")
 
 	Func setTypeInfoResolver P1
-		dnRequest("set",[self,"TypeInfoResolver",P1])
+		dnSend("s3:set",nHandle,"s16:TypeInfoResolver",dnPackItem(P1))
 		return self
 
 	Func getTypeInfoResolverChain
-		return dnRequest("get",[self,"TypeInfoResolverChain"])
+		return dnSend("s3:get",nHandle,"s21:TypeInfoResolverChain","")
 
 	Func setTypeInfoResolverChain P1
 		raise("DotNet Error: TypeInfoResolverChain is a read-only property")
 
 	Func getAllowOutOfOrderMetadataProperties
-		return dnRequest("get",[self,"AllowOutOfOrderMetadataProperties"])
+		return dnSend("s3:get",nHandle,"s33:AllowOutOfOrderMetadataProperties","")
 
 	Func setAllowOutOfOrderMetadataProperties P1
-		dnRequest("set",[self,"AllowOutOfOrderMetadataProperties",P1])
+		dnSend("s3:set",nHandle,"s33:AllowOutOfOrderMetadataProperties",dnPackItem(P1))
 		return self
 
 	Func getAllowTrailingCommas
-		return dnRequest("get",[self,"AllowTrailingCommas"])
+		return dnSend("s3:get",nHandle,"s19:AllowTrailingCommas","")
 
 	Func setAllowTrailingCommas P1
-		dnRequest("set",[self,"AllowTrailingCommas",P1])
+		dnSend("s3:set",nHandle,"s19:AllowTrailingCommas",dnPackItem(P1))
 		return self
 
 	Func getDefaultBufferSize
-		return dnRequest("get",[self,"DefaultBufferSize"])
+		return dnSend("s3:get",nHandle,"s17:DefaultBufferSize","")
 
 	Func setDefaultBufferSize P1
-		dnRequest("set",[self,"DefaultBufferSize",P1])
+		dnSend("s3:set",nHandle,"s17:DefaultBufferSize",dnPackItem(P1))
 		return self
 
 	Func getEncoder
-		return dnRequest("get",[self,"Encoder"])
+		return dnSend("s3:get",nHandle,"s7:Encoder","")
 
 	Func setEncoder P1
-		dnRequest("set",[self,"Encoder",P1])
+		dnSend("s3:set",nHandle,"s7:Encoder",dnPackItem(P1))
 		return self
 
 	Func getDictionaryKeyPolicy
-		return dnRequest("get",[self,"DictionaryKeyPolicy"])
+		return dnSend("s3:get",nHandle,"s19:DictionaryKeyPolicy","")
 
 	Func setDictionaryKeyPolicy P1
-		dnRequest("set",[self,"DictionaryKeyPolicy",P1])
+		dnSend("s3:set",nHandle,"s19:DictionaryKeyPolicy",dnPackItem(P1))
 		return self
 
 	Func getIgnoreNullValues
-		return dnRequest("get",[self,"IgnoreNullValues"])
+		return dnSend("s3:get",nHandle,"s16:IgnoreNullValues","")
 
 	Func setIgnoreNullValues P1
-		dnRequest("set",[self,"IgnoreNullValues",P1])
+		dnSend("s3:set",nHandle,"s16:IgnoreNullValues",dnPackItem(P1))
 		return self
 
 	Func getDefaultIgnoreCondition
-		return dnRequest("get",[self,"DefaultIgnoreCondition"])
+		return dnSend("s3:get",nHandle,"s22:DefaultIgnoreCondition","")
 
 	Func setDefaultIgnoreCondition P1
-		dnRequest("set",[self,"DefaultIgnoreCondition",P1])
+		dnSend("s3:set",nHandle,"s22:DefaultIgnoreCondition",dnPackItem(P1))
 		return self
 
 	Func getNumberHandling
-		return dnRequest("get",[self,"NumberHandling"])
+		return dnSend("s3:get",nHandle,"s14:NumberHandling","")
 
 	Func setNumberHandling P1
-		dnRequest("set",[self,"NumberHandling",P1])
+		dnSend("s3:set",nHandle,"s14:NumberHandling",dnPackItem(P1))
 		return self
 
 	Func getPreferredObjectCreationHandling
-		return dnRequest("get",[self,"PreferredObjectCreationHandling"])
+		return dnSend("s3:get",nHandle,"s31:PreferredObjectCreationHandling","")
 
 	Func setPreferredObjectCreationHandling P1
-		dnRequest("set",[self,"PreferredObjectCreationHandling",P1])
+		dnSend("s3:set",nHandle,"s31:PreferredObjectCreationHandling",dnPackItem(P1))
 		return self
 
 	Func getIgnoreReadOnlyProperties
-		return dnRequest("get",[self,"IgnoreReadOnlyProperties"])
+		return dnSend("s3:get",nHandle,"s24:IgnoreReadOnlyProperties","")
 
 	Func setIgnoreReadOnlyProperties P1
-		dnRequest("set",[self,"IgnoreReadOnlyProperties",P1])
+		dnSend("s3:set",nHandle,"s24:IgnoreReadOnlyProperties",dnPackItem(P1))
 		return self
 
 	Func getIgnoreReadOnlyFields
-		return dnRequest("get",[self,"IgnoreReadOnlyFields"])
+		return dnSend("s3:get",nHandle,"s20:IgnoreReadOnlyFields","")
 
 	Func setIgnoreReadOnlyFields P1
-		dnRequest("set",[self,"IgnoreReadOnlyFields",P1])
+		dnSend("s3:set",nHandle,"s20:IgnoreReadOnlyFields",dnPackItem(P1))
 		return self
 
 	Func getIncludeFields
-		return dnRequest("get",[self,"IncludeFields"])
+		return dnSend("s3:get",nHandle,"s13:IncludeFields","")
 
 	Func setIncludeFields P1
-		dnRequest("set",[self,"IncludeFields",P1])
+		dnSend("s3:set",nHandle,"s13:IncludeFields",dnPackItem(P1))
 		return self
 
 	Func getMaxDepth
-		return dnRequest("get",[self,"MaxDepth"])
+		return dnSend("s3:get",nHandle,"s8:MaxDepth","")
 
 	Func setMaxDepth P1
-		dnRequest("set",[self,"MaxDepth",P1])
+		dnSend("s3:set",nHandle,"s8:MaxDepth",dnPackItem(P1))
 		return self
 
 	Func getPropertyNamingPolicy
-		return dnRequest("get",[self,"PropertyNamingPolicy"])
+		return dnSend("s3:get",nHandle,"s20:PropertyNamingPolicy","")
 
 	Func setPropertyNamingPolicy P1
-		dnRequest("set",[self,"PropertyNamingPolicy",P1])
+		dnSend("s3:set",nHandle,"s20:PropertyNamingPolicy",dnPackItem(P1))
 		return self
 
 	Func getPropertyNameCaseInsensitive
-		return dnRequest("get",[self,"PropertyNameCaseInsensitive"])
+		return dnSend("s3:get",nHandle,"s27:PropertyNameCaseInsensitive","")
 
 	Func setPropertyNameCaseInsensitive P1
-		dnRequest("set",[self,"PropertyNameCaseInsensitive",P1])
+		dnSend("s3:set",nHandle,"s27:PropertyNameCaseInsensitive",dnPackItem(P1))
 		return self
 
 	Func getReadCommentHandling
-		return dnRequest("get",[self,"ReadCommentHandling"])
+		return dnSend("s3:get",nHandle,"s19:ReadCommentHandling","")
 
 	Func setReadCommentHandling P1
-		dnRequest("set",[self,"ReadCommentHandling",P1])
+		dnSend("s3:set",nHandle,"s19:ReadCommentHandling",dnPackItem(P1))
 		return self
 
 	Func getUnknownTypeHandling
-		return dnRequest("get",[self,"UnknownTypeHandling"])
+		return dnSend("s3:get",nHandle,"s19:UnknownTypeHandling","")
 
 	Func setUnknownTypeHandling P1
-		dnRequest("set",[self,"UnknownTypeHandling",P1])
+		dnSend("s3:set",nHandle,"s19:UnknownTypeHandling",dnPackItem(P1))
 		return self
 
 	Func getUnmappedMemberHandling
-		return dnRequest("get",[self,"UnmappedMemberHandling"])
+		return dnSend("s3:get",nHandle,"s22:UnmappedMemberHandling","")
 
 	Func setUnmappedMemberHandling P1
-		dnRequest("set",[self,"UnmappedMemberHandling",P1])
+		dnSend("s3:set",nHandle,"s22:UnmappedMemberHandling",dnPackItem(P1))
 		return self
 
 	Func getWriteIndented
-		return dnRequest("get",[self,"WriteIndented"])
+		return dnSend("s3:get",nHandle,"s13:WriteIndented","")
 
 	Func setWriteIndented P1
-		dnRequest("set",[self,"WriteIndented",P1])
+		dnSend("s3:set",nHandle,"s13:WriteIndented",dnPackItem(P1))
 		return self
 
 	Func getIndentCharacter
-		return dnRequest("get",[self,"IndentCharacter"])
+		return dnSend("s3:get",nHandle,"s15:IndentCharacter","")
 
 	Func setIndentCharacter P1
-		dnRequest("set",[self,"IndentCharacter",P1])
+		dnSend("s3:set",nHandle,"s15:IndentCharacter",dnPackItem(P1))
 		return self
 
 	Func getIndentSize
-		return dnRequest("get",[self,"IndentSize"])
+		return dnSend("s3:get",nHandle,"s10:IndentSize","")
 
 	Func setIndentSize P1
-		dnRequest("set",[self,"IndentSize",P1])
+		dnSend("s3:set",nHandle,"s10:IndentSize",dnPackItem(P1))
 		return self
 
 	Func getReferenceHandler
-		return dnRequest("get",[self,"ReferenceHandler"])
+		return dnSend("s3:get",nHandle,"s16:ReferenceHandler","")
 
 	Func setReferenceHandler P1
-		dnRequest("set",[self,"ReferenceHandler",P1])
+		dnSend("s3:set",nHandle,"s16:ReferenceHandler",dnPackItem(P1))
 		return self
 
 	Func getNewLine
-		return dnRequest("get",[self,"NewLine"])
+		return dnSend("s3:get",nHandle,"s7:NewLine","")
 
 	Func setNewLine P1
-		dnRequest("set",[self,"NewLine",P1])
+		dnSend("s3:set",nHandle,"s7:NewLine",dnPackItem(P1))
 		return self
 
 	Func getRespectNullableAnnotations
-		return dnRequest("get",[self,"RespectNullableAnnotations"])
+		return dnSend("s3:get",nHandle,"s26:RespectNullableAnnotations","")
 
 	Func setRespectNullableAnnotations P1
-		dnRequest("set",[self,"RespectNullableAnnotations",P1])
+		dnSend("s3:set",nHandle,"s26:RespectNullableAnnotations",dnPackItem(P1))
 		return self
 
 	Func getRespectRequiredConstructorParameters
-		return dnRequest("get",[self,"RespectRequiredConstructorParameters"])
+		return dnSend("s3:get",nHandle,"s36:RespectRequiredConstructorParameters","")
 
 	Func setRespectRequiredConstructorParameters P1
-		dnRequest("set",[self,"RespectRequiredConstructorParameters",P1])
+		dnSend("s3:set",nHandle,"s36:RespectRequiredConstructorParameters",dnPackItem(P1))
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getDefault
-		return dnRequest("get",[dnTypeCached('System.Text.Json.JsonSerializerOptions, System.Text.Json'),"Default"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Json.JsonSerializerOptions, System.Text.Json').nHandle,"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getWeb
-		return dnRequest("get",[dnTypeCached('System.Text.Json.JsonSerializerOptions, System.Text.Json'),"Web"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Json.JsonSerializerOptions, System.Text.Json').nHandle,"s3:Web","")
 
 	Func setWeb P1
 		raise("DotNet Error: Web is a read-only property")
@@ -1015,52 +1015,52 @@ Class JsonWriterOptions from ValueType
 		return self
 
 	Func getEncoder
-		return dnRequest("get",[self,"Encoder"])
+		return dnSend("s3:get",nHandle,"s7:Encoder","")
 
 	Func setEncoder P1
-		dnRequest("set",[self,"Encoder",P1])
+		dnSend("s3:set",nHandle,"s7:Encoder",dnPackItem(P1))
 		return self
 
 	Func getIndented
-		return dnRequest("get",[self,"Indented"])
+		return dnSend("s3:get",nHandle,"s8:Indented","")
 
 	Func setIndented P1
-		dnRequest("set",[self,"Indented",P1])
+		dnSend("s3:set",nHandle,"s8:Indented",dnPackItem(P1))
 		return self
 
 	Func getIndentCharacter
-		return dnRequest("get",[self,"IndentCharacter"])
+		return dnSend("s3:get",nHandle,"s15:IndentCharacter","")
 
 	Func setIndentCharacter P1
-		dnRequest("set",[self,"IndentCharacter",P1])
+		dnSend("s3:set",nHandle,"s15:IndentCharacter",dnPackItem(P1))
 		return self
 
 	Func getIndentSize
-		return dnRequest("get",[self,"IndentSize"])
+		return dnSend("s3:get",nHandle,"s10:IndentSize","")
 
 	Func setIndentSize P1
-		dnRequest("set",[self,"IndentSize",P1])
+		dnSend("s3:set",nHandle,"s10:IndentSize",dnPackItem(P1))
 		return self
 
 	Func getMaxDepth
-		return dnRequest("get",[self,"MaxDepth"])
+		return dnSend("s3:get",nHandle,"s8:MaxDepth","")
 
 	Func setMaxDepth P1
-		dnRequest("set",[self,"MaxDepth",P1])
+		dnSend("s3:set",nHandle,"s8:MaxDepth",dnPackItem(P1))
 		return self
 
 	Func getSkipValidation
-		return dnRequest("get",[self,"SkipValidation"])
+		return dnSend("s3:get",nHandle,"s14:SkipValidation","")
 
 	Func setSkipValidation P1
-		dnRequest("set",[self,"SkipValidation",P1])
+		dnSend("s3:set",nHandle,"s14:SkipValidation",dnPackItem(P1))
 		return self
 
 	Func getNewLine
-		return dnRequest("get",[self,"NewLine"])
+		return dnSend("s3:get",nHandle,"s7:NewLine","")
 
 	Func setNewLine P1
-		dnRequest("set",[self,"NewLine",P1])
+		dnSend("s3:set",nHandle,"s7:NewLine",dnPackItem(P1))
 		return self
 
 
@@ -1099,139 +1099,139 @@ Class Utf8JsonWriter from Object
 
 	Func Reset P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Reset",P1])
+			dnSend("s9:callnamed",nHandle,"s5:Reset",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+			dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset",P1])
+		dnSend("s4:call",nHandle,"s5:Reset",dnPackItem(P1))
 		return self
 
 	Func Flush 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Flush"])
+		dnSend("s4:call",nHandle,"s5:Flush","")
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DisposeAsync"])
+		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func FlushAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FlushAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:FlushAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"FlushAsync"])
+			return dnSend("s4:call",nHandle,"s10:FlushAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FlushAsync",P1])
+		return dnSend("s4:call",nHandle,"s10:FlushAsync",dnPackItem(P1))
 
 	Func WriteStartArray P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteStartArray",P1])
+			dnSend("s9:callnamed",nHandle,"s15:WriteStartArray",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"WriteStartArray"])
+			dnSend("s4:call",nHandle,"s15:WriteStartArray","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteStartArray",P1])
+		dnSend("s4:call",nHandle,"s15:WriteStartArray",dnPackItem(P1))
 		return self
 
 	Func WriteStartObject P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteStartObject",P1])
+			dnSend("s9:callnamed",nHandle,"s16:WriteStartObject",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"WriteStartObject"])
+			dnSend("s4:call",nHandle,"s16:WriteStartObject","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteStartObject",P1])
+		dnSend("s4:call",nHandle,"s16:WriteStartObject",dnPackItem(P1))
 		return self
 
 	Func WriteEndArray 
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteEndArray"])
+		dnSend("s4:call",nHandle,"s13:WriteEndArray","")
 		return self
 
 	Func WriteEndObject 
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteEndObject"])
+		dnSend("s4:call",nHandle,"s14:WriteEndObject","")
 		return self
 
 	Func WriteString P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteString",P1,P2])
+		dnSend("s4:call",nHandle,"s11:WriteString",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func WriteNumber P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteNumber",P1,P2])
+		dnSend("s4:call",nHandle,"s11:WriteNumber",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func WriteNull P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteNull",P1])
+		dnSend("s4:call",nHandle,"s9:WriteNull",dnPackItem(P1))
 		return self
 
 	Func WriteBoolean P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteBoolean",P1,P2])
+		dnSend("s4:call",nHandle,"s12:WriteBoolean",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func WritePropertyName P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WritePropertyName",P1])
+		dnSend("s4:call",nHandle,"s17:WritePropertyName",dnPackItem(P1))
 		return self
 
 	Func WriteCommentValue P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteCommentValue",P1])
+		dnSend("s4:call",nHandle,"s17:WriteCommentValue",dnPackItem(P1))
 		return self
 
 	Func WriteStringValue P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteStringValue",P1])
+		dnSend("s4:call",nHandle,"s16:WriteStringValue",dnPackItem(P1))
 		return self
 
 	Func WriteNumberValue P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteNumberValue",P1])
+		dnSend("s4:call",nHandle,"s16:WriteNumberValue",dnPackItem(P1))
 		return self
 
 	Func WriteNullValue 
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteNullValue"])
+		dnSend("s4:call",nHandle,"s14:WriteNullValue","")
 		return self
 
 	Func WriteBooleanValue P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteBooleanValue",P1])
+		dnSend("s4:call",nHandle,"s17:WriteBooleanValue",dnPackItem(P1))
 		return self
 
 	Func WriteRawValue P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteRawValue",P1])
+			dnSend("s9:callnamed",nHandle,"s13:WriteRawValue",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteRawValue",P1])
+		dnSend("s4:call",nHandle,"s13:WriteRawValue",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getBytesPending
-		return dnRequest("get",[self,"BytesPending"])
+		return dnSend("s3:get",nHandle,"s12:BytesPending","")
 
 	Func setBytesPending P1
 		raise("DotNet Error: BytesPending is a read-only property")
 
 	Func getBytesCommitted
-		return dnRequest("get",[self,"BytesCommitted"])
+		return dnSend("s3:get",nHandle,"s14:BytesCommitted","")
 
 	Func setBytesCommitted P1
 		raise("DotNet Error: BytesCommitted is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnSend("s3:get",nHandle,"s7:Options","")
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getCurrentDepth
-		return dnRequest("get",[self,"CurrentDepth"])
+		return dnSend("s3:get",nHandle,"s12:CurrentDepth","")
 
 	Func setCurrentDepth P1
 		raise("DotNet Error: CurrentDepth is a read-only property")

@@ -77,10 +77,10 @@ Class AnonymousPipeServerStreamAcl from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.IO.Pipes.AnonymousPipeServerStreamAcl, System.IO.Pipes'),"Create",P1,P2,P3,P4])
+		return dnSend("s4:call",dnTypeCached('System.IO.Pipes.AnonymousPipeServerStreamAcl, System.IO.Pipes').nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 
 Class NamedPipeServerStreamAcl from Object
@@ -95,11 +95,11 @@ Class NamedPipeServerStreamAcl from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.IO.Pipes.NamedPipeServerStreamAcl, System.IO.Pipes'),"Create",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.IO.Pipes.NamedPipeServerStreamAcl, System.IO.Pipes').nHandle,"s6:Create",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
@@ -125,49 +125,49 @@ Class PipeAccessRule from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func getPipeAccessRights
-		return dnRequest("get",[self,"PipeAccessRights"])
+		return dnSend("s3:get",nHandle,"s16:PipeAccessRights","")
 
 	Func setPipeAccessRights P1
 		raise("DotNet Error: PipeAccessRights is a read-only property")
 
 	Func getAccessControlType
-		return dnRequest("get",[self,"AccessControlType"])
+		return dnSend("s3:get",nHandle,"s17:AccessControlType","")
 
 	Func setAccessControlType P1
 		raise("DotNet Error: AccessControlType is a read-only property")
 
 	Func getIdentityReference
-		return dnRequest("get",[self,"IdentityReference"])
+		return dnSend("s3:get",nHandle,"s17:IdentityReference","")
 
 	Func setIdentityReference P1
 		raise("DotNet Error: IdentityReference is a read-only property")
 
 	Func getIsInherited
-		return dnRequest("get",[self,"IsInherited"])
+		return dnSend("s3:get",nHandle,"s11:IsInherited","")
 
 	Func setIsInherited P1
 		raise("DotNet Error: IsInherited is a read-only property")
 
 	Func getInheritanceFlags
-		return dnRequest("get",[self,"InheritanceFlags"])
+		return dnSend("s3:get",nHandle,"s16:InheritanceFlags","")
 
 	Func setInheritanceFlags P1
 		raise("DotNet Error: InheritanceFlags is a read-only property")
 
 	Func getPropagationFlags
-		return dnRequest("get",[self,"PropagationFlags"])
+		return dnSend("s3:get",nHandle,"s16:PropagationFlags","")
 
 	Func setPropagationFlags P1
 		raise("DotNet Error: PropagationFlags is a read-only property")
@@ -194,49 +194,49 @@ Class PipeAuditRule from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func getPipeAccessRights
-		return dnRequest("get",[self,"PipeAccessRights"])
+		return dnSend("s3:get",nHandle,"s16:PipeAccessRights","")
 
 	Func setPipeAccessRights P1
 		raise("DotNet Error: PipeAccessRights is a read-only property")
 
 	Func getAuditFlags
-		return dnRequest("get",[self,"AuditFlags"])
+		return dnSend("s3:get",nHandle,"s10:AuditFlags","")
 
 	Func setAuditFlags P1
 		raise("DotNet Error: AuditFlags is a read-only property")
 
 	Func getIdentityReference
-		return dnRequest("get",[self,"IdentityReference"])
+		return dnSend("s3:get",nHandle,"s17:IdentityReference","")
 
 	Func setIdentityReference P1
 		raise("DotNet Error: IdentityReference is a read-only property")
 
 	Func getIsInherited
-		return dnRequest("get",[self,"IsInherited"])
+		return dnSend("s3:get",nHandle,"s11:IsInherited","")
 
 	Func setIsInherited P1
 		raise("DotNet Error: IsInherited is a read-only property")
 
 	Func getInheritanceFlags
-		return dnRequest("get",[self,"InheritanceFlags"])
+		return dnSend("s3:get",nHandle,"s16:InheritanceFlags","")
 
 	Func setInheritanceFlags P1
 		raise("DotNet Error: InheritanceFlags is a read-only property")
 
 	Func getPropagationFlags
-		return dnRequest("get",[self,"PropagationFlags"])
+		return dnSend("s3:get",nHandle,"s16:PropagationFlags","")
 
 	Func setPropagationFlags P1
 		raise("DotNet Error: PropagationFlags is a read-only property")
@@ -275,163 +275,163 @@ Class PipeSecurity from DotNetObject
 		return self
 
 	Func AddAccessRule P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddAccessRule",P1])
+		dnSend("s4:call",nHandle,"s13:AddAccessRule",dnPackItem(P1))
 		return self
 
 	Func SetAccessRule P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetAccessRule",P1])
+		dnSend("s4:call",nHandle,"s13:SetAccessRule",dnPackItem(P1))
 		return self
 
 	Func ResetAccessRule P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ResetAccessRule",P1])
+		dnSend("s4:call",nHandle,"s15:ResetAccessRule",dnPackItem(P1))
 		return self
 
 	Func RemoveAccessRule P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAccessRule",P1])
+		return dnSend("s4:call",nHandle,"s16:RemoveAccessRule",dnPackItem(P1))
 
 	Func RemoveAccessRuleSpecific P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAccessRuleSpecific",P1])
+		dnSend("s4:call",nHandle,"s24:RemoveAccessRuleSpecific",dnPackItem(P1))
 		return self
 
 	Func AddAuditRule P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddAuditRule",P1])
+		dnSend("s4:call",nHandle,"s12:AddAuditRule",dnPackItem(P1))
 		return self
 
 	Func SetAuditRule P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetAuditRule",P1])
+		dnSend("s4:call",nHandle,"s12:SetAuditRule",dnPackItem(P1))
 		return self
 
 	Func RemoveAuditRule P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAuditRule",P1])
+		return dnSend("s4:call",nHandle,"s15:RemoveAuditRule",dnPackItem(P1))
 
 	Func RemoveAuditRuleAll P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAuditRuleAll",P1])
+		dnSend("s4:call",nHandle,"s18:RemoveAuditRuleAll",dnPackItem(P1))
 		return self
 
 	Func RemoveAuditRuleSpecific P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAuditRuleSpecific",P1])
+		dnSend("s4:call",nHandle,"s23:RemoveAuditRuleSpecific",dnPackItem(P1))
 		return self
 
 	Func AccessRuleFactory P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AccessRuleFactory",P1,P2,P3,P4,P5,P6])
+		return dnSend("s4:call",nHandle,"s17:AccessRuleFactory",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func AuditRuleFactory P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AuditRuleFactory",P1,P2,P3,P4,P5,P6])
+		return dnSend("s4:call",nHandle,"s16:AuditRuleFactory",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func GetAccessRules P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAccessRules",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s14:GetAccessRules",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func GetAuditRules P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAuditRules",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s13:GetAuditRules",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func GetOwner P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetOwner",P1])
+		return dnSend("s4:call",nHandle,"s8:GetOwner",dnPackItem(P1))
 
 	Func SetOwner P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetOwner",P1])
+		dnSend("s4:call",nHandle,"s8:SetOwner",dnPackItem(P1))
 		return self
 
 	Func GetGroup P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetGroup",P1])
+		return dnSend("s4:call",nHandle,"s8:GetGroup",dnPackItem(P1))
 
 	Func SetGroup P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetGroup",P1])
+		dnSend("s4:call",nHandle,"s8:SetGroup",dnPackItem(P1))
 		return self
 
 	Func PurgeAccessRules P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"PurgeAccessRules",P1])
+		dnSend("s4:call",nHandle,"s16:PurgeAccessRules",dnPackItem(P1))
 		return self
 
 	Func PurgeAuditRules P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"PurgeAuditRules",P1])
+		dnSend("s4:call",nHandle,"s15:PurgeAuditRules",dnPackItem(P1))
 		return self
 
 	Func SetAccessRuleProtection P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetAccessRuleProtection",P1,P2])
+		dnSend("s4:call",nHandle,"s23:SetAccessRuleProtection",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SetAuditRuleProtection P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetAuditRuleProtection",P1,P2])
+		dnSend("s4:call",nHandle,"s22:SetAuditRuleProtection",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetSecurityDescriptorSddlForm P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSecurityDescriptorSddlForm",P1])
+		return dnSend("s4:call",nHandle,"s29:GetSecurityDescriptorSddlForm",dnPackItem(P1))
 
 	Func SetSecurityDescriptorSddlForm P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetSecurityDescriptorSddlForm",P1])
+			dnSend("s9:callnamed",nHandle,"s29:SetSecurityDescriptorSddlForm",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetSecurityDescriptorSddlForm",P1])
+		dnSend("s4:call",nHandle,"s29:SetSecurityDescriptorSddlForm",dnPackItem(P1))
 		return self
 
 	Func GetSecurityDescriptorBinaryForm 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSecurityDescriptorBinaryForm"])
+		return dnSend("s4:call",nHandle,"s31:GetSecurityDescriptorBinaryForm","")
 
 	Func SetSecurityDescriptorBinaryForm P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetSecurityDescriptorBinaryForm",P1])
+			dnSend("s9:callnamed",nHandle,"s31:SetSecurityDescriptorBinaryForm",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetSecurityDescriptorBinaryForm",P1])
+		dnSend("s4:call",nHandle,"s31:SetSecurityDescriptorBinaryForm",dnPackItem(P1))
 		return self
 
 	Func ModifyAccessRule P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ModifyAccessRule",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:ModifyAccessRule",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ModifyAuditRule P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ModifyAuditRule",P1,P2])
+		return dnSend("s4:call",nHandle,"s15:ModifyAuditRule",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func getAccessRightType
-		return dnRequest("get",[self,"AccessRightType"])
+		return dnSend("s3:get",nHandle,"s15:AccessRightType","")
 
 	Func setAccessRightType P1
 		raise("DotNet Error: AccessRightType is a read-only property")
 
 	Func getAccessRuleType
-		return dnRequest("get",[self,"AccessRuleType"])
+		return dnSend("s3:get",nHandle,"s14:AccessRuleType","")
 
 	Func setAccessRuleType P1
 		raise("DotNet Error: AccessRuleType is a read-only property")
 
 	Func getAuditRuleType
-		return dnRequest("get",[self,"AuditRuleType"])
+		return dnSend("s3:get",nHandle,"s13:AuditRuleType","")
 
 	Func setAuditRuleType P1
 		raise("DotNet Error: AuditRuleType is a read-only property")
 
 	Func getAreAccessRulesProtected
-		return dnRequest("get",[self,"AreAccessRulesProtected"])
+		return dnSend("s3:get",nHandle,"s23:AreAccessRulesProtected","")
 
 	Func setAreAccessRulesProtected P1
 		raise("DotNet Error: AreAccessRulesProtected is a read-only property")
 
 	Func getAreAuditRulesProtected
-		return dnRequest("get",[self,"AreAuditRulesProtected"])
+		return dnSend("s3:get",nHandle,"s22:AreAuditRulesProtected","")
 
 	Func setAreAuditRulesProtected P1
 		raise("DotNet Error: AreAuditRulesProtected is a read-only property")
 
 	Func getAreAccessRulesCanonical
-		return dnRequest("get",[self,"AreAccessRulesCanonical"])
+		return dnSend("s3:get",nHandle,"s23:AreAccessRulesCanonical","")
 
 	Func setAreAccessRulesCanonical P1
 		raise("DotNet Error: AreAccessRulesCanonical is a read-only property")
 
 	Func getAreAuditRulesCanonical
-		return dnRequest("get",[self,"AreAuditRulesCanonical"])
+		return dnSend("s3:get",nHandle,"s22:AreAuditRulesCanonical","")
 
 	Func setAreAuditRulesCanonical P1
 		raise("DotNet Error: AreAuditRulesCanonical is a read-only property")
@@ -458,56 +458,56 @@ Class PipeStream from Stream
 		return self
 
 	Func WaitForPipeDrain 
-		dnRequest("call",[new DotNetObject(this.nHandle),"WaitForPipeDrain"])
+		dnSend("s4:call",nHandle,"s16:WaitForPipeDrain","")
 		return self
 
 	Func getIsConnected
-		return dnRequest("get",[self,"IsConnected"])
+		return dnSend("s3:get",nHandle,"s11:IsConnected","")
 
 	Func setIsConnected P1
 		raise("DotNet Error: IsConnected is a read-only property")
 
 	Func getIsAsync
-		return dnRequest("get",[self,"IsAsync"])
+		return dnSend("s3:get",nHandle,"s7:IsAsync","")
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
 
 	Func getIsMessageComplete
-		return dnRequest("get",[self,"IsMessageComplete"])
+		return dnSend("s3:get",nHandle,"s17:IsMessageComplete","")
 
 	Func setIsMessageComplete P1
 		raise("DotNet Error: IsMessageComplete is a read-only property")
 
 	Func getSafePipeHandle
-		return dnRequest("get",[self,"SafePipeHandle"])
+		return dnSend("s3:get",nHandle,"s14:SafePipeHandle","")
 
 	Func setSafePipeHandle P1
 		raise("DotNet Error: SafePipeHandle is a read-only property")
 
 	Func getTransmissionMode
-		return dnRequest("get",[self,"TransmissionMode"])
+		return dnSend("s3:get",nHandle,"s16:TransmissionMode","")
 
 	Func setTransmissionMode P1
 		raise("DotNet Error: TransmissionMode is a read-only property")
 
 	Func getInBufferSize
-		return dnRequest("get",[self,"InBufferSize"])
+		return dnSend("s3:get",nHandle,"s12:InBufferSize","")
 
 	Func setInBufferSize P1
 		raise("DotNet Error: InBufferSize is a read-only property")
 
 	Func getOutBufferSize
-		return dnRequest("get",[self,"OutBufferSize"])
+		return dnSend("s3:get",nHandle,"s13:OutBufferSize","")
 
 	Func setOutBufferSize P1
 		raise("DotNet Error: OutBufferSize is a read-only property")
 
 	Func getReadMode
-		return dnRequest("get",[self,"ReadMode"])
+		return dnSend("s3:get",nHandle,"s8:ReadMode","")
 
 	Func setReadMode P1
-		dnRequest("set",[self,"ReadMode",P1])
+		dnSend("s3:set",nHandle,"s8:ReadMode",dnPackItem(P1))
 		return self
 
 
@@ -523,13 +523,13 @@ Class PipesAclExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetAccessControl P1
-		return dnRequest("call",[dnTypeCached('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes'),"GetAccessControl",P1])
+		return dnSend("s4:call",dnTypeCached('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes').nHandle,"s16:GetAccessControl",dnPackItem(P1))
 
 	Func SetAccessControl P1,P2
-		dnRequest("call",[dnTypeCached('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes'),"SetAccessControl",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes').nHandle,"s16:SetAccessControl",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -609,14 +609,14 @@ Class AnonymousPipeServerStream from PipeStream
 		return self
 
 	Func GetClientHandleAsString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetClientHandleAsString"])
+		return dnSend("s4:call",nHandle,"s23:GetClientHandleAsString","")
 
 	Func DisposeLocalCopyOfClientHandle 
-		dnRequest("call",[new DotNetObject(this.nHandle),"DisposeLocalCopyOfClientHandle"])
+		dnSend("s4:call",nHandle,"s30:DisposeLocalCopyOfClientHandle","")
 		return self
 
 	Func getClientSafePipeHandle
-		return dnRequest("get",[self,"ClientSafePipeHandle"])
+		return dnSend("s3:get",nHandle,"s20:ClientSafePipeHandle","")
 
 	Func setClientSafePipeHandle P1
 		raise("DotNet Error: ClientSafePipeHandle is a read-only property")
@@ -654,27 +654,27 @@ Class NamedPipeClientStream from PipeStream
 
 	Func Connect P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Connect",P1])
+			dnSend("s9:callnamed",nHandle,"s7:Connect",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Connect"])
+			dnSend("s4:call",nHandle,"s7:Connect","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Connect",P1])
+		dnSend("s4:call",nHandle,"s7:Connect",dnPackItem(P1))
 		return self
 
 	Func ConnectAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ConnectAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:ConnectAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ConnectAsync"])
+			return dnSend("s4:call",nHandle,"s12:ConnectAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConnectAsync",P1])
+		return dnSend("s4:call",nHandle,"s12:ConnectAsync",dnPackItem(P1))
 
 	Func getNumberOfServerInstances
-		return dnRequest("get",[self,"NumberOfServerInstances"])
+		return dnSend("s3:get",nHandle,"s23:NumberOfServerInstances","")
 
 	Func setNumberOfServerInstances P1
 		raise("DotNet Error: NumberOfServerInstances is a read-only property")
@@ -712,37 +712,37 @@ Class NamedPipeServerStream from PipeStream
 
 	Func WaitForConnectionAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"WaitForConnectionAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s22:WaitForConnectionAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"WaitForConnectionAsync"])
+			return dnSend("s4:call",nHandle,"s22:WaitForConnectionAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WaitForConnectionAsync",P1])
+		return dnSend("s4:call",nHandle,"s22:WaitForConnectionAsync",dnPackItem(P1))
 
 	Func BeginWaitForConnection P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginWaitForConnection",P1,P2])
+		return dnSend("s4:call",nHandle,"s22:BeginWaitForConnection",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EndWaitForConnection P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndWaitForConnection",P1])
+		dnSend("s4:call",nHandle,"s20:EndWaitForConnection",dnPackItem(P1))
 		return self
 
 	Func WaitForConnection 
-		dnRequest("call",[new DotNetObject(this.nHandle),"WaitForConnection"])
+		dnSend("s4:call",nHandle,"s17:WaitForConnection","")
 		return self
 
 	Func Disconnect 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Disconnect"])
+		dnSend("s4:call",nHandle,"s10:Disconnect","")
 		return self
 
 	Func GetImpersonationUserName 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetImpersonationUserName"])
+		return dnSend("s4:call",nHandle,"s24:GetImpersonationUserName","")
 
 	Func RunAsClient P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RunAsClient",P1])
+		dnSend("s4:call",nHandle,"s11:RunAsClient",dnPackItem(P1))
 		return self
 
 	Func getMaxAllowedServerInstances
-		return dnRequest("get",[dnTypeCached('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes'),"MaxAllowedServerInstances"])
+		return dnSend("s3:get",dnTypeCached('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes').nHandle,"s25:MaxAllowedServerInstances","")
 
 	Func setMaxAllowedServerInstances P1
 		raise("DotNet Error: MaxAllowedServerInstances is a read-only property")

@@ -158,86 +158,86 @@ Class HistoryRepository from Object
 		return self
 
 	Func Exists 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Exists"])
+		return dnSend("s4:call",nHandle,"s6:Exists","")
 
 	Func ExistsAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ExistsAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:ExistsAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ExistsAsync"])
+			return dnSend("s4:call",nHandle,"s11:ExistsAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExistsAsync",P1])
+		return dnSend("s4:call",nHandle,"s11:ExistsAsync",dnPackItem(P1))
 
 	Func GetCreateIfNotExistsScript 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCreateIfNotExistsScript"])
+		return dnSend("s4:call",nHandle,"s26:GetCreateIfNotExistsScript","")
 
 	Func GetCreateScript 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCreateScript"])
+		return dnSend("s4:call",nHandle,"s15:GetCreateScript","")
 
 	Func Create 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Create"])
+		dnSend("s4:call",nHandle,"s6:Create","")
 		return self
 
 	Func CreateAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:CreateAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"CreateAsync"])
+			return dnSend("s4:call",nHandle,"s11:CreateAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateAsync",P1])
+		return dnSend("s4:call",nHandle,"s11:CreateAsync",dnPackItem(P1))
 
 	Func AcquireDatabaseLock 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AcquireDatabaseLock"])
+		return dnSend("s4:call",nHandle,"s19:AcquireDatabaseLock","")
 
 	Func AcquireDatabaseLockAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AcquireDatabaseLockAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:AcquireDatabaseLockAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"AcquireDatabaseLockAsync"])
+			return dnSend("s4:call",nHandle,"s24:AcquireDatabaseLockAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AcquireDatabaseLockAsync",P1])
+		return dnSend("s4:call",nHandle,"s24:AcquireDatabaseLockAsync",dnPackItem(P1))
 
 	Func GetAppliedMigrations 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAppliedMigrations"])
+		return dnSend("s4:call",nHandle,"s20:GetAppliedMigrations","")
 
 	Func GetAppliedMigrationsAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetAppliedMigrationsAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:GetAppliedMigrationsAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetAppliedMigrationsAsync"])
+			return dnSend("s4:call",nHandle,"s25:GetAppliedMigrationsAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAppliedMigrationsAsync",P1])
+		return dnSend("s4:call",nHandle,"s25:GetAppliedMigrationsAsync",dnPackItem(P1))
 
 	Func GetInsertScript P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetInsertScript",P1])
+		return dnSend("s4:call",nHandle,"s15:GetInsertScript",dnPackItem(P1))
 
 	Func GetDeleteScript P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDeleteScript",P1])
+		return dnSend("s4:call",nHandle,"s15:GetDeleteScript",dnPackItem(P1))
 
 	Func GetBeginIfNotExistsScript P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBeginIfNotExistsScript",P1])
+		return dnSend("s4:call",nHandle,"s25:GetBeginIfNotExistsScript",dnPackItem(P1))
 
 	Func GetBeginIfExistsScript P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBeginIfExistsScript",P1])
+		return dnSend("s4:call",nHandle,"s22:GetBeginIfExistsScript",dnPackItem(P1))
 
 	Func GetEndIfScript 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEndIfScript"])
+		return dnSend("s4:call",nHandle,"s14:GetEndIfScript","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getLockReleaseBehavior
-		return dnRequest("get",[self,"LockReleaseBehavior"])
+		return dnSend("s3:get",nHandle,"s19:LockReleaseBehavior","")
 
 	Func setLockReleaseBehavior P1
 		raise("DotNet Error: LockReleaseBehavior is a read-only property")
 
 	Func getDefaultTableName
-		return dnRequest("get",[dnTypeCached('Microsoft.EntityFrameworkCore.Migrations.HistoryRepository, Microsoft.EntityFrameworkCore.Relational'),"DefaultTableName"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Migrations.HistoryRepository, Microsoft.EntityFrameworkCore.Relational').nHandle,"s16:DefaultTableName","")
 
 	Func setDefaultTableName P1
 		raise("DotNet Error: DefaultTableName is a read-only property")
@@ -273,111 +273,111 @@ Class HistoryRepositoryDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDatabaseCreator
-		return dnRequest("get",[self,"DatabaseCreator"])
+		return dnSend("s3:get",nHandle,"s15:DatabaseCreator","")
 
 	Func setDatabaseCreator P1
-		dnRequest("set",[self,"DatabaseCreator",P1])
+		dnSend("s3:set",nHandle,"s15:DatabaseCreator",dnPackItem(P1))
 		return self
 
 	Func getRawSqlCommandBuilder
-		return dnRequest("get",[self,"RawSqlCommandBuilder"])
+		return dnSend("s3:get",nHandle,"s20:RawSqlCommandBuilder","")
 
 	Func setRawSqlCommandBuilder P1
-		dnRequest("set",[self,"RawSqlCommandBuilder",P1])
+		dnSend("s3:set",nHandle,"s20:RawSqlCommandBuilder",dnPackItem(P1))
 		return self
 
 	Func getConnection
-		return dnRequest("get",[self,"Connection"])
+		return dnSend("s3:get",nHandle,"s10:Connection","")
 
 	Func setConnection P1
-		dnRequest("set",[self,"Connection",P1])
+		dnSend("s3:set",nHandle,"s10:Connection",dnPackItem(P1))
 		return self
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnSend("s3:get",nHandle,"s7:Options","")
 
 	Func setOptions P1
-		dnRequest("set",[self,"Options",P1])
+		dnSend("s3:set",nHandle,"s7:Options",dnPackItem(P1))
 		return self
 
 	Func getModelDiffer
-		return dnRequest("get",[self,"ModelDiffer"])
+		return dnSend("s3:get",nHandle,"s11:ModelDiffer","")
 
 	Func setModelDiffer P1
-		dnRequest("set",[self,"ModelDiffer",P1])
+		dnSend("s3:set",nHandle,"s11:ModelDiffer",dnPackItem(P1))
 		return self
 
 	Func getMigrationsSqlGenerator
-		return dnRequest("get",[self,"MigrationsSqlGenerator"])
+		return dnSend("s3:get",nHandle,"s22:MigrationsSqlGenerator","")
 
 	Func setMigrationsSqlGenerator P1
-		dnRequest("set",[self,"MigrationsSqlGenerator",P1])
+		dnSend("s3:set",nHandle,"s22:MigrationsSqlGenerator",dnPackItem(P1))
 		return self
 
 	Func getSqlGenerationHelper
-		return dnRequest("get",[self,"SqlGenerationHelper"])
+		return dnSend("s3:get",nHandle,"s19:SqlGenerationHelper","")
 
 	Func setSqlGenerationHelper P1
-		dnRequest("set",[self,"SqlGenerationHelper",P1])
+		dnSend("s3:set",nHandle,"s19:SqlGenerationHelper",dnPackItem(P1))
 		return self
 
 	Func getMigrationCommandExecutor
-		return dnRequest("get",[self,"MigrationCommandExecutor"])
+		return dnSend("s3:get",nHandle,"s24:MigrationCommandExecutor","")
 
 	Func setMigrationCommandExecutor P1
-		dnRequest("set",[self,"MigrationCommandExecutor",P1])
+		dnSend("s3:set",nHandle,"s24:MigrationCommandExecutor",dnPackItem(P1))
 		return self
 
 	Func getConventionSetBuilder
-		return dnRequest("get",[self,"ConventionSetBuilder"])
+		return dnSend("s3:get",nHandle,"s20:ConventionSetBuilder","")
 
 	Func setConventionSetBuilder P1
-		dnRequest("set",[self,"ConventionSetBuilder",P1])
+		dnSend("s3:set",nHandle,"s20:ConventionSetBuilder",dnPackItem(P1))
 		return self
 
 	Func getModelDependencies
-		return dnRequest("get",[self,"ModelDependencies"])
+		return dnSend("s3:get",nHandle,"s17:ModelDependencies","")
 
 	Func setModelDependencies P1
-		dnRequest("set",[self,"ModelDependencies",P1])
+		dnSend("s3:set",nHandle,"s17:ModelDependencies",dnPackItem(P1))
 		return self
 
 	Func getTypeMappingSource
-		return dnRequest("get",[self,"TypeMappingSource"])
+		return dnSend("s3:get",nHandle,"s17:TypeMappingSource","")
 
 	Func setTypeMappingSource P1
-		dnRequest("set",[self,"TypeMappingSource",P1])
+		dnSend("s3:set",nHandle,"s17:TypeMappingSource",dnPackItem(P1))
 		return self
 
 	Func getCurrentContext
-		return dnRequest("get",[self,"CurrentContext"])
+		return dnSend("s3:get",nHandle,"s14:CurrentContext","")
 
 	Func setCurrentContext P1
-		dnRequest("set",[self,"CurrentContext",P1])
+		dnSend("s3:set",nHandle,"s14:CurrentContext",dnPackItem(P1))
 		return self
 
 	Func getModelRuntimeInitializer
-		return dnRequest("get",[self,"ModelRuntimeInitializer"])
+		return dnSend("s3:get",nHandle,"s23:ModelRuntimeInitializer","")
 
 	Func setModelRuntimeInitializer P1
-		dnRequest("set",[self,"ModelRuntimeInitializer",P1])
+		dnSend("s3:set",nHandle,"s23:ModelRuntimeInitializer",dnPackItem(P1))
 		return self
 
 	Func getCommandLogger
-		return dnRequest("get",[self,"CommandLogger"])
+		return dnSend("s3:get",nHandle,"s13:CommandLogger","")
 
 	Func setCommandLogger P1
-		dnRequest("set",[self,"CommandLogger",P1])
+		dnSend("s3:set",nHandle,"s13:CommandLogger",dnPackItem(P1))
 		return self
 
 	Func getMigrationsLogger
-		return dnRequest("get",[self,"MigrationsLogger"])
+		return dnSend("s3:get",nHandle,"s16:MigrationsLogger","")
 
 	Func setMigrationsLogger P1
-		dnRequest("set",[self,"MigrationsLogger",P1])
+		dnSend("s3:set",nHandle,"s16:MigrationsLogger",dnPackItem(P1))
 		return self
 
 
@@ -398,16 +398,16 @@ Class HistoryRow from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMigrationId
-		return dnRequest("get",[self,"MigrationId"])
+		return dnSend("s3:get",nHandle,"s11:MigrationId","")
 
 	Func setMigrationId P1
 		raise("DotNet Error: MigrationId is a read-only property")
 
 	Func getProductVersion
-		return dnRequest("get",[self,"ProductVersion"])
+		return dnSend("s3:get",nHandle,"s14:ProductVersion","")
 
 	Func setProductVersion P1
 		raise("DotNet Error: ProductVersion is a read-only property")
@@ -427,89 +427,89 @@ Class IHistoryRepository from DotNetObject
 		return self
 
 	Func Exists 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Exists"])
+		return dnSend("s4:call",nHandle,"s6:Exists","")
 
 	Func ExistsAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ExistsAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:ExistsAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ExistsAsync"])
+			return dnSend("s4:call",nHandle,"s11:ExistsAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExistsAsync",P1])
+		return dnSend("s4:call",nHandle,"s11:ExistsAsync",dnPackItem(P1))
 
 	Func Create 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Create"])
+		dnSend("s4:call",nHandle,"s6:Create","")
 		return self
 
 	Func CreateAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:CreateAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"CreateAsync"])
+			return dnSend("s4:call",nHandle,"s11:CreateAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateAsync",P1])
+		return dnSend("s4:call",nHandle,"s11:CreateAsync",dnPackItem(P1))
 
 	Func CreateIfNotExists 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateIfNotExists"])
+		return dnSend("s4:call",nHandle,"s17:CreateIfNotExists","")
 
 	Func CreateIfNotExistsAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateIfNotExistsAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s22:CreateIfNotExistsAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"CreateIfNotExistsAsync"])
+			return dnSend("s4:call",nHandle,"s22:CreateIfNotExistsAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateIfNotExistsAsync",P1])
+		return dnSend("s4:call",nHandle,"s22:CreateIfNotExistsAsync",dnPackItem(P1))
 
 	Func GetAppliedMigrations 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAppliedMigrations"])
+		return dnSend("s4:call",nHandle,"s20:GetAppliedMigrations","")
 
 	Func GetAppliedMigrationsAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetAppliedMigrationsAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:GetAppliedMigrationsAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetAppliedMigrationsAsync"])
+			return dnSend("s4:call",nHandle,"s25:GetAppliedMigrationsAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAppliedMigrationsAsync",P1])
+		return dnSend("s4:call",nHandle,"s25:GetAppliedMigrationsAsync",dnPackItem(P1))
 
 	Func AcquireDatabaseLock 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AcquireDatabaseLock"])
+		return dnSend("s4:call",nHandle,"s19:AcquireDatabaseLock","")
 
 	Func AcquireDatabaseLockAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AcquireDatabaseLockAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s24:AcquireDatabaseLockAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"AcquireDatabaseLockAsync"])
+			return dnSend("s4:call",nHandle,"s24:AcquireDatabaseLockAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AcquireDatabaseLockAsync",P1])
+		return dnSend("s4:call",nHandle,"s24:AcquireDatabaseLockAsync",dnPackItem(P1))
 
 	Func GetCreateScript 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCreateScript"])
+		return dnSend("s4:call",nHandle,"s15:GetCreateScript","")
 
 	Func GetCreateIfNotExistsScript 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCreateIfNotExistsScript"])
+		return dnSend("s4:call",nHandle,"s26:GetCreateIfNotExistsScript","")
 
 	Func GetInsertScript P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetInsertScript",P1])
+		return dnSend("s4:call",nHandle,"s15:GetInsertScript",dnPackItem(P1))
 
 	Func GetDeleteScript P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDeleteScript",P1])
+		return dnSend("s4:call",nHandle,"s15:GetDeleteScript",dnPackItem(P1))
 
 	Func GetBeginIfNotExistsScript P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBeginIfNotExistsScript",P1])
+		return dnSend("s4:call",nHandle,"s25:GetBeginIfNotExistsScript",dnPackItem(P1))
 
 	Func GetBeginIfExistsScript P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBeginIfExistsScript",P1])
+		return dnSend("s4:call",nHandle,"s22:GetBeginIfExistsScript",dnPackItem(P1))
 
 	Func GetEndIfScript 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEndIfScript"])
+		return dnSend("s4:call",nHandle,"s14:GetEndIfScript","")
 
 	Func getLockReleaseBehavior
-		return dnRequest("get",[self,"LockReleaseBehavior"])
+		return dnSend("s3:get",nHandle,"s19:LockReleaseBehavior","")
 
 	Func setLockReleaseBehavior P1
 		raise("DotNet Error: LockReleaseBehavior is a read-only property")
@@ -528,13 +528,13 @@ Class IMigrationCommandExecutor from DotNetObject
 
 	Func ExecuteNonQuery P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ExecuteNonQuery",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:ExecuteNonQuery",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ExecuteNonQuery does not take one argument: use named arguments, ExecuteNonQuery([ :parameter = value, ... ])")
 
 	Func ExecuteNonQueryAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ExecuteNonQueryAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ExecuteNonQueryAsync does not take one argument: use named arguments, ExecuteNonQueryAsync([ :parameter = value, ... ])")
 
@@ -551,10 +551,10 @@ Class IMigrationsAnnotationProvider from DotNetObject
 		return self
 
 	Func ForRemove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ForRemove",P1])
+		return dnSend("s4:call",nHandle,"s9:ForRemove",dnPackItem(P1))
 
 	Func ForRename P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ForRename",P1])
+		return dnSend("s4:call",nHandle,"s9:ForRename",dnPackItem(P1))
 
 
 Class IMigrationsAssembly from DotNetObject
@@ -573,25 +573,25 @@ Class IMigrationsAssembly from DotNetObject
 		return self
 
 	Func FindMigrationId P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindMigrationId",P1])
+		return dnSend("s4:call",nHandle,"s15:FindMigrationId",dnPackItem(P1))
 
 	Func CreateMigration P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateMigration",P1,P2])
+		return dnSend("s4:call",nHandle,"s15:CreateMigration",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMigrations
-		return dnRequest("get",[self,"Migrations"])
+		return dnSend("s3:get",nHandle,"s10:Migrations","")
 
 	Func setMigrations P1
 		raise("DotNet Error: Migrations is a read-only property")
 
 	Func getModelSnapshot
-		return dnRequest("get",[self,"ModelSnapshot"])
+		return dnSend("s3:get",nHandle,"s13:ModelSnapshot","")
 
 	Func setModelSnapshot P1
 		raise("DotNet Error: ModelSnapshot is a read-only property")
 
 	Func getAssembly
-		return dnRequest("get",[self,"Assembly"])
+		return dnSend("s3:get",nHandle,"s8:Assembly","")
 
 	Func setAssembly P1
 		raise("DotNet Error: Assembly is a read-only property")
@@ -609,11 +609,11 @@ Class IMigrationsDatabaseLock from DotNetObject
 		return self
 
 	Func ReacquireIfNeeded P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReacquireIfNeeded",P1,P2])
+		return dnSend("s4:call",nHandle,"s17:ReacquireIfNeeded",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ReacquireIfNeededAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReacquireIfNeededAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s22:ReacquireIfNeededAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ReacquireIfNeededAsync does not take one argument: use named arguments, ReacquireIfNeededAsync([ :parameter = value, ... ])")
 
@@ -630,13 +630,13 @@ Class IMigrationsIdGenerator from DotNetObject
 		return self
 
 	Func GenerateId P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GenerateId",P1])
+		return dnSend("s4:call",nHandle,"s10:GenerateId",dnPackItem(P1))
 
 	Func GetName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetName",P1])
+		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
 
 	Func IsValidId P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsValidId",P1])
+		return dnSend("s4:call",nHandle,"s9:IsValidId",dnPackItem(P1))
 
 
 Class IMigrationsModelDiffer from DotNetObject
@@ -651,10 +651,10 @@ Class IMigrationsModelDiffer from DotNetObject
 		return self
 
 	Func HasDifferences P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasDifferences",P1,P2])
+		return dnSend("s4:call",nHandle,"s14:HasDifferences",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetDifferences P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDifferences",P1,P2])
+		return dnSend("s4:call",nHandle,"s14:GetDifferences",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class IMigrationsSqlGenerator from DotNetObject
@@ -670,9 +670,9 @@ Class IMigrationsSqlGenerator from DotNetObject
 
 	Func Generate P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Generate",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:Generate",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Generate",P1])
+		return dnSend("s4:call",nHandle,"s8:Generate",dnPackItem(P1))
 
 
 Class IMigrator from DotNetObject
@@ -688,36 +688,36 @@ Class IMigrator from DotNetObject
 
 	Func Migrate P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Migrate",P1])
+			dnSend("s9:callnamed",nHandle,"s7:Migrate",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Migrate"])
+			dnSend("s4:call",nHandle,"s7:Migrate","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Migrate",P1])
+		dnSend("s4:call",nHandle,"s7:Migrate",dnPackItem(P1))
 		return self
 
 	Func MigrateAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"MigrateAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:MigrateAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"MigrateAsync"])
+			return dnSend("s4:call",nHandle,"s12:MigrateAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MigrateAsync",P1])
+		return dnSend("s4:call",nHandle,"s12:MigrateAsync",dnPackItem(P1))
 
 	Func GenerateScript P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GenerateScript",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:GenerateScript",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GenerateScript"])
+			return dnSend("s4:call",nHandle,"s14:GenerateScript","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GenerateScript",P1])
+		return dnSend("s4:call",nHandle,"s14:GenerateScript",dnPackItem(P1))
 
 	Func HasPendingModelChanges 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasPendingModelChanges"])
+		return dnSend("s4:call",nHandle,"s22:HasPendingModelChanges","")
 
 
 Class Migration from Object
@@ -738,35 +738,35 @@ Class Migration from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getTargetModel
-		return dnRequest("get",[self,"TargetModel"])
+		return dnSend("s3:get",nHandle,"s11:TargetModel","")
 
 	Func setTargetModel P1
 		raise("DotNet Error: TargetModel is a read-only property")
 
 	Func getUpOperations
-		return dnRequest("get",[self,"UpOperations"])
+		return dnSend("s3:get",nHandle,"s12:UpOperations","")
 
 	Func setUpOperations P1
 		raise("DotNet Error: UpOperations is a read-only property")
 
 	Func getDownOperations
-		return dnRequest("get",[self,"DownOperations"])
+		return dnSend("s3:get",nHandle,"s14:DownOperations","")
 
 	Func setDownOperations P1
 		raise("DotNet Error: DownOperations is a read-only property")
 
 	Func getActiveProvider
-		return dnRequest("get",[self,"ActiveProvider"])
+		return dnSend("s3:get",nHandle,"s14:ActiveProvider","")
 
 	Func setActiveProvider P1
-		dnRequest("set",[self,"ActiveProvider",P1])
+		dnSend("s3:set",nHandle,"s14:ActiveProvider",dnPackItem(P1))
 		return self
 
 	Func getInitialDatabase
-		return dnRequest("get",[dnTypeCached('Microsoft.EntityFrameworkCore.Migrations.Migration, Microsoft.EntityFrameworkCore.Relational'),"InitialDatabase"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.EntityFrameworkCore.Migrations.Migration, Microsoft.EntityFrameworkCore.Relational').nHandle,"s15:InitialDatabase","")
 
 	Func setInitialDatabase P1
 		raise("DotNet Error: InitialDatabase is a read-only property")
@@ -790,204 +790,204 @@ Class MigrationBuilder from Object
 
 	Func AddColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddColumn",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:AddColumn",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddColumn does not take one argument: use named arguments, AddColumn([ :parameter = value, ... ])")
 
 	Func AddForeignKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddForeignKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:AddForeignKey",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddForeignKey does not take one argument: use named arguments, AddForeignKey([ :parameter = value, ... ])")
 
 	Func AddPrimaryKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddPrimaryKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:AddPrimaryKey",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddPrimaryKey does not take one argument: use named arguments, AddPrimaryKey([ :parameter = value, ... ])")
 
 	Func AddUniqueConstraint P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddUniqueConstraint",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:AddUniqueConstraint",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddUniqueConstraint does not take one argument: use named arguments, AddUniqueConstraint([ :parameter = value, ... ])")
 
 	Func AlterColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AlterColumn",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:AlterColumn",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AlterColumn does not take one argument: use named arguments, AlterColumn([ :parameter = value, ... ])")
 
 	Func AlterDatabase P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AlterDatabase",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:AlterDatabase",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"AlterDatabase"])
+			return dnSend("s4:call",nHandle,"s13:AlterDatabase","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AlterDatabase",P1])
+		return dnSend("s4:call",nHandle,"s13:AlterDatabase",dnPackItem(P1))
 
 	Func AlterSequence P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AlterSequence",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:AlterSequence",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AlterSequence",P1])
+		return dnSend("s4:call",nHandle,"s13:AlterSequence",dnPackItem(P1))
 
 	Func AlterTable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AlterTable",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:AlterTable",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AlterTable",P1])
+		return dnSend("s4:call",nHandle,"s10:AlterTable",dnPackItem(P1))
 
 	Func CreateIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:CreateIndex",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateIndex does not take one argument: use named arguments, CreateIndex([ :parameter = value, ... ])")
 
 	Func EnsureSchema P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureSchema",P1])
+		return dnSend("s4:call",nHandle,"s12:EnsureSchema",dnPackItem(P1))
 
 	Func CreateSequence P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateSequence",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:CreateSequence",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateSequence",P1])
+		return dnSend("s4:call",nHandle,"s14:CreateSequence",dnPackItem(P1))
 
 	Func CreateCheckConstraint P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateCheckConstraint",P1])
+			return dnSend("s9:callnamed",nHandle,"s21:CreateCheckConstraint",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateCheckConstraint does not take one argument: use named arguments, CreateCheckConstraint([ :parameter = value, ... ])")
 
 	Func AddCheckConstraint P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddCheckConstraint",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:AddCheckConstraint",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddCheckConstraint does not take one argument: use named arguments, AddCheckConstraint([ :parameter = value, ... ])")
 
 	Func CreateTable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateTable",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:CreateTable",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateTable does not take one argument: use named arguments, CreateTable([ :parameter = value, ... ])")
 
 	Func DropColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"DropColumn",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:DropColumn",dnPackItem(P1))
 		ok
 		raise("DotNet Error: DropColumn does not take one argument: use named arguments, DropColumn([ :parameter = value, ... ])")
 
 	Func DropForeignKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"DropForeignKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:DropForeignKey",dnPackItem(P1))
 		ok
 		raise("DotNet Error: DropForeignKey does not take one argument: use named arguments, DropForeignKey([ :parameter = value, ... ])")
 
 	Func DropIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"DropIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:DropIndex",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DropIndex",P1])
+		return dnSend("s4:call",nHandle,"s9:DropIndex",dnPackItem(P1))
 
 	Func DropPrimaryKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"DropPrimaryKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:DropPrimaryKey",dnPackItem(P1))
 		ok
 		raise("DotNet Error: DropPrimaryKey does not take one argument: use named arguments, DropPrimaryKey([ :parameter = value, ... ])")
 
 	Func DropSchema P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DropSchema",P1])
+		return dnSend("s4:call",nHandle,"s10:DropSchema",dnPackItem(P1))
 
 	Func DropSequence P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"DropSequence",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:DropSequence",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DropSequence",P1])
+		return dnSend("s4:call",nHandle,"s12:DropSequence",dnPackItem(P1))
 
 	Func DropCheckConstraint P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"DropCheckConstraint",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:DropCheckConstraint",dnPackItem(P1))
 		ok
 		raise("DotNet Error: DropCheckConstraint does not take one argument: use named arguments, DropCheckConstraint([ :parameter = value, ... ])")
 
 	Func DropTable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"DropTable",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:DropTable",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DropTable",P1])
+		return dnSend("s4:call",nHandle,"s9:DropTable",dnPackItem(P1))
 
 	Func DropUniqueConstraint P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"DropUniqueConstraint",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:DropUniqueConstraint",dnPackItem(P1))
 		ok
 		raise("DotNet Error: DropUniqueConstraint does not take one argument: use named arguments, DropUniqueConstraint([ :parameter = value, ... ])")
 
 	Func RenameColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RenameColumn",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:RenameColumn",dnPackItem(P1))
 		ok
 		raise("DotNet Error: RenameColumn does not take one argument: use named arguments, RenameColumn([ :parameter = value, ... ])")
 
 	Func RenameIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RenameIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:RenameIndex",dnPackItem(P1))
 		ok
 		raise("DotNet Error: RenameIndex does not take one argument: use named arguments, RenameIndex([ :parameter = value, ... ])")
 
 	Func RenameSequence P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RenameSequence",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:RenameSequence",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RenameSequence",P1])
+		return dnSend("s4:call",nHandle,"s14:RenameSequence",dnPackItem(P1))
 
 	Func RenameTable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RenameTable",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:RenameTable",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RenameTable",P1])
+		return dnSend("s4:call",nHandle,"s11:RenameTable",dnPackItem(P1))
 
 	Func RestartSequence P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RestartSequence",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:RestartSequence",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RestartSequence",P1])
+		return dnSend("s4:call",nHandle,"s15:RestartSequence",dnPackItem(P1))
 
 	Func Sql P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Sql",P1])
+			return dnSend("s9:callnamed",nHandle,"s3:Sql",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Sql",P1])
+		return dnSend("s4:call",nHandle,"s3:Sql",dnPackItem(P1))
 
 	Func InsertData P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"InsertData",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:InsertData",dnPackItem(P1))
 		ok
 		raise("DotNet Error: InsertData does not take one argument: use named arguments, InsertData([ :parameter = value, ... ])")
 
 	Func DeleteData P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"DeleteData",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:DeleteData",dnPackItem(P1))
 		ok
 		raise("DotNet Error: DeleteData does not take one argument: use named arguments, DeleteData([ :parameter = value, ... ])")
 
 	Func UpdateData P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"UpdateData",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:UpdateData",dnPackItem(P1))
 		ok
 		raise("DotNet Error: UpdateData does not take one argument: use named arguments, UpdateData([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getActiveProvider
-		return dnRequest("get",[self,"ActiveProvider"])
+		return dnSend("s3:get",nHandle,"s14:ActiveProvider","")
 
 	Func setActiveProvider P1
 		raise("DotNet Error: ActiveProvider is a read-only property")
 
 	Func getOperations
-		return dnRequest("get",[self,"Operations"])
+		return dnSend("s3:get",nHandle,"s10:Operations","")
 
 	Func setOperations P1
 		raise("DotNet Error: Operations is a read-only property")
@@ -1027,33 +1027,33 @@ Class MigrationCommand from Object
 
 	Func ExecuteNonQuery P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ExecuteNonQuery",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:ExecuteNonQuery",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExecuteNonQuery",P1])
+		return dnSend("s4:call",nHandle,"s15:ExecuteNonQuery",dnPackItem(P1))
 
 	Func ExecuteNonQueryAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ExecuteNonQueryAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExecuteNonQueryAsync",P1])
+		return dnSend("s4:call",nHandle,"s20:ExecuteNonQueryAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getTransactionSuppressed
-		return dnRequest("get",[self,"TransactionSuppressed"])
+		return dnSend("s3:get",nHandle,"s21:TransactionSuppressed","")
 
 	Func setTransactionSuppressed P1
 		raise("DotNet Error: TransactionSuppressed is a read-only property")
 
 	Func getCommandText
-		return dnRequest("get",[self,"CommandText"])
+		return dnSend("s3:get",nHandle,"s11:CommandText","")
 
 	Func setCommandText P1
 		raise("DotNet Error: CommandText is a read-only property")
 
 	Func getCommandLogger
-		return dnRequest("get",[self,"CommandLogger"])
+		return dnSend("s3:get",nHandle,"s13:CommandLogger","")
 
 	Func setCommandLogger P1
 		raise("DotNet Error: CommandLogger is a read-only property")
@@ -1073,43 +1073,43 @@ Class MigrationCommandListBuilder from Object
 		return self
 
 	Func GetCommandList 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCommandList"])
+		return dnSend("s4:call",nHandle,"s14:GetCommandList","")
 
 	Func EndCommand P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"EndCommand",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:EndCommand",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"EndCommand"])
+			return dnSend("s4:call",nHandle,"s10:EndCommand","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EndCommand",P1])
+		return dnSend("s4:call",nHandle,"s10:EndCommand",dnPackItem(P1))
 
 	Func Append P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Append",P1])
+		return dnSend("s4:call",nHandle,"s6:Append",dnPackItem(P1))
 
 	Func AppendLine P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AppendLine",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:AppendLine",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"AppendLine"])
+			return dnSend("s4:call",nHandle,"s10:AppendLine","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AppendLine",P1])
+		return dnSend("s4:call",nHandle,"s10:AppendLine",dnPackItem(P1))
 
 	Func AppendLines P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AppendLines",P1])
+		return dnSend("s4:call",nHandle,"s11:AppendLines",dnPackItem(P1))
 
 	Func Indent 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Indent"])
+		return dnSend("s4:call",nHandle,"s6:Indent","")
 
 	Func IncrementIndent 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IncrementIndent"])
+		return dnSend("s4:call",nHandle,"s15:IncrementIndent","")
 
 	Func DecrementIndent 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DecrementIndent"])
+		return dnSend("s4:call",nHandle,"s15:DecrementIndent","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class MigrationExecutionState from Object
@@ -1143,41 +1143,41 @@ Class MigrationExecutionState from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getLastCommittedCommandIndex
-		return dnRequest("get",[self,"LastCommittedCommandIndex"])
+		return dnSend("s3:get",nHandle,"s25:LastCommittedCommandIndex","")
 
 	Func setLastCommittedCommandIndex P1
-		dnRequest("set",[self,"LastCommittedCommandIndex",P1])
+		dnSend("s3:set",nHandle,"s25:LastCommittedCommandIndex",dnPackItem(P1))
 		return self
 
 	Func getCurrentMigrationId
-		return dnRequest("get",[self,"CurrentMigrationId"])
+		return dnSend("s3:get",nHandle,"s18:CurrentMigrationId","")
 
 	Func setCurrentMigrationId P1
-		dnRequest("set",[self,"CurrentMigrationId",P1])
+		dnSend("s3:set",nHandle,"s18:CurrentMigrationId",dnPackItem(P1))
 		return self
 
 	Func getAnyOperationPerformed
-		return dnRequest("get",[self,"AnyOperationPerformed"])
+		return dnSend("s3:get",nHandle,"s21:AnyOperationPerformed","")
 
 	Func setAnyOperationPerformed P1
-		dnRequest("set",[self,"AnyOperationPerformed",P1])
+		dnSend("s3:set",nHandle,"s21:AnyOperationPerformed",dnPackItem(P1))
 		return self
 
 	Func getDatabaseLock
-		return dnRequest("get",[self,"DatabaseLock"])
+		return dnSend("s3:get",nHandle,"s12:DatabaseLock","")
 
 	Func setDatabaseLock P1
-		dnRequest("set",[self,"DatabaseLock",P1])
+		dnSend("s3:set",nHandle,"s12:DatabaseLock",dnPackItem(P1))
 		return self
 
 	Func getTransaction
-		return dnRequest("get",[self,"Transaction"])
+		return dnSend("s3:get",nHandle,"s11:Transaction","")
 
 	Func setTransaction P1
-		dnRequest("set",[self,"Transaction",P1])
+		dnSend("s3:set",nHandle,"s11:Transaction",dnPackItem(P1))
 		return self
 
 
@@ -1195,13 +1195,13 @@ Class MigrationsAnnotationProvider from Object
 		return self
 
 	Func ForRemove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ForRemove",P1])
+		return dnSend("s4:call",nHandle,"s9:ForRemove",dnPackItem(P1))
 
 	Func ForRename P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ForRename",P1])
+		return dnSend("s4:call",nHandle,"s9:ForRename",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class MigrationsAnnotationProviderDependencies from Object
@@ -1229,7 +1229,7 @@ Class MigrationsAnnotationProviderDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class MigrationsAssemblyExtensions from Object
@@ -1244,10 +1244,10 @@ Class MigrationsAssemblyExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetMigrationId P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Migrations.MigrationsAssemblyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMigrationId",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Migrations.MigrationsAssemblyExtensions, Microsoft.EntityFrameworkCore.Relational').nHandle,"s14:GetMigrationId",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class MigrationsSqlGenerator from Object
@@ -1265,12 +1265,12 @@ Class MigrationsSqlGenerator from Object
 
 	Func Generate P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Generate",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:Generate",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Generate",P1])
+		return dnSend("s4:call",nHandle,"s8:Generate",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class MigrationsSqlGeneratorDependencies from Object
@@ -1297,69 +1297,69 @@ Class MigrationsSqlGeneratorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCommandBuilderFactory
-		return dnRequest("get",[self,"CommandBuilderFactory"])
+		return dnSend("s3:get",nHandle,"s21:CommandBuilderFactory","")
 
 	Func setCommandBuilderFactory P1
-		dnRequest("set",[self,"CommandBuilderFactory",P1])
+		dnSend("s3:set",nHandle,"s21:CommandBuilderFactory",dnPackItem(P1))
 		return self
 
 	Func getUpdateSqlGenerator
-		return dnRequest("get",[self,"UpdateSqlGenerator"])
+		return dnSend("s3:get",nHandle,"s18:UpdateSqlGenerator","")
 
 	Func setUpdateSqlGenerator P1
-		dnRequest("set",[self,"UpdateSqlGenerator",P1])
+		dnSend("s3:set",nHandle,"s18:UpdateSqlGenerator",dnPackItem(P1))
 		return self
 
 	Func getSqlGenerationHelper
-		return dnRequest("get",[self,"SqlGenerationHelper"])
+		return dnSend("s3:get",nHandle,"s19:SqlGenerationHelper","")
 
 	Func setSqlGenerationHelper P1
-		dnRequest("set",[self,"SqlGenerationHelper",P1])
+		dnSend("s3:set",nHandle,"s19:SqlGenerationHelper",dnPackItem(P1))
 		return self
 
 	Func getTypeMappingSource
-		return dnRequest("get",[self,"TypeMappingSource"])
+		return dnSend("s3:get",nHandle,"s17:TypeMappingSource","")
 
 	Func setTypeMappingSource P1
-		dnRequest("set",[self,"TypeMappingSource",P1])
+		dnSend("s3:set",nHandle,"s17:TypeMappingSource",dnPackItem(P1))
 		return self
 
 	Func getCurrentContext
-		return dnRequest("get",[self,"CurrentContext"])
+		return dnSend("s3:get",nHandle,"s14:CurrentContext","")
 
 	Func setCurrentContext P1
-		dnRequest("set",[self,"CurrentContext",P1])
+		dnSend("s3:set",nHandle,"s14:CurrentContext",dnPackItem(P1))
 		return self
 
 	Func getModificationCommandFactory
-		return dnRequest("get",[self,"ModificationCommandFactory"])
+		return dnSend("s3:get",nHandle,"s26:ModificationCommandFactory","")
 
 	Func setModificationCommandFactory P1
-		dnRequest("set",[self,"ModificationCommandFactory",P1])
+		dnSend("s3:set",nHandle,"s26:ModificationCommandFactory",dnPackItem(P1))
 		return self
 
 	Func getLoggingOptions
-		return dnRequest("get",[self,"LoggingOptions"])
+		return dnSend("s3:get",nHandle,"s14:LoggingOptions","")
 
 	Func setLoggingOptions P1
-		dnRequest("set",[self,"LoggingOptions",P1])
+		dnSend("s3:set",nHandle,"s14:LoggingOptions",dnPackItem(P1))
 		return self
 
 	Func getLogger
-		return dnRequest("get",[self,"Logger"])
+		return dnSend("s3:get",nHandle,"s6:Logger","")
 
 	Func setLogger P1
-		dnRequest("set",[self,"Logger",P1])
+		dnSend("s3:set",nHandle,"s6:Logger",dnPackItem(P1))
 		return self
 
 	Func getMigrationsLogger
-		return dnRequest("get",[self,"MigrationsLogger"])
+		return dnSend("s3:get",nHandle,"s16:MigrationsLogger","")
 
 	Func setMigrationsLogger P1
-		dnRequest("set",[self,"MigrationsLogger",P1])
+		dnSend("s3:set",nHandle,"s16:MigrationsLogger",dnPackItem(P1))
 		return self
 
 
@@ -1375,10 +1375,10 @@ Class SqliteMigrationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsSqlite P1
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Migrations.SqliteMigrationBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"IsSqlite",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.Migrations.SqliteMigrationBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite').nHandle,"s8:IsSqlite",dnPackItem(P1))
 
 
 Class SqliteMigrationsSqlGenerator from MigrationsSqlGenerator

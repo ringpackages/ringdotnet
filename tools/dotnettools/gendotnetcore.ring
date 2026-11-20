@@ -238,9 +238,41 @@ func paraList nCount
 # Statement that returns the result of a call (the bridge result is wrapped by the runtime type, see dnWrapObject)
 func returnCode cRequest, cReturnType, nByRef
 	if nByRef = 0 and cReturnType = "System.Void"
-		return "dnRequest(" + cRequest + ")" + nl + "		return self" + nl
+		return sendCall(cRequest) + nl + "		return self" + nl
 	ok
-	return "return dnRequest(" + cRequest + ")" + nl
+	return "return " + sendCall(cRequest) + nl
+
+# The code of a request for a member of an object. The generated method does not make the target object and the list of the request:
+# it passes the handle as a number and the pieces that never change (the operation and the name) as ready wire items, so that the
+# request is one text that dnSend finishes. Written for the request text of this generator:  "call",[TARGET,"Name",P1,P2]
+#   "call",[new DotNetObject(nHandle),"Append",P1]   -->   dnSend("s4:call",nHandle,"s6:Append",dnPackItem(P1))
+func sendCall cRequest
+	nOpEnd = substr(cRequest,'",[')
+	cOperation = substr(cRequest,2,nOpEnd - 2)
+	cRest = right(cRequest,len(cRequest) - nOpEnd - 2)
+	nTargetEnd = substr(cRest,',"')
+	cTarget = left(cRest,nTargetEnd - 1)
+	cRest = right(cRest,len(cRest) - nTargetEnd - 1)
+	nNameEnd = substr(cRest,'"')
+	cName = left(cRest,nNameEnd - 1)
+	cTail = right(cRest,len(cRest) - nNameEnd)
+	cTail = left(cTail,len(cTail) - 1)
+	cHandle = "nHandle"
+	if left(cTarget,13) = "dnTypeCached("
+		cHandle = cTarget + ".nHandle"
+	ok
+	cArgs = '""'
+	if len(cTail) > 0
+		aArgs = str2list(substr(right(cTail,len(cTail) - 1),",",nl))
+		cArgs = ""
+		for cArg in aArgs
+			if len(cArgs) > 0
+				cArgs += " + "
+			ok
+			cArgs += "dnPackItem(" + cArg + ")"
+		next
+	ok
+	return 'dnSend("s' + len(cOperation) + ":" + cOperation + '",' + cHandle + ',"s' + len(cName) + ":" + cName + '",' + cArgs + ")"
 
 # The plan of a type: everything the generated class needs, as text blocks keyed by Ring method name.
 # [aInfo, qualified type name, init parameters, can init create, constructors text, [attribute lower, attribute], blocks, base type, attribute names]
@@ -613,7 +645,7 @@ func buildPlan cTypeName, nForceInit
 		ok
 		if aIndexer[3] and find(aNames,"setitem") = 0
 			cB = "	Func SetItem P1,P2" + nl
-			cB += '		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])' + nl
+			cB += "		" + sendCall('"call",[new DotNetObject(nHandle),"set_Item",P1,P2]') + nl
 			cB += "		return self" + nl + nl
 			aBlocks + ["setitem",cB]
 		ok
@@ -661,7 +693,7 @@ func buildPlan cTypeName, nForceInit
 		if aMember[3] and (find(aNames,lower("set" + cName)) = 0)
 			aNames + lower("set" + cName)
 			cB = "	Func set" + cName + " P1" + nl
-			cB += '		dnRequest("set",[' + cTarget + ',"' + cName + '",P1])' + nl
+			cB += "		" + sendCall('"set",[' + cTarget + ',"' + cName + '",P1]') + nl
 			cB += "		return self" + nl + nl
 			aBlocks + [lower("set" + cName),cB]
 		but (not aMember[3]) and (find(aAttrs,lower(cName)) > 0) and (find(aNames,lower("set" + cName)) = 0)
@@ -784,13 +816,13 @@ func dispatcherBlock cDiRing, cDiName, cDiType, aDiMethods, aDiFamily
 	ok
 	if aDiFamily[2] and aDiFamily[3]
 		cDiB += "			if nHandle = 0" + nl
-		cDiB += '				return dnRequest("callnamed",[dnTypeCached(' + "'" + cDiType + "'" + '),"' + cDiName + '",P1])' + nl
+		cDiB += "				return " + sendCall('"callnamed",[dnTypeCached(' + "'" + cDiType + "'" + '),"' + cDiName + '",P1]') + nl
 		cDiB += "			ok" + nl
 	ok
 	if lDiVoid
-		cDiB += '			dnRequest("callnamed",[' + cDiTarget + ',"' + cDiName + '",P1])' + nl + "			return self" + nl
+		cDiB += "			" + sendCall('"callnamed",[' + cDiTarget + ',"' + cDiName + '",P1]') + nl + "			return self" + nl
 	else
-		cDiB += '			return dnRequest("callnamed",[' + cDiTarget + ',"' + cDiName + '",P1])' + nl
+		cDiB += "			return " + sendCall('"callnamed",[' + cDiTarget + ',"' + cDiName + '",P1]') + nl
 	ok
 	cDiB += "		ok" + nl
 	if find(aDiArities,0) > 0

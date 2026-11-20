@@ -69,143 +69,143 @@ Class TextMetrics from ValueType
 		return self
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnSend("s3:get",nHandle,"s6:Height","")
 
 	Func setHeight P1
-		dnRequest("set",[self,"Height",P1])
+		dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1))
 		return self
 
 	Func getAscent
-		return dnRequest("get",[self,"Ascent"])
+		return dnSend("s3:get",nHandle,"s6:Ascent","")
 
 	Func setAscent P1
-		dnRequest("set",[self,"Ascent",P1])
+		dnSend("s3:set",nHandle,"s6:Ascent",dnPackItem(P1))
 		return self
 
 	Func getDescent
-		return dnRequest("get",[self,"Descent"])
+		return dnSend("s3:get",nHandle,"s7:Descent","")
 
 	Func setDescent P1
-		dnRequest("set",[self,"Descent",P1])
+		dnSend("s3:set",nHandle,"s7:Descent",dnPackItem(P1))
 		return self
 
 	Func getInternalLeading
-		return dnRequest("get",[self,"InternalLeading"])
+		return dnSend("s3:get",nHandle,"s15:InternalLeading","")
 
 	Func setInternalLeading P1
-		dnRequest("set",[self,"InternalLeading",P1])
+		dnSend("s3:set",nHandle,"s15:InternalLeading",dnPackItem(P1))
 		return self
 
 	Func getExternalLeading
-		return dnRequest("get",[self,"ExternalLeading"])
+		return dnSend("s3:get",nHandle,"s15:ExternalLeading","")
 
 	Func setExternalLeading P1
-		dnRequest("set",[self,"ExternalLeading",P1])
+		dnSend("s3:set",nHandle,"s15:ExternalLeading",dnPackItem(P1))
 		return self
 
 	Func getAverageCharWidth
-		return dnRequest("get",[self,"AverageCharWidth"])
+		return dnSend("s3:get",nHandle,"s16:AverageCharWidth","")
 
 	Func setAverageCharWidth P1
-		dnRequest("set",[self,"AverageCharWidth",P1])
+		dnSend("s3:set",nHandle,"s16:AverageCharWidth",dnPackItem(P1))
 		return self
 
 	Func getMaxCharWidth
-		return dnRequest("get",[self,"MaxCharWidth"])
+		return dnSend("s3:get",nHandle,"s12:MaxCharWidth","")
 
 	Func setMaxCharWidth P1
-		dnRequest("set",[self,"MaxCharWidth",P1])
+		dnSend("s3:set",nHandle,"s12:MaxCharWidth",dnPackItem(P1))
 		return self
 
 	Func getWeight
-		return dnRequest("get",[self,"Weight"])
+		return dnSend("s3:get",nHandle,"s6:Weight","")
 
 	Func setWeight P1
-		dnRequest("set",[self,"Weight",P1])
+		dnSend("s3:set",nHandle,"s6:Weight",dnPackItem(P1))
 		return self
 
 	Func getOverhang
-		return dnRequest("get",[self,"Overhang"])
+		return dnSend("s3:get",nHandle,"s8:Overhang","")
 
 	Func setOverhang P1
-		dnRequest("set",[self,"Overhang",P1])
+		dnSend("s3:set",nHandle,"s8:Overhang",dnPackItem(P1))
 		return self
 
 	Func getDigitizedAspectX
-		return dnRequest("get",[self,"DigitizedAspectX"])
+		return dnSend("s3:get",nHandle,"s16:DigitizedAspectX","")
 
 	Func setDigitizedAspectX P1
-		dnRequest("set",[self,"DigitizedAspectX",P1])
+		dnSend("s3:set",nHandle,"s16:DigitizedAspectX",dnPackItem(P1))
 		return self
 
 	Func getDigitizedAspectY
-		return dnRequest("get",[self,"DigitizedAspectY"])
+		return dnSend("s3:get",nHandle,"s16:DigitizedAspectY","")
 
 	Func setDigitizedAspectY P1
-		dnRequest("set",[self,"DigitizedAspectY",P1])
+		dnSend("s3:set",nHandle,"s16:DigitizedAspectY",dnPackItem(P1))
 		return self
 
 	Func getFirstChar
-		return dnRequest("get",[self,"FirstChar"])
+		return dnSend("s3:get",nHandle,"s9:FirstChar","")
 
 	Func setFirstChar P1
-		dnRequest("set",[self,"FirstChar",P1])
+		dnSend("s3:set",nHandle,"s9:FirstChar",dnPackItem(P1))
 		return self
 
 	Func getLastChar
-		return dnRequest("get",[self,"LastChar"])
+		return dnSend("s3:get",nHandle,"s8:LastChar","")
 
 	Func setLastChar P1
-		dnRequest("set",[self,"LastChar",P1])
+		dnSend("s3:set",nHandle,"s8:LastChar",dnPackItem(P1))
 		return self
 
 	Func getDefaultChar
-		return dnRequest("get",[self,"DefaultChar"])
+		return dnSend("s3:get",nHandle,"s11:DefaultChar","")
 
 	Func setDefaultChar P1
-		dnRequest("set",[self,"DefaultChar",P1])
+		dnSend("s3:set",nHandle,"s11:DefaultChar",dnPackItem(P1))
 		return self
 
 	Func getBreakChar
-		return dnRequest("get",[self,"BreakChar"])
+		return dnSend("s3:get",nHandle,"s9:BreakChar","")
 
 	Func setBreakChar P1
-		dnRequest("set",[self,"BreakChar",P1])
+		dnSend("s3:set",nHandle,"s9:BreakChar",dnPackItem(P1))
 		return self
 
 	Func getItalic
-		return dnRequest("get",[self,"Italic"])
+		return dnSend("s3:get",nHandle,"s6:Italic","")
 
 	Func setItalic P1
-		dnRequest("set",[self,"Italic",P1])
+		dnSend("s3:set",nHandle,"s6:Italic",dnPackItem(P1))
 		return self
 
 	Func getUnderlined
-		return dnRequest("get",[self,"Underlined"])
+		return dnSend("s3:get",nHandle,"s10:Underlined","")
 
 	Func setUnderlined P1
-		dnRequest("set",[self,"Underlined",P1])
+		dnSend("s3:set",nHandle,"s10:Underlined",dnPackItem(P1))
 		return self
 
 	Func getStruckOut
-		return dnRequest("get",[self,"StruckOut"])
+		return dnSend("s3:get",nHandle,"s9:StruckOut","")
 
 	Func setStruckOut P1
-		dnRequest("set",[self,"StruckOut",P1])
+		dnSend("s3:set",nHandle,"s9:StruckOut",dnPackItem(P1))
 		return self
 
 	Func getPitchAndFamily
-		return dnRequest("get",[self,"PitchAndFamily"])
+		return dnSend("s3:get",nHandle,"s14:PitchAndFamily","")
 
 	Func setPitchAndFamily P1
-		dnRequest("set",[self,"PitchAndFamily",P1])
+		dnSend("s3:set",nHandle,"s14:PitchAndFamily",dnPackItem(P1))
 		return self
 
 	Func getCharSet
-		return dnRequest("get",[self,"CharSet"])
+		return dnSend("s3:get",nHandle,"s7:CharSet","")
 
 	Func setCharSet P1
-		dnRequest("set",[self,"CharSet",P1])
+		dnSend("s3:set",nHandle,"s7:CharSet",dnPackItem(P1))
 		return self
 
 
@@ -225,25 +225,25 @@ Class VisualStyleElement from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateElement P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleElement, System.Windows.Forms'),"CreateElement",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleElement, System.Windows.Forms').nHandle,"s13:CreateElement",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getClassName
-		return dnRequest("get",[self,"ClassName"])
+		return dnSend("s3:get",nHandle,"s9:ClassName","")
 
 	Func setClassName P1
 		raise("DotNet Error: ClassName is a read-only property")
 
 	Func getPart
-		return dnRequest("get",[self,"Part"])
+		return dnSend("s3:get",nHandle,"s4:Part","")
 
 	Func setPart P1
 		raise("DotNet Error: Part is a read-only property")
 
 	Func getState
-		return dnRequest("get",[self,"State"])
+		return dnSend("s3:get",nHandle,"s5:State","")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -277,94 +277,94 @@ Class VisualStyleInformation from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getIsSupportedByOS
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"IsSupportedByOS"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s15:IsSupportedByOS","")
 
 	Func setIsSupportedByOS P1
 		raise("DotNet Error: IsSupportedByOS is a read-only property")
 
 	Func getIsEnabledByUser
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"IsEnabledByUser"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s15:IsEnabledByUser","")
 
 	Func setIsEnabledByUser P1
 		raise("DotNet Error: IsEnabledByUser is a read-only property")
 
 	Func getColorScheme
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"ColorScheme"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s11:ColorScheme","")
 
 	Func setColorScheme P1
 		raise("DotNet Error: ColorScheme is a read-only property")
 
 	Func getSize
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"Size"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s4:Size","")
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getDisplayName
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"DisplayName"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s11:DisplayName","")
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getCompany
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"Company"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s7:Company","")
 
 	Func setCompany P1
 		raise("DotNet Error: Company is a read-only property")
 
 	Func getAuthor
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"Author"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s6:Author","")
 
 	Func setAuthor P1
 		raise("DotNet Error: Author is a read-only property")
 
 	Func getCopyright
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"Copyright"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s9:Copyright","")
 
 	Func setCopyright P1
 		raise("DotNet Error: Copyright is a read-only property")
 
 	Func getUrl
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"Url"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s3:Url","")
 
 	Func setUrl P1
 		raise("DotNet Error: Url is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"Version"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s7:Version","")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getDescription
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"Description"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s11:Description","")
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getSupportsFlatMenus
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"SupportsFlatMenus"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s17:SupportsFlatMenus","")
 
 	Func setSupportsFlatMenus P1
 		raise("DotNet Error: SupportsFlatMenus is a read-only property")
 
 	Func getMinimumColorDepth
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"MinimumColorDepth"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s17:MinimumColorDepth","")
 
 	Func setMinimumColorDepth P1
 		raise("DotNet Error: MinimumColorDepth is a read-only property")
 
 	Func getTextControlBorder
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"TextControlBorder"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s17:TextControlBorder","")
 
 	Func setTextControlBorder P1
 		raise("DotNet Error: TextControlBorder is a read-only property")
 
 	Func getControlHighlightHot
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"ControlHighlightHot"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms').nHandle,"s19:ControlHighlightHot","")
 
 	Func setControlHighlightHot P1
 		raise("DotNet Error: ControlHighlightHot is a read-only property")
@@ -406,135 +406,135 @@ Class VisualStyleRenderer from Object
 
 	Func SetParameters P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetParameters",P1])
+			dnSend("s9:callnamed",nHandle,"s13:SetParameters",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetParameters",P1])
+		dnSend("s4:call",nHandle,"s13:SetParameters",dnPackItem(P1))
 		return self
 
 	Func DrawBackground P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"DrawBackground",P1])
+			dnSend("s9:callnamed",nHandle,"s14:DrawBackground",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawBackground does not take one argument: use named arguments, DrawBackground([ :parameter = value, ... ])")
 
 	Func DrawEdge P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DrawEdge",P1,P2,P3,P4,P5])
+		return dnSend("s4:call",nHandle,"s8:DrawEdge",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func DrawImage P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"DrawImage",P1])
+			dnSend("s9:callnamed",nHandle,"s9:DrawImage",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawImage does not take one argument: use named arguments, DrawImage([ :parameter = value, ... ])")
 
 	Func DrawParentBackground P1,P2,P3
-		dnRequest("call",[new DotNetObject(this.nHandle),"DrawParentBackground",P1,P2,P3])
+		dnSend("s4:call",nHandle,"s20:DrawParentBackground",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func DrawText P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"DrawText",P1])
+			dnSend("s9:callnamed",nHandle,"s8:DrawText",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: DrawText does not take one argument: use named arguments, DrawText([ :parameter = value, ... ])")
 
 	Func GetBackgroundContentRectangle P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBackgroundContentRectangle",P1,P2])
+		return dnSend("s4:call",nHandle,"s29:GetBackgroundContentRectangle",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetBackgroundExtent P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBackgroundExtent",P1,P2])
+		return dnSend("s4:call",nHandle,"s19:GetBackgroundExtent",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetBackgroundRegion P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBackgroundRegion",P1,P2])
+		return dnSend("s4:call",nHandle,"s19:GetBackgroundRegion",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetBoolean P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBoolean",P1])
+		return dnSend("s4:call",nHandle,"s10:GetBoolean",dnPackItem(P1))
 
 	Func GetColor P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetColor",P1])
+		return dnSend("s4:call",nHandle,"s8:GetColor",dnPackItem(P1))
 
 	Func GetEnumValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumValue",P1])
+		return dnSend("s4:call",nHandle,"s12:GetEnumValue",dnPackItem(P1))
 
 	Func GetFilename P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFilename",P1])
+		return dnSend("s4:call",nHandle,"s11:GetFilename",dnPackItem(P1))
 
 	Func GetFont P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFont",P1,P2])
+		return dnSend("s4:call",nHandle,"s7:GetFont",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetInteger P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetInteger",P1])
+		return dnSend("s4:call",nHandle,"s10:GetInteger",dnPackItem(P1))
 
 	Func GetPartSize P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetPartSize",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:GetPartSize",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetPartSize does not take one argument: use named arguments, GetPartSize([ :parameter = value, ... ])")
 
 	Func GetPoint P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPoint",P1])
+		return dnSend("s4:call",nHandle,"s8:GetPoint",dnPackItem(P1))
 
 	Func GetMargins P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMargins",P1,P2])
+		return dnSend("s4:call",nHandle,"s10:GetMargins",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetString P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetString",P1])
+		return dnSend("s4:call",nHandle,"s9:GetString",dnPackItem(P1))
 
 	Func GetTextExtent P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetTextExtent",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:GetTextExtent",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetTextExtent does not take one argument: use named arguments, GetTextExtent([ :parameter = value, ... ])")
 
 	Func GetTextMetrics P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTextMetrics",P1])
+		return dnSend("s4:call",nHandle,"s14:GetTextMetrics",dnPackItem(P1))
 
 	Func HitTestBackground P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"HitTestBackground",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:HitTestBackground",dnPackItem(P1))
 		ok
 		raise("DotNet Error: HitTestBackground does not take one argument: use named arguments, HitTestBackground([ :parameter = value, ... ])")
 
 	Func IsBackgroundPartiallyTransparent 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsBackgroundPartiallyTransparent"])
+		return dnSend("s4:call",nHandle,"s32:IsBackgroundPartiallyTransparent","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsElementDefined P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms'),"IsElementDefined",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms').nHandle,"s16:IsElementDefined",dnPackItem(P1))
 
 	Func getClass
-		return dnRequest("get",[self,"Class"])
+		return dnSend("s3:get",nHandle,"s5:Class","")
 
 	Func getPart
-		return dnRequest("get",[self,"Part"])
+		return dnSend("s3:get",nHandle,"s4:Part","")
 
 	Func setPart P1
 		raise("DotNet Error: Part is a read-only property")
 
 	Func getState
-		return dnRequest("get",[self,"State"])
+		return dnSend("s3:get",nHandle,"s5:State","")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnSend("s3:get",nHandle,"s6:Handle","")
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getLastHResult
-		return dnRequest("get",[self,"LastHResult"])
+		return dnSend("s3:get",nHandle,"s11:LastHResult","")
 
 	Func setLastHResult P1
 		raise("DotNet Error: LastHResult is a read-only property")
 
 	Func getIsSupported
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms'),"IsSupported"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms').nHandle,"s11:IsSupported","")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")

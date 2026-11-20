@@ -176,72 +176,72 @@ Class SqliteConnection from DbConnection
 
 	Func CreateAggregate P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateAggregate",P1])
+			dnSend("s9:callnamed",nHandle,"s15:CreateAggregate",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: CreateAggregate does not take one argument: use named arguments, CreateAggregate([ :parameter = value, ... ])")
 
 	Func CreateFunction P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateFunction",P1])
+			dnSend("s9:callnamed",nHandle,"s14:CreateFunction",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: CreateFunction does not take one argument: use named arguments, CreateFunction([ :parameter = value, ... ])")
 
 	Func CreateCollation P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateCollation",P1])
+			dnSend("s9:callnamed",nHandle,"s15:CreateCollation",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: CreateCollation does not take one argument: use named arguments, CreateCollation([ :parameter = value, ... ])")
 
 	Func EnableExtensions P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnableExtensions",P1])
+			dnSend("s9:callnamed",nHandle,"s16:EnableExtensions",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"EnableExtensions"])
+			dnSend("s4:call",nHandle,"s16:EnableExtensions","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"EnableExtensions",P1])
+		dnSend("s4:call",nHandle,"s16:EnableExtensions",dnPackItem(P1))
 		return self
 
 	Func LoadExtension P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"LoadExtension",P1])
+			dnSend("s9:callnamed",nHandle,"s13:LoadExtension",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"LoadExtension",P1])
+		dnSend("s4:call",nHandle,"s13:LoadExtension",dnPackItem(P1))
 		return self
 
 	Func BackupDatabase P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"BackupDatabase",P1])
+			dnSend("s9:callnamed",nHandle,"s14:BackupDatabase",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"BackupDatabase",P1])
+		dnSend("s4:call",nHandle,"s14:BackupDatabase",dnPackItem(P1))
 		return self
 
 	Func ClearAllPools 
-		dnRequest("call",[dnTypeCached('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite'),"ClearAllPools"])
+		dnSend("s4:call",dnTypeCached('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite').nHandle,"s13:ClearAllPools","")
 		return self
 
 	Func ClearPool P1
-		dnRequest("call",[dnTypeCached('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite'),"ClearPool",P1])
+		dnSend("s4:call",dnTypeCached('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite').nHandle,"s9:ClearPool",dnPackItem(P1))
 		return self
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnSend("s3:get",nHandle,"s6:Handle","")
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getDefaultTimeout
-		return dnRequest("get",[self,"DefaultTimeout"])
+		return dnSend("s3:get",nHandle,"s14:DefaultTimeout","")
 
 	Func setDefaultTimeout P1
-		dnRequest("set",[self,"DefaultTimeout",P1])
+		dnSend("s3:set",nHandle,"s14:DefaultTimeout",dnPackItem(P1))
 		return self
 
 
@@ -299,59 +299,59 @@ Class SqliteConnectionStringBuilder from DbConnectionStringBuilder
 		return self
 
 	Func getDataSource
-		return dnRequest("get",[self,"DataSource"])
+		return dnSend("s3:get",nHandle,"s10:DataSource","")
 
 	Func setDataSource P1
-		dnRequest("set",[self,"DataSource",P1])
+		dnSend("s3:set",nHandle,"s10:DataSource",dnPackItem(P1))
 		return self
 
 	Func getMode
-		return dnRequest("get",[self,"Mode"])
+		return dnSend("s3:get",nHandle,"s4:Mode","")
 
 	Func setMode P1
-		dnRequest("set",[self,"Mode",P1])
+		dnSend("s3:set",nHandle,"s4:Mode",dnPackItem(P1))
 		return self
 
 	Func getCache
-		return dnRequest("get",[self,"Cache"])
+		return dnSend("s3:get",nHandle,"s5:Cache","")
 
 	Func setCache P1
-		dnRequest("set",[self,"Cache",P1])
+		dnSend("s3:set",nHandle,"s5:Cache",dnPackItem(P1))
 		return self
 
 	Func getPassword
-		return dnRequest("get",[self,"Password"])
+		return dnSend("s3:get",nHandle,"s8:Password","")
 
 	Func setPassword P1
-		dnRequest("set",[self,"Password",P1])
+		dnSend("s3:set",nHandle,"s8:Password",dnPackItem(P1))
 		return self
 
 	Func getForeignKeys
-		return dnRequest("get",[self,"ForeignKeys"])
+		return dnSend("s3:get",nHandle,"s11:ForeignKeys","")
 
 	Func setForeignKeys P1
-		dnRequest("set",[self,"ForeignKeys",P1])
+		dnSend("s3:set",nHandle,"s11:ForeignKeys",dnPackItem(P1))
 		return self
 
 	Func getRecursiveTriggers
-		return dnRequest("get",[self,"RecursiveTriggers"])
+		return dnSend("s3:get",nHandle,"s17:RecursiveTriggers","")
 
 	Func setRecursiveTriggers P1
-		dnRequest("set",[self,"RecursiveTriggers",P1])
+		dnSend("s3:set",nHandle,"s17:RecursiveTriggers",dnPackItem(P1))
 		return self
 
 	Func getDefaultTimeout
-		return dnRequest("get",[self,"DefaultTimeout"])
+		return dnSend("s3:get",nHandle,"s14:DefaultTimeout","")
 
 	Func setDefaultTimeout P1
-		dnRequest("set",[self,"DefaultTimeout",P1])
+		dnSend("s3:set",nHandle,"s14:DefaultTimeout",dnPackItem(P1))
 		return self
 
 	Func getPooling
-		return dnRequest("get",[self,"Pooling"])
+		return dnSend("s3:get",nHandle,"s7:Pooling","")
 
 	Func setPooling P1
-		dnRequest("set",[self,"Pooling",P1])
+		dnSend("s3:set",nHandle,"s7:Pooling",dnPackItem(P1))
 		return self
 
 
@@ -369,13 +369,13 @@ Class SqliteDataReader from DbDataReader
 		return self
 
 	Func GetDateTimeOffset P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDateTimeOffset",P1])
+		return dnSend("s4:call",nHandle,"s17:GetDateTimeOffset",dnPackItem(P1))
 
 	Func GetTimeSpan P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTimeSpan",P1])
+		return dnSend("s4:call",nHandle,"s11:GetTimeSpan",dnPackItem(P1))
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnSend("s3:get",nHandle,"s6:Handle","")
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
@@ -395,7 +395,7 @@ Class SqliteFactory from DbProviderFactory
 		return self
 
 	Func getInstance
-		return dnRequest("get",[dnTypeCached('Microsoft.Data.Sqlite.SqliteFactory, Microsoft.Data.Sqlite'),"Instance"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.Data.Sqlite.SqliteFactory, Microsoft.Data.Sqlite').nHandle,"s8:Instance","")
 
 	Func setInstance P1
 		raise("DotNet Error: Instance is a read-only property")
@@ -448,14 +448,14 @@ Class SqliteParameter from DbParameter
 		return self
 
 	Func ResetSqliteType 
-		dnRequest("call",[new DotNetObject(this.nHandle),"ResetSqliteType"])
+		dnSend("s4:call",nHandle,"s15:ResetSqliteType","")
 		return self
 
 	Func getSqliteType
-		return dnRequest("get",[self,"SqliteType"])
+		return dnSend("s3:get",nHandle,"s10:SqliteType","")
 
 	Func setSqliteType P1
-		dnRequest("set",[self,"SqliteType",P1])
+		dnSend("s3:set",nHandle,"s10:SqliteType",dnPackItem(P1))
 		return self
 
 
@@ -472,12 +472,12 @@ Class SqliteParameterCollection from DbParameterCollection
 
 	Func Add P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Add",P1])
+			return dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func AddWithValue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddWithValue",P1,P2])
+		return dnSend("s4:call",nHandle,"s12:AddWithValue",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class SqliteTransaction from DbTransaction

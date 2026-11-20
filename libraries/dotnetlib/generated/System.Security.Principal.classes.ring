@@ -63,19 +63,19 @@ Class IIdentity from DotNetObject
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getAuthenticationType
-		return dnRequest("get",[self,"AuthenticationType"])
+		return dnSend("s3:get",nHandle,"s18:AuthenticationType","")
 
 	Func setAuthenticationType P1
 		raise("DotNet Error: AuthenticationType is a read-only property")
 
 	Func getIsAuthenticated
-		return dnRequest("get",[self,"IsAuthenticated"])
+		return dnSend("s3:get",nHandle,"s15:IsAuthenticated","")
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
@@ -95,10 +95,10 @@ Class IPrincipal from DotNetObject
 		return self
 
 	Func IsInRole P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsInRole",P1])
+		return dnSend("s4:call",nHandle,"s8:IsInRole",dnPackItem(P1))
 
 	Func getIdentity
-		return dnRequest("get",[self,"Identity"])
+		return dnSend("s3:get",nHandle,"s8:Identity","")
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
@@ -118,16 +118,16 @@ Class IdentityReference from Object
 		return self
 
 	Func IsValidTargetType P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsValidTargetType",P1])
+		return dnSend("s4:call",nHandle,"s17:IsValidTargetType",dnPackItem(P1))
 
 	Func Translate P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Translate",P1])
+		return dnSend("s4:call",nHandle,"s9:Translate",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -180,44 +180,44 @@ Class IdentityReferenceCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Translate P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Translate",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:Translate",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Translate",P1])
+		return dnSend("s4:call",nHandle,"s9:Translate",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -262,96 +262,96 @@ Class WindowsIdentity from ClaimsIdentity
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func GetCurrent P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"GetCurrent",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows').nHandle,"s10:GetCurrent",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"GetCurrent"])
+			return dnSend("s4:call",dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows').nHandle,"s10:GetCurrent","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"GetCurrent",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows').nHandle,"s10:GetCurrent",dnPackItem(P1))
 
 	Func GetAnonymous 
-		return dnRequest("call",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"GetAnonymous"])
+		return dnSend("s4:call",dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows').nHandle,"s12:GetAnonymous","")
 
 	Func RunImpersonated P1,P2
-		dnRequest("call",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"RunImpersonated",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows').nHandle,"s15:RunImpersonated",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RunImpersonatedAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"RunImpersonatedAsync",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows').nHandle,"s20:RunImpersonatedAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getImpersonationLevel
-		return dnRequest("get",[self,"ImpersonationLevel"])
+		return dnSend("s3:get",nHandle,"s18:ImpersonationLevel","")
 
 	Func setImpersonationLevel P1
 		raise("DotNet Error: ImpersonationLevel is a read-only property")
 
 	Func getIsGuest
-		return dnRequest("get",[self,"IsGuest"])
+		return dnSend("s3:get",nHandle,"s7:IsGuest","")
 
 	Func setIsGuest P1
 		raise("DotNet Error: IsGuest is a read-only property")
 
 	Func getIsSystem
-		return dnRequest("get",[self,"IsSystem"])
+		return dnSend("s3:get",nHandle,"s8:IsSystem","")
 
 	Func setIsSystem P1
 		raise("DotNet Error: IsSystem is a read-only property")
 
 	Func getIsAnonymous
-		return dnRequest("get",[self,"IsAnonymous"])
+		return dnSend("s3:get",nHandle,"s11:IsAnonymous","")
 
 	Func setIsAnonymous P1
 		raise("DotNet Error: IsAnonymous is a read-only property")
 
 	Func getOwner
-		return dnRequest("get",[self,"Owner"])
+		return dnSend("s3:get",nHandle,"s5:Owner","")
 
 	Func setOwner P1
 		raise("DotNet Error: Owner is a read-only property")
 
 	Func getUser
-		return dnRequest("get",[self,"User"])
+		return dnSend("s3:get",nHandle,"s4:User","")
 
 	Func setUser P1
 		raise("DotNet Error: User is a read-only property")
 
 	Func getGroups
-		return dnRequest("get",[self,"Groups"])
+		return dnSend("s3:get",nHandle,"s6:Groups","")
 
 	Func setGroups P1
 		raise("DotNet Error: Groups is a read-only property")
 
 	Func getAccessToken
-		return dnRequest("get",[self,"AccessToken"])
+		return dnSend("s3:get",nHandle,"s11:AccessToken","")
 
 	Func setAccessToken P1
 		raise("DotNet Error: AccessToken is a read-only property")
 
 	Func getToken
-		return dnRequest("get",[self,"Token"])
+		return dnSend("s3:get",nHandle,"s5:Token","")
 
 	Func setToken P1
 		raise("DotNet Error: Token is a read-only property")
 
 	Func getUserClaims
-		return dnRequest("get",[self,"UserClaims"])
+		return dnSend("s3:get",nHandle,"s10:UserClaims","")
 
 	Func setUserClaims P1
 		raise("DotNet Error: UserClaims is a read-only property")
 
 	Func getDeviceClaims
-		return dnRequest("get",[self,"DeviceClaims"])
+		return dnSend("s3:get",nHandle,"s12:DeviceClaims","")
 
 	Func setDeviceClaims P1
 		raise("DotNet Error: DeviceClaims is a read-only property")
 
 	Func getDefaultIssuer
-		return dnRequest("get",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"DefaultIssuer"])
+		return dnSend("s3:get",dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows').nHandle,"s13:DefaultIssuer","")
 
 
 Class WindowsPrincipal from ClaimsPrincipal
@@ -371,13 +371,13 @@ Class WindowsPrincipal from ClaimsPrincipal
 		return self
 
 	Func getUserClaims
-		return dnRequest("get",[self,"UserClaims"])
+		return dnSend("s3:get",nHandle,"s10:UserClaims","")
 
 	Func setUserClaims P1
 		raise("DotNet Error: UserClaims is a read-only property")
 
 	Func getDeviceClaims
-		return dnRequest("get",[self,"DeviceClaims"])
+		return dnSend("s3:get",nHandle,"s12:DeviceClaims","")
 
 	Func setDeviceClaims P1
 		raise("DotNet Error: DeviceClaims is a read-only property")
@@ -446,41 +446,41 @@ Class SecurityIdentifier from IdentityReference
 		return self
 
 	Func IsAccountSid 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsAccountSid"])
+		return dnSend("s4:call",nHandle,"s12:IsAccountSid","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func IsWellKnown P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsWellKnown",P1])
+		return dnSend("s4:call",nHandle,"s11:IsWellKnown",dnPackItem(P1))
 
 	Func GetBinaryForm P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetBinaryForm",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetBinaryForm",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func IsEqualDomainSid P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsEqualDomainSid",P1])
+		return dnSend("s4:call",nHandle,"s16:IsEqualDomainSid",dnPackItem(P1))
 
 	Func getBinaryLength
-		return dnRequest("get",[self,"BinaryLength"])
+		return dnSend("s3:get",nHandle,"s12:BinaryLength","")
 
 	Func setBinaryLength P1
 		raise("DotNet Error: BinaryLength is a read-only property")
 
 	Func getAccountDomainSid
-		return dnRequest("get",[self,"AccountDomainSid"])
+		return dnSend("s3:get",nHandle,"s16:AccountDomainSid","")
 
 	Func setAccountDomainSid P1
 		raise("DotNet Error: AccountDomainSid is a read-only property")
 
 	Func getMinBinaryLength
-		return dnRequest("get",[dnTypeCached('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows'),"MinBinaryLength"])
+		return dnSend("s3:get",dnTypeCached('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows').nHandle,"s15:MinBinaryLength","")
 
 	Func setMinBinaryLength P1
 		raise("DotNet Error: MinBinaryLength is a read-only property")
 
 	Func getMaxBinaryLength
-		return dnRequest("get",[dnTypeCached('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows'),"MaxBinaryLength"])
+		return dnSend("s3:get",dnTypeCached('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows').nHandle,"s15:MaxBinaryLength","")
 
 	Func setMaxBinaryLength P1
 		raise("DotNet Error: MaxBinaryLength is a read-only property")

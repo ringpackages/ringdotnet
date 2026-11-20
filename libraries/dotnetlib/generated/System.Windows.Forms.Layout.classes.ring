@@ -32,23 +32,23 @@ Class ArrangedElementCollection from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -66,14 +66,14 @@ Class LayoutEngine from Object
 		return self
 
 	Func InitLayout P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"InitLayout",P1,P2])
+		dnSend("s4:call",nHandle,"s10:InitLayout",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Layout P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Layout",P1,P2])
+		return dnSend("s4:call",nHandle,"s6:Layout",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class TableLayoutSettingsTypeConverter from TypeConverter

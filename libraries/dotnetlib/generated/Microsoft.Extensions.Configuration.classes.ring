@@ -249,20 +249,20 @@ Class BinderOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getBindNonPublicProperties
-		return dnRequest("get",[self,"BindNonPublicProperties"])
+		return dnSend("s3:get",nHandle,"s23:BindNonPublicProperties","")
 
 	Func setBindNonPublicProperties P1
-		dnRequest("set",[self,"BindNonPublicProperties",P1])
+		dnSend("s3:set",nHandle,"s23:BindNonPublicProperties",dnPackItem(P1))
 		return self
 
 	Func getErrorOnUnknownConfiguration
-		return dnRequest("get",[self,"ErrorOnUnknownConfiguration"])
+		return dnSend("s3:get",nHandle,"s27:ErrorOnUnknownConfiguration","")
 
 	Func setErrorOnUnknownConfiguration P1
-		dnRequest("set",[self,"ErrorOnUnknownConfiguration",P1])
+		dnSend("s3:set",nHandle,"s27:ErrorOnUnknownConfiguration",dnPackItem(P1))
 		return self
 
 
@@ -278,11 +278,11 @@ Class ChainedBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddConfiguration P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ChainedBuilderExtensions, Microsoft.Extensions.Configuration'),"AddConfiguration",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.ChainedBuilderExtensions, Microsoft.Extensions.Configuration').nHandle,"s16:AddConfiguration",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddConfiguration does not take one argument: use named arguments, AddConfiguration([ :parameter = value, ... ])")
 
@@ -303,31 +303,31 @@ Class ChainedConfigurationProvider from Object
 		return self
 
 	Func TryGet P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGet",P1])
+		return dnSend("s4:call",nHandle,"s6:TryGet",dnPackItem(P1))
 
 	Func Set P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Set",P1,P2])
+		dnSend("s4:call",nHandle,"s3:Set",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetReloadToken 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetReloadToken"])
+		return dnSend("s4:call",nHandle,"s14:GetReloadToken","")
 
 	Func Load_ 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Load"])
+		dnSend("s4:call",nHandle,"s4:Load","")
 		return self
 
 	Func GetChildKeys P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChildKeys",P1,P2])
+		return dnSend("s4:call",nHandle,"s12:GetChildKeys",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getConfiguration
-		return dnRequest("get",[self,"Configuration"])
+		return dnSend("s3:get",nHandle,"s13:Configuration","")
 
 	Func setConfiguration P1
 		raise("DotNet Error: Configuration is a read-only property")
@@ -361,23 +361,23 @@ Class ChainedConfigurationSource from Object
 		return self
 
 	Func Build P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build",P1])
+		return dnSend("s4:call",nHandle,"s5:Build",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getConfiguration
-		return dnRequest("get",[self,"Configuration"])
+		return dnSend("s3:get",nHandle,"s13:Configuration","")
 
 	Func setConfiguration P1
-		dnRequest("set",[self,"Configuration",P1])
+		dnSend("s3:set",nHandle,"s13:Configuration",dnPackItem(P1))
 		return self
 
 	Func getShouldDisposeConfiguration
-		return dnRequest("get",[self,"ShouldDisposeConfiguration"])
+		return dnSend("s3:get",nHandle,"s26:ShouldDisposeConfiguration","")
 
 	Func setShouldDisposeConfiguration P1
-		dnRequest("set",[self,"ShouldDisposeConfiguration",P1])
+		dnSend("s3:set",nHandle,"s26:ShouldDisposeConfiguration",dnPackItem(P1))
 		return self
 
 
@@ -393,11 +393,11 @@ Class CommandLineConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddCommandLine P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine'),"AddCommandLine",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine').nHandle,"s14:AddCommandLine",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddCommandLine does not take one argument: use named arguments, AddCommandLine([ :parameter = value, ... ])")
 
@@ -414,24 +414,24 @@ Class ConfigurationBinder from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Get_ P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"Get",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder').nHandle,"s3:Get",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"Get",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder').nHandle,"s3:Get",dnPackItem(P1))
 
 	Func Bind P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"Bind",P1])
+			dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder').nHandle,"s4:Bind",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: Bind does not take one argument: use named arguments, Bind([ :parameter = value, ... ])")
 
 	Func GetValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"GetValue",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder').nHandle,"s8:GetValue",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
 
@@ -464,22 +464,22 @@ Class ConfigurationBuilder from Object
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
+		return dnSend("s4:call",nHandle,"s5:Build","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getSources
-		return dnRequest("get",[self,"Sources"])
+		return dnSend("s3:get",nHandle,"s7:Sources","")
 
 	Func setSources P1
 		raise("DotNet Error: Sources is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnSend("s3:get",nHandle,"s10:Properties","")
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
@@ -535,25 +535,25 @@ Class ConfigurationDebugViewContext from ValueType
 		return self
 
 	Func getPath
-		return dnRequest("get",[self,"Path"])
+		return dnSend("s3:get",nHandle,"s4:Path","")
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnSend("s3:get",nHandle,"s3:Key","")
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getConfigurationProvider
-		return dnRequest("get",[self,"ConfigurationProvider"])
+		return dnSend("s3:get",nHandle,"s21:ConfigurationProvider","")
 
 	Func setConfigurationProvider P1
 		raise("DotNet Error: ConfigurationProvider is a read-only property")
@@ -571,25 +571,25 @@ Class ConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetConnectionString P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"GetConnectionString",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s19:GetConnectionString",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AsEnumerable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"AsEnumerable",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s12:AsEnumerable",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"AsEnumerable",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s12:AsEnumerable",dnPackItem(P1))
 
 	Func Exists P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"Exists",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s6:Exists",dnPackItem(P1))
 
 	Func GetRequiredSection P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"GetRequiredSection",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s18:GetRequiredSection",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class ConfigurationKeyComparer from Object
@@ -619,13 +619,13 @@ Class ConfigurationKeyComparer from Object
 		return self
 
 	Func Compare P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Compare",P1,P2])
+		return dnSend("s4:call",nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getInstance
-		return dnRequest("get",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationKeyComparer, Microsoft.Extensions.Configuration'),"Instance"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationKeyComparer, Microsoft.Extensions.Configuration').nHandle,"s8:Instance","")
 
 	Func setInstance P1
 		raise("DotNet Error: Instance is a read-only property")
@@ -658,27 +658,27 @@ Class ConfigurationManager from Object
 		return self
 
 	Func GetSection P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSection",P1])
+		return dnSend("s4:call",nHandle,"s10:GetSection",dnPackItem(P1))
 
 	Func GetChildren 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChildren"])
+		return dnSend("s4:call",nHandle,"s11:GetChildren","")
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getSources
-		return dnRequest("get",[self,"Sources"])
+		return dnSend("s3:get",nHandle,"s7:Sources","")
 
 	Func setSources P1
 		raise("DotNet Error: Sources is a read-only property")
@@ -698,19 +698,19 @@ Class ConfigurationPath from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Combine P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"Combine",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s7:Combine",dnPackItem(P1))
 
 	Func GetSectionKey P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"GetSectionKey",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s13:GetSectionKey",dnPackItem(P1))
 
 	Func GetParentPath P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"GetParentPath",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s13:GetParentPath",dnPackItem(P1))
 
 	Func getKeyDelimiter
-		return dnRequest("get",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"KeyDelimiter"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s12:KeyDelimiter","")
 
 	Func setKeyDelimiter P1
 		raise("DotNet Error: KeyDelimiter is a read-only property")
@@ -728,24 +728,24 @@ Class ConfigurationProvider from Object
 		return self
 
 	Func TryGet P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGet",P1])
+		return dnSend("s4:call",nHandle,"s6:TryGet",dnPackItem(P1))
 
 	Func Set P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Set",P1,P2])
+		dnSend("s4:call",nHandle,"s3:Set",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Load_ 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Load"])
+		dnSend("s4:call",nHandle,"s4:Load","")
 		return self
 
 	Func GetChildKeys P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChildKeys",P1,P2])
+		return dnSend("s4:call",nHandle,"s12:GetChildKeys",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetReloadToken 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetReloadToken"])
+		return dnSend("s4:call",nHandle,"s14:GetReloadToken","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class ConfigurationReloadToken from Object
@@ -776,23 +776,23 @@ Class ConfigurationReloadToken from Object
 		return self
 
 	Func RegisterChangeCallback P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RegisterChangeCallback",P1,P2])
+		return dnSend("s4:call",nHandle,"s22:RegisterChangeCallback",dnPackItem(P1) + dnPackItem(P2))
 
 	Func OnReload 
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnReload"])
+		dnSend("s4:call",nHandle,"s8:OnReload","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getActiveChangeCallbacks
-		return dnRequest("get",[self,"ActiveChangeCallbacks"])
+		return dnSend("s3:get",nHandle,"s21:ActiveChangeCallbacks","")
 
 	Func setActiveChangeCallbacks P1
 		raise("DotNet Error: ActiveChangeCallbacks is a read-only property")
 
 	Func getHasChanged
-		return dnRequest("get",[self,"HasChanged"])
+		return dnSend("s3:get",nHandle,"s10:HasChanged","")
 
 	Func setHasChanged P1
 		raise("DotNet Error: HasChanged is a read-only property")
@@ -814,34 +814,34 @@ Class ConfigurationRoot from Object
 		return self
 
 	Func GetChildren 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChildren"])
+		return dnSend("s4:call",nHandle,"s11:GetChildren","")
 
 	Func GetReloadToken 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetReloadToken"])
+		return dnSend("s4:call",nHandle,"s14:GetReloadToken","")
 
 	Func GetSection P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSection",P1])
+		return dnSend("s4:call",nHandle,"s10:GetSection",dnPackItem(P1))
 
 	Func Reload 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reload"])
+		dnSend("s4:call",nHandle,"s6:Reload","")
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getProviders
-		return dnRequest("get",[self,"Providers"])
+		return dnSend("s3:get",nHandle,"s9:Providers","")
 
 	Func setProviders P1
 		raise("DotNet Error: Providers is a read-only property")
@@ -859,13 +859,13 @@ Class ConfigurationRootExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetDebugView P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"GetDebugView",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s12:GetDebugView",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"GetDebugView",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions').nHandle,"s12:GetDebugView",dnPackItem(P1))
 
 
 Class ConfigurationSection from Object
@@ -886,41 +886,41 @@ Class ConfigurationSection from Object
 		return self
 
 	Func GetSection P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSection",P1])
+		return dnSend("s4:call",nHandle,"s10:GetSection",dnPackItem(P1))
 
 	Func GetChildren 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChildren"])
+		return dnSend("s4:call",nHandle,"s11:GetChildren","")
 
 	Func GetReloadToken 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetReloadToken"])
+		return dnSend("s4:call",nHandle,"s14:GetReloadToken","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getPath
-		return dnRequest("get",[self,"Path"])
+		return dnSend("s3:get",nHandle,"s4:Path","")
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnSend("s3:get",nHandle,"s3:Key","")
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 
@@ -936,13 +936,13 @@ Class EnvironmentVariablesExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddEnvironmentVariables P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables'),"AddEnvironmentVariables",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables').nHandle,"s23:AddEnvironmentVariables",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables'),"AddEnvironmentVariables",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables').nHandle,"s23:AddEnvironmentVariables",dnPackItem(P1))
 
 
 Class FileConfigurationExtensions from Object
@@ -957,22 +957,22 @@ Class FileConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func SetFileProvider P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions'),"SetFileProvider",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions').nHandle,"s15:SetFileProvider",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetFileProvider P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions'),"GetFileProvider",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions').nHandle,"s15:GetFileProvider",dnPackItem(P1))
 
 	Func SetBasePath P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions'),"SetBasePath",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions').nHandle,"s11:SetBasePath",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetFileLoadExceptionHandler P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions'),"SetFileLoadExceptionHandler",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions').nHandle,"s27:SetFileLoadExceptionHandler",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetFileLoadExceptionHandler P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions'),"GetFileLoadExceptionHandler",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions').nHandle,"s27:GetFileLoadExceptionHandler",dnPackItem(P1))
 
 
 Class FileConfigurationSource from Object
@@ -994,59 +994,59 @@ Class FileConfigurationSource from Object
 		return self
 
 	Func Build P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build",P1])
+		return dnSend("s4:call",nHandle,"s5:Build",dnPackItem(P1))
 
 	Func EnsureDefaults P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"EnsureDefaults",P1])
+		dnSend("s4:call",nHandle,"s14:EnsureDefaults",dnPackItem(P1))
 		return self
 
 	Func ResolveFileProvider 
-		dnRequest("call",[new DotNetObject(this.nHandle),"ResolveFileProvider"])
+		dnSend("s4:call",nHandle,"s19:ResolveFileProvider","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getFileProvider
-		return dnRequest("get",[self,"FileProvider"])
+		return dnSend("s3:get",nHandle,"s12:FileProvider","")
 
 	Func setFileProvider P1
-		dnRequest("set",[self,"FileProvider",P1])
+		dnSend("s3:set",nHandle,"s12:FileProvider",dnPackItem(P1))
 		return self
 
 	Func getPath
-		return dnRequest("get",[self,"Path"])
+		return dnSend("s3:get",nHandle,"s4:Path","")
 
 	Func setPath P1
-		dnRequest("set",[self,"Path",P1])
+		dnSend("s3:set",nHandle,"s4:Path",dnPackItem(P1))
 		return self
 
 	Func getOptional
-		return dnRequest("get",[self,"Optional"])
+		return dnSend("s3:get",nHandle,"s8:Optional","")
 
 	Func setOptional P1
-		dnRequest("set",[self,"Optional",P1])
+		dnSend("s3:set",nHandle,"s8:Optional",dnPackItem(P1))
 		return self
 
 	Func getReloadOnChange
-		return dnRequest("get",[self,"ReloadOnChange"])
+		return dnSend("s3:get",nHandle,"s14:ReloadOnChange","")
 
 	Func setReloadOnChange P1
-		dnRequest("set",[self,"ReloadOnChange",P1])
+		dnSend("s3:set",nHandle,"s14:ReloadOnChange",dnPackItem(P1))
 		return self
 
 	Func getReloadDelay
-		return dnRequest("get",[self,"ReloadDelay"])
+		return dnSend("s3:get",nHandle,"s11:ReloadDelay","")
 
 	Func setReloadDelay P1
-		dnRequest("set",[self,"ReloadDelay",P1])
+		dnSend("s3:set",nHandle,"s11:ReloadDelay",dnPackItem(P1))
 		return self
 
 	Func getOnLoadException
-		return dnRequest("get",[self,"OnLoadException"])
+		return dnSend("s3:get",nHandle,"s15:OnLoadException","")
 
 	Func setOnLoadException P1
-		dnRequest("set",[self,"OnLoadException",P1])
+		dnSend("s3:set",nHandle,"s15:OnLoadException",dnPackItem(P1))
 		return self
 
 
@@ -1079,27 +1079,27 @@ Class FileLoadExceptionContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getProvider
-		return dnRequest("get",[self,"Provider"])
+		return dnSend("s3:get",nHandle,"s8:Provider","")
 
 	Func setProvider P1
-		dnRequest("set",[self,"Provider",P1])
+		dnSend("s3:set",nHandle,"s8:Provider",dnPackItem(P1))
 		return self
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnSend("s3:get",nHandle,"s9:Exception","")
 
 	Func setException P1
-		dnRequest("set",[self,"Exception",P1])
+		dnSend("s3:set",nHandle,"s9:Exception",dnPackItem(P1))
 		return self
 
 	Func getIgnore
-		return dnRequest("get",[self,"Ignore"])
+		return dnSend("s3:get",nHandle,"s6:Ignore","")
 
 	Func setIgnore P1
-		dnRequest("set",[self,"Ignore",P1])
+		dnSend("s3:set",nHandle,"s6:Ignore",dnPackItem(P1))
 		return self
 
 
@@ -1115,19 +1115,19 @@ Class IConfiguration from DotNetObject
 		return self
 
 	Func GetSection P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSection",P1])
+		return dnSend("s4:call",nHandle,"s10:GetSection",dnPackItem(P1))
 
 	Func GetChildren 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChildren"])
+		return dnSend("s4:call",nHandle,"s11:GetChildren","")
 
 	Func GetReloadToken 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetReloadToken"])
+		return dnSend("s4:call",nHandle,"s14:GetReloadToken","")
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -1146,19 +1146,19 @@ Class IConfigurationBuilder from DotNetObject
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
+		return dnSend("s4:call",nHandle,"s5:Build","")
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnSend("s3:get",nHandle,"s10:Properties","")
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getSources
-		return dnRequest("get",[self,"Sources"])
+		return dnSend("s3:get",nHandle,"s7:Sources","")
 
 	Func setSources P1
 		raise("DotNet Error: Sources is a read-only property")
@@ -1188,21 +1188,21 @@ Class IConfigurationProvider from DotNetObject
 		return self
 
 	Func TryGet P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGet",P1])
+		return dnSend("s4:call",nHandle,"s6:TryGet",dnPackItem(P1))
 
 	Func Set P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Set",P1,P2])
+		dnSend("s4:call",nHandle,"s3:Set",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetReloadToken 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetReloadToken"])
+		return dnSend("s4:call",nHandle,"s14:GetReloadToken","")
 
 	Func Load_ 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Load"])
+		dnSend("s4:call",nHandle,"s4:Load","")
 		return self
 
 	Func GetChildKeys P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChildKeys",P1,P2])
+		return dnSend("s4:call",nHandle,"s12:GetChildKeys",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class IConfigurationRoot from DotNetObject
@@ -1219,11 +1219,11 @@ Class IConfigurationRoot from DotNetObject
 		return self
 
 	Func Reload 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reload"])
+		dnSend("s4:call",nHandle,"s6:Reload","")
 		return self
 
 	Func getProviders
-		return dnRequest("get",[self,"Providers"])
+		return dnSend("s3:get",nHandle,"s9:Providers","")
 
 	Func setProviders P1
 		raise("DotNet Error: Providers is a read-only property")
@@ -1245,22 +1245,22 @@ Class IConfigurationSection from DotNetObject
 		return self
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnSend("s3:get",nHandle,"s3:Key","")
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getPath
-		return dnRequest("get",[self,"Path"])
+		return dnSend("s3:get",nHandle,"s4:Path","")
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 
@@ -1276,7 +1276,7 @@ Class IConfigurationSource from DotNetObject
 		return self
 
 	Func Build P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build",P1])
+		return dnSend("s4:call",nHandle,"s5:Build",dnPackItem(P1))
 
 
 Class IniConfigurationExtensions from Object
@@ -1291,16 +1291,16 @@ Class IniConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddIniFile P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini'),"AddIniFile",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini').nHandle,"s10:AddIniFile",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddIniFile does not take one argument: use named arguments, AddIniFile([ :parameter = value, ... ])")
 
 	Func AddIniStream P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini'),"AddIniStream",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini').nHandle,"s12:AddIniStream",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class JsonConfigurationExtensions from Object
@@ -1315,16 +1315,16 @@ Class JsonConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddJsonFile P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json'),"AddJsonFile",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json').nHandle,"s11:AddJsonFile",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddJsonFile does not take one argument: use named arguments, AddJsonFile([ :parameter = value, ... ])")
 
 	Func AddJsonStream P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json'),"AddJsonStream",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json').nHandle,"s13:AddJsonStream",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class KeyPerFileConfigurationBuilderExtensions from Object
@@ -1339,11 +1339,11 @@ Class KeyPerFileConfigurationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddKeyPerFile P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile'),"AddKeyPerFile",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile').nHandle,"s13:AddKeyPerFile",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddKeyPerFile does not take one argument: use named arguments, AddKeyPerFile([ :parameter = value, ... ])")
 
@@ -1360,13 +1360,13 @@ Class MemoryConfigurationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddInMemoryCollection P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration'),"AddInMemoryCollection",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration').nHandle,"s21:AddInMemoryCollection",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration'),"AddInMemoryCollection",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration').nHandle,"s21:AddInMemoryCollection",dnPackItem(P1))
 
 
 Class StreamConfigurationSource from Object
@@ -1383,16 +1383,16 @@ Class StreamConfigurationSource from Object
 		return self
 
 	Func Build P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build",P1])
+		return dnSend("s4:call",nHandle,"s5:Build",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getStream
-		return dnRequest("get",[self,"Stream"])
+		return dnSend("s3:get",nHandle,"s6:Stream","")
 
 	Func setStream P1
-		dnRequest("set",[self,"Stream",P1])
+		dnSend("s3:set",nHandle,"s6:Stream",dnPackItem(P1))
 		return self
 
 
@@ -1408,13 +1408,13 @@ Class UserSecretsConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddUserSecrets P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets'),"AddUserSecrets",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets').nHandle,"s14:AddUserSecrets",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets'),"AddUserSecrets",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets').nHandle,"s14:AddUserSecrets",dnPackItem(P1))
 
 
 Class XmlConfigurationExtensions from Object
@@ -1429,16 +1429,16 @@ Class XmlConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddXmlFile P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml'),"AddXmlFile",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml').nHandle,"s10:AddXmlFile",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddXmlFile does not take one argument: use named arguments, AddXmlFile([ :parameter = value, ... ])")
 
 	Func AddXmlStream P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml'),"AddXmlStream",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml').nHandle,"s12:AddXmlStream",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class FileConfigurationProvider from ConfigurationProvider
@@ -1456,22 +1456,22 @@ Class FileConfigurationProvider from ConfigurationProvider
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Load",P1])
+			dnSend("s9:callnamed",nHandle,"s4:Load",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Load"])
+			dnSend("s4:call",nHandle,"s4:Load","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Load",P1])
+		dnSend("s4:call",nHandle,"s4:Load",dnPackItem(P1))
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
 		raise("DotNet Error: Source is a read-only property")
@@ -1492,18 +1492,18 @@ Class StreamConfigurationProvider from ConfigurationProvider
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Load",P1])
+			dnSend("s9:callnamed",nHandle,"s4:Load",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Load"])
+			dnSend("s4:call",nHandle,"s4:Load","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Load",P1])
+		dnSend("s4:call",nHandle,"s4:Load",dnPackItem(P1))
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnSend("s3:get",nHandle,"s6:Source","")
 
 	Func setSource P1
 		raise("DotNet Error: Source is a read-only property")

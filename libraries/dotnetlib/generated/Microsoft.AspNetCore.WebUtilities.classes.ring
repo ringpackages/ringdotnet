@@ -131,13 +131,13 @@ Class AspBase64UrlTextEncoder from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Encode P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities'),"Encode",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities').nHandle,"s6:Encode",dnPackItem(P1))
 
 	Func Decode P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities'),"Decode",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities').nHandle,"s6:Decode",dnPackItem(P1))
 
 
 Class BufferedReadStream from Stream
@@ -172,39 +172,39 @@ Class BufferedReadStream from Stream
 
 	Func WriteAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:WriteAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
 	Func ReadAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:ReadAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ReadAsync does not take one argument: use named arguments, ReadAsync([ :parameter = value, ... ])")
 
 	Func EnsureBuffered P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnsureBuffered",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:EnsureBuffered",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureBuffered"])
+			return dnSend("s4:call",nHandle,"s14:EnsureBuffered","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureBuffered",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureBuffered",dnPackItem(P1))
 
 	Func EnsureBufferedAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnsureBufferedAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:EnsureBufferedAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureBufferedAsync",P1])
+		return dnSend("s4:call",nHandle,"s19:EnsureBufferedAsync",dnPackItem(P1))
 
 	Func ReadLine P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadLine",P1])
+		return dnSend("s4:call",nHandle,"s8:ReadLine",dnPackItem(P1))
 
 	Func ReadLineAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadLineAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:ReadLineAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getBufferedData
-		return dnRequest("get",[self,"BufferedData"])
+		return dnSend("s3:get",nHandle,"s12:BufferedData","")
 
 	Func setBufferedData P1
 		raise("DotNet Error: BufferedData is a read-only property")
@@ -244,24 +244,24 @@ Class FileBufferingReadStream from Stream
 
 	Func WriteAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:WriteAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
 	Func getMemoryThreshold
-		return dnRequest("get",[self,"MemoryThreshold"])
+		return dnSend("s3:get",nHandle,"s15:MemoryThreshold","")
 
 	Func setMemoryThreshold P1
 		raise("DotNet Error: MemoryThreshold is a read-only property")
 
 	Func getInMemory
-		return dnRequest("get",[self,"InMemory"])
+		return dnSend("s3:get",nHandle,"s8:InMemory","")
 
 	Func setInMemory P1
 		raise("DotNet Error: InMemory is a read-only property")
 
 	Func getTempFileName
-		return dnRequest("get",[self,"TempFileName"])
+		return dnSend("s3:get",nHandle,"s12:TempFileName","")
 
 	Func setTempFileName P1
 		raise("DotNet Error: TempFileName is a read-only property")
@@ -315,18 +315,18 @@ Class FileBufferingWriteStream from Stream
 
 	Func ReadAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:ReadAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ReadAsync does not take one argument: use named arguments, ReadAsync([ :parameter = value, ... ])")
 
 	Func DrainBufferAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"DrainBufferAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:DrainBufferAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DrainBufferAsync",P1])
+		return dnSend("s4:call",nHandle,"s16:DrainBufferAsync",dnPackItem(P1))
 
 	Func getMemoryThreshold
-		return dnRequest("get",[self,"MemoryThreshold"])
+		return dnSend("s3:get",nHandle,"s15:MemoryThreshold","")
 
 	Func setMemoryThreshold P1
 		raise("DotNet Error: MemoryThreshold is a read-only property")
@@ -366,28 +366,28 @@ Class FileMultipartSection from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getSection
-		return dnRequest("get",[self,"Section"])
+		return dnSend("s3:get",nHandle,"s7:Section","")
 
 	Func setSection P1
 		raise("DotNet Error: Section is a read-only property")
 
 	Func getFileStream
-		return dnRequest("get",[self,"FileStream"])
+		return dnSend("s3:get",nHandle,"s10:FileStream","")
 
 	Func setFileStream P1
 		raise("DotNet Error: FileStream is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getFileName
-		return dnRequest("get",[self,"FileName"])
+		return dnSend("s3:get",nHandle,"s8:FileName","")
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
@@ -426,24 +426,24 @@ Class FormMultipartSection from Object
 
 	Func GetValueAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetValueAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:GetValueAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetValueAsync"])
+			return dnSend("s4:call",nHandle,"s13:GetValueAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValueAsync",P1])
+		return dnSend("s4:call",nHandle,"s13:GetValueAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getSection
-		return dnRequest("get",[self,"Section"])
+		return dnSend("s3:get",nHandle,"s7:Section","")
 
 	Func setSection P1
 		raise("DotNet Error: Section is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -483,35 +483,35 @@ Class FormPipeReader from Object
 
 	Func ReadFormAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadFormAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:ReadFormAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadFormAsync"])
+			return dnSend("s4:call",nHandle,"s13:ReadFormAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadFormAsync",P1])
+		return dnSend("s4:call",nHandle,"s13:ReadFormAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getValueCountLimit
-		return dnRequest("get",[self,"ValueCountLimit"])
+		return dnSend("s3:get",nHandle,"s15:ValueCountLimit","")
 
 	Func setValueCountLimit P1
-		dnRequest("set",[self,"ValueCountLimit",P1])
+		dnSend("s3:set",nHandle,"s15:ValueCountLimit",dnPackItem(P1))
 		return self
 
 	Func getKeyLengthLimit
-		return dnRequest("get",[self,"KeyLengthLimit"])
+		return dnSend("s3:get",nHandle,"s14:KeyLengthLimit","")
 
 	Func setKeyLengthLimit P1
-		dnRequest("set",[self,"KeyLengthLimit",P1])
+		dnSend("s3:set",nHandle,"s14:KeyLengthLimit",dnPackItem(P1))
 		return self
 
 	Func getValueLengthLimit
-		return dnRequest("get",[self,"ValueLengthLimit"])
+		return dnSend("s3:get",nHandle,"s16:ValueLengthLimit","")
 
 	Func setValueLengthLimit P1
-		dnRequest("set",[self,"ValueLengthLimit",P1])
+		dnSend("s3:set",nHandle,"s16:ValueLengthLimit",dnPackItem(P1))
 		return self
 
 
@@ -551,71 +551,71 @@ Class FormReader from Object
 		return self
 
 	Func ReadNextPair 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadNextPair"])
+		return dnSend("s4:call",nHandle,"s12:ReadNextPair","")
 
 	Func ReadNextPairAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadNextPairAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:ReadNextPairAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadNextPairAsync"])
+			return dnSend("s4:call",nHandle,"s17:ReadNextPairAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadNextPairAsync",P1])
+		return dnSend("s4:call",nHandle,"s17:ReadNextPairAsync",dnPackItem(P1))
 
 	Func ReadForm 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadForm"])
+		return dnSend("s4:call",nHandle,"s8:ReadForm","")
 
 	Func ReadFormAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadFormAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:ReadFormAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadFormAsync"])
+			return dnSend("s4:call",nHandle,"s13:ReadFormAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadFormAsync",P1])
+		return dnSend("s4:call",nHandle,"s13:ReadFormAsync",dnPackItem(P1))
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getValueCountLimit
-		return dnRequest("get",[self,"ValueCountLimit"])
+		return dnSend("s3:get",nHandle,"s15:ValueCountLimit","")
 
 	Func setValueCountLimit P1
-		dnRequest("set",[self,"ValueCountLimit",P1])
+		dnSend("s3:set",nHandle,"s15:ValueCountLimit",dnPackItem(P1))
 		return self
 
 	Func getKeyLengthLimit
-		return dnRequest("get",[self,"KeyLengthLimit"])
+		return dnSend("s3:get",nHandle,"s14:KeyLengthLimit","")
 
 	Func setKeyLengthLimit P1
-		dnRequest("set",[self,"KeyLengthLimit",P1])
+		dnSend("s3:set",nHandle,"s14:KeyLengthLimit",dnPackItem(P1))
 		return self
 
 	Func getValueLengthLimit
-		return dnRequest("get",[self,"ValueLengthLimit"])
+		return dnSend("s3:get",nHandle,"s16:ValueLengthLimit","")
 
 	Func setValueLengthLimit P1
-		dnRequest("set",[self,"ValueLengthLimit",P1])
+		dnSend("s3:set",nHandle,"s16:ValueLengthLimit",dnPackItem(P1))
 		return self
 
 	Func getDefaultValueCountLimit
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"DefaultValueCountLimit"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities').nHandle,"s22:DefaultValueCountLimit","")
 
 	Func setDefaultValueCountLimit P1
 		raise("DotNet Error: DefaultValueCountLimit is a read-only property")
 
 	Func getDefaultKeyLengthLimit
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"DefaultKeyLengthLimit"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities').nHandle,"s21:DefaultKeyLengthLimit","")
 
 	Func setDefaultKeyLengthLimit P1
 		raise("DotNet Error: DefaultKeyLengthLimit is a read-only property")
 
 	Func getDefaultValueLengthLimit
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities'),"DefaultValueLengthLimit"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities').nHandle,"s23:DefaultValueLengthLimit","")
 
 	Func setDefaultValueLengthLimit P1
 		raise("DotNet Error: DefaultValueLengthLimit is a read-only property")
@@ -708,26 +708,26 @@ Class KeyValueAccumulator from ValueType
 		return self
 
 	Func Append P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Append",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Append",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetResults 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetResults"])
+		return dnSend("s4:call",nHandle,"s10:GetResults","")
 
 	Func getHasValues
-		return dnRequest("get",[self,"HasValues"])
+		return dnSend("s3:get",nHandle,"s9:HasValues","")
 
 	Func setHasValues P1
 		raise("DotNet Error: HasValues is a read-only property")
 
 	Func getKeyCount
-		return dnRequest("get",[self,"KeyCount"])
+		return dnSend("s3:get",nHandle,"s8:KeyCount","")
 
 	Func setKeyCount P1
 		raise("DotNet Error: KeyCount is a read-only property")
 
 	Func getValueCount
-		return dnRequest("get",[self,"ValueCount"])
+		return dnSend("s3:get",nHandle,"s10:ValueCount","")
 
 	Func setValueCount P1
 		raise("DotNet Error: ValueCount is a read-only property")
@@ -769,45 +769,45 @@ Class MultipartReader from Object
 
 	Func ReadNextSectionAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReadNextSectionAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:ReadNextSectionAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReadNextSectionAsync"])
+			return dnSend("s4:call",nHandle,"s20:ReadNextSectionAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReadNextSectionAsync",P1])
+		return dnSend("s4:call",nHandle,"s20:ReadNextSectionAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getHeadersCountLimit
-		return dnRequest("get",[self,"HeadersCountLimit"])
+		return dnSend("s3:get",nHandle,"s17:HeadersCountLimit","")
 
 	Func setHeadersCountLimit P1
-		dnRequest("set",[self,"HeadersCountLimit",P1])
+		dnSend("s3:set",nHandle,"s17:HeadersCountLimit",dnPackItem(P1))
 		return self
 
 	Func getHeadersLengthLimit
-		return dnRequest("get",[self,"HeadersLengthLimit"])
+		return dnSend("s3:get",nHandle,"s18:HeadersLengthLimit","")
 
 	Func setHeadersLengthLimit P1
-		dnRequest("set",[self,"HeadersLengthLimit",P1])
+		dnSend("s3:set",nHandle,"s18:HeadersLengthLimit",dnPackItem(P1))
 		return self
 
 	Func getBodyLengthLimit
-		return dnRequest("get",[self,"BodyLengthLimit"])
+		return dnSend("s3:get",nHandle,"s15:BodyLengthLimit","")
 
 	Func setBodyLengthLimit P1
-		dnRequest("set",[self,"BodyLengthLimit",P1])
+		dnSend("s3:set",nHandle,"s15:BodyLengthLimit",dnPackItem(P1))
 		return self
 
 	Func getDefaultHeadersCountLimit
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities'),"DefaultHeadersCountLimit"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities').nHandle,"s24:DefaultHeadersCountLimit","")
 
 	Func setDefaultHeadersCountLimit P1
 		raise("DotNet Error: DefaultHeadersCountLimit is a read-only property")
 
 	Func getDefaultHeadersLengthLimit
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities'),"DefaultHeadersLengthLimit"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities').nHandle,"s25:DefaultHeadersLengthLimit","")
 
 	Func setDefaultHeadersLengthLimit P1
 		raise("DotNet Error: DefaultHeadersLengthLimit is a read-only property")
@@ -844,39 +844,39 @@ Class MultipartSection from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnSend("s3:get",nHandle,"s11:ContentType","")
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getContentDisposition
-		return dnRequest("get",[self,"ContentDisposition"])
+		return dnSend("s3:get",nHandle,"s18:ContentDisposition","")
 
 	Func setContentDisposition P1
 		raise("DotNet Error: ContentDisposition is a read-only property")
 
 	Func getHeaders
-		return dnRequest("get",[self,"Headers"])
+		return dnSend("s3:get",nHandle,"s7:Headers","")
 
 	Func setHeaders P1
-		dnRequest("set",[self,"Headers",P1])
+		dnSend("s3:set",nHandle,"s7:Headers",dnPackItem(P1))
 		return self
 
 	Func getBody
-		return dnRequest("get",[self,"Body"])
+		return dnSend("s3:get",nHandle,"s4:Body","")
 
 	Func setBody P1
-		dnRequest("set",[self,"Body",P1])
+		dnSend("s3:set",nHandle,"s4:Body",dnPackItem(P1))
 		return self
 
 	Func getBaseStreamOffset
-		return dnRequest("get",[self,"BaseStreamOffset"])
+		return dnSend("s3:get",nHandle,"s16:BaseStreamOffset","")
 
 	Func setBaseStreamOffset P1
-		dnRequest("set",[self,"BaseStreamOffset",P1])
+		dnSend("s3:set",nHandle,"s16:BaseStreamOffset",dnPackItem(P1))
 		return self
 
 
@@ -892,16 +892,16 @@ Class MultipartSectionConverterExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AsFileSection P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities'),"AsFileSection",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities').nHandle,"s13:AsFileSection",dnPackItem(P1))
 
 	Func AsFormDataSection P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities'),"AsFormDataSection",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities').nHandle,"s17:AsFormDataSection",dnPackItem(P1))
 
 	Func GetContentDispositionHeader P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities'),"GetContentDispositionHeader",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities').nHandle,"s27:GetContentDispositionHeader",dnPackItem(P1))
 
 
 Class MultipartSectionStreamExtensions from Object
@@ -916,13 +916,13 @@ Class MultipartSectionStreamExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ReadAsStringAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities'),"ReadAsStringAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities').nHandle,"s17:ReadAsStringAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities'),"ReadAsStringAsync",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities').nHandle,"s17:ReadAsStringAsync",dnPackItem(P1))
 
 
 Class QueryHelpers from Object
@@ -937,19 +937,19 @@ Class QueryHelpers from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddQueryString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities'),"AddQueryString",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities').nHandle,"s14:AddQueryString",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddQueryString does not take one argument: use named arguments, AddQueryString([ :parameter = value, ... ])")
 
 	Func ParseQuery P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities'),"ParseQuery",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities').nHandle,"s10:ParseQuery",dnPackItem(P1))
 
 	Func ParseNullableQuery P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities'),"ParseNullableQuery",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities').nHandle,"s18:ParseNullableQuery",dnPackItem(P1))
 
 
 Class QueryStringEnumerable from ValueType
@@ -997,7 +997,7 @@ Class QueryStringEnumerable from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 
 Class ReasonPhrases from Object
@@ -1012,10 +1012,10 @@ Class ReasonPhrases from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetReasonPhrase P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities'),"GetReasonPhrase",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities').nHandle,"s15:GetReasonPhrase",dnPackItem(P1))
 
 
 Class StreamHelperExtensions from Object
@@ -1030,11 +1030,11 @@ Class StreamHelperExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func DrainAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions, Microsoft.AspNetCore.WebUtilities'),"DrainAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions, Microsoft.AspNetCore.WebUtilities').nHandle,"s10:DrainAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: DrainAsync does not take one argument: use named arguments, DrainAsync([ :parameter = value, ... ])")
 
@@ -1051,24 +1051,24 @@ Class WebEncoders from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Base64UrlDecode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlDecode",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities').nHandle,"s15:Base64UrlDecode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlDecode",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities').nHandle,"s15:Base64UrlDecode",dnPackItem(P1))
 
 	Func GetArraySizeRequiredToDecode P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"GetArraySizeRequiredToDecode",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities').nHandle,"s28:GetArraySizeRequiredToDecode",dnPackItem(P1))
 
 	Func Base64UrlEncode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlEncode",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities').nHandle,"s15:Base64UrlEncode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlEncode",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities').nHandle,"s15:Base64UrlEncode",dnPackItem(P1))
 
 	Func GetArraySizeRequiredToEncode P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"GetArraySizeRequiredToEncode",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities').nHandle,"s28:GetArraySizeRequiredToEncode",dnPackItem(P1))
 
 

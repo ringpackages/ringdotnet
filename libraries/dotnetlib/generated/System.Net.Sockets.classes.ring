@@ -135,13 +135,13 @@ Class IPPacketInformation from ValueType
 		return self
 
 	Func getAddress
-		return dnRequest("get",[self,"Address"])
+		return dnSend("s3:get",nHandle,"s7:Address","")
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")
 
 	Func getInterface
-		return dnRequest("get",[self,"Interface"])
+		return dnSend("s3:get",nHandle,"s9:Interface","")
 
 	Func setInterface P1
 		raise("DotNet Error: Interface is a read-only property")
@@ -179,20 +179,20 @@ Class IPv6MulticastOption from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getGroup
-		return dnRequest("get",[self,"Group"])
+		return dnSend("s3:get",nHandle,"s5:Group","")
 
 	Func setGroup P1
-		dnRequest("set",[self,"Group",P1])
+		dnSend("s3:set",nHandle,"s5:Group",dnPackItem(P1))
 		return self
 
 	Func getInterfaceIndex
-		return dnRequest("get",[self,"InterfaceIndex"])
+		return dnSend("s3:get",nHandle,"s14:InterfaceIndex","")
 
 	Func setInterfaceIndex P1
-		dnRequest("set",[self,"InterfaceIndex",P1])
+		dnSend("s3:set",nHandle,"s14:InterfaceIndex",dnPackItem(P1))
 		return self
 
 
@@ -213,20 +213,20 @@ Class LingerOption from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getEnabled
-		return dnRequest("get",[self,"Enabled"])
+		return dnSend("s3:get",nHandle,"s7:Enabled","")
 
 	Func setEnabled P1
-		dnRequest("set",[self,"Enabled",P1])
+		dnSend("s3:set",nHandle,"s7:Enabled",dnPackItem(P1))
 		return self
 
 	Func getLingerTime
-		return dnRequest("get",[self,"LingerTime"])
+		return dnSend("s3:get",nHandle,"s10:LingerTime","")
 
 	Func setLingerTime P1
-		dnRequest("set",[self,"LingerTime",P1])
+		dnSend("s3:set",nHandle,"s10:LingerTime",dnPackItem(P1))
 		return self
 
 
@@ -263,27 +263,27 @@ Class MulticastOption from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getGroup
-		return dnRequest("get",[self,"Group"])
+		return dnSend("s3:get",nHandle,"s5:Group","")
 
 	Func setGroup P1
-		dnRequest("set",[self,"Group",P1])
+		dnSend("s3:set",nHandle,"s5:Group",dnPackItem(P1))
 		return self
 
 	Func getLocalAddress
-		return dnRequest("get",[self,"LocalAddress"])
+		return dnSend("s3:get",nHandle,"s12:LocalAddress","")
 
 	Func setLocalAddress P1
-		dnRequest("set",[self,"LocalAddress",P1])
+		dnSend("s3:set",nHandle,"s12:LocalAddress",dnPackItem(P1))
 		return self
 
 	Func getInterfaceIndex
-		return dnRequest("get",[self,"InterfaceIndex"])
+		return dnSend("s3:get",nHandle,"s14:InterfaceIndex","")
 
 	Func setInterfaceIndex P1
-		dnRequest("set",[self,"InterfaceIndex",P1])
+		dnSend("s3:set",nHandle,"s14:InterfaceIndex",dnPackItem(P1))
 		return self
 
 
@@ -320,24 +320,24 @@ Class NetworkStream from Stream
 
 	Func Close P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Close",P1])
+			dnSend("s9:callnamed",nHandle,"s5:Close",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
+			dnSend("s4:call",nHandle,"s5:Close","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Close",P1])
+		dnSend("s4:call",nHandle,"s5:Close",dnPackItem(P1))
 		return self
 
 	Func getSocket
-		return dnRequest("get",[self,"Socket"])
+		return dnSend("s3:get",nHandle,"s6:Socket","")
 
 	Func setSocket P1
 		raise("DotNet Error: Socket is a read-only property")
 
 	Func getDataAvailable
-		return dnRequest("get",[self,"DataAvailable"])
+		return dnSend("s3:get",nHandle,"s13:DataAvailable","")
 
 	Func setDataAvailable P1
 		raise("DotNet Error: DataAvailable is a read-only property")
@@ -391,47 +391,47 @@ Class SafeSocketHandle from DotNetObject
 		return self
 
 	Func DangerousGetHandle 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DangerousGetHandle"])
+		return dnSend("s4:call",nHandle,"s18:DangerousGetHandle","")
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
+		dnSend("s4:call",nHandle,"s5:Close","")
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func SetHandleAsInvalid 
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetHandleAsInvalid"])
+		dnSend("s4:call",nHandle,"s18:SetHandleAsInvalid","")
 		return self
 
 	Func DangerousAddRef P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DangerousAddRef",P1])
+		return dnSend("s4:call",nHandle,"s15:DangerousAddRef",dnPackItem(P1))
 
 	Func DangerousRelease 
-		dnRequest("call",[new DotNetObject(this.nHandle),"DangerousRelease"])
+		dnSend("s4:call",nHandle,"s16:DangerousRelease","")
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func getIsInvalid
-		return dnRequest("get",[self,"IsInvalid"])
+		return dnSend("s3:get",nHandle,"s9:IsInvalid","")
 
 	Func setIsInvalid P1
 		raise("DotNet Error: IsInvalid is a read-only property")
 
 	Func getIsClosed
-		return dnRequest("get",[self,"IsClosed"])
+		return dnSend("s3:get",nHandle,"s8:IsClosed","")
 
 	Func setIsClosed P1
 		raise("DotNet Error: IsClosed is a read-only property")
@@ -475,52 +475,52 @@ Class SendPacketsElement from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getFilePath
-		return dnRequest("get",[self,"FilePath"])
+		return dnSend("s3:get",nHandle,"s8:FilePath","")
 
 	Func setFilePath P1
 		raise("DotNet Error: FilePath is a read-only property")
 
 	Func getFileStream
-		return dnRequest("get",[self,"FileStream"])
+		return dnSend("s3:get",nHandle,"s10:FileStream","")
 
 	Func setFileStream P1
 		raise("DotNet Error: FileStream is a read-only property")
 
 	Func getBuffer
-		return dnRequest("get",[self,"Buffer"])
+		return dnSend("s3:get",nHandle,"s6:Buffer","")
 
 	Func setBuffer P1
 		raise("DotNet Error: Buffer is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getMemoryBuffer
-		return dnRequest("get",[self,"MemoryBuffer"])
+		return dnSend("s3:get",nHandle,"s12:MemoryBuffer","")
 
 	Func setMemoryBuffer P1
 		raise("DotNet Error: MemoryBuffer is a read-only property")
 
 	Func getOffset
-		return dnRequest("get",[self,"Offset"])
+		return dnSend("s3:get",nHandle,"s6:Offset","")
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")
 
 	Func getOffsetLong
-		return dnRequest("get",[self,"OffsetLong"])
+		return dnSend("s3:get",nHandle,"s10:OffsetLong","")
 
 	Func setOffsetLong P1
 		raise("DotNet Error: OffsetLong is a read-only property")
 
 	Func getEndOfPacket
-		return dnRequest("get",[self,"EndOfPacket"])
+		return dnSend("s3:get",nHandle,"s11:EndOfPacket","")
 
 	Func setEndOfPacket P1
 		raise("DotNet Error: EndOfPacket is a read-only property")
@@ -585,444 +585,444 @@ Class Socket from Object
 		return self
 
 	Func Bind P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Bind",P1])
+		dnSend("s4:call",nHandle,"s4:Bind",dnPackItem(P1))
 		return self
 
 	Func Connect P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Connect",P1])
+			dnSend("s9:callnamed",nHandle,"s7:Connect",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Connect",P1])
+		dnSend("s4:call",nHandle,"s7:Connect",dnPackItem(P1))
 		return self
 
 	Func Close P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Close",P1])
+			dnSend("s9:callnamed",nHandle,"s5:Close",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
+			dnSend("s4:call",nHandle,"s5:Close","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Close",P1])
+		dnSend("s4:call",nHandle,"s5:Close",dnPackItem(P1))
 		return self
 
 	Func Listen P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Listen",P1])
+			dnSend("s9:callnamed",nHandle,"s6:Listen",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Listen"])
+			dnSend("s4:call",nHandle,"s6:Listen","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Listen",P1])
+		dnSend("s4:call",nHandle,"s6:Listen",dnPackItem(P1))
 		return self
 
 	Func Accept 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Accept"])
+		return dnSend("s4:call",nHandle,"s6:Accept","")
 
 	Func Send P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Send",P1])
+			return dnSend("s9:callnamed",nHandle,"s4:Send",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Send",P1])
+		return dnSend("s4:call",nHandle,"s4:Send",dnPackItem(P1))
 
 	Func SendFile P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendFile",P1])
+			dnSend("s9:callnamed",nHandle,"s8:SendFile",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SendFile",P1])
+		dnSend("s4:call",nHandle,"s8:SendFile",dnPackItem(P1))
 		return self
 
 	Func SendTo P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendTo",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:SendTo",dnPackItem(P1))
 		ok
 		raise("DotNet Error: SendTo does not take one argument: use named arguments, SendTo([ :parameter = value, ... ])")
 
 	Func Receive P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Receive",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:Receive",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Receive",P1])
+		return dnSend("s4:call",nHandle,"s7:Receive",dnPackItem(P1))
 
 	Func ReceiveMessageFrom P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReceiveMessageFrom",P1,P2,P3,P4,P5])
+		return dnSend("s4:call",nHandle,"s18:ReceiveMessageFrom",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func ReceiveFrom P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReceiveFrom",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:ReceiveFrom",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ReceiveFrom does not take one argument: use named arguments, ReceiveFrom([ :parameter = value, ... ])")
 
 	Func IOControl P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IOControl",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s9:IOControl",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func SetSocketOption P1,P2,P3
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetSocketOption",P1,P2,P3])
+		dnSend("s4:call",nHandle,"s15:SetSocketOption",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func GetSocketOption P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetSocketOption",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:GetSocketOption",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetSocketOption does not take one argument: use named arguments, GetSocketOption([ :parameter = value, ... ])")
 
 	Func SetIPProtectionLevel P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetIPProtectionLevel",P1])
+		dnSend("s4:call",nHandle,"s20:SetIPProtectionLevel",dnPackItem(P1))
 		return self
 
 	Func Poll P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Poll",P1,P2])
+		return dnSend("s4:call",nHandle,"s4:Poll",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BeginConnect P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginConnect",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:BeginConnect",dnPackItem(P1))
 		ok
 		raise("DotNet Error: BeginConnect does not take one argument: use named arguments, BeginConnect([ :parameter = value, ... ])")
 
 	Func EndConnect P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndConnect",P1])
+		dnSend("s4:call",nHandle,"s10:EndConnect",dnPackItem(P1))
 		return self
 
 	Func BeginDisconnect P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginDisconnect",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s15:BeginDisconnect",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Disconnect P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Disconnect",P1])
+		dnSend("s4:call",nHandle,"s10:Disconnect",dnPackItem(P1))
 		return self
 
 	Func EndDisconnect P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndDisconnect",P1])
+		dnSend("s4:call",nHandle,"s13:EndDisconnect",dnPackItem(P1))
 		return self
 
 	Func BeginSend P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginSend",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:BeginSend",dnPackItem(P1))
 		ok
 		raise("DotNet Error: BeginSend does not take one argument: use named arguments, BeginSend([ :parameter = value, ... ])")
 
 	Func EndSend P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EndSend",P1])
+		return dnSend("s4:call",nHandle,"s7:EndSend",dnPackItem(P1))
 
 	Func BeginSendFile P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginSendFile",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:BeginSendFile",dnPackItem(P1))
 		ok
 		raise("DotNet Error: BeginSendFile does not take one argument: use named arguments, BeginSendFile([ :parameter = value, ... ])")
 
 	Func EndSendFile P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndSendFile",P1])
+		dnSend("s4:call",nHandle,"s11:EndSendFile",dnPackItem(P1))
 		return self
 
 	Func BeginSendTo P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginSendTo",P1,P2,P3,P4,P5,P6,P7])
+		return dnSend("s4:call",nHandle,"s11:BeginSendTo",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
 
 	Func EndSendTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EndSendTo",P1])
+		return dnSend("s4:call",nHandle,"s9:EndSendTo",dnPackItem(P1))
 
 	Func BeginReceive P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginReceive",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:BeginReceive",dnPackItem(P1))
 		ok
 		raise("DotNet Error: BeginReceive does not take one argument: use named arguments, BeginReceive([ :parameter = value, ... ])")
 
 	Func EndReceive P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EndReceive",P1])
+		return dnSend("s4:call",nHandle,"s10:EndReceive",dnPackItem(P1))
 
 	Func BeginReceiveMessageFrom P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginReceiveMessageFrom",P1,P2,P3,P4,P5,P6,P7])
+		return dnSend("s4:call",nHandle,"s23:BeginReceiveMessageFrom",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
 
 	Func EndReceiveMessageFrom P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EndReceiveMessageFrom",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s21:EndReceiveMessageFrom",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func BeginReceiveFrom P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginReceiveFrom",P1,P2,P3,P4,P5,P6,P7])
+		return dnSend("s4:call",nHandle,"s16:BeginReceiveFrom",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
 
 	Func EndReceiveFrom P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EndReceiveFrom",P1,P2])
+		return dnSend("s4:call",nHandle,"s14:EndReceiveFrom",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BeginAccept P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginAccept",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:BeginAccept",dnPackItem(P1))
 		ok
 		raise("DotNet Error: BeginAccept does not take one argument: use named arguments, BeginAccept([ :parameter = value, ... ])")
 
 	Func EndAccept P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EndAccept",P1])
+		return dnSend("s4:call",nHandle,"s9:EndAccept",dnPackItem(P1))
 
 	Func Shutdown P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Shutdown",P1])
+		dnSend("s4:call",nHandle,"s8:Shutdown",dnPackItem(P1))
 		return self
 
 	Func AcceptAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AcceptAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:AcceptAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptAsync"])
+			return dnSend("s4:call",nHandle,"s11:AcceptAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptAsync",P1])
+		return dnSend("s4:call",nHandle,"s11:AcceptAsync",dnPackItem(P1))
 
 	Func ConnectAsync P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets'),"ConnectAsync",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets').nHandle,"s12:ConnectAsync",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ConnectAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:ConnectAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConnectAsync",P1])
+		return dnSend("s4:call",nHandle,"s12:ConnectAsync",dnPackItem(P1))
 
 	Func DisconnectAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"DisconnectAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:DisconnectAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DisconnectAsync",P1])
+		return dnSend("s4:call",nHandle,"s15:DisconnectAsync",dnPackItem(P1))
 
 	Func ReceiveAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReceiveAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:ReceiveAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReceiveAsync",P1])
+		return dnSend("s4:call",nHandle,"s12:ReceiveAsync",dnPackItem(P1))
 
 	Func ReceiveFromAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReceiveFromAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:ReceiveFromAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReceiveFromAsync",P1])
+		return dnSend("s4:call",nHandle,"s16:ReceiveFromAsync",dnPackItem(P1))
 
 	Func ReceiveMessageFromAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReceiveMessageFromAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s23:ReceiveMessageFromAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReceiveMessageFromAsync",P1])
+		return dnSend("s4:call",nHandle,"s23:ReceiveMessageFromAsync",dnPackItem(P1))
 
 	Func SendAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:SendAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SendAsync",P1])
+		return dnSend("s4:call",nHandle,"s9:SendAsync",dnPackItem(P1))
 
 	Func SendPacketsAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SendPacketsAsync",P1])
+		return dnSend("s4:call",nHandle,"s16:SendPacketsAsync",dnPackItem(P1))
 
 	Func SendToAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendToAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:SendToAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SendToAsync",P1])
+		return dnSend("s4:call",nHandle,"s11:SendToAsync",dnPackItem(P1))
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func SendFileAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendFileAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:SendFileAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SendFileAsync",P1])
+		return dnSend("s4:call",nHandle,"s13:SendFileAsync",dnPackItem(P1))
 
 	Func DuplicateAndClose P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DuplicateAndClose",P1])
+		return dnSend("s4:call",nHandle,"s17:DuplicateAndClose",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Select P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets'),"Select",P1,P2,P3,P4])
+		dnSend("s4:call",dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets').nHandle,"s6:Select",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func CancelConnectAsync P1
-		dnRequest("call",[dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets'),"CancelConnectAsync",P1])
+		dnSend("s4:call",dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets').nHandle,"s18:CancelConnectAsync",dnPackItem(P1))
 		return self
 
 	Func getAvailable
-		return dnRequest("get",[self,"Available"])
+		return dnSend("s3:get",nHandle,"s9:Available","")
 
 	Func setAvailable P1
 		raise("DotNet Error: Available is a read-only property")
 
 	Func getLocalEndPoint
-		return dnRequest("get",[self,"LocalEndPoint"])
+		return dnSend("s3:get",nHandle,"s13:LocalEndPoint","")
 
 	Func setLocalEndPoint P1
 		raise("DotNet Error: LocalEndPoint is a read-only property")
 
 	Func getRemoteEndPoint
-		return dnRequest("get",[self,"RemoteEndPoint"])
+		return dnSend("s3:get",nHandle,"s14:RemoteEndPoint","")
 
 	Func setRemoteEndPoint P1
 		raise("DotNet Error: RemoteEndPoint is a read-only property")
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnSend("s3:get",nHandle,"s6:Handle","")
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getSafeHandle
-		return dnRequest("get",[self,"SafeHandle"])
+		return dnSend("s3:get",nHandle,"s10:SafeHandle","")
 
 	Func setSafeHandle P1
 		raise("DotNet Error: SafeHandle is a read-only property")
 
 	Func getBlocking
-		return dnRequest("get",[self,"Blocking"])
+		return dnSend("s3:get",nHandle,"s8:Blocking","")
 
 	Func setBlocking P1
-		dnRequest("set",[self,"Blocking",P1])
+		dnSend("s3:set",nHandle,"s8:Blocking",dnPackItem(P1))
 		return self
 
 	Func getUseOnlyOverlappedIO
-		return dnRequest("get",[self,"UseOnlyOverlappedIO"])
+		return dnSend("s3:get",nHandle,"s19:UseOnlyOverlappedIO","")
 
 	Func setUseOnlyOverlappedIO P1
-		dnRequest("set",[self,"UseOnlyOverlappedIO",P1])
+		dnSend("s3:set",nHandle,"s19:UseOnlyOverlappedIO",dnPackItem(P1))
 		return self
 
 	Func getConnected
-		return dnRequest("get",[self,"Connected"])
+		return dnSend("s3:get",nHandle,"s9:Connected","")
 
 	Func setConnected P1
 		raise("DotNet Error: Connected is a read-only property")
 
 	Func getAddressFamily
-		return dnRequest("get",[self,"AddressFamily"])
+		return dnSend("s3:get",nHandle,"s13:AddressFamily","")
 
 	Func setAddressFamily P1
 		raise("DotNet Error: AddressFamily is a read-only property")
 
 	Func getSocketType
-		return dnRequest("get",[self,"SocketType"])
+		return dnSend("s3:get",nHandle,"s10:SocketType","")
 
 	Func setSocketType P1
 		raise("DotNet Error: SocketType is a read-only property")
 
 	Func getProtocolType
-		return dnRequest("get",[self,"ProtocolType"])
+		return dnSend("s3:get",nHandle,"s12:ProtocolType","")
 
 	Func setProtocolType P1
 		raise("DotNet Error: ProtocolType is a read-only property")
 
 	Func getIsBound
-		return dnRequest("get",[self,"IsBound"])
+		return dnSend("s3:get",nHandle,"s7:IsBound","")
 
 	Func setIsBound P1
 		raise("DotNet Error: IsBound is a read-only property")
 
 	Func getExclusiveAddressUse
-		return dnRequest("get",[self,"ExclusiveAddressUse"])
+		return dnSend("s3:get",nHandle,"s19:ExclusiveAddressUse","")
 
 	Func setExclusiveAddressUse P1
-		dnRequest("set",[self,"ExclusiveAddressUse",P1])
+		dnSend("s3:set",nHandle,"s19:ExclusiveAddressUse",dnPackItem(P1))
 		return self
 
 	Func getReceiveBufferSize
-		return dnRequest("get",[self,"ReceiveBufferSize"])
+		return dnSend("s3:get",nHandle,"s17:ReceiveBufferSize","")
 
 	Func setReceiveBufferSize P1
-		dnRequest("set",[self,"ReceiveBufferSize",P1])
+		dnSend("s3:set",nHandle,"s17:ReceiveBufferSize",dnPackItem(P1))
 		return self
 
 	Func getSendBufferSize
-		return dnRequest("get",[self,"SendBufferSize"])
+		return dnSend("s3:get",nHandle,"s14:SendBufferSize","")
 
 	Func setSendBufferSize P1
-		dnRequest("set",[self,"SendBufferSize",P1])
+		dnSend("s3:set",nHandle,"s14:SendBufferSize",dnPackItem(P1))
 		return self
 
 	Func getReceiveTimeout
-		return dnRequest("get",[self,"ReceiveTimeout"])
+		return dnSend("s3:get",nHandle,"s14:ReceiveTimeout","")
 
 	Func setReceiveTimeout P1
-		dnRequest("set",[self,"ReceiveTimeout",P1])
+		dnSend("s3:set",nHandle,"s14:ReceiveTimeout",dnPackItem(P1))
 		return self
 
 	Func getSendTimeout
-		return dnRequest("get",[self,"SendTimeout"])
+		return dnSend("s3:get",nHandle,"s11:SendTimeout","")
 
 	Func setSendTimeout P1
-		dnRequest("set",[self,"SendTimeout",P1])
+		dnSend("s3:set",nHandle,"s11:SendTimeout",dnPackItem(P1))
 		return self
 
 	Func getLingerState
-		return dnRequest("get",[self,"LingerState"])
+		return dnSend("s3:get",nHandle,"s11:LingerState","")
 
 	Func setLingerState P1
-		dnRequest("set",[self,"LingerState",P1])
+		dnSend("s3:set",nHandle,"s11:LingerState",dnPackItem(P1))
 		return self
 
 	Func getNoDelay
-		return dnRequest("get",[self,"NoDelay"])
+		return dnSend("s3:get",nHandle,"s7:NoDelay","")
 
 	Func setNoDelay P1
-		dnRequest("set",[self,"NoDelay",P1])
+		dnSend("s3:set",nHandle,"s7:NoDelay",dnPackItem(P1))
 		return self
 
 	Func getTtl
-		return dnRequest("get",[self,"Ttl"])
+		return dnSend("s3:get",nHandle,"s3:Ttl","")
 
 	Func setTtl P1
-		dnRequest("set",[self,"Ttl",P1])
+		dnSend("s3:set",nHandle,"s3:Ttl",dnPackItem(P1))
 		return self
 
 	Func getDontFragment
-		return dnRequest("get",[self,"DontFragment"])
+		return dnSend("s3:get",nHandle,"s12:DontFragment","")
 
 	Func setDontFragment P1
-		dnRequest("set",[self,"DontFragment",P1])
+		dnSend("s3:set",nHandle,"s12:DontFragment",dnPackItem(P1))
 		return self
 
 	Func getMulticastLoopback
-		return dnRequest("get",[self,"MulticastLoopback"])
+		return dnSend("s3:get",nHandle,"s17:MulticastLoopback","")
 
 	Func setMulticastLoopback P1
-		dnRequest("set",[self,"MulticastLoopback",P1])
+		dnSend("s3:set",nHandle,"s17:MulticastLoopback",dnPackItem(P1))
 		return self
 
 	Func getEnableBroadcast
-		return dnRequest("get",[self,"EnableBroadcast"])
+		return dnSend("s3:get",nHandle,"s15:EnableBroadcast","")
 
 	Func setEnableBroadcast P1
-		dnRequest("set",[self,"EnableBroadcast",P1])
+		dnSend("s3:set",nHandle,"s15:EnableBroadcast",dnPackItem(P1))
 		return self
 
 	Func getDualMode
-		return dnRequest("get",[self,"DualMode"])
+		return dnSend("s3:get",nHandle,"s8:DualMode","")
 
 	Func setDualMode P1
-		dnRequest("set",[self,"DualMode",P1])
+		dnSend("s3:set",nHandle,"s8:DualMode",dnPackItem(P1))
 		return self
 
 	Func getSupportsIPv4
-		return dnRequest("get",[dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets'),"SupportsIPv4"])
+		return dnSend("s3:get",dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets').nHandle,"s12:SupportsIPv4","")
 
 	Func setSupportsIPv4 P1
 		raise("DotNet Error: SupportsIPv4 is a read-only property")
 
 	Func getSupportsIPv6
-		return dnRequest("get",[dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets'),"SupportsIPv6"])
+		return dnSend("s3:get",dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets').nHandle,"s12:SupportsIPv6","")
 
 	Func setSupportsIPv6 P1
 		raise("DotNet Error: SupportsIPv6 is a read-only property")
 
 	Func getOSSupportsIPv4
-		return dnRequest("get",[dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets'),"OSSupportsIPv4"])
+		return dnSend("s3:get",dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets').nHandle,"s14:OSSupportsIPv4","")
 
 	Func setOSSupportsIPv4 P1
 		raise("DotNet Error: OSSupportsIPv4 is a read-only property")
 
 	Func getOSSupportsIPv6
-		return dnRequest("get",[dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets'),"OSSupportsIPv6"])
+		return dnSend("s3:get",dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets').nHandle,"s14:OSSupportsIPv6","")
 
 	Func setOSSupportsIPv6 P1
 		raise("DotNet Error: OSSupportsIPv6 is a read-only property")
 
 	Func getOSSupportsUnixDomainSockets
-		return dnRequest("get",[dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets'),"OSSupportsUnixDomainSockets"])
+		return dnSend("s3:get",dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets').nHandle,"s27:OSSupportsUnixDomainSockets","")
 
 	Func setOSSupportsUnixDomainSockets P1
 		raise("DotNet Error: OSSupportsUnixDomainSockets is a read-only property")
@@ -1094,14 +1094,14 @@ Class SocketAsyncEventArgs from EventArgs
 
 	Func SetBuffer P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetBuffer",P1])
+			dnSend("s9:callnamed",nHandle,"s9:SetBuffer",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetBuffer",P1])
+		dnSend("s4:call",nHandle,"s9:SetBuffer",dnPackItem(P1))
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func setCompletedEvent P1
@@ -1113,124 +1113,124 @@ Class SocketAsyncEventArgs from EventArgs
 		return self
 
 	Func getAcceptSocket
-		return dnRequest("get",[self,"AcceptSocket"])
+		return dnSend("s3:get",nHandle,"s12:AcceptSocket","")
 
 	Func setAcceptSocket P1
-		dnRequest("set",[self,"AcceptSocket",P1])
+		dnSend("s3:set",nHandle,"s12:AcceptSocket",dnPackItem(P1))
 		return self
 
 	Func getConnectSocket
-		return dnRequest("get",[self,"ConnectSocket"])
+		return dnSend("s3:get",nHandle,"s13:ConnectSocket","")
 
 	Func setConnectSocket P1
 		raise("DotNet Error: ConnectSocket is a read-only property")
 
 	Func getBuffer
-		return dnRequest("get",[self,"Buffer"])
+		return dnSend("s3:get",nHandle,"s6:Buffer","")
 
 	Func getMemoryBuffer
-		return dnRequest("get",[self,"MemoryBuffer"])
+		return dnSend("s3:get",nHandle,"s12:MemoryBuffer","")
 
 	Func setMemoryBuffer P1
 		raise("DotNet Error: MemoryBuffer is a read-only property")
 
 	Func getOffset
-		return dnRequest("get",[self,"Offset"])
+		return dnSend("s3:get",nHandle,"s6:Offset","")
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getSendPacketsFlags
-		return dnRequest("get",[self,"SendPacketsFlags"])
+		return dnSend("s3:get",nHandle,"s16:SendPacketsFlags","")
 
 	Func setSendPacketsFlags P1
-		dnRequest("set",[self,"SendPacketsFlags",P1])
+		dnSend("s3:set",nHandle,"s16:SendPacketsFlags",dnPackItem(P1))
 		return self
 
 	Func getBufferList
-		return dnRequest("get",[self,"BufferList"])
+		return dnSend("s3:get",nHandle,"s10:BufferList","")
 
 	Func setBufferList P1
-		dnRequest("set",[self,"BufferList",P1])
+		dnSend("s3:set",nHandle,"s10:BufferList",dnPackItem(P1))
 		return self
 
 	Func getBytesTransferred
-		return dnRequest("get",[self,"BytesTransferred"])
+		return dnSend("s3:get",nHandle,"s16:BytesTransferred","")
 
 	Func setBytesTransferred P1
 		raise("DotNet Error: BytesTransferred is a read-only property")
 
 	Func getDisconnectReuseSocket
-		return dnRequest("get",[self,"DisconnectReuseSocket"])
+		return dnSend("s3:get",nHandle,"s21:DisconnectReuseSocket","")
 
 	Func setDisconnectReuseSocket P1
-		dnRequest("set",[self,"DisconnectReuseSocket",P1])
+		dnSend("s3:set",nHandle,"s21:DisconnectReuseSocket",dnPackItem(P1))
 		return self
 
 	Func getLastOperation
-		return dnRequest("get",[self,"LastOperation"])
+		return dnSend("s3:get",nHandle,"s13:LastOperation","")
 
 	Func setLastOperation P1
 		raise("DotNet Error: LastOperation is a read-only property")
 
 	Func getReceiveMessageFromPacketInfo
-		return dnRequest("get",[self,"ReceiveMessageFromPacketInfo"])
+		return dnSend("s3:get",nHandle,"s28:ReceiveMessageFromPacketInfo","")
 
 	Func setReceiveMessageFromPacketInfo P1
 		raise("DotNet Error: ReceiveMessageFromPacketInfo is a read-only property")
 
 	Func getRemoteEndPoint
-		return dnRequest("get",[self,"RemoteEndPoint"])
+		return dnSend("s3:get",nHandle,"s14:RemoteEndPoint","")
 
 	Func setRemoteEndPoint P1
-		dnRequest("set",[self,"RemoteEndPoint",P1])
+		dnSend("s3:set",nHandle,"s14:RemoteEndPoint",dnPackItem(P1))
 		return self
 
 	Func getSendPacketsElements
-		return dnRequest("get",[self,"SendPacketsElements"])
+		return dnSend("s3:get",nHandle,"s19:SendPacketsElements","")
 
 	Func setSendPacketsElements P1
-		dnRequest("set",[self,"SendPacketsElements",P1])
+		dnSend("s3:set",nHandle,"s19:SendPacketsElements",dnPackItem(P1))
 		return self
 
 	Func getSendPacketsSendSize
-		return dnRequest("get",[self,"SendPacketsSendSize"])
+		return dnSend("s3:get",nHandle,"s19:SendPacketsSendSize","")
 
 	Func setSendPacketsSendSize P1
-		dnRequest("set",[self,"SendPacketsSendSize",P1])
+		dnSend("s3:set",nHandle,"s19:SendPacketsSendSize",dnPackItem(P1))
 		return self
 
 	Func getSocketError
-		return dnRequest("get",[self,"SocketError"])
+		return dnSend("s3:get",nHandle,"s11:SocketError","")
 
 	Func setSocketError P1
-		dnRequest("set",[self,"SocketError",P1])
+		dnSend("s3:set",nHandle,"s11:SocketError",dnPackItem(P1))
 		return self
 
 	Func getConnectByNameError
-		return dnRequest("get",[self,"ConnectByNameError"])
+		return dnSend("s3:get",nHandle,"s18:ConnectByNameError","")
 
 	Func setConnectByNameError P1
 		raise("DotNet Error: ConnectByNameError is a read-only property")
 
 	Func getSocketFlags
-		return dnRequest("get",[self,"SocketFlags"])
+		return dnSend("s3:get",nHandle,"s11:SocketFlags","")
 
 	Func setSocketFlags P1
-		dnRequest("set",[self,"SocketFlags",P1])
+		dnSend("s3:set",nHandle,"s11:SocketFlags",dnPackItem(P1))
 		return self
 
 	Func getUserToken
-		return dnRequest("get",[self,"UserToken"])
+		return dnSend("s3:get",nHandle,"s9:UserToken","")
 
 	Func setUserToken P1
-		dnRequest("set",[self,"UserToken",P1])
+		dnSend("s3:set",nHandle,"s9:UserToken",dnPackItem(P1))
 		return self
 
 
@@ -1262,17 +1262,17 @@ Class SocketInformation from ValueType
 		return self
 
 	Func getProtocolInformation
-		return dnRequest("get",[self,"ProtocolInformation"])
+		return dnSend("s3:get",nHandle,"s19:ProtocolInformation","")
 
 	Func setProtocolInformation P1
-		dnRequest("set",[self,"ProtocolInformation",P1])
+		dnSend("s3:set",nHandle,"s19:ProtocolInformation",dnPackItem(P1))
 		return self
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnSend("s3:get",nHandle,"s7:Options","")
 
 	Func setOptions P1
-		dnRequest("set",[self,"Options",P1])
+		dnSend("s3:set",nHandle,"s7:Options",dnPackItem(P1))
 		return self
 
 
@@ -1304,17 +1304,17 @@ Class SocketReceiveFromResult from ValueType
 		return self
 
 	Func getReceivedBytes
-		return dnRequest("get",[self,"ReceivedBytes"])
+		return dnSend("s3:get",nHandle,"s13:ReceivedBytes","")
 
 	Func setReceivedBytes P1
-		dnRequest("set",[self,"ReceivedBytes",P1])
+		dnSend("s3:set",nHandle,"s13:ReceivedBytes",dnPackItem(P1))
 		return self
 
 	Func getRemoteEndPoint
-		return dnRequest("get",[self,"RemoteEndPoint"])
+		return dnSend("s3:get",nHandle,"s14:RemoteEndPoint","")
 
 	Func setRemoteEndPoint P1
-		dnRequest("set",[self,"RemoteEndPoint",P1])
+		dnSend("s3:set",nHandle,"s14:RemoteEndPoint",dnPackItem(P1))
 		return self
 
 
@@ -1348,31 +1348,31 @@ Class SocketReceiveMessageFromResult from ValueType
 		return self
 
 	Func getReceivedBytes
-		return dnRequest("get",[self,"ReceivedBytes"])
+		return dnSend("s3:get",nHandle,"s13:ReceivedBytes","")
 
 	Func setReceivedBytes P1
-		dnRequest("set",[self,"ReceivedBytes",P1])
+		dnSend("s3:set",nHandle,"s13:ReceivedBytes",dnPackItem(P1))
 		return self
 
 	Func getSocketFlags
-		return dnRequest("get",[self,"SocketFlags"])
+		return dnSend("s3:get",nHandle,"s11:SocketFlags","")
 
 	Func setSocketFlags P1
-		dnRequest("set",[self,"SocketFlags",P1])
+		dnSend("s3:set",nHandle,"s11:SocketFlags",dnPackItem(P1))
 		return self
 
 	Func getRemoteEndPoint
-		return dnRequest("get",[self,"RemoteEndPoint"])
+		return dnSend("s3:get",nHandle,"s14:RemoteEndPoint","")
 
 	Func setRemoteEndPoint P1
-		dnRequest("set",[self,"RemoteEndPoint",P1])
+		dnSend("s3:set",nHandle,"s14:RemoteEndPoint",dnPackItem(P1))
 		return self
 
 	Func getPacketInformation
-		return dnRequest("get",[self,"PacketInformation"])
+		return dnSend("s3:get",nHandle,"s17:PacketInformation","")
 
 	Func setPacketInformation P1
-		dnRequest("set",[self,"PacketInformation",P1])
+		dnSend("s3:set",nHandle,"s17:PacketInformation",dnPackItem(P1))
 		return self
 
 
@@ -1388,40 +1388,40 @@ Class SocketTaskExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AcceptAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"AcceptAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets').nHandle,"s11:AcceptAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"AcceptAsync",P1])
+		return dnSend("s4:call",dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets').nHandle,"s11:AcceptAsync",dnPackItem(P1))
 
 	Func ConnectAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ConnectAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets').nHandle,"s12:ConnectAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ConnectAsync does not take one argument: use named arguments, ConnectAsync([ :parameter = value, ... ])")
 
 	Func ReceiveAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ReceiveAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets').nHandle,"s12:ReceiveAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ReceiveAsync does not take one argument: use named arguments, ReceiveAsync([ :parameter = value, ... ])")
 
 	Func ReceiveFromAsync P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ReceiveFromAsync",P1,P2,P3,P4])
+		return dnSend("s4:call",dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets').nHandle,"s16:ReceiveFromAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func ReceiveMessageFromAsync P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ReceiveMessageFromAsync",P1,P2,P3,P4])
+		return dnSend("s4:call",dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets').nHandle,"s23:ReceiveMessageFromAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func SendAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"SendAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets').nHandle,"s9:SendAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: SendAsync does not take one argument: use named arguments, SendAsync([ :parameter = value, ... ])")
 
 	Func SendToAsync P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"SendToAsync",P1,P2,P3,P4])
+		return dnSend("s4:call",dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets').nHandle,"s11:SendToAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 
 Class TcpClient from Object
@@ -1481,105 +1481,105 @@ Class TcpClient from Object
 
 	Func Connect P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Connect",P1])
+			dnSend("s9:callnamed",nHandle,"s7:Connect",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Connect",P1])
+		dnSend("s4:call",nHandle,"s7:Connect",dnPackItem(P1))
 		return self
 
 	Func ConnectAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ConnectAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:ConnectAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConnectAsync",P1])
+		return dnSend("s4:call",nHandle,"s12:ConnectAsync",dnPackItem(P1))
 
 	Func BeginConnect P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginConnect",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s12:BeginConnect",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func EndConnect P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndConnect",P1])
+		dnSend("s4:call",nHandle,"s10:EndConnect",dnPackItem(P1))
 		return self
 
 	Func GetStream 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetStream"])
+		return dnSend("s4:call",nHandle,"s9:GetStream","")
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
+		dnSend("s4:call",nHandle,"s5:Close","")
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAvailable
-		return dnRequest("get",[self,"Available"])
+		return dnSend("s3:get",nHandle,"s9:Available","")
 
 	Func setAvailable P1
 		raise("DotNet Error: Available is a read-only property")
 
 	Func getClient
-		return dnRequest("get",[self,"Client"])
+		return dnSend("s3:get",nHandle,"s6:Client","")
 
 	Func setClient P1
-		dnRequest("set",[self,"Client",P1])
+		dnSend("s3:set",nHandle,"s6:Client",dnPackItem(P1))
 		return self
 
 	Func getConnected
-		return dnRequest("get",[self,"Connected"])
+		return dnSend("s3:get",nHandle,"s9:Connected","")
 
 	Func setConnected P1
 		raise("DotNet Error: Connected is a read-only property")
 
 	Func getExclusiveAddressUse
-		return dnRequest("get",[self,"ExclusiveAddressUse"])
+		return dnSend("s3:get",nHandle,"s19:ExclusiveAddressUse","")
 
 	Func setExclusiveAddressUse P1
-		dnRequest("set",[self,"ExclusiveAddressUse",P1])
+		dnSend("s3:set",nHandle,"s19:ExclusiveAddressUse",dnPackItem(P1))
 		return self
 
 	Func getReceiveBufferSize
-		return dnRequest("get",[self,"ReceiveBufferSize"])
+		return dnSend("s3:get",nHandle,"s17:ReceiveBufferSize","")
 
 	Func setReceiveBufferSize P1
-		dnRequest("set",[self,"ReceiveBufferSize",P1])
+		dnSend("s3:set",nHandle,"s17:ReceiveBufferSize",dnPackItem(P1))
 		return self
 
 	Func getSendBufferSize
-		return dnRequest("get",[self,"SendBufferSize"])
+		return dnSend("s3:get",nHandle,"s14:SendBufferSize","")
 
 	Func setSendBufferSize P1
-		dnRequest("set",[self,"SendBufferSize",P1])
+		dnSend("s3:set",nHandle,"s14:SendBufferSize",dnPackItem(P1))
 		return self
 
 	Func getReceiveTimeout
-		return dnRequest("get",[self,"ReceiveTimeout"])
+		return dnSend("s3:get",nHandle,"s14:ReceiveTimeout","")
 
 	Func setReceiveTimeout P1
-		dnRequest("set",[self,"ReceiveTimeout",P1])
+		dnSend("s3:set",nHandle,"s14:ReceiveTimeout",dnPackItem(P1))
 		return self
 
 	Func getSendTimeout
-		return dnRequest("get",[self,"SendTimeout"])
+		return dnSend("s3:get",nHandle,"s11:SendTimeout","")
 
 	Func setSendTimeout P1
-		dnRequest("set",[self,"SendTimeout",P1])
+		dnSend("s3:set",nHandle,"s11:SendTimeout",dnPackItem(P1))
 		return self
 
 	Func getLingerState
-		return dnRequest("get",[self,"LingerState"])
+		return dnSend("s3:get",nHandle,"s11:LingerState","")
 
 	Func setLingerState P1
-		dnRequest("set",[self,"LingerState",P1])
+		dnSend("s3:set",nHandle,"s11:LingerState",dnPackItem(P1))
 		return self
 
 	Func getNoDelay
-		return dnRequest("get",[self,"NoDelay"])
+		return dnSend("s3:get",nHandle,"s7:NoDelay","")
 
 	Func setNoDelay P1
-		dnRequest("set",[self,"NoDelay",P1])
+		dnSend("s3:set",nHandle,"s7:NoDelay",dnPackItem(P1))
 		return self
 
 
@@ -1616,91 +1616,91 @@ Class TcpListener from Object
 		return self
 
 	Func AllowNatTraversal P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AllowNatTraversal",P1])
+		dnSend("s4:call",nHandle,"s17:AllowNatTraversal",dnPackItem(P1))
 		return self
 
 	Func Start P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Start",P1])
+			dnSend("s9:callnamed",nHandle,"s5:Start",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Start"])
+			dnSend("s4:call",nHandle,"s5:Start","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Start",P1])
+		dnSend("s4:call",nHandle,"s5:Start",dnPackItem(P1))
 		return self
 
 	Func Stop 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Stop"])
+		dnSend("s4:call",nHandle,"s4:Stop","")
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Pending 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Pending"])
+		return dnSend("s4:call",nHandle,"s7:Pending","")
 
 	Func AcceptSocket 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptSocket"])
+		return dnSend("s4:call",nHandle,"s12:AcceptSocket","")
 
 	Func AcceptTcpClient 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptTcpClient"])
+		return dnSend("s4:call",nHandle,"s15:AcceptTcpClient","")
 
 	Func BeginAcceptSocket P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginAcceptSocket",P1,P2])
+		return dnSend("s4:call",nHandle,"s17:BeginAcceptSocket",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EndAcceptSocket P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EndAcceptSocket",P1])
+		return dnSend("s4:call",nHandle,"s15:EndAcceptSocket",dnPackItem(P1))
 
 	Func BeginAcceptTcpClient P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginAcceptTcpClient",P1,P2])
+		return dnSend("s4:call",nHandle,"s20:BeginAcceptTcpClient",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EndAcceptTcpClient P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EndAcceptTcpClient",P1])
+		return dnSend("s4:call",nHandle,"s18:EndAcceptTcpClient",dnPackItem(P1))
 
 	Func AcceptSocketAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AcceptSocketAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:AcceptSocketAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptSocketAsync"])
+			return dnSend("s4:call",nHandle,"s17:AcceptSocketAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptSocketAsync",P1])
+		return dnSend("s4:call",nHandle,"s17:AcceptSocketAsync",dnPackItem(P1))
 
 	Func AcceptTcpClientAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AcceptTcpClientAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:AcceptTcpClientAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptTcpClientAsync"])
+			return dnSend("s4:call",nHandle,"s20:AcceptTcpClientAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AcceptTcpClientAsync",P1])
+		return dnSend("s4:call",nHandle,"s20:AcceptTcpClientAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1
-		return dnRequest("call",[dnTypeCached('System.Net.Sockets.TcpListener, System.Net.Sockets'),"Create",P1])
+		return dnSend("s4:call",dnTypeCached('System.Net.Sockets.TcpListener, System.Net.Sockets').nHandle,"s6:Create",dnPackItem(P1))
 
 	Func getServer
-		return dnRequest("get",[self,"Server"])
+		return dnSend("s3:get",nHandle,"s6:Server","")
 
 	Func setServer P1
 		raise("DotNet Error: Server is a read-only property")
 
 	Func getLocalEndpoint
-		return dnRequest("get",[self,"LocalEndpoint"])
+		return dnSend("s3:get",nHandle,"s13:LocalEndpoint","")
 
 	Func setLocalEndpoint P1
 		raise("DotNet Error: LocalEndpoint is a read-only property")
 
 	Func getExclusiveAddressUse
-		return dnRequest("get",[self,"ExclusiveAddressUse"])
+		return dnSend("s3:get",nHandle,"s19:ExclusiveAddressUse","")
 
 	Func setExclusiveAddressUse P1
-		dnRequest("set",[self,"ExclusiveAddressUse",P1])
+		dnSend("s3:set",nHandle,"s19:ExclusiveAddressUse",dnPackItem(P1))
 		return self
 
 
@@ -1757,129 +1757,129 @@ Class UdpClient from Object
 		return self
 
 	Func AllowNatTraversal P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AllowNatTraversal",P1])
+		dnSend("s4:call",nHandle,"s17:AllowNatTraversal",dnPackItem(P1))
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func BeginSend P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginSend",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:BeginSend",dnPackItem(P1))
 		ok
 		raise("DotNet Error: BeginSend does not take one argument: use named arguments, BeginSend([ :parameter = value, ... ])")
 
 	Func EndSend P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EndSend",P1])
+		return dnSend("s4:call",nHandle,"s7:EndSend",dnPackItem(P1))
 
 	Func BeginReceive P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"BeginReceive",P1,P2])
+		return dnSend("s4:call",nHandle,"s12:BeginReceive",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EndReceive P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EndReceive",P1,P2])
+		return dnSend("s4:call",nHandle,"s10:EndReceive",dnPackItem(P1) + dnPackItem(P2))
 
 	Func JoinMulticastGroup P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"JoinMulticastGroup",P1])
+			dnSend("s9:callnamed",nHandle,"s18:JoinMulticastGroup",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"JoinMulticastGroup",P1])
+		dnSend("s4:call",nHandle,"s18:JoinMulticastGroup",dnPackItem(P1))
 		return self
 
 	Func DropMulticastGroup P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"DropMulticastGroup",P1])
+			dnSend("s9:callnamed",nHandle,"s18:DropMulticastGroup",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"DropMulticastGroup",P1])
+		dnSend("s4:call",nHandle,"s18:DropMulticastGroup",dnPackItem(P1))
 		return self
 
 	Func SendAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"SendAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:SendAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SendAsync",P1])
+		return dnSend("s4:call",nHandle,"s9:SendAsync",dnPackItem(P1))
 
 	Func ReceiveAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReceiveAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:ReceiveAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReceiveAsync"])
+			return dnSend("s4:call",nHandle,"s12:ReceiveAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReceiveAsync",P1])
+		return dnSend("s4:call",nHandle,"s12:ReceiveAsync",dnPackItem(P1))
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
+		dnSend("s4:call",nHandle,"s5:Close","")
 		return self
 
 	Func Connect P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Connect",P1])
+			dnSend("s9:callnamed",nHandle,"s7:Connect",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Connect",P1])
+		dnSend("s4:call",nHandle,"s7:Connect",dnPackItem(P1))
 		return self
 
 	Func Receive P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Receive",P1])
+		return dnSend("s4:call",nHandle,"s7:Receive",dnPackItem(P1))
 
 	Func Send P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Send",P1])
+			return dnSend("s9:callnamed",nHandle,"s4:Send",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Send does not take one argument: use named arguments, Send([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAvailable
-		return dnRequest("get",[self,"Available"])
+		return dnSend("s3:get",nHandle,"s9:Available","")
 
 	Func setAvailable P1
 		raise("DotNet Error: Available is a read-only property")
 
 	Func getClient
-		return dnRequest("get",[self,"Client"])
+		return dnSend("s3:get",nHandle,"s6:Client","")
 
 	Func setClient P1
-		dnRequest("set",[self,"Client",P1])
+		dnSend("s3:set",nHandle,"s6:Client",dnPackItem(P1))
 		return self
 
 	Func getTtl
-		return dnRequest("get",[self,"Ttl"])
+		return dnSend("s3:get",nHandle,"s3:Ttl","")
 
 	Func setTtl P1
-		dnRequest("set",[self,"Ttl",P1])
+		dnSend("s3:set",nHandle,"s3:Ttl",dnPackItem(P1))
 		return self
 
 	Func getDontFragment
-		return dnRequest("get",[self,"DontFragment"])
+		return dnSend("s3:get",nHandle,"s12:DontFragment","")
 
 	Func setDontFragment P1
-		dnRequest("set",[self,"DontFragment",P1])
+		dnSend("s3:set",nHandle,"s12:DontFragment",dnPackItem(P1))
 		return self
 
 	Func getMulticastLoopback
-		return dnRequest("get",[self,"MulticastLoopback"])
+		return dnSend("s3:get",nHandle,"s17:MulticastLoopback","")
 
 	Func setMulticastLoopback P1
-		dnRequest("set",[self,"MulticastLoopback",P1])
+		dnSend("s3:set",nHandle,"s17:MulticastLoopback",dnPackItem(P1))
 		return self
 
 	Func getEnableBroadcast
-		return dnRequest("get",[self,"EnableBroadcast"])
+		return dnSend("s3:get",nHandle,"s15:EnableBroadcast","")
 
 	Func setEnableBroadcast P1
-		dnRequest("set",[self,"EnableBroadcast",P1])
+		dnSend("s3:set",nHandle,"s15:EnableBroadcast",dnPackItem(P1))
 		return self
 
 	Func getExclusiveAddressUse
-		return dnRequest("get",[self,"ExclusiveAddressUse"])
+		return dnSend("s3:get",nHandle,"s19:ExclusiveAddressUse","")
 
 	Func setExclusiveAddressUse P1
-		dnRequest("set",[self,"ExclusiveAddressUse",P1])
+		dnSend("s3:set",nHandle,"s19:ExclusiveAddressUse",dnPackItem(P1))
 		return self
 
 
@@ -1931,13 +1931,13 @@ Class UdpReceiveResult from ValueType
 		return self
 
 	Func getBuffer
-		return dnRequest("get",[self,"Buffer"])
+		return dnSend("s3:get",nHandle,"s6:Buffer","")
 
 	Func setBuffer P1
 		raise("DotNet Error: Buffer is a read-only property")
 
 	Func getRemoteEndPoint
-		return dnRequest("get",[self,"RemoteEndPoint"])
+		return dnSend("s3:get",nHandle,"s14:RemoteEndPoint","")
 
 	Func setRemoteEndPoint P1
 		raise("DotNet Error: RemoteEndPoint is a read-only property")

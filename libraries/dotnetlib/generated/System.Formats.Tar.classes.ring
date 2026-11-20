@@ -84,93 +84,93 @@ Class TarEntry from Object
 		return self
 
 	Func ExtractToFile P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"ExtractToFile",P1,P2])
+		dnSend("s4:call",nHandle,"s13:ExtractToFile",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ExtractToFileAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ExtractToFileAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:ExtractToFileAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ExtractToFileAsync does not take one argument: use named arguments, ExtractToFileAsync([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getChecksum
-		return dnRequest("get",[self,"Checksum"])
+		return dnSend("s3:get",nHandle,"s8:Checksum","")
 
 	Func setChecksum P1
 		raise("DotNet Error: Checksum is a read-only property")
 
 	Func getEntryType
-		return dnRequest("get",[self,"EntryType"])
+		return dnSend("s3:get",nHandle,"s9:EntryType","")
 
 	Func setEntryType P1
 		raise("DotNet Error: EntryType is a read-only property")
 
 	Func getFormat
-		return dnRequest("get",[self,"Format"])
+		return dnSend("s3:get",nHandle,"s6:Format","")
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getGid
-		return dnRequest("get",[self,"Gid"])
+		return dnSend("s3:get",nHandle,"s3:Gid","")
 
 	Func setGid P1
-		dnRequest("set",[self,"Gid",P1])
+		dnSend("s3:set",nHandle,"s3:Gid",dnPackItem(P1))
 		return self
 
 	Func getModificationTime
-		return dnRequest("get",[self,"ModificationTime"])
+		return dnSend("s3:get",nHandle,"s16:ModificationTime","")
 
 	Func setModificationTime P1
-		dnRequest("set",[self,"ModificationTime",P1])
+		dnSend("s3:set",nHandle,"s16:ModificationTime",dnPackItem(P1))
 		return self
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnSend("s3:get",nHandle,"s6:Length","")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getLinkName
-		return dnRequest("get",[self,"LinkName"])
+		return dnSend("s3:get",nHandle,"s8:LinkName","")
 
 	Func setLinkName P1
-		dnRequest("set",[self,"LinkName",P1])
+		dnSend("s3:set",nHandle,"s8:LinkName",dnPackItem(P1))
 		return self
 
 	Func getMode
-		return dnRequest("get",[self,"Mode"])
+		return dnSend("s3:get",nHandle,"s4:Mode","")
 
 	Func setMode P1
-		dnRequest("set",[self,"Mode",P1])
+		dnSend("s3:set",nHandle,"s4:Mode",dnPackItem(P1))
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
 		return self
 
 	Func getUid
-		return dnRequest("get",[self,"Uid"])
+		return dnSend("s3:get",nHandle,"s3:Uid","")
 
 	Func setUid P1
-		dnRequest("set",[self,"Uid",P1])
+		dnSend("s3:set",nHandle,"s3:Uid",dnPackItem(P1))
 		return self
 
 	Func getDataStream
-		return dnRequest("get",[self,"DataStream"])
+		return dnSend("s3:get",nHandle,"s10:DataStream","")
 
 	Func setDataStream P1
-		dnRequest("set",[self,"DataStream",P1])
+		dnSend("s3:set",nHandle,"s10:DataStream",dnPackItem(P1))
 		return self
 
 	Func getDataOffset
-		return dnRequest("get",[self,"DataOffset"])
+		return dnSend("s3:get",nHandle,"s10:DataOffset","")
 
 	Func setDataOffset P1
 		raise("DotNet Error: DataOffset is a read-only property")
@@ -188,25 +188,25 @@ Class TarFile from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateFromDirectory P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"CreateFromDirectory",P1,P2,P3])
+		dnSend("s4:call",dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar').nHandle,"s19:CreateFromDirectory",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func CreateFromDirectoryAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"CreateFromDirectoryAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar').nHandle,"s24:CreateFromDirectoryAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateFromDirectoryAsync does not take one argument: use named arguments, CreateFromDirectoryAsync([ :parameter = value, ... ])")
 
 	Func ExtractToDirectory P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"ExtractToDirectory",P1,P2,P3])
+		dnSend("s4:call",dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar').nHandle,"s18:ExtractToDirectory",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func ExtractToDirectoryAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"ExtractToDirectoryAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar').nHandle,"s23:ExtractToDirectoryAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ExtractToDirectoryAsync does not take one argument: use named arguments, ExtractToDirectoryAsync([ :parameter = value, ... ])")
 
@@ -240,32 +240,32 @@ Class TarReader from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DisposeAsync"])
+		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func GetNextEntry P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetNextEntry",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:GetNextEntry",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetNextEntry"])
+			return dnSend("s4:call",nHandle,"s12:GetNextEntry","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNextEntry",P1])
+		return dnSend("s4:call",nHandle,"s12:GetNextEntry",dnPackItem(P1))
 
 	Func GetNextEntryAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetNextEntryAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:GetNextEntryAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetNextEntryAsync"])
+			return dnSend("s4:call",nHandle,"s17:GetNextEntryAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNextEntryAsync",P1])
+		return dnSend("s4:call",nHandle,"s17:GetNextEntryAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class TarWriter from Object
@@ -299,31 +299,31 @@ Class TarWriter from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DisposeAsync"])
+		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func WriteEntry P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteEntry",P1])
+			dnSend("s9:callnamed",nHandle,"s10:WriteEntry",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteEntry",P1])
+		dnSend("s4:call",nHandle,"s10:WriteEntry",dnPackItem(P1))
 		return self
 
 	Func WriteEntryAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteEntryAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:WriteEntryAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"WriteEntryAsync",P1])
+		return dnSend("s4:call",nHandle,"s15:WriteEntryAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getFormat
-		return dnRequest("get",[self,"Format"])
+		return dnSend("s3:get",nHandle,"s6:Format","")
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
@@ -346,31 +346,31 @@ Class PosixTarEntry from TarEntry
 		return self
 
 	Func getDeviceMajor
-		return dnRequest("get",[self,"DeviceMajor"])
+		return dnSend("s3:get",nHandle,"s11:DeviceMajor","")
 
 	Func setDeviceMajor P1
-		dnRequest("set",[self,"DeviceMajor",P1])
+		dnSend("s3:set",nHandle,"s11:DeviceMajor",dnPackItem(P1))
 		return self
 
 	Func getDeviceMinor
-		return dnRequest("get",[self,"DeviceMinor"])
+		return dnSend("s3:get",nHandle,"s11:DeviceMinor","")
 
 	Func setDeviceMinor P1
-		dnRequest("set",[self,"DeviceMinor",P1])
+		dnSend("s3:set",nHandle,"s11:DeviceMinor",dnPackItem(P1))
 		return self
 
 	Func getGroupName
-		return dnRequest("get",[self,"GroupName"])
+		return dnSend("s3:get",nHandle,"s9:GroupName","")
 
 	Func setGroupName P1
-		dnRequest("set",[self,"GroupName",P1])
+		dnSend("s3:set",nHandle,"s9:GroupName",dnPackItem(P1))
 		return self
 
 	Func getUserName
-		return dnRequest("get",[self,"UserName"])
+		return dnSend("s3:get",nHandle,"s8:UserName","")
 
 	Func setUserName P1
-		dnRequest("set",[self,"UserName",P1])
+		dnSend("s3:set",nHandle,"s8:UserName",dnPackItem(P1))
 		return self
 
 
@@ -435,17 +435,17 @@ Class GnuTarEntry from PosixTarEntry
 		return self
 
 	Func getAccessTime
-		return dnRequest("get",[self,"AccessTime"])
+		return dnSend("s3:get",nHandle,"s10:AccessTime","")
 
 	Func setAccessTime P1
-		dnRequest("set",[self,"AccessTime",P1])
+		dnSend("s3:set",nHandle,"s10:AccessTime",dnPackItem(P1))
 		return self
 
 	Func getChangeTime
-		return dnRequest("get",[self,"ChangeTime"])
+		return dnSend("s3:get",nHandle,"s10:ChangeTime","")
 
 	Func setChangeTime P1
-		dnRequest("set",[self,"ChangeTime",P1])
+		dnSend("s3:set",nHandle,"s10:ChangeTime",dnPackItem(P1))
 		return self
 
 
@@ -465,7 +465,7 @@ Class PaxGlobalExtendedAttributesTarEntry from PosixTarEntry
 		return self
 
 	Func getGlobalExtendedAttributes
-		return dnRequest("get",[self,"GlobalExtendedAttributes"])
+		return dnSend("s3:get",nHandle,"s24:GlobalExtendedAttributes","")
 
 	Func setGlobalExtendedAttributes P1
 		raise("DotNet Error: GlobalExtendedAttributes is a read-only property")
@@ -502,7 +502,7 @@ Class PaxTarEntry from PosixTarEntry
 		return self
 
 	Func getExtendedAttributes
-		return dnRequest("get",[self,"ExtendedAttributes"])
+		return dnSend("s3:get",nHandle,"s18:ExtendedAttributes","")
 
 	Func setExtendedAttributes P1
 		raise("DotNet Error: ExtendedAttributes is a read-only property")

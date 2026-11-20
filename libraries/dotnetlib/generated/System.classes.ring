@@ -635,7 +635,7 @@ Class IAsyncDisposable from DotNetObject
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DisposeAsync"])
+		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 
 Class IAsyncResult from DotNetObject
@@ -655,25 +655,25 @@ Class IAsyncResult from DotNetObject
 		return self
 
 	Func getIsCompleted
-		return dnRequest("get",[self,"IsCompleted"])
+		return dnSend("s3:get",nHandle,"s11:IsCompleted","")
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")
 
 	Func getAsyncWaitHandle
-		return dnRequest("get",[self,"AsyncWaitHandle"])
+		return dnSend("s3:get",nHandle,"s15:AsyncWaitHandle","")
 
 	Func setAsyncWaitHandle P1
 		raise("DotNet Error: AsyncWaitHandle is a read-only property")
 
 	Func getAsyncState
-		return dnRequest("get",[self,"AsyncState"])
+		return dnSend("s3:get",nHandle,"s10:AsyncState","")
 
 	Func setAsyncState P1
 		raise("DotNet Error: AsyncState is a read-only property")
 
 	Func getCompletedSynchronously
-		return dnRequest("get",[self,"CompletedSynchronously"])
+		return dnSend("s3:get",nHandle,"s22:CompletedSynchronously","")
 
 	Func setCompletedSynchronously P1
 		raise("DotNet Error: CompletedSynchronously is a read-only property")
@@ -691,7 +691,7 @@ Class ICloneable from DotNetObject
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 
 Class IComparable from DotNetObject
@@ -706,7 +706,7 @@ Class IComparable from DotNetObject
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 
 Class IConvertible from DotNetObject
@@ -721,58 +721,58 @@ Class IConvertible from DotNetObject
 		return self
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func ToBoolean P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToBoolean",P1])
+		return dnSend("s4:call",nHandle,"s9:ToBoolean",dnPackItem(P1))
 
 	Func ToChar P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToChar",P1])
+		return dnSend("s4:call",nHandle,"s6:ToChar",dnPackItem(P1))
 
 	Func ToSByte P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSByte",P1])
+		return dnSend("s4:call",nHandle,"s7:ToSByte",dnPackItem(P1))
 
 	Func ToByte P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToByte",P1])
+		return dnSend("s4:call",nHandle,"s6:ToByte",dnPackItem(P1))
 
 	Func ToInt16 P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToInt16",P1])
+		return dnSend("s4:call",nHandle,"s7:ToInt16",dnPackItem(P1))
 
 	Func ToUInt16 P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToUInt16",P1])
+		return dnSend("s4:call",nHandle,"s8:ToUInt16",dnPackItem(P1))
 
 	Func ToInt32 P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToInt32",P1])
+		return dnSend("s4:call",nHandle,"s7:ToInt32",dnPackItem(P1))
 
 	Func ToUInt32 P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToUInt32",P1])
+		return dnSend("s4:call",nHandle,"s8:ToUInt32",dnPackItem(P1))
 
 	Func ToInt64 P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToInt64",P1])
+		return dnSend("s4:call",nHandle,"s7:ToInt64",dnPackItem(P1))
 
 	Func ToUInt64 P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToUInt64",P1])
+		return dnSend("s4:call",nHandle,"s8:ToUInt64",dnPackItem(P1))
 
 	Func ToSingle P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSingle",P1])
+		return dnSend("s4:call",nHandle,"s8:ToSingle",dnPackItem(P1))
 
 	Func ToDouble P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToDouble",P1])
+		return dnSend("s4:call",nHandle,"s8:ToDouble",dnPackItem(P1))
 
 	Func ToDecimal P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToDecimal",P1])
+		return dnSend("s4:call",nHandle,"s9:ToDecimal",dnPackItem(P1))
 
 	Func ToDateTime P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToDateTime",P1])
+		return dnSend("s4:call",nHandle,"s10:ToDateTime",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func ToType P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToType",P1,P2])
+		return dnSend("s4:call",nHandle,"s6:ToType",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class ICustomFormatter from DotNetObject
@@ -787,7 +787,7 @@ Class ICustomFormatter from DotNetObject
 		return self
 
 	Func Format P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Format",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s6:Format",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class IDisposable from DotNetObject
@@ -802,7 +802,7 @@ Class IDisposable from DotNetObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 
@@ -818,7 +818,7 @@ Class IFormatProvider from DotNetObject
 		return self
 
 	Func GetFormat P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFormat",P1])
+		return dnSend("s4:call",nHandle,"s9:GetFormat",dnPackItem(P1))
 
 
 Class IFormattable from DotNetObject
@@ -834,7 +834,7 @@ Class IFormattable from DotNetObject
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
@@ -888,25 +888,25 @@ Class Object from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Object, System.Private.CoreLib'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Object, System.Private.CoreLib').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func ReferenceEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Object, System.Private.CoreLib'),"ReferenceEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Object, System.Private.CoreLib').nHandle,"s15:ReferenceEquals",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class Type from MemberInfo
@@ -996,692 +996,692 @@ Class Type from MemberInfo
 	Func GetType P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetType",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s7:GetType",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetType",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:GetType",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+			return dnSend("s4:call",nHandle,"s7:GetType","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s7:GetType",dnPackItem(P1))
 
 	Func GetElementType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetElementType"])
+		return dnSend("s4:call",nHandle,"s14:GetElementType","")
 
 	Func GetArrayRank 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetArrayRank"])
+		return dnSend("s4:call",nHandle,"s12:GetArrayRank","")
 
 	Func GetGenericTypeDefinition 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetGenericTypeDefinition"])
+		return dnSend("s4:call",nHandle,"s24:GetGenericTypeDefinition","")
 
 	Func GetGenericArguments 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetGenericArguments"])
+		return dnSend("s4:call",nHandle,"s19:GetGenericArguments","")
 
 	Func GetOptionalCustomModifiers 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetOptionalCustomModifiers"])
+		return dnSend("s4:call",nHandle,"s26:GetOptionalCustomModifiers","")
 
 	Func GetRequiredCustomModifiers 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRequiredCustomModifiers"])
+		return dnSend("s4:call",nHandle,"s26:GetRequiredCustomModifiers","")
 
 	Func GetGenericParameterConstraints 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetGenericParameterConstraints"])
+		return dnSend("s4:call",nHandle,"s30:GetGenericParameterConstraints","")
 
 	Func IsAssignableTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsAssignableTo",P1])
+		return dnSend("s4:call",nHandle,"s14:IsAssignableTo",dnPackItem(P1))
 
 	Func GetConstructor P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetConstructor",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:GetConstructor",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetConstructor",P1])
+		return dnSend("s4:call",nHandle,"s14:GetConstructor",dnPackItem(P1))
 
 	Func GetConstructors P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetConstructors",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:GetConstructors",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetConstructors"])
+			return dnSend("s4:call",nHandle,"s15:GetConstructors","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetConstructors",P1])
+		return dnSend("s4:call",nHandle,"s15:GetConstructors",dnPackItem(P1))
 
 	Func GetEvent P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetEvent",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:GetEvent",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEvent",P1])
+		return dnSend("s4:call",nHandle,"s8:GetEvent",dnPackItem(P1))
 
 	Func GetEvents P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetEvents",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:GetEvents",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetEvents"])
+			return dnSend("s4:call",nHandle,"s9:GetEvents","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEvents",P1])
+		return dnSend("s4:call",nHandle,"s9:GetEvents",dnPackItem(P1))
 
 	Func GetField P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetField",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:GetField",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetField",P1])
+		return dnSend("s4:call",nHandle,"s8:GetField",dnPackItem(P1))
 
 	Func GetFields P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetFields",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:GetFields",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetFields"])
+			return dnSend("s4:call",nHandle,"s9:GetFields","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFields",P1])
+		return dnSend("s4:call",nHandle,"s9:GetFields",dnPackItem(P1))
 
 	Func GetFunctionPointerCallingConventions 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFunctionPointerCallingConventions"])
+		return dnSend("s4:call",nHandle,"s36:GetFunctionPointerCallingConventions","")
 
 	Func GetFunctionPointerReturnType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFunctionPointerReturnType"])
+		return dnSend("s4:call",nHandle,"s28:GetFunctionPointerReturnType","")
 
 	Func GetFunctionPointerParameterTypes 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFunctionPointerParameterTypes"])
+		return dnSend("s4:call",nHandle,"s32:GetFunctionPointerParameterTypes","")
 
 	Func GetMember P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetMember",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:GetMember",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMember",P1])
+		return dnSend("s4:call",nHandle,"s9:GetMember",dnPackItem(P1))
 
 	Func GetMembers P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetMembers",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:GetMembers",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetMembers"])
+			return dnSend("s4:call",nHandle,"s10:GetMembers","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMembers",P1])
+		return dnSend("s4:call",nHandle,"s10:GetMembers",dnPackItem(P1))
 
 	Func GetMemberWithSameMetadataDefinitionAs P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMemberWithSameMetadataDefinitionAs",P1])
+		return dnSend("s4:call",nHandle,"s37:GetMemberWithSameMetadataDefinitionAs",dnPackItem(P1))
 
 	Func GetMethod P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetMethod",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:GetMethod",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMethod",P1])
+		return dnSend("s4:call",nHandle,"s9:GetMethod",dnPackItem(P1))
 
 	Func GetMethods P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetMethods",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:GetMethods",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetMethods"])
+			return dnSend("s4:call",nHandle,"s10:GetMethods","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMethods",P1])
+		return dnSend("s4:call",nHandle,"s10:GetMethods",dnPackItem(P1))
 
 	Func GetNestedType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetNestedType",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:GetNestedType",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNestedType",P1])
+		return dnSend("s4:call",nHandle,"s13:GetNestedType",dnPackItem(P1))
 
 	Func GetNestedTypes P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetNestedTypes",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:GetNestedTypes",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetNestedTypes"])
+			return dnSend("s4:call",nHandle,"s14:GetNestedTypes","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNestedTypes",P1])
+		return dnSend("s4:call",nHandle,"s14:GetNestedTypes",dnPackItem(P1))
 
 	Func GetProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetProperty",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:GetProperty",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetProperty",P1])
+		return dnSend("s4:call",nHandle,"s11:GetProperty",dnPackItem(P1))
 
 	Func GetProperties P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetProperties",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:GetProperties",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetProperties"])
+			return dnSend("s4:call",nHandle,"s13:GetProperties","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetProperties",P1])
+		return dnSend("s4:call",nHandle,"s13:GetProperties",dnPackItem(P1))
 
 	Func GetDefaultMembers 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultMembers"])
+		return dnSend("s4:call",nHandle,"s17:GetDefaultMembers","")
 
 	Func InvokeMember P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"InvokeMember",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:InvokeMember",dnPackItem(P1))
 		ok
 		raise("DotNet Error: InvokeMember does not take one argument: use named arguments, InvokeMember([ :parameter = value, ... ])")
 
 	Func GetInterface P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetInterface",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:GetInterface",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetInterface",P1])
+		return dnSend("s4:call",nHandle,"s12:GetInterface",dnPackItem(P1))
 
 	Func GetInterfaces 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetInterfaces"])
+		return dnSend("s4:call",nHandle,"s13:GetInterfaces","")
 
 	Func GetInterfaceMap P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetInterfaceMap",P1])
+		return dnSend("s4:call",nHandle,"s15:GetInterfaceMap",dnPackItem(P1))
 
 	Func IsInstanceOfType P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsInstanceOfType",P1])
+		return dnSend("s4:call",nHandle,"s16:IsInstanceOfType",dnPackItem(P1))
 
 	Func IsEquivalentTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsEquivalentTo",P1])
+		return dnSend("s4:call",nHandle,"s14:IsEquivalentTo",dnPackItem(P1))
 
 	Func GetEnumUnderlyingType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumUnderlyingType"])
+		return dnSend("s4:call",nHandle,"s21:GetEnumUnderlyingType","")
 
 	Func GetEnumValues 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumValues"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumValues","")
 
 	Func GetEnumValuesAsUnderlyingType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumValuesAsUnderlyingType"])
+		return dnSend("s4:call",nHandle,"s29:GetEnumValuesAsUnderlyingType","")
 
 	Func MakeArrayType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"MakeArrayType",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:MakeArrayType",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"MakeArrayType"])
+			return dnSend("s4:call",nHandle,"s13:MakeArrayType","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MakeArrayType",P1])
+		return dnSend("s4:call",nHandle,"s13:MakeArrayType",dnPackItem(P1))
 
 	Func MakeByRefType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MakeByRefType"])
+		return dnSend("s4:call",nHandle,"s13:MakeByRefType","")
 
 	Func MakeGenericType P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MakeGenericType",P1])
+		return dnSend("s4:call",nHandle,"s15:MakeGenericType",dnPackItem(P1))
 
 	Func MakePointerType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MakePointerType"])
+		return dnSend("s4:call",nHandle,"s15:MakePointerType","")
 
 	Func IsEnumDefined P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsEnumDefined",P1])
+		return dnSend("s4:call",nHandle,"s13:IsEnumDefined",dnPackItem(P1))
 
 	Func GetEnumName P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumName",P1])
+		return dnSend("s4:call",nHandle,"s11:GetEnumName",dnPackItem(P1))
 
 	Func GetEnumNames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumNames"])
+		return dnSend("s4:call",nHandle,"s12:GetEnumNames","")
 
 	Func FindInterfaces P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindInterfaces",P1,P2])
+		return dnSend("s4:call",nHandle,"s14:FindInterfaces",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FindMembers P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindMembers",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s11:FindMembers",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func IsSubclassOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSubclassOf",P1])
+		return dnSend("s4:call",nHandle,"s12:IsSubclassOf",dnPackItem(P1))
 
 	Func IsAssignableFrom P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsAssignableFrom",P1])
+		return dnSend("s4:call",nHandle,"s16:IsAssignableFrom",dnPackItem(P1))
 
 	Func GetTypeFromHandle P1
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromHandle",P1])
+		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s17:GetTypeFromHandle",dnPackItem(P1))
 
 	Func GetTypeHandle_ P1
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeHandle",P1])
+		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s13:GetTypeHandle",dnPackItem(P1))
 
 	Func GetTypeArray P1
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeArray",P1])
+		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s12:GetTypeArray",dnPackItem(P1))
 
 	Func GetTypeCode P1
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeCode",P1])
+		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s11:GetTypeCode",dnPackItem(P1))
 
 	Func GetTypeFromCLSID P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromCLSID",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s16:GetTypeFromCLSID",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromCLSID",P1])
+		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s16:GetTypeFromCLSID",dnPackItem(P1))
 
 	Func GetTypeFromProgID P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromProgID",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s17:GetTypeFromProgID",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromProgID",P1])
+		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s17:GetTypeFromProgID",dnPackItem(P1))
 
 	Func MakeGenericSignatureType P1,P2
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"MakeGenericSignatureType",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s24:MakeGenericSignatureType",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MakeGenericMethodParameter P1
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"MakeGenericMethodParameter",P1])
+		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s26:MakeGenericMethodParameter",dnPackItem(P1))
 
 	Func ReflectionOnlyGetType P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"ReflectionOnlyGetType",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s21:ReflectionOnlyGetType",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getNamespace
-		return dnRequest("get",[self,"Namespace"])
+		return dnSend("s3:get",nHandle,"s9:Namespace","")
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getAssemblyQualifiedName
-		return dnRequest("get",[self,"AssemblyQualifiedName"])
+		return dnSend("s3:get",nHandle,"s21:AssemblyQualifiedName","")
 
 	Func setAssemblyQualifiedName P1
 		raise("DotNet Error: AssemblyQualifiedName is a read-only property")
 
 	Func getFullName
-		return dnRequest("get",[self,"FullName"])
+		return dnSend("s3:get",nHandle,"s8:FullName","")
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
 
 	Func getAssembly
-		return dnRequest("get",[self,"Assembly"])
+		return dnSend("s3:get",nHandle,"s8:Assembly","")
 
 	Func setAssembly P1
 		raise("DotNet Error: Assembly is a read-only property")
 
 	Func getIsInterface
-		return dnRequest("get",[self,"IsInterface"])
+		return dnSend("s3:get",nHandle,"s11:IsInterface","")
 
 	Func setIsInterface P1
 		raise("DotNet Error: IsInterface is a read-only property")
 
 	Func getIsNested
-		return dnRequest("get",[self,"IsNested"])
+		return dnSend("s3:get",nHandle,"s8:IsNested","")
 
 	Func setIsNested P1
 		raise("DotNet Error: IsNested is a read-only property")
 
 	Func getDeclaringMethod
-		return dnRequest("get",[self,"DeclaringMethod"])
+		return dnSend("s3:get",nHandle,"s15:DeclaringMethod","")
 
 	Func setDeclaringMethod P1
 		raise("DotNet Error: DeclaringMethod is a read-only property")
 
 	Func getUnderlyingSystemType
-		return dnRequest("get",[self,"UnderlyingSystemType"])
+		return dnSend("s3:get",nHandle,"s20:UnderlyingSystemType","")
 
 	Func setUnderlyingSystemType P1
 		raise("DotNet Error: UnderlyingSystemType is a read-only property")
 
 	Func getIsTypeDefinition
-		return dnRequest("get",[self,"IsTypeDefinition"])
+		return dnSend("s3:get",nHandle,"s16:IsTypeDefinition","")
 
 	Func setIsTypeDefinition P1
 		raise("DotNet Error: IsTypeDefinition is a read-only property")
 
 	Func getIsArray
-		return dnRequest("get",[self,"IsArray"])
+		return dnSend("s3:get",nHandle,"s7:IsArray","")
 
 	Func setIsArray P1
 		raise("DotNet Error: IsArray is a read-only property")
 
 	Func getIsByRef
-		return dnRequest("get",[self,"IsByRef"])
+		return dnSend("s3:get",nHandle,"s7:IsByRef","")
 
 	Func setIsByRef P1
 		raise("DotNet Error: IsByRef is a read-only property")
 
 	Func getIsPointer
-		return dnRequest("get",[self,"IsPointer"])
+		return dnSend("s3:get",nHandle,"s9:IsPointer","")
 
 	Func setIsPointer P1
 		raise("DotNet Error: IsPointer is a read-only property")
 
 	Func getIsConstructedGenericType
-		return dnRequest("get",[self,"IsConstructedGenericType"])
+		return dnSend("s3:get",nHandle,"s24:IsConstructedGenericType","")
 
 	Func setIsConstructedGenericType P1
 		raise("DotNet Error: IsConstructedGenericType is a read-only property")
 
 	Func getIsGenericParameter
-		return dnRequest("get",[self,"IsGenericParameter"])
+		return dnSend("s3:get",nHandle,"s18:IsGenericParameter","")
 
 	Func setIsGenericParameter P1
 		raise("DotNet Error: IsGenericParameter is a read-only property")
 
 	Func getIsGenericTypeParameter
-		return dnRequest("get",[self,"IsGenericTypeParameter"])
+		return dnSend("s3:get",nHandle,"s22:IsGenericTypeParameter","")
 
 	Func setIsGenericTypeParameter P1
 		raise("DotNet Error: IsGenericTypeParameter is a read-only property")
 
 	Func getIsGenericMethodParameter
-		return dnRequest("get",[self,"IsGenericMethodParameter"])
+		return dnSend("s3:get",nHandle,"s24:IsGenericMethodParameter","")
 
 	Func setIsGenericMethodParameter P1
 		raise("DotNet Error: IsGenericMethodParameter is a read-only property")
 
 	Func getIsGenericType
-		return dnRequest("get",[self,"IsGenericType"])
+		return dnSend("s3:get",nHandle,"s13:IsGenericType","")
 
 	Func setIsGenericType P1
 		raise("DotNet Error: IsGenericType is a read-only property")
 
 	Func getIsGenericTypeDefinition
-		return dnRequest("get",[self,"IsGenericTypeDefinition"])
+		return dnSend("s3:get",nHandle,"s23:IsGenericTypeDefinition","")
 
 	Func setIsGenericTypeDefinition P1
 		raise("DotNet Error: IsGenericTypeDefinition is a read-only property")
 
 	Func getIsSZArray
-		return dnRequest("get",[self,"IsSZArray"])
+		return dnSend("s3:get",nHandle,"s9:IsSZArray","")
 
 	Func setIsSZArray P1
 		raise("DotNet Error: IsSZArray is a read-only property")
 
 	Func getIsVariableBoundArray
-		return dnRequest("get",[self,"IsVariableBoundArray"])
+		return dnSend("s3:get",nHandle,"s20:IsVariableBoundArray","")
 
 	Func setIsVariableBoundArray P1
 		raise("DotNet Error: IsVariableBoundArray is a read-only property")
 
 	Func getIsByRefLike
-		return dnRequest("get",[self,"IsByRefLike"])
+		return dnSend("s3:get",nHandle,"s11:IsByRefLike","")
 
 	Func setIsByRefLike P1
 		raise("DotNet Error: IsByRefLike is a read-only property")
 
 	Func getIsFunctionPointer
-		return dnRequest("get",[self,"IsFunctionPointer"])
+		return dnSend("s3:get",nHandle,"s17:IsFunctionPointer","")
 
 	Func setIsFunctionPointer P1
 		raise("DotNet Error: IsFunctionPointer is a read-only property")
 
 	Func getIsUnmanagedFunctionPointer
-		return dnRequest("get",[self,"IsUnmanagedFunctionPointer"])
+		return dnSend("s3:get",nHandle,"s26:IsUnmanagedFunctionPointer","")
 
 	Func setIsUnmanagedFunctionPointer P1
 		raise("DotNet Error: IsUnmanagedFunctionPointer is a read-only property")
 
 	Func getHasElementType
-		return dnRequest("get",[self,"HasElementType"])
+		return dnSend("s3:get",nHandle,"s14:HasElementType","")
 
 	Func setHasElementType P1
 		raise("DotNet Error: HasElementType is a read-only property")
 
 	Func getGenericTypeArguments
-		return dnRequest("get",[self,"GenericTypeArguments"])
+		return dnSend("s3:get",nHandle,"s20:GenericTypeArguments","")
 
 	Func setGenericTypeArguments P1
 		raise("DotNet Error: GenericTypeArguments is a read-only property")
 
 	Func getGenericParameterPosition
-		return dnRequest("get",[self,"GenericParameterPosition"])
+		return dnSend("s3:get",nHandle,"s24:GenericParameterPosition","")
 
 	Func setGenericParameterPosition P1
 		raise("DotNet Error: GenericParameterPosition is a read-only property")
 
 	Func getGenericParameterAttributes
-		return dnRequest("get",[self,"GenericParameterAttributes"])
+		return dnSend("s3:get",nHandle,"s26:GenericParameterAttributes","")
 
 	Func setGenericParameterAttributes P1
 		raise("DotNet Error: GenericParameterAttributes is a read-only property")
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnSend("s3:get",nHandle,"s10:Attributes","")
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getIsAbstract
-		return dnRequest("get",[self,"IsAbstract"])
+		return dnSend("s3:get",nHandle,"s10:IsAbstract","")
 
 	Func setIsAbstract P1
 		raise("DotNet Error: IsAbstract is a read-only property")
 
 	Func getIsImport
-		return dnRequest("get",[self,"IsImport"])
+		return dnSend("s3:get",nHandle,"s8:IsImport","")
 
 	Func setIsImport P1
 		raise("DotNet Error: IsImport is a read-only property")
 
 	Func getIsSealed
-		return dnRequest("get",[self,"IsSealed"])
+		return dnSend("s3:get",nHandle,"s8:IsSealed","")
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
 
 	Func getIsSpecialName
-		return dnRequest("get",[self,"IsSpecialName"])
+		return dnSend("s3:get",nHandle,"s13:IsSpecialName","")
 
 	Func setIsSpecialName P1
 		raise("DotNet Error: IsSpecialName is a read-only property")
 
 	Func getIsClass
-		return dnRequest("get",[self,"IsClass"])
+		return dnSend("s3:get",nHandle,"s7:IsClass","")
 
 	Func setIsClass P1
 		raise("DotNet Error: IsClass is a read-only property")
 
 	Func getIsNestedAssembly
-		return dnRequest("get",[self,"IsNestedAssembly"])
+		return dnSend("s3:get",nHandle,"s16:IsNestedAssembly","")
 
 	Func setIsNestedAssembly P1
 		raise("DotNet Error: IsNestedAssembly is a read-only property")
 
 	Func getIsNestedFamANDAssem
-		return dnRequest("get",[self,"IsNestedFamANDAssem"])
+		return dnSend("s3:get",nHandle,"s19:IsNestedFamANDAssem","")
 
 	Func setIsNestedFamANDAssem P1
 		raise("DotNet Error: IsNestedFamANDAssem is a read-only property")
 
 	Func getIsNestedFamily
-		return dnRequest("get",[self,"IsNestedFamily"])
+		return dnSend("s3:get",nHandle,"s14:IsNestedFamily","")
 
 	Func setIsNestedFamily P1
 		raise("DotNet Error: IsNestedFamily is a read-only property")
 
 	Func getIsNestedFamORAssem
-		return dnRequest("get",[self,"IsNestedFamORAssem"])
+		return dnSend("s3:get",nHandle,"s18:IsNestedFamORAssem","")
 
 	Func setIsNestedFamORAssem P1
 		raise("DotNet Error: IsNestedFamORAssem is a read-only property")
 
 	Func getIsNestedPrivate
-		return dnRequest("get",[self,"IsNestedPrivate"])
+		return dnSend("s3:get",nHandle,"s15:IsNestedPrivate","")
 
 	Func setIsNestedPrivate P1
 		raise("DotNet Error: IsNestedPrivate is a read-only property")
 
 	Func getIsNestedPublic
-		return dnRequest("get",[self,"IsNestedPublic"])
+		return dnSend("s3:get",nHandle,"s14:IsNestedPublic","")
 
 	Func setIsNestedPublic P1
 		raise("DotNet Error: IsNestedPublic is a read-only property")
 
 	Func getIsNotPublic
-		return dnRequest("get",[self,"IsNotPublic"])
+		return dnSend("s3:get",nHandle,"s11:IsNotPublic","")
 
 	Func setIsNotPublic P1
 		raise("DotNet Error: IsNotPublic is a read-only property")
 
 	Func getIsPublic
-		return dnRequest("get",[self,"IsPublic"])
+		return dnSend("s3:get",nHandle,"s8:IsPublic","")
 
 	Func setIsPublic P1
 		raise("DotNet Error: IsPublic is a read-only property")
 
 	Func getIsAutoLayout
-		return dnRequest("get",[self,"IsAutoLayout"])
+		return dnSend("s3:get",nHandle,"s12:IsAutoLayout","")
 
 	Func setIsAutoLayout P1
 		raise("DotNet Error: IsAutoLayout is a read-only property")
 
 	Func getIsExplicitLayout
-		return dnRequest("get",[self,"IsExplicitLayout"])
+		return dnSend("s3:get",nHandle,"s16:IsExplicitLayout","")
 
 	Func setIsExplicitLayout P1
 		raise("DotNet Error: IsExplicitLayout is a read-only property")
 
 	Func getIsLayoutSequential
-		return dnRequest("get",[self,"IsLayoutSequential"])
+		return dnSend("s3:get",nHandle,"s18:IsLayoutSequential","")
 
 	Func setIsLayoutSequential P1
 		raise("DotNet Error: IsLayoutSequential is a read-only property")
 
 	Func getIsAnsiClass
-		return dnRequest("get",[self,"IsAnsiClass"])
+		return dnSend("s3:get",nHandle,"s11:IsAnsiClass","")
 
 	Func setIsAnsiClass P1
 		raise("DotNet Error: IsAnsiClass is a read-only property")
 
 	Func getIsAutoClass
-		return dnRequest("get",[self,"IsAutoClass"])
+		return dnSend("s3:get",nHandle,"s11:IsAutoClass","")
 
 	Func setIsAutoClass P1
 		raise("DotNet Error: IsAutoClass is a read-only property")
 
 	Func getIsUnicodeClass
-		return dnRequest("get",[self,"IsUnicodeClass"])
+		return dnSend("s3:get",nHandle,"s14:IsUnicodeClass","")
 
 	Func setIsUnicodeClass P1
 		raise("DotNet Error: IsUnicodeClass is a read-only property")
 
 	Func getIsCOMObject
-		return dnRequest("get",[self,"IsCOMObject"])
+		return dnSend("s3:get",nHandle,"s11:IsCOMObject","")
 
 	Func setIsCOMObject P1
 		raise("DotNet Error: IsCOMObject is a read-only property")
 
 	Func getIsContextful
-		return dnRequest("get",[self,"IsContextful"])
+		return dnSend("s3:get",nHandle,"s12:IsContextful","")
 
 	Func setIsContextful P1
 		raise("DotNet Error: IsContextful is a read-only property")
 
 	Func getIsEnum
-		return dnRequest("get",[self,"IsEnum"])
+		return dnSend("s3:get",nHandle,"s6:IsEnum","")
 
 	Func setIsEnum P1
 		raise("DotNet Error: IsEnum is a read-only property")
 
 	Func getIsMarshalByRef
-		return dnRequest("get",[self,"IsMarshalByRef"])
+		return dnSend("s3:get",nHandle,"s14:IsMarshalByRef","")
 
 	Func setIsMarshalByRef P1
 		raise("DotNet Error: IsMarshalByRef is a read-only property")
 
 	Func getIsPrimitive
-		return dnRequest("get",[self,"IsPrimitive"])
+		return dnSend("s3:get",nHandle,"s11:IsPrimitive","")
 
 	Func setIsPrimitive P1
 		raise("DotNet Error: IsPrimitive is a read-only property")
 
 	Func getIsValueType
-		return dnRequest("get",[self,"IsValueType"])
+		return dnSend("s3:get",nHandle,"s11:IsValueType","")
 
 	Func setIsValueType P1
 		raise("DotNet Error: IsValueType is a read-only property")
 
 	Func getIsSignatureType
-		return dnRequest("get",[self,"IsSignatureType"])
+		return dnSend("s3:get",nHandle,"s15:IsSignatureType","")
 
 	Func setIsSignatureType P1
 		raise("DotNet Error: IsSignatureType is a read-only property")
 
 	Func getIsSecurityCritical
-		return dnRequest("get",[self,"IsSecurityCritical"])
+		return dnSend("s3:get",nHandle,"s18:IsSecurityCritical","")
 
 	Func setIsSecurityCritical P1
 		raise("DotNet Error: IsSecurityCritical is a read-only property")
 
 	Func getIsSecuritySafeCritical
-		return dnRequest("get",[self,"IsSecuritySafeCritical"])
+		return dnSend("s3:get",nHandle,"s22:IsSecuritySafeCritical","")
 
 	Func setIsSecuritySafeCritical P1
 		raise("DotNet Error: IsSecuritySafeCritical is a read-only property")
 
 	Func getIsSecurityTransparent
-		return dnRequest("get",[self,"IsSecurityTransparent"])
+		return dnSend("s3:get",nHandle,"s21:IsSecurityTransparent","")
 
 	Func setIsSecurityTransparent P1
 		raise("DotNet Error: IsSecurityTransparent is a read-only property")
 
 	Func getStructLayoutAttribute
-		return dnRequest("get",[self,"StructLayoutAttribute"])
+		return dnSend("s3:get",nHandle,"s21:StructLayoutAttribute","")
 
 	Func setStructLayoutAttribute P1
 		raise("DotNet Error: StructLayoutAttribute is a read-only property")
 
 	Func getTypeInitializer
-		return dnRequest("get",[self,"TypeInitializer"])
+		return dnSend("s3:get",nHandle,"s15:TypeInitializer","")
 
 	Func setTypeInitializer P1
 		raise("DotNet Error: TypeInitializer is a read-only property")
 
 	Func getTypeHandle
-		return dnRequest("get",[self,"TypeHandle"])
+		return dnSend("s3:get",nHandle,"s10:TypeHandle","")
 
 	Func setTypeHandle P1
 		raise("DotNet Error: TypeHandle is a read-only property")
 
 	Func getGUID
-		return dnRequest("get",[self,"GUID"])
+		return dnSend("s3:get",nHandle,"s4:GUID","")
 
 	Func setGUID P1
 		raise("DotNet Error: GUID is a read-only property")
 
 	Func getBaseType
-		return dnRequest("get",[self,"BaseType"])
+		return dnSend("s3:get",nHandle,"s8:BaseType","")
 
 	Func setBaseType P1
 		raise("DotNet Error: BaseType is a read-only property")
 
 	Func getIsSerializable
-		return dnRequest("get",[self,"IsSerializable"])
+		return dnSend("s3:get",nHandle,"s14:IsSerializable","")
 
 	Func setIsSerializable P1
 		raise("DotNet Error: IsSerializable is a read-only property")
 
 	Func getContainsGenericParameters
-		return dnRequest("get",[self,"ContainsGenericParameters"])
+		return dnSend("s3:get",nHandle,"s25:ContainsGenericParameters","")
 
 	Func setContainsGenericParameters P1
 		raise("DotNet Error: ContainsGenericParameters is a read-only property")
 
 	Func getIsVisible
-		return dnRequest("get",[self,"IsVisible"])
+		return dnSend("s3:get",nHandle,"s9:IsVisible","")
 
 	Func setIsVisible P1
 		raise("DotNet Error: IsVisible is a read-only property")
 
 	Func getDefaultBinder
-		return dnRequest("get",[dnTypeCached('System.Type, System.Private.CoreLib'),"DefaultBinder"])
+		return dnSend("s3:get",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s13:DefaultBinder","")
 
 	Func setDefaultBinder P1
 		raise("DotNet Error: DefaultBinder is a read-only property")
 
 	Func getDelimiter
-		return dnRequest("get",[dnTypeCached('System.Type, System.Private.CoreLib'),"Delimiter"])
+		return dnSend("s3:get",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s9:Delimiter","")
 
 	Func setDelimiter P1
 		raise("DotNet Error: Delimiter is a read-only property")
 
 	Func getEmptyTypes
-		return dnRequest("get",[dnTypeCached('System.Type, System.Private.CoreLib'),"EmptyTypes"])
+		return dnSend("s3:get",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s10:EmptyTypes","")
 
 	Func setEmptyTypes P1
 		raise("DotNet Error: EmptyTypes is a read-only property")
 
 	Func getMissing
-		return dnRequest("get",[dnTypeCached('System.Type, System.Private.CoreLib'),"Missing"])
+		return dnSend("s3:get",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s7:Missing","")
 
 	Func setMissing P1
 		raise("DotNet Error: Missing is a read-only property")
 
 	Func getFilterAttribute
-		return dnRequest("get",[dnTypeCached('System.Type, System.Private.CoreLib'),"FilterAttribute"])
+		return dnSend("s3:get",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s15:FilterAttribute","")
 
 	Func setFilterAttribute P1
 		raise("DotNet Error: FilterAttribute is a read-only property")
 
 	Func getFilterName
-		return dnRequest("get",[dnTypeCached('System.Type, System.Private.CoreLib'),"FilterName"])
+		return dnSend("s3:get",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s10:FilterName","")
 
 	Func setFilterName P1
 		raise("DotNet Error: FilterName is a read-only property")
 
 	Func getFilterNameIgnoreCase
-		return dnRequest("get",[dnTypeCached('System.Type, System.Private.CoreLib'),"FilterNameIgnoreCase"])
+		return dnSend("s3:get",dnTypeCached('System.Type, System.Private.CoreLib').nHandle,"s20:FilterNameIgnoreCase","")
 
 	Func setFilterNameIgnoreCase P1
 		raise("DotNet Error: FilterNameIgnoreCase is a read-only property")
@@ -1699,20 +1699,20 @@ Class Activator from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateInstance P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Activator, System.Private.CoreLib').nHandle,"s14:CreateInstance",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance"])
+			return dnSend("s4:call",dnTypeCached('System.Activator, System.Private.CoreLib').nHandle,"s14:CreateInstance","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1])
+		return dnSend("s4:call",dnTypeCached('System.Activator, System.Private.CoreLib').nHandle,"s14:CreateInstance",dnPackItem(P1))
 
 	Func CreateInstanceFrom P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstanceFrom",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Activator, System.Private.CoreLib').nHandle,"s18:CreateInstanceFrom",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateInstanceFrom does not take one argument: use named arguments, CreateInstanceFrom([ :parameter = value, ... ])")
 
@@ -1732,30 +1732,30 @@ Class AppContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetData P1
-		return dnRequest("call",[dnTypeCached('System.AppContext, System.Private.CoreLib'),"GetData",P1])
+		return dnSend("s4:call",dnTypeCached('System.AppContext, System.Private.CoreLib').nHandle,"s7:GetData",dnPackItem(P1))
 
 	Func SetData P1,P2
-		dnRequest("call",[dnTypeCached('System.AppContext, System.Private.CoreLib'),"SetData",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.AppContext, System.Private.CoreLib').nHandle,"s7:SetData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func TryGetSwitch P1
-		return dnRequest("call",[dnTypeCached('System.AppContext, System.Private.CoreLib'),"TryGetSwitch",P1])
+		return dnSend("s4:call",dnTypeCached('System.AppContext, System.Private.CoreLib').nHandle,"s12:TryGetSwitch",dnPackItem(P1))
 
 	Func SetSwitch P1,P2
-		dnRequest("call",[dnTypeCached('System.AppContext, System.Private.CoreLib'),"SetSwitch",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.AppContext, System.Private.CoreLib').nHandle,"s9:SetSwitch",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getBaseDirectory
-		return dnRequest("get",[dnTypeCached('System.AppContext, System.Private.CoreLib'),"BaseDirectory"])
+		return dnSend("s3:get",dnTypeCached('System.AppContext, System.Private.CoreLib').nHandle,"s13:BaseDirectory","")
 
 	Func setBaseDirectory P1
 		raise("DotNet Error: BaseDirectory is a read-only property")
 
 	Func getTargetFrameworkName
-		return dnRequest("get",[dnTypeCached('System.AppContext, System.Private.CoreLib'),"TargetFrameworkName"])
+		return dnSend("s3:get",dnTypeCached('System.AppContext, System.Private.CoreLib').nHandle,"s19:TargetFrameworkName","")
 
 	Func setTargetFrameworkName P1
 		raise("DotNet Error: TargetFrameworkName is a read-only property")
@@ -1776,16 +1776,16 @@ Class AppDomainSetup from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getApplicationBase
-		return dnRequest("get",[self,"ApplicationBase"])
+		return dnSend("s3:get",nHandle,"s15:ApplicationBase","")
 
 	Func setApplicationBase P1
 		raise("DotNet Error: ApplicationBase is a read-only property")
 
 	Func getTargetFrameworkName
-		return dnRequest("get",[self,"TargetFrameworkName"])
+		return dnSend("s3:get",nHandle,"s19:TargetFrameworkName","")
 
 	Func setTargetFrameworkName P1
 		raise("DotNet Error: TargetFrameworkName is a read-only property")
@@ -1811,37 +1811,37 @@ Class ApplicationId from Object
 		return self
 
 	Func Copy 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Copy"])
+		return dnSend("s4:call",nHandle,"s4:Copy","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCulture
-		return dnRequest("get",[self,"Culture"])
+		return dnSend("s3:get",nHandle,"s7:Culture","")
 
 	Func setCulture P1
 		raise("DotNet Error: Culture is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getProcessorArchitecture
-		return dnRequest("get",[self,"ProcessorArchitecture"])
+		return dnSend("s3:get",nHandle,"s21:ProcessorArchitecture","")
 
 	Func setProcessorArchitecture P1
 		raise("DotNet Error: ProcessorArchitecture is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnSend("s3:get",nHandle,"s7:Version","")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getPublicKeyToken
-		return dnRequest("get",[self,"PublicKeyToken"])
+		return dnSend("s3:get",nHandle,"s14:PublicKeyToken","")
 
 	Func setPublicKeyToken P1
 		raise("DotNet Error: PublicKeyToken is a read-only property")
@@ -1868,206 +1868,206 @@ Class Array from Object
 		return self
 
 	Func GetLength_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetLength",P1])
+		return dnSend("s4:call",nHandle,"s9:GetLength",dnPackItem(P1))
 
 	Func GetUpperBound P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUpperBound",P1])
+		return dnSend("s4:call",nHandle,"s13:GetUpperBound",dnPackItem(P1))
 
 	Func GetLowerBound P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetLowerBound",P1])
+		return dnSend("s4:call",nHandle,"s13:GetLowerBound",dnPackItem(P1))
 
 	Func Initialize 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Initialize"])
+		dnSend("s4:call",nHandle,"s10:Initialize","")
 		return self
 
 	Func GetValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetValue",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:GetValue",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func SetValue P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetValue",P1])
+			dnSend("s9:callnamed",nHandle,"s8:SetValue",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: SetValue does not take one argument: use named arguments, SetValue([ :parameter = value, ... ])")
 
 	Func GetLongLength_ P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetLongLength",P1])
+		return dnSend("s4:call",nHandle,"s13:GetLongLength",dnPackItem(P1))
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ConstrainedCopy P1,P2,P3,P4,P5
-		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"ConstrainedCopy",P1,P2,P3,P4,P5])
+		dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s15:ConstrainedCopy",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func Clear P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Clear",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s5:Clear",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Clear",P1])
+		dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s5:Clear",dnPackItem(P1))
 		return self
 
 	Func AsReadOnly P1
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"AsReadOnly",P1])
+		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s10:AsReadOnly",dnPackItem(P1))
 
 	Func Resize P1,P2
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Resize",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s6:Resize",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateInstance P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"CreateInstance",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s14:CreateInstance",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateInstance does not take one argument: use named arguments, CreateInstance([ :parameter = value, ... ])")
 
 	Func CreateInstanceFromArrayType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"CreateInstanceFromArrayType",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s27:CreateInstanceFromArrayType",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateInstanceFromArrayType does not take one argument: use named arguments, CreateInstanceFromArrayType([ :parameter = value, ... ])")
 
 	Func Copy P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Copy",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s4:Copy",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: Copy does not take one argument: use named arguments, Copy([ :parameter = value, ... ])")
 
 	Func BinarySearch P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"BinarySearch",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s12:BinarySearch",dnPackItem(P1))
 		ok
 		raise("DotNet Error: BinarySearch does not take one argument: use named arguments, BinarySearch([ :parameter = value, ... ])")
 
 	Func ConvertAll P1,P2
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"ConvertAll",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s10:ConvertAll",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Empty 
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Empty"])
+		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s5:Empty","")
 
 	Func Exists P1,P2
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Exists",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s6:Exists",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Fill P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Fill",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s4:Fill",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: Fill does not take one argument: use named arguments, Fill([ :parameter = value, ... ])")
 
 	Func Find P1,P2
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Find",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s4:Find",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FindAll P1,P2
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindAll",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s7:FindAll",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FindIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindIndex",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s9:FindIndex",dnPackItem(P1))
 		ok
 		raise("DotNet Error: FindIndex does not take one argument: use named arguments, FindIndex([ :parameter = value, ... ])")
 
 	Func FindLast P1,P2
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindLast",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s8:FindLast",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FindLastIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindLastIndex",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s13:FindLastIndex",dnPackItem(P1))
 		ok
 		raise("DotNet Error: FindLastIndex does not take one argument: use named arguments, FindLastIndex([ :parameter = value, ... ])")
 
 	Func ForEach_ P1,P2
-		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"ForEach",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s7:ForEach",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func IndexOf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"IndexOf",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s7:IndexOf",dnPackItem(P1))
 		ok
 		raise("DotNet Error: IndexOf does not take one argument: use named arguments, IndexOf([ :parameter = value, ... ])")
 
 	Func LastIndexOf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"LastIndexOf",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s11:LastIndexOf",dnPackItem(P1))
 		ok
 		raise("DotNet Error: LastIndexOf does not take one argument: use named arguments, LastIndexOf([ :parameter = value, ... ])")
 
 	Func Reverse P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Reverse",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s7:Reverse",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Reverse",P1])
+		dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s7:Reverse",dnPackItem(P1))
 		return self
 
 	Func Sort P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Sort",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s4:Sort",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Sort",P1])
+		dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s4:Sort",dnPackItem(P1))
 		return self
 
 	Func TrueForAll P1,P2
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"TrueForAll",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s10:TrueForAll",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnSend("s3:get",nHandle,"s6:Length","")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getLongLength
-		return dnRequest("get",[self,"LongLength"])
+		return dnSend("s3:get",nHandle,"s10:LongLength","")
 
 	Func setLongLength P1
 		raise("DotNet Error: LongLength is a read-only property")
 
 	Func getRank
-		return dnRequest("get",[self,"Rank"])
+		return dnSend("s3:get",nHandle,"s4:Rank","")
 
 	Func setRank P1
 		raise("DotNet Error: Rank is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnSend("s3:get",nHandle,"s11:IsFixedSize","")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getMaxLength
-		return dnRequest("get",[dnTypeCached('System.Array, System.Private.CoreLib'),"MaxLength"])
+		return dnSend("s3:get",dnTypeCached('System.Array, System.Private.CoreLib').nHandle,"s9:MaxLength","")
 
 	Func setMaxLength P1
 		raise("DotNet Error: MaxLength is a read-only property")
@@ -2089,95 +2089,95 @@ Class BitConverter from Object
 	Func Format P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToString",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:ToString",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToString",P1])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetBytes P1
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"GetBytes",P1])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:GetBytes",dnPackItem(P1))
 
 	Func ToChar P1,P2
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToChar",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s6:ToChar",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToInt16 P1,P2
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToInt16",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s7:ToInt16",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToInt32 P1,P2
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToInt32",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s7:ToInt32",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToInt64 P1,P2
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToInt64",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s7:ToInt64",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToInt128 P1,P2
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToInt128",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:ToInt128",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToUInt16 P1,P2
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToUInt16",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:ToUInt16",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToUInt32 P1,P2
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToUInt32",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:ToUInt32",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToUInt64 P1,P2
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToUInt64",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:ToUInt64",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToUInt128 P1,P2
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToUInt128",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s9:ToUInt128",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToHalf P1,P2
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToHalf",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s6:ToHalf",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToSingle P1,P2
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToSingle",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:ToSingle",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToDouble P1,P2
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToDouble",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s8:ToDouble",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToBoolean P1,P2
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToBoolean",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s9:ToBoolean",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DoubleToInt64Bits P1
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"DoubleToInt64Bits",P1])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s17:DoubleToInt64Bits",dnPackItem(P1))
 
 	Func Int64BitsToDouble P1
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"Int64BitsToDouble",P1])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s17:Int64BitsToDouble",dnPackItem(P1))
 
 	Func SingleToInt32Bits P1
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"SingleToInt32Bits",P1])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s17:SingleToInt32Bits",dnPackItem(P1))
 
 	Func Int32BitsToSingle P1
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"Int32BitsToSingle",P1])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s17:Int32BitsToSingle",dnPackItem(P1))
 
 	Func HalfToInt16Bits P1
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"HalfToInt16Bits",P1])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s15:HalfToInt16Bits",dnPackItem(P1))
 
 	Func Int16BitsToHalf P1
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"Int16BitsToHalf",P1])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s15:Int16BitsToHalf",dnPackItem(P1))
 
 	Func DoubleToUInt64Bits P1
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"DoubleToUInt64Bits",P1])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s18:DoubleToUInt64Bits",dnPackItem(P1))
 
 	Func UInt64BitsToDouble P1
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"UInt64BitsToDouble",P1])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s18:UInt64BitsToDouble",dnPackItem(P1))
 
 	Func SingleToUInt32Bits P1
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"SingleToUInt32Bits",P1])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s18:SingleToUInt32Bits",dnPackItem(P1))
 
 	Func UInt32BitsToSingle P1
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"UInt32BitsToSingle",P1])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s18:UInt32BitsToSingle",dnPackItem(P1))
 
 	Func HalfToUInt16Bits P1
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"HalfToUInt16Bits",P1])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s16:HalfToUInt16Bits",dnPackItem(P1))
 
 	Func UInt16BitsToHalf P1
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"UInt16BitsToHalf",P1])
+		return dnSend("s4:call",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s16:UInt16BitsToHalf",dnPackItem(P1))
 
 	Func getIsLittleEndian
-		return dnRequest("get",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"IsLittleEndian"])
+		return dnSend("s3:get",dnTypeCached('System.BitConverter, System.Private.CoreLib').nHandle,"s14:IsLittleEndian","")
 
 	Func setIsLittleEndian P1
 		raise("DotNet Error: IsLittleEndian is a read-only property")
@@ -2195,20 +2195,20 @@ Class Buffer from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func BlockCopy P1,P2,P3,P4,P5
-		dnRequest("call",[dnTypeCached('System.Buffer, System.Private.CoreLib'),"BlockCopy",P1,P2,P3,P4,P5])
+		dnSend("s4:call",dnTypeCached('System.Buffer, System.Private.CoreLib').nHandle,"s9:BlockCopy",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 		return self
 
 	Func ByteLength P1
-		return dnRequest("call",[dnTypeCached('System.Buffer, System.Private.CoreLib'),"ByteLength",P1])
+		return dnSend("s4:call",dnTypeCached('System.Buffer, System.Private.CoreLib').nHandle,"s10:ByteLength",dnPackItem(P1))
 
 	Func GetByte P1,P2
-		return dnRequest("call",[dnTypeCached('System.Buffer, System.Private.CoreLib'),"GetByte",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Buffer, System.Private.CoreLib').nHandle,"s7:GetByte",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetByte P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Buffer, System.Private.CoreLib'),"SetByte",P1,P2,P3])
+		dnSend("s4:call",dnTypeCached('System.Buffer, System.Private.CoreLib').nHandle,"s7:SetByte",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 
@@ -2226,24 +2226,24 @@ Class CharEnumerator from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func MoveNext 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveNext"])
+		return dnSend("s4:call",nHandle,"s8:MoveNext","")
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCurrent
-		return dnRequest("get",[self,"Current"])
+		return dnSend("s3:get",nHandle,"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -2289,125 +2289,125 @@ Class Console from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ReadKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"ReadKey",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Console, System.Console').nHandle,"s7:ReadKey",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"ReadKey"])
+			return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s7:ReadKey","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"ReadKey",P1])
+		return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s7:ReadKey",dnPackItem(P1))
 
 	Func ResetColor 
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"ResetColor"])
+		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s10:ResetColor","")
 		return self
 
 	Func SetBufferSize P1,P2
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"SetBufferSize",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s13:SetBufferSize",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SetWindowPosition P1,P2
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"SetWindowPosition",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s17:SetWindowPosition",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func SetWindowSize P1,P2
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"SetWindowSize",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s13:SetWindowSize",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetCursorPosition 
-		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"GetCursorPosition"])
+		return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s17:GetCursorPosition","")
 
 	Func Beep P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"Beep",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.Console, System.Console').nHandle,"s4:Beep",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[dnTypeCached('System.Console, System.Console'),"Beep"])
+			dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s4:Beep","")
 		return self
 		ok
 		raise("DotNet Error: Beep does not take one argument: use named arguments, Beep([ :parameter = value, ... ])")
 
 	Func MoveBufferArea P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"MoveBufferArea",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.Console, System.Console').nHandle,"s14:MoveBufferArea",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: MoveBufferArea does not take one argument: use named arguments, MoveBufferArea([ :parameter = value, ... ])")
 
 	Func Clear 
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"Clear"])
+		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s5:Clear","")
 		return self
 
 	Func SetCursorPosition P1,P2
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"SetCursorPosition",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s17:SetCursorPosition",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func OpenStandardInput P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"OpenStandardInput",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Console, System.Console').nHandle,"s17:OpenStandardInput",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardInput"])
+			return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s17:OpenStandardInput","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardInput",P1])
+		return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s17:OpenStandardInput",dnPackItem(P1))
 
 	Func OpenStandardOutput P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"OpenStandardOutput",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Console, System.Console').nHandle,"s18:OpenStandardOutput",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardOutput"])
+			return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s18:OpenStandardOutput","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardOutput",P1])
+		return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s18:OpenStandardOutput",dnPackItem(P1))
 
 	Func OpenStandardError P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"OpenStandardError",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Console, System.Console').nHandle,"s17:OpenStandardError",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardError"])
+			return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s17:OpenStandardError","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardError",P1])
+		return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s17:OpenStandardError",dnPackItem(P1))
 
 	Func SetIn P1
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"SetIn",P1])
+		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s5:SetIn",dnPackItem(P1))
 		return self
 
 	Func SetOut P1
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"SetOut",P1])
+		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s6:SetOut",dnPackItem(P1))
 		return self
 
 	Func SetError P1
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"SetError",P1])
+		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s8:SetError",dnPackItem(P1))
 		return self
 
 	Func Read 
-		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"Read"])
+		return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s4:Read","")
 
 	Func ReadLine 
-		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"ReadLine"])
+		return dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s8:ReadLine","")
 
 	Func WriteLine P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"WriteLine",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.Console, System.Console').nHandle,"s9:WriteLine",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[dnTypeCached('System.Console, System.Console'),"WriteLine"])
+			dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s9:WriteLine","")
 		return self
 		ok
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"WriteLine",P1])
+		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s9:WriteLine",dnPackItem(P1))
 		return self
 
 	Func Write P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"Write",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.Console, System.Console').nHandle,"s5:Write",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"Write",P1])
+		dnSend("s4:call",dnTypeCached('System.Console, System.Console').nHandle,"s5:Write",dnPackItem(P1))
 		return self
 
 	Func setCancelKeyPressEvent P1
@@ -2419,172 +2419,172 @@ Class Console from Object
 		return self
 
 	Func getIn
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"In"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s2:In","")
 
 	Func getInputEncoding
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"InputEncoding"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s13:InputEncoding","")
 
 	Func setInputEncoding P1
-		dnRequest("set",[dnTypeCached('System.Console, System.Console'),"InputEncoding",P1])
+		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s13:InputEncoding",dnPackItem(P1))
 		return self
 
 	Func getOutputEncoding
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"OutputEncoding"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s14:OutputEncoding","")
 
 	Func setOutputEncoding P1
-		dnRequest("set",[dnTypeCached('System.Console, System.Console'),"OutputEncoding",P1])
+		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s14:OutputEncoding",dnPackItem(P1))
 		return self
 
 	Func getKeyAvailable
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"KeyAvailable"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s12:KeyAvailable","")
 
 	Func setKeyAvailable P1
 		raise("DotNet Error: KeyAvailable is a read-only property")
 
 	Func getOut
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"Out"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s3:Out","")
 
 	Func getError
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"Error"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s5:Error","")
 
 	Func getIsInputRedirected
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"IsInputRedirected"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s17:IsInputRedirected","")
 
 	Func setIsInputRedirected P1
 		raise("DotNet Error: IsInputRedirected is a read-only property")
 
 	Func getIsOutputRedirected
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"IsOutputRedirected"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s18:IsOutputRedirected","")
 
 	Func setIsOutputRedirected P1
 		raise("DotNet Error: IsOutputRedirected is a read-only property")
 
 	Func getIsErrorRedirected
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"IsErrorRedirected"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s17:IsErrorRedirected","")
 
 	Func setIsErrorRedirected P1
 		raise("DotNet Error: IsErrorRedirected is a read-only property")
 
 	Func getCursorSize
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"CursorSize"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s10:CursorSize","")
 
 	Func setCursorSize P1
-		dnRequest("set",[dnTypeCached('System.Console, System.Console'),"CursorSize",P1])
+		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s10:CursorSize",dnPackItem(P1))
 		return self
 
 	Func getNumberLock
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"NumberLock"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s10:NumberLock","")
 
 	Func setNumberLock P1
 		raise("DotNet Error: NumberLock is a read-only property")
 
 	Func getCapsLock
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"CapsLock"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s8:CapsLock","")
 
 	Func setCapsLock P1
 		raise("DotNet Error: CapsLock is a read-only property")
 
 	Func getBackgroundColor
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"BackgroundColor"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s15:BackgroundColor","")
 
 	Func setBackgroundColor P1
-		dnRequest("set",[dnTypeCached('System.Console, System.Console'),"BackgroundColor",P1])
+		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s15:BackgroundColor",dnPackItem(P1))
 		return self
 
 	Func getForegroundColor
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"ForegroundColor"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s15:ForegroundColor","")
 
 	Func setForegroundColor P1
-		dnRequest("set",[dnTypeCached('System.Console, System.Console'),"ForegroundColor",P1])
+		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s15:ForegroundColor",dnPackItem(P1))
 		return self
 
 	Func getBufferWidth
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"BufferWidth"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s11:BufferWidth","")
 
 	Func setBufferWidth P1
-		dnRequest("set",[dnTypeCached('System.Console, System.Console'),"BufferWidth",P1])
+		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s11:BufferWidth",dnPackItem(P1))
 		return self
 
 	Func getBufferHeight
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"BufferHeight"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s12:BufferHeight","")
 
 	Func setBufferHeight P1
-		dnRequest("set",[dnTypeCached('System.Console, System.Console'),"BufferHeight",P1])
+		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s12:BufferHeight",dnPackItem(P1))
 		return self
 
 	Func getWindowLeft
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"WindowLeft"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s10:WindowLeft","")
 
 	Func setWindowLeft P1
-		dnRequest("set",[dnTypeCached('System.Console, System.Console'),"WindowLeft",P1])
+		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s10:WindowLeft",dnPackItem(P1))
 		return self
 
 	Func getWindowTop
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"WindowTop"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s9:WindowTop","")
 
 	Func setWindowTop P1
-		dnRequest("set",[dnTypeCached('System.Console, System.Console'),"WindowTop",P1])
+		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s9:WindowTop",dnPackItem(P1))
 		return self
 
 	Func getWindowWidth
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"WindowWidth"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s11:WindowWidth","")
 
 	Func setWindowWidth P1
-		dnRequest("set",[dnTypeCached('System.Console, System.Console'),"WindowWidth",P1])
+		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s11:WindowWidth",dnPackItem(P1))
 		return self
 
 	Func getWindowHeight
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"WindowHeight"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s12:WindowHeight","")
 
 	Func setWindowHeight P1
-		dnRequest("set",[dnTypeCached('System.Console, System.Console'),"WindowHeight",P1])
+		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s12:WindowHeight",dnPackItem(P1))
 		return self
 
 	Func getLargestWindowWidth
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"LargestWindowWidth"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s18:LargestWindowWidth","")
 
 	Func setLargestWindowWidth P1
 		raise("DotNet Error: LargestWindowWidth is a read-only property")
 
 	Func getLargestWindowHeight
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"LargestWindowHeight"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s19:LargestWindowHeight","")
 
 	Func setLargestWindowHeight P1
 		raise("DotNet Error: LargestWindowHeight is a read-only property")
 
 	Func getCursorVisible
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"CursorVisible"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s13:CursorVisible","")
 
 	Func setCursorVisible P1
-		dnRequest("set",[dnTypeCached('System.Console, System.Console'),"CursorVisible",P1])
+		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s13:CursorVisible",dnPackItem(P1))
 		return self
 
 	Func getCursorLeft
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"CursorLeft"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s10:CursorLeft","")
 
 	Func setCursorLeft P1
-		dnRequest("set",[dnTypeCached('System.Console, System.Console'),"CursorLeft",P1])
+		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s10:CursorLeft",dnPackItem(P1))
 		return self
 
 	Func getCursorTop
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"CursorTop"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s9:CursorTop","")
 
 	Func setCursorTop P1
-		dnRequest("set",[dnTypeCached('System.Console, System.Console'),"CursorTop",P1])
+		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s9:CursorTop",dnPackItem(P1))
 		return self
 
 	Func getTitle
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"Title"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s5:Title","")
 
 	Func setTitle P1
-		dnRequest("set",[dnTypeCached('System.Console, System.Console'),"Title",P1])
+		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s5:Title",dnPackItem(P1))
 		return self
 
 	Func getTreatControlCAsInput
-		return dnRequest("get",[dnTypeCached('System.Console, System.Console'),"TreatControlCAsInput"])
+		return dnSend("s3:get",dnTypeCached('System.Console, System.Console').nHandle,"s20:TreatControlCAsInput","")
 
 	Func setTreatControlCAsInput P1
-		dnRequest("set",[dnTypeCached('System.Console, System.Console'),"TreatControlCAsInput",P1])
+		dnSend("s3:set",dnTypeCached('System.Console, System.Console').nHandle,"s20:TreatControlCAsInput",dnPackItem(P1))
 		return self
 
 
@@ -2604,146 +2604,146 @@ Class Convert from Object
 	Func Format P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToString",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToString",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToString",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetTypeCode P1
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"GetTypeCode",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s11:GetTypeCode",dnPackItem(P1))
 
 	Func IsDBNull P1
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"IsDBNull",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:IsDBNull",dnPackItem(P1))
 
 	Func ChangeType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ChangeType",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s10:ChangeType",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ChangeType does not take one argument: use named arguments, ChangeType([ :parameter = value, ... ])")
 
 	Func ToBoolean P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBoolean",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s9:ToBoolean",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBoolean",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s9:ToBoolean",dnPackItem(P1))
 
 	Func ToChar P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToChar",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s6:ToChar",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToChar",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s6:ToChar",dnPackItem(P1))
 
 	Func ToSByte P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToSByte",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s7:ToSByte",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToSByte",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s7:ToSByte",dnPackItem(P1))
 
 	Func ToByte P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToByte",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s6:ToByte",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToByte",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s6:ToByte",dnPackItem(P1))
 
 	Func ToInt16 P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt16",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s7:ToInt16",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt16",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s7:ToInt16",dnPackItem(P1))
 
 	Func ToUInt16 P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt16",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToUInt16",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt16",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToUInt16",dnPackItem(P1))
 
 	Func ToInt32 P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt32",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s7:ToInt32",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt32",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s7:ToInt32",dnPackItem(P1))
 
 	Func ToUInt32 P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt32",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToUInt32",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt32",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToUInt32",dnPackItem(P1))
 
 	Func ToInt64 P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt64",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s7:ToInt64",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt64",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s7:ToInt64",dnPackItem(P1))
 
 	Func ToUInt64 P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt64",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToUInt64",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt64",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToUInt64",dnPackItem(P1))
 
 	Func ToSingle P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToSingle",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToSingle",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToSingle",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToSingle",dnPackItem(P1))
 
 	Func ToDouble P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDouble",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToDouble",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDouble",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s8:ToDouble",dnPackItem(P1))
 
 	Func ToDecimal P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDecimal",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s9:ToDecimal",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDecimal",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s9:ToDecimal",dnPackItem(P1))
 
 	Func ToDateTime P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDateTime",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s10:ToDateTime",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDateTime",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s10:ToDateTime",dnPackItem(P1))
 
 	Func ToBase64String P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBase64String",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s14:ToBase64String",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBase64String",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s14:ToBase64String",dnPackItem(P1))
 
 	Func ToBase64CharArray P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBase64CharArray",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s17:ToBase64CharArray",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ToBase64CharArray does not take one argument: use named arguments, ToBase64CharArray([ :parameter = value, ... ])")
 
 	Func FromBase64String P1
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"FromBase64String",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s16:FromBase64String",dnPackItem(P1))
 
 	Func FromBase64CharArray P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"FromBase64CharArray",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s19:FromBase64CharArray",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func FromHexString P1
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"FromHexString",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s13:FromHexString",dnPackItem(P1))
 
 	Func ToHexString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexString",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s11:ToHexString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexString",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s11:ToHexString",dnPackItem(P1))
 
 	Func ToHexStringLower P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexStringLower",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s16:ToHexStringLower",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexStringLower",P1])
+		return dnSend("s4:call",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s16:ToHexStringLower",dnPackItem(P1))
 
 	Func getDBNull
-		return dnRequest("get",[dnTypeCached('System.Convert, System.Private.CoreLib'),"DBNull"])
+		return dnSend("s3:get",dnTypeCached('System.Convert, System.Private.CoreLib').nHandle,"s6:DBNull","")
 
 	Func setDBNull P1
 		raise("DotNet Error: DBNull is a read-only property")
@@ -2763,23 +2763,23 @@ Class DBNull from Object
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetObjectData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getValue
-		return dnRequest("get",[dnTypeCached('System.DBNull, System.Private.CoreLib'),"Value"])
+		return dnSend("s3:get",dnTypeCached('System.DBNull, System.Private.CoreLib').nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2823,205 +2823,205 @@ Class Environment from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Exit_ P1
-		dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"Exit",P1])
+		dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s4:Exit",dnPackItem(P1))
 		return self
 
 	Func FailFast P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"FailFast",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s8:FailFast",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"FailFast",P1])
+		dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s8:FailFast",dnPackItem(P1))
 		return self
 
 	Func GetEnvironmentVariable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariable",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s22:GetEnvironmentVariable",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariable",P1])
+		return dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s22:GetEnvironmentVariable",dnPackItem(P1))
 
 	Func GetEnvironmentVariables P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s23:GetEnvironmentVariables",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables"])
+			return dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s23:GetEnvironmentVariables","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables",P1])
+		return dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s23:GetEnvironmentVariables",dnPackItem(P1))
 
 	Func SetEnvironmentVariable P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"SetEnvironmentVariable",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s22:SetEnvironmentVariable",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: SetEnvironmentVariable does not take one argument: use named arguments, SetEnvironmentVariable([ :parameter = value, ... ])")
 
 	Func GetCommandLineArgs 
-		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetCommandLineArgs"])
+		return dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s18:GetCommandLineArgs","")
 
 	Func ExpandEnvironmentVariables P1
-		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"ExpandEnvironmentVariables",P1])
+		return dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s26:ExpandEnvironmentVariables",dnPackItem(P1))
 
 	Func GetFolderPath P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetFolderPath",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s13:GetFolderPath",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetFolderPath",P1])
+		return dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s13:GetFolderPath",dnPackItem(P1))
 
 	Func GetLogicalDrives 
-		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetLogicalDrives"])
+		return dnSend("s4:call",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s16:GetLogicalDrives","")
 
 	Func getCurrentManagedThreadId
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"CurrentManagedThreadId"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s22:CurrentManagedThreadId","")
 
 	Func setCurrentManagedThreadId P1
 		raise("DotNet Error: CurrentManagedThreadId is a read-only property")
 
 	Func getExitCode
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"ExitCode"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s8:ExitCode","")
 
 	Func setExitCode P1
-		dnRequest("set",[dnTypeCached('System.Environment, System.Private.CoreLib'),"ExitCode",P1])
+		dnSend("s3:set",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s8:ExitCode",dnPackItem(P1))
 		return self
 
 	Func getTickCount
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"TickCount"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s9:TickCount","")
 
 	Func setTickCount P1
 		raise("DotNet Error: TickCount is a read-only property")
 
 	Func getTickCount64
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"TickCount64"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s11:TickCount64","")
 
 	Func setTickCount64 P1
 		raise("DotNet Error: TickCount64 is a read-only property")
 
 	Func getProcessorCount
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"ProcessorCount"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s14:ProcessorCount","")
 
 	Func setProcessorCount P1
 		raise("DotNet Error: ProcessorCount is a read-only property")
 
 	Func getIsPrivilegedProcess
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"IsPrivilegedProcess"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s19:IsPrivilegedProcess","")
 
 	Func setIsPrivilegedProcess P1
 		raise("DotNet Error: IsPrivilegedProcess is a read-only property")
 
 	Func getHasShutdownStarted
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"HasShutdownStarted"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s18:HasShutdownStarted","")
 
 	Func setHasShutdownStarted P1
 		raise("DotNet Error: HasShutdownStarted is a read-only property")
 
 	Func getCommandLine
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"CommandLine"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s11:CommandLine","")
 
 	Func setCommandLine P1
 		raise("DotNet Error: CommandLine is a read-only property")
 
 	Func getCurrentDirectory
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"CurrentDirectory"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s16:CurrentDirectory","")
 
 	Func setCurrentDirectory P1
-		dnRequest("set",[dnTypeCached('System.Environment, System.Private.CoreLib'),"CurrentDirectory",P1])
+		dnSend("s3:set",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s16:CurrentDirectory",dnPackItem(P1))
 		return self
 
 	Func getProcessId
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"ProcessId"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s9:ProcessId","")
 
 	Func setProcessId P1
 		raise("DotNet Error: ProcessId is a read-only property")
 
 	Func getProcessPath
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"ProcessPath"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s11:ProcessPath","")
 
 	Func setProcessPath P1
 		raise("DotNet Error: ProcessPath is a read-only property")
 
 	Func getIs64BitProcess
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"Is64BitProcess"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s14:Is64BitProcess","")
 
 	Func setIs64BitProcess P1
 		raise("DotNet Error: Is64BitProcess is a read-only property")
 
 	Func getIs64BitOperatingSystem
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"Is64BitOperatingSystem"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s22:Is64BitOperatingSystem","")
 
 	Func setIs64BitOperatingSystem P1
 		raise("DotNet Error: Is64BitOperatingSystem is a read-only property")
 
 	Func getNewLine
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"NewLine"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s7:NewLine","")
 
 	Func setNewLine P1
 		raise("DotNet Error: NewLine is a read-only property")
 
 	Func getOSVersion
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"OSVersion"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s9:OSVersion","")
 
 	Func setOSVersion P1
 		raise("DotNet Error: OSVersion is a read-only property")
 
 	Func getStackTrace
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"StackTrace"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s10:StackTrace","")
 
 	Func setStackTrace P1
 		raise("DotNet Error: StackTrace is a read-only property")
 
 	Func getSystemPageSize
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"SystemPageSize"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s14:SystemPageSize","")
 
 	Func setSystemPageSize P1
 		raise("DotNet Error: SystemPageSize is a read-only property")
 
 	Func getUserName
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"UserName"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s8:UserName","")
 
 	Func setUserName P1
 		raise("DotNet Error: UserName is a read-only property")
 
 	Func getUserDomainName
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"UserDomainName"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s14:UserDomainName","")
 
 	Func setUserDomainName P1
 		raise("DotNet Error: UserDomainName is a read-only property")
 
 	Func getMachineName
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"MachineName"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s11:MachineName","")
 
 	Func setMachineName P1
 		raise("DotNet Error: MachineName is a read-only property")
 
 	Func getSystemDirectory
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"SystemDirectory"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s15:SystemDirectory","")
 
 	Func setSystemDirectory P1
 		raise("DotNet Error: SystemDirectory is a read-only property")
 
 	Func getUserInteractive
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"UserInteractive"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s15:UserInteractive","")
 
 	Func setUserInteractive P1
 		raise("DotNet Error: UserInteractive is a read-only property")
 
 	Func getWorkingSet
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"WorkingSet"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s10:WorkingSet","")
 
 	Func setWorkingSet P1
 		raise("DotNet Error: WorkingSet is a read-only property")
 
 	Func getCpuUsage
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"CpuUsage"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s8:CpuUsage","")
 
 	Func setCpuUsage P1
 		raise("DotNet Error: CpuUsage is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"Version"])
+		return dnSend("s3:get",dnTypeCached('System.Environment, System.Private.CoreLib').nHandle,"s7:Version","")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
@@ -3054,10 +3054,10 @@ Class EventArgs from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.EventArgs, System.Private.CoreLib'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.EventArgs, System.Private.CoreLib').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -3078,34 +3078,34 @@ Class FormattableString from Object
 		return self
 
 	Func GetArguments 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetArguments"])
+		return dnSend("s4:call",nHandle,"s12:GetArguments","")
 
 	Func GetArgument P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetArgument",P1])
+		return dnSend("s4:call",nHandle,"s11:GetArgument",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Invariant P1
-		return dnRequest("call",[dnTypeCached('System.FormattableString, System.Private.CoreLib'),"Invariant",P1])
+		return dnSend("s4:call",dnTypeCached('System.FormattableString, System.Private.CoreLib').nHandle,"s9:Invariant",dnPackItem(P1))
 
 	Func CurrentCulture P1
-		return dnRequest("call",[dnTypeCached('System.FormattableString, System.Private.CoreLib'),"CurrentCulture",P1])
+		return dnSend("s4:call",dnTypeCached('System.FormattableString, System.Private.CoreLib').nHandle,"s14:CurrentCulture",dnPackItem(P1))
 
 	Func getFormat
-		return dnRequest("get",[self,"Format"])
+		return dnSend("s3:get",nHandle,"s6:Format","")
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getArgumentCount
-		return dnRequest("get",[self,"ArgumentCount"])
+		return dnSend("s3:get",nHandle,"s13:ArgumentCount","")
 
 	Func setArgumentCount P1
 		raise("DotNet Error: ArgumentCount is a read-only property")
@@ -3125,138 +3125,138 @@ Class GC from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetGCMemoryInfo P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetGCMemoryInfo",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s15:GetGCMemoryInfo",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetGCMemoryInfo"])
+			return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s15:GetGCMemoryInfo","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetGCMemoryInfo",P1])
+		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s15:GetGCMemoryInfo",dnPackItem(P1))
 
 	Func AddMemoryPressure P1
-		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"AddMemoryPressure",P1])
+		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s17:AddMemoryPressure",dnPackItem(P1))
 		return self
 
 	Func RemoveMemoryPressure P1
-		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"RemoveMemoryPressure",P1])
+		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s20:RemoveMemoryPressure",dnPackItem(P1))
 		return self
 
 	Func GetGeneration P1
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetGeneration",P1])
+		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s13:GetGeneration",dnPackItem(P1))
 
 	Func Collect P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"Collect",P1])
+			dnSend("s9:callnamed",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s7:Collect",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"Collect"])
+			dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s7:Collect","")
 		return self
 		ok
-		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"Collect",P1])
+		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s7:Collect",dnPackItem(P1))
 		return self
 
 	Func CollectionCount P1
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"CollectionCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s15:CollectionCount",dnPackItem(P1))
 
 	Func KeepAlive P1
-		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"KeepAlive",P1])
+		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s9:KeepAlive",dnPackItem(P1))
 		return self
 
 	Func WaitForPendingFinalizers 
-		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForPendingFinalizers"])
+		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s24:WaitForPendingFinalizers","")
 		return self
 
 	Func SuppressFinalize P1
-		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"SuppressFinalize",P1])
+		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s16:SuppressFinalize",dnPackItem(P1))
 		return self
 
 	Func ReRegisterForFinalize P1
-		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"ReRegisterForFinalize",P1])
+		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s21:ReRegisterForFinalize",dnPackItem(P1))
 		return self
 
 	Func GetTotalMemory P1
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetTotalMemory",P1])
+		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s14:GetTotalMemory",dnPackItem(P1))
 
 	Func GetAllocatedBytesForCurrentThread 
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetAllocatedBytesForCurrentThread"])
+		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s33:GetAllocatedBytesForCurrentThread","")
 
 	Func GetTotalAllocatedBytes P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetTotalAllocatedBytes",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s22:GetTotalAllocatedBytes",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetTotalAllocatedBytes"])
+			return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s22:GetTotalAllocatedBytes","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetTotalAllocatedBytes",P1])
+		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s22:GetTotalAllocatedBytes",dnPackItem(P1))
 
 	Func RegisterForFullGCNotification P1,P2
-		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"RegisterForFullGCNotification",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s29:RegisterForFullGCNotification",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func CancelFullGCNotification 
-		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"CancelFullGCNotification"])
+		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s24:CancelFullGCNotification","")
 		return self
 
 	Func WaitForFullGCApproach P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCApproach",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s21:WaitForFullGCApproach",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCApproach"])
+			return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s21:WaitForFullGCApproach","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCApproach",P1])
+		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s21:WaitForFullGCApproach",dnPackItem(P1))
 
 	Func WaitForFullGCComplete P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCComplete",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s21:WaitForFullGCComplete",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCComplete"])
+			return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s21:WaitForFullGCComplete","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCComplete",P1])
+		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s21:WaitForFullGCComplete",dnPackItem(P1))
 
 	Func TryStartNoGCRegion P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"TryStartNoGCRegion",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s18:TryStartNoGCRegion",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"TryStartNoGCRegion",P1])
+		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s18:TryStartNoGCRegion",dnPackItem(P1))
 
 	Func EndNoGCRegion 
-		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"EndNoGCRegion"])
+		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s13:EndNoGCRegion","")
 		return self
 
 	Func RegisterNoGCRegionCallback P1,P2
-		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"RegisterNoGCRegionCallback",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s26:RegisterNoGCRegionCallback",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AllocateUninitializedArray P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"AllocateUninitializedArray",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s26:AllocateUninitializedArray",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"AllocateUninitializedArray",P1])
+		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s26:AllocateUninitializedArray",dnPackItem(P1))
 
 	Func AllocateArray P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"AllocateArray",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s13:AllocateArray",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"AllocateArray",P1])
+		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s13:AllocateArray",dnPackItem(P1))
 
 	Func GetTotalPauseDuration 
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetTotalPauseDuration"])
+		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s21:GetTotalPauseDuration","")
 
 	Func GetConfigurationVariables 
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetConfigurationVariables"])
+		return dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s25:GetConfigurationVariables","")
 
 	Func RefreshMemoryLimit 
-		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"RefreshMemoryLimit"])
+		dnSend("s4:call",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s18:RefreshMemoryLimit","")
 		return self
 
 	Func getMaxGeneration
-		return dnRequest("get",[dnTypeCached('System.GC, System.Private.CoreLib'),"MaxGeneration"])
+		return dnSend("s3:get",dnTypeCached('System.GC, System.Private.CoreLib').nHandle,"s13:MaxGeneration","")
 
 	Func setMaxGeneration P1
 		raise("DotNet Error: MaxGeneration is a read-only property")
@@ -3274,7 +3274,7 @@ Class LocalDataStoreSlot from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class MarshalByRefObject from Object
@@ -3289,13 +3289,13 @@ Class MarshalByRefObject from Object
 		return self
 
 	Func GetLifetimeService 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetLifetimeService"])
+		return dnSend("s4:call",nHandle,"s18:GetLifetimeService","")
 
 	Func InitializeLifetimeService 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InitializeLifetimeService"])
+		return dnSend("s4:call",nHandle,"s25:InitializeLifetimeService","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class Math from Object
@@ -3314,157 +3314,157 @@ Class Math from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Acos P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Acos",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Acos",dnPackItem(P1))
 
 	Func Acosh P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Acosh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Acosh",dnPackItem(P1))
 
 	Func Asin P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Asin",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Asin",dnPackItem(P1))
 
 	Func Asinh P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Asinh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Asinh",dnPackItem(P1))
 
 	Func Atan P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Atan",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Atan",dnPackItem(P1))
 
 	Func Atanh P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Atanh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Atanh",dnPackItem(P1))
 
 	Func Atan2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Atan2",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Cbrt P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Cbrt",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Cbrt",dnPackItem(P1))
 
 	Func Ceiling P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Ceiling",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s7:Ceiling",dnPackItem(P1))
 
 	Func Cos P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Cos",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Cos",dnPackItem(P1))
 
 	Func Cosh P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Cosh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Cosh",dnPackItem(P1))
 
 	Func Exp P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Exp",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Exp",dnPackItem(P1))
 
 	Func Floor P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Floor",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Floor",dnPackItem(P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"FusedMultiplyAdd",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Log P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Log",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Log",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Log10 P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Log10",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Log10",dnPackItem(P1))
 
 	Func Pow P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Pow",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sin P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Sin",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Sin",dnPackItem(P1))
 
 	Func SinCos P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"SinCos",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s6:SinCos",dnPackItem(P1))
 
 	Func Sinh P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Sinh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Sinh",dnPackItem(P1))
 
 	Func Sqrt P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Sqrt",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Sqrt",dnPackItem(P1))
 
 	Func Tan P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Tan",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Tan",dnPackItem(P1))
 
 	Func Tanh P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Tanh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Tanh",dnPackItem(P1))
 
 	Func Abs P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Abs",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
 
 	Func BigMul P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"BigMul",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s6:BigMul",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitDecrement P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"BitDecrement",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s12:BitDecrement",dnPackItem(P1))
 
 	Func BitIncrement P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"BitIncrement",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s12:BitIncrement",dnPackItem(P1))
 
 	Func CopySign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"CopySign",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DivRem P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"DivRem",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func IEEERemainder P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"IEEERemainder",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s13:IEEERemainder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ILogB P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"ILogB",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:ILogB",dnPackItem(P1))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"MaxMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"MinMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ReciprocalEstimate P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"ReciprocalEstimate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s18:ReciprocalEstimate",dnPackItem(P1))
 
 	Func ReciprocalSqrtEstimate P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"ReciprocalSqrtEstimate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Round",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Round",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func Truncate P1
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Truncate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
 
 	Func ScaleB P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"ScaleB",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getE
-		return dnRequest("get",[dnTypeCached('System.Math, System.Private.CoreLib'),"E"])
+		return dnSend("s3:get",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s1:E","")
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPI
-		return dnRequest("get",[dnTypeCached('System.Math, System.Private.CoreLib'),"PI"])
+		return dnSend("s3:get",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s2:PI","")
 
 	Func setPI P1
 		raise("DotNet Error: PI is a read-only property")
 
 	Func getTau
-		return dnRequest("get",[dnTypeCached('System.Math, System.Private.CoreLib'),"Tau"])
+		return dnSend("s3:get",dnTypeCached('System.Math, System.Private.CoreLib').nHandle,"s3:Tau","")
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
@@ -3486,148 +3486,148 @@ Class MathF from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Acos P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Acos",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Acos",dnPackItem(P1))
 
 	Func Acosh P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Acosh",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:Acosh",dnPackItem(P1))
 
 	Func Asin P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Asin",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Asin",dnPackItem(P1))
 
 	Func Asinh P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Asinh",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:Asinh",dnPackItem(P1))
 
 	Func Atan P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Atan",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Atan",dnPackItem(P1))
 
 	Func Atanh P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Atanh",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:Atanh",dnPackItem(P1))
 
 	Func Atan2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Atan2",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Cbrt P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Cbrt",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Cbrt",dnPackItem(P1))
 
 	Func Ceiling P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Ceiling",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s7:Ceiling",dnPackItem(P1))
 
 	Func Cos P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Cos",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Cos",dnPackItem(P1))
 
 	Func Cosh P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Cosh",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Cosh",dnPackItem(P1))
 
 	Func Exp P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Exp",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Exp",dnPackItem(P1))
 
 	Func Floor P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Floor",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:Floor",dnPackItem(P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"FusedMultiplyAdd",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Log P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Log",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Log",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Log10 P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Log10",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:Log10",dnPackItem(P1))
 
 	Func Pow P1,P2
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Pow",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sin P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Sin",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Sin",dnPackItem(P1))
 
 	Func SinCos P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"SinCos",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s6:SinCos",dnPackItem(P1))
 
 	Func Sinh P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Sinh",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Sinh",dnPackItem(P1))
 
 	Func Sqrt P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Sqrt",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Sqrt",dnPackItem(P1))
 
 	Func Tan P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Tan",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Tan",dnPackItem(P1))
 
 	Func Tanh P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Tanh",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Tanh",dnPackItem(P1))
 
 	Func Abs P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Abs",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
 
 	Func BitDecrement P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"BitDecrement",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s12:BitDecrement",dnPackItem(P1))
 
 	Func BitIncrement P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"BitIncrement",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s12:BitIncrement",dnPackItem(P1))
 
 	Func CopySign P1,P2
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"CopySign",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IEEERemainder P1,P2
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"IEEERemainder",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s13:IEEERemainder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ILogB P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"ILogB",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:ILogB",dnPackItem(P1))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"MaxMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"MinMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ReciprocalEstimate P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"ReciprocalEstimate",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s18:ReciprocalEstimate",dnPackItem(P1))
 
 	Func ReciprocalSqrtEstimate P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"ReciprocalSqrtEstimate",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Round",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Round",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func Truncate P1
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Truncate",P1])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
 
 	Func ScaleB P1,P2
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"ScaleB",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getE
-		return dnRequest("get",[dnTypeCached('System.MathF, System.Private.CoreLib'),"E"])
+		return dnSend("s3:get",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s1:E","")
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPI
-		return dnRequest("get",[dnTypeCached('System.MathF, System.Private.CoreLib'),"PI"])
+		return dnSend("s3:get",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s2:PI","")
 
 	Func setPI P1
 		raise("DotNet Error: PI is a read-only property")
 
 	Func getTau
-		return dnRequest("get",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Tau"])
+		return dnSend("s3:get",dnTypeCached('System.MathF, System.Private.CoreLib').nHandle,"s3:Tau","")
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
@@ -3645,41 +3645,41 @@ Class MemoryExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AsSpan P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsSpan",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s6:AsSpan",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsSpan",P1])
+		return dnSend("s4:call",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s6:AsSpan",dnPackItem(P1))
 
 	Func AsMemory P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsMemory",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s8:AsMemory",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsMemory",P1])
+		return dnSend("s4:call",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s8:AsMemory",dnPackItem(P1))
 
 	Func CopyTo P1,P2
-		dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"CopyTo",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Trim P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"Trim",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s4:Trim",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"Trim",P1])
+		return dnSend("s4:call",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s4:Trim",dnPackItem(P1))
 
 	Func TrimStart P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimStart",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s9:TrimStart",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimStart",P1])
+		return dnSend("s4:call",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s9:TrimStart",dnPackItem(P1))
 
 	Func TrimEnd P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimEnd",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s7:TrimEnd",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimEnd",P1])
+		return dnSend("s4:call",dnTypeCached('System.MemoryExtensions, System.Private.CoreLib').nHandle,"s7:TrimEnd",dnPackItem(P1))
 
 
 Class Nullable from Object
@@ -3696,20 +3696,20 @@ Class Nullable from Object
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Nullable, System.Private.CoreLib'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Nullable, System.Private.CoreLib').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Compare P1,P2
-		return dnRequest("call",[dnTypeCached('System.Nullable, System.Private.CoreLib'),"Compare",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Nullable, System.Private.CoreLib').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetUnderlyingType P1
-		return dnRequest("call",[dnTypeCached('System.Nullable, System.Private.CoreLib'),"GetUnderlyingType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Nullable, System.Private.CoreLib').nHandle,"s17:GetUnderlyingType",dnPackItem(P1))
 
 	Func GetValueRefOrDefaultRef P1
-		return dnRequest("call",[dnTypeCached('System.Nullable, System.Private.CoreLib'),"GetValueRefOrDefaultRef",P1])
+		return dnSend("s4:call",dnTypeCached('System.Nullable, System.Private.CoreLib').nHandle,"s23:GetValueRefOrDefaultRef",dnPackItem(P1))
 
 
 Class OperatingSystem from Object
@@ -3731,125 +3731,125 @@ Class OperatingSystem from Object
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetObjectData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsOSPlatform P1
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsOSPlatform",P1])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s12:IsOSPlatform",dnPackItem(P1))
 
 	Func IsOSPlatformVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsOSPlatformVersionAtLeast",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s26:IsOSPlatformVersionAtLeast",dnPackItem(P1))
 		ok
 		raise("DotNet Error: IsOSPlatformVersionAtLeast does not take one argument: use named arguments, IsOSPlatformVersionAtLeast([ :parameter = value, ... ])")
 
 	Func IsBrowser 
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsBrowser"])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s9:IsBrowser","")
 
 	Func IsWasi 
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWasi"])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s6:IsWasi","")
 
 	Func IsLinux 
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsLinux"])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s7:IsLinux","")
 
 	Func IsFreeBSD 
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsFreeBSD"])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s9:IsFreeBSD","")
 
 	Func IsFreeBSDVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsFreeBSDVersionAtLeast",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s23:IsFreeBSDVersionAtLeast",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsFreeBSDVersionAtLeast",P1])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s23:IsFreeBSDVersionAtLeast",dnPackItem(P1))
 
 	Func IsAndroid 
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsAndroid"])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s9:IsAndroid","")
 
 	Func IsAndroidVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsAndroidVersionAtLeast",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s23:IsAndroidVersionAtLeast",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsAndroidVersionAtLeast",P1])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s23:IsAndroidVersionAtLeast",dnPackItem(P1))
 
 	Func IsIOS 
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsIOS"])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s5:IsIOS","")
 
 	Func IsIOSVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsIOSVersionAtLeast",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s19:IsIOSVersionAtLeast",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsIOSVersionAtLeast",P1])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s19:IsIOSVersionAtLeast",dnPackItem(P1))
 
 	Func IsMacOS 
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacOS"])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s7:IsMacOS","")
 
 	Func IsMacOSVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacOSVersionAtLeast",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s21:IsMacOSVersionAtLeast",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacOSVersionAtLeast",P1])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s21:IsMacOSVersionAtLeast",dnPackItem(P1))
 
 	Func IsMacCatalyst 
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacCatalyst"])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s13:IsMacCatalyst","")
 
 	Func IsMacCatalystVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacCatalystVersionAtLeast",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s27:IsMacCatalystVersionAtLeast",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacCatalystVersionAtLeast",P1])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s27:IsMacCatalystVersionAtLeast",dnPackItem(P1))
 
 	Func IsTvOS 
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsTvOS"])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s6:IsTvOS","")
 
 	Func IsTvOSVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsTvOSVersionAtLeast",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s20:IsTvOSVersionAtLeast",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsTvOSVersionAtLeast",P1])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s20:IsTvOSVersionAtLeast",dnPackItem(P1))
 
 	Func IsWatchOS 
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWatchOS"])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s9:IsWatchOS","")
 
 	Func IsWatchOSVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWatchOSVersionAtLeast",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s23:IsWatchOSVersionAtLeast",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWatchOSVersionAtLeast",P1])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s23:IsWatchOSVersionAtLeast",dnPackItem(P1))
 
 	Func IsWindows 
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWindows"])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s9:IsWindows","")
 
 	Func IsWindowsVersionAtLeast P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWindowsVersionAtLeast",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s23:IsWindowsVersionAtLeast",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWindowsVersionAtLeast",P1])
+		return dnSend("s4:call",dnTypeCached('System.OperatingSystem, System.Private.CoreLib').nHandle,"s23:IsWindowsVersionAtLeast",dnPackItem(P1))
 
 	Func getPlatform
-		return dnRequest("get",[self,"Platform"])
+		return dnSend("s3:get",nHandle,"s8:Platform","")
 
 	Func setPlatform P1
 		raise("DotNet Error: Platform is a read-only property")
 
 	Func getServicePack
-		return dnRequest("get",[self,"ServicePack"])
+		return dnSend("s3:get",nHandle,"s11:ServicePack","")
 
 	Func setServicePack P1
 		raise("DotNet Error: ServicePack is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnSend("s3:get",nHandle,"s7:Version","")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getVersionString
-		return dnRequest("get",[self,"VersionString"])
+		return dnSend("s3:get",nHandle,"s13:VersionString","")
 
 	Func setVersionString P1
 		raise("DotNet Error: VersionString is a read-only property")
@@ -3907,44 +3907,44 @@ Class Random from Object
 
 	Func Next_ P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Next",P1])
+			return dnSend("s9:callnamed",nHandle,"s4:Next",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"Next"])
+			return dnSend("s4:call",nHandle,"s4:Next","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Next",P1])
+		return dnSend("s4:call",nHandle,"s4:Next",dnPackItem(P1))
 
 	Func NextInt64 P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"NextInt64",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:NextInt64",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"NextInt64"])
+			return dnSend("s4:call",nHandle,"s9:NextInt64","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"NextInt64",P1])
+		return dnSend("s4:call",nHandle,"s9:NextInt64",dnPackItem(P1))
 
 	Func NextSingle 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"NextSingle"])
+		return dnSend("s4:call",nHandle,"s10:NextSingle","")
 
 	Func NextDouble 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"NextDouble"])
+		return dnSend("s4:call",nHandle,"s10:NextDouble","")
 
 	Func NextBytes P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"NextBytes",P1])
+		dnSend("s4:call",nHandle,"s9:NextBytes",dnPackItem(P1))
 		return self
 
 	Func GetItems P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetItems",P1,P2])
+		return dnSend("s4:call",nHandle,"s8:GetItems",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Shuffle P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Shuffle",P1])
+		dnSend("s4:call",nHandle,"s7:Shuffle",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getShared
-		return dnRequest("get",[dnTypeCached('System.Random, System.Private.CoreLib'),"Shared"])
+		return dnSend("s3:get",dnTypeCached('System.Random, System.Private.CoreLib').nHandle,"s6:Shared","")
 
 	Func setShared P1
 		raise("DotNet Error: Shared is a read-only property")
@@ -3980,272 +3980,272 @@ Class String from Object
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func EndsWith P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"EndsWith",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:EndsWith",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EndsWith",P1])
+		return dnSend("s4:call",nHandle,"s8:EndsWith",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetHashCode",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+			return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode",P1])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode",dnPackItem(P1))
 
 	Func StartsWith P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"StartsWith",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:StartsWith",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"StartsWith",P1])
+		return dnSend("s4:call",nHandle,"s10:StartsWith",dnPackItem(P1))
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func CopyTo P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2,P3,P4])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func ToCharArray P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToCharArray",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:ToCharArray",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ToCharArray"])
+			return dnSend("s4:call",nHandle,"s11:ToCharArray","")
 		ok
 		raise("DotNet Error: ToCharArray does not take one argument: use named arguments, ToCharArray([ :parameter = value, ... ])")
 
 	Func GetPinnableReference 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPinnableReference"])
+		return dnSend("s4:call",nHandle,"s20:GetPinnableReference","")
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func EnumerateRunes 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateRunes"])
+		return dnSend("s4:call",nHandle,"s14:EnumerateRunes","")
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func IsNormalized P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsNormalized",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:IsNormalized",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsNormalized"])
+			return dnSend("s4:call",nHandle,"s12:IsNormalized","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsNormalized",P1])
+		return dnSend("s4:call",nHandle,"s12:IsNormalized",dnPackItem(P1))
 
 	Func Normalize P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Normalize",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:Normalize",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"Normalize"])
+			return dnSend("s4:call",nHandle,"s9:Normalize","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Normalize",P1])
+		return dnSend("s4:call",nHandle,"s9:Normalize",dnPackItem(P1))
 
 	Func Insert P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		return dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 
 	Func PadLeft P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"PadLeft",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:PadLeft",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"PadLeft",P1])
+		return dnSend("s4:call",nHandle,"s7:PadLeft",dnPackItem(P1))
 
 	Func PadRight P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"PadRight",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:PadRight",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"PadRight",P1])
+		return dnSend("s4:call",nHandle,"s8:PadRight",dnPackItem(P1))
 
 	Func Remove P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Remove",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Remove",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func Replace P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Replace",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:Replace",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
 	Func ReplaceLineEndings P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReplaceLineEndings",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:ReplaceLineEndings",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReplaceLineEndings"])
+			return dnSend("s4:call",nHandle,"s18:ReplaceLineEndings","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReplaceLineEndings",P1])
+		return dnSend("s4:call",nHandle,"s18:ReplaceLineEndings",dnPackItem(P1))
 
 	Func Split P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Split",P1])
+			return dnSend("s9:callnamed",nHandle,"s5:Split",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Split",P1])
+		return dnSend("s4:call",nHandle,"s5:Split",dnPackItem(P1))
 
 	Func Substring P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Substring",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:Substring",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Substring",P1])
+		return dnSend("s4:call",nHandle,"s9:Substring",dnPackItem(P1))
 
 	Func ToLower P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToLower",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:ToLower",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ToLower"])
+			return dnSend("s4:call",nHandle,"s7:ToLower","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToLower",P1])
+		return dnSend("s4:call",nHandle,"s7:ToLower",dnPackItem(P1))
 
 	Func ToLowerInvariant 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToLowerInvariant"])
+		return dnSend("s4:call",nHandle,"s16:ToLowerInvariant","")
 
 	Func ToUpper P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToUpper",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:ToUpper",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ToUpper"])
+			return dnSend("s4:call",nHandle,"s7:ToUpper","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToUpper",P1])
+		return dnSend("s4:call",nHandle,"s7:ToUpper",dnPackItem(P1))
 
 	Func ToUpperInvariant 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToUpperInvariant"])
+		return dnSend("s4:call",nHandle,"s16:ToUpperInvariant","")
 
 	Func Trim P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Trim",P1])
+			return dnSend("s9:callnamed",nHandle,"s4:Trim",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"Trim"])
+			return dnSend("s4:call",nHandle,"s4:Trim","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Trim",P1])
+		return dnSend("s4:call",nHandle,"s4:Trim",dnPackItem(P1))
 
 	Func TrimStart P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimStart",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:TrimStart",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"TrimStart"])
+			return dnSend("s4:call",nHandle,"s9:TrimStart","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TrimStart",P1])
+		return dnSend("s4:call",nHandle,"s9:TrimStart",dnPackItem(P1))
 
 	Func TrimEnd P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimEnd",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:TrimEnd",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"TrimEnd"])
+			return dnSend("s4:call",nHandle,"s7:TrimEnd","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TrimEnd",P1])
+		return dnSend("s4:call",nHandle,"s7:TrimEnd",dnPackItem(P1))
 
 	Func Contains P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Contains",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:Contains",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexOf",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:IndexOf",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func IndexOfAny P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexOfAny",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:IndexOfAny",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOfAny",P1])
+		return dnSend("s4:call",nHandle,"s10:IndexOfAny",dnPackItem(P1))
 
 	Func LastIndexOf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:LastIndexOf",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
+		return dnSend("s4:call",nHandle,"s11:LastIndexOf",dnPackItem(P1))
 
 	Func LastIndexOfAny P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"LastIndexOfAny",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:LastIndexOfAny",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LastIndexOfAny",P1])
+		return dnSend("s4:call",nHandle,"s14:LastIndexOfAny",dnPackItem(P1))
 
 	Func Intern P1
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Intern",P1])
+		return dnSend("s4:call",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s6:Intern",dnPackItem(P1))
 
 	Func IsInterned P1
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"IsInterned",P1])
+		return dnSend("s4:call",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s10:IsInterned",dnPackItem(P1))
 
 	Func Compare P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Compare",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s7:Compare",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Compare does not take one argument: use named arguments, Compare([ :parameter = value, ... ])")
 
 	Func CompareOrdinal P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"CompareOrdinal",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s14:CompareOrdinal",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CompareOrdinal does not take one argument: use named arguments, CompareOrdinal([ :parameter = value, ... ])")
 
 	Func Create P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Create",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Copy P1
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Copy",P1])
+		return dnSend("s4:call",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s4:Copy",dnPackItem(P1))
 
 	Func IsNullOrEmpty P1
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"IsNullOrEmpty",P1])
+		return dnSend("s4:call",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s13:IsNullOrEmpty",dnPackItem(P1))
 
 	Func IsNullOrWhiteSpace P1
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"IsNullOrWhiteSpace",P1])
+		return dnSend("s4:call",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s18:IsNullOrWhiteSpace",dnPackItem(P1))
 
 	Func Concat P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Concat",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s6:Concat",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Concat",P1])
+		return dnSend("s4:call",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s6:Concat",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Format",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s6:Format",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Format does not take one argument: use named arguments, Format([ :parameter = value, ... ])")
 
 	Func Join P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Join",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s4:Join",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Join does not take one argument: use named arguments, Join([ :parameter = value, ... ])")
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnSend("s3:get",nHandle,"s6:Length","")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.String, System.Private.CoreLib'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.String, System.Private.CoreLib').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -4270,67 +4270,67 @@ Class StringComparer from Object
 		return self
 
 	Func Compare P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Compare",P1,P2])
+		return dnSend("s4:call",nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetHashCode",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+			return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode",P1])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode",dnPackItem(P1))
 
 	Func FromComparison P1
-		return dnRequest("call",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"FromComparison",P1])
+		return dnSend("s4:call",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s14:FromComparison",dnPackItem(P1))
 
 	Func Create P1,P2
-		return dnRequest("call",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"Create",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsWellKnownOrdinalComparer P1
-		return dnRequest("call",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"IsWellKnownOrdinalComparer",P1])
+		return dnSend("s4:call",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s26:IsWellKnownOrdinalComparer",dnPackItem(P1))
 
 	Func IsWellKnownCultureAwareComparer P1
-		return dnRequest("call",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"IsWellKnownCultureAwareComparer",P1])
+		return dnSend("s4:call",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s31:IsWellKnownCultureAwareComparer",dnPackItem(P1))
 
 	Func getInvariantCulture
-		return dnRequest("get",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"InvariantCulture"])
+		return dnSend("s3:get",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s16:InvariantCulture","")
 
 	Func setInvariantCulture P1
 		raise("DotNet Error: InvariantCulture is a read-only property")
 
 	Func getInvariantCultureIgnoreCase
-		return dnRequest("get",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"InvariantCultureIgnoreCase"])
+		return dnSend("s3:get",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s26:InvariantCultureIgnoreCase","")
 
 	Func setInvariantCultureIgnoreCase P1
 		raise("DotNet Error: InvariantCultureIgnoreCase is a read-only property")
 
 	Func getCurrentCulture
-		return dnRequest("get",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"CurrentCulture"])
+		return dnSend("s3:get",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s14:CurrentCulture","")
 
 	Func setCurrentCulture P1
 		raise("DotNet Error: CurrentCulture is a read-only property")
 
 	Func getCurrentCultureIgnoreCase
-		return dnRequest("get",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"CurrentCultureIgnoreCase"])
+		return dnSend("s3:get",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s24:CurrentCultureIgnoreCase","")
 
 	Func setCurrentCultureIgnoreCase P1
 		raise("DotNet Error: CurrentCultureIgnoreCase is a read-only property")
 
 	Func getOrdinal
-		return dnRequest("get",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"Ordinal"])
+		return dnSend("s3:get",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s7:Ordinal","")
 
 	Func setOrdinal P1
 		raise("DotNet Error: Ordinal is a read-only property")
 
 	Func getOrdinalIgnoreCase
-		return dnRequest("get",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"OrdinalIgnoreCase"])
+		return dnSend("s3:get",dnTypeCached('System.StringComparer, System.Private.CoreLib').nHandle,"s17:OrdinalIgnoreCase","")
 
 	Func setOrdinalIgnoreCase P1
 		raise("DotNet Error: OrdinalIgnoreCase is a read-only property")
@@ -4348,19 +4348,19 @@ Class StringNormalizationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsNormalized P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib'),"IsNormalized",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib').nHandle,"s12:IsNormalized",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib'),"IsNormalized",P1])
+		return dnSend("s4:call",dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib').nHandle,"s12:IsNormalized",dnPackItem(P1))
 
 	Func Normalize P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib'),"Normalize",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib').nHandle,"s9:Normalize",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib'),"Normalize",P1])
+		return dnSend("s4:call",dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib').nHandle,"s9:Normalize",dnPackItem(P1))
 
 
 Class TimeProvider from Object
@@ -4379,40 +4379,40 @@ Class TimeProvider from Object
 		return self
 
 	Func GetUtcNow 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUtcNow"])
+		return dnSend("s4:call",nHandle,"s9:GetUtcNow","")
 
 	Func GetLocalNow 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetLocalNow"])
+		return dnSend("s4:call",nHandle,"s11:GetLocalNow","")
 
 	Func GetTimestamp 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTimestamp"])
+		return dnSend("s4:call",nHandle,"s12:GetTimestamp","")
 
 	Func GetElapsedTime P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetElapsedTime",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:GetElapsedTime",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetElapsedTime",P1])
+		return dnSend("s4:call",nHandle,"s14:GetElapsedTime",dnPackItem(P1))
 
 	Func CreateTimer P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateTimer",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s11:CreateTimer",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getLocalTimeZone
-		return dnRequest("get",[self,"LocalTimeZone"])
+		return dnSend("s3:get",nHandle,"s13:LocalTimeZone","")
 
 	Func setLocalTimeZone P1
 		raise("DotNet Error: LocalTimeZone is a read-only property")
 
 	Func getTimestampFrequency
-		return dnRequest("get",[self,"TimestampFrequency"])
+		return dnSend("s3:get",nHandle,"s18:TimestampFrequency","")
 
 	Func setTimestampFrequency P1
 		raise("DotNet Error: TimestampFrequency is a read-only property")
 
 	Func getSystem
-		return dnRequest("get",[dnTypeCached('System.TimeProvider, System.Private.CoreLib'),"System"])
+		return dnSend("s3:get",dnTypeCached('System.TimeProvider, System.Private.CoreLib').nHandle,"s6:System","")
 
 	Func setSystem P1
 		raise("DotNet Error: System is a read-only property")
@@ -4440,140 +4440,140 @@ Class TimeZoneInfo from Object
 		return self
 
 	Func GetAmbiguousTimeOffsets P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAmbiguousTimeOffsets",P1])
+		return dnSend("s4:call",nHandle,"s23:GetAmbiguousTimeOffsets",dnPackItem(P1))
 
 	Func GetUtcOffset P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUtcOffset",P1])
+		return dnSend("s4:call",nHandle,"s12:GetUtcOffset",dnPackItem(P1))
 
 	Func IsAmbiguousTime P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsAmbiguousTime",P1])
+		return dnSend("s4:call",nHandle,"s15:IsAmbiguousTime",dnPackItem(P1))
 
 	Func IsDaylightSavingTime P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsDaylightSavingTime",P1])
+		return dnSend("s4:call",nHandle,"s20:IsDaylightSavingTime",dnPackItem(P1))
 
 	Func IsInvalidTime P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsInvalidTime",P1])
+		return dnSend("s4:call",nHandle,"s13:IsInvalidTime",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func HasSameRules P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasSameRules",P1])
+		return dnSend("s4:call",nHandle,"s12:HasSameRules",dnPackItem(P1))
 
 	Func ToSerializedString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSerializedString"])
+		return dnSend("s4:call",nHandle,"s18:ToSerializedString","")
 
 	Func GetAdjustmentRules 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAdjustmentRules"])
+		return dnSend("s4:call",nHandle,"s18:GetAdjustmentRules","")
 
 	Func ClearCachedData 
-		dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ClearCachedData"])
+		dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s15:ClearCachedData","")
 		return self
 
 	Func ConvertTimeBySystemTimeZoneId P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTimeBySystemTimeZoneId",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s29:ConvertTimeBySystemTimeZoneId",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ConvertTimeBySystemTimeZoneId does not take one argument: use named arguments, ConvertTimeBySystemTimeZoneId([ :parameter = value, ... ])")
 
 	Func FindSystemTimeZoneById P1
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"FindSystemTimeZoneById",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s22:FindSystemTimeZoneById",dnPackItem(P1))
 
 	Func TryFindSystemTimeZoneById P1
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"TryFindSystemTimeZoneById",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s25:TryFindSystemTimeZoneById",dnPackItem(P1))
 
 	Func ConvertTime P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTime",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s11:ConvertTime",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ConvertTime does not take one argument: use named arguments, ConvertTime([ :parameter = value, ... ])")
 
 	Func ConvertTimeFromUtc P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTimeFromUtc",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s18:ConvertTimeFromUtc",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConvertTimeToUtc P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTimeToUtc",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s16:ConvertTimeToUtc",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTimeToUtc",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s16:ConvertTimeToUtc",dnPackItem(P1))
 
 	Func FromSerializedString P1
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"FromSerializedString",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s20:FromSerializedString",dnPackItem(P1))
 
 	Func GetSystemTimeZones P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"GetSystemTimeZones",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s18:GetSystemTimeZones",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"GetSystemTimeZones"])
+			return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s18:GetSystemTimeZones","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"GetSystemTimeZones",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s18:GetSystemTimeZones",dnPackItem(P1))
 
 	Func CreateCustomTimeZone P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"CreateCustomTimeZone",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s20:CreateCustomTimeZone",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateCustomTimeZone does not take one argument: use named arguments, CreateCustomTimeZone([ :parameter = value, ... ])")
 
 	Func TryConvertIanaIdToWindowsId P1
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"TryConvertIanaIdToWindowsId",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s27:TryConvertIanaIdToWindowsId",dnPackItem(P1))
 
 	Func TryConvertWindowsIdToIanaId P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"TryConvertWindowsIdToIanaId",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s27:TryConvertWindowsIdToIanaId",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"TryConvertWindowsIdToIanaId",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s27:TryConvertWindowsIdToIanaId",dnPackItem(P1))
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnSend("s3:get",nHandle,"s2:Id","")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getHasIanaId
-		return dnRequest("get",[self,"HasIanaId"])
+		return dnSend("s3:get",nHandle,"s9:HasIanaId","")
 
 	Func setHasIanaId P1
 		raise("DotNet Error: HasIanaId is a read-only property")
 
 	Func getDisplayName
-		return dnRequest("get",[self,"DisplayName"])
+		return dnSend("s3:get",nHandle,"s11:DisplayName","")
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getStandardName
-		return dnRequest("get",[self,"StandardName"])
+		return dnSend("s3:get",nHandle,"s12:StandardName","")
 
 	Func setStandardName P1
 		raise("DotNet Error: StandardName is a read-only property")
 
 	Func getDaylightName
-		return dnRequest("get",[self,"DaylightName"])
+		return dnSend("s3:get",nHandle,"s12:DaylightName","")
 
 	Func setDaylightName P1
 		raise("DotNet Error: DaylightName is a read-only property")
 
 	Func getBaseUtcOffset
-		return dnRequest("get",[self,"BaseUtcOffset"])
+		return dnSend("s3:get",nHandle,"s13:BaseUtcOffset","")
 
 	Func setBaseUtcOffset P1
 		raise("DotNet Error: BaseUtcOffset is a read-only property")
 
 	Func getSupportsDaylightSavingTime
-		return dnRequest("get",[self,"SupportsDaylightSavingTime"])
+		return dnSend("s3:get",nHandle,"s26:SupportsDaylightSavingTime","")
 
 	Func setSupportsDaylightSavingTime P1
 		raise("DotNet Error: SupportsDaylightSavingTime is a read-only property")
 
 	Func getLocal
-		return dnRequest("get",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"Local"])
+		return dnSend("s3:get",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s5:Local","")
 
 	Func setLocal P1
 		raise("DotNet Error: Local is a read-only property")
 
 	Func getUtc
-		return dnRequest("get",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"Utc"])
+		return dnSend("s3:get",dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib').nHandle,"s3:Utc","")
 
 	Func setUtc P1
 		raise("DotNet Error: Utc is a read-only property")
@@ -4591,13 +4591,13 @@ Class Tuple from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Tuple, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1])
+		return dnSend("s4:call",dnTypeCached('System.Tuple, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
 
 
 Class TupleExtensions from Object
@@ -4612,16 +4612,16 @@ Class TupleExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Deconstruct P1
-		return dnRequest("call",[dnTypeCached('System.TupleExtensions, System.Private.CoreLib'),"Deconstruct",P1])
+		return dnSend("s4:call",dnTypeCached('System.TupleExtensions, System.Private.CoreLib').nHandle,"s11:Deconstruct",dnPackItem(P1))
 
 	Func ToValueTuple P1
-		return dnRequest("call",[dnTypeCached('System.TupleExtensions, System.Private.CoreLib'),"ToValueTuple",P1])
+		return dnSend("s4:call",dnTypeCached('System.TupleExtensions, System.Private.CoreLib').nHandle,"s12:ToValueTuple",dnPackItem(P1))
 
 	Func ToTuple P1
-		return dnRequest("call",[dnTypeCached('System.TupleExtensions, System.Private.CoreLib'),"ToTuple",P1])
+		return dnSend("s4:call",dnTypeCached('System.TupleExtensions, System.Private.CoreLib').nHandle,"s7:ToTuple",dnPackItem(P1))
 
 
 Class Uri from Object
@@ -4693,295 +4693,295 @@ Class Uri from Object
 		return self
 
 	Func GetLeftPart P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetLeftPart",P1])
+		return dnSend("s4:call",nHandle,"s11:GetLeftPart",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MakeRelativeUri P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MakeRelativeUri",P1])
+		return dnSend("s4:call",nHandle,"s15:MakeRelativeUri",dnPackItem(P1))
 
 	Func MakeRelative P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MakeRelative",P1])
+		return dnSend("s4:call",nHandle,"s12:MakeRelative",dnPackItem(P1))
 
 	Func GetComponents P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetComponents",P1,P2])
+		return dnSend("s4:call",nHandle,"s13:GetComponents",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsWellFormedOriginalString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsWellFormedOriginalString"])
+		return dnSend("s4:call",nHandle,"s26:IsWellFormedOriginalString","")
 
 	Func IsBaseOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsBaseOf",P1])
+		return dnSend("s4:call",nHandle,"s8:IsBaseOf",dnPackItem(P1))
 
 	Func CheckHostName P1
-		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"CheckHostName",P1])
+		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s13:CheckHostName",dnPackItem(P1))
 
 	Func HexEscape P1
-		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"HexEscape",P1])
+		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s9:HexEscape",dnPackItem(P1))
 
 	Func HexUnescape P1,P2
-		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"HexUnescape",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s11:HexUnescape",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsHexEncoding P1,P2
-		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"IsHexEncoding",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s13:IsHexEncoding",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CheckSchemeName P1
-		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"CheckSchemeName",P1])
+		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s15:CheckSchemeName",dnPackItem(P1))
 
 	Func IsHexDigit P1
-		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"IsHexDigit",P1])
+		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s10:IsHexDigit",dnPackItem(P1))
 
 	Func FromHex P1
-		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"FromHex",P1])
+		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s7:FromHex",dnPackItem(P1))
 
 	Func TryCreate P1,P2
-		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"TryCreate",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s9:TryCreate",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Compare P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"Compare",P1,P2,P3,P4,P5])
+		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func IsWellFormedUriString P1,P2
-		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"IsWellFormedUriString",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s21:IsWellFormedUriString",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UnescapeDataString P1
-		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"UnescapeDataString",P1])
+		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s18:UnescapeDataString",dnPackItem(P1))
 
 	Func EscapeUriString P1
-		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"EscapeUriString",P1])
+		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s15:EscapeUriString",dnPackItem(P1))
 
 	Func EscapeDataString P1
-		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"EscapeDataString",P1])
+		return dnSend("s4:call",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s16:EscapeDataString",dnPackItem(P1))
 
 	Func getAbsolutePath
-		return dnRequest("get",[self,"AbsolutePath"])
+		return dnSend("s3:get",nHandle,"s12:AbsolutePath","")
 
 	Func setAbsolutePath P1
 		raise("DotNet Error: AbsolutePath is a read-only property")
 
 	Func getAbsoluteUri
-		return dnRequest("get",[self,"AbsoluteUri"])
+		return dnSend("s3:get",nHandle,"s11:AbsoluteUri","")
 
 	Func setAbsoluteUri P1
 		raise("DotNet Error: AbsoluteUri is a read-only property")
 
 	Func getLocalPath
-		return dnRequest("get",[self,"LocalPath"])
+		return dnSend("s3:get",nHandle,"s9:LocalPath","")
 
 	Func setLocalPath P1
 		raise("DotNet Error: LocalPath is a read-only property")
 
 	Func getAuthority
-		return dnRequest("get",[self,"Authority"])
+		return dnSend("s3:get",nHandle,"s9:Authority","")
 
 	Func setAuthority P1
 		raise("DotNet Error: Authority is a read-only property")
 
 	Func getHostNameType
-		return dnRequest("get",[self,"HostNameType"])
+		return dnSend("s3:get",nHandle,"s12:HostNameType","")
 
 	Func setHostNameType P1
 		raise("DotNet Error: HostNameType is a read-only property")
 
 	Func getIsDefaultPort
-		return dnRequest("get",[self,"IsDefaultPort"])
+		return dnSend("s3:get",nHandle,"s13:IsDefaultPort","")
 
 	Func setIsDefaultPort P1
 		raise("DotNet Error: IsDefaultPort is a read-only property")
 
 	Func getIsFile
-		return dnRequest("get",[self,"IsFile"])
+		return dnSend("s3:get",nHandle,"s6:IsFile","")
 
 	Func setIsFile P1
 		raise("DotNet Error: IsFile is a read-only property")
 
 	Func getIsLoopback
-		return dnRequest("get",[self,"IsLoopback"])
+		return dnSend("s3:get",nHandle,"s10:IsLoopback","")
 
 	Func setIsLoopback P1
 		raise("DotNet Error: IsLoopback is a read-only property")
 
 	Func getPathAndQuery
-		return dnRequest("get",[self,"PathAndQuery"])
+		return dnSend("s3:get",nHandle,"s12:PathAndQuery","")
 
 	Func setPathAndQuery P1
 		raise("DotNet Error: PathAndQuery is a read-only property")
 
 	Func getSegments
-		return dnRequest("get",[self,"Segments"])
+		return dnSend("s3:get",nHandle,"s8:Segments","")
 
 	Func setSegments P1
 		raise("DotNet Error: Segments is a read-only property")
 
 	Func getIsUnc
-		return dnRequest("get",[self,"IsUnc"])
+		return dnSend("s3:get",nHandle,"s5:IsUnc","")
 
 	Func setIsUnc P1
 		raise("DotNet Error: IsUnc is a read-only property")
 
 	Func getHost
-		return dnRequest("get",[self,"Host"])
+		return dnSend("s3:get",nHandle,"s4:Host","")
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
 
 	Func getPort
-		return dnRequest("get",[self,"Port"])
+		return dnSend("s3:get",nHandle,"s4:Port","")
 
 	Func setPort P1
 		raise("DotNet Error: Port is a read-only property")
 
 	Func getQuery
-		return dnRequest("get",[self,"Query"])
+		return dnSend("s3:get",nHandle,"s5:Query","")
 
 	Func setQuery P1
 		raise("DotNet Error: Query is a read-only property")
 
 	Func getFragment
-		return dnRequest("get",[self,"Fragment"])
+		return dnSend("s3:get",nHandle,"s8:Fragment","")
 
 	Func setFragment P1
 		raise("DotNet Error: Fragment is a read-only property")
 
 	Func getScheme
-		return dnRequest("get",[self,"Scheme"])
+		return dnSend("s3:get",nHandle,"s6:Scheme","")
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getOriginalString
-		return dnRequest("get",[self,"OriginalString"])
+		return dnSend("s3:get",nHandle,"s14:OriginalString","")
 
 	Func setOriginalString P1
 		raise("DotNet Error: OriginalString is a read-only property")
 
 	Func getDnsSafeHost
-		return dnRequest("get",[self,"DnsSafeHost"])
+		return dnSend("s3:get",nHandle,"s11:DnsSafeHost","")
 
 	Func setDnsSafeHost P1
 		raise("DotNet Error: DnsSafeHost is a read-only property")
 
 	Func getIdnHost
-		return dnRequest("get",[self,"IdnHost"])
+		return dnSend("s3:get",nHandle,"s7:IdnHost","")
 
 	Func setIdnHost P1
 		raise("DotNet Error: IdnHost is a read-only property")
 
 	Func getIsAbsoluteUri
-		return dnRequest("get",[self,"IsAbsoluteUri"])
+		return dnSend("s3:get",nHandle,"s13:IsAbsoluteUri","")
 
 	Func setIsAbsoluteUri P1
 		raise("DotNet Error: IsAbsoluteUri is a read-only property")
 
 	Func getUserEscaped
-		return dnRequest("get",[self,"UserEscaped"])
+		return dnSend("s3:get",nHandle,"s11:UserEscaped","")
 
 	Func setUserEscaped P1
 		raise("DotNet Error: UserEscaped is a read-only property")
 
 	Func getUserInfo
-		return dnRequest("get",[self,"UserInfo"])
+		return dnSend("s3:get",nHandle,"s8:UserInfo","")
 
 	Func setUserInfo P1
 		raise("DotNet Error: UserInfo is a read-only property")
 
 	Func getUriSchemeFile
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"UriSchemeFile"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s13:UriSchemeFile","")
 
 	Func setUriSchemeFile P1
 		raise("DotNet Error: UriSchemeFile is a read-only property")
 
 	Func getUriSchemeFtp
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"UriSchemeFtp"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s12:UriSchemeFtp","")
 
 	Func setUriSchemeFtp P1
 		raise("DotNet Error: UriSchemeFtp is a read-only property")
 
 	Func getUriSchemeSftp
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"UriSchemeSftp"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s13:UriSchemeSftp","")
 
 	Func setUriSchemeSftp P1
 		raise("DotNet Error: UriSchemeSftp is a read-only property")
 
 	Func getUriSchemeFtps
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"UriSchemeFtps"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s13:UriSchemeFtps","")
 
 	Func setUriSchemeFtps P1
 		raise("DotNet Error: UriSchemeFtps is a read-only property")
 
 	Func getUriSchemeGopher
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"UriSchemeGopher"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s15:UriSchemeGopher","")
 
 	Func setUriSchemeGopher P1
 		raise("DotNet Error: UriSchemeGopher is a read-only property")
 
 	Func getUriSchemeHttp
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"UriSchemeHttp"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s13:UriSchemeHttp","")
 
 	Func setUriSchemeHttp P1
 		raise("DotNet Error: UriSchemeHttp is a read-only property")
 
 	Func getUriSchemeHttps
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"UriSchemeHttps"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s14:UriSchemeHttps","")
 
 	Func setUriSchemeHttps P1
 		raise("DotNet Error: UriSchemeHttps is a read-only property")
 
 	Func getUriSchemeWs
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"UriSchemeWs"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s11:UriSchemeWs","")
 
 	Func setUriSchemeWs P1
 		raise("DotNet Error: UriSchemeWs is a read-only property")
 
 	Func getUriSchemeWss
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"UriSchemeWss"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s12:UriSchemeWss","")
 
 	Func setUriSchemeWss P1
 		raise("DotNet Error: UriSchemeWss is a read-only property")
 
 	Func getUriSchemeMailto
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"UriSchemeMailto"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s15:UriSchemeMailto","")
 
 	Func setUriSchemeMailto P1
 		raise("DotNet Error: UriSchemeMailto is a read-only property")
 
 	Func getUriSchemeNews
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"UriSchemeNews"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s13:UriSchemeNews","")
 
 	Func setUriSchemeNews P1
 		raise("DotNet Error: UriSchemeNews is a read-only property")
 
 	Func getUriSchemeNntp
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"UriSchemeNntp"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s13:UriSchemeNntp","")
 
 	Func setUriSchemeNntp P1
 		raise("DotNet Error: UriSchemeNntp is a read-only property")
 
 	Func getUriSchemeSsh
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"UriSchemeSsh"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s12:UriSchemeSsh","")
 
 	Func setUriSchemeSsh P1
 		raise("DotNet Error: UriSchemeSsh is a read-only property")
 
 	Func getUriSchemeTelnet
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"UriSchemeTelnet"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s15:UriSchemeTelnet","")
 
 	Func setUriSchemeTelnet P1
 		raise("DotNet Error: UriSchemeTelnet is a read-only property")
 
 	Func getUriSchemeNetTcp
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"UriSchemeNetTcp"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s15:UriSchemeNetTcp","")
 
 	Func setUriSchemeNetTcp P1
 		raise("DotNet Error: UriSchemeNetTcp is a read-only property")
 
 	Func getUriSchemeNetPipe
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"UriSchemeNetPipe"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s16:UriSchemeNetPipe","")
 
 	Func setUriSchemeNetPipe P1
 		raise("DotNet Error: UriSchemeNetPipe is a read-only property")
 
 	Func getSchemeDelimiter
-		return dnRequest("get",[dnTypeCached('System.Uri, System.Private.Uri'),"SchemeDelimiter"])
+		return dnSend("s3:get",dnTypeCached('System.Uri, System.Private.Uri').nHandle,"s15:SchemeDelimiter","")
 
 	Func setSchemeDelimiter P1
 		raise("DotNet Error: SchemeDelimiter is a read-only property")
@@ -5042,66 +5042,66 @@ Class UriBuilder from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getScheme
-		return dnRequest("get",[self,"Scheme"])
+		return dnSend("s3:get",nHandle,"s6:Scheme","")
 
 	Func setScheme P1
-		dnRequest("set",[self,"Scheme",P1])
+		dnSend("s3:set",nHandle,"s6:Scheme",dnPackItem(P1))
 		return self
 
 	Func getUserName
-		return dnRequest("get",[self,"UserName"])
+		return dnSend("s3:get",nHandle,"s8:UserName","")
 
 	Func setUserName P1
-		dnRequest("set",[self,"UserName",P1])
+		dnSend("s3:set",nHandle,"s8:UserName",dnPackItem(P1))
 		return self
 
 	Func getPassword
-		return dnRequest("get",[self,"Password"])
+		return dnSend("s3:get",nHandle,"s8:Password","")
 
 	Func setPassword P1
-		dnRequest("set",[self,"Password",P1])
+		dnSend("s3:set",nHandle,"s8:Password",dnPackItem(P1))
 		return self
 
 	Func getHost
-		return dnRequest("get",[self,"Host"])
+		return dnSend("s3:get",nHandle,"s4:Host","")
 
 	Func setHost P1
-		dnRequest("set",[self,"Host",P1])
+		dnSend("s3:set",nHandle,"s4:Host",dnPackItem(P1))
 		return self
 
 	Func getPort
-		return dnRequest("get",[self,"Port"])
+		return dnSend("s3:get",nHandle,"s4:Port","")
 
 	Func setPort P1
-		dnRequest("set",[self,"Port",P1])
+		dnSend("s3:set",nHandle,"s4:Port",dnPackItem(P1))
 		return self
 
 	Func getPath
-		return dnRequest("get",[self,"Path"])
+		return dnSend("s3:get",nHandle,"s4:Path","")
 
 	Func setPath P1
-		dnRequest("set",[self,"Path",P1])
+		dnSend("s3:set",nHandle,"s4:Path",dnPackItem(P1))
 		return self
 
 	Func getQuery
-		return dnRequest("get",[self,"Query"])
+		return dnSend("s3:get",nHandle,"s5:Query","")
 
 	Func setQuery P1
-		dnRequest("set",[self,"Query",P1])
+		dnSend("s3:set",nHandle,"s5:Query",dnPackItem(P1))
 		return self
 
 	Func getFragment
-		return dnRequest("get",[self,"Fragment"])
+		return dnSend("s3:get",nHandle,"s8:Fragment","")
 
 	Func setFragment P1
-		dnRequest("set",[self,"Fragment",P1])
+		dnSend("s3:set",nHandle,"s8:Fragment",dnPackItem(P1))
 		return self
 
 	Func getUri
-		return dnRequest("get",[self,"Uri"])
+		return dnSend("s3:get",nHandle,"s3:Uri","")
 
 	Func setUri P1
 		raise("DotNet Error: Uri is a read-only property")
@@ -5119,14 +5119,14 @@ Class UriParser from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Register P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.UriParser, System.Private.Uri'),"Register",P1,P2,P3])
+		dnSend("s4:call",dnTypeCached('System.UriParser, System.Private.Uri').nHandle,"s8:Register",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func IsKnownScheme P1
-		return dnRequest("call",[dnTypeCached('System.UriParser, System.Private.Uri'),"IsKnownScheme",P1])
+		return dnSend("s4:call",dnTypeCached('System.UriParser, System.Private.Uri').nHandle,"s13:IsKnownScheme",dnPackItem(P1))
 
 
 Class ValueType from Object
@@ -5141,7 +5141,7 @@ Class ValueType from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class Version from Object
@@ -5200,58 +5200,58 @@ Class Version from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Parse P1
-		return dnRequest("call",[dnTypeCached('System.Version, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Version, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnRequest("call",[dnTypeCached('System.Version, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Version, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func getMajor
-		return dnRequest("get",[self,"Major"])
+		return dnSend("s3:get",nHandle,"s5:Major","")
 
 	Func setMajor P1
 		raise("DotNet Error: Major is a read-only property")
 
 	Func getMinor
-		return dnRequest("get",[self,"Minor"])
+		return dnSend("s3:get",nHandle,"s5:Minor","")
 
 	Func setMinor P1
 		raise("DotNet Error: Minor is a read-only property")
 
 	Func getBuild
-		return dnRequest("get",[self,"Build"])
+		return dnSend("s3:get",nHandle,"s5:Build","")
 
 	Func setBuild P1
 		raise("DotNet Error: Build is a read-only property")
 
 	Func getRevision
-		return dnRequest("get",[self,"Revision"])
+		return dnSend("s3:get",nHandle,"s8:Revision","")
 
 	Func setRevision P1
 		raise("DotNet Error: Revision is a read-only property")
 
 	Func getMajorRevision
-		return dnRequest("get",[self,"MajorRevision"])
+		return dnSend("s3:get",nHandle,"s13:MajorRevision","")
 
 	Func setMajorRevision P1
 		raise("DotNet Error: MajorRevision is a read-only property")
 
 	Func getMinorRevision
-		return dnRequest("get",[self,"MinorRevision"])
+		return dnSend("s3:get",nHandle,"s13:MinorRevision","")
 
 	Func setMinorRevision P1
 		raise("DotNet Error: MinorRevision is a read-only property")
@@ -5290,29 +5290,29 @@ Class WeakReference from Object
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetObjectData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getTrackResurrection
-		return dnRequest("get",[self,"TrackResurrection"])
+		return dnSend("s3:get",nHandle,"s17:TrackResurrection","")
 
 	Func setTrackResurrection P1
 		raise("DotNet Error: TrackResurrection is a read-only property")
 
 	Func getIsAlive
-		return dnRequest("get",[self,"IsAlive"])
+		return dnSend("s3:get",nHandle,"s7:IsAlive","")
 
 	Func setIsAlive P1
 		raise("DotNet Error: IsAlive is a read-only property")
 
 	Func getTarget
-		return dnRequest("get",[self,"Target"])
+		return dnSend("s3:get",nHandle,"s6:Target","")
 
 	Func setTarget P1
-		dnRequest("set",[self,"Target",P1])
+		dnSend("s3:set",nHandle,"s6:Target",dnPackItem(P1))
 		return self
 
 
@@ -5345,117 +5345,117 @@ Class AppDomain from MarshalByRefObject
 		return self
 
 	Func SetDynamicBase P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetDynamicBase",P1])
+		dnSend("s4:call",nHandle,"s14:SetDynamicBase",dnPackItem(P1))
 		return self
 
 	Func ApplyPolicy P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ApplyPolicy",P1])
+		return dnSend("s4:call",nHandle,"s11:ApplyPolicy",dnPackItem(P1))
 
 	Func ExecuteAssembly P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ExecuteAssembly",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:ExecuteAssembly",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExecuteAssembly",P1])
+		return dnSend("s4:call",nHandle,"s15:ExecuteAssembly",dnPackItem(P1))
 
 	Func ExecuteAssemblyByName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ExecuteAssemblyByName",P1])
+			return dnSend("s9:callnamed",nHandle,"s21:ExecuteAssemblyByName",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExecuteAssemblyByName",P1])
+		return dnSend("s4:call",nHandle,"s21:ExecuteAssemblyByName",dnPackItem(P1))
 
 	Func GetData P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetData",P1])
+		return dnSend("s4:call",nHandle,"s7:GetData",dnPackItem(P1))
 
 	Func SetData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetData",P1,P2])
+		dnSend("s4:call",nHandle,"s7:SetData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func IsCompatibilitySwitchSet P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsCompatibilitySwitchSet",P1])
+		return dnSend("s4:call",nHandle,"s24:IsCompatibilitySwitchSet",dnPackItem(P1))
 
 	Func IsDefaultAppDomain 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsDefaultAppDomain"])
+		return dnSend("s4:call",nHandle,"s18:IsDefaultAppDomain","")
 
 	Func IsFinalizingForUnload 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsFinalizingForUnload"])
+		return dnSend("s4:call",nHandle,"s21:IsFinalizingForUnload","")
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Load",P1])
+			return dnSend("s9:callnamed",nHandle,"s4:Load",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Load",P1])
+		return dnSend("s4:call",nHandle,"s4:Load",dnPackItem(P1))
 
 	Func ReflectionOnlyGetAssemblies 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReflectionOnlyGetAssemblies"])
+		return dnSend("s4:call",nHandle,"s27:ReflectionOnlyGetAssemblies","")
 
 	Func AppendPrivatePath P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AppendPrivatePath",P1])
+		dnSend("s4:call",nHandle,"s17:AppendPrivatePath",dnPackItem(P1))
 		return self
 
 	Func ClearPrivatePath 
-		dnRequest("call",[new DotNetObject(this.nHandle),"ClearPrivatePath"])
+		dnSend("s4:call",nHandle,"s16:ClearPrivatePath","")
 		return self
 
 	Func ClearShadowCopyPath 
-		dnRequest("call",[new DotNetObject(this.nHandle),"ClearShadowCopyPath"])
+		dnSend("s4:call",nHandle,"s19:ClearShadowCopyPath","")
 		return self
 
 	Func SetCachePath P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetCachePath",P1])
+		dnSend("s4:call",nHandle,"s12:SetCachePath",dnPackItem(P1))
 		return self
 
 	Func SetShadowCopyFiles 
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetShadowCopyFiles"])
+		dnSend("s4:call",nHandle,"s18:SetShadowCopyFiles","")
 		return self
 
 	Func SetShadowCopyPath P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetShadowCopyPath",P1])
+		dnSend("s4:call",nHandle,"s17:SetShadowCopyPath",dnPackItem(P1))
 		return self
 
 	Func GetAssemblies 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAssemblies"])
+		return dnSend("s4:call",nHandle,"s13:GetAssemblies","")
 
 	Func SetPrincipalPolicy P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetPrincipalPolicy",P1])
+		dnSend("s4:call",nHandle,"s18:SetPrincipalPolicy",dnPackItem(P1))
 		return self
 
 	Func SetThreadPrincipal P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetThreadPrincipal",P1])
+		dnSend("s4:call",nHandle,"s18:SetThreadPrincipal",dnPackItem(P1))
 		return self
 
 	Func CreateInstance P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateInstance",P1])
+			return dnSend("s9:callnamed",nHandle,"s14:CreateInstance",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateInstance does not take one argument: use named arguments, CreateInstance([ :parameter = value, ... ])")
 
 	Func CreateInstanceAndUnwrap P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateInstanceAndUnwrap",P1])
+			return dnSend("s9:callnamed",nHandle,"s23:CreateInstanceAndUnwrap",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateInstanceAndUnwrap does not take one argument: use named arguments, CreateInstanceAndUnwrap([ :parameter = value, ... ])")
 
 	Func CreateInstanceFrom P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateInstanceFrom",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:CreateInstanceFrom",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateInstanceFrom does not take one argument: use named arguments, CreateInstanceFrom([ :parameter = value, ... ])")
 
 	Func CreateInstanceFromAndUnwrap P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateInstanceFromAndUnwrap",P1])
+			return dnSend("s9:callnamed",nHandle,"s27:CreateInstanceFromAndUnwrap",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateInstanceFromAndUnwrap does not take one argument: use named arguments, CreateInstanceFromAndUnwrap([ :parameter = value, ... ])")
 
 	Func CreateDomain P1
-		return dnRequest("call",[dnTypeCached('System.AppDomain, System.Private.CoreLib'),"CreateDomain",P1])
+		return dnSend("s4:call",dnTypeCached('System.AppDomain, System.Private.CoreLib').nHandle,"s12:CreateDomain",dnPackItem(P1))
 
 	Func Unload P1
-		dnRequest("call",[dnTypeCached('System.AppDomain, System.Private.CoreLib'),"Unload",P1])
+		dnSend("s4:call",dnTypeCached('System.AppDomain, System.Private.CoreLib').nHandle,"s6:Unload",dnPackItem(P1))
 		return self
 
 	Func GetCurrentThreadId 
-		return dnRequest("call",[dnTypeCached('System.AppDomain, System.Private.CoreLib'),"GetCurrentThreadId"])
+		return dnSend("s4:call",dnTypeCached('System.AppDomain, System.Private.CoreLib').nHandle,"s18:GetCurrentThreadId","")
 
 	Func setUnhandledExceptionEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"UnhandledException",dnCallback(P1)])
@@ -5530,95 +5530,95 @@ Class AppDomain from MarshalByRefObject
 		return self
 
 	Func getBaseDirectory
-		return dnRequest("get",[self,"BaseDirectory"])
+		return dnSend("s3:get",nHandle,"s13:BaseDirectory","")
 
 	Func setBaseDirectory P1
 		raise("DotNet Error: BaseDirectory is a read-only property")
 
 	Func getRelativeSearchPath
-		return dnRequest("get",[self,"RelativeSearchPath"])
+		return dnSend("s3:get",nHandle,"s18:RelativeSearchPath","")
 
 	Func setRelativeSearchPath P1
 		raise("DotNet Error: RelativeSearchPath is a read-only property")
 
 	Func getSetupInformation
-		return dnRequest("get",[self,"SetupInformation"])
+		return dnSend("s3:get",nHandle,"s16:SetupInformation","")
 
 	Func setSetupInformation P1
 		raise("DotNet Error: SetupInformation is a read-only property")
 
 	Func getPermissionSet
-		return dnRequest("get",[self,"PermissionSet"])
+		return dnSend("s3:get",nHandle,"s13:PermissionSet","")
 
 	Func setPermissionSet P1
 		raise("DotNet Error: PermissionSet is a read-only property")
 
 	Func getDynamicDirectory
-		return dnRequest("get",[self,"DynamicDirectory"])
+		return dnSend("s3:get",nHandle,"s16:DynamicDirectory","")
 
 	Func setDynamicDirectory P1
 		raise("DotNet Error: DynamicDirectory is a read-only property")
 
 	Func getFriendlyName
-		return dnRequest("get",[self,"FriendlyName"])
+		return dnSend("s3:get",nHandle,"s12:FriendlyName","")
 
 	Func setFriendlyName P1
 		raise("DotNet Error: FriendlyName is a read-only property")
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnSend("s3:get",nHandle,"s2:Id","")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getIsFullyTrusted
-		return dnRequest("get",[self,"IsFullyTrusted"])
+		return dnSend("s3:get",nHandle,"s14:IsFullyTrusted","")
 
 	Func setIsFullyTrusted P1
 		raise("DotNet Error: IsFullyTrusted is a read-only property")
 
 	Func getIsHomogenous
-		return dnRequest("get",[self,"IsHomogenous"])
+		return dnSend("s3:get",nHandle,"s12:IsHomogenous","")
 
 	Func setIsHomogenous P1
 		raise("DotNet Error: IsHomogenous is a read-only property")
 
 	Func getMonitoringSurvivedMemorySize
-		return dnRequest("get",[self,"MonitoringSurvivedMemorySize"])
+		return dnSend("s3:get",nHandle,"s28:MonitoringSurvivedMemorySize","")
 
 	Func setMonitoringSurvivedMemorySize P1
 		raise("DotNet Error: MonitoringSurvivedMemorySize is a read-only property")
 
 	Func getMonitoringTotalAllocatedMemorySize
-		return dnRequest("get",[self,"MonitoringTotalAllocatedMemorySize"])
+		return dnSend("s3:get",nHandle,"s34:MonitoringTotalAllocatedMemorySize","")
 
 	Func setMonitoringTotalAllocatedMemorySize P1
 		raise("DotNet Error: MonitoringTotalAllocatedMemorySize is a read-only property")
 
 	Func getShadowCopyFiles
-		return dnRequest("get",[self,"ShadowCopyFiles"])
+		return dnSend("s3:get",nHandle,"s15:ShadowCopyFiles","")
 
 	Func getMonitoringTotalProcessorTime
-		return dnRequest("get",[self,"MonitoringTotalProcessorTime"])
+		return dnSend("s3:get",nHandle,"s28:MonitoringTotalProcessorTime","")
 
 	Func setMonitoringTotalProcessorTime P1
 		raise("DotNet Error: MonitoringTotalProcessorTime is a read-only property")
 
 	Func getCurrentDomain
-		return dnRequest("get",[dnTypeCached('System.AppDomain, System.Private.CoreLib'),"CurrentDomain"])
+		return dnSend("s3:get",dnTypeCached('System.AppDomain, System.Private.CoreLib').nHandle,"s13:CurrentDomain","")
 
 	Func setCurrentDomain P1
 		raise("DotNet Error: CurrentDomain is a read-only property")
 
 	Func getMonitoringIsEnabled
-		return dnRequest("get",[dnTypeCached('System.AppDomain, System.Private.CoreLib'),"MonitoringIsEnabled"])
+		return dnSend("s3:get",dnTypeCached('System.AppDomain, System.Private.CoreLib').nHandle,"s19:MonitoringIsEnabled","")
 
 	Func setMonitoringIsEnabled P1
-		dnRequest("set",[dnTypeCached('System.AppDomain, System.Private.CoreLib'),"MonitoringIsEnabled",P1])
+		dnSend("s3:set",dnTypeCached('System.AppDomain, System.Private.CoreLib').nHandle,"s19:MonitoringIsEnabled",dnPackItem(P1))
 		return self
 
 	Func getMonitoringSurvivedProcessMemorySize
-		return dnRequest("get",[dnTypeCached('System.AppDomain, System.Private.CoreLib'),"MonitoringSurvivedProcessMemorySize"])
+		return dnSend("s3:get",dnTypeCached('System.AppDomain, System.Private.CoreLib').nHandle,"s35:MonitoringSurvivedProcessMemorySize","")
 
 	Func setMonitoringSurvivedProcessMemorySize P1
 		raise("DotNet Error: MonitoringSurvivedProcessMemorySize is a read-only property")
@@ -5640,7 +5640,7 @@ Class AssemblyLoadEventArgs from EventArgs
 		return self
 
 	Func getLoadedAssembly
-		return dnRequest("get",[self,"LoadedAssembly"])
+		return dnSend("s3:get",nHandle,"s14:LoadedAssembly","")
 
 	Func setLoadedAssembly P1
 		raise("DotNet Error: LoadedAssembly is a read-only property")
@@ -5675,30 +5675,30 @@ Class Boolean from ValueType
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func Parse P1
-		return dnRequest("call",[dnTypeCached('System.Boolean, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Boolean, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnRequest("call",[dnTypeCached('System.Boolean, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Boolean, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func getTrueString
-		return dnRequest("get",[dnTypeCached('System.Boolean, System.Private.CoreLib'),"TrueString"])
+		return dnSend("s3:get",dnTypeCached('System.Boolean, System.Private.CoreLib').nHandle,"s10:TrueString","")
 
 	Func setTrueString P1
 		raise("DotNet Error: TrueString is a read-only property")
 
 	Func getFalseString
-		return dnRequest("get",[dnTypeCached('System.Boolean, System.Private.CoreLib'),"FalseString"])
+		return dnSend("s3:get",dnTypeCached('System.Boolean, System.Private.CoreLib').nHandle,"s11:FalseString","")
 
 	Func setFalseString P1
 		raise("DotNet Error: FalseString is a read-only property")
@@ -5732,88 +5732,88 @@ Class Byte from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Byte, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Byte, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"DivRem",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"LeadingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"PopCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"RotateLeft",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"RotateRight",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"TrailingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"IsPow2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"CreateChecked",P1])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"CreateSaturating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"CreateTruncating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"IsEvenInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"IsOddInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Byte, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Byte, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Byte, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -5847,190 +5847,190 @@ Class Char from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToString",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:ToString",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		if nHandle = 0
-			return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToString",P1])
+			return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func IsAscii P1
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsAscii",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:IsAscii",dnPackItem(P1))
 
 	Func Parse P1
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func IsAsciiLetter P1
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsAsciiLetter",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s13:IsAsciiLetter",dnPackItem(P1))
 
 	Func IsAsciiLetterLower P1
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsAsciiLetterLower",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s18:IsAsciiLetterLower",dnPackItem(P1))
 
 	Func IsAsciiLetterUpper P1
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsAsciiLetterUpper",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s18:IsAsciiLetterUpper",dnPackItem(P1))
 
 	Func IsAsciiDigit P1
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsAsciiDigit",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s12:IsAsciiDigit",dnPackItem(P1))
 
 	Func IsAsciiLetterOrDigit P1
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsAsciiLetterOrDigit",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s20:IsAsciiLetterOrDigit",dnPackItem(P1))
 
 	Func IsAsciiHexDigit P1
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsAsciiHexDigit",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s15:IsAsciiHexDigit",dnPackItem(P1))
 
 	Func IsAsciiHexDigitUpper P1
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsAsciiHexDigitUpper",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s20:IsAsciiHexDigitUpper",dnPackItem(P1))
 
 	Func IsAsciiHexDigitLower P1
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsAsciiHexDigitLower",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s20:IsAsciiHexDigitLower",dnPackItem(P1))
 
 	Func IsDigit P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsDigit",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:IsDigit",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsDigit",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:IsDigit",dnPackItem(P1))
 
 	Func IsBetween P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsBetween",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s9:IsBetween",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func IsLetter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLetter",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:IsLetter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLetter",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:IsLetter",dnPackItem(P1))
 
 	Func IsWhiteSpace P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsWhiteSpace",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s12:IsWhiteSpace",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsWhiteSpace",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s12:IsWhiteSpace",dnPackItem(P1))
 
 	Func IsUpper P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsUpper",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:IsUpper",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsUpper",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:IsUpper",dnPackItem(P1))
 
 	Func IsLower P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLower",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:IsLower",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLower",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:IsLower",dnPackItem(P1))
 
 	Func IsPunctuation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsPunctuation",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s13:IsPunctuation",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsPunctuation",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s13:IsPunctuation",dnPackItem(P1))
 
 	Func IsLetterOrDigit P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLetterOrDigit",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s15:IsLetterOrDigit",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLetterOrDigit",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s15:IsLetterOrDigit",dnPackItem(P1))
 
 	Func ToUpper P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToUpper",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:ToUpper",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToUpper",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:ToUpper",dnPackItem(P1))
 
 	Func ToUpperInvariant P1
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToUpperInvariant",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s16:ToUpperInvariant",dnPackItem(P1))
 
 	Func ToLower P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToLower",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:ToLower",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToLower",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s7:ToLower",dnPackItem(P1))
 
 	Func ToLowerInvariant P1
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToLowerInvariant",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s16:ToLowerInvariant",dnPackItem(P1))
 
 	Func IsControl P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsControl",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s9:IsControl",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsControl",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s9:IsControl",dnPackItem(P1))
 
 	Func IsNumber P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsNumber",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:IsNumber",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsNumber",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:IsNumber",dnPackItem(P1))
 
 	Func IsSeparator P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSeparator",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s11:IsSeparator",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSeparator",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s11:IsSeparator",dnPackItem(P1))
 
 	Func IsSurrogate P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSurrogate",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s11:IsSurrogate",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSurrogate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s11:IsSurrogate",dnPackItem(P1))
 
 	Func IsSymbol P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSymbol",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:IsSymbol",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSymbol",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:IsSymbol",dnPackItem(P1))
 
 	Func GetUnicodeCategory P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetUnicodeCategory",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s18:GetUnicodeCategory",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetUnicodeCategory",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s18:GetUnicodeCategory",dnPackItem(P1))
 
 	Func GetNumericValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetNumericValue",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s15:GetNumericValue",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetNumericValue",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s15:GetNumericValue",dnPackItem(P1))
 
 	Func IsHighSurrogate P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsHighSurrogate",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s15:IsHighSurrogate",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsHighSurrogate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s15:IsHighSurrogate",dnPackItem(P1))
 
 	Func IsLowSurrogate P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLowSurrogate",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s14:IsLowSurrogate",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLowSurrogate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s14:IsLowSurrogate",dnPackItem(P1))
 
 	Func IsSurrogatePair P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSurrogatePair",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s15:IsSurrogatePair",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConvertFromUtf32 P1
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ConvertFromUtf32",P1])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s16:ConvertFromUtf32",dnPackItem(P1))
 
 	Func ConvertToUtf32 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ConvertToUtf32",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s14:ConvertToUtf32",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Char, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Char, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Char, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -6051,14 +6051,14 @@ Class ConsoleCancelEventArgs from EventArgs
 		return self
 
 	Func getCancel
-		return dnRequest("get",[self,"Cancel"])
+		return dnSend("s3:get",nHandle,"s6:Cancel","")
 
 	Func setCancel P1
-		dnRequest("set",[self,"Cancel",P1])
+		dnSend("s3:set",nHandle,"s6:Cancel",dnPackItem(P1))
 		return self
 
 	Func getSpecialKey
-		return dnRequest("get",[self,"SpecialKey"])
+		return dnSend("s3:get",nHandle,"s10:SpecialKey","")
 
 	Func setSpecialKey P1
 		raise("DotNet Error: SpecialKey is a read-only property")
@@ -6113,19 +6113,19 @@ Class ConsoleKeyInfo from ValueType
 		return self
 
 	Func getKeyChar
-		return dnRequest("get",[self,"KeyChar"])
+		return dnSend("s3:get",nHandle,"s7:KeyChar","")
 
 	Func setKeyChar P1
 		raise("DotNet Error: KeyChar is a read-only property")
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnSend("s3:get",nHandle,"s3:Key","")
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getModifiers
-		return dnRequest("get",[self,"Modifiers"])
+		return dnSend("s3:get",nHandle,"s9:Modifiers","")
 
 	Func setModifiers P1
 		raise("DotNet Error: Modifiers is a read-only property")
@@ -6155,7 +6155,7 @@ Class CultureAwareComparer from StringComparer
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetObjectData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -6197,112 +6197,112 @@ Class DateOnly from ValueType
 		return self
 
 	Func AddDays P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddDays",P1])
+		return dnSend("s4:call",nHandle,"s7:AddDays",dnPackItem(P1))
 
 	Func AddMonths P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddMonths",P1])
+		return dnSend("s4:call",nHandle,"s9:AddMonths",dnPackItem(P1))
 
 	Func AddYears P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddYears",P1])
+		return dnSend("s4:call",nHandle,"s8:AddYears",dnPackItem(P1))
 
 	Func Deconstruct 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Deconstruct"])
+		return dnSend("s4:call",nHandle,"s11:Deconstruct","")
 
 	Func ToDateTime P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToDateTime",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:ToDateTime",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToDateTime",P1])
+		return dnSend("s4:call",nHandle,"s10:ToDateTime",dnPackItem(P1))
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func ToLongDateString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToLongDateString"])
+		return dnSend("s4:call",nHandle,"s16:ToLongDateString","")
 
 	Func ToShortDateString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToShortDateString"])
+		return dnSend("s4:call",nHandle,"s17:ToShortDateString","")
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func FromDayNumber P1
-		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"FromDayNumber",P1])
+		return dnSend("s4:call",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s13:FromDayNumber",dnPackItem(P1))
 
 	Func FromDateTime P1
-		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"FromDateTime",P1])
+		return dnSend("s4:call",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s12:FromDateTime",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func ParseExact P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"ParseExact",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s10:ParseExact",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func TryParseExact P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParseExact",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s13:TryParseExact",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TryParseExact does not take one argument: use named arguments, TryParseExact([ :parameter = value, ... ])")
 
 	Func getYear
-		return dnRequest("get",[self,"Year"])
+		return dnSend("s3:get",nHandle,"s4:Year","")
 
 	Func setYear P1
 		raise("DotNet Error: Year is a read-only property")
 
 	Func getMonth
-		return dnRequest("get",[self,"Month"])
+		return dnSend("s3:get",nHandle,"s5:Month","")
 
 	Func setMonth P1
 		raise("DotNet Error: Month is a read-only property")
 
 	Func getDay
-		return dnRequest("get",[self,"Day"])
+		return dnSend("s3:get",nHandle,"s3:Day","")
 
 	Func setDay P1
 		raise("DotNet Error: Day is a read-only property")
 
 	Func getDayOfWeek
-		return dnRequest("get",[self,"DayOfWeek"])
+		return dnSend("s3:get",nHandle,"s9:DayOfWeek","")
 
 	Func setDayOfWeek P1
 		raise("DotNet Error: DayOfWeek is a read-only property")
 
 	Func getDayOfYear
-		return dnRequest("get",[self,"DayOfYear"])
+		return dnSend("s3:get",nHandle,"s9:DayOfYear","")
 
 	Func setDayOfYear P1
 		raise("DotNet Error: DayOfYear is a read-only property")
 
 	Func getDayNumber
-		return dnRequest("get",[self,"DayNumber"])
+		return dnSend("s3:get",nHandle,"s9:DayNumber","")
 
 	Func setDayNumber P1
 		raise("DotNet Error: DayNumber is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.DateOnly, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
@@ -6359,271 +6359,271 @@ Class DateTime from ValueType
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func AddDays P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddDays",P1])
+		return dnSend("s4:call",nHandle,"s7:AddDays",dnPackItem(P1))
 
 	Func AddHours P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddHours",P1])
+		return dnSend("s4:call",nHandle,"s8:AddHours",dnPackItem(P1))
 
 	Func AddMilliseconds P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddMilliseconds",P1])
+		return dnSend("s4:call",nHandle,"s15:AddMilliseconds",dnPackItem(P1))
 
 	Func AddMicroseconds P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddMicroseconds",P1])
+		return dnSend("s4:call",nHandle,"s15:AddMicroseconds",dnPackItem(P1))
 
 	Func AddMinutes P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddMinutes",P1])
+		return dnSend("s4:call",nHandle,"s10:AddMinutes",dnPackItem(P1))
 
 	Func AddMonths P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddMonths",P1])
+		return dnSend("s4:call",nHandle,"s9:AddMonths",dnPackItem(P1))
 
 	Func AddSeconds P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddSeconds",P1])
+		return dnSend("s4:call",nHandle,"s10:AddSeconds",dnPackItem(P1))
 
 	Func AddTicks P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddTicks",P1])
+		return dnSend("s4:call",nHandle,"s8:AddTicks",dnPackItem(P1))
 
 	Func AddYears P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddYears",P1])
+		return dnSend("s4:call",nHandle,"s8:AddYears",dnPackItem(P1))
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsDaylightSavingTime 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsDaylightSavingTime"])
+		return dnSend("s4:call",nHandle,"s20:IsDaylightSavingTime","")
 
 	Func ToBinary 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToBinary"])
+		return dnSend("s4:call",nHandle,"s8:ToBinary","")
 
 	Func Subtract P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Subtract",P1])
+		return dnSend("s4:call",nHandle,"s8:Subtract",dnPackItem(P1))
 
 	Func ToOADate 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToOADate"])
+		return dnSend("s4:call",nHandle,"s8:ToOADate","")
 
 	Func ToFileTime 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToFileTime"])
+		return dnSend("s4:call",nHandle,"s10:ToFileTime","")
 
 	Func ToFileTimeUtc 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToFileTimeUtc"])
+		return dnSend("s4:call",nHandle,"s13:ToFileTimeUtc","")
 
 	Func ToLocalTime 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToLocalTime"])
+		return dnSend("s4:call",nHandle,"s11:ToLocalTime","")
 
 	Func ToLongDateString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToLongDateString"])
+		return dnSend("s4:call",nHandle,"s16:ToLongDateString","")
 
 	Func ToLongTimeString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToLongTimeString"])
+		return dnSend("s4:call",nHandle,"s16:ToLongTimeString","")
 
 	Func ToShortDateString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToShortDateString"])
+		return dnSend("s4:call",nHandle,"s17:ToShortDateString","")
 
 	Func ToShortTimeString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToShortTimeString"])
+		return dnSend("s4:call",nHandle,"s17:ToShortTimeString","")
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func ToUniversalTime 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToUniversalTime"])
+		return dnSend("s4:call",nHandle,"s15:ToUniversalTime","")
 
 	Func Deconstruct 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Deconstruct"])
+		return dnSend("s4:call",nHandle,"s11:Deconstruct","")
 
 	Func GetDateTimeFormats P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetDateTimeFormats",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:GetDateTimeFormats",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetDateTimeFormats"])
+			return dnSend("s4:call",nHandle,"s18:GetDateTimeFormats","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDateTimeFormats",P1])
+		return dnSend("s4:call",nHandle,"s18:GetDateTimeFormats",dnPackItem(P1))
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func Compare P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Compare",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DaysInMonth P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"DaysInMonth",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s11:DaysInMonth",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FromBinary P1
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"FromBinary",P1])
+		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s10:FromBinary",dnPackItem(P1))
 
 	Func FromFileTime P1
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"FromFileTime",P1])
+		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s12:FromFileTime",dnPackItem(P1))
 
 	Func FromFileTimeUtc P1
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"FromFileTimeUtc",P1])
+		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s15:FromFileTimeUtc",dnPackItem(P1))
 
 	Func FromOADate P1
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"FromOADate",P1])
+		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s10:FromOADate",dnPackItem(P1))
 
 	Func SpecifyKind P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"SpecifyKind",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s11:SpecifyKind",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsLeapYear P1
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"IsLeapYear",P1])
+		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s10:IsLeapYear",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func ParseExact P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"ParseExact",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s10:ParseExact",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func TryParseExact P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"TryParseExact",P1,P2,P3,P4])
+		return dnSend("s4:call",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s13:TryParseExact",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func getDate
-		return dnRequest("get",[self,"Date"])
+		return dnSend("s3:get",nHandle,"s4:Date","")
 
 	Func setDate P1
 		raise("DotNet Error: Date is a read-only property")
 
 	Func getDay
-		return dnRequest("get",[self,"Day"])
+		return dnSend("s3:get",nHandle,"s3:Day","")
 
 	Func setDay P1
 		raise("DotNet Error: Day is a read-only property")
 
 	Func getDayOfWeek
-		return dnRequest("get",[self,"DayOfWeek"])
+		return dnSend("s3:get",nHandle,"s9:DayOfWeek","")
 
 	Func setDayOfWeek P1
 		raise("DotNet Error: DayOfWeek is a read-only property")
 
 	Func getDayOfYear
-		return dnRequest("get",[self,"DayOfYear"])
+		return dnSend("s3:get",nHandle,"s9:DayOfYear","")
 
 	Func setDayOfYear P1
 		raise("DotNet Error: DayOfYear is a read-only property")
 
 	Func getHour
-		return dnRequest("get",[self,"Hour"])
+		return dnSend("s3:get",nHandle,"s4:Hour","")
 
 	Func setHour P1
 		raise("DotNet Error: Hour is a read-only property")
 
 	Func getKind
-		return dnRequest("get",[self,"Kind"])
+		return dnSend("s3:get",nHandle,"s4:Kind","")
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")
 
 	Func getMillisecond
-		return dnRequest("get",[self,"Millisecond"])
+		return dnSend("s3:get",nHandle,"s11:Millisecond","")
 
 	Func setMillisecond P1
 		raise("DotNet Error: Millisecond is a read-only property")
 
 	Func getMicrosecond
-		return dnRequest("get",[self,"Microsecond"])
+		return dnSend("s3:get",nHandle,"s11:Microsecond","")
 
 	Func setMicrosecond P1
 		raise("DotNet Error: Microsecond is a read-only property")
 
 	Func getNanosecond
-		return dnRequest("get",[self,"Nanosecond"])
+		return dnSend("s3:get",nHandle,"s10:Nanosecond","")
 
 	Func setNanosecond P1
 		raise("DotNet Error: Nanosecond is a read-only property")
 
 	Func getMinute
-		return dnRequest("get",[self,"Minute"])
+		return dnSend("s3:get",nHandle,"s6:Minute","")
 
 	Func setMinute P1
 		raise("DotNet Error: Minute is a read-only property")
 
 	Func getMonth
-		return dnRequest("get",[self,"Month"])
+		return dnSend("s3:get",nHandle,"s5:Month","")
 
 	Func setMonth P1
 		raise("DotNet Error: Month is a read-only property")
 
 	Func getSecond
-		return dnRequest("get",[self,"Second"])
+		return dnSend("s3:get",nHandle,"s6:Second","")
 
 	Func setSecond P1
 		raise("DotNet Error: Second is a read-only property")
 
 	Func getTicks
-		return dnRequest("get",[self,"Ticks"])
+		return dnSend("s3:get",nHandle,"s5:Ticks","")
 
 	Func setTicks P1
 		raise("DotNet Error: Ticks is a read-only property")
 
 	Func getTimeOfDay
-		return dnRequest("get",[self,"TimeOfDay"])
+		return dnSend("s3:get",nHandle,"s9:TimeOfDay","")
 
 	Func setTimeOfDay P1
 		raise("DotNet Error: TimeOfDay is a read-only property")
 
 	Func getYear
-		return dnRequest("get",[self,"Year"])
+		return dnSend("s3:get",nHandle,"s4:Year","")
 
 	Func setYear P1
 		raise("DotNet Error: Year is a read-only property")
 
 	Func getNow
-		return dnRequest("get",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Now"])
+		return dnSend("s3:get",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s3:Now","")
 
 	Func setNow P1
 		raise("DotNet Error: Now is a read-only property")
 
 	Func getToday
-		return dnRequest("get",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Today"])
+		return dnSend("s3:get",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s5:Today","")
 
 	Func setToday P1
 		raise("DotNet Error: Today is a read-only property")
 
 	Func getUtcNow
-		return dnRequest("get",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"UtcNow"])
+		return dnSend("s3:get",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s6:UtcNow","")
 
 	Func setUtcNow P1
 		raise("DotNet Error: UtcNow is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getUnixEpoch
-		return dnRequest("get",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"UnixEpoch"])
+		return dnSend("s3:get",dnTypeCached('System.DateTime, System.Private.CoreLib').nHandle,"s9:UnixEpoch","")
 
 	Func setUnixEpoch P1
 		raise("DotNet Error: UnixEpoch is a read-only property")
@@ -6700,259 +6700,259 @@ Class DateTimeOffset from ValueType
 		return self
 
 	Func ToOffset P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToOffset",P1])
+		return dnSend("s4:call",nHandle,"s8:ToOffset",dnPackItem(P1))
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func AddDays P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddDays",P1])
+		return dnSend("s4:call",nHandle,"s7:AddDays",dnPackItem(P1))
 
 	Func AddHours P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddHours",P1])
+		return dnSend("s4:call",nHandle,"s8:AddHours",dnPackItem(P1))
 
 	Func AddMilliseconds P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddMilliseconds",P1])
+		return dnSend("s4:call",nHandle,"s15:AddMilliseconds",dnPackItem(P1))
 
 	Func AddMicroseconds P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddMicroseconds",P1])
+		return dnSend("s4:call",nHandle,"s15:AddMicroseconds",dnPackItem(P1))
 
 	Func AddMinutes P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddMinutes",P1])
+		return dnSend("s4:call",nHandle,"s10:AddMinutes",dnPackItem(P1))
 
 	Func AddMonths P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddMonths",P1])
+		return dnSend("s4:call",nHandle,"s9:AddMonths",dnPackItem(P1))
 
 	Func AddSeconds P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddSeconds",P1])
+		return dnSend("s4:call",nHandle,"s10:AddSeconds",dnPackItem(P1))
 
 	Func AddTicks P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddTicks",P1])
+		return dnSend("s4:call",nHandle,"s8:AddTicks",dnPackItem(P1))
 
 	Func AddYears P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddYears",P1])
+		return dnSend("s4:call",nHandle,"s8:AddYears",dnPackItem(P1))
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func EqualsExact P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EqualsExact",P1])
+		return dnSend("s4:call",nHandle,"s11:EqualsExact",dnPackItem(P1))
 
 	Func Subtract P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Subtract",P1])
+		return dnSend("s4:call",nHandle,"s8:Subtract",dnPackItem(P1))
 
 	Func ToFileTime 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToFileTime"])
+		return dnSend("s4:call",nHandle,"s10:ToFileTime","")
 
 	Func ToUnixTimeSeconds 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToUnixTimeSeconds"])
+		return dnSend("s4:call",nHandle,"s17:ToUnixTimeSeconds","")
 
 	Func ToUnixTimeMilliseconds 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToUnixTimeMilliseconds"])
+		return dnSend("s4:call",nHandle,"s22:ToUnixTimeMilliseconds","")
 
 	Func ToLocalTime 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToLocalTime"])
+		return dnSend("s4:call",nHandle,"s11:ToLocalTime","")
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func ToUniversalTime 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToUniversalTime"])
+		return dnSend("s4:call",nHandle,"s15:ToUniversalTime","")
 
 	Func Deconstruct 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Deconstruct"])
+		return dnSend("s4:call",nHandle,"s11:Deconstruct","")
 
 	Func Compare P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"Compare",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FromFileTime P1
-		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"FromFileTime",P1])
+		return dnSend("s4:call",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s12:FromFileTime",dnPackItem(P1))
 
 	Func FromUnixTimeSeconds P1
-		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"FromUnixTimeSeconds",P1])
+		return dnSend("s4:call",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s19:FromUnixTimeSeconds",dnPackItem(P1))
 
 	Func FromUnixTimeMilliseconds P1
-		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"FromUnixTimeMilliseconds",P1])
+		return dnSend("s4:call",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s24:FromUnixTimeMilliseconds",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func ParseExact P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"ParseExact",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s10:ParseExact",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func TryParseExact P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"TryParseExact",P1,P2,P3,P4])
+		return dnSend("s4:call",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s13:TryParseExact",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func getDateTime
-		return dnRequest("get",[self,"DateTime"])
+		return dnSend("s3:get",nHandle,"s8:DateTime","")
 
 	Func setDateTime P1
 		raise("DotNet Error: DateTime is a read-only property")
 
 	Func getUtcDateTime
-		return dnRequest("get",[self,"UtcDateTime"])
+		return dnSend("s3:get",nHandle,"s11:UtcDateTime","")
 
 	Func setUtcDateTime P1
 		raise("DotNet Error: UtcDateTime is a read-only property")
 
 	Func getLocalDateTime
-		return dnRequest("get",[self,"LocalDateTime"])
+		return dnSend("s3:get",nHandle,"s13:LocalDateTime","")
 
 	Func setLocalDateTime P1
 		raise("DotNet Error: LocalDateTime is a read-only property")
 
 	Func getDate
-		return dnRequest("get",[self,"Date"])
+		return dnSend("s3:get",nHandle,"s4:Date","")
 
 	Func setDate P1
 		raise("DotNet Error: Date is a read-only property")
 
 	Func getDay
-		return dnRequest("get",[self,"Day"])
+		return dnSend("s3:get",nHandle,"s3:Day","")
 
 	Func setDay P1
 		raise("DotNet Error: Day is a read-only property")
 
 	Func getDayOfWeek
-		return dnRequest("get",[self,"DayOfWeek"])
+		return dnSend("s3:get",nHandle,"s9:DayOfWeek","")
 
 	Func setDayOfWeek P1
 		raise("DotNet Error: DayOfWeek is a read-only property")
 
 	Func getDayOfYear
-		return dnRequest("get",[self,"DayOfYear"])
+		return dnSend("s3:get",nHandle,"s9:DayOfYear","")
 
 	Func setDayOfYear P1
 		raise("DotNet Error: DayOfYear is a read-only property")
 
 	Func getHour
-		return dnRequest("get",[self,"Hour"])
+		return dnSend("s3:get",nHandle,"s4:Hour","")
 
 	Func setHour P1
 		raise("DotNet Error: Hour is a read-only property")
 
 	Func getMillisecond
-		return dnRequest("get",[self,"Millisecond"])
+		return dnSend("s3:get",nHandle,"s11:Millisecond","")
 
 	Func setMillisecond P1
 		raise("DotNet Error: Millisecond is a read-only property")
 
 	Func getMicrosecond
-		return dnRequest("get",[self,"Microsecond"])
+		return dnSend("s3:get",nHandle,"s11:Microsecond","")
 
 	Func setMicrosecond P1
 		raise("DotNet Error: Microsecond is a read-only property")
 
 	Func getNanosecond
-		return dnRequest("get",[self,"Nanosecond"])
+		return dnSend("s3:get",nHandle,"s10:Nanosecond","")
 
 	Func setNanosecond P1
 		raise("DotNet Error: Nanosecond is a read-only property")
 
 	Func getMinute
-		return dnRequest("get",[self,"Minute"])
+		return dnSend("s3:get",nHandle,"s6:Minute","")
 
 	Func setMinute P1
 		raise("DotNet Error: Minute is a read-only property")
 
 	Func getMonth
-		return dnRequest("get",[self,"Month"])
+		return dnSend("s3:get",nHandle,"s5:Month","")
 
 	Func setMonth P1
 		raise("DotNet Error: Month is a read-only property")
 
 	Func getOffset
-		return dnRequest("get",[self,"Offset"])
+		return dnSend("s3:get",nHandle,"s6:Offset","")
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")
 
 	Func getTotalOffsetMinutes
-		return dnRequest("get",[self,"TotalOffsetMinutes"])
+		return dnSend("s3:get",nHandle,"s18:TotalOffsetMinutes","")
 
 	Func setTotalOffsetMinutes P1
 		raise("DotNet Error: TotalOffsetMinutes is a read-only property")
 
 	Func getSecond
-		return dnRequest("get",[self,"Second"])
+		return dnSend("s3:get",nHandle,"s6:Second","")
 
 	Func setSecond P1
 		raise("DotNet Error: Second is a read-only property")
 
 	Func getTicks
-		return dnRequest("get",[self,"Ticks"])
+		return dnSend("s3:get",nHandle,"s5:Ticks","")
 
 	Func setTicks P1
 		raise("DotNet Error: Ticks is a read-only property")
 
 	Func getUtcTicks
-		return dnRequest("get",[self,"UtcTicks"])
+		return dnSend("s3:get",nHandle,"s8:UtcTicks","")
 
 	Func setUtcTicks P1
 		raise("DotNet Error: UtcTicks is a read-only property")
 
 	Func getTimeOfDay
-		return dnRequest("get",[self,"TimeOfDay"])
+		return dnSend("s3:get",nHandle,"s9:TimeOfDay","")
 
 	Func setTimeOfDay P1
 		raise("DotNet Error: TimeOfDay is a read-only property")
 
 	Func getYear
-		return dnRequest("get",[self,"Year"])
+		return dnSend("s3:get",nHandle,"s4:Year","")
 
 	Func setYear P1
 		raise("DotNet Error: Year is a read-only property")
 
 	Func getUtcNow
-		return dnRequest("get",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"UtcNow"])
+		return dnSend("s3:get",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s6:UtcNow","")
 
 	Func setUtcNow P1
 		raise("DotNet Error: UtcNow is a read-only property")
 
 	Func getNow
-		return dnRequest("get",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"Now"])
+		return dnSend("s3:get",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s3:Now","")
 
 	Func setNow P1
 		raise("DotNet Error: Now is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getUnixEpoch
-		return dnRequest("get",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"UnixEpoch"])
+		return dnSend("s3:get",dnTypeCached('System.DateTimeOffset, System.Private.CoreLib').nHandle,"s9:UnixEpoch","")
 
 	Func setUnixEpoch P1
 		raise("DotNet Error: UnixEpoch is a read-only property")
@@ -7010,202 +7010,202 @@ Class Decimal from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func FromOACurrency P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"FromOACurrency",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s14:FromOACurrency",dnPackItem(P1))
 
 	Func ToOACurrency P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"ToOACurrency",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s12:ToOACurrency",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Ceiling P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Ceiling",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s7:Ceiling",dnPackItem(P1))
 
 	Func Compare P1,P2
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Compare",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Divide",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Floor P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Floor",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s5:Floor",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func GetBits P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"GetBits",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s7:GetBits",dnPackItem(P1))
 
 	Func Remainder P1,P2
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Remainder",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s9:Remainder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Multiply",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Negate P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Negate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s6:Negate",dnPackItem(P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Round",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Round",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
 
 	Func Subtract P1,P2
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Subtract",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToByte P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"ToByte",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s6:ToByte",dnPackItem(P1))
 
 	Func ToSByte P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"ToSByte",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s7:ToSByte",dnPackItem(P1))
 
 	Func ToInt16 P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"ToInt16",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s7:ToInt16",dnPackItem(P1))
 
 	Func ToDouble P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"ToDouble",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:ToDouble",dnPackItem(P1))
 
 	Func ToInt32 P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"ToInt32",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s7:ToInt32",dnPackItem(P1))
 
 	Func ToInt64 P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"ToInt64",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s7:ToInt64",dnPackItem(P1))
 
 	Func ToUInt16 P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"ToUInt16",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:ToUInt16",dnPackItem(P1))
 
 	Func ToUInt32 P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"ToUInt32",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:ToUInt32",dnPackItem(P1))
 
 	Func ToUInt64 P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"ToUInt64",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:ToUInt64",dnPackItem(P1))
 
 	Func ToSingle P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"ToSingle",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:ToSingle",dnPackItem(P1))
 
 	Func Truncate P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Truncate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
 
 	Func ConvertToInteger P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"ConvertToInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s16:ConvertToInteger",dnPackItem(P1))
 
 	Func ConvertToIntegerNative P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"ConvertToIntegerNative",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s22:ConvertToIntegerNative",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"CopySign",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Abs",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"CreateChecked",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"CreateSaturating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"CreateTruncating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsCanonical P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"IsCanonical",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s11:IsCanonical",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"IsEvenInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsInteger P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"IsInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s9:IsInteger",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"IsNegative",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"IsOddInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"IsPositive",P1])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"MaxMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"MinMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getScale
-		return dnRequest("get",[self,"Scale"])
+		return dnSend("s3:get",nHandle,"s5:Scale","")
 
 	Func setScale P1
 		raise("DotNet Error: Scale is a read-only property")
 
 	Func getZero
-		return dnRequest("get",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Zero"])
+		return dnSend("s3:get",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getOne
-		return dnRequest("get",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"One"])
+		return dnSend("s3:get",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s3:One","")
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getMinusOne
-		return dnRequest("get",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"MinusOne"])
+		return dnSend("s3:get",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:MinusOne","")
 
 	Func setMinusOne P1
 		raise("DotNet Error: MinusOne is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Decimal, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -7247,349 +7247,349 @@ Class Double from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func IsFinite P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"IsFinite",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:IsFinite",dnPackItem(P1))
 
 	Func IsInfinity P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"IsInfinity",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s10:IsInfinity",dnPackItem(P1))
 
 	Func IsNaN P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"IsNaN",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:IsNaN",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"IsNegative",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
 
 	Func IsNegativeInfinity P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"IsNegativeInfinity",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s18:IsNegativeInfinity",dnPackItem(P1))
 
 	Func IsNormal P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"IsNormal",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:IsNormal",dnPackItem(P1))
 
 	Func IsPositiveInfinity P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"IsPositiveInfinity",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s18:IsPositiveInfinity",dnPackItem(P1))
 
 	Func IsSubnormal P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"IsSubnormal",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s11:IsSubnormal",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Double, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Double, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"IsPow2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Exp P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Exp",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Exp",dnPackItem(P1))
 
 	Func ExpM1 P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"ExpM1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:ExpM1",dnPackItem(P1))
 
 	Func Exp2 P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Exp2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Exp2",dnPackItem(P1))
 
 	Func Exp2M1 P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Exp2M1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s6:Exp2M1",dnPackItem(P1))
 
 	Func Exp10 P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Exp10",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Exp10",dnPackItem(P1))
 
 	Func Exp10M1 P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Exp10M1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s7:Exp10M1",dnPackItem(P1))
 
 	Func Ceiling P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Ceiling",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s7:Ceiling",dnPackItem(P1))
 
 	Func ConvertToInteger P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"ConvertToInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:ConvertToInteger",dnPackItem(P1))
 
 	Func ConvertToIntegerNative P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"ConvertToIntegerNative",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s22:ConvertToIntegerNative",dnPackItem(P1))
 
 	Func Floor P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Floor",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Floor",dnPackItem(P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Double, System.Private.CoreLib'),"Round",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Round",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
 
 	Func Truncate P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Truncate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
 
 	Func Atan2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Atan2",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Atan2Pi P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Atan2Pi",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s7:Atan2Pi",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitDecrement P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"BitDecrement",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s12:BitDecrement",dnPackItem(P1))
 
 	Func BitIncrement P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"BitIncrement",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s12:BitIncrement",dnPackItem(P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"FusedMultiplyAdd",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Ieee754Remainder P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Ieee754Remainder",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:Ieee754Remainder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ILogB P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"ILogB",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:ILogB",dnPackItem(P1))
 
 	Func Lerp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Lerp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReciprocalEstimate P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"ReciprocalEstimate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s18:ReciprocalEstimate",dnPackItem(P1))
 
 	Func ReciprocalSqrtEstimate P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"ReciprocalSqrtEstimate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
 
 	Func ScaleB P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"ScaleB",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Acosh P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Acosh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Acosh",dnPackItem(P1))
 
 	Func Asinh P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Asinh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Asinh",dnPackItem(P1))
 
 	Func Atanh P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Atanh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Atanh",dnPackItem(P1))
 
 	Func Cosh P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Cosh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Cosh",dnPackItem(P1))
 
 	Func Sinh P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Sinh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Sinh",dnPackItem(P1))
 
 	Func Tanh P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Tanh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Tanh",dnPackItem(P1))
 
 	Func Log P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Double, System.Private.CoreLib'),"Log",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Log",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
 
 	Func LogP1 P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"LogP1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:LogP1",dnPackItem(P1))
 
 	Func Log2P1 P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Log2P1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s6:Log2P1",dnPackItem(P1))
 
 	Func Log10 P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Log10",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Log10",dnPackItem(P1))
 
 	Func Log10P1 P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Log10P1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s7:Log10P1",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"CopySign",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxNumber P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"MaxNumber",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinNumber P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"MinNumber",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Abs",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"CreateChecked",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"CreateSaturating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"CreateTruncating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"IsEvenInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsInteger P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"IsInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s9:IsInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"IsOddInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"IsPositive",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
 
 	Func IsRealNumber P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"IsRealNumber",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s12:IsRealNumber",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"MaxMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"MaxMagnitudeNumber",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"MinMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitudeNumber P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"MinMagnitudeNumber",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"MultiplyAddEstimate",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Pow P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Pow",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Cbrt P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Cbrt",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Cbrt",dnPackItem(P1))
 
 	Func Hypot P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Hypot",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RootN P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"RootN",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:RootN",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sqrt P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Sqrt",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Sqrt",dnPackItem(P1))
 
 	Func Acos P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Acos",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Acos",dnPackItem(P1))
 
 	Func AcosPi P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"AcosPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s6:AcosPi",dnPackItem(P1))
 
 	Func Asin P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Asin",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Asin",dnPackItem(P1))
 
 	Func AsinPi P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"AsinPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s6:AsinPi",dnPackItem(P1))
 
 	Func Atan P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Atan",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s4:Atan",dnPackItem(P1))
 
 	Func AtanPi P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"AtanPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s6:AtanPi",dnPackItem(P1))
 
 	Func Cos P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Cos",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Cos",dnPackItem(P1))
 
 	Func CosPi P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"CosPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:CosPi",dnPackItem(P1))
 
 	Func DegreesToRadians P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"DegreesToRadians",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:DegreesToRadians",dnPackItem(P1))
 
 	Func RadiansToDegrees P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"RadiansToDegrees",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:RadiansToDegrees",dnPackItem(P1))
 
 	Func Sin P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Sin",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Sin",dnPackItem(P1))
 
 	Func SinCos P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"SinCos",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s6:SinCos",dnPackItem(P1))
 
 	Func SinCosPi P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"SinCosPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:SinCosPi",dnPackItem(P1))
 
 	Func SinPi P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"SinPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:SinPi",dnPackItem(P1))
 
 	Func Tan P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Tan",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Tan",dnPackItem(P1))
 
 	Func TanPi P1
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"TanPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s5:TanPi",dnPackItem(P1))
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Double, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Double, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getEpsilon
-		return dnRequest("get",[dnTypeCached('System.Double, System.Private.CoreLib'),"Epsilon"])
+		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s7:Epsilon","")
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getNegativeInfinity
-		return dnRequest("get",[dnTypeCached('System.Double, System.Private.CoreLib'),"NegativeInfinity"])
+		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:NegativeInfinity","")
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getPositiveInfinity
-		return dnRequest("get",[dnTypeCached('System.Double, System.Private.CoreLib'),"PositiveInfinity"])
+		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s16:PositiveInfinity","")
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getNaN
-		return dnRequest("get",[dnTypeCached('System.Double, System.Private.CoreLib'),"NaN"])
+		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:NaN","")
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getNegativeZero
-		return dnRequest("get",[dnTypeCached('System.Double, System.Private.CoreLib'),"NegativeZero"])
+		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s12:NegativeZero","")
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
 	Func getE
-		return dnRequest("get",[dnTypeCached('System.Double, System.Private.CoreLib'),"E"])
+		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s1:E","")
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPi
-		return dnRequest("get",[dnTypeCached('System.Double, System.Private.CoreLib'),"Pi"])
+		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s2:Pi","")
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getTau
-		return dnRequest("get",[dnTypeCached('System.Double, System.Private.CoreLib'),"Tau"])
+		return dnSend("s3:get",dnTypeCached('System.Double, System.Private.CoreLib').nHandle,"s3:Tau","")
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
@@ -7607,73 +7607,73 @@ Class Enum from ValueType
 		return self
 
 	Func HasFlag P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasFlag",P1])
+		return dnSend("s4:call",nHandle,"s7:HasFlag",dnPackItem(P1))
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func GetName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetName",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s7:GetName",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetName",P1])
+		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s7:GetName",dnPackItem(P1))
 
 	Func GetNames P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetNames",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s8:GetNames",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetNames"])
+			return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s8:GetNames","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetNames",P1])
+		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s8:GetNames",dnPackItem(P1))
 
 	Func GetUnderlyingType P1
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetUnderlyingType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s17:GetUnderlyingType",dnPackItem(P1))
 
 	Func GetValues P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValues",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s9:GetValues",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValues"])
+			return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s9:GetValues","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValues",P1])
+		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s9:GetValues",dnPackItem(P1))
 
 	Func GetValuesAsUnderlyingType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValuesAsUnderlyingType",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s25:GetValuesAsUnderlyingType",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValuesAsUnderlyingType"])
+			return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s25:GetValuesAsUnderlyingType","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValuesAsUnderlyingType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s25:GetValuesAsUnderlyingType",dnPackItem(P1))
 
 	Func IsDefined P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"IsDefined",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s9:IsDefined",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"IsDefined",P1])
+		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s9:IsDefined",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func Format P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"Format",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s6:Format",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ToObject P1,P2
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"ToObject",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Enum, System.Private.CoreLib').nHandle,"s8:ToObject",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class FileStyleUriParser from UriParser
@@ -7756,25 +7756,25 @@ Class GCGenerationInfo from ValueType
 		return self
 
 	Func getSizeBeforeBytes
-		return dnRequest("get",[self,"SizeBeforeBytes"])
+		return dnSend("s3:get",nHandle,"s15:SizeBeforeBytes","")
 
 	Func setSizeBeforeBytes P1
 		raise("DotNet Error: SizeBeforeBytes is a read-only property")
 
 	Func getFragmentationBeforeBytes
-		return dnRequest("get",[self,"FragmentationBeforeBytes"])
+		return dnSend("s3:get",nHandle,"s24:FragmentationBeforeBytes","")
 
 	Func setFragmentationBeforeBytes P1
 		raise("DotNet Error: FragmentationBeforeBytes is a read-only property")
 
 	Func getSizeAfterBytes
-		return dnRequest("get",[self,"SizeAfterBytes"])
+		return dnSend("s3:get",nHandle,"s14:SizeAfterBytes","")
 
 	Func setSizeAfterBytes P1
 		raise("DotNet Error: SizeAfterBytes is a read-only property")
 
 	Func getFragmentationAfterBytes
-		return dnRequest("get",[self,"FragmentationAfterBytes"])
+		return dnSend("s3:get",nHandle,"s23:FragmentationAfterBytes","")
 
 	Func setFragmentationAfterBytes P1
 		raise("DotNet Error: FragmentationAfterBytes is a read-only property")
@@ -7822,97 +7822,97 @@ Class GCMemoryInfo from ValueType
 		return self
 
 	Func getHighMemoryLoadThresholdBytes
-		return dnRequest("get",[self,"HighMemoryLoadThresholdBytes"])
+		return dnSend("s3:get",nHandle,"s28:HighMemoryLoadThresholdBytes","")
 
 	Func setHighMemoryLoadThresholdBytes P1
 		raise("DotNet Error: HighMemoryLoadThresholdBytes is a read-only property")
 
 	Func getMemoryLoadBytes
-		return dnRequest("get",[self,"MemoryLoadBytes"])
+		return dnSend("s3:get",nHandle,"s15:MemoryLoadBytes","")
 
 	Func setMemoryLoadBytes P1
 		raise("DotNet Error: MemoryLoadBytes is a read-only property")
 
 	Func getTotalAvailableMemoryBytes
-		return dnRequest("get",[self,"TotalAvailableMemoryBytes"])
+		return dnSend("s3:get",nHandle,"s25:TotalAvailableMemoryBytes","")
 
 	Func setTotalAvailableMemoryBytes P1
 		raise("DotNet Error: TotalAvailableMemoryBytes is a read-only property")
 
 	Func getHeapSizeBytes
-		return dnRequest("get",[self,"HeapSizeBytes"])
+		return dnSend("s3:get",nHandle,"s13:HeapSizeBytes","")
 
 	Func setHeapSizeBytes P1
 		raise("DotNet Error: HeapSizeBytes is a read-only property")
 
 	Func getFragmentedBytes
-		return dnRequest("get",[self,"FragmentedBytes"])
+		return dnSend("s3:get",nHandle,"s15:FragmentedBytes","")
 
 	Func setFragmentedBytes P1
 		raise("DotNet Error: FragmentedBytes is a read-only property")
 
 	Func getIndex
-		return dnRequest("get",[self,"Index"])
+		return dnSend("s3:get",nHandle,"s5:Index","")
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getGeneration
-		return dnRequest("get",[self,"Generation"])
+		return dnSend("s3:get",nHandle,"s10:Generation","")
 
 	Func setGeneration P1
 		raise("DotNet Error: Generation is a read-only property")
 
 	Func getCompacted
-		return dnRequest("get",[self,"Compacted"])
+		return dnSend("s3:get",nHandle,"s9:Compacted","")
 
 	Func setCompacted P1
 		raise("DotNet Error: Compacted is a read-only property")
 
 	Func getConcurrent
-		return dnRequest("get",[self,"Concurrent"])
+		return dnSend("s3:get",nHandle,"s10:Concurrent","")
 
 	Func setConcurrent P1
 		raise("DotNet Error: Concurrent is a read-only property")
 
 	Func getTotalCommittedBytes
-		return dnRequest("get",[self,"TotalCommittedBytes"])
+		return dnSend("s3:get",nHandle,"s19:TotalCommittedBytes","")
 
 	Func setTotalCommittedBytes P1
 		raise("DotNet Error: TotalCommittedBytes is a read-only property")
 
 	Func getPromotedBytes
-		return dnRequest("get",[self,"PromotedBytes"])
+		return dnSend("s3:get",nHandle,"s13:PromotedBytes","")
 
 	Func setPromotedBytes P1
 		raise("DotNet Error: PromotedBytes is a read-only property")
 
 	Func getPinnedObjectsCount
-		return dnRequest("get",[self,"PinnedObjectsCount"])
+		return dnSend("s3:get",nHandle,"s18:PinnedObjectsCount","")
 
 	Func setPinnedObjectsCount P1
 		raise("DotNet Error: PinnedObjectsCount is a read-only property")
 
 	Func getFinalizationPendingCount
-		return dnRequest("get",[self,"FinalizationPendingCount"])
+		return dnSend("s3:get",nHandle,"s24:FinalizationPendingCount","")
 
 	Func setFinalizationPendingCount P1
 		raise("DotNet Error: FinalizationPendingCount is a read-only property")
 
 	Func getPauseDurations
-		return dnRequest("get",[self,"PauseDurations"])
+		return dnSend("s3:get",nHandle,"s14:PauseDurations","")
 
 	Func setPauseDurations P1
 		raise("DotNet Error: PauseDurations is a read-only property")
 
 	Func getPauseTimePercentage
-		return dnRequest("get",[self,"PauseTimePercentage"])
+		return dnSend("s3:get",nHandle,"s19:PauseTimePercentage","")
 
 	Func setPauseTimePercentage P1
 		raise("DotNet Error: PauseTimePercentage is a read-only property")
 
 	Func getGenerationInfo
-		return dnRequest("get",[self,"GenerationInfo"])
+		return dnSend("s3:get",nHandle,"s14:GenerationInfo","")
 
 	Func setGenerationInfo P1
 		raise("DotNet Error: GenerationInfo is a read-only property")
@@ -8008,72 +8008,72 @@ Class Guid from ValueType
 
 	Func ToByteArray P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToByteArray",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:ToByteArray",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ToByteArray"])
+			return dnSend("s4:call",nHandle,"s11:ToByteArray","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToByteArray",P1])
+		return dnSend("s4:call",nHandle,"s11:ToByteArray",dnPackItem(P1))
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func CreateVersion7 P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Guid, System.Private.CoreLib'),"CreateVersion7",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s14:CreateVersion7",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"CreateVersion7"])
+			return dnSend("s4:call",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s14:CreateVersion7","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"CreateVersion7",P1])
+		return dnSend("s4:call",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s14:CreateVersion7",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Guid, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Guid, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func ParseExact P1,P2
-		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"ParseExact",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s10:ParseExact",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TryParseExact P1,P2
-		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"TryParseExact",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s13:TryParseExact",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NewGuid 
-		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"NewGuid"])
+		return dnSend("s4:call",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s7:NewGuid","")
 
 	Func getVariant
-		return dnRequest("get",[self,"Variant"])
+		return dnSend("s3:get",nHandle,"s7:Variant","")
 
 	Func setVariant P1
 		raise("DotNet Error: Variant is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnSend("s3:get",nHandle,"s7:Version","")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getAllBitsSet
-		return dnRequest("get",[dnTypeCached('System.Guid, System.Private.CoreLib'),"AllBitsSet"])
+		return dnSend("s3:get",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s10:AllBitsSet","")
 
 	Func setAllBitsSet P1
 		raise("DotNet Error: AllBitsSet is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[dnTypeCached('System.Guid, System.Private.CoreLib'),"Empty"])
+		return dnSend("s3:get",dnTypeCached('System.Guid, System.Private.CoreLib').nHandle,"s5:Empty","")
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -8119,370 +8119,370 @@ Class Half from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func IsFinite P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsFinite",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:IsFinite",dnPackItem(P1))
 
 	Func IsInfinity P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsInfinity",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s10:IsInfinity",dnPackItem(P1))
 
 	Func IsNaN P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsNaN",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:IsNaN",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsNegative",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
 
 	Func IsNegativeInfinity P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsNegativeInfinity",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s18:IsNegativeInfinity",dnPackItem(P1))
 
 	Func IsNormal P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsNormal",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:IsNormal",dnPackItem(P1))
 
 	Func IsPositiveInfinity P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsPositiveInfinity",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s18:IsPositiveInfinity",dnPackItem(P1))
 
 	Func IsSubnormal P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsSubnormal",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s11:IsSubnormal",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Half, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Half, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsPow2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Exp P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Exp",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Exp",dnPackItem(P1))
 
 	Func ExpM1 P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"ExpM1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:ExpM1",dnPackItem(P1))
 
 	Func Exp2 P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Exp2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Exp2",dnPackItem(P1))
 
 	Func Exp2M1 P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Exp2M1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s6:Exp2M1",dnPackItem(P1))
 
 	Func Exp10 P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Exp10",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Exp10",dnPackItem(P1))
 
 	Func Exp10M1 P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Exp10M1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s7:Exp10M1",dnPackItem(P1))
 
 	Func Ceiling P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Ceiling",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s7:Ceiling",dnPackItem(P1))
 
 	Func ConvertToInteger P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"ConvertToInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:ConvertToInteger",dnPackItem(P1))
 
 	Func ConvertToIntegerNative P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"ConvertToIntegerNative",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s22:ConvertToIntegerNative",dnPackItem(P1))
 
 	Func Floor P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Floor",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Floor",dnPackItem(P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Half, System.Private.CoreLib'),"Round",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Round",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
 
 	Func Truncate P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Truncate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
 
 	Func Atan2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Atan2",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Atan2Pi P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Atan2Pi",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s7:Atan2Pi",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitDecrement P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"BitDecrement",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s12:BitDecrement",dnPackItem(P1))
 
 	Func BitIncrement P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"BitIncrement",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s12:BitIncrement",dnPackItem(P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"FusedMultiplyAdd",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Ieee754Remainder P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Ieee754Remainder",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:Ieee754Remainder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ILogB P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"ILogB",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:ILogB",dnPackItem(P1))
 
 	Func Lerp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Lerp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReciprocalEstimate P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"ReciprocalEstimate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s18:ReciprocalEstimate",dnPackItem(P1))
 
 	Func ReciprocalSqrtEstimate P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"ReciprocalSqrtEstimate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
 
 	Func ScaleB P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"ScaleB",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Acosh P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Acosh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Acosh",dnPackItem(P1))
 
 	Func Asinh P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Asinh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Asinh",dnPackItem(P1))
 
 	Func Atanh P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Atanh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Atanh",dnPackItem(P1))
 
 	Func Cosh P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Cosh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Cosh",dnPackItem(P1))
 
 	Func Sinh P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Sinh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Sinh",dnPackItem(P1))
 
 	Func Tanh P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Tanh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Tanh",dnPackItem(P1))
 
 	Func Log P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Half, System.Private.CoreLib'),"Log",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Log",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
 
 	Func Log10 P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Log10",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Log10",dnPackItem(P1))
 
 	Func LogP1 P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"LogP1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:LogP1",dnPackItem(P1))
 
 	Func Log2P1 P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Log2P1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s6:Log2P1",dnPackItem(P1))
 
 	Func Log10P1 P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Log10P1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s7:Log10P1",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"CopySign",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxNumber P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"MaxNumber",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinNumber P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"MinNumber",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Abs",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"CreateChecked",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"CreateSaturating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"CreateTruncating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsEvenInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsInteger P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s9:IsInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsOddInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsPositive",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
 
 	Func IsRealNumber P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsRealNumber",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s12:IsRealNumber",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"MaxMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"MaxMagnitudeNumber",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"MinMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitudeNumber P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"MinMagnitudeNumber",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"MultiplyAddEstimate",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Pow P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Pow",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Cbrt P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Cbrt",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Cbrt",dnPackItem(P1))
 
 	Func Hypot P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Hypot",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RootN P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"RootN",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:RootN",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sqrt P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Sqrt",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Sqrt",dnPackItem(P1))
 
 	Func Acos P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Acos",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Acos",dnPackItem(P1))
 
 	Func AcosPi P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"AcosPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s6:AcosPi",dnPackItem(P1))
 
 	Func Asin P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Asin",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Asin",dnPackItem(P1))
 
 	Func AsinPi P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"AsinPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s6:AsinPi",dnPackItem(P1))
 
 	Func Atan P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Atan",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Atan",dnPackItem(P1))
 
 	Func AtanPi P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"AtanPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s6:AtanPi",dnPackItem(P1))
 
 	Func Cos P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Cos",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Cos",dnPackItem(P1))
 
 	Func CosPi P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"CosPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:CosPi",dnPackItem(P1))
 
 	Func DegreesToRadians P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"DegreesToRadians",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:DegreesToRadians",dnPackItem(P1))
 
 	Func RadiansToDegrees P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"RadiansToDegrees",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:RadiansToDegrees",dnPackItem(P1))
 
 	Func Sin P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Sin",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Sin",dnPackItem(P1))
 
 	Func SinCos P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"SinCos",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s6:SinCos",dnPackItem(P1))
 
 	Func SinCosPi P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"SinCosPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:SinCosPi",dnPackItem(P1))
 
 	Func SinPi P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"SinPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:SinPi",dnPackItem(P1))
 
 	Func Tan P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Tan",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Tan",dnPackItem(P1))
 
 	Func TanPi P1
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"TanPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s5:TanPi",dnPackItem(P1))
 
 	Func getEpsilon
-		return dnRequest("get",[dnTypeCached('System.Half, System.Private.CoreLib'),"Epsilon"])
+		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s7:Epsilon","")
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getPositiveInfinity
-		return dnRequest("get",[dnTypeCached('System.Half, System.Private.CoreLib'),"PositiveInfinity"])
+		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:PositiveInfinity","")
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getNegativeInfinity
-		return dnRequest("get",[dnTypeCached('System.Half, System.Private.CoreLib'),"NegativeInfinity"])
+		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s16:NegativeInfinity","")
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getNaN
-		return dnRequest("get",[dnTypeCached('System.Half, System.Private.CoreLib'),"NaN"])
+		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:NaN","")
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Half, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Half, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getE
-		return dnRequest("get",[dnTypeCached('System.Half, System.Private.CoreLib'),"E"])
+		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s1:E","")
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPi
-		return dnRequest("get",[dnTypeCached('System.Half, System.Private.CoreLib'),"Pi"])
+		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s2:Pi","")
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getTau
-		return dnRequest("get",[dnTypeCached('System.Half, System.Private.CoreLib'),"Tau"])
+		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:Tau","")
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
 
 	Func getNegativeZero
-		return dnRequest("get",[dnTypeCached('System.Half, System.Private.CoreLib'),"NegativeZero"])
+		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s12:NegativeZero","")
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
 	Func getMultiplicativeIdentity
-		return dnRequest("get",[dnTypeCached('System.Half, System.Private.CoreLib'),"MultiplicativeIdentity"])
+		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s22:MultiplicativeIdentity","")
 
 	Func setMultiplicativeIdentity P1
 		raise("DotNet Error: MultiplicativeIdentity is a read-only property")
 
 	Func getOne
-		return dnRequest("get",[dnTypeCached('System.Half, System.Private.CoreLib'),"One"])
+		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s3:One","")
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getZero
-		return dnRequest("get",[dnTypeCached('System.Half, System.Private.CoreLib'),"Zero"])
+		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getNegativeOne
-		return dnRequest("get",[dnTypeCached('System.Half, System.Private.CoreLib'),"NegativeOne"])
+		return dnSend("s3:get",dnTypeCached('System.Half, System.Private.CoreLib').nHandle,"s11:NegativeOne","")
 
 	Func setNegativeOne P1
 		raise("DotNet Error: NegativeOne is a read-only property")
@@ -8514,20 +8514,20 @@ Class HashCode from ValueType
 
 	Func Add P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Add",P1])
+			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func ToHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToHashCode"])
+		return dnSend("s4:call",nHandle,"s10:ToHashCode","")
 
 	Func Combine P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.HashCode, System.Private.CoreLib').nHandle,"s7:Combine",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1])
+		return dnSend("s4:call",dnTypeCached('System.HashCode, System.Private.CoreLib').nHandle,"s7:Combine",dnPackItem(P1))
 
 
 Class HttpStyleUriParser from UriParser
@@ -8604,34 +8604,34 @@ Class Index from ValueType
 		return self
 
 	Func GetOffset P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetOffset",P1])
+		return dnSend("s4:call",nHandle,"s9:GetOffset",dnPackItem(P1))
 
 	Func FromStart P1
-		return dnRequest("call",[dnTypeCached('System.Index, System.Private.CoreLib'),"FromStart",P1])
+		return dnSend("s4:call",dnTypeCached('System.Index, System.Private.CoreLib').nHandle,"s9:FromStart",dnPackItem(P1))
 
 	Func FromEnd P1
-		return dnRequest("call",[dnTypeCached('System.Index, System.Private.CoreLib'),"FromEnd",P1])
+		return dnSend("s4:call",dnTypeCached('System.Index, System.Private.CoreLib').nHandle,"s7:FromEnd",dnPackItem(P1))
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getIsFromEnd
-		return dnRequest("get",[self,"IsFromEnd"])
+		return dnSend("s3:get",nHandle,"s9:IsFromEnd","")
 
 	Func setIsFromEnd P1
 		raise("DotNet Error: IsFromEnd is a read-only property")
 
 	Func getStart
-		return dnRequest("get",[dnTypeCached('System.Index, System.Private.CoreLib'),"Start"])
+		return dnSend("s3:get",dnTypeCached('System.Index, System.Private.CoreLib').nHandle,"s5:Start","")
 
 	Func setStart P1
 		raise("DotNet Error: Start is a read-only property")
 
 	Func getEnd
-		return dnRequest("get",[dnTypeCached('System.Index, System.Private.CoreLib'),"End"])
+		return dnSend("s3:get",dnTypeCached('System.Index, System.Private.CoreLib').nHandle,"s3:End","")
 
 
 Class Int128 from ValueType
@@ -8685,121 +8685,121 @@ Class Int128 from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Int128, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Int128, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"DivRem",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"LeadingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"PopCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"RotateLeft",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"RotateRight",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"TrailingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"IsPow2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"CopySign",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"Abs",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"CreateChecked",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"CreateSaturating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"CreateTruncating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"IsEvenInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"IsNegative",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"IsOddInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"IsPositive",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"MaxMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"MinMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Int128, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Int128, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getOne
-		return dnRequest("get",[dnTypeCached('System.Int128, System.Private.CoreLib'),"One"])
+		return dnSend("s3:get",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s3:One","")
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getZero
-		return dnRequest("get",[dnTypeCached('System.Int128, System.Private.CoreLib'),"Zero"])
+		return dnSend("s3:get",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getNegativeOne
-		return dnRequest("get",[dnTypeCached('System.Int128, System.Private.CoreLib'),"NegativeOne"])
+		return dnSend("s3:get",dnTypeCached('System.Int128, System.Private.CoreLib').nHandle,"s11:NegativeOne","")
 
 	Func setNegativeOne P1
 		raise("DotNet Error: NegativeOne is a read-only property")
@@ -8833,106 +8833,106 @@ Class Int16 from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Int16, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Int16, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"DivRem",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"LeadingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"PopCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"RotateLeft",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"RotateRight",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"TrailingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"IsPow2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"CopySign",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"Abs",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"CreateChecked",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"CreateSaturating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"CreateTruncating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"IsEvenInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"IsNegative",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"IsOddInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"IsPositive",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"MaxMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"MinMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Int16, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Int16, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Int16, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -8966,109 +8966,109 @@ Class Int32 from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func BigMul P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"BigMul",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s6:BigMul",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Int32, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Int32, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"DivRem",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"LeadingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"PopCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"RotateLeft",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"RotateRight",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"TrailingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"IsPow2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"CopySign",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"Abs",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"CreateChecked",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"CreateSaturating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"CreateTruncating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"IsEvenInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"IsNegative",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"IsOddInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"IsPositive",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"MaxMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"MinMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Int32, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Int32, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Int32, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -9102,109 +9102,109 @@ Class Int64 from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func BigMul P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"BigMul",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s6:BigMul",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Int64, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Int64, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"DivRem",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"LeadingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"PopCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"RotateLeft",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"RotateRight",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"TrailingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"IsPow2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"CopySign",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"Abs",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"CreateChecked",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"CreateSaturating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"CreateTruncating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"IsEvenInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"IsNegative",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"IsOddInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"IsPositive",P1])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"MaxMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"MinMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Int64, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Int64, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Int64, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -9260,130 +9260,130 @@ Class IntPtr from ValueType
 		return self
 
 	Func ToInt32 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToInt32"])
+		return dnSend("s4:call",nHandle,"s7:ToInt32","")
 
 	Func ToInt64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToInt64"])
+		return dnSend("s4:call",nHandle,"s7:ToInt64","")
 
 	Func ToPointer 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToPointer"])
+		return dnSend("s4:call",nHandle,"s9:ToPointer","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Subtract",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"DivRem",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"LeadingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"PopCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"RotateLeft",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"RotateRight",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"TrailingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"IsPow2",P1])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"CopySign",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Abs",P1])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"CreateChecked",P1])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"CreateSaturating",P1])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"CreateTruncating",P1])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"IsEvenInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"IsNegative",P1])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"IsOddInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"IsPositive",P1])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"MaxMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"MinMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getSize
-		return dnRequest("get",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Size"])
+		return dnSend("s3:get",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s4:Size","")
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getZero
-		return dnRequest("get",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Zero"])
+		return dnSend("s3:get",dnTypeCached('System.IntPtr, System.Private.CoreLib').nHandle,"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
@@ -9442,40 +9442,40 @@ Class ModuleHandle from ValueType
 		return self
 
 	Func GetRuntimeTypeHandleFromMetadataToken P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRuntimeTypeHandleFromMetadataToken",P1])
+		return dnSend("s4:call",nHandle,"s37:GetRuntimeTypeHandleFromMetadataToken",dnPackItem(P1))
 
 	Func ResolveTypeHandle P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ResolveTypeHandle",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:ResolveTypeHandle",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveTypeHandle",P1])
+		return dnSend("s4:call",nHandle,"s17:ResolveTypeHandle",dnPackItem(P1))
 
 	Func GetRuntimeMethodHandleFromMetadataToken P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRuntimeMethodHandleFromMetadataToken",P1])
+		return dnSend("s4:call",nHandle,"s39:GetRuntimeMethodHandleFromMetadataToken",dnPackItem(P1))
 
 	Func ResolveMethodHandle P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ResolveMethodHandle",P1])
+			return dnSend("s9:callnamed",nHandle,"s19:ResolveMethodHandle",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveMethodHandle",P1])
+		return dnSend("s4:call",nHandle,"s19:ResolveMethodHandle",dnPackItem(P1))
 
 	Func GetRuntimeFieldHandleFromMetadataToken P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRuntimeFieldHandleFromMetadataToken",P1])
+		return dnSend("s4:call",nHandle,"s38:GetRuntimeFieldHandleFromMetadataToken",dnPackItem(P1))
 
 	Func ResolveFieldHandle P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ResolveFieldHandle",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:ResolveFieldHandle",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ResolveFieldHandle",P1])
+		return dnSend("s4:call",nHandle,"s18:ResolveFieldHandle",dnPackItem(P1))
 
 	Func getMDStreamVersion
-		return dnRequest("get",[self,"MDStreamVersion"])
+		return dnSend("s3:get",nHandle,"s15:MDStreamVersion","")
 
 	Func setMDStreamVersion P1
 		raise("DotNet Error: MDStreamVersion is a read-only property")
 
 	Func getEmptyHandle
-		return dnRequest("get",[dnTypeCached('System.ModuleHandle, System.Private.CoreLib'),"EmptyHandle"])
+		return dnSend("s3:get",dnTypeCached('System.ModuleHandle, System.Private.CoreLib').nHandle,"s11:EmptyHandle","")
 
 	Func setEmptyHandle P1
 		raise("DotNet Error: EmptyHandle is a read-only property")
@@ -9616,25 +9616,25 @@ Class Range from ValueType
 		return self
 
 	Func GetOffsetAndLength P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetOffsetAndLength",P1])
+		return dnSend("s4:call",nHandle,"s18:GetOffsetAndLength",dnPackItem(P1))
 
 	Func StartAt P1
-		return dnRequest("call",[dnTypeCached('System.Range, System.Private.CoreLib'),"StartAt",P1])
+		return dnSend("s4:call",dnTypeCached('System.Range, System.Private.CoreLib').nHandle,"s7:StartAt",dnPackItem(P1))
 
 	Func EndAt P1
-		return dnRequest("call",[dnTypeCached('System.Range, System.Private.CoreLib'),"EndAt",P1])
+		return dnSend("s4:call",dnTypeCached('System.Range, System.Private.CoreLib').nHandle,"s5:EndAt",dnPackItem(P1))
 
 	Func getStart
-		return dnRequest("get",[self,"Start"])
+		return dnSend("s3:get",nHandle,"s5:Start","")
 
 	Func setStart P1
 		raise("DotNet Error: Start is a read-only property")
 
 	Func getEnd
-		return dnRequest("get",[self,"End"])
+		return dnSend("s3:get",nHandle,"s3:End","")
 
 	Func getAll
-		return dnRequest("get",[dnTypeCached('System.Range, System.Private.CoreLib'),"All"])
+		return dnSend("s3:get",dnTypeCached('System.Range, System.Private.CoreLib').nHandle,"s3:All","")
 
 	Func setAll P1
 		raise("DotNet Error: All is a read-only property")
@@ -9672,13 +9672,13 @@ Class ResolveEventArgs from EventArgs
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getRequestingAssembly
-		return dnRequest("get",[self,"RequestingAssembly"])
+		return dnSend("s3:get",nHandle,"s18:RequestingAssembly","")
 
 	Func setRequestingAssembly P1
 		raise("DotNet Error: RequestingAssembly is a read-only property")
@@ -9711,17 +9711,17 @@ Class RuntimeFieldHandle from ValueType
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetObjectData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func FromIntPtr P1
-		return dnRequest("call",[dnTypeCached('System.RuntimeFieldHandle, System.Private.CoreLib'),"FromIntPtr",P1])
+		return dnSend("s4:call",dnTypeCached('System.RuntimeFieldHandle, System.Private.CoreLib').nHandle,"s10:FromIntPtr",dnPackItem(P1))
 
 	Func ToIntPtr P1
-		return dnRequest("call",[dnTypeCached('System.RuntimeFieldHandle, System.Private.CoreLib'),"ToIntPtr",P1])
+		return dnSend("s4:call",dnTypeCached('System.RuntimeFieldHandle, System.Private.CoreLib').nHandle,"s8:ToIntPtr",dnPackItem(P1))
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -9754,20 +9754,20 @@ Class RuntimeMethodHandle from ValueType
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetObjectData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetFunctionPointer 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFunctionPointer"])
+		return dnSend("s4:call",nHandle,"s18:GetFunctionPointer","")
 
 	Func FromIntPtr P1
-		return dnRequest("call",[dnTypeCached('System.RuntimeMethodHandle, System.Private.CoreLib'),"FromIntPtr",P1])
+		return dnSend("s4:call",dnTypeCached('System.RuntimeMethodHandle, System.Private.CoreLib').nHandle,"s10:FromIntPtr",dnPackItem(P1))
 
 	Func ToIntPtr P1
-		return dnRequest("call",[dnTypeCached('System.RuntimeMethodHandle, System.Private.CoreLib'),"ToIntPtr",P1])
+		return dnSend("s4:call",dnTypeCached('System.RuntimeMethodHandle, System.Private.CoreLib').nHandle,"s8:ToIntPtr",dnPackItem(P1))
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -9800,20 +9800,20 @@ Class RuntimeTypeHandle from ValueType
 		return self
 
 	Func GetModuleHandle 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetModuleHandle"])
+		return dnSend("s4:call",nHandle,"s15:GetModuleHandle","")
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetObjectData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func FromIntPtr P1
-		return dnRequest("call",[dnTypeCached('System.RuntimeTypeHandle, System.Private.CoreLib'),"FromIntPtr",P1])
+		return dnSend("s4:call",dnTypeCached('System.RuntimeTypeHandle, System.Private.CoreLib').nHandle,"s10:FromIntPtr",dnPackItem(P1))
 
 	Func ToIntPtr P1
-		return dnRequest("call",[dnTypeCached('System.RuntimeTypeHandle, System.Private.CoreLib'),"ToIntPtr",P1])
+		return dnSend("s4:call",dnTypeCached('System.RuntimeTypeHandle, System.Private.CoreLib').nHandle,"s8:ToIntPtr",dnPackItem(P1))
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -9847,106 +9847,106 @@ Class SByte from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.SByte, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.SByte, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"DivRem",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"LeadingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"PopCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"RotateLeft",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"RotateRight",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"TrailingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"IsPow2",P1])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"CopySign",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"Abs",P1])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"CreateChecked",P1])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"CreateSaturating",P1])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"CreateTruncating",P1])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"IsEvenInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"IsNegative",P1])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"IsOddInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"IsPositive",P1])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"MaxMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"MinMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.SByte, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.SByte, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.SByte, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -9988,349 +9988,349 @@ Class Single from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func IsFinite P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"IsFinite",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:IsFinite",dnPackItem(P1))
 
 	Func IsInfinity P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"IsInfinity",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s10:IsInfinity",dnPackItem(P1))
 
 	Func IsNaN P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"IsNaN",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:IsNaN",dnPackItem(P1))
 
 	Func IsNegative P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"IsNegative",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s10:IsNegative",dnPackItem(P1))
 
 	Func IsNegativeInfinity P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"IsNegativeInfinity",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s18:IsNegativeInfinity",dnPackItem(P1))
 
 	Func IsNormal P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"IsNormal",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:IsNormal",dnPackItem(P1))
 
 	Func IsPositiveInfinity P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"IsPositiveInfinity",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s18:IsPositiveInfinity",dnPackItem(P1))
 
 	Func IsSubnormal P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"IsSubnormal",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s11:IsSubnormal",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Single, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Single, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"IsPow2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Exp P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Exp",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Exp",dnPackItem(P1))
 
 	Func ExpM1 P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"ExpM1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:ExpM1",dnPackItem(P1))
 
 	Func Exp2 P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Exp2",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Exp2",dnPackItem(P1))
 
 	Func Exp2M1 P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Exp2M1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s6:Exp2M1",dnPackItem(P1))
 
 	Func Exp10 P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Exp10",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Exp10",dnPackItem(P1))
 
 	Func Exp10M1 P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Exp10M1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s7:Exp10M1",dnPackItem(P1))
 
 	Func Ceiling P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Ceiling",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s7:Ceiling",dnPackItem(P1))
 
 	Func ConvertToInteger P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"ConvertToInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:ConvertToInteger",dnPackItem(P1))
 
 	Func ConvertToIntegerNative P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"ConvertToIntegerNative",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s22:ConvertToIntegerNative",dnPackItem(P1))
 
 	Func Floor P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Floor",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Floor",dnPackItem(P1))
 
 	Func Round P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Single, System.Private.CoreLib'),"Round",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Round",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Round",dnPackItem(P1))
 
 	Func Truncate P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Truncate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:Truncate",dnPackItem(P1))
 
 	Func Atan2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Atan2",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Atan2",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Atan2Pi P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Atan2Pi",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s7:Atan2Pi",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitDecrement P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"BitDecrement",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s12:BitDecrement",dnPackItem(P1))
 
 	Func BitIncrement P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"BitIncrement",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s12:BitIncrement",dnPackItem(P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"FusedMultiplyAdd",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:FusedMultiplyAdd",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Ieee754Remainder P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Ieee754Remainder",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:Ieee754Remainder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ILogB P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"ILogB",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:ILogB",dnPackItem(P1))
 
 	Func Lerp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Lerp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Lerp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ReciprocalEstimate P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"ReciprocalEstimate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s18:ReciprocalEstimate",dnPackItem(P1))
 
 	Func ReciprocalSqrtEstimate P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"ReciprocalSqrtEstimate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s22:ReciprocalSqrtEstimate",dnPackItem(P1))
 
 	Func ScaleB P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"ScaleB",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s6:ScaleB",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Acosh P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Acosh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Acosh",dnPackItem(P1))
 
 	Func Asinh P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Asinh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Asinh",dnPackItem(P1))
 
 	Func Atanh P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Atanh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Atanh",dnPackItem(P1))
 
 	Func Cosh P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Cosh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Cosh",dnPackItem(P1))
 
 	Func Sinh P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Sinh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Sinh",dnPackItem(P1))
 
 	Func Tanh P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Tanh",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Tanh",dnPackItem(P1))
 
 	Func Log P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Single, System.Private.CoreLib'),"Log",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Log",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Log",dnPackItem(P1))
 
 	Func LogP1 P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"LogP1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:LogP1",dnPackItem(P1))
 
 	Func Log10 P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Log10",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Log10",dnPackItem(P1))
 
 	Func Log2P1 P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Log2P1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s6:Log2P1",dnPackItem(P1))
 
 	Func Log10P1 P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Log10P1",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s7:Log10P1",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CopySign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"CopySign",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:CopySign",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxNumber P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"MaxNumber",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s9:MaxNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinNumber P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"MinNumber",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s9:MinNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func Abs P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Abs",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Abs",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"CreateChecked",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"CreateSaturating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"CreateTruncating",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"IsEvenInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsInteger P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"IsInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s9:IsInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"IsOddInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
 
 	Func IsPositive P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"IsPositive",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s10:IsPositive",dnPackItem(P1))
 
 	Func IsRealNumber P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"IsRealNumber",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s12:IsRealNumber",dnPackItem(P1))
 
 	Func MaxMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"MaxMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s12:MaxMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"MaxMagnitudeNumber",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s18:MaxMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"MinMagnitude",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s12:MinMagnitude",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MinMagnitudeNumber P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"MinMagnitudeNumber",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s18:MinMagnitudeNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"MultiplyAddEstimate",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s19:MultiplyAddEstimate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Pow P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Pow",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Pow",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Cbrt P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Cbrt",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Cbrt",dnPackItem(P1))
 
 	Func Hypot P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Hypot",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:Hypot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RootN P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"RootN",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:RootN",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sqrt P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Sqrt",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Sqrt",dnPackItem(P1))
 
 	Func Acos P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Acos",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Acos",dnPackItem(P1))
 
 	Func AcosPi P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"AcosPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s6:AcosPi",dnPackItem(P1))
 
 	Func Asin P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Asin",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Asin",dnPackItem(P1))
 
 	Func AsinPi P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"AsinPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s6:AsinPi",dnPackItem(P1))
 
 	Func Atan P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Atan",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s4:Atan",dnPackItem(P1))
 
 	Func AtanPi P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"AtanPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s6:AtanPi",dnPackItem(P1))
 
 	Func Cos P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Cos",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Cos",dnPackItem(P1))
 
 	Func CosPi P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"CosPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:CosPi",dnPackItem(P1))
 
 	Func DegreesToRadians P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"DegreesToRadians",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:DegreesToRadians",dnPackItem(P1))
 
 	Func RadiansToDegrees P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"RadiansToDegrees",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:RadiansToDegrees",dnPackItem(P1))
 
 	Func Sin P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Sin",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Sin",dnPackItem(P1))
 
 	Func SinCos P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"SinCos",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s6:SinCos",dnPackItem(P1))
 
 	Func SinCosPi P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"SinCosPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:SinCosPi",dnPackItem(P1))
 
 	Func SinPi P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"SinPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:SinPi",dnPackItem(P1))
 
 	Func Tan P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Tan",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Tan",dnPackItem(P1))
 
 	Func TanPi P1
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"TanPi",P1])
+		return dnSend("s4:call",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s5:TanPi",dnPackItem(P1))
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Single, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Single, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getEpsilon
-		return dnRequest("get",[dnTypeCached('System.Single, System.Private.CoreLib'),"Epsilon"])
+		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s7:Epsilon","")
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getNegativeInfinity
-		return dnRequest("get",[dnTypeCached('System.Single, System.Private.CoreLib'),"NegativeInfinity"])
+		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:NegativeInfinity","")
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getPositiveInfinity
-		return dnRequest("get",[dnTypeCached('System.Single, System.Private.CoreLib'),"PositiveInfinity"])
+		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s16:PositiveInfinity","")
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getNaN
-		return dnRequest("get",[dnTypeCached('System.Single, System.Private.CoreLib'),"NaN"])
+		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:NaN","")
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getNegativeZero
-		return dnRequest("get",[dnTypeCached('System.Single, System.Private.CoreLib'),"NegativeZero"])
+		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s12:NegativeZero","")
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
 	Func getE
-		return dnRequest("get",[dnTypeCached('System.Single, System.Private.CoreLib'),"E"])
+		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s1:E","")
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPi
-		return dnRequest("get",[dnTypeCached('System.Single, System.Private.CoreLib'),"Pi"])
+		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s2:Pi","")
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getTau
-		return dnRequest("get",[dnTypeCached('System.Single, System.Private.CoreLib'),"Tau"])
+		return dnSend("s3:get",dnTypeCached('System.Single, System.Private.CoreLib').nHandle,"s3:Tau","")
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
@@ -10391,118 +10391,118 @@ Class TimeOnly from ValueType
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func AddHours P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddHours",P1])
+		return dnSend("s4:call",nHandle,"s8:AddHours",dnPackItem(P1))
 
 	Func AddMinutes P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddMinutes",P1])
+		return dnSend("s4:call",nHandle,"s10:AddMinutes",dnPackItem(P1))
 
 	Func IsBetween P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsBetween",P1,P2])
+		return dnSend("s4:call",nHandle,"s9:IsBetween",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Deconstruct 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Deconstruct"])
+		return dnSend("s4:call",nHandle,"s11:Deconstruct","")
 
 	Func ToTimeSpan 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToTimeSpan"])
+		return dnSend("s4:call",nHandle,"s10:ToTimeSpan","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func ToLongTimeString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToLongTimeString"])
+		return dnSend("s4:call",nHandle,"s16:ToLongTimeString","")
 
 	Func ToShortTimeString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToShortTimeString"])
+		return dnSend("s4:call",nHandle,"s17:ToShortTimeString","")
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func FromTimeSpan P1
-		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"FromTimeSpan",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s12:FromTimeSpan",dnPackItem(P1))
 
 	Func FromDateTime P1
-		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"FromDateTime",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s12:FromDateTime",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func ParseExact P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"ParseExact",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s10:ParseExact",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func TryParseExact P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParseExact",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s13:TryParseExact",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TryParseExact does not take one argument: use named arguments, TryParseExact([ :parameter = value, ... ])")
 
 	Func getHour
-		return dnRequest("get",[self,"Hour"])
+		return dnSend("s3:get",nHandle,"s4:Hour","")
 
 	Func setHour P1
 		raise("DotNet Error: Hour is a read-only property")
 
 	Func getMinute
-		return dnRequest("get",[self,"Minute"])
+		return dnSend("s3:get",nHandle,"s6:Minute","")
 
 	Func setMinute P1
 		raise("DotNet Error: Minute is a read-only property")
 
 	Func getSecond
-		return dnRequest("get",[self,"Second"])
+		return dnSend("s3:get",nHandle,"s6:Second","")
 
 	Func setSecond P1
 		raise("DotNet Error: Second is a read-only property")
 
 	Func getMillisecond
-		return dnRequest("get",[self,"Millisecond"])
+		return dnSend("s3:get",nHandle,"s11:Millisecond","")
 
 	Func setMillisecond P1
 		raise("DotNet Error: Millisecond is a read-only property")
 
 	Func getMicrosecond
-		return dnRequest("get",[self,"Microsecond"])
+		return dnSend("s3:get",nHandle,"s11:Microsecond","")
 
 	Func setMicrosecond P1
 		raise("DotNet Error: Microsecond is a read-only property")
 
 	Func getNanosecond
-		return dnRequest("get",[self,"Nanosecond"])
+		return dnSend("s3:get",nHandle,"s10:Nanosecond","")
 
 	Func setNanosecond P1
 		raise("DotNet Error: Nanosecond is a read-only property")
 
 	Func getTicks
-		return dnRequest("get",[self,"Ticks"])
+		return dnSend("s3:get",nHandle,"s5:Ticks","")
 
 	Func setTicks P1
 		raise("DotNet Error: Ticks is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.TimeOnly, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
@@ -10594,340 +10594,340 @@ Class TimeSpan from ValueType
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Duration 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Duration"])
+		return dnSend("s4:call",nHandle,"s8:Duration","")
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Negate 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Negate"])
+		return dnSend("s4:call",nHandle,"s6:Negate","")
 
 	Func Subtract P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Subtract",P1])
+		return dnSend("s4:call",nHandle,"s8:Subtract",dnPackItem(P1))
 
 	Func Multiply P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Multiply",P1])
+		return dnSend("s4:call",nHandle,"s8:Multiply",dnPackItem(P1))
 
 	Func Divide P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Divide",P1])
+		return dnSend("s4:call",nHandle,"s6:Divide",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Compare P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Compare",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s7:Compare",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FromDays P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s8:FromDays",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s8:FromDays",dnPackItem(P1))
 
 	Func FromHours P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s9:FromHours",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s9:FromHours",dnPackItem(P1))
 
 	Func FromMinutes P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMinutes",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s11:FromMinutes",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMinutes",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s11:FromMinutes",dnPackItem(P1))
 
 	Func FromSeconds P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromSeconds",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s11:FromSeconds",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromSeconds",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s11:FromSeconds",dnPackItem(P1))
 
 	Func FromMilliseconds P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMilliseconds",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s16:FromMilliseconds",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMilliseconds",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s16:FromMilliseconds",dnPackItem(P1))
 
 	Func FromMicroseconds P1
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMicroseconds",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s16:FromMicroseconds",dnPackItem(P1))
 
 	Func FromTicks P1
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromTicks",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s9:FromTicks",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func ParseExact P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"ParseExact",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s10:ParseExact",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func TryParseExact P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParseExact",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s13:TryParseExact",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TryParseExact does not take one argument: use named arguments, TryParseExact([ :parameter = value, ... ])")
 
 	Func getTicks
-		return dnRequest("get",[self,"Ticks"])
+		return dnSend("s3:get",nHandle,"s5:Ticks","")
 
 	Func setTicks P1
 		raise("DotNet Error: Ticks is a read-only property")
 
 	Func getDays
-		return dnRequest("get",[self,"Days"])
+		return dnSend("s3:get",nHandle,"s4:Days","")
 
 	Func setDays P1
 		raise("DotNet Error: Days is a read-only property")
 
 	Func getHours
-		return dnRequest("get",[self,"Hours"])
+		return dnSend("s3:get",nHandle,"s5:Hours","")
 
 	Func setHours P1
 		raise("DotNet Error: Hours is a read-only property")
 
 	Func getMilliseconds
-		return dnRequest("get",[self,"Milliseconds"])
+		return dnSend("s3:get",nHandle,"s12:Milliseconds","")
 
 	Func setMilliseconds P1
 		raise("DotNet Error: Milliseconds is a read-only property")
 
 	Func getMicroseconds
-		return dnRequest("get",[self,"Microseconds"])
+		return dnSend("s3:get",nHandle,"s12:Microseconds","")
 
 	Func setMicroseconds P1
 		raise("DotNet Error: Microseconds is a read-only property")
 
 	Func getNanoseconds
-		return dnRequest("get",[self,"Nanoseconds"])
+		return dnSend("s3:get",nHandle,"s11:Nanoseconds","")
 
 	Func setNanoseconds P1
 		raise("DotNet Error: Nanoseconds is a read-only property")
 
 	Func getMinutes
-		return dnRequest("get",[self,"Minutes"])
+		return dnSend("s3:get",nHandle,"s7:Minutes","")
 
 	Func setMinutes P1
 		raise("DotNet Error: Minutes is a read-only property")
 
 	Func getSeconds
-		return dnRequest("get",[self,"Seconds"])
+		return dnSend("s3:get",nHandle,"s7:Seconds","")
 
 	Func setSeconds P1
 		raise("DotNet Error: Seconds is a read-only property")
 
 	Func getTotalDays
-		return dnRequest("get",[self,"TotalDays"])
+		return dnSend("s3:get",nHandle,"s9:TotalDays","")
 
 	Func setTotalDays P1
 		raise("DotNet Error: TotalDays is a read-only property")
 
 	Func getTotalHours
-		return dnRequest("get",[self,"TotalHours"])
+		return dnSend("s3:get",nHandle,"s10:TotalHours","")
 
 	Func setTotalHours P1
 		raise("DotNet Error: TotalHours is a read-only property")
 
 	Func getTotalMilliseconds
-		return dnRequest("get",[self,"TotalMilliseconds"])
+		return dnSend("s3:get",nHandle,"s17:TotalMilliseconds","")
 
 	Func setTotalMilliseconds P1
 		raise("DotNet Error: TotalMilliseconds is a read-only property")
 
 	Func getTotalMicroseconds
-		return dnRequest("get",[self,"TotalMicroseconds"])
+		return dnSend("s3:get",nHandle,"s17:TotalMicroseconds","")
 
 	Func setTotalMicroseconds P1
 		raise("DotNet Error: TotalMicroseconds is a read-only property")
 
 	Func getTotalNanoseconds
-		return dnRequest("get",[self,"TotalNanoseconds"])
+		return dnSend("s3:get",nHandle,"s16:TotalNanoseconds","")
 
 	Func setTotalNanoseconds P1
 		raise("DotNet Error: TotalNanoseconds is a read-only property")
 
 	Func getTotalMinutes
-		return dnRequest("get",[self,"TotalMinutes"])
+		return dnSend("s3:get",nHandle,"s12:TotalMinutes","")
 
 	Func setTotalMinutes P1
 		raise("DotNet Error: TotalMinutes is a read-only property")
 
 	Func getTotalSeconds
-		return dnRequest("get",[self,"TotalSeconds"])
+		return dnSend("s3:get",nHandle,"s12:TotalSeconds","")
 
 	Func setTotalSeconds P1
 		raise("DotNet Error: TotalSeconds is a read-only property")
 
 	Func getZero
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Zero"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getNanosecondsPerTick
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"NanosecondsPerTick"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s18:NanosecondsPerTick","")
 
 	Func setNanosecondsPerTick P1
 		raise("DotNet Error: NanosecondsPerTick is a read-only property")
 
 	Func getTicksPerMicrosecond
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TicksPerMicrosecond"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s19:TicksPerMicrosecond","")
 
 	Func setTicksPerMicrosecond P1
 		raise("DotNet Error: TicksPerMicrosecond is a read-only property")
 
 	Func getTicksPerMillisecond
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TicksPerMillisecond"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s19:TicksPerMillisecond","")
 
 	Func setTicksPerMillisecond P1
 		raise("DotNet Error: TicksPerMillisecond is a read-only property")
 
 	Func getTicksPerSecond
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TicksPerSecond"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s14:TicksPerSecond","")
 
 	Func setTicksPerSecond P1
 		raise("DotNet Error: TicksPerSecond is a read-only property")
 
 	Func getTicksPerMinute
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TicksPerMinute"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s14:TicksPerMinute","")
 
 	Func setTicksPerMinute P1
 		raise("DotNet Error: TicksPerMinute is a read-only property")
 
 	Func getTicksPerHour
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TicksPerHour"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s12:TicksPerHour","")
 
 	Func setTicksPerHour P1
 		raise("DotNet Error: TicksPerHour is a read-only property")
 
 	Func getTicksPerDay
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TicksPerDay"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s11:TicksPerDay","")
 
 	Func setTicksPerDay P1
 		raise("DotNet Error: TicksPerDay is a read-only property")
 
 	Func getMicrosecondsPerMillisecond
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"MicrosecondsPerMillisecond"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s26:MicrosecondsPerMillisecond","")
 
 	Func setMicrosecondsPerMillisecond P1
 		raise("DotNet Error: MicrosecondsPerMillisecond is a read-only property")
 
 	Func getMicrosecondsPerSecond
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"MicrosecondsPerSecond"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s21:MicrosecondsPerSecond","")
 
 	Func setMicrosecondsPerSecond P1
 		raise("DotNet Error: MicrosecondsPerSecond is a read-only property")
 
 	Func getMicrosecondsPerMinute
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"MicrosecondsPerMinute"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s21:MicrosecondsPerMinute","")
 
 	Func setMicrosecondsPerMinute P1
 		raise("DotNet Error: MicrosecondsPerMinute is a read-only property")
 
 	Func getMicrosecondsPerHour
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"MicrosecondsPerHour"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s19:MicrosecondsPerHour","")
 
 	Func setMicrosecondsPerHour P1
 		raise("DotNet Error: MicrosecondsPerHour is a read-only property")
 
 	Func getMicrosecondsPerDay
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"MicrosecondsPerDay"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s18:MicrosecondsPerDay","")
 
 	Func setMicrosecondsPerDay P1
 		raise("DotNet Error: MicrosecondsPerDay is a read-only property")
 
 	Func getMillisecondsPerSecond
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"MillisecondsPerSecond"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s21:MillisecondsPerSecond","")
 
 	Func setMillisecondsPerSecond P1
 		raise("DotNet Error: MillisecondsPerSecond is a read-only property")
 
 	Func getMillisecondsPerMinute
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"MillisecondsPerMinute"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s21:MillisecondsPerMinute","")
 
 	Func setMillisecondsPerMinute P1
 		raise("DotNet Error: MillisecondsPerMinute is a read-only property")
 
 	Func getMillisecondsPerHour
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"MillisecondsPerHour"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s19:MillisecondsPerHour","")
 
 	Func setMillisecondsPerHour P1
 		raise("DotNet Error: MillisecondsPerHour is a read-only property")
 
 	Func getMillisecondsPerDay
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"MillisecondsPerDay"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s18:MillisecondsPerDay","")
 
 	Func setMillisecondsPerDay P1
 		raise("DotNet Error: MillisecondsPerDay is a read-only property")
 
 	Func getSecondsPerMinute
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"SecondsPerMinute"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s16:SecondsPerMinute","")
 
 	Func setSecondsPerMinute P1
 		raise("DotNet Error: SecondsPerMinute is a read-only property")
 
 	Func getSecondsPerHour
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"SecondsPerHour"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s14:SecondsPerHour","")
 
 	Func setSecondsPerHour P1
 		raise("DotNet Error: SecondsPerHour is a read-only property")
 
 	Func getSecondsPerDay
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"SecondsPerDay"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s13:SecondsPerDay","")
 
 	Func setSecondsPerDay P1
 		raise("DotNet Error: SecondsPerDay is a read-only property")
 
 	Func getMinutesPerHour
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"MinutesPerHour"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s14:MinutesPerHour","")
 
 	Func setMinutesPerHour P1
 		raise("DotNet Error: MinutesPerHour is a read-only property")
 
 	Func getMinutesPerDay
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"MinutesPerDay"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s13:MinutesPerDay","")
 
 	Func setMinutesPerDay P1
 		raise("DotNet Error: MinutesPerDay is a read-only property")
 
 	Func getHoursPerDay
-		return dnRequest("get",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"HoursPerDay"])
+		return dnSend("s3:get",dnTypeCached('System.TimeSpan, System.Private.CoreLib').nHandle,"s11:HoursPerDay","")
 
 	Func setHoursPerDay P1
 		raise("DotNet Error: HoursPerDay is a read-only property")
@@ -10983,97 +10983,97 @@ Class UInt128 from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"DivRem",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"LeadingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"PopCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"RotateLeft",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"RotateRight",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"TrailingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"IsPow2",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"CreateChecked",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"CreateSaturating",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"CreateTruncating",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"IsEvenInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"IsOddInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getOne
-		return dnRequest("get",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"One"])
+		return dnSend("s3:get",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s3:One","")
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getZero
-		return dnRequest("get",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"Zero"])
+		return dnSend("s3:get",dnTypeCached('System.UInt128, System.Private.CoreLib').nHandle,"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
@@ -11107,88 +11107,88 @@ Class UInt16 from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"DivRem",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"LeadingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"PopCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"RotateLeft",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"RotateRight",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"TrailingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"IsPow2",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"CreateChecked",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"CreateSaturating",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"CreateTruncating",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"IsEvenInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"IsOddInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.UInt16, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -11222,91 +11222,91 @@ Class UInt32 from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func BigMul P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"BigMul",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s6:BigMul",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"DivRem",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"LeadingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"PopCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"RotateLeft",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"RotateRight",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"TrailingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"IsPow2",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"CreateChecked",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"CreateSaturating",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"CreateTruncating",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"IsEvenInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"IsOddInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.UInt32, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -11340,91 +11340,91 @@ Class UInt64 from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func GetTypeCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTypeCode"])
+		return dnSend("s4:call",nHandle,"s11:GetTypeCode","")
 
 	Func BigMul P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"BigMul",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s6:BigMul",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"DivRem",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"LeadingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"PopCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"RotateLeft",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"RotateRight",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"TrailingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"IsPow2",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"CreateChecked",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"CreateSaturating",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"CreateTruncating",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"IsEvenInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"IsOddInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.UInt64, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -11480,112 +11480,112 @@ Class UIntPtr from ValueType
 		return self
 
 	Func ToUInt32 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToUInt32"])
+		return dnSend("s4:call",nHandle,"s8:ToUInt32","")
 
 	Func ToUInt64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToUInt64"])
+		return dnSend("s4:call",nHandle,"s8:ToUInt64","")
 
 	Func ToPointer 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToPointer"])
+		return dnSend("s4:call",nHandle,"s9:ToPointer","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Subtract",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func TryParse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"TryParse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"TryParse",P1])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s8:TryParse",dnPackItem(P1))
 
 	Func DivRem P1,P2
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"DivRem",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LeadingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"LeadingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s16:LeadingZeroCount",dnPackItem(P1))
 
 	Func PopCount P1
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"PopCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s8:PopCount",dnPackItem(P1))
 
 	Func RotateLeft P1,P2
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"RotateLeft",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s10:RotateLeft",dnPackItem(P1) + dnPackItem(P2))
 
 	Func RotateRight P1,P2
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"RotateRight",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s11:RotateRight",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TrailingZeroCount P1
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"TrailingZeroCount",P1])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s17:TrailingZeroCount",dnPackItem(P1))
 
 	Func IsPow2 P1
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"IsPow2",P1])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s6:IsPow2",dnPackItem(P1))
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Log2",P1])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s4:Log2",dnPackItem(P1))
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Clamp",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s5:Clamp",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Max",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s3:Max",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Min",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s3:Min",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func CreateChecked P1
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"CreateChecked",P1])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s13:CreateChecked",dnPackItem(P1))
 
 	Func CreateSaturating P1
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"CreateSaturating",P1])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s16:CreateSaturating",dnPackItem(P1))
 
 	Func CreateTruncating P1
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"CreateTruncating",P1])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s16:CreateTruncating",dnPackItem(P1))
 
 	Func IsEvenInteger P1
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"IsEvenInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s13:IsEvenInteger",dnPackItem(P1))
 
 	Func IsOddInteger P1
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"IsOddInteger",P1])
+		return dnSend("s4:call",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s12:IsOddInteger",dnPackItem(P1))
 
 	Func getSize
-		return dnRequest("get",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Size"])
+		return dnSend("s3:get",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s4:Size","")
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getZero
-		return dnRequest("get",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Zero"])
+		return dnSend("s3:get",dnTypeCached('System.UIntPtr, System.Private.CoreLib').nHandle,"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
@@ -11608,13 +11608,13 @@ Class UnhandledExceptionEventArgs from EventArgs
 		return self
 
 	Func getExceptionObject
-		return dnRequest("get",[self,"ExceptionObject"])
+		return dnSend("s3:get",nHandle,"s15:ExceptionObject","")
 
 	Func setExceptionObject P1
 		raise("DotNet Error: ExceptionObject is a read-only property")
 
 	Func getIsTerminating
-		return dnRequest("get",[self,"IsTerminating"])
+		return dnSend("s3:get",nHandle,"s13:IsTerminating","")
 
 	Func setIsTerminating P1
 		raise("DotNet Error: IsTerminating is a read-only property")
@@ -11647,10 +11647,10 @@ Class UriCreationOptions from ValueType
 		return self
 
 	Func getDangerousDisablePathAndQueryCanonicalization
-		return dnRequest("get",[self,"DangerousDisablePathAndQueryCanonicalization"])
+		return dnSend("s3:get",nHandle,"s44:DangerousDisablePathAndQueryCanonicalization","")
 
 	Func setDangerousDisablePathAndQueryCanonicalization P1
-		dnRequest("set",[self,"DangerousDisablePathAndQueryCanonicalization",P1])
+		dnSend("s3:set",nHandle,"s44:DangerousDisablePathAndQueryCanonicalization",dnPackItem(P1))
 		return self
 
 
@@ -11679,16 +11679,16 @@ Class ValueTuple from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.ValueTuple, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create"])
+			return dnSend("s4:call",dnTypeCached('System.ValueTuple, System.Private.CoreLib').nHandle,"s6:Create","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1])
+		return dnSend("s4:call",dnTypeCached('System.ValueTuple, System.Private.CoreLib').nHandle,"s6:Create",dnPackItem(P1))
 
 
 Class Void from ValueType

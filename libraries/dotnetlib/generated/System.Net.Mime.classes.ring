@@ -77,61 +77,61 @@ Class ContentDisposition from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDispositionType
-		return dnRequest("get",[self,"DispositionType"])
+		return dnSend("s3:get",nHandle,"s15:DispositionType","")
 
 	Func setDispositionType P1
-		dnRequest("set",[self,"DispositionType",P1])
+		dnSend("s3:set",nHandle,"s15:DispositionType",dnPackItem(P1))
 		return self
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnSend("s3:get",nHandle,"s10:Parameters","")
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getFileName
-		return dnRequest("get",[self,"FileName"])
+		return dnSend("s3:get",nHandle,"s8:FileName","")
 
 	Func setFileName P1
-		dnRequest("set",[self,"FileName",P1])
+		dnSend("s3:set",nHandle,"s8:FileName",dnPackItem(P1))
 		return self
 
 	Func getCreationDate
-		return dnRequest("get",[self,"CreationDate"])
+		return dnSend("s3:get",nHandle,"s12:CreationDate","")
 
 	Func setCreationDate P1
-		dnRequest("set",[self,"CreationDate",P1])
+		dnSend("s3:set",nHandle,"s12:CreationDate",dnPackItem(P1))
 		return self
 
 	Func getModificationDate
-		return dnRequest("get",[self,"ModificationDate"])
+		return dnSend("s3:get",nHandle,"s16:ModificationDate","")
 
 	Func setModificationDate P1
-		dnRequest("set",[self,"ModificationDate",P1])
+		dnSend("s3:set",nHandle,"s16:ModificationDate",dnPackItem(P1))
 		return self
 
 	Func getInline
-		return dnRequest("get",[self,"Inline"])
+		return dnSend("s3:get",nHandle,"s6:Inline","")
 
 	Func setInline P1
-		dnRequest("set",[self,"Inline",P1])
+		dnSend("s3:set",nHandle,"s6:Inline",dnPackItem(P1))
 		return self
 
 	Func getReadDate
-		return dnRequest("get",[self,"ReadDate"])
+		return dnSend("s3:get",nHandle,"s8:ReadDate","")
 
 	Func setReadDate P1
-		dnRequest("set",[self,"ReadDate",P1])
+		dnSend("s3:set",nHandle,"s8:ReadDate",dnPackItem(P1))
 		return self
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnSend("s3:get",nHandle,"s4:Size","")
 
 	Func setSize P1
-		dnRequest("set",[self,"Size",P1])
+		dnSend("s3:set",nHandle,"s4:Size",dnPackItem(P1))
 		return self
 
 
@@ -186,38 +186,38 @@ Class ContentType from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getBoundary
-		return dnRequest("get",[self,"Boundary"])
+		return dnSend("s3:get",nHandle,"s8:Boundary","")
 
 	Func setBoundary P1
-		dnRequest("set",[self,"Boundary",P1])
+		dnSend("s3:set",nHandle,"s8:Boundary",dnPackItem(P1))
 		return self
 
 	Func getCharSet
-		return dnRequest("get",[self,"CharSet"])
+		return dnSend("s3:get",nHandle,"s7:CharSet","")
 
 	Func setCharSet P1
-		dnRequest("set",[self,"CharSet",P1])
+		dnSend("s3:set",nHandle,"s7:CharSet",dnPackItem(P1))
 		return self
 
 	Func getMediaType
-		return dnRequest("get",[self,"MediaType"])
+		return dnSend("s3:get",nHandle,"s9:MediaType","")
 
 	Func setMediaType P1
-		dnRequest("set",[self,"MediaType",P1])
+		dnSend("s3:set",nHandle,"s9:MediaType",dnPackItem(P1))
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
 		return self
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnSend("s3:get",nHandle,"s10:Parameters","")
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
@@ -238,16 +238,16 @@ Class DispositionTypeNames from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getInline
-		return dnRequest("get",[dnTypeCached('System.Net.Mime.DispositionTypeNames, System.Net.Mail'),"Inline"])
+		return dnSend("s3:get",dnTypeCached('System.Net.Mime.DispositionTypeNames, System.Net.Mail').nHandle,"s6:Inline","")
 
 	Func setInline P1
 		raise("DotNet Error: Inline is a read-only property")
 
 	Func getAttachment
-		return dnRequest("get",[dnTypeCached('System.Net.Mime.DispositionTypeNames, System.Net.Mail'),"Attachment"])
+		return dnSend("s3:get",dnTypeCached('System.Net.Mime.DispositionTypeNames, System.Net.Mail').nHandle,"s10:Attachment","")
 
 	Func setAttachment P1
 		raise("DotNet Error: Attachment is a read-only property")
@@ -265,6 +265,6 @@ Class MediaTypeNames from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 

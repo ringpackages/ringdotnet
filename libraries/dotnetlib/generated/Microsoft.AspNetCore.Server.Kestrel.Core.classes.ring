@@ -75,62 +75,62 @@ Class Http2Limits from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMaxStreamsPerConnection
-		return dnRequest("get",[self,"MaxStreamsPerConnection"])
+		return dnSend("s3:get",nHandle,"s23:MaxStreamsPerConnection","")
 
 	Func setMaxStreamsPerConnection P1
-		dnRequest("set",[self,"MaxStreamsPerConnection",P1])
+		dnSend("s3:set",nHandle,"s23:MaxStreamsPerConnection",dnPackItem(P1))
 		return self
 
 	Func getHeaderTableSize
-		return dnRequest("get",[self,"HeaderTableSize"])
+		return dnSend("s3:get",nHandle,"s15:HeaderTableSize","")
 
 	Func setHeaderTableSize P1
-		dnRequest("set",[self,"HeaderTableSize",P1])
+		dnSend("s3:set",nHandle,"s15:HeaderTableSize",dnPackItem(P1))
 		return self
 
 	Func getMaxFrameSize
-		return dnRequest("get",[self,"MaxFrameSize"])
+		return dnSend("s3:get",nHandle,"s12:MaxFrameSize","")
 
 	Func setMaxFrameSize P1
-		dnRequest("set",[self,"MaxFrameSize",P1])
+		dnSend("s3:set",nHandle,"s12:MaxFrameSize",dnPackItem(P1))
 		return self
 
 	Func getMaxRequestHeaderFieldSize
-		return dnRequest("get",[self,"MaxRequestHeaderFieldSize"])
+		return dnSend("s3:get",nHandle,"s25:MaxRequestHeaderFieldSize","")
 
 	Func setMaxRequestHeaderFieldSize P1
-		dnRequest("set",[self,"MaxRequestHeaderFieldSize",P1])
+		dnSend("s3:set",nHandle,"s25:MaxRequestHeaderFieldSize",dnPackItem(P1))
 		return self
 
 	Func getInitialConnectionWindowSize
-		return dnRequest("get",[self,"InitialConnectionWindowSize"])
+		return dnSend("s3:get",nHandle,"s27:InitialConnectionWindowSize","")
 
 	Func setInitialConnectionWindowSize P1
-		dnRequest("set",[self,"InitialConnectionWindowSize",P1])
+		dnSend("s3:set",nHandle,"s27:InitialConnectionWindowSize",dnPackItem(P1))
 		return self
 
 	Func getInitialStreamWindowSize
-		return dnRequest("get",[self,"InitialStreamWindowSize"])
+		return dnSend("s3:get",nHandle,"s23:InitialStreamWindowSize","")
 
 	Func setInitialStreamWindowSize P1
-		dnRequest("set",[self,"InitialStreamWindowSize",P1])
+		dnSend("s3:set",nHandle,"s23:InitialStreamWindowSize",dnPackItem(P1))
 		return self
 
 	Func getKeepAlivePingDelay
-		return dnRequest("get",[self,"KeepAlivePingDelay"])
+		return dnSend("s3:get",nHandle,"s18:KeepAlivePingDelay","")
 
 	Func setKeepAlivePingDelay P1
-		dnRequest("set",[self,"KeepAlivePingDelay",P1])
+		dnSend("s3:set",nHandle,"s18:KeepAlivePingDelay",dnPackItem(P1))
 		return self
 
 	Func getKeepAlivePingTimeout
-		return dnRequest("get",[self,"KeepAlivePingTimeout"])
+		return dnSend("s3:get",nHandle,"s20:KeepAlivePingTimeout","")
 
 	Func setKeepAlivePingTimeout P1
-		dnRequest("set",[self,"KeepAlivePingTimeout",P1])
+		dnSend("s3:set",nHandle,"s20:KeepAlivePingTimeout",dnPackItem(P1))
 		return self
 
 
@@ -161,13 +161,13 @@ Class Http3Limits from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMaxRequestHeaderFieldSize
-		return dnRequest("get",[self,"MaxRequestHeaderFieldSize"])
+		return dnSend("s3:get",nHandle,"s25:MaxRequestHeaderFieldSize","")
 
 	Func setMaxRequestHeaderFieldSize P1
-		dnRequest("set",[self,"MaxRequestHeaderFieldSize",P1])
+		dnSend("s3:set",nHandle,"s25:MaxRequestHeaderFieldSize",dnPackItem(P1))
 		return self
 
 
@@ -188,26 +188,26 @@ Class KestrelServer from Object
 		return self
 
 	Func StartAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"StartAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s10:StartAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func StopAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"StopAsync",P1])
+		return dnSend("s4:call",nHandle,"s9:StopAsync",dnPackItem(P1))
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getFeatures
-		return dnRequest("get",[self,"Features"])
+		return dnSend("s3:get",nHandle,"s8:Features","")
 
 	Func setFeatures P1
 		raise("DotNet Error: Features is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnSend("s3:get",nHandle,"s7:Options","")
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
@@ -253,102 +253,102 @@ Class KestrelServerLimits from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMaxResponseBufferSize
-		return dnRequest("get",[self,"MaxResponseBufferSize"])
+		return dnSend("s3:get",nHandle,"s21:MaxResponseBufferSize","")
 
 	Func setMaxResponseBufferSize P1
-		dnRequest("set",[self,"MaxResponseBufferSize",P1])
+		dnSend("s3:set",nHandle,"s21:MaxResponseBufferSize",dnPackItem(P1))
 		return self
 
 	Func getMaxRequestBufferSize
-		return dnRequest("get",[self,"MaxRequestBufferSize"])
+		return dnSend("s3:get",nHandle,"s20:MaxRequestBufferSize","")
 
 	Func setMaxRequestBufferSize P1
-		dnRequest("set",[self,"MaxRequestBufferSize",P1])
+		dnSend("s3:set",nHandle,"s20:MaxRequestBufferSize",dnPackItem(P1))
 		return self
 
 	Func getMaxRequestLineSize
-		return dnRequest("get",[self,"MaxRequestLineSize"])
+		return dnSend("s3:get",nHandle,"s18:MaxRequestLineSize","")
 
 	Func setMaxRequestLineSize P1
-		dnRequest("set",[self,"MaxRequestLineSize",P1])
+		dnSend("s3:set",nHandle,"s18:MaxRequestLineSize",dnPackItem(P1))
 		return self
 
 	Func getMaxRequestHeadersTotalSize
-		return dnRequest("get",[self,"MaxRequestHeadersTotalSize"])
+		return dnSend("s3:get",nHandle,"s26:MaxRequestHeadersTotalSize","")
 
 	Func setMaxRequestHeadersTotalSize P1
-		dnRequest("set",[self,"MaxRequestHeadersTotalSize",P1])
+		dnSend("s3:set",nHandle,"s26:MaxRequestHeadersTotalSize",dnPackItem(P1))
 		return self
 
 	Func getMaxRequestHeaderCount
-		return dnRequest("get",[self,"MaxRequestHeaderCount"])
+		return dnSend("s3:get",nHandle,"s21:MaxRequestHeaderCount","")
 
 	Func setMaxRequestHeaderCount P1
-		dnRequest("set",[self,"MaxRequestHeaderCount",P1])
+		dnSend("s3:set",nHandle,"s21:MaxRequestHeaderCount",dnPackItem(P1))
 		return self
 
 	Func getMaxRequestBodySize
-		return dnRequest("get",[self,"MaxRequestBodySize"])
+		return dnSend("s3:get",nHandle,"s18:MaxRequestBodySize","")
 
 	Func setMaxRequestBodySize P1
-		dnRequest("set",[self,"MaxRequestBodySize",P1])
+		dnSend("s3:set",nHandle,"s18:MaxRequestBodySize",dnPackItem(P1))
 		return self
 
 	Func getKeepAliveTimeout
-		return dnRequest("get",[self,"KeepAliveTimeout"])
+		return dnSend("s3:get",nHandle,"s16:KeepAliveTimeout","")
 
 	Func setKeepAliveTimeout P1
-		dnRequest("set",[self,"KeepAliveTimeout",P1])
+		dnSend("s3:set",nHandle,"s16:KeepAliveTimeout",dnPackItem(P1))
 		return self
 
 	Func getRequestHeadersTimeout
-		return dnRequest("get",[self,"RequestHeadersTimeout"])
+		return dnSend("s3:get",nHandle,"s21:RequestHeadersTimeout","")
 
 	Func setRequestHeadersTimeout P1
-		dnRequest("set",[self,"RequestHeadersTimeout",P1])
+		dnSend("s3:set",nHandle,"s21:RequestHeadersTimeout",dnPackItem(P1))
 		return self
 
 	Func getMaxConcurrentConnections
-		return dnRequest("get",[self,"MaxConcurrentConnections"])
+		return dnSend("s3:get",nHandle,"s24:MaxConcurrentConnections","")
 
 	Func setMaxConcurrentConnections P1
-		dnRequest("set",[self,"MaxConcurrentConnections",P1])
+		dnSend("s3:set",nHandle,"s24:MaxConcurrentConnections",dnPackItem(P1))
 		return self
 
 	Func getMaxConcurrentUpgradedConnections
-		return dnRequest("get",[self,"MaxConcurrentUpgradedConnections"])
+		return dnSend("s3:get",nHandle,"s32:MaxConcurrentUpgradedConnections","")
 
 	Func setMaxConcurrentUpgradedConnections P1
-		dnRequest("set",[self,"MaxConcurrentUpgradedConnections",P1])
+		dnSend("s3:set",nHandle,"s32:MaxConcurrentUpgradedConnections",dnPackItem(P1))
 		return self
 
 	Func getHttp2
-		return dnRequest("get",[self,"Http2"])
+		return dnSend("s3:get",nHandle,"s5:Http2","")
 
 	Func setHttp2 P1
 		raise("DotNet Error: Http2 is a read-only property")
 
 	Func getHttp3
-		return dnRequest("get",[self,"Http3"])
+		return dnSend("s3:get",nHandle,"s5:Http3","")
 
 	Func setHttp3 P1
 		raise("DotNet Error: Http3 is a read-only property")
 
 	Func getMinRequestBodyDataRate
-		return dnRequest("get",[self,"MinRequestBodyDataRate"])
+		return dnSend("s3:get",nHandle,"s22:MinRequestBodyDataRate","")
 
 	Func setMinRequestBodyDataRate P1
-		dnRequest("set",[self,"MinRequestBodyDataRate",P1])
+		dnSend("s3:set",nHandle,"s22:MinRequestBodyDataRate",dnPackItem(P1))
 		return self
 
 	Func getMinResponseDataRate
-		return dnRequest("get",[self,"MinResponseDataRate"])
+		return dnSend("s3:get",nHandle,"s19:MinResponseDataRate","")
 
 	Func setMinResponseDataRate P1
-		dnRequest("set",[self,"MinResponseDataRate",P1])
+		dnSend("s3:set",nHandle,"s19:MinResponseDataRate",dnPackItem(P1))
 		return self
 
 
@@ -390,154 +390,154 @@ Class KestrelServerOptions from Object
 		return self
 
 	Func ConfigureEndpointDefaults P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureEndpointDefaults",P1])
+		dnSend("s4:call",nHandle,"s25:ConfigureEndpointDefaults",dnPackItem(P1))
 		return self
 
 	Func ConfigureHttpsDefaults P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureHttpsDefaults",P1])
+		dnSend("s4:call",nHandle,"s22:ConfigureHttpsDefaults",dnPackItem(P1))
 		return self
 
 	Func Configure P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Configure",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:Configure",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"Configure"])
+			return dnSend("s4:call",nHandle,"s9:Configure","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Configure",P1])
+		return dnSend("s4:call",nHandle,"s9:Configure",dnPackItem(P1))
 
 	Func Listen P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Listen",P1])
+			dnSend("s9:callnamed",nHandle,"s6:Listen",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Listen",P1])
+		dnSend("s4:call",nHandle,"s6:Listen",dnPackItem(P1))
 		return self
 
 	Func ListenLocalhost P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ListenLocalhost",P1])
+			dnSend("s9:callnamed",nHandle,"s15:ListenLocalhost",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"ListenLocalhost",P1])
+		dnSend("s4:call",nHandle,"s15:ListenLocalhost",dnPackItem(P1))
 		return self
 
 	Func ListenAnyIP P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ListenAnyIP",P1])
+			dnSend("s9:callnamed",nHandle,"s11:ListenAnyIP",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"ListenAnyIP",P1])
+		dnSend("s4:call",nHandle,"s11:ListenAnyIP",dnPackItem(P1))
 		return self
 
 	Func ListenUnixSocket P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ListenUnixSocket",P1])
+			dnSend("s9:callnamed",nHandle,"s16:ListenUnixSocket",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"ListenUnixSocket",P1])
+		dnSend("s4:call",nHandle,"s16:ListenUnixSocket",dnPackItem(P1))
 		return self
 
 	Func ListenHandle P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ListenHandle",P1])
+			dnSend("s9:callnamed",nHandle,"s12:ListenHandle",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"ListenHandle",P1])
+		dnSend("s4:call",nHandle,"s12:ListenHandle",dnPackItem(P1))
 		return self
 
 	Func ListenNamedPipe P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ListenNamedPipe",P1])
+			dnSend("s9:callnamed",nHandle,"s15:ListenNamedPipe",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"ListenNamedPipe",P1])
+		dnSend("s4:call",nHandle,"s15:ListenNamedPipe",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAllowHostHeaderOverride
-		return dnRequest("get",[self,"AllowHostHeaderOverride"])
+		return dnSend("s3:get",nHandle,"s23:AllowHostHeaderOverride","")
 
 	Func setAllowHostHeaderOverride P1
-		dnRequest("set",[self,"AllowHostHeaderOverride",P1])
+		dnSend("s3:set",nHandle,"s23:AllowHostHeaderOverride",dnPackItem(P1))
 		return self
 
 	Func getAddServerHeader
-		return dnRequest("get",[self,"AddServerHeader"])
+		return dnSend("s3:get",nHandle,"s15:AddServerHeader","")
 
 	Func setAddServerHeader P1
-		dnRequest("set",[self,"AddServerHeader",P1])
+		dnSend("s3:set",nHandle,"s15:AddServerHeader",dnPackItem(P1))
 		return self
 
 	Func getAllowResponseHeaderCompression
-		return dnRequest("get",[self,"AllowResponseHeaderCompression"])
+		return dnSend("s3:get",nHandle,"s30:AllowResponseHeaderCompression","")
 
 	Func setAllowResponseHeaderCompression P1
-		dnRequest("set",[self,"AllowResponseHeaderCompression",P1])
+		dnSend("s3:set",nHandle,"s30:AllowResponseHeaderCompression",dnPackItem(P1))
 		return self
 
 	Func getAllowSynchronousIO
-		return dnRequest("get",[self,"AllowSynchronousIO"])
+		return dnSend("s3:get",nHandle,"s18:AllowSynchronousIO","")
 
 	Func setAllowSynchronousIO P1
-		dnRequest("set",[self,"AllowSynchronousIO",P1])
+		dnSend("s3:set",nHandle,"s18:AllowSynchronousIO",dnPackItem(P1))
 		return self
 
 	Func getAllowAlternateSchemes
-		return dnRequest("get",[self,"AllowAlternateSchemes"])
+		return dnSend("s3:get",nHandle,"s21:AllowAlternateSchemes","")
 
 	Func setAllowAlternateSchemes P1
-		dnRequest("set",[self,"AllowAlternateSchemes",P1])
+		dnSend("s3:set",nHandle,"s21:AllowAlternateSchemes",dnPackItem(P1))
 		return self
 
 	Func getDisableStringReuse
-		return dnRequest("get",[self,"DisableStringReuse"])
+		return dnSend("s3:get",nHandle,"s18:DisableStringReuse","")
 
 	Func setDisableStringReuse P1
-		dnRequest("set",[self,"DisableStringReuse",P1])
+		dnSend("s3:set",nHandle,"s18:DisableStringReuse",dnPackItem(P1))
 		return self
 
 	Func getEnableAltSvc
-		return dnRequest("get",[self,"EnableAltSvc"])
+		return dnSend("s3:get",nHandle,"s12:EnableAltSvc","")
 
 	Func setEnableAltSvc P1
-		dnRequest("set",[self,"EnableAltSvc",P1])
+		dnSend("s3:set",nHandle,"s12:EnableAltSvc",dnPackItem(P1))
 		return self
 
 	Func getRequestHeaderEncodingSelector
-		return dnRequest("get",[self,"RequestHeaderEncodingSelector"])
+		return dnSend("s3:get",nHandle,"s29:RequestHeaderEncodingSelector","")
 
 	Func setRequestHeaderEncodingSelector P1
-		dnRequest("set",[self,"RequestHeaderEncodingSelector",P1])
+		dnSend("s3:set",nHandle,"s29:RequestHeaderEncodingSelector",dnPackItem(P1))
 		return self
 
 	Func getResponseHeaderEncodingSelector
-		return dnRequest("get",[self,"ResponseHeaderEncodingSelector"])
+		return dnSend("s3:get",nHandle,"s30:ResponseHeaderEncodingSelector","")
 
 	Func setResponseHeaderEncodingSelector P1
-		dnRequest("set",[self,"ResponseHeaderEncodingSelector",P1])
+		dnSend("s3:set",nHandle,"s30:ResponseHeaderEncodingSelector",dnPackItem(P1))
 		return self
 
 	Func getApplicationServices
-		return dnRequest("get",[self,"ApplicationServices"])
+		return dnSend("s3:get",nHandle,"s19:ApplicationServices","")
 
 	Func setApplicationServices P1
-		dnRequest("set",[self,"ApplicationServices",P1])
+		dnSend("s3:set",nHandle,"s19:ApplicationServices",dnPackItem(P1))
 		return self
 
 	Func getLimits
-		return dnRequest("get",[self,"Limits"])
+		return dnSend("s3:get",nHandle,"s6:Limits","")
 
 	Func setLimits P1
 		raise("DotNet Error: Limits is a read-only property")
 
 	Func getConfigurationLoader
-		return dnRequest("get",[self,"ConfigurationLoader"])
+		return dnSend("s3:get",nHandle,"s19:ConfigurationLoader","")
 
 	Func setConfigurationLoader P1
-		dnRequest("set",[self,"ConfigurationLoader",P1])
+		dnSend("s3:set",nHandle,"s19:ConfigurationLoader",dnPackItem(P1))
 		return self
 
 
@@ -563,66 +563,66 @@ Class ListenOptions from Object
 		return self
 
 	Func Use P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Use",P1])
+		return dnSend("s4:call",nHandle,"s3:Use",dnPackItem(P1))
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
+		return dnSend("s4:call",nHandle,"s5:Build","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getEndPoint
-		return dnRequest("get",[self,"EndPoint"])
+		return dnSend("s3:get",nHandle,"s8:EndPoint","")
 
 	Func setEndPoint P1
 		raise("DotNet Error: EndPoint is a read-only property")
 
 	Func getIPEndPoint
-		return dnRequest("get",[self,"IPEndPoint"])
+		return dnSend("s3:get",nHandle,"s10:IPEndPoint","")
 
 	Func setIPEndPoint P1
 		raise("DotNet Error: IPEndPoint is a read-only property")
 
 	Func getSocketPath
-		return dnRequest("get",[self,"SocketPath"])
+		return dnSend("s3:get",nHandle,"s10:SocketPath","")
 
 	Func setSocketPath P1
 		raise("DotNet Error: SocketPath is a read-only property")
 
 	Func getPipeName
-		return dnRequest("get",[self,"PipeName"])
+		return dnSend("s3:get",nHandle,"s8:PipeName","")
 
 	Func setPipeName P1
 		raise("DotNet Error: PipeName is a read-only property")
 
 	Func getFileHandle
-		return dnRequest("get",[self,"FileHandle"])
+		return dnSend("s3:get",nHandle,"s10:FileHandle","")
 
 	Func setFileHandle P1
 		raise("DotNet Error: FileHandle is a read-only property")
 
 	Func getKestrelServerOptions
-		return dnRequest("get",[self,"KestrelServerOptions"])
+		return dnSend("s3:get",nHandle,"s20:KestrelServerOptions","")
 
 	Func setKestrelServerOptions P1
 		raise("DotNet Error: KestrelServerOptions is a read-only property")
 
 	Func getProtocols
-		return dnRequest("get",[self,"Protocols"])
+		return dnSend("s3:get",nHandle,"s9:Protocols","")
 
 	Func setProtocols P1
-		dnRequest("set",[self,"Protocols",P1])
+		dnSend("s3:set",nHandle,"s9:Protocols",dnPackItem(P1))
 		return self
 
 	Func getDisableAltSvcHeader
-		return dnRequest("get",[self,"DisableAltSvcHeader"])
+		return dnSend("s3:get",nHandle,"s19:DisableAltSvcHeader","")
 
 	Func setDisableAltSvcHeader P1
-		dnRequest("set",[self,"DisableAltSvcHeader",P1])
+		dnSend("s3:set",nHandle,"s19:DisableAltSvcHeader",dnPackItem(P1))
 		return self
 
 	Func getApplicationServices
-		return dnRequest("get",[self,"ApplicationServices"])
+		return dnSend("s3:get",nHandle,"s19:ApplicationServices","")
 
 	Func setApplicationServices P1
 		raise("DotNet Error: ApplicationServices is a read-only property")
@@ -645,16 +645,16 @@ Class MinDataRate from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getBytesPerSecond
-		return dnRequest("get",[self,"BytesPerSecond"])
+		return dnSend("s3:get",nHandle,"s14:BytesPerSecond","")
 
 	Func setBytesPerSecond P1
 		raise("DotNet Error: BytesPerSecond is a read-only property")
 
 	Func getGracePeriod
-		return dnRequest("get",[self,"GracePeriod"])
+		return dnSend("s3:get",nHandle,"s11:GracePeriod","")
 
 	Func setGracePeriod P1
 		raise("DotNet Error: GracePeriod is a read-only property")

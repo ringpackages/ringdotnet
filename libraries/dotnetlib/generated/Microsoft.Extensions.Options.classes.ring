@@ -41,7 +41,7 @@ Class IStartupValidator from DotNetObject
 		return self
 
 	Func Validate 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Validate"])
+		dnSend("s4:call",nHandle,"s8:Validate","")
 		return self
 
 
@@ -59,13 +59,13 @@ Class Options from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options'),"Create",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options').nHandle,"s6:Create",dnPackItem(P1))
 
 	Func getDefaultName
-		return dnRequest("get",[dnTypeCached('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options'),"DefaultName"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options').nHandle,"s11:DefaultName","")
 
 	Func setDefaultName P1
 		raise("DotNet Error: DefaultName is a read-only property")
@@ -83,10 +83,10 @@ Class OptionsMonitorExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func OnChange P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Options.OptionsMonitorExtensions, Microsoft.Extensions.Options'),"OnChange",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Options.OptionsMonitorExtensions, Microsoft.Extensions.Options').nHandle,"s8:OnChange",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class ValidateOptionsResult from Object
@@ -122,49 +122,49 @@ Class ValidateOptionsResult from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Fail P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options'),"Fail",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options').nHandle,"s4:Fail",dnPackItem(P1))
 
 	Func getSucceeded
-		return dnRequest("get",[self,"Succeeded"])
+		return dnSend("s3:get",nHandle,"s9:Succeeded","")
 
 	Func setSucceeded P1
 		raise("DotNet Error: Succeeded is a read-only property")
 
 	Func getSkipped
-		return dnRequest("get",[self,"Skipped"])
+		return dnSend("s3:get",nHandle,"s7:Skipped","")
 
 	Func setSkipped P1
 		raise("DotNet Error: Skipped is a read-only property")
 
 	Func getFailed
-		return dnRequest("get",[self,"Failed"])
+		return dnSend("s3:get",nHandle,"s6:Failed","")
 
 	Func setFailed P1
 		raise("DotNet Error: Failed is a read-only property")
 
 	Func getFailureMessage
-		return dnRequest("get",[self,"FailureMessage"])
+		return dnSend("s3:get",nHandle,"s14:FailureMessage","")
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
 
 	Func getFailures
-		return dnRequest("get",[self,"Failures"])
+		return dnSend("s3:get",nHandle,"s8:Failures","")
 
 	Func setFailures P1
 		raise("DotNet Error: Failures is a read-only property")
 
 	Func getSkip
-		return dnRequest("get",[dnTypeCached('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options'),"Skip"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options').nHandle,"s4:Skip","")
 
 	Func setSkip P1
 		raise("DotNet Error: Skip is a read-only property")
 
 	Func getSuccess
-		return dnRequest("get",[dnTypeCached('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options'),"Success"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options').nHandle,"s7:Success","")
 
 	Func setSuccess P1
 		raise("DotNet Error: Success is a read-only property")
@@ -196,28 +196,28 @@ Class ValidateOptionsResultBuilder from Object
 
 	Func AddError P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddError",P1])
+			dnSend("s9:callnamed",nHandle,"s8:AddError",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddError",P1])
+		dnSend("s4:call",nHandle,"s8:AddError",dnPackItem(P1))
 		return self
 
 	Func AddResult P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddResult",P1])
+		dnSend("s4:call",nHandle,"s9:AddResult",dnPackItem(P1))
 		return self
 
 	Func AddResults P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddResults",P1])
+		dnSend("s4:call",nHandle,"s10:AddResults",dnPackItem(P1))
 		return self
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
+		return dnSend("s4:call",nHandle,"s5:Build","")
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 

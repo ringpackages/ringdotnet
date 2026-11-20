@@ -83,16 +83,16 @@ The generator names the methods of a class like this:
 Class StringBuilder from Object
 
 	Func Append P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Append",P1])
+		return dnSend("s4:call",nHandle,"s6:Append",dnPackItem(P1))
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnSend("s3:get",nHandle,"s6:Length","")
 
 	Func setLength P1
-		dnRequest("set",[self,"Length",P1])
+		dnSend("s3:set",nHandle,"s6:Length",dnPackItem(P1))
 ```
 
-Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when you assign to it. A method makes its target with `this.nHandle`: the arguments of `new DotNetObject(...)` are read together with the new object, so the plain name `nHandle` (an attribute of both objects) could be looked up in the wrong one after an error that was caught. A property accessor passes `self`.
+Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when you assign to it. A method does not make a target object or a list for the request: it passes the handle as a number and the pieces that never change (the operation `call` and the name `Append`) as ready wire items, and `dnSend` finishes the request text. That is about twice as fast as building `dnRequest("call",[target,"Append",P1])` for each call. A property accessor does the same with the operations `get` and `set`.
 
 ## Wrapping your own assembly
 

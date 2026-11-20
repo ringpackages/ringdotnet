@@ -35,11 +35,11 @@ Class IResourceReader from DotNetObject
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
+		dnSend("s4:call",nHandle,"s5:Close","")
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 
 Class ResourceManager from Object
@@ -77,63 +77,63 @@ Class ResourceManager from Object
 		return self
 
 	Func ReleaseAllResources 
-		dnRequest("call",[new DotNetObject(this.nHandle),"ReleaseAllResources"])
+		dnSend("s4:call",nHandle,"s19:ReleaseAllResources","")
 		return self
 
 	Func GetResourceSet P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetResourceSet",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s14:GetResourceSet",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func GetString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetString",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:GetString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetString",P1])
+		return dnSend("s4:call",nHandle,"s9:GetString",dnPackItem(P1))
 
 	Func GetObject P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetObject",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:GetObject",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetObject",P1])
+		return dnSend("s4:call",nHandle,"s9:GetObject",dnPackItem(P1))
 
 	Func GetStream P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetStream",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:GetStream",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetStream",P1])
+		return dnSend("s4:call",nHandle,"s9:GetStream",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateFileBasedResourceManager P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Resources.ResourceManager, System.Private.CoreLib'),"CreateFileBasedResourceManager",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Resources.ResourceManager, System.Private.CoreLib').nHandle,"s30:CreateFileBasedResourceManager",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getBaseName
-		return dnRequest("get",[self,"BaseName"])
+		return dnSend("s3:get",nHandle,"s8:BaseName","")
 
 	Func setBaseName P1
 		raise("DotNet Error: BaseName is a read-only property")
 
 	Func getIgnoreCase
-		return dnRequest("get",[self,"IgnoreCase"])
+		return dnSend("s3:get",nHandle,"s10:IgnoreCase","")
 
 	Func setIgnoreCase P1
-		dnRequest("set",[self,"IgnoreCase",P1])
+		dnSend("s3:set",nHandle,"s10:IgnoreCase",dnPackItem(P1))
 		return self
 
 	Func getResourceSetType
-		return dnRequest("get",[self,"ResourceSetType"])
+		return dnSend("s3:get",nHandle,"s15:ResourceSetType","")
 
 	Func setResourceSetType P1
 		raise("DotNet Error: ResourceSetType is a read-only property")
 
 	Func getMagicNumber
-		return dnRequest("get",[dnTypeCached('System.Resources.ResourceManager, System.Private.CoreLib'),"MagicNumber"])
+		return dnSend("s3:get",dnTypeCached('System.Resources.ResourceManager, System.Private.CoreLib').nHandle,"s11:MagicNumber","")
 
 	Func setMagicNumber P1
 		raise("DotNet Error: MagicNumber is a read-only property")
 
 	Func getHeaderVersionNumber
-		return dnRequest("get",[dnTypeCached('System.Resources.ResourceManager, System.Private.CoreLib'),"HeaderVersionNumber"])
+		return dnSend("s3:get",dnTypeCached('System.Resources.ResourceManager, System.Private.CoreLib').nHandle,"s19:HeaderVersionNumber","")
 
 	Func setHeaderVersionNumber P1
 		raise("DotNet Error: HeaderVersionNumber is a read-only property")
@@ -153,21 +153,21 @@ Class ResourceReader from Object
 		return self
 
 	Func GetResourceData P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetResourceData",P1])
+		return dnSend("s4:call",nHandle,"s15:GetResourceData",dnPackItem(P1))
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
+		dnSend("s4:call",nHandle,"s5:Close","")
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class ResourceSet from Object
@@ -184,35 +184,35 @@ Class ResourceSet from Object
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
+		dnSend("s4:call",nHandle,"s5:Close","")
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func GetDefaultReader 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultReader"])
+		return dnSend("s4:call",nHandle,"s16:GetDefaultReader","")
 
 	Func GetDefaultWriter 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultWriter"])
+		return dnSend("s4:call",nHandle,"s16:GetDefaultWriter","")
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func GetString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetString",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:GetString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetString",P1])
+		return dnSend("s4:call",nHandle,"s9:GetString",dnPackItem(P1))
 
 	Func GetObject P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetObject",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:GetObject",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetObject",P1])
+		return dnSend("s4:call",nHandle,"s9:GetObject",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 

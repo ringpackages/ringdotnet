@@ -102,41 +102,41 @@ Class AttributeRouteInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getTemplate
-		return dnRequest("get",[self,"Template"])
+		return dnSend("s3:get",nHandle,"s8:Template","")
 
 	Func setTemplate P1
-		dnRequest("set",[self,"Template",P1])
+		dnSend("s3:set",nHandle,"s8:Template",dnPackItem(P1))
 		return self
 
 	Func getOrder
-		return dnRequest("get",[self,"Order"])
+		return dnSend("s3:get",nHandle,"s5:Order","")
 
 	Func setOrder P1
-		dnRequest("set",[self,"Order",P1])
+		dnSend("s3:set",nHandle,"s5:Order",dnPackItem(P1))
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
 		return self
 
 	Func getSuppressLinkGeneration
-		return dnRequest("get",[self,"SuppressLinkGeneration"])
+		return dnSend("s3:get",nHandle,"s22:SuppressLinkGeneration","")
 
 	Func setSuppressLinkGeneration P1
-		dnRequest("set",[self,"SuppressLinkGeneration",P1])
+		dnSend("s3:set",nHandle,"s22:SuppressLinkGeneration",dnPackItem(P1))
 		return self
 
 	Func getSuppressPathMatching
-		return dnRequest("get",[self,"SuppressPathMatching"])
+		return dnSend("s3:get",nHandle,"s20:SuppressPathMatching","")
 
 	Func setSuppressPathMatching P1
-		dnRequest("set",[self,"SuppressPathMatching",P1])
+		dnSend("s3:set",nHandle,"s20:SuppressPathMatching",dnPackItem(P1))
 		return self
 
 
@@ -154,19 +154,19 @@ Class DynamicRouteValueTransformer from Object
 		return self
 
 	Func TransformAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TransformAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s14:TransformAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func FilterAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FilterAsync",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s11:FilterAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getState
-		return dnRequest("get",[self,"State"])
+		return dnSend("s3:get",nHandle,"s5:State","")
 
 	Func setState P1
-		dnRequest("set",[self,"State",P1])
+		dnSend("s3:set",nHandle,"s5:State",dnPackItem(P1))
 		return self
 
 
@@ -184,7 +184,7 @@ Class IActionHttpMethodProvider from DotNetObject
 		return self
 
 	Func getHttpMethods
-		return dnRequest("get",[self,"HttpMethods"])
+		return dnSend("s3:get",nHandle,"s11:HttpMethods","")
 
 	Func setHttpMethods P1
 		raise("DotNet Error: HttpMethods is a read-only property")
@@ -206,19 +206,19 @@ Class IRouteTemplateProvider from DotNetObject
 		return self
 
 	Func getTemplate
-		return dnRequest("get",[self,"Template"])
+		return dnSend("s3:get",nHandle,"s8:Template","")
 
 	Func setTemplate P1
 		raise("DotNet Error: Template is a read-only property")
 
 	Func getOrder
-		return dnRequest("get",[self,"Order"])
+		return dnSend("s3:get",nHandle,"s5:Order","")
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -239,13 +239,13 @@ Class IRouteValueProvider from DotNetObject
 		return self
 
 	Func getRouteKey
-		return dnRequest("get",[self,"RouteKey"])
+		return dnSend("s3:get",nHandle,"s8:RouteKey","")
 
 	Func setRouteKey P1
 		raise("DotNet Error: RouteKey is a read-only property")
 
 	Func getRouteValue
-		return dnRequest("get",[self,"RouteValue"])
+		return dnSend("s3:get",nHandle,"s10:RouteValue","")
 
 	Func setRouteValue P1
 		raise("DotNet Error: RouteValue is a read-only property")
@@ -263,7 +263,7 @@ Class IUrlHelperFactory from DotNetObject
 		return self
 
 	Func GetUrlHelper P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUrlHelper",P1])
+		return dnSend("s4:call",nHandle,"s12:GetUrlHelper",dnPackItem(P1))
 
 
 Class KnownRouteValueConstraint from Object
@@ -280,10 +280,10 @@ Class KnownRouteValueConstraint from Object
 		return self
 
 	Func Match P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Match",P1,P2,P3,P4,P5])
+		return dnSend("s4:call",nHandle,"s5:Match",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class UrlActionContext from Object
@@ -318,48 +318,48 @@ Class UrlActionContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAction
-		return dnRequest("get",[self,"Action"])
+		return dnSend("s3:get",nHandle,"s6:Action","")
 
 	Func setAction P1
-		dnRequest("set",[self,"Action",P1])
+		dnSend("s3:set",nHandle,"s6:Action",dnPackItem(P1))
 		return self
 
 	Func getController
-		return dnRequest("get",[self,"Controller"])
+		return dnSend("s3:get",nHandle,"s10:Controller","")
 
 	Func setController P1
-		dnRequest("set",[self,"Controller",P1])
+		dnSend("s3:set",nHandle,"s10:Controller",dnPackItem(P1))
 		return self
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnSend("s3:get",nHandle,"s6:Values","")
 
 	Func setValues P1
-		dnRequest("set",[self,"Values",P1])
+		dnSend("s3:set",nHandle,"s6:Values",dnPackItem(P1))
 		return self
 
 	Func getProtocol
-		return dnRequest("get",[self,"Protocol"])
+		return dnSend("s3:get",nHandle,"s8:Protocol","")
 
 	Func setProtocol P1
-		dnRequest("set",[self,"Protocol",P1])
+		dnSend("s3:set",nHandle,"s8:Protocol",dnPackItem(P1))
 		return self
 
 	Func getHost
-		return dnRequest("get",[self,"Host"])
+		return dnSend("s3:get",nHandle,"s4:Host","")
 
 	Func setHost P1
-		dnRequest("set",[self,"Host",P1])
+		dnSend("s3:set",nHandle,"s4:Host",dnPackItem(P1))
 		return self
 
 	Func getFragment
-		return dnRequest("get",[self,"Fragment"])
+		return dnSend("s3:get",nHandle,"s8:Fragment","")
 
 	Func setFragment P1
-		dnRequest("set",[self,"Fragment",P1])
+		dnSend("s3:set",nHandle,"s8:Fragment",dnPackItem(P1))
 		return self
 
 
@@ -377,25 +377,25 @@ Class UrlHelperBase from Object
 		return self
 
 	Func IsLocalUrl P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsLocalUrl",P1])
+		return dnSend("s4:call",nHandle,"s10:IsLocalUrl",dnPackItem(P1))
 
 	Func Content P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Content",P1])
+		return dnSend("s4:call",nHandle,"s7:Content",dnPackItem(P1))
 
 	Func Link P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Link",P1,P2])
+		return dnSend("s4:call",nHandle,"s4:Link",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Action P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Action",P1])
+		return dnSend("s4:call",nHandle,"s6:Action",dnPackItem(P1))
 
 	Func RouteUrl P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RouteUrl",P1])
+		return dnSend("s4:call",nHandle,"s8:RouteUrl",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getActionContext
-		return dnRequest("get",[self,"ActionContext"])
+		return dnSend("s3:get",nHandle,"s13:ActionContext","")
 
 	Func setActionContext P1
 		raise("DotNet Error: ActionContext is a read-only property")
@@ -426,10 +426,10 @@ Class UrlHelperFactory from Object
 		return self
 
 	Func GetUrlHelper P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUrlHelper",P1])
+		return dnSend("s4:call",nHandle,"s12:GetUrlHelper",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class UrlRouteContext from Object
@@ -463,41 +463,41 @@ Class UrlRouteContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getRouteName
-		return dnRequest("get",[self,"RouteName"])
+		return dnSend("s3:get",nHandle,"s9:RouteName","")
 
 	Func setRouteName P1
-		dnRequest("set",[self,"RouteName",P1])
+		dnSend("s3:set",nHandle,"s9:RouteName",dnPackItem(P1))
 		return self
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnSend("s3:get",nHandle,"s6:Values","")
 
 	Func setValues P1
-		dnRequest("set",[self,"Values",P1])
+		dnSend("s3:set",nHandle,"s6:Values",dnPackItem(P1))
 		return self
 
 	Func getProtocol
-		return dnRequest("get",[self,"Protocol"])
+		return dnSend("s3:get",nHandle,"s8:Protocol","")
 
 	Func setProtocol P1
-		dnRequest("set",[self,"Protocol",P1])
+		dnSend("s3:set",nHandle,"s8:Protocol",dnPackItem(P1))
 		return self
 
 	Func getHost
-		return dnRequest("get",[self,"Host"])
+		return dnSend("s3:get",nHandle,"s4:Host","")
 
 	Func setHost P1
-		dnRequest("set",[self,"Host",P1])
+		dnSend("s3:set",nHandle,"s4:Host",dnPackItem(P1))
 		return self
 
 	Func getFragment
-		return dnRequest("get",[self,"Fragment"])
+		return dnSend("s3:get",nHandle,"s8:Fragment","")
 
 	Func setFragment P1
-		dnRequest("set",[self,"Fragment",P1])
+		dnSend("s3:set",nHandle,"s8:Fragment",dnPackItem(P1))
 		return self
 
 

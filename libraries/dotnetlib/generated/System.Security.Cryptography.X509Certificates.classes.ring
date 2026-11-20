@@ -245,72 +245,72 @@ Class CertificateRequest from Object
 
 	Func CreateSigningRequest P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateSigningRequest",P1])
+			return dnSend("s9:callnamed",nHandle,"s20:CreateSigningRequest",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"CreateSigningRequest"])
+			return dnSend("s4:call",nHandle,"s20:CreateSigningRequest","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateSigningRequest",P1])
+		return dnSend("s4:call",nHandle,"s20:CreateSigningRequest",dnPackItem(P1))
 
 	Func CreateSigningRequestPem P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateSigningRequestPem",P1])
+			return dnSend("s9:callnamed",nHandle,"s23:CreateSigningRequestPem",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"CreateSigningRequestPem"])
+			return dnSend("s4:call",nHandle,"s23:CreateSigningRequestPem","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateSigningRequestPem",P1])
+		return dnSend("s4:call",nHandle,"s23:CreateSigningRequestPem",dnPackItem(P1))
 
 	Func CreateSelfSigned P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateSelfSigned",P1,P2])
+		return dnSend("s4:call",nHandle,"s16:CreateSelfSigned",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Create",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Create",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func LoadSigningRequestPem P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequestPem",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography').nHandle,"s21:LoadSigningRequestPem",dnPackItem(P1))
 		ok
 		raise("DotNet Error: LoadSigningRequestPem does not take one argument: use named arguments, LoadSigningRequestPem([ :parameter = value, ... ])")
 
 	Func LoadSigningRequest P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequest",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography').nHandle,"s18:LoadSigningRequest",dnPackItem(P1))
 		ok
 		raise("DotNet Error: LoadSigningRequest does not take one argument: use named arguments, LoadSigningRequest([ :parameter = value, ... ])")
 
 	Func getSubjectName
-		return dnRequest("get",[self,"SubjectName"])
+		return dnSend("s3:get",nHandle,"s11:SubjectName","")
 
 	Func setSubjectName P1
 		raise("DotNet Error: SubjectName is a read-only property")
 
 	Func getCertificateExtensions
-		return dnRequest("get",[self,"CertificateExtensions"])
+		return dnSend("s3:get",nHandle,"s21:CertificateExtensions","")
 
 	Func setCertificateExtensions P1
 		raise("DotNet Error: CertificateExtensions is a read-only property")
 
 	Func getOtherRequestAttributes
-		return dnRequest("get",[self,"OtherRequestAttributes"])
+		return dnSend("s3:get",nHandle,"s22:OtherRequestAttributes","")
 
 	Func setOtherRequestAttributes P1
 		raise("DotNet Error: OtherRequestAttributes is a read-only property")
 
 	Func getPublicKey
-		return dnRequest("get",[self,"PublicKey"])
+		return dnSend("s3:get",nHandle,"s9:PublicKey","")
 
 	Func setPublicKey P1
 		raise("DotNet Error: PublicKey is a read-only property")
 
 	Func getHashAlgorithm
-		return dnRequest("get",[self,"HashAlgorithm"])
+		return dnSend("s3:get",nHandle,"s13:HashAlgorithm","")
 
 	Func setHashAlgorithm P1
 		raise("DotNet Error: HashAlgorithm is a read-only property")
@@ -342,35 +342,35 @@ Class CertificateRevocationListBuilder from Object
 
 	Func AddEntry P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddEntry",P1])
+			dnSend("s9:callnamed",nHandle,"s8:AddEntry",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddEntry",P1])
+		dnSend("s4:call",nHandle,"s8:AddEntry",dnPackItem(P1))
 		return self
 
 	Func RemoveEntry P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveEntry",P1])
+		return dnSend("s4:call",nHandle,"s11:RemoveEntry",dnPackItem(P1))
 
 	Func Build P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Build",P1])
+			return dnSend("s9:callnamed",nHandle,"s5:Build",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Build does not take one argument: use named arguments, Build([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func BuildCrlDistributionPointExtension P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography'),"BuildCrlDistributionPointExtension",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography').nHandle,"s34:BuildCrlDistributionPointExtension",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography'),"BuildCrlDistributionPointExtension",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography').nHandle,"s34:BuildCrlDistributionPointExtension",dnPackItem(P1))
 
 	Func Load_ P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography'),"Load",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography').nHandle,"s4:Load",dnPackItem(P1))
 
 	Func LoadPem P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography'),"LoadPem",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography').nHandle,"s7:LoadPem",dnPackItem(P1))
 
 
 Class DSACertificateExtensions from Object
@@ -385,16 +385,16 @@ Class DSACertificateExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetDSAPublicKey P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography'),"GetDSAPublicKey",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography').nHandle,"s15:GetDSAPublicKey",dnPackItem(P1))
 
 	Func GetDSAPrivateKey P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography'),"GetDSAPrivateKey",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography').nHandle,"s16:GetDSAPrivateKey",dnPackItem(P1))
 
 	Func CopyWithPrivateKey P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography'),"CopyWithPrivateKey",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography').nHandle,"s18:CopyWithPrivateKey",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class ECDsaCertificateExtensions from Object
@@ -409,16 +409,16 @@ Class ECDsaCertificateExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetECDsaPublicKey P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography'),"GetECDsaPublicKey",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography').nHandle,"s17:GetECDsaPublicKey",dnPackItem(P1))
 
 	Func GetECDsaPrivateKey P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography'),"GetECDsaPrivateKey",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography').nHandle,"s18:GetECDsaPrivateKey",dnPackItem(P1))
 
 	Func CopyWithPrivateKey P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography'),"CopyWithPrivateKey",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography').nHandle,"s18:CopyWithPrivateKey",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class Pkcs12LoaderLimits from Object
@@ -481,103 +481,103 @@ Class Pkcs12LoaderLimits from Object
 		return self
 
 	Func MakeReadOnly 
-		dnRequest("call",[new DotNetObject(this.nHandle),"MakeReadOnly"])
+		dnSend("s4:call",nHandle,"s12:MakeReadOnly","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getMacIterationLimit
-		return dnRequest("get",[self,"MacIterationLimit"])
+		return dnSend("s3:get",nHandle,"s17:MacIterationLimit","")
 
 	Func setMacIterationLimit P1
-		dnRequest("set",[self,"MacIterationLimit",P1])
+		dnSend("s3:set",nHandle,"s17:MacIterationLimit",dnPackItem(P1))
 		return self
 
 	Func getIndividualKdfIterationLimit
-		return dnRequest("get",[self,"IndividualKdfIterationLimit"])
+		return dnSend("s3:get",nHandle,"s27:IndividualKdfIterationLimit","")
 
 	Func setIndividualKdfIterationLimit P1
-		dnRequest("set",[self,"IndividualKdfIterationLimit",P1])
+		dnSend("s3:set",nHandle,"s27:IndividualKdfIterationLimit",dnPackItem(P1))
 		return self
 
 	Func getTotalKdfIterationLimit
-		return dnRequest("get",[self,"TotalKdfIterationLimit"])
+		return dnSend("s3:get",nHandle,"s22:TotalKdfIterationLimit","")
 
 	Func setTotalKdfIterationLimit P1
-		dnRequest("set",[self,"TotalKdfIterationLimit",P1])
+		dnSend("s3:set",nHandle,"s22:TotalKdfIterationLimit",dnPackItem(P1))
 		return self
 
 	Func getMaxKeys
-		return dnRequest("get",[self,"MaxKeys"])
+		return dnSend("s3:get",nHandle,"s7:MaxKeys","")
 
 	Func setMaxKeys P1
-		dnRequest("set",[self,"MaxKeys",P1])
+		dnSend("s3:set",nHandle,"s7:MaxKeys",dnPackItem(P1))
 		return self
 
 	Func getMaxCertificates
-		return dnRequest("get",[self,"MaxCertificates"])
+		return dnSend("s3:get",nHandle,"s15:MaxCertificates","")
 
 	Func setMaxCertificates P1
-		dnRequest("set",[self,"MaxCertificates",P1])
+		dnSend("s3:set",nHandle,"s15:MaxCertificates",dnPackItem(P1))
 		return self
 
 	Func getPreserveStorageProvider
-		return dnRequest("get",[self,"PreserveStorageProvider"])
+		return dnSend("s3:get",nHandle,"s23:PreserveStorageProvider","")
 
 	Func setPreserveStorageProvider P1
-		dnRequest("set",[self,"PreserveStorageProvider",P1])
+		dnSend("s3:set",nHandle,"s23:PreserveStorageProvider",dnPackItem(P1))
 		return self
 
 	Func getPreserveKeyName
-		return dnRequest("get",[self,"PreserveKeyName"])
+		return dnSend("s3:get",nHandle,"s15:PreserveKeyName","")
 
 	Func setPreserveKeyName P1
-		dnRequest("set",[self,"PreserveKeyName",P1])
+		dnSend("s3:set",nHandle,"s15:PreserveKeyName",dnPackItem(P1))
 		return self
 
 	Func getPreserveCertificateAlias
-		return dnRequest("get",[self,"PreserveCertificateAlias"])
+		return dnSend("s3:get",nHandle,"s24:PreserveCertificateAlias","")
 
 	Func setPreserveCertificateAlias P1
-		dnRequest("set",[self,"PreserveCertificateAlias",P1])
+		dnSend("s3:set",nHandle,"s24:PreserveCertificateAlias",dnPackItem(P1))
 		return self
 
 	Func getPreserveUnknownAttributes
-		return dnRequest("get",[self,"PreserveUnknownAttributes"])
+		return dnSend("s3:get",nHandle,"s25:PreserveUnknownAttributes","")
 
 	Func setPreserveUnknownAttributes P1
-		dnRequest("set",[self,"PreserveUnknownAttributes",P1])
+		dnSend("s3:set",nHandle,"s25:PreserveUnknownAttributes",dnPackItem(P1))
 		return self
 
 	Func getIgnorePrivateKeys
-		return dnRequest("get",[self,"IgnorePrivateKeys"])
+		return dnSend("s3:get",nHandle,"s17:IgnorePrivateKeys","")
 
 	Func setIgnorePrivateKeys P1
-		dnRequest("set",[self,"IgnorePrivateKeys",P1])
+		dnSend("s3:set",nHandle,"s17:IgnorePrivateKeys",dnPackItem(P1))
 		return self
 
 	Func getIgnoreEncryptedAuthSafes
-		return dnRequest("get",[self,"IgnoreEncryptedAuthSafes"])
+		return dnSend("s3:get",nHandle,"s24:IgnoreEncryptedAuthSafes","")
 
 	Func setIgnoreEncryptedAuthSafes P1
-		dnRequest("set",[self,"IgnoreEncryptedAuthSafes",P1])
+		dnSend("s3:set",nHandle,"s24:IgnoreEncryptedAuthSafes",dnPackItem(P1))
 		return self
 
 	Func getDefaults
-		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography'),"Defaults"])
+		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography').nHandle,"s8:Defaults","")
 
 	Func setDefaults P1
 		raise("DotNet Error: Defaults is a read-only property")
 
 	Func getDangerousNoLimits
-		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography'),"DangerousNoLimits"])
+		return dnSend("s3:get",dnTypeCached('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography').nHandle,"s17:DangerousNoLimits","")
 
 	Func setDangerousNoLimits P1
 		raise("DotNet Error: DangerousNoLimits is a read-only property")
@@ -617,43 +617,43 @@ Class PublicKey from Object
 		return self
 
 	Func ExportSubjectPublicKeyInfo 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExportSubjectPublicKeyInfo"])
+		return dnSend("s4:call",nHandle,"s26:ExportSubjectPublicKeyInfo","")
 
 	Func GetRSAPublicKey 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRSAPublicKey"])
+		return dnSend("s4:call",nHandle,"s15:GetRSAPublicKey","")
 
 	Func GetDSAPublicKey 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDSAPublicKey"])
+		return dnSend("s4:call",nHandle,"s15:GetDSAPublicKey","")
 
 	Func GetECDsaPublicKey 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetECDsaPublicKey"])
+		return dnSend("s4:call",nHandle,"s17:GetECDsaPublicKey","")
 
 	Func GetECDiffieHellmanPublicKey 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetECDiffieHellmanPublicKey"])
+		return dnSend("s4:call",nHandle,"s27:GetECDiffieHellmanPublicKey","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getEncodedKeyValue
-		return dnRequest("get",[self,"EncodedKeyValue"])
+		return dnSend("s3:get",nHandle,"s15:EncodedKeyValue","")
 
 	Func setEncodedKeyValue P1
 		raise("DotNet Error: EncodedKeyValue is a read-only property")
 
 	Func getEncodedParameters
-		return dnRequest("get",[self,"EncodedParameters"])
+		return dnSend("s3:get",nHandle,"s17:EncodedParameters","")
 
 	Func setEncodedParameters P1
 		raise("DotNet Error: EncodedParameters is a read-only property")
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnSend("s3:get",nHandle,"s3:Key","")
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getOid
-		return dnRequest("get",[self,"Oid"])
+		return dnSend("s3:get",nHandle,"s3:Oid","")
 
 	Func setOid P1
 		raise("DotNet Error: Oid is a read-only property")
@@ -671,16 +671,16 @@ Class RSACertificateExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetRSAPublicKey P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography'),"GetRSAPublicKey",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography').nHandle,"s15:GetRSAPublicKey",dnPackItem(P1))
 
 	Func GetRSAPrivateKey P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography'),"GetRSAPrivateKey",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography').nHandle,"s16:GetRSAPrivateKey",dnPackItem(P1))
 
 	Func CopyWithPrivateKey P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography'),"CopyWithPrivateKey",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography').nHandle,"s18:CopyWithPrivateKey",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class SubjectAlternativeNameBuilder from Object
@@ -708,36 +708,36 @@ Class SubjectAlternativeNameBuilder from Object
 		return self
 
 	Func AddEmailAddress P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddEmailAddress",P1])
+		dnSend("s4:call",nHandle,"s15:AddEmailAddress",dnPackItem(P1))
 		return self
 
 	Func AddDnsName P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddDnsName",P1])
+		dnSend("s4:call",nHandle,"s10:AddDnsName",dnPackItem(P1))
 		return self
 
 	Func AddUri P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddUri",P1])
+		dnSend("s4:call",nHandle,"s6:AddUri",dnPackItem(P1))
 		return self
 
 	Func AddIpAddress P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddIpAddress",P1])
+		dnSend("s4:call",nHandle,"s12:AddIpAddress",dnPackItem(P1))
 		return self
 
 	Func AddUserPrincipalName P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddUserPrincipalName",P1])
+		dnSend("s4:call",nHandle,"s20:AddUserPrincipalName",dnPackItem(P1))
 		return self
 
 	Func Build P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Build",P1])
+			return dnSend("s9:callnamed",nHandle,"s5:Build",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
+			return dnSend("s4:call",nHandle,"s5:Build","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build",P1])
+		return dnSend("s4:call",nHandle,"s5:Build",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class X500DistinguishedName from AsnEncodedData
@@ -771,19 +771,19 @@ Class X500DistinguishedName from AsnEncodedData
 		return self
 
 	Func Decode P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Decode",P1])
+		return dnSend("s4:call",nHandle,"s6:Decode",dnPackItem(P1))
 
 	Func EnumerateRelativeDistinguishedNames P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnumerateRelativeDistinguishedNames",P1])
+			return dnSend("s9:callnamed",nHandle,"s35:EnumerateRelativeDistinguishedNames",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateRelativeDistinguishedNames"])
+			return dnSend("s4:call",nHandle,"s35:EnumerateRelativeDistinguishedNames","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateRelativeDistinguishedNames",P1])
+		return dnSend("s4:call",nHandle,"s35:EnumerateRelativeDistinguishedNames",dnPackItem(P1))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -815,48 +815,48 @@ Class X500DistinguishedNameBuilder from Object
 
 	Func Add P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Add",P1])
+			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
 
 	Func AddEmailAddress P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddEmailAddress",P1])
+		dnSend("s4:call",nHandle,"s15:AddEmailAddress",dnPackItem(P1))
 		return self
 
 	Func AddCommonName P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddCommonName",P1])
+		dnSend("s4:call",nHandle,"s13:AddCommonName",dnPackItem(P1))
 		return self
 
 	Func AddLocalityName P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddLocalityName",P1])
+		dnSend("s4:call",nHandle,"s15:AddLocalityName",dnPackItem(P1))
 		return self
 
 	Func AddCountryOrRegion P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddCountryOrRegion",P1])
+		dnSend("s4:call",nHandle,"s18:AddCountryOrRegion",dnPackItem(P1))
 		return self
 
 	Func AddOrganizationName P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddOrganizationName",P1])
+		dnSend("s4:call",nHandle,"s19:AddOrganizationName",dnPackItem(P1))
 		return self
 
 	Func AddOrganizationalUnitName P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddOrganizationalUnitName",P1])
+		dnSend("s4:call",nHandle,"s25:AddOrganizationalUnitName",dnPackItem(P1))
 		return self
 
 	Func AddStateOrProvinceName P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddStateOrProvinceName",P1])
+		dnSend("s4:call",nHandle,"s22:AddStateOrProvinceName",dnPackItem(P1))
 		return self
 
 	Func AddDomainComponent P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddDomainComponent",P1])
+		dnSend("s4:call",nHandle,"s18:AddDomainComponent",dnPackItem(P1))
 		return self
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
+		return dnSend("s4:call",nHandle,"s5:Build","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class X500RelativeDistinguishedName from Object
@@ -874,22 +874,22 @@ Class X500RelativeDistinguishedName from Object
 		return self
 
 	Func GetSingleElementType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSingleElementType"])
+		return dnSend("s4:call",nHandle,"s20:GetSingleElementType","")
 
 	Func GetSingleElementValue 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSingleElementValue"])
+		return dnSend("s4:call",nHandle,"s21:GetSingleElementValue","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getRawData
-		return dnRequest("get",[self,"RawData"])
+		return dnSend("s3:get",nHandle,"s7:RawData","")
 
 	Func setRawData P1
 		raise("DotNet Error: RawData is a read-only property")
 
 	Func getHasMultipleElements
-		return dnRequest("get",[self,"HasMultipleElements"])
+		return dnSend("s3:get",nHandle,"s19:HasMultipleElements","")
 
 	Func setHasMultipleElements P1
 		raise("DotNet Error: HasMultipleElements is a read-only property")
@@ -945,122 +945,122 @@ Class X509Certificate from Object
 		return self
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Export P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Export",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Export",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Export",P1])
+		return dnSend("s4:call",nHandle,"s6:Export",dnPackItem(P1))
 
 	Func GetRawCertDataString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRawCertDataString"])
+		return dnSend("s4:call",nHandle,"s20:GetRawCertDataString","")
 
 	Func GetCertHash P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCertHash",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:GetCertHash",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetCertHash"])
+			return dnSend("s4:call",nHandle,"s11:GetCertHash","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCertHash",P1])
+		return dnSend("s4:call",nHandle,"s11:GetCertHash",dnPackItem(P1))
 
 	Func GetCertHashString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCertHashString",P1])
+			return dnSend("s9:callnamed",nHandle,"s17:GetCertHashString",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetCertHashString"])
+			return dnSend("s4:call",nHandle,"s17:GetCertHashString","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCertHashString",P1])
+		return dnSend("s4:call",nHandle,"s17:GetCertHashString",dnPackItem(P1))
 
 	Func GetEffectiveDateString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEffectiveDateString"])
+		return dnSend("s4:call",nHandle,"s22:GetEffectiveDateString","")
 
 	Func GetExpirationDateString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetExpirationDateString"])
+		return dnSend("s4:call",nHandle,"s23:GetExpirationDateString","")
 
 	Func GetFormat 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFormat"])
+		return dnSend("s4:call",nHandle,"s9:GetFormat","")
 
 	Func GetPublicKeyString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPublicKeyString"])
+		return dnSend("s4:call",nHandle,"s18:GetPublicKeyString","")
 
 	Func GetRawCertData 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRawCertData"])
+		return dnSend("s4:call",nHandle,"s14:GetRawCertData","")
 
 	Func GetKeyAlgorithm 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetKeyAlgorithm"])
+		return dnSend("s4:call",nHandle,"s15:GetKeyAlgorithm","")
 
 	Func GetKeyAlgorithmParameters 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetKeyAlgorithmParameters"])
+		return dnSend("s4:call",nHandle,"s25:GetKeyAlgorithmParameters","")
 
 	Func GetKeyAlgorithmParametersString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetKeyAlgorithmParametersString"])
+		return dnSend("s4:call",nHandle,"s31:GetKeyAlgorithmParametersString","")
 
 	Func GetPublicKey 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPublicKey"])
+		return dnSend("s4:call",nHandle,"s12:GetPublicKey","")
 
 	Func GetSerialNumber 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSerialNumber"])
+		return dnSend("s4:call",nHandle,"s15:GetSerialNumber","")
 
 	Func GetSerialNumberString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSerialNumberString"])
+		return dnSend("s4:call",nHandle,"s21:GetSerialNumberString","")
 
 	Func GetName 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetName"])
+		return dnSend("s4:call",nHandle,"s7:GetName","")
 
 	Func GetIssuerName 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIssuerName"])
+		return dnSend("s4:call",nHandle,"s13:GetIssuerName","")
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString",P1])
+		return dnSend("s4:call",nHandle,"s8:ToString",dnPackItem(P1))
 
 	Func Import_ P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Import",P1])
+			dnSend("s9:callnamed",nHandle,"s6:Import",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Import",P1])
+		dnSend("s4:call",nHandle,"s6:Import",dnPackItem(P1))
 		return self
 
 	Func CreateFromCertFile P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography'),"CreateFromCertFile",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography').nHandle,"s18:CreateFromCertFile",dnPackItem(P1))
 
 	Func CreateFromSignedFile P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography'),"CreateFromSignedFile",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography').nHandle,"s20:CreateFromSignedFile",dnPackItem(P1))
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnSend("s3:get",nHandle,"s6:Handle","")
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getIssuer
-		return dnRequest("get",[self,"Issuer"])
+		return dnSend("s3:get",nHandle,"s6:Issuer","")
 
 	Func setIssuer P1
 		raise("DotNet Error: Issuer is a read-only property")
 
 	Func getSubject
-		return dnRequest("get",[self,"Subject"])
+		return dnSend("s3:get",nHandle,"s7:Subject","")
 
 	Func setSubject P1
 		raise("DotNet Error: Subject is a read-only property")
 
 	Func getSerialNumberBytes
-		return dnRequest("get",[self,"SerialNumberBytes"])
+		return dnSend("s3:get",nHandle,"s17:SerialNumberBytes","")
 
 	Func setSerialNumberBytes P1
 		raise("DotNet Error: SerialNumberBytes is a read-only property")
@@ -1080,17 +1080,17 @@ Class X509Certificate2Enumerator from Object
 		return self
 
 	Func MoveNext 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveNext"])
+		return dnSend("s4:call",nHandle,"s8:MoveNext","")
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCurrent
-		return dnRequest("get",[self,"Current"])
+		return dnSend("s3:get",nHandle,"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -1141,35 +1141,35 @@ Class X509CertificateCollection from CollectionBase
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddRange",P1])
+		dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1))
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -1185,35 +1185,35 @@ Class X509CertificateLoader from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func LoadCertificate P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadCertificate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography').nHandle,"s15:LoadCertificate",dnPackItem(P1))
 
 	Func LoadCertificateFromFile P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadCertificateFromFile",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography').nHandle,"s23:LoadCertificateFromFile",dnPackItem(P1))
 
 	Func LoadPkcs12 P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography').nHandle,"s10:LoadPkcs12",dnPackItem(P1))
 		ok
 		raise("DotNet Error: LoadPkcs12 does not take one argument: use named arguments, LoadPkcs12([ :parameter = value, ... ])")
 
 	Func LoadPkcs12FromFile P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12FromFile",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography').nHandle,"s18:LoadPkcs12FromFile",dnPackItem(P1))
 		ok
 		raise("DotNet Error: LoadPkcs12FromFile does not take one argument: use named arguments, LoadPkcs12FromFile([ :parameter = value, ... ])")
 
 	Func LoadPkcs12Collection P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12Collection",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography').nHandle,"s20:LoadPkcs12Collection",dnPackItem(P1))
 		ok
 		raise("DotNet Error: LoadPkcs12Collection does not take one argument: use named arguments, LoadPkcs12Collection([ :parameter = value, ... ])")
 
 	Func LoadPkcs12CollectionFromFile P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12CollectionFromFile",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography').nHandle,"s28:LoadPkcs12CollectionFromFile",dnPackItem(P1))
 		ok
 		raise("DotNet Error: LoadPkcs12CollectionFromFile does not take one argument: use named arguments, LoadPkcs12CollectionFromFile([ :parameter = value, ... ])")
 
@@ -1269,49 +1269,49 @@ Class X509Chain from Object
 		return self
 
 	Func Build P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build",P1])
+		return dnSend("s4:call",nHandle,"s5:Build",dnPackItem(P1))
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create 
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography'),"Create"])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography').nHandle,"s6:Create","")
 
 	Func getChainElements
-		return dnRequest("get",[self,"ChainElements"])
+		return dnSend("s3:get",nHandle,"s13:ChainElements","")
 
 	Func setChainElements P1
 		raise("DotNet Error: ChainElements is a read-only property")
 
 	Func getChainPolicy
-		return dnRequest("get",[self,"ChainPolicy"])
+		return dnSend("s3:get",nHandle,"s11:ChainPolicy","")
 
 	Func setChainPolicy P1
-		dnRequest("set",[self,"ChainPolicy",P1])
+		dnSend("s3:set",nHandle,"s11:ChainPolicy",dnPackItem(P1))
 		return self
 
 	Func getChainStatus
-		return dnRequest("get",[self,"ChainStatus"])
+		return dnSend("s3:get",nHandle,"s11:ChainStatus","")
 
 	Func setChainStatus P1
 		raise("DotNet Error: ChainStatus is a read-only property")
 
 	Func getChainContext
-		return dnRequest("get",[self,"ChainContext"])
+		return dnSend("s3:get",nHandle,"s12:ChainContext","")
 
 	Func setChainContext P1
 		raise("DotNet Error: ChainContext is a read-only property")
 
 	Func getSafeHandle
-		return dnRequest("get",[self,"SafeHandle"])
+		return dnSend("s3:get",nHandle,"s10:SafeHandle","")
 
 	Func setSafeHandle P1
 		raise("DotNet Error: SafeHandle is a read-only property")
@@ -1333,22 +1333,22 @@ Class X509ChainElement from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCertificate
-		return dnRequest("get",[self,"Certificate"])
+		return dnSend("s3:get",nHandle,"s11:Certificate","")
 
 	Func setCertificate P1
 		raise("DotNet Error: Certificate is a read-only property")
 
 	Func getChainElementStatus
-		return dnRequest("get",[self,"ChainElementStatus"])
+		return dnSend("s3:get",nHandle,"s18:ChainElementStatus","")
 
 	Func setChainElementStatus P1
 		raise("DotNet Error: ChainElementStatus is a read-only property")
 
 	Func getInformation
-		return dnRequest("get",[self,"Information"])
+		return dnSend("s3:get",nHandle,"s11:Information","")
 
 	Func setInformation P1
 		raise("DotNet Error: Information is a read-only property")
@@ -1370,32 +1370,32 @@ Class X509ChainElementCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
@@ -1415,17 +1415,17 @@ Class X509ChainElementEnumerator from Object
 		return self
 
 	Func MoveNext 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveNext"])
+		return dnSend("s4:call",nHandle,"s8:MoveNext","")
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCurrent
-		return dnRequest("get",[self,"Current"])
+		return dnSend("s3:get",nHandle,"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -1469,93 +1469,93 @@ Class X509ChainPolicy from Object
 		return self
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDisableCertificateDownloads
-		return dnRequest("get",[self,"DisableCertificateDownloads"])
+		return dnSend("s3:get",nHandle,"s27:DisableCertificateDownloads","")
 
 	Func setDisableCertificateDownloads P1
-		dnRequest("set",[self,"DisableCertificateDownloads",P1])
+		dnSend("s3:set",nHandle,"s27:DisableCertificateDownloads",dnPackItem(P1))
 		return self
 
 	Func getVerificationTimeIgnored
-		return dnRequest("get",[self,"VerificationTimeIgnored"])
+		return dnSend("s3:get",nHandle,"s23:VerificationTimeIgnored","")
 
 	Func setVerificationTimeIgnored P1
-		dnRequest("set",[self,"VerificationTimeIgnored",P1])
+		dnSend("s3:set",nHandle,"s23:VerificationTimeIgnored",dnPackItem(P1))
 		return self
 
 	Func getApplicationPolicy
-		return dnRequest("get",[self,"ApplicationPolicy"])
+		return dnSend("s3:get",nHandle,"s17:ApplicationPolicy","")
 
 	Func setApplicationPolicy P1
 		raise("DotNet Error: ApplicationPolicy is a read-only property")
 
 	Func getCertificatePolicy
-		return dnRequest("get",[self,"CertificatePolicy"])
+		return dnSend("s3:get",nHandle,"s17:CertificatePolicy","")
 
 	Func setCertificatePolicy P1
 		raise("DotNet Error: CertificatePolicy is a read-only property")
 
 	Func getExtraStore
-		return dnRequest("get",[self,"ExtraStore"])
+		return dnSend("s3:get",nHandle,"s10:ExtraStore","")
 
 	Func setExtraStore P1
 		raise("DotNet Error: ExtraStore is a read-only property")
 
 	Func getCustomTrustStore
-		return dnRequest("get",[self,"CustomTrustStore"])
+		return dnSend("s3:get",nHandle,"s16:CustomTrustStore","")
 
 	Func setCustomTrustStore P1
 		raise("DotNet Error: CustomTrustStore is a read-only property")
 
 	Func getRevocationMode
-		return dnRequest("get",[self,"RevocationMode"])
+		return dnSend("s3:get",nHandle,"s14:RevocationMode","")
 
 	Func setRevocationMode P1
-		dnRequest("set",[self,"RevocationMode",P1])
+		dnSend("s3:set",nHandle,"s14:RevocationMode",dnPackItem(P1))
 		return self
 
 	Func getRevocationFlag
-		return dnRequest("get",[self,"RevocationFlag"])
+		return dnSend("s3:get",nHandle,"s14:RevocationFlag","")
 
 	Func setRevocationFlag P1
-		dnRequest("set",[self,"RevocationFlag",P1])
+		dnSend("s3:set",nHandle,"s14:RevocationFlag",dnPackItem(P1))
 		return self
 
 	Func getVerificationFlags
-		return dnRequest("get",[self,"VerificationFlags"])
+		return dnSend("s3:get",nHandle,"s17:VerificationFlags","")
 
 	Func setVerificationFlags P1
-		dnRequest("set",[self,"VerificationFlags",P1])
+		dnSend("s3:set",nHandle,"s17:VerificationFlags",dnPackItem(P1))
 		return self
 
 	Func getTrustMode
-		return dnRequest("get",[self,"TrustMode"])
+		return dnSend("s3:get",nHandle,"s9:TrustMode","")
 
 	Func setTrustMode P1
-		dnRequest("set",[self,"TrustMode",P1])
+		dnSend("s3:set",nHandle,"s9:TrustMode",dnPackItem(P1))
 		return self
 
 	Func getVerificationTime
-		return dnRequest("get",[self,"VerificationTime"])
+		return dnSend("s3:get",nHandle,"s16:VerificationTime","")
 
 	Func setVerificationTime P1
-		dnRequest("set",[self,"VerificationTime",P1])
+		dnSend("s3:set",nHandle,"s16:VerificationTime",dnPackItem(P1))
 		return self
 
 	Func getUrlRetrievalTimeout
-		return dnRequest("get",[self,"UrlRetrievalTimeout"])
+		return dnSend("s3:get",nHandle,"s19:UrlRetrievalTimeout","")
 
 	Func setUrlRetrievalTimeout P1
-		dnRequest("set",[self,"UrlRetrievalTimeout",P1])
+		dnSend("s3:set",nHandle,"s19:UrlRetrievalTimeout",dnPackItem(P1))
 		return self
 
 
@@ -1587,17 +1587,17 @@ Class X509ChainStatus from ValueType
 		return self
 
 	Func getStatus
-		return dnRequest("get",[self,"Status"])
+		return dnSend("s3:get",nHandle,"s6:Status","")
 
 	Func setStatus P1
-		dnRequest("set",[self,"Status",P1])
+		dnSend("s3:set",nHandle,"s6:Status",dnPackItem(P1))
 		return self
 
 	Func getStatusInformation
-		return dnRequest("get",[self,"StatusInformation"])
+		return dnSend("s3:get",nHandle,"s17:StatusInformation","")
 
 	Func setStatusInformation P1
-		dnRequest("set",[self,"StatusInformation",P1])
+		dnSend("s3:set",nHandle,"s17:StatusInformation",dnPackItem(P1))
 		return self
 
 
@@ -1632,10 +1632,10 @@ Class X509Extension from AsnEncodedData
 		return self
 
 	Func getCritical
-		return dnRequest("get",[self,"Critical"])
+		return dnSend("s3:get",nHandle,"s8:Critical","")
 
 	Func setCritical P1
-		dnRequest("set",[self,"Critical",P1])
+		dnSend("s3:set",nHandle,"s8:Critical",dnPackItem(P1))
 		return self
 
 
@@ -1668,35 +1668,35 @@ Class X509ExtensionCollection from Object
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnSend("s3:get",nHandle,"s14:IsSynchronized","")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnSend("s3:get",nHandle,"s8:SyncRoot","")
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
@@ -1716,17 +1716,17 @@ Class X509ExtensionEnumerator from Object
 		return self
 
 	Func MoveNext 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveNext"])
+		return dnSend("s4:call",nHandle,"s8:MoveNext","")
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCurrent
-		return dnRequest("get",[self,"Current"])
+		return dnSend("s3:get",nHandle,"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -1746,22 +1746,22 @@ Class X509SignatureGenerator from Object
 		return self
 
 	Func GetSignatureAlgorithmIdentifier P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSignatureAlgorithmIdentifier",P1])
+		return dnSend("s4:call",nHandle,"s31:GetSignatureAlgorithmIdentifier",dnPackItem(P1))
 
 	Func SignData P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SignData",P1,P2])
+		return dnSend("s4:call",nHandle,"s8:SignData",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateForECDsa P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509SignatureGenerator, System.Security.Cryptography'),"CreateForECDsa",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509SignatureGenerator, System.Security.Cryptography').nHandle,"s14:CreateForECDsa",dnPackItem(P1))
 
 	Func CreateForRSA P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509SignatureGenerator, System.Security.Cryptography'),"CreateForRSA",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509SignatureGenerator, System.Security.Cryptography').nHandle,"s12:CreateForRSA",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getPublicKey
-		return dnRequest("get",[self,"PublicKey"])
+		return dnSend("s3:get",nHandle,"s9:PublicKey","")
 
 	Func setPublicKey P1
 		raise("DotNet Error: PublicKey is a read-only property")
@@ -1818,62 +1818,62 @@ Class X509Store from Object
 		return self
 
 	Func Open P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Open",P1])
+		dnSend("s4:call",nHandle,"s4:Open",dnPackItem(P1))
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddRange",P1])
+		dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1))
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 		return self
 
 	Func RemoveRange P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveRange",P1])
+		dnSend("s4:call",nHandle,"s11:RemoveRange",dnPackItem(P1))
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
+		dnSend("s4:call",nHandle,"s5:Close","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getStoreHandle
-		return dnRequest("get",[self,"StoreHandle"])
+		return dnSend("s3:get",nHandle,"s11:StoreHandle","")
 
 	Func setStoreHandle P1
 		raise("DotNet Error: StoreHandle is a read-only property")
 
 	Func getLocation
-		return dnRequest("get",[self,"Location"])
+		return dnSend("s3:get",nHandle,"s8:Location","")
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getCertificates
-		return dnRequest("get",[self,"Certificates"])
+		return dnSend("s3:get",nHandle,"s12:Certificates","")
 
 	Func setCertificates P1
 		raise("DotNet Error: Certificates is a read-only property")
 
 	Func getIsOpen
-		return dnRequest("get",[self,"IsOpen"])
+		return dnSend("s3:get",nHandle,"s6:IsOpen","")
 
 	Func setIsOpen P1
 		raise("DotNet Error: IsOpen is a read-only property")
@@ -1924,13 +1924,13 @@ Class X509AuthorityInformationAccessExtension from X509Extension
 		return self
 
 	Func EnumerateUris P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateUris",P1])
+		return dnSend("s4:call",nHandle,"s13:EnumerateUris",dnPackItem(P1))
 
 	Func EnumerateCAIssuersUris 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateCAIssuersUris"])
+		return dnSend("s4:call",nHandle,"s22:EnumerateCAIssuersUris","")
 
 	Func EnumerateOcspUris 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateOcspUris"])
+		return dnSend("s4:call",nHandle,"s17:EnumerateOcspUris","")
 
 
 Class X509AuthorityKeyIdentifierExtension from X509Extension
@@ -1983,37 +1983,37 @@ Class X509AuthorityKeyIdentifierExtension from X509Extension
 		return self
 
 	Func CreateFromSubjectKeyIdentifier P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography'),"CreateFromSubjectKeyIdentifier",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography').nHandle,"s30:CreateFromSubjectKeyIdentifier",dnPackItem(P1))
 
 	Func CreateFromIssuerNameAndSerialNumber P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography'),"CreateFromIssuerNameAndSerialNumber",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography').nHandle,"s35:CreateFromIssuerNameAndSerialNumber",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Create P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography'),"Create",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography').nHandle,"s6:Create",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func CreateFromCertificate P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography'),"CreateFromCertificate",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography').nHandle,"s21:CreateFromCertificate",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getKeyIdentifier
-		return dnRequest("get",[self,"KeyIdentifier"])
+		return dnSend("s3:get",nHandle,"s13:KeyIdentifier","")
 
 	Func setKeyIdentifier P1
 		raise("DotNet Error: KeyIdentifier is a read-only property")
 
 	Func getNamedIssuer
-		return dnRequest("get",[self,"NamedIssuer"])
+		return dnSend("s3:get",nHandle,"s11:NamedIssuer","")
 
 	Func setNamedIssuer P1
 		raise("DotNet Error: NamedIssuer is a read-only property")
 
 	Func getRawIssuer
-		return dnRequest("get",[self,"RawIssuer"])
+		return dnSend("s3:get",nHandle,"s9:RawIssuer","")
 
 	Func setRawIssuer P1
 		raise("DotNet Error: RawIssuer is a read-only property")
 
 	Func getSerialNumber
-		return dnRequest("get",[self,"SerialNumber"])
+		return dnSend("s3:get",nHandle,"s12:SerialNumber","")
 
 	Func setSerialNumber P1
 		raise("DotNet Error: SerialNumber is a read-only property")
@@ -2069,36 +2069,36 @@ Class X509BasicConstraintsExtension from X509Extension
 
 	Func CreateForCertificateAuthority P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForCertificateAuthority",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography').nHandle,"s29:CreateForCertificateAuthority",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForCertificateAuthority"])
+			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography').nHandle,"s29:CreateForCertificateAuthority","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForCertificateAuthority",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography').nHandle,"s29:CreateForCertificateAuthority",dnPackItem(P1))
 
 	Func CreateForEndEntity P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForEndEntity",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography').nHandle,"s18:CreateForEndEntity",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForEndEntity"])
+			return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography').nHandle,"s18:CreateForEndEntity","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForEndEntity",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography').nHandle,"s18:CreateForEndEntity",dnPackItem(P1))
 
 	Func getCertificateAuthority
-		return dnRequest("get",[self,"CertificateAuthority"])
+		return dnSend("s3:get",nHandle,"s20:CertificateAuthority","")
 
 	Func setCertificateAuthority P1
 		raise("DotNet Error: CertificateAuthority is a read-only property")
 
 	Func getHasPathLengthConstraint
-		return dnRequest("get",[self,"HasPathLengthConstraint"])
+		return dnSend("s3:get",nHandle,"s23:HasPathLengthConstraint","")
 
 	Func setHasPathLengthConstraint P1
 		raise("DotNet Error: HasPathLengthConstraint is a read-only property")
 
 	Func getPathLengthConstraint
-		return dnRequest("get",[self,"PathLengthConstraint"])
+		return dnSend("s3:get",nHandle,"s20:PathLengthConstraint","")
 
 	Func setPathLengthConstraint P1
 		raise("DotNet Error: PathLengthConstraint is a read-only property")
@@ -2166,142 +2166,142 @@ Class X509Certificate2 from X509Certificate
 		return self
 
 	Func GetNameInfo P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNameInfo",P1,P2])
+		return dnSend("s4:call",nHandle,"s11:GetNameInfo",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Verify 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Verify"])
+		return dnSend("s4:call",nHandle,"s6:Verify","")
 
 	Func GetECDiffieHellmanPublicKey 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetECDiffieHellmanPublicKey"])
+		return dnSend("s4:call",nHandle,"s27:GetECDiffieHellmanPublicKey","")
 
 	Func GetECDiffieHellmanPrivateKey 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetECDiffieHellmanPrivateKey"])
+		return dnSend("s4:call",nHandle,"s28:GetECDiffieHellmanPrivateKey","")
 
 	Func CopyWithPrivateKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CopyWithPrivateKey",P1])
+		return dnSend("s4:call",nHandle,"s18:CopyWithPrivateKey",dnPackItem(P1))
 
 	Func ExportCertificatePem 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExportCertificatePem"])
+		return dnSend("s4:call",nHandle,"s20:ExportCertificatePem","")
 
 	Func MatchesHostname P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"MatchesHostname",P1])
+			return dnSend("s9:callnamed",nHandle,"s15:MatchesHostname",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MatchesHostname",P1])
+		return dnSend("s4:call",nHandle,"s15:MatchesHostname",dnPackItem(P1))
 
 	Func GetPublicKey_ 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPublicKey"])
+		return dnSend("s4:call",nHandle,"s12:GetPublicKey","")
 
 	Func GetSerialNumber_ 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSerialNumber"])
+		return dnSend("s4:call",nHandle,"s15:GetSerialNumber","")
 
 	Func GetIssuerName_ 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetIssuerName"])
+		return dnSend("s4:call",nHandle,"s13:GetIssuerName","")
 
 	Func GetCertContentType P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography'),"GetCertContentType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography').nHandle,"s18:GetCertContentType",dnPackItem(P1))
 
 	Func CreateFromPemFile P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography'),"CreateFromPemFile",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography').nHandle,"s17:CreateFromPemFile",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography'),"CreateFromPemFile",P1])
+		return dnSend("s4:call",dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography').nHandle,"s17:CreateFromPemFile",dnPackItem(P1))
 
 	Func getArchived
-		return dnRequest("get",[self,"Archived"])
+		return dnSend("s3:get",nHandle,"s8:Archived","")
 
 	Func setArchived P1
-		dnRequest("set",[self,"Archived",P1])
+		dnSend("s3:set",nHandle,"s8:Archived",dnPackItem(P1))
 		return self
 
 	Func getExtensions
-		return dnRequest("get",[self,"Extensions"])
+		return dnSend("s3:get",nHandle,"s10:Extensions","")
 
 	Func setExtensions P1
 		raise("DotNet Error: Extensions is a read-only property")
 
 	Func getFriendlyName
-		return dnRequest("get",[self,"FriendlyName"])
+		return dnSend("s3:get",nHandle,"s12:FriendlyName","")
 
 	Func setFriendlyName P1
-		dnRequest("set",[self,"FriendlyName",P1])
+		dnSend("s3:set",nHandle,"s12:FriendlyName",dnPackItem(P1))
 		return self
 
 	Func getHasPrivateKey
-		return dnRequest("get",[self,"HasPrivateKey"])
+		return dnSend("s3:get",nHandle,"s13:HasPrivateKey","")
 
 	Func setHasPrivateKey P1
 		raise("DotNet Error: HasPrivateKey is a read-only property")
 
 	Func getPrivateKey
-		return dnRequest("get",[self,"PrivateKey"])
+		return dnSend("s3:get",nHandle,"s10:PrivateKey","")
 
 	Func setPrivateKey P1
-		dnRequest("set",[self,"PrivateKey",P1])
+		dnSend("s3:set",nHandle,"s10:PrivateKey",dnPackItem(P1))
 		return self
 
 	Func getIssuerName
-		return dnRequest("get",[self,"IssuerName"])
+		return dnSend("s3:get",nHandle,"s10:IssuerName","")
 
 	Func setIssuerName P1
 		raise("DotNet Error: IssuerName is a read-only property")
 
 	Func getNotAfter
-		return dnRequest("get",[self,"NotAfter"])
+		return dnSend("s3:get",nHandle,"s8:NotAfter","")
 
 	Func setNotAfter P1
 		raise("DotNet Error: NotAfter is a read-only property")
 
 	Func getNotBefore
-		return dnRequest("get",[self,"NotBefore"])
+		return dnSend("s3:get",nHandle,"s9:NotBefore","")
 
 	Func setNotBefore P1
 		raise("DotNet Error: NotBefore is a read-only property")
 
 	Func getPublicKey
-		return dnRequest("get",[self,"PublicKey"])
+		return dnSend("s3:get",nHandle,"s9:PublicKey","")
 
 	Func setPublicKey P1
 		raise("DotNet Error: PublicKey is a read-only property")
 
 	Func getRawData
-		return dnRequest("get",[self,"RawData"])
+		return dnSend("s3:get",nHandle,"s7:RawData","")
 
 	Func setRawData P1
 		raise("DotNet Error: RawData is a read-only property")
 
 	Func getRawDataMemory
-		return dnRequest("get",[self,"RawDataMemory"])
+		return dnSend("s3:get",nHandle,"s13:RawDataMemory","")
 
 	Func setRawDataMemory P1
 		raise("DotNet Error: RawDataMemory is a read-only property")
 
 	Func getSerialNumber
-		return dnRequest("get",[self,"SerialNumber"])
+		return dnSend("s3:get",nHandle,"s12:SerialNumber","")
 
 	Func setSerialNumber P1
 		raise("DotNet Error: SerialNumber is a read-only property")
 
 	Func getSignatureAlgorithm
-		return dnRequest("get",[self,"SignatureAlgorithm"])
+		return dnSend("s3:get",nHandle,"s18:SignatureAlgorithm","")
 
 	Func setSignatureAlgorithm P1
 		raise("DotNet Error: SignatureAlgorithm is a read-only property")
 
 	Func getSubjectName
-		return dnRequest("get",[self,"SubjectName"])
+		return dnSend("s3:get",nHandle,"s11:SubjectName","")
 
 	Func setSubjectName P1
 		raise("DotNet Error: SubjectName is a read-only property")
 
 	Func getThumbprint
-		return dnRequest("get",[self,"Thumbprint"])
+		return dnSend("s3:get",nHandle,"s10:Thumbprint","")
 
 	Func setThumbprint P1
 		raise("DotNet Error: Thumbprint is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnSend("s3:get",nHandle,"s7:Version","")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
@@ -2353,34 +2353,34 @@ Class X509Certificate2Collection from X509CertificateCollection
 
 	Func Export P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Export",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Export",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Export",P1])
+		return dnSend("s4:call",nHandle,"s6:Export",dnPackItem(P1))
 
 	Func Find P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Find",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s4:Find",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Import_ P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Import",P1])
+			dnSend("s9:callnamed",nHandle,"s6:Import",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Import",P1])
+		dnSend("s4:call",nHandle,"s6:Import",dnPackItem(P1))
 		return self
 
 	Func RemoveRange P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveRange",P1])
+		dnSend("s4:call",nHandle,"s11:RemoveRange",dnPackItem(P1))
 		return self
 
 	Func ImportFromPemFile P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ImportFromPemFile",P1])
+		dnSend("s4:call",nHandle,"s17:ImportFromPemFile",dnPackItem(P1))
 		return self
 
 	Func ExportPkcs7Pem 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExportPkcs7Pem"])
+		return dnSend("s4:call",nHandle,"s14:ExportPkcs7Pem","")
 
 	Func ExportCertificatePems 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExportCertificatePems"])
+		return dnSend("s4:call",nHandle,"s21:ExportCertificatePems","")
 
 
 Class X509EnhancedKeyUsageExtension from X509Extension
@@ -2430,7 +2430,7 @@ Class X509EnhancedKeyUsageExtension from X509Extension
 		return self
 
 	Func getEnhancedKeyUsages
-		return dnRequest("get",[self,"EnhancedKeyUsages"])
+		return dnSend("s3:get",nHandle,"s17:EnhancedKeyUsages","")
 
 	Func setEnhancedKeyUsages P1
 		raise("DotNet Error: EnhancedKeyUsages is a read-only property")
@@ -2483,7 +2483,7 @@ Class X509KeyUsageExtension from X509Extension
 		return self
 
 	Func getKeyUsages
-		return dnRequest("get",[self,"KeyUsages"])
+		return dnSend("s3:get",nHandle,"s9:KeyUsages","")
 
 	Func setKeyUsages P1
 		raise("DotNet Error: KeyUsages is a read-only property")
@@ -2534,10 +2534,10 @@ Class X509SubjectAlternativeNameExtension from X509Extension
 		return self
 
 	Func EnumerateDnsNames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateDnsNames"])
+		return dnSend("s4:call",nHandle,"s17:EnumerateDnsNames","")
 
 	Func EnumerateIPAddresses 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnumerateIPAddresses"])
+		return dnSend("s4:call",nHandle,"s20:EnumerateIPAddresses","")
 
 
 Class X509SubjectKeyIdentifierExtension from X509Extension
@@ -2588,13 +2588,13 @@ Class X509SubjectKeyIdentifierExtension from X509Extension
 		return self
 
 	Func getSubjectKeyIdentifier
-		return dnRequest("get",[self,"SubjectKeyIdentifier"])
+		return dnSend("s3:get",nHandle,"s20:SubjectKeyIdentifier","")
 
 	Func setSubjectKeyIdentifier P1
 		raise("DotNet Error: SubjectKeyIdentifier is a read-only property")
 
 	Func getSubjectKeyIdentifierBytes
-		return dnRequest("get",[self,"SubjectKeyIdentifierBytes"])
+		return dnSend("s3:get",nHandle,"s25:SubjectKeyIdentifierBytes","")
 
 	Func setSubjectKeyIdentifierBytes P1
 		raise("DotNet Error: SubjectKeyIdentifierBytes is a read-only property")

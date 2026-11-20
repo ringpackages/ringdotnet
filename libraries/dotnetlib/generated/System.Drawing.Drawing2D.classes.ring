@@ -131,20 +131,20 @@ Class Blend from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getFactors
-		return dnRequest("get",[self,"Factors"])
+		return dnSend("s3:get",nHandle,"s7:Factors","")
 
 	Func setFactors P1
-		dnRequest("set",[self,"Factors",P1])
+		dnSend("s3:set",nHandle,"s7:Factors",dnPackItem(P1))
 		return self
 
 	Func getPositions
-		return dnRequest("get",[self,"Positions"])
+		return dnSend("s3:get",nHandle,"s9:Positions","")
 
 	Func setPositions P1
-		dnRequest("set",[self,"Positions",P1])
+		dnSend("s3:set",nHandle,"s9:Positions",dnPackItem(P1))
 		return self
 
 
@@ -196,20 +196,20 @@ Class ColorBlend from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getColors
-		return dnRequest("get",[self,"Colors"])
+		return dnSend("s3:get",nHandle,"s6:Colors","")
 
 	Func setColors P1
-		dnRequest("set",[self,"Colors",P1])
+		dnSend("s3:set",nHandle,"s6:Colors",dnPackItem(P1))
 		return self
 
 	Func getPositions
-		return dnRequest("get",[self,"Positions"])
+		return dnSend("s3:get",nHandle,"s9:Positions","")
 
 	Func setPositions P1
-		dnRequest("set",[self,"Positions",P1])
+		dnSend("s3:set",nHandle,"s9:Positions",dnPackItem(P1))
 		return self
 
 
@@ -247,45 +247,45 @@ Class CustomLineCap from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func SetStrokeCaps P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetStrokeCaps",P1,P2])
+		dnSend("s4:call",nHandle,"s13:SetStrokeCaps",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetStrokeCaps 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetStrokeCaps"])
+		return dnSend("s4:call",nHandle,"s13:GetStrokeCaps","")
 
 	Func getStrokeJoin
-		return dnRequest("get",[self,"StrokeJoin"])
+		return dnSend("s3:get",nHandle,"s10:StrokeJoin","")
 
 	Func setStrokeJoin P1
-		dnRequest("set",[self,"StrokeJoin",P1])
+		dnSend("s3:set",nHandle,"s10:StrokeJoin",dnPackItem(P1))
 		return self
 
 	Func getBaseCap
-		return dnRequest("get",[self,"BaseCap"])
+		return dnSend("s3:get",nHandle,"s7:BaseCap","")
 
 	Func setBaseCap P1
-		dnRequest("set",[self,"BaseCap",P1])
+		dnSend("s3:set",nHandle,"s7:BaseCap",dnPackItem(P1))
 		return self
 
 	Func getBaseInset
-		return dnRequest("get",[self,"BaseInset"])
+		return dnSend("s3:get",nHandle,"s9:BaseInset","")
 
 	Func setBaseInset P1
-		dnRequest("set",[self,"BaseInset",P1])
+		dnSend("s3:set",nHandle,"s9:BaseInset",dnPackItem(P1))
 		return self
 
 	Func getWidthScale
-		return dnRequest("get",[self,"WidthScale"])
+		return dnSend("s3:get",nHandle,"s10:WidthScale","")
 
 	Func setWidthScale P1
-		dnRequest("set",[self,"WidthScale",P1])
+		dnSend("s3:set",nHandle,"s10:WidthScale",dnPackItem(P1))
 		return self
 
 
@@ -352,206 +352,206 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func StartFigure 
-		dnRequest("call",[new DotNetObject(this.nHandle),"StartFigure"])
+		dnSend("s4:call",nHandle,"s11:StartFigure","")
 		return self
 
 	Func CloseFigure 
-		dnRequest("call",[new DotNetObject(this.nHandle),"CloseFigure"])
+		dnSend("s4:call",nHandle,"s11:CloseFigure","")
 		return self
 
 	Func CloseAllFigures 
-		dnRequest("call",[new DotNetObject(this.nHandle),"CloseAllFigures"])
+		dnSend("s4:call",nHandle,"s15:CloseAllFigures","")
 		return self
 
 	Func SetMarkers 
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetMarkers"])
+		dnSend("s4:call",nHandle,"s10:SetMarkers","")
 		return self
 
 	Func ClearMarkers 
-		dnRequest("call",[new DotNetObject(this.nHandle),"ClearMarkers"])
+		dnSend("s4:call",nHandle,"s12:ClearMarkers","")
 		return self
 
 	Func Reverse 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reverse"])
+		dnSend("s4:call",nHandle,"s7:Reverse","")
 		return self
 
 	Func GetLastPoint 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetLastPoint"])
+		return dnSend("s4:call",nHandle,"s12:GetLastPoint","")
 
 	Func IsVisible P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsVisible",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:IsVisible",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsVisible",P1])
+		return dnSend("s4:call",nHandle,"s9:IsVisible",dnPackItem(P1))
 
 	Func IsOutlineVisible P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsOutlineVisible",P1])
+			return dnSend("s9:callnamed",nHandle,"s16:IsOutlineVisible",dnPackItem(P1))
 		ok
 		raise("DotNet Error: IsOutlineVisible does not take one argument: use named arguments, IsOutlineVisible([ :parameter = value, ... ])")
 
 	Func AddLine P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddLine",P1])
+			dnSend("s9:callnamed",nHandle,"s7:AddLine",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: AddLine does not take one argument: use named arguments, AddLine([ :parameter = value, ... ])")
 
 	Func AddLines P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddLines",P1])
+		dnSend("s4:call",nHandle,"s8:AddLines",dnPackItem(P1))
 		return self
 
 	Func AddArc P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddArc",P1])
+			dnSend("s9:callnamed",nHandle,"s6:AddArc",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: AddArc does not take one argument: use named arguments, AddArc([ :parameter = value, ... ])")
 
 	Func AddBezier P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddBezier",P1])
+			dnSend("s9:callnamed",nHandle,"s9:AddBezier",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: AddBezier does not take one argument: use named arguments, AddBezier([ :parameter = value, ... ])")
 
 	Func AddBeziers P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddBeziers",P1])
+		dnSend("s4:call",nHandle,"s10:AddBeziers",dnPackItem(P1))
 		return self
 
 	Func AddCurve P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddCurve",P1])
+			dnSend("s9:callnamed",nHandle,"s8:AddCurve",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddCurve",P1])
+		dnSend("s4:call",nHandle,"s8:AddCurve",dnPackItem(P1))
 		return self
 
 	Func AddClosedCurve P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddClosedCurve",P1])
+			dnSend("s9:callnamed",nHandle,"s14:AddClosedCurve",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddClosedCurve",P1])
+		dnSend("s4:call",nHandle,"s14:AddClosedCurve",dnPackItem(P1))
 		return self
 
 	Func AddRectangle P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddRectangle",P1])
+		dnSend("s4:call",nHandle,"s12:AddRectangle",dnPackItem(P1))
 		return self
 
 	Func AddRectangles P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddRectangles",P1])
+		dnSend("s4:call",nHandle,"s13:AddRectangles",dnPackItem(P1))
 		return self
 
 	Func AddRoundedRectangle P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddRoundedRectangle",P1,P2])
+		dnSend("s4:call",nHandle,"s19:AddRoundedRectangle",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddEllipse P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddEllipse",P1])
+			dnSend("s9:callnamed",nHandle,"s10:AddEllipse",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddEllipse",P1])
+		dnSend("s4:call",nHandle,"s10:AddEllipse",dnPackItem(P1))
 		return self
 
 	Func AddPie P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddPie",P1])
+			dnSend("s9:callnamed",nHandle,"s6:AddPie",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: AddPie does not take one argument: use named arguments, AddPie([ :parameter = value, ... ])")
 
 	Func AddPolygon P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddPolygon",P1])
+		dnSend("s4:call",nHandle,"s10:AddPolygon",dnPackItem(P1))
 		return self
 
 	Func AddPath P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddPath",P1,P2])
+		dnSend("s4:call",nHandle,"s7:AddPath",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func AddString P1,P2,P3,P4,P5,P6
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddString",P1,P2,P3,P4,P5,P6])
+		dnSend("s4:call",nHandle,"s9:AddString",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 		return self
 
 	Func Transform P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Transform",P1])
+		dnSend("s4:call",nHandle,"s9:Transform",dnPackItem(P1))
 		return self
 
 	Func GetBounds P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetBounds",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:GetBounds",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetBounds"])
+			return dnSend("s4:call",nHandle,"s9:GetBounds","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBounds",P1])
+		return dnSend("s4:call",nHandle,"s9:GetBounds",dnPackItem(P1))
 
 	Func Flatten P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Flatten",P1])
+			dnSend("s9:callnamed",nHandle,"s7:Flatten",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Flatten"])
+			dnSend("s4:call",nHandle,"s7:Flatten","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Flatten",P1])
+		dnSend("s4:call",nHandle,"s7:Flatten",dnPackItem(P1))
 		return self
 
 	Func Widen P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Widen",P1])
+			dnSend("s9:callnamed",nHandle,"s5:Widen",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Widen",P1])
+		dnSend("s4:call",nHandle,"s5:Widen",dnPackItem(P1))
 		return self
 
 	Func Warp P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Warp",P1])
+			dnSend("s9:callnamed",nHandle,"s4:Warp",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: Warp does not take one argument: use named arguments, Warp([ :parameter = value, ... ])")
 
 	Func getFillMode
-		return dnRequest("get",[self,"FillMode"])
+		return dnSend("s3:get",nHandle,"s8:FillMode","")
 
 	Func setFillMode P1
-		dnRequest("set",[self,"FillMode",P1])
+		dnSend("s3:set",nHandle,"s8:FillMode",dnPackItem(P1))
 		return self
 
 	Func getPathData
-		return dnRequest("get",[self,"PathData"])
+		return dnSend("s3:get",nHandle,"s8:PathData","")
 
 	Func setPathData P1
 		raise("DotNet Error: PathData is a read-only property")
 
 	Func getPointCount
-		return dnRequest("get",[self,"PointCount"])
+		return dnSend("s3:get",nHandle,"s10:PointCount","")
 
 	Func setPointCount P1
 		raise("DotNet Error: PointCount is a read-only property")
 
 	Func getPathTypes
-		return dnRequest("get",[self,"PathTypes"])
+		return dnSend("s3:get",nHandle,"s9:PathTypes","")
 
 	Func setPathTypes P1
 		raise("DotNet Error: PathTypes is a read-only property")
 
 	Func getPathPoints
-		return dnRequest("get",[self,"PathPoints"])
+		return dnSend("s3:get",nHandle,"s10:PathPoints","")
 
 	Func setPathPoints P1
 		raise("DotNet Error: PathPoints is a read-only property")
@@ -574,51 +574,51 @@ Class GraphicsPathIterator from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func NextSubpath P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"NextSubpath",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:NextSubpath",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"NextSubpath"])
+			return dnSend("s4:call",nHandle,"s11:NextSubpath","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"NextSubpath",P1])
+		return dnSend("s4:call",nHandle,"s11:NextSubpath",dnPackItem(P1))
 
 	Func NextPathType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"NextPathType"])
+		return dnSend("s4:call",nHandle,"s12:NextPathType","")
 
 	Func NextMarker P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"NextMarker",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:NextMarker",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"NextMarker"])
+			return dnSend("s4:call",nHandle,"s10:NextMarker","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"NextMarker",P1])
+		return dnSend("s4:call",nHandle,"s10:NextMarker",dnPackItem(P1))
 
 	Func HasCurve 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasCurve"])
+		return dnSend("s4:call",nHandle,"s8:HasCurve","")
 
 	Func Rewind 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Rewind"])
+		dnSend("s4:call",nHandle,"s6:Rewind","")
 		return self
 
 	Func Enumerate P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Enumerate",P1,P2])
+		return dnSend("s4:call",nHandle,"s9:Enumerate",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CopyData P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CopyData",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s8:CopyData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getSubpathCount
-		return dnRequest("get",[self,"SubpathCount"])
+		return dnSend("s3:get",nHandle,"s12:SubpathCount","")
 
 	Func setSubpathCount P1
 		raise("DotNet Error: SubpathCount is a read-only property")
@@ -669,19 +669,19 @@ Class HatchBrush from Brush
 		return self
 
 	Func getHatchStyle
-		return dnRequest("get",[self,"HatchStyle"])
+		return dnSend("s3:get",nHandle,"s10:HatchStyle","")
 
 	Func setHatchStyle P1
 		raise("DotNet Error: HatchStyle is a read-only property")
 
 	Func getForegroundColor
-		return dnRequest("get",[self,"ForegroundColor"])
+		return dnSend("s3:get",nHandle,"s15:ForegroundColor","")
 
 	Func setForegroundColor P1
 		raise("DotNet Error: ForegroundColor is a read-only property")
 
 	Func getBackgroundColor
-		return dnRequest("get",[self,"BackgroundColor"])
+		return dnSend("s3:get",nHandle,"s15:BackgroundColor","")
 
 	Func setBackgroundColor P1
 		raise("DotNet Error: BackgroundColor is a read-only property")
@@ -725,100 +725,100 @@ Class LinearGradientBrush from Brush
 
 	Func SetSigmaBellShape P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetSigmaBellShape",P1])
+			dnSend("s9:callnamed",nHandle,"s17:SetSigmaBellShape",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetSigmaBellShape",P1])
+		dnSend("s4:call",nHandle,"s17:SetSigmaBellShape",dnPackItem(P1))
 		return self
 
 	Func SetBlendTriangularShape P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetBlendTriangularShape",P1])
+			dnSend("s9:callnamed",nHandle,"s23:SetBlendTriangularShape",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetBlendTriangularShape",P1])
+		dnSend("s4:call",nHandle,"s23:SetBlendTriangularShape",dnPackItem(P1))
 		return self
 
 	Func ResetTransform 
-		dnRequest("call",[new DotNetObject(this.nHandle),"ResetTransform"])
+		dnSend("s4:call",nHandle,"s14:ResetTransform","")
 		return self
 
 	Func MultiplyTransform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"MultiplyTransform",P1])
+			dnSend("s9:callnamed",nHandle,"s17:MultiplyTransform",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"MultiplyTransform",P1])
+		dnSend("s4:call",nHandle,"s17:MultiplyTransform",dnPackItem(P1))
 		return self
 
 	Func TranslateTransform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TranslateTransform",P1])
+			dnSend("s9:callnamed",nHandle,"s18:TranslateTransform",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: TranslateTransform does not take one argument: use named arguments, TranslateTransform([ :parameter = value, ... ])")
 
 	Func ScaleTransform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ScaleTransform",P1])
+			dnSend("s9:callnamed",nHandle,"s14:ScaleTransform",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: ScaleTransform does not take one argument: use named arguments, ScaleTransform([ :parameter = value, ... ])")
 
 	Func RotateTransform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"RotateTransform",P1])
+			dnSend("s9:callnamed",nHandle,"s15:RotateTransform",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"RotateTransform",P1])
+		dnSend("s4:call",nHandle,"s15:RotateTransform",dnPackItem(P1))
 		return self
 
 	Func getLinearColors
-		return dnRequest("get",[self,"LinearColors"])
+		return dnSend("s3:get",nHandle,"s12:LinearColors","")
 
 	Func setLinearColors P1
-		dnRequest("set",[self,"LinearColors",P1])
+		dnSend("s3:set",nHandle,"s12:LinearColors",dnPackItem(P1))
 		return self
 
 	Func getRectangle
-		return dnRequest("get",[self,"Rectangle"])
+		return dnSend("s3:get",nHandle,"s9:Rectangle","")
 
 	Func setRectangle P1
 		raise("DotNet Error: Rectangle is a read-only property")
 
 	Func getGammaCorrection
-		return dnRequest("get",[self,"GammaCorrection"])
+		return dnSend("s3:get",nHandle,"s15:GammaCorrection","")
 
 	Func setGammaCorrection P1
-		dnRequest("set",[self,"GammaCorrection",P1])
+		dnSend("s3:set",nHandle,"s15:GammaCorrection",dnPackItem(P1))
 		return self
 
 	Func getBlend
-		return dnRequest("get",[self,"Blend"])
+		return dnSend("s3:get",nHandle,"s5:Blend","")
 
 	Func setBlend P1
-		dnRequest("set",[self,"Blend",P1])
+		dnSend("s3:set",nHandle,"s5:Blend",dnPackItem(P1))
 		return self
 
 	Func getInterpolationColors
-		return dnRequest("get",[self,"InterpolationColors"])
+		return dnSend("s3:get",nHandle,"s19:InterpolationColors","")
 
 	Func setInterpolationColors P1
-		dnRequest("set",[self,"InterpolationColors",P1])
+		dnSend("s3:set",nHandle,"s19:InterpolationColors",dnPackItem(P1))
 		return self
 
 	Func getWrapMode
-		return dnRequest("get",[self,"WrapMode"])
+		return dnSend("s3:get",nHandle,"s8:WrapMode","")
 
 	Func setWrapMode P1
-		dnRequest("set",[self,"WrapMode",P1])
+		dnSend("s3:set",nHandle,"s8:WrapMode",dnPackItem(P1))
 		return self
 
 	Func getTransform
-		return dnRequest("get",[self,"Transform"])
+		return dnSend("s3:get",nHandle,"s9:Transform","")
 
 	Func setTransform P1
-		dnRequest("set",[self,"Transform",P1])
+		dnSend("s3:set",nHandle,"s9:Transform",dnPackItem(P1))
 		return self
 
 
@@ -874,109 +874,109 @@ Class Matrix from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func Multiply P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Multiply",P1])
+			dnSend("s9:callnamed",nHandle,"s8:Multiply",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Multiply",P1])
+		dnSend("s4:call",nHandle,"s8:Multiply",dnPackItem(P1))
 		return self
 
 	Func Translate P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Translate",P1])
+			dnSend("s9:callnamed",nHandle,"s9:Translate",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: Translate does not take one argument: use named arguments, Translate([ :parameter = value, ... ])")
 
 	Func Scale P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Scale",P1])
+			dnSend("s9:callnamed",nHandle,"s5:Scale",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: Scale does not take one argument: use named arguments, Scale([ :parameter = value, ... ])")
 
 	Func Rotate P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Rotate",P1])
+			dnSend("s9:callnamed",nHandle,"s6:Rotate",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Rotate",P1])
+		dnSend("s4:call",nHandle,"s6:Rotate",dnPackItem(P1))
 		return self
 
 	Func RotateAt P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"RotateAt",P1])
+			dnSend("s9:callnamed",nHandle,"s8:RotateAt",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: RotateAt does not take one argument: use named arguments, RotateAt([ :parameter = value, ... ])")
 
 	Func Shear P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Shear",P1])
+			dnSend("s9:callnamed",nHandle,"s5:Shear",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: Shear does not take one argument: use named arguments, Shear([ :parameter = value, ... ])")
 
 	Func Invert 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Invert"])
+		dnSend("s4:call",nHandle,"s6:Invert","")
 		return self
 
 	Func TransformPoints P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"TransformPoints",P1])
+		dnSend("s4:call",nHandle,"s15:TransformPoints",dnPackItem(P1))
 		return self
 
 	Func TransformVectors P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"TransformVectors",P1])
+		dnSend("s4:call",nHandle,"s16:TransformVectors",dnPackItem(P1))
 		return self
 
 	Func VectorTransformPoints P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"VectorTransformPoints",P1])
+		dnSend("s4:call",nHandle,"s21:VectorTransformPoints",dnPackItem(P1))
 		return self
 
 	Func getElements
-		return dnRequest("get",[self,"Elements"])
+		return dnSend("s3:get",nHandle,"s8:Elements","")
 
 	Func setElements P1
 		raise("DotNet Error: Elements is a read-only property")
 
 	Func getMatrixElements
-		return dnRequest("get",[self,"MatrixElements"])
+		return dnSend("s3:get",nHandle,"s14:MatrixElements","")
 
 	Func setMatrixElements P1
-		dnRequest("set",[self,"MatrixElements",P1])
+		dnSend("s3:set",nHandle,"s14:MatrixElements",dnPackItem(P1))
 		return self
 
 	Func getOffsetX
-		return dnRequest("get",[self,"OffsetX"])
+		return dnSend("s3:get",nHandle,"s7:OffsetX","")
 
 	Func setOffsetX P1
 		raise("DotNet Error: OffsetX is a read-only property")
 
 	Func getOffsetY
-		return dnRequest("get",[self,"OffsetY"])
+		return dnSend("s3:get",nHandle,"s7:OffsetY","")
 
 	Func setOffsetY P1
 		raise("DotNet Error: OffsetY is a read-only property")
 
 	Func getIsInvertible
-		return dnRequest("get",[self,"IsInvertible"])
+		return dnSend("s3:get",nHandle,"s12:IsInvertible","")
 
 	Func setIsInvertible P1
 		raise("DotNet Error: IsInvertible is a read-only property")
 
 	Func getIsIdentity
-		return dnRequest("get",[self,"IsIdentity"])
+		return dnSend("s3:get",nHandle,"s10:IsIdentity","")
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
@@ -1010,20 +1010,20 @@ Class PathData from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getPoints
-		return dnRequest("get",[self,"Points"])
+		return dnSend("s3:get",nHandle,"s6:Points","")
 
 	Func setPoints P1
-		dnRequest("set",[self,"Points",P1])
+		dnSend("s3:set",nHandle,"s6:Points",dnPackItem(P1))
 		return self
 
 	Func getTypes
-		return dnRequest("get",[self,"Types"])
+		return dnSend("s3:get",nHandle,"s5:Types","")
 
 	Func setTypes P1
-		dnRequest("set",[self,"Types",P1])
+		dnSend("s3:set",nHandle,"s5:Types",dnPackItem(P1))
 		return self
 
 
@@ -1067,114 +1067,114 @@ Class PathGradientBrush from Brush
 
 	Func SetSigmaBellShape P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetSigmaBellShape",P1])
+			dnSend("s9:callnamed",nHandle,"s17:SetSigmaBellShape",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetSigmaBellShape",P1])
+		dnSend("s4:call",nHandle,"s17:SetSigmaBellShape",dnPackItem(P1))
 		return self
 
 	Func SetBlendTriangularShape P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetBlendTriangularShape",P1])
+			dnSend("s9:callnamed",nHandle,"s23:SetBlendTriangularShape",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetBlendTriangularShape",P1])
+		dnSend("s4:call",nHandle,"s23:SetBlendTriangularShape",dnPackItem(P1))
 		return self
 
 	Func ResetTransform 
-		dnRequest("call",[new DotNetObject(this.nHandle),"ResetTransform"])
+		dnSend("s4:call",nHandle,"s14:ResetTransform","")
 		return self
 
 	Func MultiplyTransform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"MultiplyTransform",P1])
+			dnSend("s9:callnamed",nHandle,"s17:MultiplyTransform",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"MultiplyTransform",P1])
+		dnSend("s4:call",nHandle,"s17:MultiplyTransform",dnPackItem(P1))
 		return self
 
 	Func TranslateTransform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TranslateTransform",P1])
+			dnSend("s9:callnamed",nHandle,"s18:TranslateTransform",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: TranslateTransform does not take one argument: use named arguments, TranslateTransform([ :parameter = value, ... ])")
 
 	Func ScaleTransform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"ScaleTransform",P1])
+			dnSend("s9:callnamed",nHandle,"s14:ScaleTransform",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: ScaleTransform does not take one argument: use named arguments, ScaleTransform([ :parameter = value, ... ])")
 
 	Func RotateTransform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"RotateTransform",P1])
+			dnSend("s9:callnamed",nHandle,"s15:RotateTransform",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"RotateTransform",P1])
+		dnSend("s4:call",nHandle,"s15:RotateTransform",dnPackItem(P1))
 		return self
 
 	Func getCenterColor
-		return dnRequest("get",[self,"CenterColor"])
+		return dnSend("s3:get",nHandle,"s11:CenterColor","")
 
 	Func setCenterColor P1
-		dnRequest("set",[self,"CenterColor",P1])
+		dnSend("s3:set",nHandle,"s11:CenterColor",dnPackItem(P1))
 		return self
 
 	Func getSurroundColors
-		return dnRequest("get",[self,"SurroundColors"])
+		return dnSend("s3:get",nHandle,"s14:SurroundColors","")
 
 	Func setSurroundColors P1
-		dnRequest("set",[self,"SurroundColors",P1])
+		dnSend("s3:set",nHandle,"s14:SurroundColors",dnPackItem(P1))
 		return self
 
 	Func getCenterPoint
-		return dnRequest("get",[self,"CenterPoint"])
+		return dnSend("s3:get",nHandle,"s11:CenterPoint","")
 
 	Func setCenterPoint P1
-		dnRequest("set",[self,"CenterPoint",P1])
+		dnSend("s3:set",nHandle,"s11:CenterPoint",dnPackItem(P1))
 		return self
 
 	Func getRectangle
-		return dnRequest("get",[self,"Rectangle"])
+		return dnSend("s3:get",nHandle,"s9:Rectangle","")
 
 	Func setRectangle P1
 		raise("DotNet Error: Rectangle is a read-only property")
 
 	Func getBlend
-		return dnRequest("get",[self,"Blend"])
+		return dnSend("s3:get",nHandle,"s5:Blend","")
 
 	Func setBlend P1
-		dnRequest("set",[self,"Blend",P1])
+		dnSend("s3:set",nHandle,"s5:Blend",dnPackItem(P1))
 		return self
 
 	Func getInterpolationColors
-		return dnRequest("get",[self,"InterpolationColors"])
+		return dnSend("s3:get",nHandle,"s19:InterpolationColors","")
 
 	Func setInterpolationColors P1
-		dnRequest("set",[self,"InterpolationColors",P1])
+		dnSend("s3:set",nHandle,"s19:InterpolationColors",dnPackItem(P1))
 		return self
 
 	Func getTransform
-		return dnRequest("get",[self,"Transform"])
+		return dnSend("s3:get",nHandle,"s9:Transform","")
 
 	Func setTransform P1
-		dnRequest("set",[self,"Transform",P1])
+		dnSend("s3:set",nHandle,"s9:Transform",dnPackItem(P1))
 		return self
 
 	Func getFocusScales
-		return dnRequest("get",[self,"FocusScales"])
+		return dnSend("s3:get",nHandle,"s11:FocusScales","")
 
 	Func setFocusScales P1
-		dnRequest("set",[self,"FocusScales",P1])
+		dnSend("s3:set",nHandle,"s11:FocusScales",dnPackItem(P1))
 		return self
 
 	Func getWrapMode
-		return dnRequest("get",[self,"WrapMode"])
+		return dnSend("s3:get",nHandle,"s8:WrapMode","")
 
 	Func setWrapMode P1
-		dnRequest("set",[self,"WrapMode",P1])
+		dnSend("s3:set",nHandle,"s8:WrapMode",dnPackItem(P1))
 		return self
 
 
@@ -1192,13 +1192,13 @@ Class RegionData from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getData
-		return dnRequest("get",[self,"Data"])
+		return dnSend("s3:get",nHandle,"s4:Data","")
 
 	Func setData P1
-		dnRequest("set",[self,"Data",P1])
+		dnSend("s3:set",nHandle,"s4:Data",dnPackItem(P1))
 		return self
 
 
@@ -1236,31 +1236,31 @@ Class AdjustableArrowCap from CustomLineCap
 		return self
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnSend("s3:get",nHandle,"s6:Height","")
 
 	Func setHeight P1
-		dnRequest("set",[self,"Height",P1])
+		dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1))
 		return self
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnSend("s3:get",nHandle,"s5:Width","")
 
 	Func setWidth P1
-		dnRequest("set",[self,"Width",P1])
+		dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1))
 		return self
 
 	Func getMiddleInset
-		return dnRequest("get",[self,"MiddleInset"])
+		return dnSend("s3:get",nHandle,"s11:MiddleInset","")
 
 	Func setMiddleInset P1
-		dnRequest("set",[self,"MiddleInset",P1])
+		dnSend("s3:set",nHandle,"s11:MiddleInset",dnPackItem(P1))
 		return self
 
 	Func getFilled
-		return dnRequest("get",[self,"Filled"])
+		return dnSend("s3:get",nHandle,"s6:Filled","")
 
 	Func setFilled P1
-		dnRequest("set",[self,"Filled",P1])
+		dnSend("s3:set",nHandle,"s6:Filled",dnPackItem(P1))
 		return self
 
 

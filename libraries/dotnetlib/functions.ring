@@ -90,7 +90,21 @@ func dnUnpack  dn_cData
 # Send a request to the bridge: dnRequest("call", [oTarget, "Method", arg1, ...]), returns one value.
 # The common answers (a text, a number, a yes/no, one object) are read directly, without making a list of items.
 func dnRequest  cOperation, aParameters
-	dn_cResponse = dotnet_invoke(C_DOTNET_STRING + len(cOperation) + ":" + cOperation + dnPack(aParameters))
+	return dnExchange(C_DOTNET_STRING + len(cOperation) + ":" + cOperation + dnPack(aParameters))
+
+# The request of a generated method for a member of an object: the operation and the name are ready wire items ("s4:call", "s6:Append"),
+# the handle is a number (0 is the null object) and the arguments are packed. It makes the same request text as dnRequest, without a list
+# and a DotNetObject for the target (about 40% of the time of a call).
+func dnSend  cOperation, nHandle, cName, cArgs
+	if nHandle = 0
+		return dnExchange(cOperation + C_DOTNET_NULL + "0:" + cName + cArgs)
+	ok
+	dn_cHandle = string(nHandle)
+	return dnExchange(cOperation + C_DOTNET_OBJECT + len(dn_cHandle) + ":" + dn_cHandle + cName + cArgs)
+
+# Send a request text to the bridge and read the answer
+func dnExchange  cRequest
+	dn_cResponse = dotnet_invoke(cRequest)
 	dn_cTag = left(dn_cResponse,1)
 	dn_nColon = substr(dn_cResponse,":")
 	if dn_nColon > 0 and (dn_cTag = C_DOTNET_STRING or dn_cTag = C_DOTNET_NUMBER or dn_cTag = C_DOTNET_BOOL or dn_cTag = C_DOTNET_OBJECT)

@@ -145,37 +145,37 @@ Class Margins from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getLeft
-		return dnRequest("get",[self,"Left"])
+		return dnSend("s3:get",nHandle,"s4:Left","")
 
 	Func setLeft P1
-		dnRequest("set",[self,"Left",P1])
+		dnSend("s3:set",nHandle,"s4:Left",dnPackItem(P1))
 		return self
 
 	Func getRight
-		return dnRequest("get",[self,"Right"])
+		return dnSend("s3:get",nHandle,"s5:Right","")
 
 	Func setRight P1
-		dnRequest("set",[self,"Right",P1])
+		dnSend("s3:set",nHandle,"s5:Right",dnPackItem(P1))
 		return self
 
 	Func getTop
-		return dnRequest("get",[self,"Top"])
+		return dnSend("s3:get",nHandle,"s3:Top","")
 
 	Func setTop P1
-		dnRequest("set",[self,"Top",P1])
+		dnSend("s3:set",nHandle,"s3:Top",dnPackItem(P1))
 		return self
 
 	Func getBottom
-		return dnRequest("get",[self,"Bottom"])
+		return dnSend("s3:get",nHandle,"s6:Bottom","")
 
 	Func setBottom P1
-		dnRequest("set",[self,"Bottom",P1])
+		dnSend("s3:set",nHandle,"s6:Bottom",dnPackItem(P1))
 		return self
 
 
@@ -261,90 +261,90 @@ Class PageSettings from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func CopyToHdevmode P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyToHdevmode",P1])
+		dnSend("s4:call",nHandle,"s14:CopyToHdevmode",dnPackItem(P1))
 		return self
 
 	Func SetHdevmode P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetHdevmode",P1])
+		dnSend("s4:call",nHandle,"s11:SetHdevmode",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getBounds
-		return dnRequest("get",[self,"Bounds"])
+		return dnSend("s3:get",nHandle,"s6:Bounds","")
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getColor
-		return dnRequest("get",[self,"Color"])
+		return dnSend("s3:get",nHandle,"s5:Color","")
 
 	Func setColor P1
-		dnRequest("set",[self,"Color",P1])
+		dnSend("s3:set",nHandle,"s5:Color",dnPackItem(P1))
 		return self
 
 	Func getHardMarginX
-		return dnRequest("get",[self,"HardMarginX"])
+		return dnSend("s3:get",nHandle,"s11:HardMarginX","")
 
 	Func setHardMarginX P1
 		raise("DotNet Error: HardMarginX is a read-only property")
 
 	Func getHardMarginY
-		return dnRequest("get",[self,"HardMarginY"])
+		return dnSend("s3:get",nHandle,"s11:HardMarginY","")
 
 	Func setHardMarginY P1
 		raise("DotNet Error: HardMarginY is a read-only property")
 
 	Func getLandscape
-		return dnRequest("get",[self,"Landscape"])
+		return dnSend("s3:get",nHandle,"s9:Landscape","")
 
 	Func setLandscape P1
-		dnRequest("set",[self,"Landscape",P1])
+		dnSend("s3:set",nHandle,"s9:Landscape",dnPackItem(P1))
 		return self
 
 	Func getMargins
-		return dnRequest("get",[self,"Margins"])
+		return dnSend("s3:get",nHandle,"s7:Margins","")
 
 	Func setMargins P1
-		dnRequest("set",[self,"Margins",P1])
+		dnSend("s3:set",nHandle,"s7:Margins",dnPackItem(P1))
 		return self
 
 	Func getPaperSize
-		return dnRequest("get",[self,"PaperSize"])
+		return dnSend("s3:get",nHandle,"s9:PaperSize","")
 
 	Func setPaperSize P1
-		dnRequest("set",[self,"PaperSize",P1])
+		dnSend("s3:set",nHandle,"s9:PaperSize",dnPackItem(P1))
 		return self
 
 	Func getPaperSource
-		return dnRequest("get",[self,"PaperSource"])
+		return dnSend("s3:get",nHandle,"s11:PaperSource","")
 
 	Func setPaperSource P1
-		dnRequest("set",[self,"PaperSource",P1])
+		dnSend("s3:set",nHandle,"s11:PaperSource",dnPackItem(P1))
 		return self
 
 	Func getPrintableArea
-		return dnRequest("get",[self,"PrintableArea"])
+		return dnSend("s3:get",nHandle,"s13:PrintableArea","")
 
 	Func setPrintableArea P1
 		raise("DotNet Error: PrintableArea is a read-only property")
 
 	Func getPrinterResolution
-		return dnRequest("get",[self,"PrinterResolution"])
+		return dnSend("s3:get",nHandle,"s17:PrinterResolution","")
 
 	Func setPrinterResolution P1
-		dnRequest("set",[self,"PrinterResolution",P1])
+		dnSend("s3:set",nHandle,"s17:PrinterResolution",dnPackItem(P1))
 		return self
 
 	Func getPrinterSettings
-		return dnRequest("get",[self,"PrinterSettings"])
+		return dnSend("s3:get",nHandle,"s15:PrinterSettings","")
 
 	Func setPrinterSettings P1
-		dnRequest("set",[self,"PrinterSettings",P1])
+		dnSend("s3:set",nHandle,"s15:PrinterSettings",dnPackItem(P1))
 		return self
 
 
@@ -399,40 +399,40 @@ Class PaperSize from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnSend("s3:get",nHandle,"s6:Height","")
 
 	Func setHeight P1
-		dnRequest("set",[self,"Height",P1])
+		dnSend("s3:set",nHandle,"s6:Height",dnPackItem(P1))
 		return self
 
 	Func getKind
-		return dnRequest("get",[self,"Kind"])
+		return dnSend("s3:get",nHandle,"s4:Kind","")
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")
 
 	Func getPaperName
-		return dnRequest("get",[self,"PaperName"])
+		return dnSend("s3:get",nHandle,"s9:PaperName","")
 
 	Func setPaperName P1
-		dnRequest("set",[self,"PaperName",P1])
+		dnSend("s3:set",nHandle,"s9:PaperName",dnPackItem(P1))
 		return self
 
 	Func getRawKind
-		return dnRequest("get",[self,"RawKind"])
+		return dnSend("s3:get",nHandle,"s7:RawKind","")
 
 	Func setRawKind P1
-		dnRequest("set",[self,"RawKind",P1])
+		dnSend("s3:set",nHandle,"s7:RawKind",dnPackItem(P1))
 		return self
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnSend("s3:get",nHandle,"s5:Width","")
 
 	Func setWidth P1
-		dnRequest("set",[self,"Width",P1])
+		dnSend("s3:set",nHandle,"s5:Width",dnPackItem(P1))
 		return self
 
 
@@ -465,26 +465,26 @@ Class PaperSource from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getKind
-		return dnRequest("get",[self,"Kind"])
+		return dnSend("s3:get",nHandle,"s4:Kind","")
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")
 
 	Func getRawKind
-		return dnRequest("get",[self,"RawKind"])
+		return dnSend("s3:get",nHandle,"s7:RawKind","")
 
 	Func setRawKind P1
-		dnRequest("set",[self,"RawKind",P1])
+		dnSend("s3:set",nHandle,"s7:RawKind",dnPackItem(P1))
 		return self
 
 	Func getSourceName
-		return dnRequest("get",[self,"SourceName"])
+		return dnSend("s3:get",nHandle,"s10:SourceName","")
 
 	Func setSourceName P1
-		dnRequest("set",[self,"SourceName",P1])
+		dnSend("s3:set",nHandle,"s10:SourceName",dnPackItem(P1))
 		return self
 
 
@@ -505,16 +505,16 @@ Class PreviewPageInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getImage
-		return dnRequest("get",[self,"Image"])
+		return dnSend("s3:get",nHandle,"s5:Image","")
 
 	Func setImage P1
 		raise("DotNet Error: Image is a read-only property")
 
 	Func getPhysicalSize
-		return dnRequest("get",[self,"PhysicalSize"])
+		return dnSend("s3:get",nHandle,"s12:PhysicalSize","")
 
 	Func setPhysicalSize P1
 		raise("DotNet Error: PhysicalSize is a read-only property")
@@ -534,25 +534,25 @@ Class PrintController from Object
 		return self
 
 	Func OnStartPage P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"OnStartPage",P1,P2])
+		return dnSend("s4:call",nHandle,"s11:OnStartPage",dnPackItem(P1) + dnPackItem(P2))
 
 	Func OnEndPage P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnEndPage",P1,P2])
+		dnSend("s4:call",nHandle,"s9:OnEndPage",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func OnStartPrint P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnStartPrint",P1,P2])
+		dnSend("s4:call",nHandle,"s12:OnStartPrint",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func OnEndPrint P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnEndPrint",P1,P2])
+		dnSend("s4:call",nHandle,"s10:OnEndPrint",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getIsPreview
-		return dnRequest("get",[self,"IsPreview"])
+		return dnSend("s3:get",nHandle,"s9:IsPreview","")
 
 	Func setIsPreview P1
 		raise("DotNet Error: IsPreview is a read-only property")
@@ -589,7 +589,7 @@ Class PrintDocument from Component
 		return self
 
 	Func Print 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Print"])
+		dnSend("s4:call",nHandle,"s5:Print","")
 		return self
 
 	Func setBeginPrintEvent P1
@@ -625,38 +625,38 @@ Class PrintDocument from Component
 		return self
 
 	Func getDefaultPageSettings
-		return dnRequest("get",[self,"DefaultPageSettings"])
+		return dnSend("s3:get",nHandle,"s19:DefaultPageSettings","")
 
 	Func setDefaultPageSettings P1
-		dnRequest("set",[self,"DefaultPageSettings",P1])
+		dnSend("s3:set",nHandle,"s19:DefaultPageSettings",dnPackItem(P1))
 		return self
 
 	Func getDocumentName
-		return dnRequest("get",[self,"DocumentName"])
+		return dnSend("s3:get",nHandle,"s12:DocumentName","")
 
 	Func setDocumentName P1
-		dnRequest("set",[self,"DocumentName",P1])
+		dnSend("s3:set",nHandle,"s12:DocumentName",dnPackItem(P1))
 		return self
 
 	Func getOriginAtMargins
-		return dnRequest("get",[self,"OriginAtMargins"])
+		return dnSend("s3:get",nHandle,"s15:OriginAtMargins","")
 
 	Func setOriginAtMargins P1
-		dnRequest("set",[self,"OriginAtMargins",P1])
+		dnSend("s3:set",nHandle,"s15:OriginAtMargins",dnPackItem(P1))
 		return self
 
 	Func getPrintController
-		return dnRequest("get",[self,"PrintController"])
+		return dnSend("s3:get",nHandle,"s15:PrintController","")
 
 	Func setPrintController P1
-		dnRequest("set",[self,"PrintController",P1])
+		dnSend("s3:set",nHandle,"s15:PrintController",dnPackItem(P1))
 		return self
 
 	Func getPrinterSettings
-		return dnRequest("get",[self,"PrinterSettings"])
+		return dnSend("s3:get",nHandle,"s15:PrinterSettings","")
 
 	Func setPrinterSettings P1
-		dnRequest("set",[self,"PrinterSettings",P1])
+		dnSend("s3:set",nHandle,"s15:PrinterSettings",dnPackItem(P1))
 		return self
 
 
@@ -687,7 +687,7 @@ Class PrintEventArgs from CancelEventArgs
 		return self
 
 	Func getPrintAction
-		return dnRequest("get",[self,"PrintAction"])
+		return dnSend("s3:get",nHandle,"s11:PrintAction","")
 
 	Func setPrintAction P1
 		raise("DotNet Error: PrintAction is a read-only property")
@@ -714,39 +714,39 @@ Class PrintPageEventArgs from EventArgs
 		return self
 
 	Func getCancel
-		return dnRequest("get",[self,"Cancel"])
+		return dnSend("s3:get",nHandle,"s6:Cancel","")
 
 	Func setCancel P1
-		dnRequest("set",[self,"Cancel",P1])
+		dnSend("s3:set",nHandle,"s6:Cancel",dnPackItem(P1))
 		return self
 
 	Func getGraphics
-		return dnRequest("get",[self,"Graphics"])
+		return dnSend("s3:get",nHandle,"s8:Graphics","")
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getHasMorePages
-		return dnRequest("get",[self,"HasMorePages"])
+		return dnSend("s3:get",nHandle,"s12:HasMorePages","")
 
 	Func setHasMorePages P1
-		dnRequest("set",[self,"HasMorePages",P1])
+		dnSend("s3:set",nHandle,"s12:HasMorePages",dnPackItem(P1))
 		return self
 
 	Func getMarginBounds
-		return dnRequest("get",[self,"MarginBounds"])
+		return dnSend("s3:get",nHandle,"s12:MarginBounds","")
 
 	Func setMarginBounds P1
 		raise("DotNet Error: MarginBounds is a read-only property")
 
 	Func getPageBounds
-		return dnRequest("get",[self,"PageBounds"])
+		return dnSend("s3:get",nHandle,"s10:PageBounds","")
 
 	Func setPageBounds P1
 		raise("DotNet Error: PageBounds is a read-only property")
 
 	Func getPageSettings
-		return dnRequest("get",[self,"PageSettings"])
+		return dnSend("s3:get",nHandle,"s12:PageSettings","")
 
 	Func setPageSettings P1
 		raise("DotNet Error: PageSettings is a read-only property")
@@ -781,27 +781,27 @@ Class PrinterResolution from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getKind
-		return dnRequest("get",[self,"Kind"])
+		return dnSend("s3:get",nHandle,"s4:Kind","")
 
 	Func setKind P1
-		dnRequest("set",[self,"Kind",P1])
+		dnSend("s3:set",nHandle,"s4:Kind",dnPackItem(P1))
 		return self
 
 	Func getX
-		return dnRequest("get",[self,"X"])
+		return dnSend("s3:get",nHandle,"s1:X","")
 
 	Func setX P1
-		dnRequest("set",[self,"X",P1])
+		dnSend("s3:set",nHandle,"s1:X",dnPackItem(P1))
 		return self
 
 	Func getY
-		return dnRequest("get",[self,"Y"])
+		return dnSend("s3:get",nHandle,"s1:Y","")
 
 	Func setY P1
-		dnRequest("set",[self,"Y",P1])
+		dnSend("s3:set",nHandle,"s1:Y",dnPackItem(P1))
 		return self
 
 
@@ -854,188 +854,188 @@ Class PrinterSettings from Object
 		return self
 
 	Func IsDirectPrintingSupported P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsDirectPrintingSupported",P1])
+		return dnSend("s4:call",nHandle,"s25:IsDirectPrintingSupported",dnPackItem(P1))
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func CreateMeasurementGraphics P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateMeasurementGraphics",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:CreateMeasurementGraphics",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"CreateMeasurementGraphics"])
+			return dnSend("s4:call",nHandle,"s25:CreateMeasurementGraphics","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateMeasurementGraphics",P1])
+		return dnSend("s4:call",nHandle,"s25:CreateMeasurementGraphics",dnPackItem(P1))
 
 	Func GetHdevmode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetHdevmode",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:GetHdevmode",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetHdevmode"])
+			return dnSend("s4:call",nHandle,"s11:GetHdevmode","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHdevmode",P1])
+		return dnSend("s4:call",nHandle,"s11:GetHdevmode",dnPackItem(P1))
 
 	Func GetHdevnames 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHdevnames"])
+		return dnSend("s4:call",nHandle,"s12:GetHdevnames","")
 
 	Func SetHdevmode P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetHdevmode",P1])
+		dnSend("s4:call",nHandle,"s11:SetHdevmode",dnPackItem(P1))
 		return self
 
 	Func SetHdevnames P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetHdevnames",P1])
+		dnSend("s4:call",nHandle,"s12:SetHdevnames",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCanDuplex
-		return dnRequest("get",[self,"CanDuplex"])
+		return dnSend("s3:get",nHandle,"s9:CanDuplex","")
 
 	Func setCanDuplex P1
 		raise("DotNet Error: CanDuplex is a read-only property")
 
 	Func getCopies
-		return dnRequest("get",[self,"Copies"])
+		return dnSend("s3:get",nHandle,"s6:Copies","")
 
 	Func setCopies P1
-		dnRequest("set",[self,"Copies",P1])
+		dnSend("s3:set",nHandle,"s6:Copies",dnPackItem(P1))
 		return self
 
 	Func getCollate
-		return dnRequest("get",[self,"Collate"])
+		return dnSend("s3:get",nHandle,"s7:Collate","")
 
 	Func setCollate P1
-		dnRequest("set",[self,"Collate",P1])
+		dnSend("s3:set",nHandle,"s7:Collate",dnPackItem(P1))
 		return self
 
 	Func getDefaultPageSettings
-		return dnRequest("get",[self,"DefaultPageSettings"])
+		return dnSend("s3:get",nHandle,"s19:DefaultPageSettings","")
 
 	Func setDefaultPageSettings P1
 		raise("DotNet Error: DefaultPageSettings is a read-only property")
 
 	Func getDuplex
-		return dnRequest("get",[self,"Duplex"])
+		return dnSend("s3:get",nHandle,"s6:Duplex","")
 
 	Func setDuplex P1
-		dnRequest("set",[self,"Duplex",P1])
+		dnSend("s3:set",nHandle,"s6:Duplex",dnPackItem(P1))
 		return self
 
 	Func getFromPage
-		return dnRequest("get",[self,"FromPage"])
+		return dnSend("s3:get",nHandle,"s8:FromPage","")
 
 	Func setFromPage P1
-		dnRequest("set",[self,"FromPage",P1])
+		dnSend("s3:set",nHandle,"s8:FromPage",dnPackItem(P1))
 		return self
 
 	Func getIsDefaultPrinter
-		return dnRequest("get",[self,"IsDefaultPrinter"])
+		return dnSend("s3:get",nHandle,"s16:IsDefaultPrinter","")
 
 	Func setIsDefaultPrinter P1
 		raise("DotNet Error: IsDefaultPrinter is a read-only property")
 
 	Func getIsPlotter
-		return dnRequest("get",[self,"IsPlotter"])
+		return dnSend("s3:get",nHandle,"s9:IsPlotter","")
 
 	Func setIsPlotter P1
 		raise("DotNet Error: IsPlotter is a read-only property")
 
 	Func getIsValid
-		return dnRequest("get",[self,"IsValid"])
+		return dnSend("s3:get",nHandle,"s7:IsValid","")
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")
 
 	Func getLandscapeAngle
-		return dnRequest("get",[self,"LandscapeAngle"])
+		return dnSend("s3:get",nHandle,"s14:LandscapeAngle","")
 
 	Func setLandscapeAngle P1
 		raise("DotNet Error: LandscapeAngle is a read-only property")
 
 	Func getMaximumCopies
-		return dnRequest("get",[self,"MaximumCopies"])
+		return dnSend("s3:get",nHandle,"s13:MaximumCopies","")
 
 	Func setMaximumCopies P1
 		raise("DotNet Error: MaximumCopies is a read-only property")
 
 	Func getMaximumPage
-		return dnRequest("get",[self,"MaximumPage"])
+		return dnSend("s3:get",nHandle,"s11:MaximumPage","")
 
 	Func setMaximumPage P1
-		dnRequest("set",[self,"MaximumPage",P1])
+		dnSend("s3:set",nHandle,"s11:MaximumPage",dnPackItem(P1))
 		return self
 
 	Func getMinimumPage
-		return dnRequest("get",[self,"MinimumPage"])
+		return dnSend("s3:get",nHandle,"s11:MinimumPage","")
 
 	Func setMinimumPage P1
-		dnRequest("set",[self,"MinimumPage",P1])
+		dnSend("s3:set",nHandle,"s11:MinimumPage",dnPackItem(P1))
 		return self
 
 	Func getPrintFileName
-		return dnRequest("get",[self,"PrintFileName"])
+		return dnSend("s3:get",nHandle,"s13:PrintFileName","")
 
 	Func setPrintFileName P1
-		dnRequest("set",[self,"PrintFileName",P1])
+		dnSend("s3:set",nHandle,"s13:PrintFileName",dnPackItem(P1))
 		return self
 
 	Func getPaperSizes
-		return dnRequest("get",[self,"PaperSizes"])
+		return dnSend("s3:get",nHandle,"s10:PaperSizes","")
 
 	Func setPaperSizes P1
 		raise("DotNet Error: PaperSizes is a read-only property")
 
 	Func getPaperSources
-		return dnRequest("get",[self,"PaperSources"])
+		return dnSend("s3:get",nHandle,"s12:PaperSources","")
 
 	Func setPaperSources P1
 		raise("DotNet Error: PaperSources is a read-only property")
 
 	Func getPrintRange
-		return dnRequest("get",[self,"PrintRange"])
+		return dnSend("s3:get",nHandle,"s10:PrintRange","")
 
 	Func setPrintRange P1
-		dnRequest("set",[self,"PrintRange",P1])
+		dnSend("s3:set",nHandle,"s10:PrintRange",dnPackItem(P1))
 		return self
 
 	Func getPrintToFile
-		return dnRequest("get",[self,"PrintToFile"])
+		return dnSend("s3:get",nHandle,"s11:PrintToFile","")
 
 	Func setPrintToFile P1
-		dnRequest("set",[self,"PrintToFile",P1])
+		dnSend("s3:set",nHandle,"s11:PrintToFile",dnPackItem(P1))
 		return self
 
 	Func getPrinterName
-		return dnRequest("get",[self,"PrinterName"])
+		return dnSend("s3:get",nHandle,"s11:PrinterName","")
 
 	Func setPrinterName P1
-		dnRequest("set",[self,"PrinterName",P1])
+		dnSend("s3:set",nHandle,"s11:PrinterName",dnPackItem(P1))
 		return self
 
 	Func getPrinterResolutions
-		return dnRequest("get",[self,"PrinterResolutions"])
+		return dnSend("s3:get",nHandle,"s18:PrinterResolutions","")
 
 	Func setPrinterResolutions P1
 		raise("DotNet Error: PrinterResolutions is a read-only property")
 
 	Func getSupportsColor
-		return dnRequest("get",[self,"SupportsColor"])
+		return dnSend("s3:get",nHandle,"s13:SupportsColor","")
 
 	Func setSupportsColor P1
 		raise("DotNet Error: SupportsColor is a read-only property")
 
 	Func getToPage
-		return dnRequest("get",[self,"ToPage"])
+		return dnSend("s3:get",nHandle,"s6:ToPage","")
 
 	Func setToPage P1
-		dnRequest("set",[self,"ToPage",P1])
+		dnSend("s3:set",nHandle,"s6:ToPage",dnPackItem(P1))
 		return self
 
 	Func getInstalledPrinters
-		return dnRequest("get",[dnTypeCached('System.Drawing.Printing.PrinterSettings, System.Drawing.Common'),"InstalledPrinters"])
+		return dnSend("s3:get",dnTypeCached('System.Drawing.Printing.PrinterSettings, System.Drawing.Common').nHandle,"s17:InstalledPrinters","")
 
 	Func setInstalledPrinters P1
 		raise("DotNet Error: InstalledPrinters is a read-only property")
@@ -1053,10 +1053,10 @@ Class PrinterUnitConvert from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Convert P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Drawing.Printing.PrinterUnitConvert, System.Drawing.Common'),"Convert",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Drawing.Printing.PrinterUnitConvert, System.Drawing.Common').nHandle,"s7:Convert",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class PreviewPrintController from PrintController
@@ -1086,13 +1086,13 @@ Class PreviewPrintController from PrintController
 		return self
 
 	Func GetPreviewPageInfo 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPreviewPageInfo"])
+		return dnSend("s4:call",nHandle,"s18:GetPreviewPageInfo","")
 
 	Func getUseAntiAlias
-		return dnRequest("get",[self,"UseAntiAlias"])
+		return dnSend("s3:get",nHandle,"s12:UseAntiAlias","")
 
 	Func setUseAntiAlias P1
-		dnRequest("set",[self,"UseAntiAlias",P1])
+		dnSend("s3:set",nHandle,"s12:UseAntiAlias",dnPackItem(P1))
 		return self
 
 
@@ -1112,10 +1112,10 @@ Class QueryPageSettingsEventArgs from PrintEventArgs
 		return self
 
 	Func getPageSettings
-		return dnRequest("get",[self,"PageSettings"])
+		return dnSend("s3:get",nHandle,"s12:PageSettings","")
 
 	Func setPageSettings P1
-		dnRequest("set",[self,"PageSettings",P1])
+		dnSend("s3:set",nHandle,"s12:PageSettings",dnPackItem(P1))
 		return self
 
 

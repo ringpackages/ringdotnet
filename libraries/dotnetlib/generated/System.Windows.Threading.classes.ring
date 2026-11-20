@@ -101,71 +101,71 @@ Class Dispatcher from Object
 		return self
 
 	Func CheckAccess 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CheckAccess"])
+		return dnSend("s4:call",nHandle,"s11:CheckAccess","")
 
 	Func VerifyAccess 
-		dnRequest("call",[new DotNetObject(this.nHandle),"VerifyAccess"])
+		dnSend("s4:call",nHandle,"s12:VerifyAccess","")
 		return self
 
 	Func BeginInvokeShutdown P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"BeginInvokeShutdown",P1])
+		dnSend("s4:call",nHandle,"s19:BeginInvokeShutdown",dnPackItem(P1))
 		return self
 
 	Func InvokeShutdown 
-		dnRequest("call",[new DotNetObject(this.nHandle),"InvokeShutdown"])
+		dnSend("s4:call",nHandle,"s14:InvokeShutdown","")
 		return self
 
 	Func BeginInvoke P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginInvoke",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:BeginInvoke",dnPackItem(P1))
 		ok
 		raise("DotNet Error: BeginInvoke does not take one argument: use named arguments, BeginInvoke([ :parameter = value, ... ])")
 
 	Func Invoke P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Invoke",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Invoke",dnPackItem(P1))
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Invoke",P1])
+		dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1))
 		return self
 
 	Func InvokeAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"InvokeAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:InvokeAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InvokeAsync",P1])
+		return dnSend("s4:call",nHandle,"s11:InvokeAsync",dnPackItem(P1))
 
 	Func DisableProcessing 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DisableProcessing"])
+		return dnSend("s4:call",nHandle,"s17:DisableProcessing","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func FromThread P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"FromThread",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s10:FromThread",dnPackItem(P1))
 
 	Func Run 
-		dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"Run"])
+		dnSend("s4:call",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s3:Run","")
 		return self
 
 	Func PushFrame P1
-		dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"PushFrame",P1])
+		dnSend("s4:call",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s9:PushFrame",dnPackItem(P1))
 		return self
 
 	Func ExitAllFrames 
-		dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"ExitAllFrames"])
+		dnSend("s4:call",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s13:ExitAllFrames","")
 		return self
 
 	Func Yield P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"Yield",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s5:Yield",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"Yield"])
+			return dnSend("s4:call",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s5:Yield","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"Yield",P1])
+		return dnSend("s4:call",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s5:Yield",dnPackItem(P1))
 
 	Func ValidatePriority P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"ValidatePriority",P1,P2])
+		dnSend("s4:call",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s16:ValidatePriority",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func setShutdownStartedEvent P1
@@ -201,31 +201,31 @@ Class Dispatcher from Object
 		return self
 
 	Func getThread
-		return dnRequest("get",[self,"Thread"])
+		return dnSend("s3:get",nHandle,"s6:Thread","")
 
 	Func setThread P1
 		raise("DotNet Error: Thread is a read-only property")
 
 	Func getHasShutdownStarted
-		return dnRequest("get",[self,"HasShutdownStarted"])
+		return dnSend("s3:get",nHandle,"s18:HasShutdownStarted","")
 
 	Func setHasShutdownStarted P1
 		raise("DotNet Error: HasShutdownStarted is a read-only property")
 
 	Func getHasShutdownFinished
-		return dnRequest("get",[self,"HasShutdownFinished"])
+		return dnSend("s3:get",nHandle,"s19:HasShutdownFinished","")
 
 	Func setHasShutdownFinished P1
 		raise("DotNet Error: HasShutdownFinished is a read-only property")
 
 	Func getHooks
-		return dnRequest("get",[self,"Hooks"])
+		return dnSend("s3:get",nHandle,"s5:Hooks","")
 
 	Func setHooks P1
 		raise("DotNet Error: Hooks is a read-only property")
 
 	Func getCurrentDispatcher
-		return dnRequest("get",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"CurrentDispatcher"])
+		return dnSend("s3:get",dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase').nHandle,"s17:CurrentDispatcher","")
 
 	Func setCurrentDispatcher P1
 		raise("DotNet Error: CurrentDispatcher is a read-only property")
@@ -245,7 +245,7 @@ Class DispatcherEventArgs from EventArgs
 		return self
 
 	Func getDispatcher
-		return dnRequest("get",[self,"Dispatcher"])
+		return dnSend("s3:get",nHandle,"s10:Dispatcher","")
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")
@@ -268,13 +268,13 @@ Class DispatcherHookEventArgs from EventArgs
 		return self
 
 	Func getDispatcher
-		return dnRequest("get",[self,"Dispatcher"])
+		return dnSend("s3:get",nHandle,"s10:Dispatcher","")
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")
 
 	Func getOperation
-		return dnRequest("get",[self,"Operation"])
+		return dnSend("s3:get",nHandle,"s9:Operation","")
 
 	Func setOperation P1
 		raise("DotNet Error: Operation is a read-only property")
@@ -292,7 +292,7 @@ Class DispatcherHooks from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func setDispatcherInactiveEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"DispatcherInactive",dnCallback(P1)])
@@ -357,17 +357,17 @@ Class DispatcherObject from Object
 		return self
 
 	Func CheckAccess 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CheckAccess"])
+		return dnSend("s4:call",nHandle,"s11:CheckAccess","")
 
 	Func VerifyAccess 
-		dnRequest("call",[new DotNetObject(this.nHandle),"VerifyAccess"])
+		dnSend("s4:call",nHandle,"s12:VerifyAccess","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDispatcher
-		return dnRequest("get",[self,"Dispatcher"])
+		return dnSend("s3:get",nHandle,"s10:Dispatcher","")
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")
@@ -391,22 +391,22 @@ Class DispatcherOperation from Object
 		return self
 
 	Func GetAwaiter 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAwaiter"])
+		return dnSend("s4:call",nHandle,"s10:GetAwaiter","")
 
 	Func Wait P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Wait",P1])
+			return dnSend("s9:callnamed",nHandle,"s4:Wait",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"Wait"])
+			return dnSend("s4:call",nHandle,"s4:Wait","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Wait",P1])
+		return dnSend("s4:call",nHandle,"s4:Wait",dnPackItem(P1))
 
 	Func Abort 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Abort"])
+		return dnSend("s4:call",nHandle,"s5:Abort","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func setAbortedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"Aborted",dnCallback(P1)])
@@ -425,32 +425,32 @@ Class DispatcherOperation from Object
 		return self
 
 	Func getDispatcher
-		return dnRequest("get",[self,"Dispatcher"])
+		return dnSend("s3:get",nHandle,"s10:Dispatcher","")
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")
 
 	Func getPriority
-		return dnRequest("get",[self,"Priority"])
+		return dnSend("s3:get",nHandle,"s8:Priority","")
 
 	Func setPriority P1
-		dnRequest("set",[self,"Priority",P1])
+		dnSend("s3:set",nHandle,"s8:Priority",dnPackItem(P1))
 		return self
 
 	Func getStatus
-		return dnRequest("get",[self,"Status"])
+		return dnSend("s3:get",nHandle,"s6:Status","")
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
 
 	Func getTask
-		return dnRequest("get",[self,"Task"])
+		return dnSend("s3:get",nHandle,"s4:Task","")
 
 	Func setTask P1
 		raise("DotNet Error: Task is a read-only property")
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
@@ -481,7 +481,7 @@ Class DispatcherPriorityAwaitable from ValueType
 		return self
 
 	Func GetAwaiter 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAwaiter"])
+		return dnSend("s4:call",nHandle,"s10:GetAwaiter","")
 
 
 Class DispatcherPriorityAwaiter from ValueType
@@ -511,15 +511,15 @@ Class DispatcherPriorityAwaiter from ValueType
 		return self
 
 	Func GetResult 
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetResult"])
+		dnSend("s4:call",nHandle,"s9:GetResult","")
 		return self
 
 	Func OnCompleted P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnCompleted",P1])
+		dnSend("s4:call",nHandle,"s11:OnCompleted",dnPackItem(P1))
 		return self
 
 	Func getIsCompleted
-		return dnRequest("get",[self,"IsCompleted"])
+		return dnSend("s3:get",nHandle,"s11:IsCompleted","")
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")
@@ -550,7 +550,7 @@ Class DispatcherProcessingDisabled from ValueType
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 
@@ -649,15 +649,15 @@ Class DispatcherTimer from Object
 		return self
 
 	Func Start 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Start"])
+		dnSend("s4:call",nHandle,"s5:Start","")
 		return self
 
 	Func Stop 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Stop"])
+		dnSend("s4:call",nHandle,"s4:Stop","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func setTickEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"Tick",dnCallback(P1)])
@@ -668,30 +668,30 @@ Class DispatcherTimer from Object
 		return self
 
 	Func getDispatcher
-		return dnRequest("get",[self,"Dispatcher"])
+		return dnSend("s3:get",nHandle,"s10:Dispatcher","")
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")
 
 	Func getIsEnabled
-		return dnRequest("get",[self,"IsEnabled"])
+		return dnSend("s3:get",nHandle,"s9:IsEnabled","")
 
 	Func setIsEnabled P1
-		dnRequest("set",[self,"IsEnabled",P1])
+		dnSend("s3:set",nHandle,"s9:IsEnabled",dnPackItem(P1))
 		return self
 
 	Func getInterval
-		return dnRequest("get",[self,"Interval"])
+		return dnSend("s3:get",nHandle,"s8:Interval","")
 
 	Func setInterval P1
-		dnRequest("set",[self,"Interval",P1])
+		dnSend("s3:set",nHandle,"s8:Interval",dnPackItem(P1))
 		return self
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		return dnSend("s3:get",nHandle,"s3:Tag","")
 
 	Func setTag P1
-		dnRequest("set",[self,"Tag",P1])
+		dnSend("s3:set",nHandle,"s3:Tag",dnPackItem(P1))
 		return self
 
 
@@ -740,10 +740,10 @@ Class DispatcherFrame from DispatcherObject
 		return self
 
 	Func getContinue
-		return dnRequest("get",[self,"Continue"])
+		return dnSend("s3:get",nHandle,"s8:Continue","")
 
 	Func setContinue P1
-		dnRequest("set",[self,"Continue",P1])
+		dnSend("s3:set",nHandle,"s8:Continue",dnPackItem(P1))
 		return self
 
 
@@ -762,16 +762,16 @@ Class DispatcherUnhandledExceptionEventArgs from DispatcherEventArgs
 		return self
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnSend("s3:get",nHandle,"s9:Exception","")
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getHandled
-		return dnRequest("get",[self,"Handled"])
+		return dnSend("s3:get",nHandle,"s7:Handled","")
 
 	Func setHandled P1
-		dnRequest("set",[self,"Handled",P1])
+		dnSend("s3:set",nHandle,"s7:Handled",dnPackItem(P1))
 		return self
 
 
@@ -790,16 +790,16 @@ Class DispatcherUnhandledExceptionFilterEventArgs from DispatcherEventArgs
 		return self
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnSend("s3:get",nHandle,"s9:Exception","")
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getRequestCatch
-		return dnRequest("get",[self,"RequestCatch"])
+		return dnSend("s3:get",nHandle,"s12:RequestCatch","")
 
 	Func setRequestCatch P1
-		dnRequest("set",[self,"RequestCatch",P1])
+		dnSend("s3:set",nHandle,"s12:RequestCatch",dnPackItem(P1))
 		return self
 
 

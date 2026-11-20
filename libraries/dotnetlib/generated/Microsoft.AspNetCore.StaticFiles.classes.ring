@@ -61,10 +61,10 @@ Class DefaultFilesMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Invoke",P1])
+		return dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class DirectoryBrowserMiddleware from Object
@@ -96,10 +96,10 @@ Class DirectoryBrowserMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Invoke",P1])
+		return dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class FileExtensionContentTypeProvider from Object
@@ -149,13 +149,13 @@ Class FileExtensionContentTypeProvider from Object
 		return self
 
 	Func TryGetContentType P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetContentType",P1])
+		return dnSend("s4:call",nHandle,"s17:TryGetContentType",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMappings
-		return dnRequest("get",[self,"Mappings"])
+		return dnSend("s3:get",nHandle,"s8:Mappings","")
 
 	Func setMappings P1
 		raise("DotNet Error: Mappings is a read-only property")
@@ -175,10 +175,10 @@ Class HtmlDirectoryFormatter from Object
 		return self
 
 	Func GenerateContentAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GenerateContentAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s20:GenerateContentAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class IContentTypeProvider from DotNetObject
@@ -193,7 +193,7 @@ Class IContentTypeProvider from DotNetObject
 		return self
 
 	Func TryGetContentType P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetContentType",P1])
+		return dnSend("s4:call",nHandle,"s17:TryGetContentType",dnPackItem(P1))
 
 
 Class IDirectoryFormatter from DotNetObject
@@ -208,7 +208,7 @@ Class IDirectoryFormatter from DotNetObject
 		return self
 
 	Func GenerateContentAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GenerateContentAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s20:GenerateContentAsync",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class StaticFileMiddleware from Object
@@ -225,10 +225,10 @@ Class StaticFileMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Invoke",P1])
+		return dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class StaticFileResponseContext from Object
@@ -248,16 +248,16 @@ Class StaticFileResponseContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getContext
-		return dnRequest("get",[self,"Context"])
+		return dnSend("s3:get",nHandle,"s7:Context","")
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getFile
-		return dnRequest("get",[self,"File"])
+		return dnSend("s3:get",nHandle,"s4:File","")
 
 	Func setFile P1
 		raise("DotNet Error: File is a read-only property")

@@ -45,92 +45,92 @@ Class JsonNode from Object
 		return self
 
 	Func AsArray 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AsArray"])
+		return dnSend("s4:call",nHandle,"s7:AsArray","")
 
 	Func AsObject 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AsObject"])
+		return dnSend("s4:call",nHandle,"s8:AsObject","")
 
 	Func AsValue 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AsValue"])
+		return dnSend("s4:call",nHandle,"s7:AsValue","")
 
 	Func GetPath 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPath"])
+		return dnSend("s4:call",nHandle,"s7:GetPath","")
 
 	Func GetValue 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue"])
+		return dnSend("s4:call",nHandle,"s8:GetValue","")
 
 	Func DeepClone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DeepClone"])
+		return dnSend("s4:call",nHandle,"s9:DeepClone","")
 
 	Func GetValueKind 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValueKind"])
+		return dnSend("s4:call",nHandle,"s12:GetValueKind","")
 
 	Func GetPropertyName 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPropertyName"])
+		return dnSend("s4:call",nHandle,"s15:GetPropertyName","")
 
 	Func GetElementIndex 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetElementIndex"])
+		return dnSend("s4:call",nHandle,"s15:GetElementIndex","")
 
 	Func ReplaceWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ReplaceWith",P1])
+		dnSend("s4:call",nHandle,"s11:ReplaceWith",dnPackItem(P1))
 		return self
 
 	Func ToJsonString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToJsonString",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:ToJsonString",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ToJsonString"])
+			return dnSend("s4:call",nHandle,"s12:ToJsonString","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToJsonString",P1])
+		return dnSend("s4:call",nHandle,"s12:ToJsonString",dnPackItem(P1))
 
 	Func WriteTo P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"WriteTo",P1])
+			dnSend("s9:callnamed",nHandle,"s7:WriteTo",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"WriteTo",P1])
+		dnSend("s4:call",nHandle,"s7:WriteTo",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func DeepEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"DeepEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json').nHandle,"s10:DeepEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Parse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"Parse",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json').nHandle,"s5:Parse",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func ParseAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"ParseAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json').nHandle,"s10:ParseAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"ParseAsync",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json').nHandle,"s10:ParseAsync",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnSend("s3:get",nHandle,"s7:Options","")
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnSend("s3:get",nHandle,"s6:Parent","")
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getRoot
-		return dnRequest("get",[self,"Root"])
+		return dnSend("s3:get",nHandle,"s4:Root","")
 
 	Func setRoot P1
 		raise("DotNet Error: Root is a read-only property")
@@ -163,10 +163,10 @@ Class JsonNodeOptions from ValueType
 		return self
 
 	Func getPropertyNameCaseInsensitive
-		return dnRequest("get",[self,"PropertyNameCaseInsensitive"])
+		return dnSend("s3:get",nHandle,"s27:PropertyNameCaseInsensitive","")
 
 	Func setPropertyNameCaseInsensitive P1
-		dnRequest("set",[self,"PropertyNameCaseInsensitive",P1])
+		dnSend("s3:set",nHandle,"s27:PropertyNameCaseInsensitive",dnPackItem(P1))
 		return self
 
 
@@ -217,44 +217,44 @@ Class JsonArray from JsonNode
 		return self
 
 	Func GetValues 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValues"])
+		return dnSend("s4:call",nHandle,"s9:GetValues","")
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonArray, System.Text.Json'),"Create",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.Nodes.JsonArray, System.Text.Json').nHandle,"s6:Create",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonArray, System.Text.Json'),"Create",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.Nodes.JsonArray, System.Text.Json').nHandle,"s6:Create",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -307,58 +307,58 @@ Class JsonObject from JsonNode
 		return self
 
 	Func TryGetPropertyValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetPropertyValue",P1])
+		return dnSend("s4:call",nHandle,"s19:TryGetPropertyValue",dnPackItem(P1))
 
 	Func Add P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Add",P1])
+			dnSend("s9:callnamed",nHandle,"s3:Add",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsKey",P1])
+		return dnSend("s4:call",nHandle,"s11:ContainsKey",dnPackItem(P1))
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func GetAt P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAt",P1])
+		return dnSend("s4:call",nHandle,"s5:GetAt",dnPackItem(P1))
 
 	Func SetAt P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"SetAt",P1])
+			dnSend("s9:callnamed",nHandle,"s5:SetAt",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: SetAt does not take one argument: use named arguments, SetAt([ :parameter = value, ... ])")
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2,P3
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2,P3])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonObject, System.Text.Json'),"Create",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.Nodes.JsonObject, System.Text.Json').nHandle,"s6:Create",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonObject, System.Text.Json'),"Create",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.Nodes.JsonObject, System.Text.Json').nHandle,"s6:Create",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -376,12 +376,12 @@ Class JsonValue from JsonNode
 		return self
 
 	Func TryGetValue 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue"])
+		return dnSend("s4:call",nHandle,"s11:TryGetValue","")
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonValue, System.Text.Json'),"Create",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Json.Nodes.JsonValue, System.Text.Json').nHandle,"s6:Create",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonValue, System.Text.Json'),"Create",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Json.Nodes.JsonValue, System.Text.Json').nHandle,"s6:Create",dnPackItem(P1))
 
 

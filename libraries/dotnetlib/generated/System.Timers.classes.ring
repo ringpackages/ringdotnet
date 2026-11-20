@@ -27,7 +27,7 @@ Class ElapsedEventArgs from EventArgs
 		return self
 
 	Func getSignalTime
-		return dnRequest("get",[self,"SignalTime"])
+		return dnSend("s3:get",nHandle,"s10:SignalTime","")
 
 	Func setSignalTime P1
 		raise("DotNet Error: SignalTime is a read-only property")
@@ -83,23 +83,23 @@ Class TimersTimer from Component
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"BeginInit"])
+		dnSend("s4:call",nHandle,"s9:BeginInit","")
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Close"])
+		dnSend("s4:call",nHandle,"s5:Close","")
 		return self
 
 	Func EndInit 
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndInit"])
+		dnSend("s4:call",nHandle,"s7:EndInit","")
 		return self
 
 	Func Start 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Start"])
+		dnSend("s4:call",nHandle,"s5:Start","")
 		return self
 
 	Func Stop 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Stop"])
+		dnSend("s4:call",nHandle,"s4:Stop","")
 		return self
 
 	Func setElapsedEvent P1
@@ -111,31 +111,31 @@ Class TimersTimer from Component
 		return self
 
 	Func getAutoReset
-		return dnRequest("get",[self,"AutoReset"])
+		return dnSend("s3:get",nHandle,"s9:AutoReset","")
 
 	Func setAutoReset P1
-		dnRequest("set",[self,"AutoReset",P1])
+		dnSend("s3:set",nHandle,"s9:AutoReset",dnPackItem(P1))
 		return self
 
 	Func getEnabled
-		return dnRequest("get",[self,"Enabled"])
+		return dnSend("s3:get",nHandle,"s7:Enabled","")
 
 	Func setEnabled P1
-		dnRequest("set",[self,"Enabled",P1])
+		dnSend("s3:set",nHandle,"s7:Enabled",dnPackItem(P1))
 		return self
 
 	Func getInterval
-		return dnRequest("get",[self,"Interval"])
+		return dnSend("s3:get",nHandle,"s8:Interval","")
 
 	Func setInterval P1
-		dnRequest("set",[self,"Interval",P1])
+		dnSend("s3:set",nHandle,"s8:Interval",dnPackItem(P1))
 		return self
 
 	Func getSynchronizingObject
-		return dnRequest("get",[self,"SynchronizingObject"])
+		return dnSend("s3:get",nHandle,"s19:SynchronizingObject","")
 
 	Func setSynchronizingObject P1
-		dnRequest("set",[self,"SynchronizingObject",P1])
+		dnSend("s3:set",nHandle,"s19:SynchronizingObject",dnPackItem(P1))
 		return self
 
 

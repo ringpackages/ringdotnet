@@ -113,7 +113,7 @@ Class INullable from DotNetObject
 		return self
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 
 Class SqlBinary from ValueType
@@ -165,67 +165,67 @@ Class SqlBinary from ValueType
 		return self
 
 	Func ToSqlGuid 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlGuid"])
+		return dnSend("s4:call",nHandle,"s9:ToSqlGuid","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Concat P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"Concat",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common').nHandle,"s6:Concat",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NotEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"NotEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common').nHandle,"s9:NotEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"LessThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common').nHandle,"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"GreaterThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common').nHandle,"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"LessThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common').nHandle,"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"GreaterThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common').nHandle,"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetXsdType P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"GetXsdType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common').nHandle,"s10:GetXsdType",dnPackItem(P1))
 
 	Func WrapBytes P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"WrapBytes",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common').nHandle,"s9:WrapBytes",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnSend("s3:get",nHandle,"s6:Length","")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getNull
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"Null"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common').nHandle,"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
@@ -286,130 +286,130 @@ Class SqlBoolean from ValueType
 		return self
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlByte"])
+		return dnSend("s4:call",nHandle,"s9:ToSqlByte","")
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDouble"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlDouble","")
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt16"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt16","")
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt32"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt32","")
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt64"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt64","")
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlMoney"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlMoney","")
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDecimal"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlDecimal","")
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlSingle"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlSingle","")
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlString"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func OnesComplement P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"OnesComplement",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s14:OnesComplement",dnPackItem(P1))
 
 	Func And_ P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"And",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s3:And",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Or_ P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"Or",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s2:Or",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Xor P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"Xor",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s3:Xor",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NotEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"NotEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s9:NotEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"GreaterThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"LessThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanOrEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"GreaterThanOrEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s19:GreaterThanOrEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanOrEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"LessThanOrEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s16:LessThanOrEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetXsdType P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"GetXsdType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getIsTrue
-		return dnRequest("get",[self,"IsTrue"])
+		return dnSend("s3:get",nHandle,"s6:IsTrue","")
 
 	Func setIsTrue P1
 		raise("DotNet Error: IsTrue is a read-only property")
 
 	Func getIsFalse
-		return dnRequest("get",[self,"IsFalse"])
+		return dnSend("s3:get",nHandle,"s7:IsFalse","")
 
 	Func setIsFalse P1
 		raise("DotNet Error: IsFalse is a read-only property")
 
 	Func getByteValue
-		return dnRequest("get",[self,"ByteValue"])
+		return dnSend("s3:get",nHandle,"s9:ByteValue","")
 
 	Func setByteValue P1
 		raise("DotNet Error: ByteValue is a read-only property")
 
 	Func getTrue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"True"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s4:True","")
 
 	Func setTrue P1
 		raise("DotNet Error: True is a read-only property")
 
 	Func getFalse
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"False"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s5:False","")
 
 	Func setFalse P1
 		raise("DotNet Error: False is a read-only property")
 
 	Func getNull
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"Null"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
 
 	Func getZero
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"Zero"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getOne
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"One"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common').nHandle,"s3:One","")
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
@@ -466,124 +466,124 @@ Class SqlByte from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlBoolean"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlBoolean","")
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDouble"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlDouble","")
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt16"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt16","")
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt32"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt32","")
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt64"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt64","")
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlMoney"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlMoney","")
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDecimal"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlDecimal","")
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlSingle"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlSingle","")
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlString"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func OnesComplement P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"OnesComplement",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s14:OnesComplement",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"Subtract",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"Multiply",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"Divide",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Mod P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"Mod",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s3:Mod",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Modulus P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"Modulus",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s7:Modulus",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitwiseAnd P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"BitwiseAnd",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s10:BitwiseAnd",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitwiseOr P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"BitwiseOr",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s9:BitwiseOr",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Xor P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"Xor",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s3:Xor",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NotEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"NotEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s9:NotEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"LessThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"GreaterThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"LessThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"GreaterThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetXsdType P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"GetXsdType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getNull
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"Null"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
 
 	Func getZero
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"Zero"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
@@ -642,75 +642,75 @@ Class SqlBytes from Object
 		return self
 
 	Func SetNull 
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetNull"])
+		dnSend("s4:call",nHandle,"s7:SetNull","")
 		return self
 
 	Func SetLength P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetLength",P1])
+		dnSend("s4:call",nHandle,"s9:SetLength",dnPackItem(P1))
 		return self
 
 	Func Read P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Read",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s4:Read",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func Write P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(this.nHandle),"Write",P1,P2,P3,P4])
+		dnSend("s4:call",nHandle,"s5:Write",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func ToSqlBinary 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlBinary"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlBinary","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetXsdType P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBytes, System.Data.Common'),"GetXsdType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlBytes, System.Data.Common').nHandle,"s10:GetXsdType",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 	Func getBuffer
-		return dnRequest("get",[self,"Buffer"])
+		return dnSend("s3:get",nHandle,"s6:Buffer","")
 
 	Func setBuffer P1
 		raise("DotNet Error: Buffer is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnSend("s3:get",nHandle,"s6:Length","")
 
 	Func getMaxLength
-		return dnRequest("get",[self,"MaxLength"])
+		return dnSend("s3:get",nHandle,"s9:MaxLength","")
 
 	Func setMaxLength P1
 		raise("DotNet Error: MaxLength is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getStorage
-		return dnRequest("get",[self,"Storage"])
+		return dnSend("s3:get",nHandle,"s7:Storage","")
 
 	Func setStorage P1
 		raise("DotNet Error: Storage is a read-only property")
 
 	Func getStream
-		return dnRequest("get",[self,"Stream"])
+		return dnSend("s3:get",nHandle,"s6:Stream","")
 
 	Func setStream P1
-		dnRequest("set",[self,"Stream",P1])
+		dnSend("s3:set",nHandle,"s6:Stream",dnPackItem(P1))
 		return self
 
 	Func getNull
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlBytes, System.Data.Common'),"Null"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlBytes, System.Data.Common').nHandle,"s4:Null","")
 
 
 Class SqlChars from Object
@@ -765,68 +765,68 @@ Class SqlChars from Object
 		return self
 
 	Func SetNull 
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetNull"])
+		dnSend("s4:call",nHandle,"s7:SetNull","")
 		return self
 
 	Func SetLength P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetLength",P1])
+		dnSend("s4:call",nHandle,"s9:SetLength",dnPackItem(P1))
 		return self
 
 	Func Read P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Read",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s4:Read",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func Write P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(this.nHandle),"Write",P1,P2,P3,P4])
+		dnSend("s4:call",nHandle,"s5:Write",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlString"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetXsdType P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlChars, System.Data.Common'),"GetXsdType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlChars, System.Data.Common').nHandle,"s10:GetXsdType",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 	Func getBuffer
-		return dnRequest("get",[self,"Buffer"])
+		return dnSend("s3:get",nHandle,"s6:Buffer","")
 
 	Func setBuffer P1
 		raise("DotNet Error: Buffer is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnSend("s3:get",nHandle,"s6:Length","")
 
 	Func getMaxLength
-		return dnRequest("get",[self,"MaxLength"])
+		return dnSend("s3:get",nHandle,"s9:MaxLength","")
 
 	Func setMaxLength P1
 		raise("DotNet Error: MaxLength is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getStorage
-		return dnRequest("get",[self,"Storage"])
+		return dnSend("s3:get",nHandle,"s7:Storage","")
 
 	Func setStorage P1
 		raise("DotNet Error: Storage is a read-only property")
 
 	Func getNull
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlChars, System.Data.Common'),"Null"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlChars, System.Data.Common').nHandle,"s4:Null","")
 
 
 Class SqlDateTime from ValueType
@@ -884,100 +884,100 @@ Class SqlDateTime from ValueType
 		return self
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlString"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"Subtract",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NotEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"NotEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common').nHandle,"s9:NotEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"LessThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common').nHandle,"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"GreaterThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common').nHandle,"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"LessThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common').nHandle,"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"GreaterThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common').nHandle,"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetXsdType P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"GetXsdType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common').nHandle,"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getDayTicks
-		return dnRequest("get",[self,"DayTicks"])
+		return dnSend("s3:get",nHandle,"s8:DayTicks","")
 
 	Func setDayTicks P1
 		raise("DotNet Error: DayTicks is a read-only property")
 
 	Func getTimeTicks
-		return dnRequest("get",[self,"TimeTicks"])
+		return dnSend("s3:get",nHandle,"s9:TimeTicks","")
 
 	Func setTimeTicks P1
 		raise("DotNet Error: TimeTicks is a read-only property")
 
 	Func getSQLTicksPerSecond
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"SQLTicksPerSecond"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common').nHandle,"s17:SQLTicksPerSecond","")
 
 	Func setSQLTicksPerSecond P1
 		raise("DotNet Error: SQLTicksPerSecond is a read-only property")
 
 	Func getSQLTicksPerMinute
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"SQLTicksPerMinute"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common').nHandle,"s17:SQLTicksPerMinute","")
 
 	Func setSQLTicksPerMinute P1
 		raise("DotNet Error: SQLTicksPerMinute is a read-only property")
 
 	Func getSQLTicksPerHour
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"SQLTicksPerHour"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common').nHandle,"s15:SQLTicksPerHour","")
 
 	Func setSQLTicksPerHour P1
 		raise("DotNet Error: SQLTicksPerHour is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getNull
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"Null"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common').nHandle,"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
@@ -1040,172 +1040,172 @@ Class SqlDecimal from ValueType
 		return self
 
 	Func ToDouble 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToDouble"])
+		return dnSend("s4:call",nHandle,"s8:ToDouble","")
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlBoolean"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlBoolean","")
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlByte"])
+		return dnSend("s4:call",nHandle,"s9:ToSqlByte","")
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDouble"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlDouble","")
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt16"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt16","")
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt32"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt32","")
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt64"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt64","")
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlMoney"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlMoney","")
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlSingle"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlSingle","")
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlString"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func AdjustScale P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"AdjustScale",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s11:AdjustScale",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ConvertToPrecScale P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"ConvertToPrecScale",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s18:ConvertToPrecScale",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Subtract",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Multiply",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Divide",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NotEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"NotEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s9:NotEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"LessThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"GreaterThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"LessThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"GreaterThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Abs P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Abs",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s3:Abs",dnPackItem(P1))
 
 	Func Ceiling P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Ceiling",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s7:Ceiling",dnPackItem(P1))
 
 	Func Floor P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Floor",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s5:Floor",dnPackItem(P1))
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Sign",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s4:Sign",dnPackItem(P1))
 
 	Func Round P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Round",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s5:Round",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Truncate P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Truncate",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s8:Truncate",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Power P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Power",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s5:Power",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetXsdType P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"GetXsdType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getIsPositive
-		return dnRequest("get",[self,"IsPositive"])
+		return dnSend("s3:get",nHandle,"s10:IsPositive","")
 
 	Func setIsPositive P1
 		raise("DotNet Error: IsPositive is a read-only property")
 
 	Func getPrecision
-		return dnRequest("get",[self,"Precision"])
+		return dnSend("s3:get",nHandle,"s9:Precision","")
 
 	Func setPrecision P1
 		raise("DotNet Error: Precision is a read-only property")
 
 	Func getScale
-		return dnRequest("get",[self,"Scale"])
+		return dnSend("s3:get",nHandle,"s5:Scale","")
 
 	Func setScale P1
 		raise("DotNet Error: Scale is a read-only property")
 
 	Func getData
-		return dnRequest("get",[self,"Data"])
+		return dnSend("s3:get",nHandle,"s4:Data","")
 
 	Func setData P1
 		raise("DotNet Error: Data is a read-only property")
 
 	Func getBinData
-		return dnRequest("get",[self,"BinData"])
+		return dnSend("s3:get",nHandle,"s7:BinData","")
 
 	Func setBinData P1
 		raise("DotNet Error: BinData is a read-only property")
 
 	Func getMaxPrecision
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"MaxPrecision"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s12:MaxPrecision","")
 
 	Func setMaxPrecision P1
 		raise("DotNet Error: MaxPrecision is a read-only property")
 
 	Func getMaxScale
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"MaxScale"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s8:MaxScale","")
 
 	Func setMaxScale P1
 		raise("DotNet Error: MaxScale is a read-only property")
 
 	Func getNull
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Null"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
@@ -1262,106 +1262,106 @@ Class SqlDouble from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlBoolean"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlBoolean","")
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlByte"])
+		return dnSend("s4:call",nHandle,"s9:ToSqlByte","")
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt16"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt16","")
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt32"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt32","")
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt64"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt64","")
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlMoney"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlMoney","")
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDecimal"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlDecimal","")
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlSingle"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlSingle","")
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlString"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"Subtract",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"Multiply",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"Divide",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NotEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"NotEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common').nHandle,"s9:NotEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"LessThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common').nHandle,"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"GreaterThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common').nHandle,"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"LessThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common').nHandle,"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"GreaterThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common').nHandle,"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetXsdType P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"GetXsdType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common').nHandle,"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getNull
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"Null"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common').nHandle,"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
 
 	Func getZero
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"Zero"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common').nHandle,"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
@@ -1415,58 +1415,58 @@ Class SqlGuid from ValueType
 		return self
 
 	Func ToByteArray 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToByteArray"])
+		return dnSend("s4:call",nHandle,"s11:ToByteArray","")
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlString"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func ToSqlBinary 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlBinary"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlBinary","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func NotEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"NotEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common').nHandle,"s9:NotEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"LessThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common').nHandle,"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"GreaterThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common').nHandle,"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"LessThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common').nHandle,"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"GreaterThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common').nHandle,"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetXsdType P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"GetXsdType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common').nHandle,"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getNull
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"Null"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common').nHandle,"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
@@ -1523,124 +1523,124 @@ Class SqlInt16 from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlBoolean"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlBoolean","")
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlByte"])
+		return dnSend("s4:call",nHandle,"s9:ToSqlByte","")
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDouble"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlDouble","")
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt32"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt32","")
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt64"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt64","")
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlMoney"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlMoney","")
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDecimal"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlDecimal","")
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlSingle"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlSingle","")
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlString"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func OnesComplement P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"OnesComplement",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s14:OnesComplement",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"Subtract",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"Multiply",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"Divide",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Mod P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"Mod",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s3:Mod",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Modulus P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"Modulus",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s7:Modulus",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitwiseAnd P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"BitwiseAnd",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s10:BitwiseAnd",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitwiseOr P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"BitwiseOr",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s9:BitwiseOr",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Xor P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"Xor",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s3:Xor",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NotEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"NotEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s9:NotEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"LessThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"GreaterThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"LessThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"GreaterThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetXsdType P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"GetXsdType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getNull
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"Null"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
 
 	Func getZero
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"Zero"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
@@ -1697,124 +1697,124 @@ Class SqlInt32 from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlBoolean"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlBoolean","")
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlByte"])
+		return dnSend("s4:call",nHandle,"s9:ToSqlByte","")
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDouble"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlDouble","")
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt16"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt16","")
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt64"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt64","")
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlMoney"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlMoney","")
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDecimal"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlDecimal","")
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlSingle"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlSingle","")
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlString"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func OnesComplement P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"OnesComplement",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s14:OnesComplement",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Subtract",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Multiply",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Divide",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Mod P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Mod",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s3:Mod",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Modulus P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Modulus",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s7:Modulus",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitwiseAnd P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"BitwiseAnd",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s10:BitwiseAnd",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitwiseOr P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"BitwiseOr",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s9:BitwiseOr",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Xor P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Xor",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s3:Xor",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NotEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"NotEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s9:NotEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"LessThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"GreaterThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"LessThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"GreaterThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetXsdType P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"GetXsdType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getNull
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Null"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
 
 	Func getZero
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Zero"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
@@ -1871,124 +1871,124 @@ Class SqlInt64 from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlBoolean"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlBoolean","")
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlByte"])
+		return dnSend("s4:call",nHandle,"s9:ToSqlByte","")
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDouble"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlDouble","")
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt16"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt16","")
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt32"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt32","")
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlMoney"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlMoney","")
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDecimal"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlDecimal","")
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlSingle"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlSingle","")
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlString"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func OnesComplement P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"OnesComplement",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s14:OnesComplement",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"Subtract",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"Multiply",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"Divide",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Mod P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"Mod",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s3:Mod",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Modulus P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"Modulus",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s7:Modulus",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitwiseAnd P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"BitwiseAnd",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s10:BitwiseAnd",dnPackItem(P1) + dnPackItem(P2))
 
 	Func BitwiseOr P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"BitwiseOr",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s9:BitwiseOr",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Xor P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"Xor",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s3:Xor",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NotEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"NotEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s9:NotEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"LessThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"GreaterThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"LessThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"GreaterThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetXsdType P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"GetXsdType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getNull
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"Null"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
 
 	Func getZero
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"Zero"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
@@ -2045,124 +2045,124 @@ Class SqlMoney from ValueType
 		return self
 
 	Func ToDecimal 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToDecimal"])
+		return dnSend("s4:call",nHandle,"s9:ToDecimal","")
 
 	Func ToInt64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToInt64"])
+		return dnSend("s4:call",nHandle,"s7:ToInt64","")
 
 	Func ToInt32 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToInt32"])
+		return dnSend("s4:call",nHandle,"s7:ToInt32","")
 
 	Func ToDouble 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToDouble"])
+		return dnSend("s4:call",nHandle,"s8:ToDouble","")
 
 	Func GetTdsValue 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetTdsValue"])
+		return dnSend("s4:call",nHandle,"s11:GetTdsValue","")
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlBoolean"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlBoolean","")
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlByte"])
+		return dnSend("s4:call",nHandle,"s9:ToSqlByte","")
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDouble"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlDouble","")
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt16"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt16","")
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt32"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt32","")
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt64"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt64","")
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDecimal"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlDecimal","")
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlSingle"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlSingle","")
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlString"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func FromTdsValue P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"FromTdsValue",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s12:FromTdsValue",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"Subtract",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"Multiply",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"Divide",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NotEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"NotEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s9:NotEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"LessThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"GreaterThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"LessThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"GreaterThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetXsdType P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"GetXsdType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getNull
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"Null"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
 
 	Func getZero
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"Zero"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
@@ -2219,106 +2219,106 @@ Class SqlSingle from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlBoolean"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlBoolean","")
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlByte"])
+		return dnSend("s4:call",nHandle,"s9:ToSqlByte","")
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDouble"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlDouble","")
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt16"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt16","")
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt32"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt32","")
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt64"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt64","")
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlMoney"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlMoney","")
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDecimal"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlDecimal","")
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlString"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlString","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Subtract P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"Subtract",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common').nHandle,"s8:Subtract",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Multiply P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"Multiply",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common').nHandle,"s8:Multiply",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Divide P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"Divide",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common').nHandle,"s6:Divide",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NotEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"NotEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common').nHandle,"s9:NotEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"LessThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common').nHandle,"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"GreaterThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common').nHandle,"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"LessThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common').nHandle,"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"GreaterThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common').nHandle,"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetXsdType P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"GetXsdType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common').nHandle,"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getNull
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"Null"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common').nHandle,"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
 
 	Func getZero
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"Zero"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common').nHandle,"s4:Zero","")
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"MinValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common').nHandle,"s8:MinValue","")
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"MaxValue"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common').nHandle,"s8:MaxValue","")
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
@@ -2382,157 +2382,157 @@ Class SqlString from ValueType
 		return self
 
 	Func GetUnicodeBytes 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetUnicodeBytes"])
+		return dnSend("s4:call",nHandle,"s15:GetUnicodeBytes","")
 
 	Func GetNonUnicodeBytes 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNonUnicodeBytes"])
+		return dnSend("s4:call",nHandle,"s18:GetNonUnicodeBytes","")
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlBoolean"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlBoolean","")
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlByte"])
+		return dnSend("s4:call",nHandle,"s9:ToSqlByte","")
 
 	Func ToSqlDateTime 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDateTime"])
+		return dnSend("s4:call",nHandle,"s13:ToSqlDateTime","")
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDouble"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlDouble","")
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt16"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt16","")
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt32"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt32","")
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlInt64"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlInt64","")
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlMoney"])
+		return dnSend("s4:call",nHandle,"s10:ToSqlMoney","")
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlDecimal"])
+		return dnSend("s4:call",nHandle,"s12:ToSqlDecimal","")
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlSingle"])
+		return dnSend("s4:call",nHandle,"s11:ToSqlSingle","")
 
 	Func ToSqlGuid 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToSqlGuid"])
+		return dnSend("s4:call",nHandle,"s9:ToSqlGuid","")
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
-				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"Equals",P1])
+				return dnSend("s9:callnamed",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s6:Equals",dnPackItem(P1))
 			ok
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Concat P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"Concat",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s6:Concat",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func NotEquals P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"NotEquals",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s9:NotEquals",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"LessThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s8:LessThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"GreaterThan",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s11:GreaterThan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func LessThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"LessThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s15:LessThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GreaterThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"GreaterThanOrEqual",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s18:GreaterThanOrEqual",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CompareOptionsFromSqlCompareOptions P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"CompareOptionsFromSqlCompareOptions",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s35:CompareOptionsFromSqlCompareOptions",dnPackItem(P1))
 
 	Func GetXsdType P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"GetXsdType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getLCID
-		return dnRequest("get",[self,"LCID"])
+		return dnSend("s3:get",nHandle,"s4:LCID","")
 
 	Func setLCID P1
 		raise("DotNet Error: LCID is a read-only property")
 
 	Func getCultureInfo
-		return dnRequest("get",[self,"CultureInfo"])
+		return dnSend("s3:get",nHandle,"s11:CultureInfo","")
 
 	Func setCultureInfo P1
 		raise("DotNet Error: CultureInfo is a read-only property")
 
 	Func getCompareInfo
-		return dnRequest("get",[self,"CompareInfo"])
+		return dnSend("s3:get",nHandle,"s11:CompareInfo","")
 
 	Func setCompareInfo P1
 		raise("DotNet Error: CompareInfo is a read-only property")
 
 	Func getSqlCompareOptions
-		return dnRequest("get",[self,"SqlCompareOptions"])
+		return dnSend("s3:get",nHandle,"s17:SqlCompareOptions","")
 
 	Func setSqlCompareOptions P1
 		raise("DotNet Error: SqlCompareOptions is a read-only property")
 
 	Func getNull
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"Null"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
 
 	Func getIgnoreCase
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"IgnoreCase"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s10:IgnoreCase","")
 
 	Func setIgnoreCase P1
 		raise("DotNet Error: IgnoreCase is a read-only property")
 
 	Func getIgnoreWidth
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"IgnoreWidth"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s11:IgnoreWidth","")
 
 	Func setIgnoreWidth P1
 		raise("DotNet Error: IgnoreWidth is a read-only property")
 
 	Func getIgnoreNonSpace
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"IgnoreNonSpace"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s14:IgnoreNonSpace","")
 
 	Func setIgnoreNonSpace P1
 		raise("DotNet Error: IgnoreNonSpace is a read-only property")
 
 	Func getIgnoreKanaType
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"IgnoreKanaType"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s14:IgnoreKanaType","")
 
 	Func setIgnoreKanaType P1
 		raise("DotNet Error: IgnoreKanaType is a read-only property")
 
 	Func getBinarySort
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"BinarySort"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s10:BinarySort","")
 
 	Func setBinarySort P1
 		raise("DotNet Error: BinarySort is a read-only property")
 
 	Func getBinarySort2
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"BinarySort2"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common').nHandle,"s11:BinarySort2","")
 
 	Func setBinarySort2 P1
 		raise("DotNet Error: BinarySort2 is a read-only property")
@@ -2586,25 +2586,25 @@ Class SqlXml from Object
 		return self
 
 	Func CreateReader 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateReader"])
+		return dnSend("s4:call",nHandle,"s12:CreateReader","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetXsdType P1
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlXml, System.Data.Common'),"GetXsdType",P1])
+		return dnSend("s4:call",dnTypeCached('System.Data.SqlTypes.SqlXml, System.Data.Common').nHandle,"s10:GetXsdType",dnPackItem(P1))
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnSend("s3:get",nHandle,"s6:IsNull","")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getNull
-		return dnRequest("get",[dnTypeCached('System.Data.SqlTypes.SqlXml, System.Data.Common'),"Null"])
+		return dnSend("s3:get",dnTypeCached('System.Data.SqlTypes.SqlXml, System.Data.Common').nHandle,"s4:Null","")
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")

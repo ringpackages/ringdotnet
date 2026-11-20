@@ -617,25 +617,25 @@ Class ActivatorUtilities from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateInstance P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ActivatorUtilities, Microsoft.Extensions.DependencyInjection.Abstractions'),"CreateInstance",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ActivatorUtilities, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s14:CreateInstance",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateInstance does not take one argument: use named arguments, CreateInstance([ :parameter = value, ... ])")
 
 	Func CreateFactory P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ActivatorUtilities, Microsoft.Extensions.DependencyInjection.Abstractions'),"CreateFactory",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ActivatorUtilities, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s13:CreateFactory",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ActivatorUtilities, Microsoft.Extensions.DependencyInjection.Abstractions'),"CreateFactory",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ActivatorUtilities, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s13:CreateFactory",dnPackItem(P1))
 
 	Func GetServiceOrCreateInstance P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ActivatorUtilities, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetServiceOrCreateInstance",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ActivatorUtilities, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s26:GetServiceOrCreateInstance",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ActivatorUtilities, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetServiceOrCreateInstance",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ActivatorUtilities, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s26:GetServiceOrCreateInstance",dnPackItem(P1))
 
 
 Class AntiforgeryServiceCollectionExtensions from Object
@@ -650,13 +650,13 @@ Class AntiforgeryServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddAntiforgery P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.AntiforgeryServiceCollectionExtensions, Microsoft.AspNetCore.Antiforgery'),"AddAntiforgery",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.AntiforgeryServiceCollectionExtensions, Microsoft.AspNetCore.Antiforgery').nHandle,"s14:AddAntiforgery",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.AntiforgeryServiceCollectionExtensions, Microsoft.AspNetCore.Antiforgery'),"AddAntiforgery",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.AntiforgeryServiceCollectionExtensions, Microsoft.AspNetCore.Antiforgery').nHandle,"s14:AddAntiforgery",dnPackItem(P1))
 
 
 Class ApplicationModelConventionExtensions from Object
@@ -671,18 +671,18 @@ Class ApplicationModelConventionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func RemoveType P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"RemoveType",P1])
+			dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s10:RemoveType",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"RemoveType",P1])
+		dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s10:RemoveType",dnPackItem(P1))
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"Add",P1,P2])
+		dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -733,14 +733,14 @@ Class AsyncServiceScope from ValueType
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DisposeAsync"])
+		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func getServiceProvider
-		return dnRequest("get",[self,"ServiceProvider"])
+		return dnSend("s3:get",nHandle,"s15:ServiceProvider","")
 
 	Func setServiceProvider P1
 		raise("DotNet Error: ServiceProvider is a read-only property")
@@ -758,13 +758,13 @@ Class AuthenticationCoreServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddAuthenticationCore P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.AuthenticationCoreServiceCollectionExtensions, Microsoft.AspNetCore.Authentication.Core'),"AddAuthenticationCore",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.AuthenticationCoreServiceCollectionExtensions, Microsoft.AspNetCore.Authentication.Core').nHandle,"s21:AddAuthenticationCore",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.AuthenticationCoreServiceCollectionExtensions, Microsoft.AspNetCore.Authentication.Core'),"AddAuthenticationCore",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.AuthenticationCoreServiceCollectionExtensions, Microsoft.AspNetCore.Authentication.Core').nHandle,"s21:AddAuthenticationCore",dnPackItem(P1))
 
 
 Class AuthenticationServiceCollectionExtensions from Object
@@ -779,13 +779,13 @@ Class AuthenticationServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddAuthentication P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions, Microsoft.AspNetCore.Authentication'),"AddAuthentication",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions, Microsoft.AspNetCore.Authentication').nHandle,"s17:AddAuthentication",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions, Microsoft.AspNetCore.Authentication'),"AddAuthentication",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions, Microsoft.AspNetCore.Authentication').nHandle,"s17:AddAuthentication",dnPackItem(P1))
 
 
 Class AuthorizationServiceCollectionExtensions from Object
@@ -800,13 +800,13 @@ Class AuthorizationServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddAuthorizationCore P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.AuthorizationServiceCollectionExtensions, Microsoft.AspNetCore.Authorization'),"AddAuthorizationCore",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.AuthorizationServiceCollectionExtensions, Microsoft.AspNetCore.Authorization').nHandle,"s20:AddAuthorizationCore",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.AuthorizationServiceCollectionExtensions, Microsoft.AspNetCore.Authorization'),"AddAuthorizationCore",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.AuthorizationServiceCollectionExtensions, Microsoft.AspNetCore.Authorization').nHandle,"s20:AddAuthorizationCore",dnPackItem(P1))
 
 
 Class BearerTokenExtensions from Object
@@ -821,13 +821,13 @@ Class BearerTokenExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddBearerToken P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.BearerTokenExtensions, Microsoft.AspNetCore.Authentication.BearerToken'),"AddBearerToken",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.BearerTokenExtensions, Microsoft.AspNetCore.Authentication.BearerToken').nHandle,"s14:AddBearerToken",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.BearerTokenExtensions, Microsoft.AspNetCore.Authentication.BearerToken'),"AddBearerToken",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.BearerTokenExtensions, Microsoft.AspNetCore.Authentication.BearerToken').nHandle,"s14:AddBearerToken",dnPackItem(P1))
 
 
 Class CascadingAuthenticationStateServiceCollectionExtensions from Object
@@ -842,10 +842,10 @@ Class CascadingAuthenticationStateServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddCascadingAuthenticationState P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CascadingAuthenticationStateServiceCollectionExtensions, Microsoft.AspNetCore.Components.Authorization'),"AddCascadingAuthenticationState",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.CascadingAuthenticationStateServiceCollectionExtensions, Microsoft.AspNetCore.Components.Authorization').nHandle,"s31:AddCascadingAuthenticationState",dnPackItem(P1))
 
 
 Class CascadingValueServiceCollectionExtensions from Object
@@ -860,17 +860,17 @@ Class CascadingValueServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddCascadingValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CascadingValueServiceCollectionExtensions, Microsoft.AspNetCore.Components'),"AddCascadingValue",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.CascadingValueServiceCollectionExtensions, Microsoft.AspNetCore.Components').nHandle,"s17:AddCascadingValue",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddCascadingValue does not take one argument: use named arguments, AddCascadingValue([ :parameter = value, ... ])")
 
 	Func TryAddCascadingValue P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CascadingValueServiceCollectionExtensions, Microsoft.AspNetCore.Components'),"TryAddCascadingValue",P1])
+			dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.CascadingValueServiceCollectionExtensions, Microsoft.AspNetCore.Components').nHandle,"s20:TryAddCascadingValue",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: TryAddCascadingValue does not take one argument: use named arguments, TryAddCascadingValue([ :parameter = value, ... ])")
@@ -888,10 +888,10 @@ Class CertificateForwardingServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddCertificateForwarding P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CertificateForwardingServiceExtensions, Microsoft.AspNetCore.HttpOverrides'),"AddCertificateForwarding",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.CertificateForwardingServiceExtensions, Microsoft.AspNetCore.HttpOverrides').nHandle,"s24:AddCertificateForwarding",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class ComponentServiceCollectionExtensions from Object
@@ -906,13 +906,13 @@ Class ComponentServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddServerSideBlazor P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ComponentServiceCollectionExtensions, Microsoft.AspNetCore.Components.Server'),"AddServerSideBlazor",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ComponentServiceCollectionExtensions, Microsoft.AspNetCore.Components.Server').nHandle,"s19:AddServerSideBlazor",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ComponentServiceCollectionExtensions, Microsoft.AspNetCore.Components.Server'),"AddServerSideBlazor",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ComponentServiceCollectionExtensions, Microsoft.AspNetCore.Components.Server').nHandle,"s19:AddServerSideBlazor",dnPackItem(P1))
 
 
 Class ConnectionsDependencyInjectionExtensions from Object
@@ -927,13 +927,13 @@ Class ConnectionsDependencyInjectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddConnections P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ConnectionsDependencyInjectionExtensions, Microsoft.AspNetCore.Http.Connections'),"AddConnections",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ConnectionsDependencyInjectionExtensions, Microsoft.AspNetCore.Http.Connections').nHandle,"s14:AddConnections",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ConnectionsDependencyInjectionExtensions, Microsoft.AspNetCore.Http.Connections'),"AddConnections",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ConnectionsDependencyInjectionExtensions, Microsoft.AspNetCore.Http.Connections').nHandle,"s14:AddConnections",dnPackItem(P1))
 
 
 Class CookieExtensions from Object
@@ -948,13 +948,13 @@ Class CookieExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddCookie P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CookieExtensions, Microsoft.AspNetCore.Authentication.Cookies'),"AddCookie",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.CookieExtensions, Microsoft.AspNetCore.Authentication.Cookies').nHandle,"s9:AddCookie",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CookieExtensions, Microsoft.AspNetCore.Authentication.Cookies'),"AddCookie",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.CookieExtensions, Microsoft.AspNetCore.Authentication.Cookies').nHandle,"s9:AddCookie",dnPackItem(P1))
 
 
 Class CookiePolicyServiceCollectionExtensions from Object
@@ -969,10 +969,10 @@ Class CookiePolicyServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddCookiePolicy P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CookiePolicyServiceCollectionExtensions, Microsoft.AspNetCore.CookiePolicy'),"AddCookiePolicy",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.CookiePolicyServiceCollectionExtensions, Microsoft.AspNetCore.CookiePolicy').nHandle,"s15:AddCookiePolicy",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class CorsServiceCollectionExtensions from Object
@@ -987,13 +987,13 @@ Class CorsServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddCors P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions, Microsoft.AspNetCore.Cors'),"AddCors",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions, Microsoft.AspNetCore.Cors').nHandle,"s7:AddCors",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions, Microsoft.AspNetCore.Cors'),"AddCors",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions, Microsoft.AspNetCore.Cors').nHandle,"s7:AddCors",dnPackItem(P1))
 
 
 Class DataProtectionServiceCollectionExtensions from Object
@@ -1008,13 +1008,13 @@ Class DataProtectionServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddDataProtection P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.DataProtectionServiceCollectionExtensions, Microsoft.AspNetCore.DataProtection'),"AddDataProtection",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.DataProtectionServiceCollectionExtensions, Microsoft.AspNetCore.DataProtection').nHandle,"s17:AddDataProtection",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.DataProtectionServiceCollectionExtensions, Microsoft.AspNetCore.DataProtection'),"AddDataProtection",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.DataProtectionServiceCollectionExtensions, Microsoft.AspNetCore.DataProtection').nHandle,"s17:AddDataProtection",dnPackItem(P1))
 
 
 Class DefaultServiceProviderFactory from Object
@@ -1062,13 +1062,13 @@ Class DefaultServiceProviderFactory from Object
 		return self
 
 	Func CreateBuilder P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateBuilder",P1])
+		return dnSend("s4:call",nHandle,"s13:CreateBuilder",dnPackItem(P1))
 
 	Func CreateServiceProvider P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateServiceProvider",P1])
+		return dnSend("s4:call",nHandle,"s21:CreateServiceProvider",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class DirectoryBrowserServiceExtensions from Object
@@ -1083,10 +1083,10 @@ Class DirectoryBrowserServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddDirectoryBrowser P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.DirectoryBrowserServiceExtensions, Microsoft.AspNetCore.StaticFiles'),"AddDirectoryBrowser",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.DirectoryBrowserServiceExtensions, Microsoft.AspNetCore.StaticFiles').nHandle,"s19:AddDirectoryBrowser",dnPackItem(P1))
 
 
 Class EncoderServiceCollectionExtensions from Object
@@ -1101,13 +1101,13 @@ Class EncoderServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddWebEncoders P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.EncoderServiceCollectionExtensions, Microsoft.Extensions.WebEncoders'),"AddWebEncoders",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.EncoderServiceCollectionExtensions, Microsoft.Extensions.WebEncoders').nHandle,"s14:AddWebEncoders",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.EncoderServiceCollectionExtensions, Microsoft.Extensions.WebEncoders'),"AddWebEncoders",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.EncoderServiceCollectionExtensions, Microsoft.Extensions.WebEncoders').nHandle,"s14:AddWebEncoders",dnPackItem(P1))
 
 
 Class EndpointMetadataApiExplorerServiceCollectionExtensions from Object
@@ -1122,10 +1122,10 @@ Class EndpointMetadataApiExplorerServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddEndpointsApiExplorer P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.EndpointMetadataApiExplorerServiceCollectionExtensions, Microsoft.AspNetCore.Mvc.ApiExplorer'),"AddEndpointsApiExplorer",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.EndpointMetadataApiExplorerServiceCollectionExtensions, Microsoft.AspNetCore.Mvc.ApiExplorer').nHandle,"s23:AddEndpointsApiExplorer",dnPackItem(P1))
 
 
 Class ExceptionHandlerServiceCollectionExtensions from Object
@@ -1140,13 +1140,13 @@ Class ExceptionHandlerServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddExceptionHandler P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ExceptionHandlerServiceCollectionExtensions, Microsoft.AspNetCore.Diagnostics'),"AddExceptionHandler",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ExceptionHandlerServiceCollectionExtensions, Microsoft.AspNetCore.Diagnostics').nHandle,"s19:AddExceptionHandler",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ExceptionHandlerServiceCollectionExtensions, Microsoft.AspNetCore.Diagnostics'),"AddExceptionHandler",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ExceptionHandlerServiceCollectionExtensions, Microsoft.AspNetCore.Diagnostics').nHandle,"s19:AddExceptionHandler",dnPackItem(P1))
 
 
 Class HealthCheckServiceCollectionExtensions from Object
@@ -1161,10 +1161,10 @@ Class HealthCheckServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddHealthChecks P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions, Microsoft.Extensions.Diagnostics.HealthChecks'),"AddHealthChecks",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions, Microsoft.Extensions.Diagnostics.HealthChecks').nHandle,"s15:AddHealthChecks",dnPackItem(P1))
 
 
 Class HealthChecksBuilderAddCheckExtensions from Object
@@ -1179,17 +1179,17 @@ Class HealthChecksBuilderAddCheckExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddCheck P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions, Microsoft.Extensions.Diagnostics.HealthChecks'),"AddCheck",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions, Microsoft.Extensions.Diagnostics.HealthChecks').nHandle,"s8:AddCheck",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddCheck does not take one argument: use named arguments, AddCheck([ :parameter = value, ... ])")
 
 	Func AddTypeActivatedCheck P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions, Microsoft.Extensions.Diagnostics.HealthChecks'),"AddTypeActivatedCheck",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions, Microsoft.Extensions.Diagnostics.HealthChecks').nHandle,"s21:AddTypeActivatedCheck",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddTypeActivatedCheck does not take one argument: use named arguments, AddTypeActivatedCheck([ :parameter = value, ... ])")
 
@@ -1206,17 +1206,17 @@ Class HealthChecksBuilderDelegateExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddCheck P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HealthChecksBuilderDelegateExtensions, Microsoft.Extensions.Diagnostics.HealthChecks'),"AddCheck",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.HealthChecksBuilderDelegateExtensions, Microsoft.Extensions.Diagnostics.HealthChecks').nHandle,"s8:AddCheck",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddCheck does not take one argument: use named arguments, AddCheck([ :parameter = value, ... ])")
 
 	Func AddAsyncCheck P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HealthChecksBuilderDelegateExtensions, Microsoft.Extensions.Diagnostics.HealthChecks'),"AddAsyncCheck",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.HealthChecksBuilderDelegateExtensions, Microsoft.Extensions.Diagnostics.HealthChecks').nHandle,"s13:AddAsyncCheck",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddAsyncCheck does not take one argument: use named arguments, AddAsyncCheck([ :parameter = value, ... ])")
 
@@ -1233,67 +1233,67 @@ Class HttpClientBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ConfigureHttpClient P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"ConfigureHttpClient",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s19:ConfigureHttpClient",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddHttpMessageHandler P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddHttpMessageHandler",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s21:AddHttpMessageHandler",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddHttpMessageHandler",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s21:AddHttpMessageHandler",dnPackItem(P1))
 
 	Func ConfigurePrimaryHttpMessageHandler P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"ConfigurePrimaryHttpMessageHandler",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s34:ConfigurePrimaryHttpMessageHandler",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"ConfigurePrimaryHttpMessageHandler",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s34:ConfigurePrimaryHttpMessageHandler",dnPackItem(P1))
 
 	Func ConfigureHttpMessageHandlerBuilder P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"ConfigureHttpMessageHandlerBuilder",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s34:ConfigureHttpMessageHandlerBuilder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UseSocketsHttpHandler P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"UseSocketsHttpHandler",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s21:UseSocketsHttpHandler",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"UseSocketsHttpHandler",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s21:UseSocketsHttpHandler",dnPackItem(P1))
 
 	Func AddTypedClient P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddTypedClient",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s14:AddTypedClient",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddTypedClient",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s14:AddTypedClient",dnPackItem(P1))
 
 	Func RedactLoggedHeaders P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"RedactLoggedHeaders",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s19:RedactLoggedHeaders",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetHandlerLifetime P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"SetHandlerLifetime",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s18:SetHandlerLifetime",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConfigureAdditionalHttpMessageHandlers P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"ConfigureAdditionalHttpMessageHandlers",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s38:ConfigureAdditionalHttpMessageHandlers",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddAsKeyed P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddAsKeyed",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s10:AddAsKeyed",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddAsKeyed",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s10:AddAsKeyed",dnPackItem(P1))
 
 	Func RemoveAsKeyed P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"RemoveAsKeyed",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s13:RemoveAsKeyed",dnPackItem(P1))
 
 	Func AddLogger P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddLogger",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s9:AddLogger",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddLogger",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s9:AddLogger",dnPackItem(P1))
 
 	Func RemoveAllLoggers P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"RemoveAllLoggers",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s16:RemoveAllLoggers",dnPackItem(P1))
 
 	Func AddDefaultLogger P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddDefaultLogger",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s16:AddDefaultLogger",dnPackItem(P1))
 
 
 Class HttpClientFactoryServiceCollectionExtensions from Object
@@ -1308,16 +1308,16 @@ Class HttpClientFactoryServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddHttpClient P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions, Microsoft.Extensions.Http'),"AddHttpClient",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions, Microsoft.Extensions.Http').nHandle,"s13:AddHttpClient",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions, Microsoft.Extensions.Http'),"AddHttpClient",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions, Microsoft.Extensions.Http').nHandle,"s13:AddHttpClient",dnPackItem(P1))
 
 	Func ConfigureHttpClientDefaults P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions, Microsoft.Extensions.Http'),"ConfigureHttpClientDefaults",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions, Microsoft.Extensions.Http').nHandle,"s27:ConfigureHttpClientDefaults",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class HttpJsonServiceExtensions from Object
@@ -1332,10 +1332,10 @@ Class HttpJsonServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ConfigureHttpJsonOptions P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpJsonServiceExtensions, Microsoft.AspNetCore.Http.Extensions'),"ConfigureHttpJsonOptions",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpJsonServiceExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s24:ConfigureHttpJsonOptions",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class HttpLoggingServicesExtensions from Object
@@ -1350,19 +1350,19 @@ Class HttpLoggingServicesExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddHttpLogging P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging'),"AddHttpLogging",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging').nHandle,"s14:AddHttpLogging",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging'),"AddHttpLogging",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging').nHandle,"s14:AddHttpLogging",dnPackItem(P1))
 
 	Func AddHttpLoggingInterceptor P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging'),"AddHttpLoggingInterceptor",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging').nHandle,"s25:AddHttpLoggingInterceptor",dnPackItem(P1))
 
 	Func AddW3CLogging P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging'),"AddW3CLogging",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging').nHandle,"s13:AddW3CLogging",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class HttpServiceCollectionExtensions from Object
@@ -1377,10 +1377,10 @@ Class HttpServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddHttpContextAccessor P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpServiceCollectionExtensions, Microsoft.AspNetCore.Http'),"AddHttpContextAccessor",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpServiceCollectionExtensions, Microsoft.AspNetCore.Http').nHandle,"s22:AddHttpContextAccessor",dnPackItem(P1))
 
 
 Class IHealthChecksBuilder from DotNetObject
@@ -1397,10 +1397,10 @@ Class IHealthChecksBuilder from DotNetObject
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnSend("s3:get",nHandle,"s8:Services","")
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
@@ -1421,13 +1421,13 @@ Class IHttpClientBuilder from DotNetObject
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnSend("s3:get",nHandle,"s8:Services","")
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
@@ -1445,10 +1445,10 @@ Class IKeyedServiceProvider from DotNetObject
 		return self
 
 	Func GetKeyedService P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetKeyedService",P1,P2])
+		return dnSend("s4:call",nHandle,"s15:GetKeyedService",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetRequiredKeyedService P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRequiredKeyedService",P1,P2])
+		return dnSend("s4:call",nHandle,"s23:GetRequiredKeyedService",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class IMvcBuilder from DotNetObject
@@ -1466,13 +1466,13 @@ Class IMvcBuilder from DotNetObject
 		return self
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnSend("s3:get",nHandle,"s8:Services","")
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
 
 	Func getPartManager
-		return dnRequest("get",[self,"PartManager"])
+		return dnSend("s3:get",nHandle,"s11:PartManager","")
 
 	Func setPartManager P1
 		raise("DotNet Error: PartManager is a read-only property")
@@ -1493,13 +1493,13 @@ Class IMvcCoreBuilder from DotNetObject
 		return self
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnSend("s3:get",nHandle,"s8:Services","")
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
 
 	Func getPartManager
-		return dnRequest("get",[self,"PartManager"])
+		return dnSend("s3:get",nHandle,"s11:PartManager","")
 
 	Func setPartManager P1
 		raise("DotNet Error: PartManager is a read-only property")
@@ -1519,7 +1519,7 @@ Class IRazorComponentsBuilder from DotNetObject
 		return self
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnSend("s3:get",nHandle,"s8:Services","")
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
@@ -1539,7 +1539,7 @@ Class IServerSideBlazorBuilder from DotNetObject
 		return self
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnSend("s3:get",nHandle,"s8:Services","")
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
@@ -1569,7 +1569,7 @@ Class IServiceProviderIsKeyedService from DotNetObject
 		return self
 
 	Func IsKeyedService P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsKeyedService",P1,P2])
+		return dnSend("s4:call",nHandle,"s14:IsKeyedService",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class IServiceProviderIsService from DotNetObject
@@ -1584,7 +1584,7 @@ Class IServiceProviderIsService from DotNetObject
 		return self
 
 	Func IsService P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsService",P1])
+		return dnSend("s4:call",nHandle,"s9:IsService",dnPackItem(P1))
 
 
 Class IServiceScope from DotNetObject
@@ -1601,7 +1601,7 @@ Class IServiceScope from DotNetObject
 		return self
 
 	Func getServiceProvider
-		return dnRequest("get",[self,"ServiceProvider"])
+		return dnSend("s3:get",nHandle,"s15:ServiceProvider","")
 
 	Func setServiceProvider P1
 		raise("DotNet Error: ServiceProvider is a read-only property")
@@ -1619,7 +1619,7 @@ Class IServiceScopeFactory from DotNetObject
 		return self
 
 	Func CreateScope 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateScope"])
+		return dnSend("s4:call",nHandle,"s11:CreateScope","")
 
 
 Class ISocketsHttpHandlerBuilder from DotNetObject
@@ -1637,13 +1637,13 @@ Class ISocketsHttpHandlerBuilder from DotNetObject
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnSend("s3:get",nHandle,"s8:Services","")
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
@@ -1661,7 +1661,7 @@ Class ISupportRequiredService from DotNetObject
 		return self
 
 	Func GetRequiredService P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRequiredService",P1])
+		return dnSend("s4:call",nHandle,"s18:GetRequiredService",dnPackItem(P1))
 
 
 Class IdentityServiceCollectionExtensions from Object
@@ -1676,25 +1676,25 @@ Class IdentityServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddIdentity P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity'),"AddIdentity",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity').nHandle,"s11:AddIdentity",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity'),"AddIdentity",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity').nHandle,"s11:AddIdentity",dnPackItem(P1))
 
 	Func AddIdentityApiEndpoints P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity'),"AddIdentityApiEndpoints",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity').nHandle,"s23:AddIdentityApiEndpoints",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity'),"AddIdentityApiEndpoints",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity').nHandle,"s23:AddIdentityApiEndpoints",dnPackItem(P1))
 
 	Func ConfigureApplicationCookie P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity'),"ConfigureApplicationCookie",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity').nHandle,"s26:ConfigureApplicationCookie",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConfigureExternalCookie P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity'),"ConfigureExternalCookie",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity').nHandle,"s23:ConfigureExternalCookie",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class JsonProtocolDependencyInjectionExtensions from Object
@@ -1709,13 +1709,13 @@ Class JsonProtocolDependencyInjectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddJsonProtocol P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.JsonProtocolDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR.Protocols.Json'),"AddJsonProtocol",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.JsonProtocolDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR.Protocols.Json').nHandle,"s15:AddJsonProtocol",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.JsonProtocolDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR.Protocols.Json'),"AddJsonProtocol",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.JsonProtocolDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR.Protocols.Json').nHandle,"s15:AddJsonProtocol",dnPackItem(P1))
 
 
 Class KeyedService from Object
@@ -1732,10 +1732,10 @@ Class KeyedService from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAnyKey
-		return dnRequest("get",[dnTypeCached('Microsoft.Extensions.DependencyInjection.KeyedService, Microsoft.Extensions.DependencyInjection.Abstractions'),"AnyKey"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.DependencyInjection.KeyedService, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s6:AnyKey","")
 
 	Func setAnyKey P1
 		raise("DotNet Error: AnyKey is a read-only property")
@@ -1753,13 +1753,13 @@ Class LocalizationServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddLocalization P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.LocalizationServiceCollectionExtensions, Microsoft.Extensions.Localization'),"AddLocalization",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.LocalizationServiceCollectionExtensions, Microsoft.Extensions.Localization').nHandle,"s15:AddLocalization",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.LocalizationServiceCollectionExtensions, Microsoft.Extensions.Localization'),"AddLocalization",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.LocalizationServiceCollectionExtensions, Microsoft.Extensions.Localization').nHandle,"s15:AddLocalization",dnPackItem(P1))
 
 
 Class LoggingServiceCollectionExtensions from Object
@@ -1774,13 +1774,13 @@ Class LoggingServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddLogging P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.LoggingServiceCollectionExtensions, Microsoft.Extensions.Logging'),"AddLogging",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.LoggingServiceCollectionExtensions, Microsoft.Extensions.Logging').nHandle,"s10:AddLogging",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.LoggingServiceCollectionExtensions, Microsoft.Extensions.Logging'),"AddLogging",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.LoggingServiceCollectionExtensions, Microsoft.Extensions.Logging').nHandle,"s10:AddLogging",dnPackItem(P1))
 
 
 Class MemoryCacheServiceCollectionExtensions from Object
@@ -1795,19 +1795,19 @@ Class MemoryCacheServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddMemoryCache P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions, Microsoft.Extensions.Caching.Memory'),"AddMemoryCache",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions, Microsoft.Extensions.Caching.Memory').nHandle,"s14:AddMemoryCache",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions, Microsoft.Extensions.Caching.Memory'),"AddMemoryCache",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions, Microsoft.Extensions.Caching.Memory').nHandle,"s14:AddMemoryCache",dnPackItem(P1))
 
 	Func AddDistributedMemoryCache P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions, Microsoft.Extensions.Caching.Memory'),"AddDistributedMemoryCache",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions, Microsoft.Extensions.Caching.Memory').nHandle,"s25:AddDistributedMemoryCache",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions, Microsoft.Extensions.Caching.Memory'),"AddDistributedMemoryCache",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions, Microsoft.Extensions.Caching.Memory').nHandle,"s25:AddDistributedMemoryCache",dnPackItem(P1))
 
 
 Class MetricsServiceExtensions from Object
@@ -1822,13 +1822,13 @@ Class MetricsServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddMetrics P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MetricsServiceExtensions, Microsoft.Extensions.Diagnostics'),"AddMetrics",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MetricsServiceExtensions, Microsoft.Extensions.Diagnostics').nHandle,"s10:AddMetrics",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MetricsServiceExtensions, Microsoft.Extensions.Diagnostics'),"AddMetrics",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MetricsServiceExtensions, Microsoft.Extensions.Diagnostics').nHandle,"s10:AddMetrics",dnPackItem(P1))
 
 
 Class MvcApiExplorerMvcCoreBuilderExtensions from Object
@@ -1843,10 +1843,10 @@ Class MvcApiExplorerMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddApiExplorer P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcApiExplorerMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ApiExplorer'),"AddApiExplorer",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcApiExplorerMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ApiExplorer').nHandle,"s14:AddApiExplorer",dnPackItem(P1))
 
 
 Class MvcCoreMvcBuilderExtensions from Object
@@ -1861,31 +1861,31 @@ Class MvcCoreMvcBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddMvcOptions P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddMvcOptions",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s13:AddMvcOptions",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddJsonOptions P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddJsonOptions",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s14:AddJsonOptions",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddFormatterMappings P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddFormatterMappings",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s20:AddFormatterMappings",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddApplicationPart P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddApplicationPart",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s18:AddApplicationPart",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConfigureApplicationPartManager P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"ConfigureApplicationPartManager",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s31:ConfigureApplicationPartManager",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddControllersAsServices P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddControllersAsServices",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s24:AddControllersAsServices",dnPackItem(P1))
 
 	Func SetCompatibilityVersion P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"SetCompatibilityVersion",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s23:SetCompatibilityVersion",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConfigureApiBehaviorOptions P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"ConfigureApiBehaviorOptions",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s27:ConfigureApiBehaviorOptions",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class MvcCoreMvcCoreBuilderExtensions from Object
@@ -1900,40 +1900,40 @@ Class MvcCoreMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddMvcOptions P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddMvcOptions",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s13:AddMvcOptions",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddJsonOptions P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddJsonOptions",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s14:AddJsonOptions",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddFormatterMappings P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddFormatterMappings",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s20:AddFormatterMappings",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddFormatterMappings",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s20:AddFormatterMappings",dnPackItem(P1))
 
 	Func AddAuthorization P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddAuthorization",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s16:AddAuthorization",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddAuthorization",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s16:AddAuthorization",dnPackItem(P1))
 
 	Func AddControllersAsServices P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddControllersAsServices",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s24:AddControllersAsServices",dnPackItem(P1))
 
 	Func AddApplicationPart P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddApplicationPart",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s18:AddApplicationPart",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConfigureApplicationPartManager P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"ConfigureApplicationPartManager",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s31:ConfigureApplicationPartManager",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConfigureApiBehaviorOptions P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"ConfigureApiBehaviorOptions",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s27:ConfigureApiBehaviorOptions",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SetCompatibilityVersion P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"SetCompatibilityVersion",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s23:SetCompatibilityVersion",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class MvcCoreServiceCollectionExtensions from Object
@@ -1948,13 +1948,13 @@ Class MvcCoreServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddMvcCore P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreServiceCollectionExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddMvcCore",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreServiceCollectionExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s10:AddMvcCore",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreServiceCollectionExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddMvcCore",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreServiceCollectionExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s10:AddMvcCore",dnPackItem(P1))
 
 
 Class MvcCorsMvcCoreBuilderExtensions from Object
@@ -1969,16 +1969,16 @@ Class MvcCorsMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddCors P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Cors'),"AddCors",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Cors').nHandle,"s7:AddCors",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Cors'),"AddCors",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Cors').nHandle,"s7:AddCors",dnPackItem(P1))
 
 	Func ConfigureCors P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Cors'),"ConfigureCors",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Cors').nHandle,"s13:ConfigureCors",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class MvcDataAnnotationsMvcBuilderExtensions from Object
@@ -1993,13 +1993,13 @@ Class MvcDataAnnotationsMvcBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddDataAnnotationsLocalization P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.DataAnnotations'),"AddDataAnnotationsLocalization",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.DataAnnotations').nHandle,"s30:AddDataAnnotationsLocalization",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.DataAnnotations'),"AddDataAnnotationsLocalization",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.DataAnnotations').nHandle,"s30:AddDataAnnotationsLocalization",dnPackItem(P1))
 
 
 Class MvcDataAnnotationsMvcCoreBuilderExtensions from Object
@@ -2014,16 +2014,16 @@ Class MvcDataAnnotationsMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddDataAnnotations P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.DataAnnotations'),"AddDataAnnotations",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.DataAnnotations').nHandle,"s18:AddDataAnnotations",dnPackItem(P1))
 
 	Func AddDataAnnotationsLocalization P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.DataAnnotations'),"AddDataAnnotationsLocalization",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.DataAnnotations').nHandle,"s30:AddDataAnnotationsLocalization",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.DataAnnotations'),"AddDataAnnotationsLocalization",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.DataAnnotations').nHandle,"s30:AddDataAnnotationsLocalization",dnPackItem(P1))
 
 
 Class MvcLocalizationMvcBuilderExtensions from Object
@@ -2038,19 +2038,19 @@ Class MvcLocalizationMvcBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddViewLocalization P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddViewLocalization",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization').nHandle,"s19:AddViewLocalization",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddViewLocalization",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization').nHandle,"s19:AddViewLocalization",dnPackItem(P1))
 
 	Func AddMvcLocalization P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddMvcLocalization",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization').nHandle,"s18:AddMvcLocalization",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddMvcLocalization",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization').nHandle,"s18:AddMvcLocalization",dnPackItem(P1))
 
 
 Class MvcLocalizationMvcCoreBuilderExtensions from Object
@@ -2065,19 +2065,19 @@ Class MvcLocalizationMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddViewLocalization P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddViewLocalization",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization').nHandle,"s19:AddViewLocalization",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddViewLocalization",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization').nHandle,"s19:AddViewLocalization",dnPackItem(P1))
 
 	Func AddMvcLocalization P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddMvcLocalization",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization').nHandle,"s18:AddMvcLocalization",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddMvcLocalization",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization').nHandle,"s18:AddMvcLocalization",dnPackItem(P1))
 
 
 Class MvcRazorMvcBuilderExtensions from Object
@@ -2092,16 +2092,16 @@ Class MvcRazorMvcBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddRazorOptions P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor'),"AddRazorOptions",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor').nHandle,"s15:AddRazorOptions",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddTagHelpersAsServices P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor'),"AddTagHelpersAsServices",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor').nHandle,"s23:AddTagHelpersAsServices",dnPackItem(P1))
 
 	Func InitializeTagHelper P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor'),"InitializeTagHelper",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor').nHandle,"s19:InitializeTagHelper",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class MvcRazorMvcCoreBuilderExtensions from Object
@@ -2116,19 +2116,19 @@ Class MvcRazorMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddRazorViewEngine P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor'),"AddRazorViewEngine",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor').nHandle,"s18:AddRazorViewEngine",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor'),"AddRazorViewEngine",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor').nHandle,"s18:AddRazorViewEngine",dnPackItem(P1))
 
 	Func AddTagHelpersAsServices P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor'),"AddTagHelpersAsServices",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor').nHandle,"s23:AddTagHelpersAsServices",dnPackItem(P1))
 
 	Func InitializeTagHelper P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor'),"InitializeTagHelper",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor').nHandle,"s19:InitializeTagHelper",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class MvcRazorPagesMvcBuilderExtensions from Object
@@ -2143,16 +2143,16 @@ Class MvcRazorPagesMvcBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddRazorPagesOptions P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AddRazorPagesOptions",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s20:AddRazorPagesOptions",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WithRazorPagesRoot P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"WithRazorPagesRoot",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s18:WithRazorPagesRoot",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WithRazorPagesAtContentRoot P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"WithRazorPagesAtContentRoot",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s27:WithRazorPagesAtContentRoot",dnPackItem(P1))
 
 
 Class MvcRazorPagesMvcCoreBuilderExtensions from Object
@@ -2167,16 +2167,16 @@ Class MvcRazorPagesMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddRazorPages P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AddRazorPages",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s13:AddRazorPages",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AddRazorPages",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s13:AddRazorPages",dnPackItem(P1))
 
 	Func WithRazorPagesRoot P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"WithRazorPagesRoot",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s18:WithRazorPagesRoot",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class MvcServiceCollectionExtensions from Object
@@ -2191,31 +2191,31 @@ Class MvcServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddMvc P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc'),"AddMvc",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc').nHandle,"s6:AddMvc",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc'),"AddMvc",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc').nHandle,"s6:AddMvc",dnPackItem(P1))
 
 	Func AddControllers P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc'),"AddControllers",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc').nHandle,"s14:AddControllers",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc'),"AddControllers",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc').nHandle,"s14:AddControllers",dnPackItem(P1))
 
 	Func AddControllersWithViews P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc'),"AddControllersWithViews",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc').nHandle,"s23:AddControllersWithViews",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc'),"AddControllersWithViews",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc').nHandle,"s23:AddControllersWithViews",dnPackItem(P1))
 
 	Func AddRazorPages P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc'),"AddRazorPages",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc').nHandle,"s13:AddRazorPages",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc'),"AddRazorPages",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc').nHandle,"s13:AddRazorPages",dnPackItem(P1))
 
 
 Class MvcViewFeaturesMvcBuilderExtensions from Object
@@ -2230,22 +2230,22 @@ Class MvcViewFeaturesMvcBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddViewOptions P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddViewOptions",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures').nHandle,"s14:AddViewOptions",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddViewComponentsAsServices P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddViewComponentsAsServices",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures').nHandle,"s27:AddViewComponentsAsServices",dnPackItem(P1))
 
 	Func AddSessionStateTempDataProvider P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddSessionStateTempDataProvider",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures').nHandle,"s31:AddSessionStateTempDataProvider",dnPackItem(P1))
 
 	Func AddCookieTempDataProvider P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddCookieTempDataProvider",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures').nHandle,"s25:AddCookieTempDataProvider",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddCookieTempDataProvider",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures').nHandle,"s25:AddCookieTempDataProvider",dnPackItem(P1))
 
 
 Class MvcViewFeaturesMvcCoreBuilderExtensions from Object
@@ -2260,22 +2260,22 @@ Class MvcViewFeaturesMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddViews P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddViews",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures').nHandle,"s8:AddViews",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddViews",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures').nHandle,"s8:AddViews",dnPackItem(P1))
 
 	Func AddCookieTempDataProvider P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddCookieTempDataProvider",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures').nHandle,"s25:AddCookieTempDataProvider",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddCookieTempDataProvider",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures').nHandle,"s25:AddCookieTempDataProvider",dnPackItem(P1))
 
 	Func ConfigureViews P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"ConfigureViews",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures').nHandle,"s14:ConfigureViews",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class MvcXmlMvcBuilderExtensions from Object
@@ -2290,22 +2290,22 @@ Class MvcXmlMvcBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddXmlOptions P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml'),"AddXmlOptions",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml').nHandle,"s13:AddXmlOptions",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddXmlDataContractSerializerFormatters P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml'),"AddXmlDataContractSerializerFormatters",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml').nHandle,"s38:AddXmlDataContractSerializerFormatters",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml'),"AddXmlDataContractSerializerFormatters",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml').nHandle,"s38:AddXmlDataContractSerializerFormatters",dnPackItem(P1))
 
 	Func AddXmlSerializerFormatters P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml'),"AddXmlSerializerFormatters",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml').nHandle,"s26:AddXmlSerializerFormatters",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml'),"AddXmlSerializerFormatters",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml').nHandle,"s26:AddXmlSerializerFormatters",dnPackItem(P1))
 
 
 Class MvcXmlMvcCoreBuilderExtensions from Object
@@ -2320,22 +2320,22 @@ Class MvcXmlMvcCoreBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddXmlOptions P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml'),"AddXmlOptions",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml').nHandle,"s13:AddXmlOptions",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddXmlDataContractSerializerFormatters P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml'),"AddXmlDataContractSerializerFormatters",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml').nHandle,"s38:AddXmlDataContractSerializerFormatters",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml'),"AddXmlDataContractSerializerFormatters",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml').nHandle,"s38:AddXmlDataContractSerializerFormatters",dnPackItem(P1))
 
 	Func AddXmlSerializerFormatters P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml'),"AddXmlSerializerFormatters",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml').nHandle,"s26:AddXmlSerializerFormatters",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml'),"AddXmlSerializerFormatters",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml').nHandle,"s26:AddXmlSerializerFormatters",dnPackItem(P1))
 
 
 Class OAuthExtensions from Object
@@ -2350,11 +2350,11 @@ Class OAuthExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddOAuth P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OAuthExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"AddOAuth",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.OAuthExtensions, Microsoft.AspNetCore.Authentication.OAuth').nHandle,"s8:AddOAuth",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddOAuth does not take one argument: use named arguments, AddOAuth([ :parameter = value, ... ])")
 
@@ -2371,17 +2371,17 @@ Class OptionsBuilderConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Bind P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsBuilderConfigurationExtensions, Microsoft.Extensions.Options.ConfigurationExtensions'),"Bind",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsBuilderConfigurationExtensions, Microsoft.Extensions.Options.ConfigurationExtensions').nHandle,"s4:Bind",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Bind does not take one argument: use named arguments, Bind([ :parameter = value, ... ])")
 
 	Func BindConfiguration P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsBuilderConfigurationExtensions, Microsoft.Extensions.Options.ConfigurationExtensions'),"BindConfiguration",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsBuilderConfigurationExtensions, Microsoft.Extensions.Options.ConfigurationExtensions').nHandle,"s17:BindConfiguration",dnPackItem(P1))
 		ok
 		raise("DotNet Error: BindConfiguration does not take one argument: use named arguments, BindConfiguration([ :parameter = value, ... ])")
 
@@ -2398,10 +2398,10 @@ Class OptionsBuilderDataAnnotationsExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ValidateDataAnnotations P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsBuilderDataAnnotationsExtensions, Microsoft.Extensions.Options.DataAnnotations'),"ValidateDataAnnotations",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsBuilderDataAnnotationsExtensions, Microsoft.Extensions.Options.DataAnnotations').nHandle,"s23:ValidateDataAnnotations",dnPackItem(P1))
 
 
 Class OptionsBuilderExtensions from Object
@@ -2416,10 +2416,10 @@ Class OptionsBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ValidateOnStart P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsBuilderExtensions, Microsoft.Extensions.Options'),"ValidateOnStart",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsBuilderExtensions, Microsoft.Extensions.Options').nHandle,"s15:ValidateOnStart",dnPackItem(P1))
 
 
 Class OptionsConfigurationServiceCollectionExtensions from Object
@@ -2434,11 +2434,11 @@ Class OptionsConfigurationServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Configure P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions, Microsoft.Extensions.Options.ConfigurationExtensions'),"Configure",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions, Microsoft.Extensions.Options.ConfigurationExtensions').nHandle,"s9:Configure",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Configure does not take one argument: use named arguments, Configure([ :parameter = value, ... ])")
 
@@ -2455,43 +2455,43 @@ Class OptionsServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddOptions P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options'),"AddOptions",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options').nHandle,"s10:AddOptions",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options'),"AddOptions",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options').nHandle,"s10:AddOptions",dnPackItem(P1))
 
 	Func AddOptionsWithValidateOnStart P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options'),"AddOptionsWithValidateOnStart",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options').nHandle,"s29:AddOptionsWithValidateOnStart",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options'),"AddOptionsWithValidateOnStart",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options').nHandle,"s29:AddOptionsWithValidateOnStart",dnPackItem(P1))
 
 	Func Configure P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options'),"Configure",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options').nHandle,"s9:Configure",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Configure does not take one argument: use named arguments, Configure([ :parameter = value, ... ])")
 
 	Func ConfigureAll P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options'),"ConfigureAll",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options').nHandle,"s12:ConfigureAll",dnPackItem(P1) + dnPackItem(P2))
 
 	Func PostConfigure P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options'),"PostConfigure",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options').nHandle,"s13:PostConfigure",dnPackItem(P1))
 		ok
 		raise("DotNet Error: PostConfigure does not take one argument: use named arguments, PostConfigure([ :parameter = value, ... ])")
 
 	Func PostConfigureAll P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options'),"PostConfigureAll",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options').nHandle,"s16:PostConfigureAll",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ConfigureOptions P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options'),"ConfigureOptions",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options').nHandle,"s16:ConfigureOptions",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options'),"ConfigureOptions",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options').nHandle,"s16:ConfigureOptions",dnPackItem(P1))
 
 
 Class OutputCacheConventionBuilderExtensions from Object
@@ -2506,13 +2506,13 @@ Class OutputCacheConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CacheOutput P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OutputCacheConventionBuilderExtensions, Microsoft.AspNetCore.OutputCaching'),"CacheOutput",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.OutputCacheConventionBuilderExtensions, Microsoft.AspNetCore.OutputCaching').nHandle,"s11:CacheOutput",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OutputCacheConventionBuilderExtensions, Microsoft.AspNetCore.OutputCaching'),"CacheOutput",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.OutputCacheConventionBuilderExtensions, Microsoft.AspNetCore.OutputCaching').nHandle,"s11:CacheOutput",dnPackItem(P1))
 
 
 Class OutputCacheServiceCollectionExtensions from Object
@@ -2527,13 +2527,13 @@ Class OutputCacheServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddOutputCache P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OutputCacheServiceCollectionExtensions, Microsoft.AspNetCore.OutputCaching'),"AddOutputCache",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.OutputCacheServiceCollectionExtensions, Microsoft.AspNetCore.OutputCaching').nHandle,"s14:AddOutputCache",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OutputCacheServiceCollectionExtensions, Microsoft.AspNetCore.OutputCaching'),"AddOutputCache",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.OutputCacheServiceCollectionExtensions, Microsoft.AspNetCore.OutputCaching').nHandle,"s14:AddOutputCache",dnPackItem(P1))
 
 
 Class PageConventionCollectionExtensions from Object
@@ -2548,55 +2548,55 @@ Class PageConventionCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ConfigureFilter P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"ConfigureFilter",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s15:ConfigureFilter",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AllowAnonymousToPage P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AllowAnonymousToPage",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s20:AllowAnonymousToPage",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AllowAnonymousToAreaPage P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AllowAnonymousToAreaPage",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s24:AllowAnonymousToAreaPage",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func AllowAnonymousToFolder P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AllowAnonymousToFolder",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s22:AllowAnonymousToFolder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AllowAnonymousToAreaFolder P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AllowAnonymousToAreaFolder",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s26:AllowAnonymousToAreaFolder",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func AuthorizePage P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AuthorizePage",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s13:AuthorizePage",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AuthorizePage does not take one argument: use named arguments, AuthorizePage([ :parameter = value, ... ])")
 
 	Func AuthorizeAreaPage P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AuthorizeAreaPage",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s17:AuthorizeAreaPage",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AuthorizeAreaPage does not take one argument: use named arguments, AuthorizeAreaPage([ :parameter = value, ... ])")
 
 	Func AuthorizeFolder P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AuthorizeFolder",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s15:AuthorizeFolder",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AuthorizeFolder does not take one argument: use named arguments, AuthorizeFolder([ :parameter = value, ... ])")
 
 	Func AuthorizeAreaFolder P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AuthorizeAreaFolder",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s19:AuthorizeAreaFolder",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AuthorizeAreaFolder does not take one argument: use named arguments, AuthorizeAreaFolder([ :parameter = value, ... ])")
 
 	Func AddPageRoute P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AddPageRoute",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s12:AddPageRoute",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func AddAreaPageRoute P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AddAreaPageRoute",P1,P2,P3,P4])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s16:AddAreaPageRoute",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 
 Class PolicyServiceCollectionExtensions from Object
@@ -2611,19 +2611,19 @@ Class PolicyServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddAuthorizationBuilder P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy'),"AddAuthorizationBuilder",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy').nHandle,"s23:AddAuthorizationBuilder",dnPackItem(P1))
 
 	Func AddAuthorizationPolicyEvaluator P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy'),"AddAuthorizationPolicyEvaluator",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy').nHandle,"s31:AddAuthorizationPolicyEvaluator",dnPackItem(P1))
 
 	Func AddAuthorization P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy'),"AddAuthorization",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy').nHandle,"s16:AddAuthorization",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy'),"AddAuthorization",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy').nHandle,"s16:AddAuthorization",dnPackItem(P1))
 
 
 Class ProblemDetailsServiceCollectionExtensions from Object
@@ -2638,13 +2638,13 @@ Class ProblemDetailsServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddProblemDetails P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ProblemDetailsServiceCollectionExtensions, Microsoft.AspNetCore.Http.Extensions'),"AddProblemDetails",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ProblemDetailsServiceCollectionExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s17:AddProblemDetails",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ProblemDetailsServiceCollectionExtensions, Microsoft.AspNetCore.Http.Extensions'),"AddProblemDetails",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ProblemDetailsServiceCollectionExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s17:AddProblemDetails",dnPackItem(P1))
 
 
 Class RazorComponentsServiceCollectionExtensions from Object
@@ -2659,13 +2659,13 @@ Class RazorComponentsServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddRazorComponents P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RazorComponentsServiceCollectionExtensions, Microsoft.AspNetCore.Components.Endpoints'),"AddRazorComponents",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.RazorComponentsServiceCollectionExtensions, Microsoft.AspNetCore.Components.Endpoints').nHandle,"s18:AddRazorComponents",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RazorComponentsServiceCollectionExtensions, Microsoft.AspNetCore.Components.Endpoints'),"AddRazorComponents",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.RazorComponentsServiceCollectionExtensions, Microsoft.AspNetCore.Components.Endpoints').nHandle,"s18:AddRazorComponents",dnPackItem(P1))
 
 
 Class RequestDecompressionServiceExtensions from Object
@@ -2680,13 +2680,13 @@ Class RequestDecompressionServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddRequestDecompression P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RequestDecompressionServiceExtensions, Microsoft.AspNetCore.RequestDecompression'),"AddRequestDecompression",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.RequestDecompressionServiceExtensions, Microsoft.AspNetCore.RequestDecompression').nHandle,"s23:AddRequestDecompression",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RequestDecompressionServiceExtensions, Microsoft.AspNetCore.RequestDecompression'),"AddRequestDecompression",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.RequestDecompressionServiceExtensions, Microsoft.AspNetCore.RequestDecompression').nHandle,"s23:AddRequestDecompression",dnPackItem(P1))
 
 
 Class RequestLocalizationServiceCollectionExtensions from Object
@@ -2701,10 +2701,10 @@ Class RequestLocalizationServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddRequestLocalization P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RequestLocalizationServiceCollectionExtensions, Microsoft.AspNetCore.Localization'),"AddRequestLocalization",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.RequestLocalizationServiceCollectionExtensions, Microsoft.AspNetCore.Localization').nHandle,"s22:AddRequestLocalization",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class RequestTimeoutsIServiceCollectionExtensions from Object
@@ -2719,13 +2719,13 @@ Class RequestTimeoutsIServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddRequestTimeouts P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RequestTimeoutsIServiceCollectionExtensions, Microsoft.AspNetCore.Http'),"AddRequestTimeouts",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.RequestTimeoutsIServiceCollectionExtensions, Microsoft.AspNetCore.Http').nHandle,"s18:AddRequestTimeouts",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RequestTimeoutsIServiceCollectionExtensions, Microsoft.AspNetCore.Http'),"AddRequestTimeouts",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.RequestTimeoutsIServiceCollectionExtensions, Microsoft.AspNetCore.Http').nHandle,"s18:AddRequestTimeouts",dnPackItem(P1))
 
 
 Class ResponseCachingServicesExtensions from Object
@@ -2740,13 +2740,13 @@ Class ResponseCachingServicesExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddResponseCaching P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ResponseCachingServicesExtensions, Microsoft.AspNetCore.ResponseCaching'),"AddResponseCaching",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ResponseCachingServicesExtensions, Microsoft.AspNetCore.ResponseCaching').nHandle,"s18:AddResponseCaching",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ResponseCachingServicesExtensions, Microsoft.AspNetCore.ResponseCaching'),"AddResponseCaching",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ResponseCachingServicesExtensions, Microsoft.AspNetCore.ResponseCaching').nHandle,"s18:AddResponseCaching",dnPackItem(P1))
 
 
 Class RoutingServiceCollectionExtensions from Object
@@ -2761,16 +2761,16 @@ Class RoutingServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddRouting P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions, Microsoft.AspNetCore.Routing'),"AddRouting",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions, Microsoft.AspNetCore.Routing').nHandle,"s10:AddRouting",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions, Microsoft.AspNetCore.Routing'),"AddRouting",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions, Microsoft.AspNetCore.Routing').nHandle,"s10:AddRouting",dnPackItem(P1))
 
 	Func AddRoutingCore P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions, Microsoft.AspNetCore.Routing'),"AddRoutingCore",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions, Microsoft.AspNetCore.Routing').nHandle,"s14:AddRoutingCore",dnPackItem(P1))
 
 
 Class ServerRazorComponentsBuilderExtensions from Object
@@ -2785,13 +2785,13 @@ Class ServerRazorComponentsBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddInteractiveServerComponents P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServerRazorComponentsBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"AddInteractiveServerComponents",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServerRazorComponentsBuilderExtensions, Microsoft.AspNetCore.Components.Server').nHandle,"s30:AddInteractiveServerComponents",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServerRazorComponentsBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"AddInteractiveServerComponents",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServerRazorComponentsBuilderExtensions, Microsoft.AspNetCore.Components.Server').nHandle,"s30:AddInteractiveServerComponents",dnPackItem(P1))
 
 
 Class ServerSideBlazorBuilderExtensions from Object
@@ -2806,13 +2806,13 @@ Class ServerSideBlazorBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddCircuitOptions P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServerSideBlazorBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"AddCircuitOptions",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServerSideBlazorBuilderExtensions, Microsoft.AspNetCore.Components.Server').nHandle,"s17:AddCircuitOptions",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddHubOptions P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServerSideBlazorBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"AddHubOptions",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServerSideBlazorBuilderExtensions, Microsoft.AspNetCore.Components.Server').nHandle,"s13:AddHubOptions",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class ServiceCollection from Object
@@ -2843,55 +2843,55 @@ Class ServiceCollection from Object
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func MakeReadOnly 
-		dnRequest("call",[new DotNetObject(this.nHandle),"MakeReadOnly"])
+		dnSend("s4:call",nHandle,"s12:MakeReadOnly","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2909,13 +2909,13 @@ Class ServiceCollectionContainerBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func BuildServiceProvider P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions, Microsoft.Extensions.DependencyInjection'),"BuildServiceProvider",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions, Microsoft.Extensions.DependencyInjection').nHandle,"s20:BuildServiceProvider",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions, Microsoft.Extensions.DependencyInjection'),"BuildServiceProvider",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions, Microsoft.Extensions.DependencyInjection').nHandle,"s20:BuildServiceProvider",dnPackItem(P1))
 
 
 Class ServiceCollectionHostedServiceExtensions from Object
@@ -2930,13 +2930,13 @@ Class ServiceCollectionHostedServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddHostedService P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionHostedServiceExtensions, Microsoft.Extensions.Hosting.Abstractions'),"AddHostedService",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionHostedServiceExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s16:AddHostedService",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionHostedServiceExtensions, Microsoft.Extensions.Hosting.Abstractions'),"AddHostedService",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionHostedServiceExtensions, Microsoft.Extensions.Hosting.Abstractions').nHandle,"s16:AddHostedService",dnPackItem(P1))
 
 
 Class ServiceCollectionServiceExtensions from Object
@@ -2951,41 +2951,41 @@ Class ServiceCollectionServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddTransient P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddTransient",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s12:AddTransient",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddTransient",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s12:AddTransient",dnPackItem(P1))
 
 	Func AddScoped P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddScoped",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s9:AddScoped",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddScoped",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s9:AddScoped",dnPackItem(P1))
 
 	Func AddSingleton P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddSingleton",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s12:AddSingleton",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddSingleton",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s12:AddSingleton",dnPackItem(P1))
 
 	Func AddKeyedTransient P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddKeyedTransient",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s17:AddKeyedTransient",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddKeyedTransient does not take one argument: use named arguments, AddKeyedTransient([ :parameter = value, ... ])")
 
 	Func AddKeyedScoped P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddKeyedScoped",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s14:AddKeyedScoped",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddKeyedScoped does not take one argument: use named arguments, AddKeyedScoped([ :parameter = value, ... ])")
 
 	Func AddKeyedSingleton P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddKeyedSingleton",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s17:AddKeyedSingleton",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddKeyedSingleton does not take one argument: use named arguments, AddKeyedSingleton([ :parameter = value, ... ])")
 
@@ -3030,115 +3030,115 @@ Class ServiceDescriptor from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Transient P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"Transient",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s9:Transient",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"Transient"])
+			return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s9:Transient","")
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"Transient",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s9:Transient",dnPackItem(P1))
 
 	Func KeyedTransient P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"KeyedTransient",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s14:KeyedTransient",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"KeyedTransient",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s14:KeyedTransient",dnPackItem(P1))
 
 	Func Scoped P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"Scoped",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s6:Scoped",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"Scoped"])
+			return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s6:Scoped","")
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"Scoped",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s6:Scoped",dnPackItem(P1))
 
 	Func KeyedScoped P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"KeyedScoped",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s11:KeyedScoped",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"KeyedScoped",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s11:KeyedScoped",dnPackItem(P1))
 
 	Func Singleton P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"Singleton",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s9:Singleton",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"Singleton"])
+			return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s9:Singleton","")
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"Singleton",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s9:Singleton",dnPackItem(P1))
 
 	Func KeyedSingleton P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"KeyedSingleton",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s14:KeyedSingleton",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"KeyedSingleton",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s14:KeyedSingleton",dnPackItem(P1))
 
 	Func Describe P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"Describe",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s8:Describe",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func DescribeKeyed P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"DescribeKeyed",P1,P2,P3,P4])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s13:DescribeKeyed",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func getLifetime
-		return dnRequest("get",[self,"Lifetime"])
+		return dnSend("s3:get",nHandle,"s8:Lifetime","")
 
 	Func setLifetime P1
 		raise("DotNet Error: Lifetime is a read-only property")
 
 	Func getServiceKey
-		return dnRequest("get",[self,"ServiceKey"])
+		return dnSend("s3:get",nHandle,"s10:ServiceKey","")
 
 	Func setServiceKey P1
 		raise("DotNet Error: ServiceKey is a read-only property")
 
 	Func getServiceType
-		return dnRequest("get",[self,"ServiceType"])
+		return dnSend("s3:get",nHandle,"s11:ServiceType","")
 
 	Func setServiceType P1
 		raise("DotNet Error: ServiceType is a read-only property")
 
 	Func getImplementationType
-		return dnRequest("get",[self,"ImplementationType"])
+		return dnSend("s3:get",nHandle,"s18:ImplementationType","")
 
 	Func setImplementationType P1
 		raise("DotNet Error: ImplementationType is a read-only property")
 
 	Func getKeyedImplementationType
-		return dnRequest("get",[self,"KeyedImplementationType"])
+		return dnSend("s3:get",nHandle,"s23:KeyedImplementationType","")
 
 	Func setKeyedImplementationType P1
 		raise("DotNet Error: KeyedImplementationType is a read-only property")
 
 	Func getImplementationInstance
-		return dnRequest("get",[self,"ImplementationInstance"])
+		return dnSend("s3:get",nHandle,"s22:ImplementationInstance","")
 
 	Func setImplementationInstance P1
 		raise("DotNet Error: ImplementationInstance is a read-only property")
 
 	Func getKeyedImplementationInstance
-		return dnRequest("get",[self,"KeyedImplementationInstance"])
+		return dnSend("s3:get",nHandle,"s27:KeyedImplementationInstance","")
 
 	Func setKeyedImplementationInstance P1
 		raise("DotNet Error: KeyedImplementationInstance is a read-only property")
 
 	Func getImplementationFactory
-		return dnRequest("get",[self,"ImplementationFactory"])
+		return dnSend("s3:get",nHandle,"s21:ImplementationFactory","")
 
 	Func setImplementationFactory P1
 		raise("DotNet Error: ImplementationFactory is a read-only property")
 
 	Func getKeyedImplementationFactory
-		return dnRequest("get",[self,"KeyedImplementationFactory"])
+		return dnSend("s3:get",nHandle,"s26:KeyedImplementationFactory","")
 
 	Func setKeyedImplementationFactory P1
 		raise("DotNet Error: KeyedImplementationFactory is a read-only property")
 
 	Func getIsKeyedService
-		return dnRequest("get",[self,"IsKeyedService"])
+		return dnSend("s3:get",nHandle,"s14:IsKeyedService","")
 
 	Func setIsKeyedService P1
 		raise("DotNet Error: IsKeyedService is a read-only property")
@@ -3156,23 +3156,23 @@ Class ServiceProvider from Object
 		return self
 
 	Func GetService P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetService",P1])
+		return dnSend("s4:call",nHandle,"s10:GetService",dnPackItem(P1))
 
 	Func GetKeyedService P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetKeyedService",P1,P2])
+		return dnSend("s4:call",nHandle,"s15:GetKeyedService",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetRequiredKeyedService P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRequiredKeyedService",P1,P2])
+		return dnSend("s4:call",nHandle,"s23:GetRequiredKeyedService",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DisposeAsync"])
+		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class ServiceProviderKeyedServiceExtensions from Object
@@ -3187,20 +3187,20 @@ Class ServiceProviderKeyedServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetKeyedService P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetKeyedService",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s15:GetKeyedService",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetRequiredKeyedService P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetRequiredKeyedService",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s23:GetRequiredKeyedService",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetRequiredKeyedService does not take one argument: use named arguments, GetRequiredKeyedService([ :parameter = value, ... ])")
 
 	Func GetKeyedServices P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetKeyedServices",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s16:GetKeyedServices",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetKeyedServices does not take one argument: use named arguments, GetKeyedServices([ :parameter = value, ... ])")
 
@@ -3233,20 +3233,20 @@ Class ServiceProviderOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getValidateScopes
-		return dnRequest("get",[self,"ValidateScopes"])
+		return dnSend("s3:get",nHandle,"s14:ValidateScopes","")
 
 	Func setValidateScopes P1
-		dnRequest("set",[self,"ValidateScopes",P1])
+		dnSend("s3:set",nHandle,"s14:ValidateScopes",dnPackItem(P1))
 		return self
 
 	Func getValidateOnBuild
-		return dnRequest("get",[self,"ValidateOnBuild"])
+		return dnSend("s3:get",nHandle,"s15:ValidateOnBuild","")
 
 	Func setValidateOnBuild P1
-		dnRequest("set",[self,"ValidateOnBuild",P1])
+		dnSend("s3:set",nHandle,"s15:ValidateOnBuild",dnPackItem(P1))
 		return self
 
 
@@ -3262,28 +3262,28 @@ Class ServiceProviderServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetService P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetService",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s10:GetService",dnPackItem(P1))
 
 	Func GetRequiredService P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetRequiredService",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s18:GetRequiredService",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetRequiredService",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s18:GetRequiredService",dnPackItem(P1))
 
 	Func GetServices P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetServices",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s11:GetServices",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetServices",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s11:GetServices",dnPackItem(P1))
 
 	Func CreateScope P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"CreateScope",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s11:CreateScope",dnPackItem(P1))
 
 	Func CreateAsyncScope P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"CreateAsyncScope",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions').nHandle,"s16:CreateAsyncScope",dnPackItem(P1))
 
 
 Class SessionServiceCollectionExtensions from Object
@@ -3298,13 +3298,13 @@ Class SessionServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddSession P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.SessionServiceCollectionExtensions, Microsoft.AspNetCore.Session'),"AddSession",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.SessionServiceCollectionExtensions, Microsoft.AspNetCore.Session').nHandle,"s10:AddSession",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.SessionServiceCollectionExtensions, Microsoft.AspNetCore.Session'),"AddSession",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.SessionServiceCollectionExtensions, Microsoft.AspNetCore.Session').nHandle,"s10:AddSession",dnPackItem(P1))
 
 
 Class SignalRDependencyInjectionExtensions from Object
@@ -3319,16 +3319,16 @@ Class SignalRDependencyInjectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddHubOptions P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.SignalRDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR'),"AddHubOptions",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.SignalRDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR').nHandle,"s13:AddHubOptions",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddSignalR P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.SignalRDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR'),"AddSignalR",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.Extensions.DependencyInjection.SignalRDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR').nHandle,"s10:AddSignalR",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.SignalRDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR'),"AddSignalR",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.SignalRDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR').nHandle,"s10:AddSignalR",dnPackItem(P1))
 
 
 Class SocketsHttpHandlerBuilderExtensions from Object
@@ -3343,10 +3343,10 @@ Class SocketsHttpHandlerBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Configure P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.SocketsHttpHandlerBuilderExtensions, Microsoft.Extensions.Http'),"Configure",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.SocketsHttpHandlerBuilderExtensions, Microsoft.Extensions.Http').nHandle,"s9:Configure",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class TagHelperServicesExtensions from Object
@@ -3361,12 +3361,12 @@ Class TagHelperServicesExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddCacheTagHelper P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.TagHelperServicesExtensions, Microsoft.AspNetCore.Mvc.TagHelpers'),"AddCacheTagHelper",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.TagHelperServicesExtensions, Microsoft.AspNetCore.Mvc.TagHelpers').nHandle,"s17:AddCacheTagHelper",dnPackItem(P1))
 
 	Func AddCacheTagHelperLimits P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.TagHelperServicesExtensions, Microsoft.AspNetCore.Mvc.TagHelpers'),"AddCacheTagHelperLimits",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.Extensions.DependencyInjection.TagHelperServicesExtensions, Microsoft.AspNetCore.Mvc.TagHelpers').nHandle,"s23:AddCacheTagHelperLimits",dnPackItem(P1) + dnPackItem(P2))
 
 

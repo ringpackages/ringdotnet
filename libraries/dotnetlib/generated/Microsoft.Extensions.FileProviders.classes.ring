@@ -81,19 +81,19 @@ Class CompositeFileProvider from Object
 		return self
 
 	Func GetFileInfo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFileInfo",P1])
+		return dnSend("s4:call",nHandle,"s11:GetFileInfo",dnPackItem(P1))
 
 	Func GetDirectoryContents P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDirectoryContents",P1])
+		return dnSend("s4:call",nHandle,"s20:GetDirectoryContents",dnPackItem(P1))
 
 	Func Watch P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Watch",P1])
+		return dnSend("s4:call",nHandle,"s5:Watch",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getFileProviders
-		return dnRequest("get",[self,"FileProviders"])
+		return dnSend("s3:get",nHandle,"s13:FileProviders","")
 
 	Func setFileProviders P1
 		raise("DotNet Error: FileProviders is a read-only property")
@@ -128,16 +128,16 @@ Class EmbeddedFileProvider from Object
 		return self
 
 	Func GetFileInfo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFileInfo",P1])
+		return dnSend("s4:call",nHandle,"s11:GetFileInfo",dnPackItem(P1))
 
 	Func GetDirectoryContents P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDirectoryContents",P1])
+		return dnSend("s4:call",nHandle,"s20:GetDirectoryContents",dnPackItem(P1))
 
 	Func Watch P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Watch",P1])
+		return dnSend("s4:call",nHandle,"s5:Watch",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class IDirectoryContents from DotNetObject
@@ -154,7 +154,7 @@ Class IDirectoryContents from DotNetObject
 		return self
 
 	Func getExists
-		return dnRequest("get",[self,"Exists"])
+		return dnSend("s3:get",nHandle,"s6:Exists","")
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
@@ -179,40 +179,40 @@ Class IFileInfo from DotNetObject
 		return self
 
 	Func CreateReadStream 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateReadStream"])
+		return dnSend("s4:call",nHandle,"s16:CreateReadStream","")
 
 	Func getExists
-		return dnRequest("get",[self,"Exists"])
+		return dnSend("s3:get",nHandle,"s6:Exists","")
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnSend("s3:get",nHandle,"s6:Length","")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getPhysicalPath
-		return dnRequest("get",[self,"PhysicalPath"])
+		return dnSend("s3:get",nHandle,"s12:PhysicalPath","")
 
 	Func setPhysicalPath P1
 		raise("DotNet Error: PhysicalPath is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getLastModified
-		return dnRequest("get",[self,"LastModified"])
+		return dnSend("s3:get",nHandle,"s12:LastModified","")
 
 	Func setLastModified P1
 		raise("DotNet Error: LastModified is a read-only property")
 
 	Func getIsDirectory
-		return dnRequest("get",[self,"IsDirectory"])
+		return dnSend("s3:get",nHandle,"s11:IsDirectory","")
 
 	Func setIsDirectory P1
 		raise("DotNet Error: IsDirectory is a read-only property")
@@ -230,13 +230,13 @@ Class IFileProvider from DotNetObject
 		return self
 
 	Func GetFileInfo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFileInfo",P1])
+		return dnSend("s4:call",nHandle,"s11:GetFileInfo",dnPackItem(P1))
 
 	Func GetDirectoryContents P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDirectoryContents",P1])
+		return dnSend("s4:call",nHandle,"s20:GetDirectoryContents",dnPackItem(P1))
 
 	Func Watch P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Watch",P1])
+		return dnSend("s4:call",nHandle,"s5:Watch",dnPackItem(P1))
 
 
 Class ManifestEmbeddedFileProvider from Object
@@ -270,19 +270,19 @@ Class ManifestEmbeddedFileProvider from Object
 		return self
 
 	Func GetDirectoryContents P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDirectoryContents",P1])
+		return dnSend("s4:call",nHandle,"s20:GetDirectoryContents",dnPackItem(P1))
 
 	Func GetFileInfo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFileInfo",P1])
+		return dnSend("s4:call",nHandle,"s11:GetFileInfo",dnPackItem(P1))
 
 	Func Watch P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Watch",P1])
+		return dnSend("s4:call",nHandle,"s5:Watch",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAssembly
-		return dnRequest("get",[self,"Assembly"])
+		return dnSend("s3:get",nHandle,"s8:Assembly","")
 
 	Func setAssembly P1
 		raise("DotNet Error: Assembly is a read-only property")
@@ -316,19 +316,19 @@ Class NotFoundDirectoryContents from Object
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getExists
-		return dnRequest("get",[self,"Exists"])
+		return dnSend("s3:get",nHandle,"s6:Exists","")
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
 
 	Func getSingleton
-		return dnRequest("get",[dnTypeCached('Microsoft.Extensions.FileProviders.NotFoundDirectoryContents, Microsoft.Extensions.FileProviders.Abstractions'),"Singleton"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.FileProviders.NotFoundDirectoryContents, Microsoft.Extensions.FileProviders.Abstractions').nHandle,"s9:Singleton","")
 
 	Func setSingleton P1
 		raise("DotNet Error: Singleton is a read-only property")
@@ -355,43 +355,43 @@ Class NotFoundFileInfo from Object
 		return self
 
 	Func CreateReadStream 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateReadStream"])
+		return dnSend("s4:call",nHandle,"s16:CreateReadStream","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getExists
-		return dnRequest("get",[self,"Exists"])
+		return dnSend("s3:get",nHandle,"s6:Exists","")
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
 
 	Func getIsDirectory
-		return dnRequest("get",[self,"IsDirectory"])
+		return dnSend("s3:get",nHandle,"s11:IsDirectory","")
 
 	Func setIsDirectory P1
 		raise("DotNet Error: IsDirectory is a read-only property")
 
 	Func getLastModified
-		return dnRequest("get",[self,"LastModified"])
+		return dnSend("s3:get",nHandle,"s12:LastModified","")
 
 	Func setLastModified P1
 		raise("DotNet Error: LastModified is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnSend("s3:get",nHandle,"s6:Length","")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getPhysicalPath
-		return dnRequest("get",[self,"PhysicalPath"])
+		return dnSend("s3:get",nHandle,"s12:PhysicalPath","")
 
 	Func setPhysicalPath P1
 		raise("DotNet Error: PhysicalPath is a read-only property")
@@ -413,25 +413,25 @@ Class NullChangeToken from Object
 		return self
 
 	Func RegisterChangeCallback P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RegisterChangeCallback",P1,P2])
+		return dnSend("s4:call",nHandle,"s22:RegisterChangeCallback",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getHasChanged
-		return dnRequest("get",[self,"HasChanged"])
+		return dnSend("s3:get",nHandle,"s10:HasChanged","")
 
 	Func setHasChanged P1
 		raise("DotNet Error: HasChanged is a read-only property")
 
 	Func getActiveChangeCallbacks
-		return dnRequest("get",[self,"ActiveChangeCallbacks"])
+		return dnSend("s3:get",nHandle,"s21:ActiveChangeCallbacks","")
 
 	Func setActiveChangeCallbacks P1
 		raise("DotNet Error: ActiveChangeCallbacks is a read-only property")
 
 	Func getSingleton
-		return dnRequest("get",[dnTypeCached('Microsoft.Extensions.FileProviders.NullChangeToken, Microsoft.Extensions.FileProviders.Abstractions'),"Singleton"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.Extensions.FileProviders.NullChangeToken, Microsoft.Extensions.FileProviders.Abstractions').nHandle,"s9:Singleton","")
 
 	Func setSingleton P1
 		raise("DotNet Error: Singleton is a read-only property")
@@ -462,16 +462,16 @@ Class NullFileProvider from Object
 		return self
 
 	Func GetDirectoryContents P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDirectoryContents",P1])
+		return dnSend("s4:call",nHandle,"s20:GetDirectoryContents",dnPackItem(P1))
 
 	Func GetFileInfo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFileInfo",P1])
+		return dnSend("s4:call",nHandle,"s11:GetFileInfo",dnPackItem(P1))
 
 	Func Watch P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Watch",P1])
+		return dnSend("s4:call",nHandle,"s5:Watch",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class PhysicalFileProvider from Object
@@ -507,37 +507,37 @@ Class PhysicalFileProvider from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func GetFileInfo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetFileInfo",P1])
+		return dnSend("s4:call",nHandle,"s11:GetFileInfo",dnPackItem(P1))
 
 	Func GetDirectoryContents P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDirectoryContents",P1])
+		return dnSend("s4:call",nHandle,"s20:GetDirectoryContents",dnPackItem(P1))
 
 	Func Watch P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Watch",P1])
+		return dnSend("s4:call",nHandle,"s5:Watch",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getUsePollingFileWatcher
-		return dnRequest("get",[self,"UsePollingFileWatcher"])
+		return dnSend("s3:get",nHandle,"s21:UsePollingFileWatcher","")
 
 	Func setUsePollingFileWatcher P1
-		dnRequest("set",[self,"UsePollingFileWatcher",P1])
+		dnSend("s3:set",nHandle,"s21:UsePollingFileWatcher",dnPackItem(P1))
 		return self
 
 	Func getUseActivePolling
-		return dnRequest("get",[self,"UseActivePolling"])
+		return dnSend("s3:get",nHandle,"s16:UseActivePolling","")
 
 	Func setUseActivePolling P1
-		dnRequest("set",[self,"UseActivePolling",P1])
+		dnSend("s3:set",nHandle,"s16:UseActivePolling",dnPackItem(P1))
 		return self
 
 	Func getRoot
-		return dnRequest("get",[self,"Root"])
+		return dnSend("s3:get",nHandle,"s4:Root","")
 
 	Func setRoot P1
 		raise("DotNet Error: Root is a read-only property")

@@ -197,166 +197,166 @@ Class StringList from Object
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddRange",P1])
+		dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1))
 		return self
 
 	Func AsReadOnly 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AsReadOnly"])
+		return dnSend("s4:call",nHandle,"s10:AsReadOnly","")
 
 	Func BinarySearch P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BinarySearch",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:BinarySearch",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"BinarySearch",P1])
+		return dnSend("s4:call",nHandle,"s12:BinarySearch",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func ConvertAll P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConvertAll",P1])
+		return dnSend("s4:call",nHandle,"s10:ConvertAll",dnPackItem(P1))
 
 	Func CopyTo P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
+			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1))
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureCapacity",dnPackItem(P1))
 
 	Func Exists P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Exists",P1])
+		return dnSend("s4:call",nHandle,"s6:Exists",dnPackItem(P1))
 
 	Func Find P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Find",P1])
+		return dnSend("s4:call",nHandle,"s4:Find",dnPackItem(P1))
 
 	Func FindAll P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindAll",P1])
+		return dnSend("s4:call",nHandle,"s7:FindAll",dnPackItem(P1))
 
 	Func FindIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FindIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:FindIndex",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindIndex",P1])
+		return dnSend("s4:call",nHandle,"s9:FindIndex",dnPackItem(P1))
 
 	Func FindLast P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLast",P1])
+		return dnSend("s4:call",nHandle,"s8:FindLast",dnPackItem(P1))
 
 	Func FindLastIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FindLastIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:FindLastIndex",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLastIndex",P1])
+		return dnSend("s4:call",nHandle,"s13:FindLastIndex",dnPackItem(P1))
 
 	Func ForEach_ P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ForEach",P1])
+		dnSend("s4:call",nHandle,"s7:ForEach",dnPackItem(P1))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func GetRange P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRange",P1,P2])
+		return dnSend("s4:call",nHandle,"s8:GetRange",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Slice P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Slice",P1,P2])
+		return dnSend("s4:call",nHandle,"s5:Slice",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IndexOf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexOf",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:IndexOf",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func InsertRange P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"InsertRange",P1,P2])
+		dnSend("s4:call",nHandle,"s11:InsertRange",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func LastIndexOf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:LastIndexOf",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
+		return dnSend("s4:call",nHandle,"s11:LastIndexOf",dnPackItem(P1))
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveAll P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAll",P1])
+		return dnSend("s4:call",nHandle,"s9:RemoveAll",dnPackItem(P1))
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func RemoveRange P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveRange",P1,P2])
+		dnSend("s4:call",nHandle,"s11:RemoveRange",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Reverse P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Reverse",P1])
+			dnSend("s9:callnamed",nHandle,"s7:Reverse",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Reverse"])
+			dnSend("s4:call",nHandle,"s7:Reverse","")
 		return self
 		ok
 		raise("DotNet Error: Reverse does not take one argument: use named arguments, Reverse([ :parameter = value, ... ])")
 
 	Func Sort P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Sort",P1])
+			dnSend("s9:callnamed",nHandle,"s4:Sort",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Sort"])
+			dnSend("s4:call",nHandle,"s4:Sort","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Sort",P1])
+		dnSend("s4:call",nHandle,"s4:Sort",dnPackItem(P1))
 		return self
 
 	Func ToArray 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
+		return dnSend("s4:call",nHandle,"s7:ToArray","")
 
 	Func TrimExcess 
-		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
+		dnSend("s4:call",nHandle,"s10:TrimExcess","")
 		return self
 
 	Func TrueForAll P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TrueForAll",P1])
+		return dnSend("s4:call",nHandle,"s10:TrueForAll",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnSend("s3:get",nHandle,"s8:Capacity","")
 
 	Func setCapacity P1
-		dnRequest("set",[self,"Capacity",P1])
+		dnSend("s3:set",nHandle,"s8:Capacity",dnPackItem(P1))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -410,166 +410,166 @@ Class NumberList from Object
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddRange",P1])
+		dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1))
 		return self
 
 	Func AsReadOnly 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AsReadOnly"])
+		return dnSend("s4:call",nHandle,"s10:AsReadOnly","")
 
 	Func BinarySearch P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BinarySearch",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:BinarySearch",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"BinarySearch",P1])
+		return dnSend("s4:call",nHandle,"s12:BinarySearch",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func ConvertAll P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConvertAll",P1])
+		return dnSend("s4:call",nHandle,"s10:ConvertAll",dnPackItem(P1))
 
 	Func CopyTo P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
+			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1))
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureCapacity",dnPackItem(P1))
 
 	Func Exists P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Exists",P1])
+		return dnSend("s4:call",nHandle,"s6:Exists",dnPackItem(P1))
 
 	Func Find P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Find",P1])
+		return dnSend("s4:call",nHandle,"s4:Find",dnPackItem(P1))
 
 	Func FindAll P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindAll",P1])
+		return dnSend("s4:call",nHandle,"s7:FindAll",dnPackItem(P1))
 
 	Func FindIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FindIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:FindIndex",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindIndex",P1])
+		return dnSend("s4:call",nHandle,"s9:FindIndex",dnPackItem(P1))
 
 	Func FindLast P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLast",P1])
+		return dnSend("s4:call",nHandle,"s8:FindLast",dnPackItem(P1))
 
 	Func FindLastIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FindLastIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:FindLastIndex",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLastIndex",P1])
+		return dnSend("s4:call",nHandle,"s13:FindLastIndex",dnPackItem(P1))
 
 	Func ForEach_ P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ForEach",P1])
+		dnSend("s4:call",nHandle,"s7:ForEach",dnPackItem(P1))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func GetRange P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRange",P1,P2])
+		return dnSend("s4:call",nHandle,"s8:GetRange",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Slice P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Slice",P1,P2])
+		return dnSend("s4:call",nHandle,"s5:Slice",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IndexOf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexOf",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:IndexOf",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func InsertRange P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"InsertRange",P1,P2])
+		dnSend("s4:call",nHandle,"s11:InsertRange",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func LastIndexOf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:LastIndexOf",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
+		return dnSend("s4:call",nHandle,"s11:LastIndexOf",dnPackItem(P1))
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveAll P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAll",P1])
+		return dnSend("s4:call",nHandle,"s9:RemoveAll",dnPackItem(P1))
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func RemoveRange P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveRange",P1,P2])
+		dnSend("s4:call",nHandle,"s11:RemoveRange",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Reverse P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Reverse",P1])
+			dnSend("s9:callnamed",nHandle,"s7:Reverse",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Reverse"])
+			dnSend("s4:call",nHandle,"s7:Reverse","")
 		return self
 		ok
 		raise("DotNet Error: Reverse does not take one argument: use named arguments, Reverse([ :parameter = value, ... ])")
 
 	Func Sort P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Sort",P1])
+			dnSend("s9:callnamed",nHandle,"s4:Sort",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Sort"])
+			dnSend("s4:call",nHandle,"s4:Sort","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Sort",P1])
+		dnSend("s4:call",nHandle,"s4:Sort",dnPackItem(P1))
 		return self
 
 	Func ToArray 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
+		return dnSend("s4:call",nHandle,"s7:ToArray","")
 
 	Func TrimExcess 
-		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
+		dnSend("s4:call",nHandle,"s10:TrimExcess","")
 		return self
 
 	Func TrueForAll P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TrueForAll",P1])
+		return dnSend("s4:call",nHandle,"s10:TrueForAll",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnSend("s3:get",nHandle,"s8:Capacity","")
 
 	Func setCapacity P1
-		dnRequest("set",[self,"Capacity",P1])
+		dnSend("s3:set",nHandle,"s8:Capacity",dnPackItem(P1))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -623,166 +623,166 @@ Class IntList from Object
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddRange",P1])
+		dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1))
 		return self
 
 	Func AsReadOnly 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AsReadOnly"])
+		return dnSend("s4:call",nHandle,"s10:AsReadOnly","")
 
 	Func BinarySearch P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BinarySearch",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:BinarySearch",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"BinarySearch",P1])
+		return dnSend("s4:call",nHandle,"s12:BinarySearch",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func ConvertAll P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConvertAll",P1])
+		return dnSend("s4:call",nHandle,"s10:ConvertAll",dnPackItem(P1))
 
 	Func CopyTo P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
+			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1))
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureCapacity",dnPackItem(P1))
 
 	Func Exists P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Exists",P1])
+		return dnSend("s4:call",nHandle,"s6:Exists",dnPackItem(P1))
 
 	Func Find P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Find",P1])
+		return dnSend("s4:call",nHandle,"s4:Find",dnPackItem(P1))
 
 	Func FindAll P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindAll",P1])
+		return dnSend("s4:call",nHandle,"s7:FindAll",dnPackItem(P1))
 
 	Func FindIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FindIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:FindIndex",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindIndex",P1])
+		return dnSend("s4:call",nHandle,"s9:FindIndex",dnPackItem(P1))
 
 	Func FindLast P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLast",P1])
+		return dnSend("s4:call",nHandle,"s8:FindLast",dnPackItem(P1))
 
 	Func FindLastIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FindLastIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:FindLastIndex",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLastIndex",P1])
+		return dnSend("s4:call",nHandle,"s13:FindLastIndex",dnPackItem(P1))
 
 	Func ForEach_ P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ForEach",P1])
+		dnSend("s4:call",nHandle,"s7:ForEach",dnPackItem(P1))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func GetRange P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRange",P1,P2])
+		return dnSend("s4:call",nHandle,"s8:GetRange",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Slice P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Slice",P1,P2])
+		return dnSend("s4:call",nHandle,"s5:Slice",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IndexOf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexOf",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:IndexOf",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func InsertRange P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"InsertRange",P1,P2])
+		dnSend("s4:call",nHandle,"s11:InsertRange",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func LastIndexOf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:LastIndexOf",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
+		return dnSend("s4:call",nHandle,"s11:LastIndexOf",dnPackItem(P1))
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveAll P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAll",P1])
+		return dnSend("s4:call",nHandle,"s9:RemoveAll",dnPackItem(P1))
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func RemoveRange P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveRange",P1,P2])
+		dnSend("s4:call",nHandle,"s11:RemoveRange",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Reverse P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Reverse",P1])
+			dnSend("s9:callnamed",nHandle,"s7:Reverse",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Reverse"])
+			dnSend("s4:call",nHandle,"s7:Reverse","")
 		return self
 		ok
 		raise("DotNet Error: Reverse does not take one argument: use named arguments, Reverse([ :parameter = value, ... ])")
 
 	Func Sort P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Sort",P1])
+			dnSend("s9:callnamed",nHandle,"s4:Sort",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Sort"])
+			dnSend("s4:call",nHandle,"s4:Sort","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Sort",P1])
+		dnSend("s4:call",nHandle,"s4:Sort",dnPackItem(P1))
 		return self
 
 	Func ToArray 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
+		return dnSend("s4:call",nHandle,"s7:ToArray","")
 
 	Func TrimExcess 
-		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
+		dnSend("s4:call",nHandle,"s10:TrimExcess","")
 		return self
 
 	Func TrueForAll P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TrueForAll",P1])
+		return dnSend("s4:call",nHandle,"s10:TrueForAll",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnSend("s3:get",nHandle,"s8:Capacity","")
 
 	Func setCapacity P1
-		dnRequest("set",[self,"Capacity",P1])
+		dnSend("s3:set",nHandle,"s8:Capacity",dnPackItem(P1))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -836,166 +836,166 @@ Class ObjectList from Object
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddRange",P1])
+		dnSend("s4:call",nHandle,"s8:AddRange",dnPackItem(P1))
 		return self
 
 	Func AsReadOnly 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AsReadOnly"])
+		return dnSend("s4:call",nHandle,"s10:AsReadOnly","")
 
 	Func BinarySearch P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BinarySearch",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:BinarySearch",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"BinarySearch",P1])
+		return dnSend("s4:call",nHandle,"s12:BinarySearch",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func ConvertAll P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConvertAll",P1])
+		return dnSend("s4:call",nHandle,"s10:ConvertAll",dnPackItem(P1))
 
 	Func CopyTo P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
+			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1))
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureCapacity",dnPackItem(P1))
 
 	Func Exists P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Exists",P1])
+		return dnSend("s4:call",nHandle,"s6:Exists",dnPackItem(P1))
 
 	Func Find P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Find",P1])
+		return dnSend("s4:call",nHandle,"s4:Find",dnPackItem(P1))
 
 	Func FindAll P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindAll",P1])
+		return dnSend("s4:call",nHandle,"s7:FindAll",dnPackItem(P1))
 
 	Func FindIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FindIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:FindIndex",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindIndex",P1])
+		return dnSend("s4:call",nHandle,"s9:FindIndex",dnPackItem(P1))
 
 	Func FindLast P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLast",P1])
+		return dnSend("s4:call",nHandle,"s8:FindLast",dnPackItem(P1))
 
 	Func FindLastIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"FindLastIndex",P1])
+			return dnSend("s9:callnamed",nHandle,"s13:FindLastIndex",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLastIndex",P1])
+		return dnSend("s4:call",nHandle,"s13:FindLastIndex",dnPackItem(P1))
 
 	Func ForEach_ P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ForEach",P1])
+		dnSend("s4:call",nHandle,"s7:ForEach",dnPackItem(P1))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func GetRange P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRange",P1,P2])
+		return dnSend("s4:call",nHandle,"s8:GetRange",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Slice P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Slice",P1,P2])
+		return dnSend("s4:call",nHandle,"s5:Slice",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IndexOf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IndexOf",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:IndexOf",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOf",P1])
+		return dnSend("s4:call",nHandle,"s7:IndexOf",dnPackItem(P1))
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Insert",P1,P2])
+		dnSend("s4:call",nHandle,"s6:Insert",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func InsertRange P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"InsertRange",P1,P2])
+		dnSend("s4:call",nHandle,"s11:InsertRange",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func LastIndexOf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:LastIndexOf",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LastIndexOf",P1])
+		return dnSend("s4:call",nHandle,"s11:LastIndexOf",dnPackItem(P1))
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveAll P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAll",P1])
+		return dnSend("s4:call",nHandle,"s9:RemoveAll",dnPackItem(P1))
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func RemoveRange P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveRange",P1,P2])
+		dnSend("s4:call",nHandle,"s11:RemoveRange",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Reverse P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Reverse",P1])
+			dnSend("s9:callnamed",nHandle,"s7:Reverse",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Reverse"])
+			dnSend("s4:call",nHandle,"s7:Reverse","")
 		return self
 		ok
 		raise("DotNet Error: Reverse does not take one argument: use named arguments, Reverse([ :parameter = value, ... ])")
 
 	Func Sort P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Sort",P1])
+			dnSend("s9:callnamed",nHandle,"s4:Sort",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Sort"])
+			dnSend("s4:call",nHandle,"s4:Sort","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Sort",P1])
+		dnSend("s4:call",nHandle,"s4:Sort",dnPackItem(P1))
 		return self
 
 	Func ToArray 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
+		return dnSend("s4:call",nHandle,"s7:ToArray","")
 
 	Func TrimExcess 
-		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
+		dnSend("s4:call",nHandle,"s10:TrimExcess","")
 		return self
 
 	Func TrueForAll P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TrueForAll",P1])
+		return dnSend("s4:call",nHandle,"s10:TrueForAll",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnSend("s3:get",nHandle,"s8:Capacity","")
 
 	Func setCapacity P1
-		dnRequest("set",[self,"Capacity",P1])
+		dnSend("s3:set",nHandle,"s8:Capacity",dnPackItem(P1))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1052,96 +1052,96 @@ Class StringDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsKey",P1])
+		return dnSend("s4:call",nHandle,"s11:ContainsKey",dnPackItem(P1))
 
 	Func ContainsValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsValue",P1])
+		return dnSend("s4:call",nHandle,"s13:ContainsValue",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetObjectData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetAlternateLookup 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAlternateLookup"])
+		return dnSend("s4:call",nHandle,"s18:GetAlternateLookup","")
 
 	Func TryGetAlternateLookup 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetAlternateLookup"])
+		return dnSend("s4:call",nHandle,"s21:TryGetAlternateLookup","")
 
 	Func OnDeserialization P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
+		dnSend("s4:call",nHandle,"s17:OnDeserialization",dnPackItem(P1))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
+		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func TryAdd P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryAdd",P1,P2])
+		return dnSend("s4:call",nHandle,"s6:TryAdd",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureCapacity",dnPackItem(P1))
 
 	Func TrimExcess P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+			dnSend("s9:callnamed",nHandle,"s10:TrimExcess",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
+			dnSend("s4:call",nHandle,"s10:TrimExcess","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+		dnSend("s4:call",nHandle,"s10:TrimExcess",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnSend("s3:get",nHandle,"s8:Comparer","")
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnSend("s3:get",nHandle,"s8:Capacity","")
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnSend("s3:get",nHandle,"s4:Keys","")
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnSend("s3:get",nHandle,"s6:Values","")
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
@@ -1198,96 +1198,96 @@ Class NumberDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsKey",P1])
+		return dnSend("s4:call",nHandle,"s11:ContainsKey",dnPackItem(P1))
 
 	Func ContainsValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsValue",P1])
+		return dnSend("s4:call",nHandle,"s13:ContainsValue",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetObjectData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetAlternateLookup 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAlternateLookup"])
+		return dnSend("s4:call",nHandle,"s18:GetAlternateLookup","")
 
 	Func TryGetAlternateLookup 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetAlternateLookup"])
+		return dnSend("s4:call",nHandle,"s21:TryGetAlternateLookup","")
 
 	Func OnDeserialization P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
+		dnSend("s4:call",nHandle,"s17:OnDeserialization",dnPackItem(P1))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
+		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func TryAdd P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryAdd",P1,P2])
+		return dnSend("s4:call",nHandle,"s6:TryAdd",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureCapacity",dnPackItem(P1))
 
 	Func TrimExcess P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+			dnSend("s9:callnamed",nHandle,"s10:TrimExcess",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
+			dnSend("s4:call",nHandle,"s10:TrimExcess","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+		dnSend("s4:call",nHandle,"s10:TrimExcess",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnSend("s3:get",nHandle,"s8:Comparer","")
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnSend("s3:get",nHandle,"s8:Capacity","")
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnSend("s3:get",nHandle,"s4:Keys","")
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnSend("s3:get",nHandle,"s6:Values","")
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
@@ -1344,96 +1344,96 @@ Class ObjectDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsKey",P1])
+		return dnSend("s4:call",nHandle,"s11:ContainsKey",dnPackItem(P1))
 
 	Func ContainsValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsValue",P1])
+		return dnSend("s4:call",nHandle,"s13:ContainsValue",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetObjectData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetAlternateLookup 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAlternateLookup"])
+		return dnSend("s4:call",nHandle,"s18:GetAlternateLookup","")
 
 	Func TryGetAlternateLookup 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetAlternateLookup"])
+		return dnSend("s4:call",nHandle,"s21:TryGetAlternateLookup","")
 
 	Func OnDeserialization P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
+		dnSend("s4:call",nHandle,"s17:OnDeserialization",dnPackItem(P1))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
+		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func TryAdd P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryAdd",P1,P2])
+		return dnSend("s4:call",nHandle,"s6:TryAdd",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureCapacity",dnPackItem(P1))
 
 	Func TrimExcess P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+			dnSend("s9:callnamed",nHandle,"s10:TrimExcess",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
+			dnSend("s4:call",nHandle,"s10:TrimExcess","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+		dnSend("s4:call",nHandle,"s10:TrimExcess",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnSend("s3:get",nHandle,"s8:Comparer","")
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnSend("s3:get",nHandle,"s8:Capacity","")
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnSend("s3:get",nHandle,"s4:Keys","")
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnSend("s3:get",nHandle,"s6:Values","")
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
@@ -1490,96 +1490,96 @@ Class NumberKeyDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsKey",P1])
+		return dnSend("s4:call",nHandle,"s11:ContainsKey",dnPackItem(P1))
 
 	Func ContainsValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsValue",P1])
+		return dnSend("s4:call",nHandle,"s13:ContainsValue",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetObjectData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetAlternateLookup 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAlternateLookup"])
+		return dnSend("s4:call",nHandle,"s18:GetAlternateLookup","")
 
 	Func TryGetAlternateLookup 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetAlternateLookup"])
+		return dnSend("s4:call",nHandle,"s21:TryGetAlternateLookup","")
 
 	Func OnDeserialization P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
+		dnSend("s4:call",nHandle,"s17:OnDeserialization",dnPackItem(P1))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
+		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func TryAdd P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryAdd",P1,P2])
+		return dnSend("s4:call",nHandle,"s6:TryAdd",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureCapacity",dnPackItem(P1))
 
 	Func TrimExcess P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+			dnSend("s9:callnamed",nHandle,"s10:TrimExcess",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
+			dnSend("s4:call",nHandle,"s10:TrimExcess","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+		dnSend("s4:call",nHandle,"s10:TrimExcess",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnSend("s3:get",nHandle,"s8:Comparer","")
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnSend("s3:get",nHandle,"s8:Capacity","")
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnSend("s3:get",nHandle,"s4:Keys","")
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnSend("s3:get",nHandle,"s6:Values","")
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
@@ -1635,62 +1635,62 @@ Class SortedStringDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsKey",P1])
+		return dnSend("s4:call",nHandle,"s11:ContainsKey",dnPackItem(P1))
 
 	Func ContainsValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsValue",P1])
+		return dnSend("s4:call",nHandle,"s13:ContainsValue",dnPackItem(P1))
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
+		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnSend("s3:get",nHandle,"s8:Comparer","")
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnSend("s3:get",nHandle,"s4:Keys","")
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnSend("s3:get",nHandle,"s6:Values","")
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
@@ -1746,62 +1746,62 @@ Class SortedObjectDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsKey",P1])
+		return dnSend("s4:call",nHandle,"s11:ContainsKey",dnPackItem(P1))
 
 	Func ContainsValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsValue",P1])
+		return dnSend("s4:call",nHandle,"s13:ContainsValue",dnPackItem(P1))
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
+		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnSend("s3:get",nHandle,"s8:Comparer","")
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnSend("s3:get",nHandle,"s4:Keys","")
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnSend("s3:get",nHandle,"s6:Values","")
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
@@ -1858,89 +1858,89 @@ Class SortedObjectList from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsKey",P1])
+		return dnSend("s4:call",nHandle,"s11:ContainsKey",dnPackItem(P1))
 
 	Func ContainsValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ContainsValue",P1])
+		return dnSend("s4:call",nHandle,"s13:ContainsValue",dnPackItem(P1))
 
 	Func GetValueAtIndex P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValueAtIndex",P1])
+		return dnSend("s4:call",nHandle,"s15:GetValueAtIndex",dnPackItem(P1))
 
 	Func SetValueAtIndex P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValueAtIndex",P1,P2])
+		dnSend("s4:call",nHandle,"s15:SetValueAtIndex",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func GetKeyAtIndex P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetKeyAtIndex",P1])
+		return dnSend("s4:call",nHandle,"s13:GetKeyAtIndex",dnPackItem(P1))
 
 	Func IndexOfKey P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOfKey",P1])
+		return dnSend("s4:call",nHandle,"s10:IndexOfKey",dnPackItem(P1))
 
 	Func IndexOfValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IndexOfValue",P1])
+		return dnSend("s4:call",nHandle,"s12:IndexOfValue",dnPackItem(P1))
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
+		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveAt",P1])
+		dnSend("s4:call",nHandle,"s8:RemoveAt",dnPackItem(P1))
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func TrimExcess 
-		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
+		dnSend("s4:call",nHandle,"s10:TrimExcess","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnSend("s3:get",nHandle,"s8:Capacity","")
 
 	Func setCapacity P1
-		dnRequest("set",[self,"Capacity",P1])
+		dnSend("s3:set",nHandle,"s8:Capacity",dnPackItem(P1))
 		return self
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnSend("s3:get",nHandle,"s8:Comparer","")
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnSend("s3:get",nHandle,"s4:Keys","")
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnSend("s3:get",nHandle,"s6:Values","")
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
@@ -1995,118 +1995,118 @@ Class StringSet from Object
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func GetAlternateLookup 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAlternateLookup"])
+		return dnSend("s4:call",nHandle,"s18:GetAlternateLookup","")
 
 	Func TryGetAlternateLookup 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetAlternateLookup"])
+		return dnSend("s4:call",nHandle,"s21:TryGetAlternateLookup","")
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetObjectData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func OnDeserialization P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
+		dnSend("s4:call",nHandle,"s17:OnDeserialization",dnPackItem(P1))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
+		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func UnionWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"UnionWith",P1])
+		dnSend("s4:call",nHandle,"s9:UnionWith",dnPackItem(P1))
 		return self
 
 	Func IntersectWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"IntersectWith",P1])
+		dnSend("s4:call",nHandle,"s13:IntersectWith",dnPackItem(P1))
 		return self
 
 	Func ExceptWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ExceptWith",P1])
+		dnSend("s4:call",nHandle,"s10:ExceptWith",dnPackItem(P1))
 		return self
 
 	Func SymmetricExceptWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SymmetricExceptWith",P1])
+		dnSend("s4:call",nHandle,"s19:SymmetricExceptWith",dnPackItem(P1))
 		return self
 
 	Func IsSubsetOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSubsetOf",P1])
+		return dnSend("s4:call",nHandle,"s10:IsSubsetOf",dnPackItem(P1))
 
 	Func IsProperSubsetOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsProperSubsetOf",P1])
+		return dnSend("s4:call",nHandle,"s16:IsProperSubsetOf",dnPackItem(P1))
 
 	Func IsSupersetOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSupersetOf",P1])
+		return dnSend("s4:call",nHandle,"s12:IsSupersetOf",dnPackItem(P1))
 
 	Func IsProperSupersetOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsProperSupersetOf",P1])
+		return dnSend("s4:call",nHandle,"s18:IsProperSupersetOf",dnPackItem(P1))
 
 	Func Overlaps P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Overlaps",P1])
+		return dnSend("s4:call",nHandle,"s8:Overlaps",dnPackItem(P1))
 
 	Func SetEquals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SetEquals",P1])
+		return dnSend("s4:call",nHandle,"s9:SetEquals",dnPackItem(P1))
 
 	Func CopyTo P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
+			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1))
 		return self
 
 	Func RemoveWhere P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveWhere",P1])
+		return dnSend("s4:call",nHandle,"s11:RemoveWhere",dnPackItem(P1))
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureCapacity",dnPackItem(P1))
 
 	Func TrimExcess P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+			dnSend("s9:callnamed",nHandle,"s10:TrimExcess",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
+			dnSend("s4:call",nHandle,"s10:TrimExcess","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+		dnSend("s4:call",nHandle,"s10:TrimExcess",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateSetComparer 
-		return dnRequest("call",[dnTypeCached('System.Collections.Generic.HashSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"CreateSetComparer"])
+		return dnSend("s4:call",dnTypeCached('System.Collections.Generic.HashSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib').nHandle,"s17:CreateSetComparer","")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnSend("s3:get",nHandle,"s8:Capacity","")
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnSend("s3:get",nHandle,"s8:Comparer","")
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
@@ -2161,118 +2161,118 @@ Class NumberSet from Object
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func GetAlternateLookup 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAlternateLookup"])
+		return dnSend("s4:call",nHandle,"s18:GetAlternateLookup","")
 
 	Func TryGetAlternateLookup 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetAlternateLookup"])
+		return dnSend("s4:call",nHandle,"s21:TryGetAlternateLookup","")
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetObjectData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func OnDeserialization P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
+		dnSend("s4:call",nHandle,"s17:OnDeserialization",dnPackItem(P1))
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
+		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func UnionWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"UnionWith",P1])
+		dnSend("s4:call",nHandle,"s9:UnionWith",dnPackItem(P1))
 		return self
 
 	Func IntersectWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"IntersectWith",P1])
+		dnSend("s4:call",nHandle,"s13:IntersectWith",dnPackItem(P1))
 		return self
 
 	Func ExceptWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ExceptWith",P1])
+		dnSend("s4:call",nHandle,"s10:ExceptWith",dnPackItem(P1))
 		return self
 
 	Func SymmetricExceptWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SymmetricExceptWith",P1])
+		dnSend("s4:call",nHandle,"s19:SymmetricExceptWith",dnPackItem(P1))
 		return self
 
 	Func IsSubsetOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSubsetOf",P1])
+		return dnSend("s4:call",nHandle,"s10:IsSubsetOf",dnPackItem(P1))
 
 	Func IsProperSubsetOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsProperSubsetOf",P1])
+		return dnSend("s4:call",nHandle,"s16:IsProperSubsetOf",dnPackItem(P1))
 
 	Func IsSupersetOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSupersetOf",P1])
+		return dnSend("s4:call",nHandle,"s12:IsSupersetOf",dnPackItem(P1))
 
 	Func IsProperSupersetOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsProperSupersetOf",P1])
+		return dnSend("s4:call",nHandle,"s18:IsProperSupersetOf",dnPackItem(P1))
 
 	Func Overlaps P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Overlaps",P1])
+		return dnSend("s4:call",nHandle,"s8:Overlaps",dnPackItem(P1))
 
 	Func SetEquals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SetEquals",P1])
+		return dnSend("s4:call",nHandle,"s9:SetEquals",dnPackItem(P1))
 
 	Func CopyTo P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
+			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1))
 		return self
 
 	Func RemoveWhere P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveWhere",P1])
+		return dnSend("s4:call",nHandle,"s11:RemoveWhere",dnPackItem(P1))
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureCapacity",dnPackItem(P1))
 
 	Func TrimExcess P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+			dnSend("s9:callnamed",nHandle,"s10:TrimExcess",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
+			dnSend("s4:call",nHandle,"s10:TrimExcess","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+		dnSend("s4:call",nHandle,"s10:TrimExcess",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateSetComparer 
-		return dnRequest("call",[dnTypeCached('System.Collections.Generic.HashSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"CreateSetComparer"])
+		return dnSend("s4:call",dnTypeCached('System.Collections.Generic.HashSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib').nHandle,"s17:CreateSetComparer","")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnSend("s3:get",nHandle,"s8:Capacity","")
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnSend("s3:get",nHandle,"s8:Comparer","")
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
@@ -2328,107 +2328,107 @@ Class SortedStringSet from Object
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func CopyTo P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
+			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func UnionWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"UnionWith",P1])
+		dnSend("s4:call",nHandle,"s9:UnionWith",dnPackItem(P1))
 		return self
 
 	Func IntersectWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"IntersectWith",P1])
+		dnSend("s4:call",nHandle,"s13:IntersectWith",dnPackItem(P1))
 		return self
 
 	Func ExceptWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ExceptWith",P1])
+		dnSend("s4:call",nHandle,"s10:ExceptWith",dnPackItem(P1))
 		return self
 
 	Func SymmetricExceptWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SymmetricExceptWith",P1])
+		dnSend("s4:call",nHandle,"s19:SymmetricExceptWith",dnPackItem(P1))
 		return self
 
 	Func IsSubsetOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSubsetOf",P1])
+		return dnSend("s4:call",nHandle,"s10:IsSubsetOf",dnPackItem(P1))
 
 	Func IsProperSubsetOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsProperSubsetOf",P1])
+		return dnSend("s4:call",nHandle,"s16:IsProperSubsetOf",dnPackItem(P1))
 
 	Func IsSupersetOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSupersetOf",P1])
+		return dnSend("s4:call",nHandle,"s12:IsSupersetOf",dnPackItem(P1))
 
 	Func IsProperSupersetOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsProperSupersetOf",P1])
+		return dnSend("s4:call",nHandle,"s18:IsProperSupersetOf",dnPackItem(P1))
 
 	Func SetEquals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SetEquals",P1])
+		return dnSend("s4:call",nHandle,"s9:SetEquals",dnPackItem(P1))
 
 	Func Overlaps P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Overlaps",P1])
+		return dnSend("s4:call",nHandle,"s8:Overlaps",dnPackItem(P1))
 
 	Func RemoveWhere P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveWhere",P1])
+		return dnSend("s4:call",nHandle,"s11:RemoveWhere",dnPackItem(P1))
 
 	Func Reverse 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Reverse"])
+		return dnSend("s4:call",nHandle,"s7:Reverse","")
 
 	Func GetViewBetween P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetViewBetween",P1,P2])
+		return dnSend("s4:call",nHandle,"s14:GetViewBetween",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
+		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateSetComparer P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections').nHandle,"s17:CreateSetComparer",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer"])
+			return dnSend("s4:call",dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections').nHandle,"s17:CreateSetComparer","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer",P1])
+		return dnSend("s4:call",dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections').nHandle,"s17:CreateSetComparer",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnSend("s3:get",nHandle,"s8:Comparer","")
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getMin
-		return dnRequest("get",[self,"Min"])
+		return dnSend("s3:get",nHandle,"s3:Min","")
 
 	Func setMin P1
 		raise("DotNet Error: Min is a read-only property")
 
 	Func getMax
-		return dnRequest("get",[self,"Max"])
+		return dnSend("s3:get",nHandle,"s3:Max","")
 
 	Func setMax P1
 		raise("DotNet Error: Max is a read-only property")
@@ -2484,107 +2484,107 @@ Class SortedNumberSet from Object
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		return dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func CopyTo P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"CopyTo",P1])
+			dnSend("s9:callnamed",nHandle,"s6:CopyTo",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func UnionWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"UnionWith",P1])
+		dnSend("s4:call",nHandle,"s9:UnionWith",dnPackItem(P1))
 		return self
 
 	Func IntersectWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"IntersectWith",P1])
+		dnSend("s4:call",nHandle,"s13:IntersectWith",dnPackItem(P1))
 		return self
 
 	Func ExceptWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"ExceptWith",P1])
+		dnSend("s4:call",nHandle,"s10:ExceptWith",dnPackItem(P1))
 		return self
 
 	Func SymmetricExceptWith P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SymmetricExceptWith",P1])
+		dnSend("s4:call",nHandle,"s19:SymmetricExceptWith",dnPackItem(P1))
 		return self
 
 	Func IsSubsetOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSubsetOf",P1])
+		return dnSend("s4:call",nHandle,"s10:IsSubsetOf",dnPackItem(P1))
 
 	Func IsProperSubsetOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsProperSubsetOf",P1])
+		return dnSend("s4:call",nHandle,"s16:IsProperSubsetOf",dnPackItem(P1))
 
 	Func IsSupersetOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsSupersetOf",P1])
+		return dnSend("s4:call",nHandle,"s12:IsSupersetOf",dnPackItem(P1))
 
 	Func IsProperSupersetOf P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsProperSupersetOf",P1])
+		return dnSend("s4:call",nHandle,"s18:IsProperSupersetOf",dnPackItem(P1))
 
 	Func SetEquals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SetEquals",P1])
+		return dnSend("s4:call",nHandle,"s9:SetEquals",dnPackItem(P1))
 
 	Func Overlaps P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Overlaps",P1])
+		return dnSend("s4:call",nHandle,"s8:Overlaps",dnPackItem(P1))
 
 	Func RemoveWhere P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoveWhere",P1])
+		return dnSend("s4:call",nHandle,"s11:RemoveWhere",dnPackItem(P1))
 
 	Func Reverse 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Reverse"])
+		return dnSend("s4:call",nHandle,"s7:Reverse","")
 
 	Func GetViewBetween P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetViewBetween",P1,P2])
+		return dnSend("s4:call",nHandle,"s14:GetViewBetween",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
+		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateSetComparer P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections').nHandle,"s17:CreateSetComparer",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer"])
+			return dnSend("s4:call",dnTypeCached('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections').nHandle,"s17:CreateSetComparer","")
 		ok
-		return dnRequest("call",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer",P1])
+		return dnSend("s4:call",dnTypeCached('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections').nHandle,"s17:CreateSetComparer",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnSend("s3:get",nHandle,"s8:Comparer","")
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getMin
-		return dnRequest("get",[self,"Min"])
+		return dnSend("s3:get",nHandle,"s3:Min","")
 
 	Func setMin P1
 		raise("DotNet Error: Min is a read-only property")
 
 	Func getMax
-		return dnRequest("get",[self,"Max"])
+		return dnSend("s3:get",nHandle,"s3:Max","")
 
 	Func setMax P1
 		raise("DotNet Error: Max is a read-only property")
@@ -2638,64 +2638,64 @@ Class StringQueue from Object
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Enqueue P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Enqueue",P1])
+		dnSend("s4:call",nHandle,"s7:Enqueue",dnPackItem(P1))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Dequeue 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Dequeue"])
+		return dnSend("s4:call",nHandle,"s7:Dequeue","")
 
 	Func TryDequeue 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryDequeue"])
+		return dnSend("s4:call",nHandle,"s10:TryDequeue","")
 
 	Func Peek 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Peek"])
+		return dnSend("s4:call",nHandle,"s4:Peek","")
 
 	Func TryPeek 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryPeek"])
+		return dnSend("s4:call",nHandle,"s7:TryPeek","")
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func ToArray 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
+		return dnSend("s4:call",nHandle,"s7:ToArray","")
 
 	Func TrimExcess P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+			dnSend("s9:callnamed",nHandle,"s10:TrimExcess",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
+			dnSend("s4:call",nHandle,"s10:TrimExcess","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+		dnSend("s4:call",nHandle,"s10:TrimExcess",dnPackItem(P1))
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureCapacity",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnSend("s3:get",nHandle,"s8:Capacity","")
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")
@@ -2749,64 +2749,64 @@ Class ObjectQueue from Object
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Enqueue P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Enqueue",P1])
+		dnSend("s4:call",nHandle,"s7:Enqueue",dnPackItem(P1))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Dequeue 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Dequeue"])
+		return dnSend("s4:call",nHandle,"s7:Dequeue","")
 
 	Func TryDequeue 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryDequeue"])
+		return dnSend("s4:call",nHandle,"s10:TryDequeue","")
 
 	Func Peek 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Peek"])
+		return dnSend("s4:call",nHandle,"s4:Peek","")
 
 	Func TryPeek 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryPeek"])
+		return dnSend("s4:call",nHandle,"s7:TryPeek","")
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func ToArray 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
+		return dnSend("s4:call",nHandle,"s7:ToArray","")
 
 	Func TrimExcess P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+			dnSend("s9:callnamed",nHandle,"s10:TrimExcess",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
+			dnSend("s4:call",nHandle,"s10:TrimExcess","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+		dnSend("s4:call",nHandle,"s10:TrimExcess",dnPackItem(P1))
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureCapacity",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnSend("s3:get",nHandle,"s8:Capacity","")
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")
@@ -2860,64 +2860,64 @@ Class StringStack from Object
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func TrimExcess P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+			dnSend("s9:callnamed",nHandle,"s10:TrimExcess",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
+			dnSend("s4:call",nHandle,"s10:TrimExcess","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+		dnSend("s4:call",nHandle,"s10:TrimExcess",dnPackItem(P1))
 		return self
 
 	Func Peek 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Peek"])
+		return dnSend("s4:call",nHandle,"s4:Peek","")
 
 	Func TryPeek 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryPeek"])
+		return dnSend("s4:call",nHandle,"s7:TryPeek","")
 
 	Func Pop 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Pop"])
+		return dnSend("s4:call",nHandle,"s3:Pop","")
 
 	Func TryPop 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryPop"])
+		return dnSend("s4:call",nHandle,"s6:TryPop","")
 
 	Func Push P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Push",P1])
+		dnSend("s4:call",nHandle,"s4:Push",dnPackItem(P1))
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureCapacity",dnPackItem(P1))
 
 	Func ToArray 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
+		return dnSend("s4:call",nHandle,"s7:ToArray","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnSend("s3:get",nHandle,"s8:Capacity","")
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")
@@ -2971,64 +2971,64 @@ Class ObjectStack from Object
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func TrimExcess P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+			dnSend("s9:callnamed",nHandle,"s10:TrimExcess",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
+			dnSend("s4:call",nHandle,"s10:TrimExcess","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess",P1])
+		dnSend("s4:call",nHandle,"s10:TrimExcess",dnPackItem(P1))
 		return self
 
 	Func Peek 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Peek"])
+		return dnSend("s4:call",nHandle,"s4:Peek","")
 
 	Func TryPeek 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryPeek"])
+		return dnSend("s4:call",nHandle,"s7:TryPeek","")
 
 	Func Pop 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Pop"])
+		return dnSend("s4:call",nHandle,"s3:Pop","")
 
 	Func TryPop 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryPop"])
+		return dnSend("s4:call",nHandle,"s6:TryPop","")
 
 	Func Push P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Push",P1])
+		dnSend("s4:call",nHandle,"s4:Push",dnPackItem(P1))
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureCapacity",dnPackItem(P1))
 
 	Func ToArray 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToArray"])
+		return dnSend("s4:call",nHandle,"s7:ToArray","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnSend("s3:get",nHandle,"s8:Capacity","")
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")
@@ -3083,73 +3083,73 @@ Class StringLinkedList from Object
 		return self
 
 	Func AddAfter P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddAfter",P1,P2])
+		return dnSend("s4:call",nHandle,"s8:AddAfter",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddBefore P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddBefore",P1,P2])
+		return dnSend("s4:call",nHandle,"s9:AddBefore",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddFirst P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddFirst",P1])
+		return dnSend("s4:call",nHandle,"s8:AddFirst",dnPackItem(P1))
 
 	Func AddLast P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddLast",P1])
+		return dnSend("s4:call",nHandle,"s7:AddLast",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Find P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Find",P1])
+		return dnSend("s4:call",nHandle,"s4:Find",dnPackItem(P1))
 
 	Func FindLast P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLast",P1])
+		return dnSend("s4:call",nHandle,"s8:FindLast",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveFirst 
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveFirst"])
+		dnSend("s4:call",nHandle,"s11:RemoveFirst","")
 		return self
 
 	Func RemoveLast 
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveLast"])
+		dnSend("s4:call",nHandle,"s10:RemoveLast","")
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetObjectData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func OnDeserialization P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
+		dnSend("s4:call",nHandle,"s17:OnDeserialization",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getFirst
-		return dnRequest("get",[self,"First"])
+		return dnSend("s3:get",nHandle,"s5:First","")
 
 	Func setFirst P1
 		raise("DotNet Error: First is a read-only property")
 
 	Func getLast
-		return dnRequest("get",[self,"Last"])
+		return dnSend("s3:get",nHandle,"s4:Last","")
 
 	Func setLast P1
 		raise("DotNet Error: Last is a read-only property")
@@ -3204,73 +3204,73 @@ Class ObjectLinkedList from Object
 		return self
 
 	Func AddAfter P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddAfter",P1,P2])
+		return dnSend("s4:call",nHandle,"s8:AddAfter",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddBefore P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddBefore",P1,P2])
+		return dnSend("s4:call",nHandle,"s9:AddBefore",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AddFirst P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddFirst",P1])
+		return dnSend("s4:call",nHandle,"s8:AddFirst",dnPackItem(P1))
 
 	Func AddLast P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddLast",P1])
+		return dnSend("s4:call",nHandle,"s7:AddLast",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Contains",P1])
+		return dnSend("s4:call",nHandle,"s8:Contains",dnPackItem(P1))
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Find P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Find",P1])
+		return dnSend("s4:call",nHandle,"s4:Find",dnPackItem(P1))
 
 	Func FindLast P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindLast",P1])
+		return dnSend("s4:call",nHandle,"s8:FindLast",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func RemoveFirst 
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveFirst"])
+		dnSend("s4:call",nHandle,"s11:RemoveFirst","")
 		return self
 
 	Func RemoveLast 
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveLast"])
+		dnSend("s4:call",nHandle,"s10:RemoveLast","")
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"GetObjectData",P1,P2])
+		dnSend("s4:call",nHandle,"s13:GetObjectData",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func OnDeserialization P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"OnDeserialization",P1])
+		dnSend("s4:call",nHandle,"s17:OnDeserialization",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getFirst
-		return dnRequest("get",[self,"First"])
+		return dnSend("s3:get",nHandle,"s5:First","")
 
 	Func setFirst P1
 		raise("DotNet Error: First is a read-only property")
 
 	Func getLast
-		return dnRequest("get",[self,"Last"])
+		return dnSend("s3:get",nHandle,"s4:Last","")
 
 	Func setLast P1
 		raise("DotNet Error: Last is a read-only property")
@@ -3325,69 +3325,69 @@ Class StringPriorityQueue from Object
 		return self
 
 	Func Enqueue P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Enqueue",P1,P2])
+		dnSend("s4:call",nHandle,"s7:Enqueue",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Peek 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Peek"])
+		return dnSend("s4:call",nHandle,"s4:Peek","")
 
 	Func Dequeue 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Dequeue"])
+		return dnSend("s4:call",nHandle,"s7:Dequeue","")
 
 	Func DequeueEnqueue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DequeueEnqueue",P1,P2])
+		return dnSend("s4:call",nHandle,"s14:DequeueEnqueue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func TryDequeue 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryDequeue"])
+		return dnSend("s4:call",nHandle,"s10:TryDequeue","")
 
 	Func TryPeek 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryPeek"])
+		return dnSend("s4:call",nHandle,"s7:TryPeek","")
 
 	Func EnqueueDequeue P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnqueueDequeue",P1,P2])
+		return dnSend("s4:call",nHandle,"s14:EnqueueDequeue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EnqueueRange P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"EnqueueRange",P1])
+			dnSend("s9:callnamed",nHandle,"s12:EnqueueRange",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"EnqueueRange",P1])
+		dnSend("s4:call",nHandle,"s12:EnqueueRange",dnPackItem(P1))
 		return self
 
 	Func Remove P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Remove",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Remove",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1))
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureCapacity",dnPackItem(P1))
 
 	Func TrimExcess 
-		dnRequest("call",[new DotNetObject(this.nHandle),"TrimExcess"])
+		dnSend("s4:call",nHandle,"s10:TrimExcess","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnSend("s3:get",nHandle,"s5:Count","")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnSend("s3:get",nHandle,"s8:Comparer","")
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getUnorderedItems
-		return dnRequest("get",[self,"UnorderedItems"])
+		return dnSend("s3:get",nHandle,"s14:UnorderedItems","")
 
 	Func setUnorderedItems P1
 		raise("DotNet Error: UnorderedItems is a read-only property")
@@ -3441,16 +3441,16 @@ Class StringPair from ValueType
 		return self
 
 	Func Deconstruct 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Deconstruct"])
+		return dnSend("s4:call",nHandle,"s11:Deconstruct","")
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnSend("s3:get",nHandle,"s3:Key","")
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -3504,16 +3504,16 @@ Class ObjectPair from ValueType
 		return self
 
 	Func Deconstruct 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Deconstruct"])
+		return dnSend("s4:call",nHandle,"s11:Deconstruct","")
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnSend("s3:get",nHandle,"s3:Key","")
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -3567,16 +3567,16 @@ Class NumberPair from ValueType
 		return self
 
 	Func Deconstruct 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Deconstruct"])
+		return dnSend("s4:call",nHandle,"s11:Deconstruct","")
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnSend("s3:get",nHandle,"s3:Key","")
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

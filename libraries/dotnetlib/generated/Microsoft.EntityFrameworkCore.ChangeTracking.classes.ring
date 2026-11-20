@@ -182,69 +182,69 @@ Class CaseInsensitiveValueComparer from DotNetObject
 
 	Func Equals P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetHashCode",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+			return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode",P1])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode",dnPackItem(P1))
 
 	Func Snapshot P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Snapshot",P1])
+		return dnSend("s4:call",nHandle,"s8:Snapshot",dnPackItem(P1))
 
 	Func ExtractEqualsBody P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExtractEqualsBody",P1,P2])
+		return dnSend("s4:call",nHandle,"s17:ExtractEqualsBody",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ExtractHashCodeBody P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExtractHashCodeBody",P1])
+		return dnSend("s4:call",nHandle,"s19:ExtractHashCodeBody",dnPackItem(P1))
 
 	Func ExtractSnapshotBody P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExtractSnapshotBody",P1])
+		return dnSend("s4:call",nHandle,"s19:ExtractSnapshotBody",dnPackItem(P1))
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func getObjectEqualsExpression
-		return dnRequest("get",[self,"ObjectEqualsExpression"])
+		return dnSend("s3:get",nHandle,"s22:ObjectEqualsExpression","")
 
 	Func setObjectEqualsExpression P1
 		raise("DotNet Error: ObjectEqualsExpression is a read-only property")
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnSend("s3:get",nHandle,"s4:Type","")
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getEqualsExpression
-		return dnRequest("get",[self,"EqualsExpression"])
+		return dnSend("s3:get",nHandle,"s16:EqualsExpression","")
 
 	Func setEqualsExpression P1
 		raise("DotNet Error: EqualsExpression is a read-only property")
 
 	Func getHashCodeExpression
-		return dnRequest("get",[self,"HashCodeExpression"])
+		return dnSend("s3:get",nHandle,"s18:HashCodeExpression","")
 
 	Func setHashCodeExpression P1
 		raise("DotNet Error: HashCodeExpression is a read-only property")
 
 	Func getSnapshotExpression
-		return dnRequest("get",[self,"SnapshotExpression"])
+		return dnSend("s3:get",nHandle,"s18:SnapshotExpression","")
 
 	Func setSnapshotExpression P1
 		raise("DotNet Error: SnapshotExpression is a read-only property")
 
 	Func getConstructorExpression
-		return dnRequest("get",[self,"ConstructorExpression"])
+		return dnSend("s3:get",nHandle,"s21:ConstructorExpression","")
 
 	Func setConstructorExpression P1
 		raise("DotNet Error: ConstructorExpression is a read-only property")
@@ -272,36 +272,36 @@ Class ChangeTracker from Object
 		return self
 
 	Func Entries 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Entries"])
+		return dnSend("s4:call",nHandle,"s7:Entries","")
 
 	Func HasChanges 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HasChanges"])
+		return dnSend("s4:call",nHandle,"s10:HasChanges","")
 
 	Func DetectChanges 
-		dnRequest("call",[new DotNetObject(this.nHandle),"DetectChanges"])
+		dnSend("s4:call",nHandle,"s13:DetectChanges","")
 		return self
 
 	Func AcceptAllChanges 
-		dnRequest("call",[new DotNetObject(this.nHandle),"AcceptAllChanges"])
+		dnSend("s4:call",nHandle,"s16:AcceptAllChanges","")
 		return self
 
 	Func TrackGraph P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"TrackGraph",P1])
+			dnSend("s9:callnamed",nHandle,"s10:TrackGraph",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: TrackGraph does not take one argument: use named arguments, TrackGraph([ :parameter = value, ... ])")
 
 	Func CascadeChanges 
-		dnRequest("call",[new DotNetObject(this.nHandle),"CascadeChanges"])
+		dnSend("s4:call",nHandle,"s14:CascadeChanges","")
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		dnSend("s4:call",nHandle,"s5:Clear","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func setTrackingEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"Tracking",dnCallback(P1)])
@@ -368,48 +368,48 @@ Class ChangeTracker from Object
 		return self
 
 	Func getAutoDetectChangesEnabled
-		return dnRequest("get",[self,"AutoDetectChangesEnabled"])
+		return dnSend("s3:get",nHandle,"s24:AutoDetectChangesEnabled","")
 
 	Func setAutoDetectChangesEnabled P1
-		dnRequest("set",[self,"AutoDetectChangesEnabled",P1])
+		dnSend("s3:set",nHandle,"s24:AutoDetectChangesEnabled",dnPackItem(P1))
 		return self
 
 	Func getLazyLoadingEnabled
-		return dnRequest("get",[self,"LazyLoadingEnabled"])
+		return dnSend("s3:get",nHandle,"s18:LazyLoadingEnabled","")
 
 	Func setLazyLoadingEnabled P1
-		dnRequest("set",[self,"LazyLoadingEnabled",P1])
+		dnSend("s3:set",nHandle,"s18:LazyLoadingEnabled",dnPackItem(P1))
 		return self
 
 	Func getQueryTrackingBehavior
-		return dnRequest("get",[self,"QueryTrackingBehavior"])
+		return dnSend("s3:get",nHandle,"s21:QueryTrackingBehavior","")
 
 	Func setQueryTrackingBehavior P1
-		dnRequest("set",[self,"QueryTrackingBehavior",P1])
+		dnSend("s3:set",nHandle,"s21:QueryTrackingBehavior",dnPackItem(P1))
 		return self
 
 	Func getDeleteOrphansTiming
-		return dnRequest("get",[self,"DeleteOrphansTiming"])
+		return dnSend("s3:get",nHandle,"s19:DeleteOrphansTiming","")
 
 	Func setDeleteOrphansTiming P1
-		dnRequest("set",[self,"DeleteOrphansTiming",P1])
+		dnSend("s3:set",nHandle,"s19:DeleteOrphansTiming",dnPackItem(P1))
 		return self
 
 	Func getCascadeDeleteTiming
-		return dnRequest("get",[self,"CascadeDeleteTiming"])
+		return dnSend("s3:get",nHandle,"s19:CascadeDeleteTiming","")
 
 	Func setCascadeDeleteTiming P1
-		dnRequest("set",[self,"CascadeDeleteTiming",P1])
+		dnSend("s3:set",nHandle,"s19:CascadeDeleteTiming",dnPackItem(P1))
 		return self
 
 	Func getContext
-		return dnRequest("get",[self,"Context"])
+		return dnSend("s3:get",nHandle,"s7:Context","")
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getDebugView
-		return dnRequest("get",[self,"DebugView"])
+		return dnSend("s3:get",nHandle,"s9:DebugView","")
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")
@@ -456,7 +456,7 @@ Class DetectedChangesEventArgs from EventArgs
 		return self
 
 	Func getChangesFound
-		return dnRequest("get",[self,"ChangesFound"])
+		return dnSend("s3:get",nHandle,"s12:ChangesFound","")
 
 	Func setChangesFound P1
 		raise("DotNet Error: ChangesFound is a read-only property")
@@ -491,136 +491,136 @@ Class EntityEntry from Object
 		return self
 
 	Func DetectChanges 
-		dnRequest("call",[new DotNetObject(this.nHandle),"DetectChanges"])
+		dnSend("s4:call",nHandle,"s13:DetectChanges","")
 		return self
 
 	Func Member P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Member",P1])
+		return dnSend("s4:call",nHandle,"s6:Member",dnPackItem(P1))
 
 	Func Navigation P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Navigation",P1])
+		return dnSend("s4:call",nHandle,"s10:Navigation",dnPackItem(P1))
 
 	Func Property P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Property",P1])
+		return dnSend("s4:call",nHandle,"s8:Property",dnPackItem(P1))
 
 	Func ComplexProperty P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ComplexProperty",P1])
+		return dnSend("s4:call",nHandle,"s15:ComplexProperty",dnPackItem(P1))
 
 	Func Reference P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Reference",P1])
+		return dnSend("s4:call",nHandle,"s9:Reference",dnPackItem(P1))
 
 	Func Collection P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Collection",P1])
+		return dnSend("s4:call",nHandle,"s10:Collection",dnPackItem(P1))
 
 	Func GetDatabaseValues 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDatabaseValues"])
+		return dnSend("s4:call",nHandle,"s17:GetDatabaseValues","")
 
 	Func GetDatabaseValuesAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetDatabaseValuesAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s22:GetDatabaseValuesAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetDatabaseValuesAsync"])
+			return dnSend("s4:call",nHandle,"s22:GetDatabaseValuesAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDatabaseValuesAsync",P1])
+		return dnSend("s4:call",nHandle,"s22:GetDatabaseValuesAsync",dnPackItem(P1))
 
 	Func Reload 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reload"])
+		dnSend("s4:call",nHandle,"s6:Reload","")
 		return self
 
 	Func ReloadAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ReloadAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:ReloadAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"ReloadAsync"])
+			return dnSend("s4:call",nHandle,"s11:ReloadAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ReloadAsync",P1])
+		return dnSend("s4:call",nHandle,"s11:ReloadAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getEntity
-		return dnRequest("get",[self,"Entity"])
+		return dnSend("s3:get",nHandle,"s6:Entity","")
 
 	Func setEntity P1
 		raise("DotNet Error: Entity is a read-only property")
 
 	Func getState
-		return dnRequest("get",[self,"State"])
+		return dnSend("s3:get",nHandle,"s5:State","")
 
 	Func setState P1
-		dnRequest("set",[self,"State",P1])
+		dnSend("s3:set",nHandle,"s5:State",dnPackItem(P1))
 		return self
 
 	Func getContext
-		return dnRequest("get",[self,"Context"])
+		return dnSend("s3:get",nHandle,"s7:Context","")
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
 	Func getMembers
-		return dnRequest("get",[self,"Members"])
+		return dnSend("s3:get",nHandle,"s7:Members","")
 
 	Func setMembers P1
 		raise("DotNet Error: Members is a read-only property")
 
 	Func getNavigations
-		return dnRequest("get",[self,"Navigations"])
+		return dnSend("s3:get",nHandle,"s11:Navigations","")
 
 	Func setNavigations P1
 		raise("DotNet Error: Navigations is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnSend("s3:get",nHandle,"s10:Properties","")
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getComplexProperties
-		return dnRequest("get",[self,"ComplexProperties"])
+		return dnSend("s3:get",nHandle,"s17:ComplexProperties","")
 
 	Func setComplexProperties P1
 		raise("DotNet Error: ComplexProperties is a read-only property")
 
 	Func getReferences
-		return dnRequest("get",[self,"References"])
+		return dnSend("s3:get",nHandle,"s10:References","")
 
 	Func setReferences P1
 		raise("DotNet Error: References is a read-only property")
 
 	Func getCollections
-		return dnRequest("get",[self,"Collections"])
+		return dnSend("s3:get",nHandle,"s11:Collections","")
 
 	Func setCollections P1
 		raise("DotNet Error: Collections is a read-only property")
 
 	Func getIsKeySet
-		return dnRequest("get",[self,"IsKeySet"])
+		return dnSend("s3:get",nHandle,"s8:IsKeySet","")
 
 	Func setIsKeySet P1
 		raise("DotNet Error: IsKeySet is a read-only property")
 
 	Func getCurrentValues
-		return dnRequest("get",[self,"CurrentValues"])
+		return dnSend("s3:get",nHandle,"s13:CurrentValues","")
 
 	Func setCurrentValues P1
 		raise("DotNet Error: CurrentValues is a read-only property")
 
 	Func getOriginalValues
-		return dnRequest("get",[self,"OriginalValues"])
+		return dnSend("s3:get",nHandle,"s14:OriginalValues","")
 
 	Func setOriginalValues P1
 		raise("DotNet Error: OriginalValues is a read-only property")
 
 	Func getDebugView
-		return dnRequest("get",[self,"DebugView"])
+		return dnSend("s3:get",nHandle,"s9:DebugView","")
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")
@@ -642,7 +642,7 @@ Class EntityEntryEventArgs from EventArgs
 		return self
 
 	Func getEntry
-		return dnRequest("get",[self,"Entry"])
+		return dnSend("s3:get",nHandle,"s5:Entry","")
 
 	Func setEntry P1
 		raise("DotNet Error: Entry is a read-only property")
@@ -666,25 +666,25 @@ Class EntityEntryGraphNode from Object
 		return self
 
 	Func CreateNode P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateNode",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s10:CreateNode",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getSourceEntry
-		return dnRequest("get",[self,"SourceEntry"])
+		return dnSend("s3:get",nHandle,"s11:SourceEntry","")
 
 	Func setSourceEntry P1
 		raise("DotNet Error: SourceEntry is a read-only property")
 
 	Func getInboundNavigation
-		return dnRequest("get",[self,"InboundNavigation"])
+		return dnSend("s3:get",nHandle,"s17:InboundNavigation","")
 
 	Func setInboundNavigation P1
 		raise("DotNet Error: InboundNavigation is a read-only property")
 
 	Func getEntry
-		return dnRequest("get",[self,"Entry"])
+		return dnSend("s3:get",nHandle,"s5:Entry","")
 
 	Func setEntry P1
 		raise("DotNet Error: Entry is a read-only property")
@@ -703,15 +703,15 @@ Class IDependentKeyValueFactory from DotNetObject
 
 	Func CreatePrincipalEquatableKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreatePrincipalEquatableKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s27:CreatePrincipalEquatableKey",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreatePrincipalEquatableKey",P1])
+		return dnSend("s4:call",nHandle,"s27:CreatePrincipalEquatableKey",dnPackItem(P1))
 
 	Func CreateDependentEquatableKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateDependentEquatableKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s27:CreateDependentEquatableKey",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateDependentEquatableKey",P1])
+		return dnSend("s4:call",nHandle,"s27:CreateDependentEquatableKey",dnPackItem(P1))
 
 
 Class IEntityEntryGraphIterator from DotNetObject
@@ -726,12 +726,12 @@ Class IEntityEntryGraphIterator from DotNetObject
 		return self
 
 	Func TraverseGraph P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"TraverseGraph",P1,P2])
+		dnSend("s4:call",nHandle,"s13:TraverseGraph",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func TraverseGraphAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"TraverseGraphAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:TraverseGraphAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: TraverseGraphAsync does not take one argument: use named arguments, TraverseGraphAsync([ :parameter = value, ... ])")
 
@@ -749,9 +749,9 @@ Class IPrincipalKeyValueFactory from DotNetObject
 
 	Func CreateEquatableKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"CreateEquatableKey",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:CreateEquatableKey",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateEquatableKey",P1])
+		return dnSend("s4:call",nHandle,"s18:CreateEquatableKey",dnPackItem(P1))
 
 
 Class MemberEntry from Object
@@ -771,30 +771,30 @@ Class MemberEntry from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getIsModified
-		return dnRequest("get",[self,"IsModified"])
+		return dnSend("s3:get",nHandle,"s10:IsModified","")
 
 	Func setIsModified P1
-		dnRequest("set",[self,"IsModified",P1])
+		dnSend("s3:set",nHandle,"s10:IsModified",dnPackItem(P1))
 		return self
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
 	Func getCurrentValue
-		return dnRequest("get",[self,"CurrentValue"])
+		return dnSend("s3:get",nHandle,"s12:CurrentValue","")
 
 	Func setCurrentValue P1
-		dnRequest("set",[self,"CurrentValue",P1])
+		dnSend("s3:set",nHandle,"s12:CurrentValue",dnPackItem(P1))
 		return self
 
 	Func getEntityEntry
-		return dnRequest("get",[self,"EntityEntry"])
+		return dnSend("s3:get",nHandle,"s11:EntityEntry","")
 
 	Func setEntityEntry P1
 		raise("DotNet Error: EntityEntry is a read-only property")
@@ -815,39 +815,39 @@ Class PropertyValues from Object
 		return self
 
 	Func ToObject 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToObject"])
+		return dnSend("s4:call",nHandle,"s8:ToObject","")
 
 	Func SetValues P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetValues",P1])
+		dnSend("s4:call",nHandle,"s9:SetValues",dnPackItem(P1))
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func GetValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetValue",P1])
+		return dnSend("s4:call",nHandle,"s8:GetValue",dnPackItem(P1))
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryGetValue",P1])
+		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnSend("s3:get",nHandle,"s10:Properties","")
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getEntityType
-		return dnRequest("get",[self,"EntityType"])
+		return dnSend("s3:get",nHandle,"s10:EntityType","")
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
@@ -873,78 +873,78 @@ Class ValueComparer from Object
 
 	Func Equals P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Equals",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Equals",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetHashCode",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:GetHashCode",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+			return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode",P1])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode",dnPackItem(P1))
 
 	Func Snapshot P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Snapshot",P1])
+		return dnSend("s4:call",nHandle,"s8:Snapshot",dnPackItem(P1))
 
 	Func ExtractEqualsBody P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExtractEqualsBody",P1,P2])
+		return dnSend("s4:call",nHandle,"s17:ExtractEqualsBody",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ExtractHashCodeBody P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExtractHashCodeBody",P1])
+		return dnSend("s4:call",nHandle,"s19:ExtractHashCodeBody",dnPackItem(P1))
 
 	Func ExtractSnapshotBody P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ExtractSnapshotBody",P1])
+		return dnSend("s4:call",nHandle,"s19:ExtractSnapshotBody",dnPackItem(P1))
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func GetGenericSnapshotMethod P1
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"GetGenericSnapshotMethod",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore').nHandle,"s24:GetGenericSnapshotMethod",dnPackItem(P1))
 
 	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"Add",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore').nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateDefault P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"CreateDefault",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore').nHandle,"s13:CreateDefault",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"CreateDefault",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore').nHandle,"s13:CreateDefault",dnPackItem(P1))
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnSend("s3:get",nHandle,"s4:Type","")
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getEqualsExpression
-		return dnRequest("get",[self,"EqualsExpression"])
+		return dnSend("s3:get",nHandle,"s16:EqualsExpression","")
 
 	Func setEqualsExpression P1
 		raise("DotNet Error: EqualsExpression is a read-only property")
 
 	Func getObjectEqualsExpression
-		return dnRequest("get",[self,"ObjectEqualsExpression"])
+		return dnSend("s3:get",nHandle,"s22:ObjectEqualsExpression","")
 
 	Func setObjectEqualsExpression P1
 		raise("DotNet Error: ObjectEqualsExpression is a read-only property")
 
 	Func getHashCodeExpression
-		return dnRequest("get",[self,"HashCodeExpression"])
+		return dnSend("s3:get",nHandle,"s18:HashCodeExpression","")
 
 	Func setHashCodeExpression P1
 		raise("DotNet Error: HashCodeExpression is a read-only property")
 
 	Func getSnapshotExpression
-		return dnRequest("get",[self,"SnapshotExpression"])
+		return dnSend("s3:get",nHandle,"s18:SnapshotExpression","")
 
 	Func setSnapshotExpression P1
 		raise("DotNet Error: SnapshotExpression is a read-only property")
 
 	Func getConstructorExpression
-		return dnRequest("get",[self,"ConstructorExpression"])
+		return dnSend("s3:get",nHandle,"s21:ConstructorExpression","")
 
 	Func setConstructorExpression P1
 		raise("DotNet Error: ConstructorExpression is a read-only property")
@@ -962,10 +962,10 @@ Class ValueComparerExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsDefault P1
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparerExtensions, Microsoft.EntityFrameworkCore'),"IsDefault",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparerExtensions, Microsoft.EntityFrameworkCore').nHandle,"s9:IsDefault",dnPackItem(P1))
 
 
 Class ComplexPropertyEntry from MemberEntry
@@ -985,19 +985,19 @@ Class ComplexPropertyEntry from MemberEntry
 		return self
 
 	Func Property P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Property",P1])
+		return dnSend("s4:call",nHandle,"s8:Property",dnPackItem(P1))
 
 	Func ComplexProperty P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ComplexProperty",P1])
+		return dnSend("s4:call",nHandle,"s15:ComplexProperty",dnPackItem(P1))
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnSend("s3:get",nHandle,"s10:Properties","")
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getComplexProperties
-		return dnRequest("get",[self,"ComplexProperties"])
+		return dnSend("s3:get",nHandle,"s17:ComplexProperties","")
 
 	Func setComplexProperties P1
 		raise("DotNet Error: ComplexProperties is a read-only property")
@@ -1019,7 +1019,7 @@ Class DetectEntityChangesEventArgs from DetectChangesEventArgs
 		return self
 
 	Func getEntry
-		return dnRequest("get",[self,"Entry"])
+		return dnSend("s3:get",nHandle,"s5:Entry","")
 
 	Func setEntry P1
 		raise("DotNet Error: Entry is a read-only property")
@@ -1041,7 +1041,7 @@ Class DetectedEntityChangesEventArgs from DetectedChangesEventArgs
 		return self
 
 	Func getEntry
-		return dnRequest("get",[self,"Entry"])
+		return dnSend("s3:get",nHandle,"s5:Entry","")
 
 	Func setEntry P1
 		raise("DotNet Error: Entry is a read-only property")
@@ -1064,13 +1064,13 @@ Class EntityStateChangedEventArgs from EntityEntryEventArgs
 		return self
 
 	Func getOldState
-		return dnRequest("get",[self,"OldState"])
+		return dnSend("s3:get",nHandle,"s8:OldState","")
 
 	Func setOldState P1
 		raise("DotNet Error: OldState is a read-only property")
 
 	Func getNewState
-		return dnRequest("get",[self,"NewState"])
+		return dnSend("s3:get",nHandle,"s8:NewState","")
 
 	Func setNewState P1
 		raise("DotNet Error: NewState is a read-only property")
@@ -1093,13 +1093,13 @@ Class EntityStateChangingEventArgs from EntityEntryEventArgs
 		return self
 
 	Func getOldState
-		return dnRequest("get",[self,"OldState"])
+		return dnSend("s3:get",nHandle,"s8:OldState","")
 
 	Func setOldState P1
 		raise("DotNet Error: OldState is a read-only property")
 
 	Func getNewState
-		return dnRequest("get",[self,"NewState"])
+		return dnSend("s3:get",nHandle,"s8:NewState","")
 
 	Func setNewState P1
 		raise("DotNet Error: NewState is a read-only property")
@@ -1121,7 +1121,7 @@ Class EntityTrackedEventArgs from EntityEntryEventArgs
 		return self
 
 	Func getFromQuery
-		return dnRequest("get",[self,"FromQuery"])
+		return dnSend("s3:get",nHandle,"s9:FromQuery","")
 
 	Func setFromQuery P1
 		raise("DotNet Error: FromQuery is a read-only property")
@@ -1144,13 +1144,13 @@ Class EntityTrackingEventArgs from EntityEntryEventArgs
 		return self
 
 	Func getState
-		return dnRequest("get",[self,"State"])
+		return dnSend("s3:get",nHandle,"s5:State","")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getFromQuery
-		return dnRequest("get",[self,"FromQuery"])
+		return dnSend("s3:get",nHandle,"s9:FromQuery","")
 
 	Func setFromQuery P1
 		raise("DotNet Error: FromQuery is a read-only property")
@@ -1171,33 +1171,33 @@ Class NavigationEntry from MemberEntry
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Load",P1])
+			dnSend("s9:callnamed",nHandle,"s4:Load",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Load"])
+			dnSend("s4:call",nHandle,"s4:Load","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Load",P1])
+		dnSend("s4:call",nHandle,"s4:Load",dnPackItem(P1))
 		return self
 
 	Func LoadAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"LoadAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:LoadAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"LoadAsync"])
+			return dnSend("s4:call",nHandle,"s9:LoadAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"LoadAsync",P1])
+		return dnSend("s4:call",nHandle,"s9:LoadAsync",dnPackItem(P1))
 
 	Func Query 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Query"])
+		return dnSend("s4:call",nHandle,"s5:Query","")
 
 	Func getIsLoaded
-		return dnRequest("get",[self,"IsLoaded"])
+		return dnSend("s3:get",nHandle,"s8:IsLoaded","")
 
 	Func setIsLoaded P1
-		dnRequest("set",[self,"IsLoaded",P1])
+		dnSend("s3:set",nHandle,"s8:IsLoaded",dnPackItem(P1))
 		return self
 
 
@@ -1218,17 +1218,17 @@ Class PropertyEntry from MemberEntry
 		return self
 
 	Func getIsTemporary
-		return dnRequest("get",[self,"IsTemporary"])
+		return dnSend("s3:get",nHandle,"s11:IsTemporary","")
 
 	Func setIsTemporary P1
-		dnRequest("set",[self,"IsTemporary",P1])
+		dnSend("s3:set",nHandle,"s11:IsTemporary",dnPackItem(P1))
 		return self
 
 	Func getOriginalValue
-		return dnRequest("get",[self,"OriginalValue"])
+		return dnSend("s3:get",nHandle,"s13:OriginalValue","")
 
 	Func setOriginalValue P1
-		dnRequest("set",[self,"OriginalValue",P1])
+		dnSend("s3:set",nHandle,"s13:OriginalValue",dnPackItem(P1))
 		return self
 
 
@@ -1246,7 +1246,7 @@ Class CollectionEntry from NavigationEntry
 		return self
 
 	Func FindEntry P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"FindEntry",P1])
+		return dnSend("s4:call",nHandle,"s9:FindEntry",dnPackItem(P1))
 
 
 Class ReferenceEntry from NavigationEntry
@@ -1265,7 +1265,7 @@ Class ReferenceEntry from NavigationEntry
 		return self
 
 	Func getTargetEntry
-		return dnRequest("get",[self,"TargetEntry"])
+		return dnSend("s3:get",nHandle,"s11:TargetEntry","")
 
 	Func setTargetEntry P1
 		raise("DotNet Error: TargetEntry is a read-only property")

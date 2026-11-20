@@ -294,85 +294,85 @@ Class AccessDeniedContext from DotNetObject
 		return self
 
 	Func HandleResponse 
-		dnRequest("call",[new DotNetObject(this.nHandle),"HandleResponse"])
+		dnSend("s4:call",nHandle,"s14:HandleResponse","")
 		return self
 
 	Func SkipHandler 
-		dnRequest("call",[new DotNetObject(this.nHandle),"SkipHandler"])
+		dnSend("s4:call",nHandle,"s11:SkipHandler","")
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func getAccessDeniedPath
-		return dnRequest("get",[self,"AccessDeniedPath"])
+		return dnSend("s3:get",nHandle,"s16:AccessDeniedPath","")
 
 	Func setAccessDeniedPath P1
-		dnRequest("set",[self,"AccessDeniedPath",P1])
+		dnSend("s3:set",nHandle,"s16:AccessDeniedPath",dnPackItem(P1))
 		return self
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnSend("s3:get",nHandle,"s10:Properties","")
 
 	Func setProperties P1
-		dnRequest("set",[self,"Properties",P1])
+		dnSend("s3:set",nHandle,"s10:Properties",dnPackItem(P1))
 		return self
 
 	Func getReturnUrl
-		return dnRequest("get",[self,"ReturnUrl"])
+		return dnSend("s3:get",nHandle,"s9:ReturnUrl","")
 
 	Func setReturnUrl P1
-		dnRequest("set",[self,"ReturnUrl",P1])
+		dnSend("s3:set",nHandle,"s9:ReturnUrl",dnPackItem(P1))
 		return self
 
 	Func getReturnUrlParameter
-		return dnRequest("get",[self,"ReturnUrlParameter"])
+		return dnSend("s3:get",nHandle,"s18:ReturnUrlParameter","")
 
 	Func setReturnUrlParameter P1
-		dnRequest("set",[self,"ReturnUrlParameter",P1])
+		dnSend("s3:set",nHandle,"s18:ReturnUrlParameter",dnPackItem(P1))
 		return self
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getScheme
-		return dnRequest("get",[self,"Scheme"])
+		return dnSend("s3:get",nHandle,"s6:Scheme","")
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnSend("s3:get",nHandle,"s7:Options","")
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getHttpContext
-		return dnRequest("get",[self,"HttpContext"])
+		return dnSend("s3:get",nHandle,"s11:HttpContext","")
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getRequest
-		return dnRequest("get",[self,"Request"])
+		return dnSend("s3:get",nHandle,"s7:Request","")
 
 	Func setRequest P1
 		raise("DotNet Error: Request is a read-only property")
 
 	Func getResponse
-		return dnRequest("get",[self,"Response"])
+		return dnSend("s3:get",nHandle,"s8:Response","")
 
 	Func setResponse P1
 		raise("DotNet Error: Response is a read-only property")
@@ -397,55 +397,55 @@ Class AuthenticateResult from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Success P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"Success",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s7:Success",dnPackItem(P1))
 
 	Func NoResult 
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"NoResult"])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s8:NoResult","")
 
 	Func Fail P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"Fail",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s4:Fail",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"Fail",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s4:Fail",dnPackItem(P1))
 
 	Func getSucceeded
-		return dnRequest("get",[self,"Succeeded"])
+		return dnSend("s3:get",nHandle,"s9:Succeeded","")
 
 	Func setSucceeded P1
 		raise("DotNet Error: Succeeded is a read-only property")
 
 	Func getTicket
-		return dnRequest("get",[self,"Ticket"])
+		return dnSend("s3:get",nHandle,"s6:Ticket","")
 
 	Func setTicket P1
 		raise("DotNet Error: Ticket is a read-only property")
 
 	Func getPrincipal
-		return dnRequest("get",[self,"Principal"])
+		return dnSend("s3:get",nHandle,"s9:Principal","")
 
 	Func setPrincipal P1
 		raise("DotNet Error: Principal is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnSend("s3:get",nHandle,"s10:Properties","")
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getFailure
-		return dnRequest("get",[self,"Failure"])
+		return dnSend("s3:get",nHandle,"s7:Failure","")
 
 	Func setFailure P1
 		raise("DotNet Error: Failure is a read-only property")
 
 	Func getNone
-		return dnRequest("get",[self,"None"])
+		return dnSend("s3:get",nHandle,"s4:None","")
 
 	Func setNone P1
 		raise("DotNet Error: None is a read-only property")
@@ -468,21 +468,21 @@ Class AuthenticationBuilder from Object
 
 	Func AddScheme P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AddScheme",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:AddScheme",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AddScheme does not take one argument: use named arguments, AddScheme([ :parameter = value, ... ])")
 
 	Func AddRemoteScheme P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddRemoteScheme",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s15:AddRemoteScheme",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func AddPolicyScheme P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddPolicyScheme",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s15:AddPolicyScheme",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnSend("s3:get",nHandle,"s8:Services","")
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
@@ -500,10 +500,10 @@ Class AuthenticationConfigurationProviderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetSchemeConfiguration P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationConfigurationProviderExtensions, Microsoft.AspNetCore.Authentication'),"GetSchemeConfiguration",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationConfigurationProviderExtensions, Microsoft.AspNetCore.Authentication').nHandle,"s22:GetSchemeConfiguration",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class AuthenticationFeature from Object
@@ -534,20 +534,20 @@ Class AuthenticationFeature from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getOriginalPathBase
-		return dnRequest("get",[self,"OriginalPathBase"])
+		return dnSend("s3:get",nHandle,"s16:OriginalPathBase","")
 
 	Func setOriginalPathBase P1
-		dnRequest("set",[self,"OriginalPathBase",P1])
+		dnSend("s3:set",nHandle,"s16:OriginalPathBase",dnPackItem(P1))
 		return self
 
 	Func getOriginalPath
-		return dnRequest("get",[self,"OriginalPath"])
+		return dnSend("s3:get",nHandle,"s12:OriginalPath","")
 
 	Func setOriginalPath P1
-		dnRequest("set",[self,"OriginalPath",P1])
+		dnSend("s3:set",nHandle,"s12:OriginalPath",dnPackItem(P1))
 		return self
 
 
@@ -567,13 +567,13 @@ Class AuthenticationHandlerProvider from Object
 		return self
 
 	Func GetHandlerAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHandlerAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s15:GetHandlerAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getSchemes
-		return dnRequest("get",[self,"Schemes"])
+		return dnSend("s3:get",nHandle,"s7:Schemes","")
 
 	Func setSchemes P1
 		raise("DotNet Error: Schemes is a read-only property")
@@ -591,41 +591,41 @@ Class AuthenticationHttpContextExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AuthenticateAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"AuthenticateAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s17:AuthenticateAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"AuthenticateAsync",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s17:AuthenticateAsync",dnPackItem(P1))
 
 	Func ChallengeAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"ChallengeAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s14:ChallengeAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"ChallengeAsync",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s14:ChallengeAsync",dnPackItem(P1))
 
 	Func ForbidAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"ForbidAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s11:ForbidAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"ForbidAsync",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s11:ForbidAsync",dnPackItem(P1))
 
 	Func SignInAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"SignInAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s11:SignInAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: SignInAsync does not take one argument: use named arguments, SignInAsync([ :parameter = value, ... ])")
 
 	Func SignOutAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"SignOutAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s12:SignOutAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"SignOutAsync",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s12:SignOutAsync",dnPackItem(P1))
 
 	Func GetTokenAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"GetTokenAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s13:GetTokenAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetTokenAsync does not take one argument: use named arguments, GetTokenAsync([ :parameter = value, ... ])")
 
@@ -646,16 +646,16 @@ Class AuthenticationMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Invoke",P1])
+		return dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getSchemes
-		return dnRequest("get",[self,"Schemes"])
+		return dnSend("s3:get",nHandle,"s7:Schemes","")
 
 	Func setSchemes P1
-		dnRequest("set",[self,"Schemes",P1])
+		dnSend("s3:set",nHandle,"s7:Schemes",dnPackItem(P1))
 		return self
 
 
@@ -694,71 +694,71 @@ Class AuthenticationOptions from Object
 		return self
 
 	Func AddScheme P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddScheme",P1,P2])
+		dnSend("s4:call",nHandle,"s9:AddScheme",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getSchemes
-		return dnRequest("get",[self,"Schemes"])
+		return dnSend("s3:get",nHandle,"s7:Schemes","")
 
 	Func setSchemes P1
 		raise("DotNet Error: Schemes is a read-only property")
 
 	Func getSchemeMap
-		return dnRequest("get",[self,"SchemeMap"])
+		return dnSend("s3:get",nHandle,"s9:SchemeMap","")
 
 	Func setSchemeMap P1
 		raise("DotNet Error: SchemeMap is a read-only property")
 
 	Func getDefaultScheme
-		return dnRequest("get",[self,"DefaultScheme"])
+		return dnSend("s3:get",nHandle,"s13:DefaultScheme","")
 
 	Func setDefaultScheme P1
-		dnRequest("set",[self,"DefaultScheme",P1])
+		dnSend("s3:set",nHandle,"s13:DefaultScheme",dnPackItem(P1))
 		return self
 
 	Func getDefaultAuthenticateScheme
-		return dnRequest("get",[self,"DefaultAuthenticateScheme"])
+		return dnSend("s3:get",nHandle,"s25:DefaultAuthenticateScheme","")
 
 	Func setDefaultAuthenticateScheme P1
-		dnRequest("set",[self,"DefaultAuthenticateScheme",P1])
+		dnSend("s3:set",nHandle,"s25:DefaultAuthenticateScheme",dnPackItem(P1))
 		return self
 
 	Func getDefaultSignInScheme
-		return dnRequest("get",[self,"DefaultSignInScheme"])
+		return dnSend("s3:get",nHandle,"s19:DefaultSignInScheme","")
 
 	Func setDefaultSignInScheme P1
-		dnRequest("set",[self,"DefaultSignInScheme",P1])
+		dnSend("s3:set",nHandle,"s19:DefaultSignInScheme",dnPackItem(P1))
 		return self
 
 	Func getDefaultSignOutScheme
-		return dnRequest("get",[self,"DefaultSignOutScheme"])
+		return dnSend("s3:get",nHandle,"s20:DefaultSignOutScheme","")
 
 	Func setDefaultSignOutScheme P1
-		dnRequest("set",[self,"DefaultSignOutScheme",P1])
+		dnSend("s3:set",nHandle,"s20:DefaultSignOutScheme",dnPackItem(P1))
 		return self
 
 	Func getDefaultChallengeScheme
-		return dnRequest("get",[self,"DefaultChallengeScheme"])
+		return dnSend("s3:get",nHandle,"s22:DefaultChallengeScheme","")
 
 	Func setDefaultChallengeScheme P1
-		dnRequest("set",[self,"DefaultChallengeScheme",P1])
+		dnSend("s3:set",nHandle,"s22:DefaultChallengeScheme",dnPackItem(P1))
 		return self
 
 	Func getDefaultForbidScheme
-		return dnRequest("get",[self,"DefaultForbidScheme"])
+		return dnSend("s3:get",nHandle,"s19:DefaultForbidScheme","")
 
 	Func setDefaultForbidScheme P1
-		dnRequest("set",[self,"DefaultForbidScheme",P1])
+		dnSend("s3:set",nHandle,"s19:DefaultForbidScheme",dnPackItem(P1))
 		return self
 
 	Func getRequireAuthenticatedSignIn
-		return dnRequest("get",[self,"RequireAuthenticatedSignIn"])
+		return dnSend("s3:get",nHandle,"s26:RequireAuthenticatedSignIn","")
 
 	Func setRequireAuthenticatedSignIn P1
-		dnRequest("set",[self,"RequireAuthenticatedSignIn",P1])
+		dnSend("s3:set",nHandle,"s26:RequireAuthenticatedSignIn",dnPackItem(P1))
 		return self
 
 
@@ -815,70 +815,70 @@ Class AuthenticationProperties from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func GetString P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetString",P1])
+		return dnSend("s4:call",nHandle,"s9:GetString",dnPackItem(P1))
 
 	Func SetString P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetString",P1,P2])
+		dnSend("s4:call",nHandle,"s9:SetString",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetParameter P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetParameter",P1])
+		return dnSend("s4:call",nHandle,"s12:GetParameter",dnPackItem(P1))
 
 	Func SetParameter P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"SetParameter",P1,P2])
+		dnSend("s4:call",nHandle,"s12:SetParameter",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getItems
-		return dnRequest("get",[self,"Items"])
+		return dnSend("s3:get",nHandle,"s5:Items","")
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnSend("s3:get",nHandle,"s10:Parameters","")
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getIsPersistent
-		return dnRequest("get",[self,"IsPersistent"])
+		return dnSend("s3:get",nHandle,"s12:IsPersistent","")
 
 	Func setIsPersistent P1
-		dnRequest("set",[self,"IsPersistent",P1])
+		dnSend("s3:set",nHandle,"s12:IsPersistent",dnPackItem(P1))
 		return self
 
 	Func getRedirectUri
-		return dnRequest("get",[self,"RedirectUri"])
+		return dnSend("s3:get",nHandle,"s11:RedirectUri","")
 
 	Func setRedirectUri P1
-		dnRequest("set",[self,"RedirectUri",P1])
+		dnSend("s3:set",nHandle,"s11:RedirectUri",dnPackItem(P1))
 		return self
 
 	Func getIssuedUtc
-		return dnRequest("get",[self,"IssuedUtc"])
+		return dnSend("s3:get",nHandle,"s9:IssuedUtc","")
 
 	Func setIssuedUtc P1
-		dnRequest("set",[self,"IssuedUtc",P1])
+		dnSend("s3:set",nHandle,"s9:IssuedUtc",dnPackItem(P1))
 		return self
 
 	Func getExpiresUtc
-		return dnRequest("get",[self,"ExpiresUtc"])
+		return dnSend("s3:get",nHandle,"s10:ExpiresUtc","")
 
 	Func setExpiresUtc P1
-		dnRequest("set",[self,"ExpiresUtc",P1])
+		dnSend("s3:set",nHandle,"s10:ExpiresUtc",dnPackItem(P1))
 		return self
 
 	Func getAllowRefresh
-		return dnRequest("get",[self,"AllowRefresh"])
+		return dnSend("s3:get",nHandle,"s12:AllowRefresh","")
 
 	Func setAllowRefresh P1
-		dnRequest("set",[self,"AllowRefresh",P1])
+		dnSend("s3:set",nHandle,"s12:AllowRefresh",dnPackItem(P1))
 		return self
 
 
@@ -900,22 +900,22 @@ Class AuthenticationScheme from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDisplayName
-		return dnRequest("get",[self,"DisplayName"])
+		return dnSend("s3:get",nHandle,"s11:DisplayName","")
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getHandlerType
-		return dnRequest("get",[self,"HandlerType"])
+		return dnSend("s3:get",nHandle,"s11:HandlerType","")
 
 	Func setHandlerType P1
 		raise("DotNet Error: HandlerType is a read-only property")
@@ -939,29 +939,29 @@ Class AuthenticationSchemeBuilder from Object
 		return self
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
+		return dnSend("s4:call",nHandle,"s5:Build","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDisplayName
-		return dnRequest("get",[self,"DisplayName"])
+		return dnSend("s3:get",nHandle,"s11:DisplayName","")
 
 	Func setDisplayName P1
-		dnRequest("set",[self,"DisplayName",P1])
+		dnSend("s3:set",nHandle,"s11:DisplayName",dnPackItem(P1))
 		return self
 
 	Func getHandlerType
-		return dnRequest("get",[self,"HandlerType"])
+		return dnSend("s3:get",nHandle,"s11:HandlerType","")
 
 	Func setHandlerType P1
-		dnRequest("set",[self,"HandlerType",P1])
+		dnSend("s3:set",nHandle,"s11:HandlerType",dnPackItem(P1))
 		return self
 
 
@@ -1003,94 +1003,94 @@ Class AuthenticationSchemeOptions from Object
 
 	Func Validate P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Validate",P1])
+			dnSend("s9:callnamed",nHandle,"s8:Validate",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Validate"])
+			dnSend("s4:call",nHandle,"s8:Validate","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Validate",P1])
+		dnSend("s4:call",nHandle,"s8:Validate",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getClaimsIssuer
-		return dnRequest("get",[self,"ClaimsIssuer"])
+		return dnSend("s3:get",nHandle,"s12:ClaimsIssuer","")
 
 	Func setClaimsIssuer P1
-		dnRequest("set",[self,"ClaimsIssuer",P1])
+		dnSend("s3:set",nHandle,"s12:ClaimsIssuer",dnPackItem(P1))
 		return self
 
 	Func getEvents
-		return dnRequest("get",[self,"Events"])
+		return dnSend("s3:get",nHandle,"s6:Events","")
 
 	Func setEvents P1
-		dnRequest("set",[self,"Events",P1])
+		dnSend("s3:set",nHandle,"s6:Events",dnPackItem(P1))
 		return self
 
 	Func getEventsType
-		return dnRequest("get",[self,"EventsType"])
+		return dnSend("s3:get",nHandle,"s10:EventsType","")
 
 	Func setEventsType P1
-		dnRequest("set",[self,"EventsType",P1])
+		dnSend("s3:set",nHandle,"s10:EventsType",dnPackItem(P1))
 		return self
 
 	Func getForwardDefault
-		return dnRequest("get",[self,"ForwardDefault"])
+		return dnSend("s3:get",nHandle,"s14:ForwardDefault","")
 
 	Func setForwardDefault P1
-		dnRequest("set",[self,"ForwardDefault",P1])
+		dnSend("s3:set",nHandle,"s14:ForwardDefault",dnPackItem(P1))
 		return self
 
 	Func getForwardAuthenticate
-		return dnRequest("get",[self,"ForwardAuthenticate"])
+		return dnSend("s3:get",nHandle,"s19:ForwardAuthenticate","")
 
 	Func setForwardAuthenticate P1
-		dnRequest("set",[self,"ForwardAuthenticate",P1])
+		dnSend("s3:set",nHandle,"s19:ForwardAuthenticate",dnPackItem(P1))
 		return self
 
 	Func getForwardChallenge
-		return dnRequest("get",[self,"ForwardChallenge"])
+		return dnSend("s3:get",nHandle,"s16:ForwardChallenge","")
 
 	Func setForwardChallenge P1
-		dnRequest("set",[self,"ForwardChallenge",P1])
+		dnSend("s3:set",nHandle,"s16:ForwardChallenge",dnPackItem(P1))
 		return self
 
 	Func getForwardForbid
-		return dnRequest("get",[self,"ForwardForbid"])
+		return dnSend("s3:get",nHandle,"s13:ForwardForbid","")
 
 	Func setForwardForbid P1
-		dnRequest("set",[self,"ForwardForbid",P1])
+		dnSend("s3:set",nHandle,"s13:ForwardForbid",dnPackItem(P1))
 		return self
 
 	Func getForwardSignIn
-		return dnRequest("get",[self,"ForwardSignIn"])
+		return dnSend("s3:get",nHandle,"s13:ForwardSignIn","")
 
 	Func setForwardSignIn P1
-		dnRequest("set",[self,"ForwardSignIn",P1])
+		dnSend("s3:set",nHandle,"s13:ForwardSignIn",dnPackItem(P1))
 		return self
 
 	Func getForwardSignOut
-		return dnRequest("get",[self,"ForwardSignOut"])
+		return dnSend("s3:get",nHandle,"s14:ForwardSignOut","")
 
 	Func setForwardSignOut P1
-		dnRequest("set",[self,"ForwardSignOut",P1])
+		dnSend("s3:set",nHandle,"s14:ForwardSignOut",dnPackItem(P1))
 		return self
 
 	Func getForwardDefaultSelector
-		return dnRequest("get",[self,"ForwardDefaultSelector"])
+		return dnSend("s3:get",nHandle,"s22:ForwardDefaultSelector","")
 
 	Func setForwardDefaultSelector P1
-		dnRequest("set",[self,"ForwardDefaultSelector",P1])
+		dnSend("s3:set",nHandle,"s22:ForwardDefaultSelector",dnPackItem(P1))
 		return self
 
 	Func getTimeProvider
-		return dnRequest("get",[self,"TimeProvider"])
+		return dnSend("s3:get",nHandle,"s12:TimeProvider","")
 
 	Func setTimeProvider P1
-		dnRequest("set",[self,"TimeProvider",P1])
+		dnSend("s3:set",nHandle,"s12:TimeProvider",dnPackItem(P1))
 		return self
 
 
@@ -1108,42 +1108,42 @@ Class AuthenticationSchemeProvider from Object
 		return self
 
 	Func GetDefaultAuthenticateSchemeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultAuthenticateSchemeAsync"])
+		return dnSend("s4:call",nHandle,"s33:GetDefaultAuthenticateSchemeAsync","")
 
 	Func GetDefaultChallengeSchemeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultChallengeSchemeAsync"])
+		return dnSend("s4:call",nHandle,"s30:GetDefaultChallengeSchemeAsync","")
 
 	Func GetDefaultForbidSchemeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultForbidSchemeAsync"])
+		return dnSend("s4:call",nHandle,"s27:GetDefaultForbidSchemeAsync","")
 
 	Func GetDefaultSignInSchemeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultSignInSchemeAsync"])
+		return dnSend("s4:call",nHandle,"s27:GetDefaultSignInSchemeAsync","")
 
 	Func GetDefaultSignOutSchemeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultSignOutSchemeAsync"])
+		return dnSend("s4:call",nHandle,"s28:GetDefaultSignOutSchemeAsync","")
 
 	Func GetSchemeAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSchemeAsync",P1])
+		return dnSend("s4:call",nHandle,"s14:GetSchemeAsync",dnPackItem(P1))
 
 	Func GetRequestHandlerSchemesAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRequestHandlerSchemesAsync"])
+		return dnSend("s4:call",nHandle,"s29:GetRequestHandlerSchemesAsync","")
 
 	Func TryAddScheme P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryAddScheme",P1])
+		return dnSend("s4:call",nHandle,"s12:TryAddScheme",dnPackItem(P1))
 
 	Func AddScheme P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddScheme",P1])
+		dnSend("s4:call",nHandle,"s9:AddScheme",dnPackItem(P1))
 		return self
 
 	Func RemoveScheme P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveScheme",P1])
+		dnSend("s4:call",nHandle,"s12:RemoveScheme",dnPackItem(P1))
 		return self
 
 	Func GetAllSchemesAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAllSchemesAsync"])
+		return dnSend("s4:call",nHandle,"s18:GetAllSchemesAsync","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class AuthenticationService from Object
@@ -1165,43 +1165,43 @@ Class AuthenticationService from Object
 		return self
 
 	Func AuthenticateAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s17:AuthenticateAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ChallengeAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ChallengeAsync",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s14:ChallengeAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ForbidAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ForbidAsync",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s11:ForbidAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func SignInAsync P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SignInAsync",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s11:SignInAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func SignOutAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SignOutAsync",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s12:SignOutAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getSchemes
-		return dnRequest("get",[self,"Schemes"])
+		return dnSend("s3:get",nHandle,"s7:Schemes","")
 
 	Func setSchemes P1
 		raise("DotNet Error: Schemes is a read-only property")
 
 	Func getHandlers
-		return dnRequest("get",[self,"Handlers"])
+		return dnSend("s3:get",nHandle,"s8:Handlers","")
 
 	Func setHandlers P1
 		raise("DotNet Error: Handlers is a read-only property")
 
 	Func getTransform
-		return dnRequest("get",[self,"Transform"])
+		return dnSend("s3:get",nHandle,"s9:Transform","")
 
 	Func setTransform P1
 		raise("DotNet Error: Transform is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnSend("s3:get",nHandle,"s7:Options","")
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
@@ -1240,25 +1240,25 @@ Class AuthenticationTicket from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAuthenticationScheme
-		return dnRequest("get",[self,"AuthenticationScheme"])
+		return dnSend("s3:get",nHandle,"s20:AuthenticationScheme","")
 
 	Func setAuthenticationScheme P1
 		raise("DotNet Error: AuthenticationScheme is a read-only property")
 
 	Func getPrincipal
-		return dnRequest("get",[self,"Principal"])
+		return dnSend("s3:get",nHandle,"s9:Principal","")
 
 	Func setPrincipal P1
 		raise("DotNet Error: Principal is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnSend("s3:get",nHandle,"s10:Properties","")
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
@@ -1292,20 +1292,20 @@ Class AuthenticationToken from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnSend("s3:set",nHandle,"s4:Name",dnPackItem(P1))
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnSend("s3:set",nHandle,"s5:Value",dnPackItem(P1))
 		return self
 
 
@@ -1321,24 +1321,24 @@ Class AuthenticationTokenExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func StoreTokens P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"StoreTokens",P1,P2])
+		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s11:StoreTokens",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func GetTokenValue P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"GetTokenValue",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s13:GetTokenValue",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UpdateTokenValue P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"UpdateTokenValue",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s16:UpdateTokenValue",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func GetTokens P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"GetTokens",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s9:GetTokens",dnPackItem(P1))
 
 	Func GetTokenAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"GetTokenAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions').nHandle,"s13:GetTokenAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetTokenAsync does not take one argument: use named arguments, GetTokenAsync([ :parameter = value, ... ])")
 
@@ -1355,13 +1355,13 @@ Class Base64UrlTextEncoder from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Encode P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.Base64UrlTextEncoder, Microsoft.AspNetCore.Authentication'),"Encode",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.Base64UrlTextEncoder, Microsoft.AspNetCore.Authentication').nHandle,"s6:Encode",dnPackItem(P1))
 
 	Func Decode P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.Base64UrlTextEncoder, Microsoft.AspNetCore.Authentication'),"Decode",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.Base64UrlTextEncoder, Microsoft.AspNetCore.Authentication').nHandle,"s6:Decode",dnPackItem(P1))
 
 
 Class ClaimActionCollectionMapExtensions from Object
@@ -1376,43 +1376,43 @@ Class ClaimActionCollectionMapExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapJsonKey P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapJsonKey",P1])
+			dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth').nHandle,"s10:MapJsonKey",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: MapJsonKey does not take one argument: use named arguments, MapJsonKey([ :parameter = value, ... ])")
 
 	Func MapJsonSubKey P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapJsonSubKey",P1])
+			dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth').nHandle,"s13:MapJsonSubKey",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: MapJsonSubKey does not take one argument: use named arguments, MapJsonSubKey([ :parameter = value, ... ])")
 
 	Func MapCustomJson P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapCustomJson",P1])
+			dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth').nHandle,"s13:MapCustomJson",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: MapCustomJson does not take one argument: use named arguments, MapCustomJson([ :parameter = value, ... ])")
 
 	Func MapAll P1
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapAll",P1])
+		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth').nHandle,"s6:MapAll",dnPackItem(P1))
 		return self
 
 	Func MapAllExcept P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapAllExcept",P1,P2])
+		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth').nHandle,"s12:MapAllExcept",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func DeleteClaim P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"DeleteClaim",P1,P2])
+		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth').nHandle,"s11:DeleteClaim",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func DeleteClaims P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"DeleteClaims",P1,P2])
+		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth').nHandle,"s12:DeleteClaims",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -1430,10 +1430,10 @@ Class IAuthenticateResultFeature from DotNetObject
 		return self
 
 	Func getAuthenticateResult
-		return dnRequest("get",[self,"AuthenticateResult"])
+		return dnSend("s3:get",nHandle,"s18:AuthenticateResult","")
 
 	Func setAuthenticateResult P1
-		dnRequest("set",[self,"AuthenticateResult",P1])
+		dnSend("s3:set",nHandle,"s18:AuthenticateResult",dnPackItem(P1))
 		return self
 
 
@@ -1451,7 +1451,7 @@ Class IAuthenticationConfigurationProvider from DotNetObject
 		return self
 
 	Func getAuthenticationConfiguration
-		return dnRequest("get",[self,"AuthenticationConfiguration"])
+		return dnSend("s3:get",nHandle,"s27:AuthenticationConfiguration","")
 
 	Func setAuthenticationConfiguration P1
 		raise("DotNet Error: AuthenticationConfiguration is a read-only property")
@@ -1472,17 +1472,17 @@ Class IAuthenticationFeature from DotNetObject
 		return self
 
 	Func getOriginalPathBase
-		return dnRequest("get",[self,"OriginalPathBase"])
+		return dnSend("s3:get",nHandle,"s16:OriginalPathBase","")
 
 	Func setOriginalPathBase P1
-		dnRequest("set",[self,"OriginalPathBase",P1])
+		dnSend("s3:set",nHandle,"s16:OriginalPathBase",dnPackItem(P1))
 		return self
 
 	Func getOriginalPath
-		return dnRequest("get",[self,"OriginalPath"])
+		return dnSend("s3:get",nHandle,"s12:OriginalPath","")
 
 	Func setOriginalPath P1
-		dnRequest("set",[self,"OriginalPath",P1])
+		dnSend("s3:set",nHandle,"s12:OriginalPath",dnPackItem(P1))
 		return self
 
 
@@ -1498,16 +1498,16 @@ Class IAuthenticationHandler from DotNetObject
 		return self
 
 	Func InitializeAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InitializeAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s15:InitializeAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AuthenticateAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsync"])
+		return dnSend("s4:call",nHandle,"s17:AuthenticateAsync","")
 
 	Func ChallengeAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ChallengeAsync",P1])
+		return dnSend("s4:call",nHandle,"s14:ChallengeAsync",dnPackItem(P1))
 
 	Func ForbidAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ForbidAsync",P1])
+		return dnSend("s4:call",nHandle,"s11:ForbidAsync",dnPackItem(P1))
 
 
 Class IAuthenticationHandlerProvider from DotNetObject
@@ -1522,7 +1522,7 @@ Class IAuthenticationHandlerProvider from DotNetObject
 		return self
 
 	Func GetHandlerAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHandlerAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s15:GetHandlerAsync",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class IAuthenticationRequestHandler from DotNetObject
@@ -1537,7 +1537,7 @@ Class IAuthenticationRequestHandler from DotNetObject
 		return self
 
 	Func HandleRequestAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"HandleRequestAsync"])
+		return dnSend("s4:call",nHandle,"s18:HandleRequestAsync","")
 
 
 Class IAuthenticationSchemeProvider from DotNetObject
@@ -1552,39 +1552,39 @@ Class IAuthenticationSchemeProvider from DotNetObject
 		return self
 
 	Func GetAllSchemesAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetAllSchemesAsync"])
+		return dnSend("s4:call",nHandle,"s18:GetAllSchemesAsync","")
 
 	Func GetSchemeAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSchemeAsync",P1])
+		return dnSend("s4:call",nHandle,"s14:GetSchemeAsync",dnPackItem(P1))
 
 	Func GetDefaultAuthenticateSchemeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultAuthenticateSchemeAsync"])
+		return dnSend("s4:call",nHandle,"s33:GetDefaultAuthenticateSchemeAsync","")
 
 	Func GetDefaultChallengeSchemeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultChallengeSchemeAsync"])
+		return dnSend("s4:call",nHandle,"s30:GetDefaultChallengeSchemeAsync","")
 
 	Func GetDefaultForbidSchemeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultForbidSchemeAsync"])
+		return dnSend("s4:call",nHandle,"s27:GetDefaultForbidSchemeAsync","")
 
 	Func GetDefaultSignInSchemeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultSignInSchemeAsync"])
+		return dnSend("s4:call",nHandle,"s27:GetDefaultSignInSchemeAsync","")
 
 	Func GetDefaultSignOutSchemeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDefaultSignOutSchemeAsync"])
+		return dnSend("s4:call",nHandle,"s28:GetDefaultSignOutSchemeAsync","")
 
 	Func AddScheme P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"AddScheme",P1])
+		dnSend("s4:call",nHandle,"s9:AddScheme",dnPackItem(P1))
 		return self
 
 	Func TryAddScheme P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TryAddScheme",P1])
+		return dnSend("s4:call",nHandle,"s12:TryAddScheme",dnPackItem(P1))
 
 	Func RemoveScheme P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"RemoveScheme",P1])
+		dnSend("s4:call",nHandle,"s12:RemoveScheme",dnPackItem(P1))
 		return self
 
 	Func GetRequestHandlerSchemesAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetRequestHandlerSchemesAsync"])
+		return dnSend("s4:call",nHandle,"s29:GetRequestHandlerSchemesAsync","")
 
 
 Class IAuthenticationService from DotNetObject
@@ -1599,19 +1599,19 @@ Class IAuthenticationService from DotNetObject
 		return self
 
 	Func AuthenticateAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s17:AuthenticateAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ChallengeAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ChallengeAsync",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s14:ChallengeAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func ForbidAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ForbidAsync",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s11:ForbidAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func SignInAsync P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SignInAsync",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s11:SignInAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func SignOutAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SignOutAsync",P1,P2,P3])
+		return dnSend("s4:call",nHandle,"s12:SignOutAsync",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class IAuthenticationSignInHandler from DotNetObject
@@ -1626,7 +1626,7 @@ Class IAuthenticationSignInHandler from DotNetObject
 		return self
 
 	Func SignInAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SignInAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s11:SignInAsync",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class IAuthenticationSignOutHandler from DotNetObject
@@ -1641,7 +1641,7 @@ Class IAuthenticationSignOutHandler from DotNetObject
 		return self
 
 	Func SignOutAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SignOutAsync",P1])
+		return dnSend("s4:call",nHandle,"s12:SignOutAsync",dnPackItem(P1))
 
 
 Class IClaimsTransformation from DotNetObject
@@ -1656,7 +1656,7 @@ Class IClaimsTransformation from DotNetObject
 		return self
 
 	Func TransformAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TransformAsync",P1])
+		return dnSend("s4:call",nHandle,"s14:TransformAsync",dnPackItem(P1))
 
 
 Class JsonDocumentAuthExtensions from Object
@@ -1671,10 +1671,10 @@ Class JsonDocumentAuthExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetString P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.JsonDocumentAuthExtensions, Microsoft.AspNetCore.Authentication'),"GetString",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.JsonDocumentAuthExtensions, Microsoft.AspNetCore.Authentication').nHandle,"s9:GetString",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class NoopClaimsTransformation from Object
@@ -1702,10 +1702,10 @@ Class NoopClaimsTransformation from Object
 		return self
 
 	Func TransformAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TransformAsync",P1])
+		return dnSend("s4:call",nHandle,"s14:TransformAsync",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class PolicySchemeHandler from DotNetObject
@@ -1740,43 +1740,43 @@ Class PolicySchemeHandler from DotNetObject
 		return self
 
 	Func SignInAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SignInAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s11:SignInAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func SignOutAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SignOutAsync",P1])
+		return dnSend("s4:call",nHandle,"s12:SignOutAsync",dnPackItem(P1))
 
 	Func InitializeAsync P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"InitializeAsync",P1,P2])
+		return dnSend("s4:call",nHandle,"s15:InitializeAsync",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AuthenticateAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsync"])
+		return dnSend("s4:call",nHandle,"s17:AuthenticateAsync","")
 
 	Func ChallengeAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ChallengeAsync",P1])
+		return dnSend("s4:call",nHandle,"s14:ChallengeAsync",dnPackItem(P1))
 
 	Func ForbidAsync P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ForbidAsync",P1])
+		return dnSend("s4:call",nHandle,"s11:ForbidAsync",dnPackItem(P1))
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func getScheme
-		return dnRequest("get",[self,"Scheme"])
+		return dnSend("s3:get",nHandle,"s6:Scheme","")
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnSend("s3:get",nHandle,"s7:Options","")
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
@@ -1797,27 +1797,27 @@ Class PropertiesDataFormat from DotNetObject
 
 	Func Protect P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Protect",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:Protect",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Protect",P1])
+		return dnSend("s4:call",nHandle,"s7:Protect",dnPackItem(P1))
 
 	Func Unprotect P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Unprotect",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:Unprotect",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Unprotect",P1])
+		return dnSend("s4:call",nHandle,"s9:Unprotect",dnPackItem(P1))
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 
 Class PropertiesSerializer from Object
@@ -1847,23 +1847,23 @@ Class PropertiesSerializer from Object
 		return self
 
 	Func Serialize P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Serialize",P1])
+		return dnSend("s4:call",nHandle,"s9:Serialize",dnPackItem(P1))
 
 	Func Deserialize P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Deserialize",P1])
+		return dnSend("s4:call",nHandle,"s11:Deserialize",dnPackItem(P1))
 
 	Func Write P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Write",P1,P2])
+		dnSend("s4:call",nHandle,"s5:Write",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Read P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Read",P1])
+		return dnSend("s4:call",nHandle,"s4:Read",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDefault
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Authentication.PropertiesSerializer, Microsoft.AspNetCore.Authentication'),"Default"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Authentication.PropertiesSerializer, Microsoft.AspNetCore.Authentication').nHandle,"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -1898,36 +1898,36 @@ Class RemoteAuthenticationEvents from Object
 		return self
 
 	Func AccessDenied P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AccessDenied",P1])
+		return dnSend("s4:call",nHandle,"s12:AccessDenied",dnPackItem(P1))
 
 	Func RemoteFailure P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RemoteFailure",P1])
+		return dnSend("s4:call",nHandle,"s13:RemoteFailure",dnPackItem(P1))
 
 	Func TicketReceived P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"TicketReceived",P1])
+		return dnSend("s4:call",nHandle,"s14:TicketReceived",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getOnAccessDenied
-		return dnRequest("get",[self,"OnAccessDenied"])
+		return dnSend("s3:get",nHandle,"s14:OnAccessDenied","")
 
 	Func setOnAccessDenied P1
-		dnRequest("set",[self,"OnAccessDenied",P1])
+		dnSend("s3:set",nHandle,"s14:OnAccessDenied",dnPackItem(P1))
 		return self
 
 	Func getOnRemoteFailure
-		return dnRequest("get",[self,"OnRemoteFailure"])
+		return dnSend("s3:get",nHandle,"s15:OnRemoteFailure","")
 
 	Func setOnRemoteFailure P1
-		dnRequest("set",[self,"OnRemoteFailure",P1])
+		dnSend("s3:set",nHandle,"s15:OnRemoteFailure",dnPackItem(P1))
 		return self
 
 	Func getOnTicketReceived
-		return dnRequest("get",[self,"OnTicketReceived"])
+		return dnSend("s3:get",nHandle,"s16:OnTicketReceived","")
 
 	Func setOnTicketReceived P1
-		dnRequest("set",[self,"OnTicketReceived",P1])
+		dnSend("s3:set",nHandle,"s16:OnTicketReceived",dnPackItem(P1))
 		return self
 
 
@@ -1954,71 +1954,71 @@ Class RemoteFailureContext from DotNetObject
 		return self
 
 	Func HandleResponse 
-		dnRequest("call",[new DotNetObject(this.nHandle),"HandleResponse"])
+		dnSend("s4:call",nHandle,"s14:HandleResponse","")
 		return self
 
 	Func SkipHandler 
-		dnRequest("call",[new DotNetObject(this.nHandle),"SkipHandler"])
+		dnSend("s4:call",nHandle,"s11:SkipHandler","")
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func getFailure
-		return dnRequest("get",[self,"Failure"])
+		return dnSend("s3:get",nHandle,"s7:Failure","")
 
 	Func setFailure P1
-		dnRequest("set",[self,"Failure",P1])
+		dnSend("s3:set",nHandle,"s7:Failure",dnPackItem(P1))
 		return self
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnSend("s3:get",nHandle,"s10:Properties","")
 
 	Func setProperties P1
-		dnRequest("set",[self,"Properties",P1])
+		dnSend("s3:set",nHandle,"s10:Properties",dnPackItem(P1))
 		return self
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getScheme
-		return dnRequest("get",[self,"Scheme"])
+		return dnSend("s3:get",nHandle,"s6:Scheme","")
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnSend("s3:get",nHandle,"s7:Options","")
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getHttpContext
-		return dnRequest("get",[self,"HttpContext"])
+		return dnSend("s3:get",nHandle,"s11:HttpContext","")
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getRequest
-		return dnRequest("get",[self,"Request"])
+		return dnSend("s3:get",nHandle,"s7:Request","")
 
 	Func setRequest P1
 		raise("DotNet Error: Request is a read-only property")
 
 	Func getResponse
-		return dnRequest("get",[self,"Response"])
+		return dnSend("s3:get",nHandle,"s8:Response","")
 
 	Func setResponse P1
 		raise("DotNet Error: Response is a read-only property")
@@ -2064,27 +2064,27 @@ Class TicketDataFormat from DotNetObject
 
 	Func Protect P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Protect",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:Protect",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Protect",P1])
+		return dnSend("s4:call",nHandle,"s7:Protect",dnPackItem(P1))
 
 	Func Unprotect P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Unprotect",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:Unprotect",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Unprotect",P1])
+		return dnSend("s4:call",nHandle,"s9:Unprotect",dnPackItem(P1))
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 
 Class TicketReceivedContext from DotNetObject
@@ -2111,86 +2111,86 @@ Class TicketReceivedContext from DotNetObject
 		return self
 
 	Func Success 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Success"])
+		dnSend("s4:call",nHandle,"s7:Success","")
 		return self
 
 	Func Fail P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Fail",P1])
+		dnSend("s4:call",nHandle,"s4:Fail",dnPackItem(P1))
 		return self
 
 	Func HandleResponse 
-		dnRequest("call",[new DotNetObject(this.nHandle),"HandleResponse"])
+		dnSend("s4:call",nHandle,"s14:HandleResponse","")
 		return self
 
 	Func SkipHandler 
-		dnRequest("call",[new DotNetObject(this.nHandle),"SkipHandler"])
+		dnSend("s4:call",nHandle,"s11:SkipHandler","")
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func getReturnUri
-		return dnRequest("get",[self,"ReturnUri"])
+		return dnSend("s3:get",nHandle,"s9:ReturnUri","")
 
 	Func setReturnUri P1
-		dnRequest("set",[self,"ReturnUri",P1])
+		dnSend("s3:set",nHandle,"s9:ReturnUri",dnPackItem(P1))
 		return self
 
 	Func getPrincipal
-		return dnRequest("get",[self,"Principal"])
+		return dnSend("s3:get",nHandle,"s9:Principal","")
 
 	Func setPrincipal P1
-		dnRequest("set",[self,"Principal",P1])
+		dnSend("s3:set",nHandle,"s9:Principal",dnPackItem(P1))
 		return self
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnSend("s3:get",nHandle,"s10:Properties","")
 
 	Func setProperties P1
-		dnRequest("set",[self,"Properties",P1])
+		dnSend("s3:set",nHandle,"s10:Properties",dnPackItem(P1))
 		return self
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnSend("s3:get",nHandle,"s6:Result","")
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getScheme
-		return dnRequest("get",[self,"Scheme"])
+		return dnSend("s3:get",nHandle,"s6:Scheme","")
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnSend("s3:get",nHandle,"s7:Options","")
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getHttpContext
-		return dnRequest("get",[self,"HttpContext"])
+		return dnSend("s3:get",nHandle,"s11:HttpContext","")
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getRequest
-		return dnRequest("get",[self,"Request"])
+		return dnSend("s3:get",nHandle,"s7:Request","")
 
 	Func setRequest P1
 		raise("DotNet Error: Request is a read-only property")
 
 	Func getResponse
-		return dnRequest("get",[self,"Response"])
+		return dnSend("s3:get",nHandle,"s8:Response","")
 
 	Func setResponse P1
 		raise("DotNet Error: Response is a read-only property")
@@ -2223,23 +2223,23 @@ Class TicketSerializer from Object
 		return self
 
 	Func Serialize P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Serialize",P1])
+		return dnSend("s4:call",nHandle,"s9:Serialize",dnPackItem(P1))
 
 	Func Deserialize P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Deserialize",P1])
+		return dnSend("s4:call",nHandle,"s11:Deserialize",dnPackItem(P1))
 
 	Func Write P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Write",P1,P2])
+		dnSend("s4:call",nHandle,"s5:Write",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func Read P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Read",P1])
+		return dnSend("s4:call",nHandle,"s4:Read",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getDefault
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Authentication.TicketSerializer, Microsoft.AspNetCore.Authentication'),"Default"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Authentication.TicketSerializer, Microsoft.AspNetCore.Authentication').nHandle,"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
@@ -2273,31 +2273,31 @@ Class HandleRequestResult from AuthenticateResult
 		return self
 
 	Func Success P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"Success",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication').nHandle,"s7:Success",dnPackItem(P1))
 
 	Func Fail P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"Fail",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication').nHandle,"s4:Fail",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"Fail",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication').nHandle,"s4:Fail",dnPackItem(P1))
 
 	Func Handle 
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"Handle"])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication').nHandle,"s6:Handle","")
 
 	Func SkipHandler 
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"SkipHandler"])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication').nHandle,"s11:SkipHandler","")
 
 	Func NoResult 
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"NoResult"])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication').nHandle,"s8:NoResult","")
 
 	Func getHandled
-		return dnRequest("get",[self,"Handled"])
+		return dnSend("s3:get",nHandle,"s7:Handled","")
 
 	Func setHandled P1
 		raise("DotNet Error: Handled is a read-only property")
 
 	Func getSkipped
-		return dnRequest("get",[self,"Skipped"])
+		return dnSend("s3:get",nHandle,"s7:Skipped","")
 
 	Func setSkipped P1
 		raise("DotNet Error: Skipped is a read-only property")
@@ -2365,80 +2365,80 @@ Class RemoteAuthenticationOptions from AuthenticationSchemeOptions
 		return self
 
 	Func getBackchannelTimeout
-		return dnRequest("get",[self,"BackchannelTimeout"])
+		return dnSend("s3:get",nHandle,"s18:BackchannelTimeout","")
 
 	Func setBackchannelTimeout P1
-		dnRequest("set",[self,"BackchannelTimeout",P1])
+		dnSend("s3:set",nHandle,"s18:BackchannelTimeout",dnPackItem(P1))
 		return self
 
 	Func getBackchannelHttpHandler
-		return dnRequest("get",[self,"BackchannelHttpHandler"])
+		return dnSend("s3:get",nHandle,"s22:BackchannelHttpHandler","")
 
 	Func setBackchannelHttpHandler P1
-		dnRequest("set",[self,"BackchannelHttpHandler",P1])
+		dnSend("s3:set",nHandle,"s22:BackchannelHttpHandler",dnPackItem(P1))
 		return self
 
 	Func getBackchannel
-		return dnRequest("get",[self,"Backchannel"])
+		return dnSend("s3:get",nHandle,"s11:Backchannel","")
 
 	Func setBackchannel P1
-		dnRequest("set",[self,"Backchannel",P1])
+		dnSend("s3:set",nHandle,"s11:Backchannel",dnPackItem(P1))
 		return self
 
 	Func getDataProtectionProvider
-		return dnRequest("get",[self,"DataProtectionProvider"])
+		return dnSend("s3:get",nHandle,"s22:DataProtectionProvider","")
 
 	Func setDataProtectionProvider P1
-		dnRequest("set",[self,"DataProtectionProvider",P1])
+		dnSend("s3:set",nHandle,"s22:DataProtectionProvider",dnPackItem(P1))
 		return self
 
 	Func getCallbackPath
-		return dnRequest("get",[self,"CallbackPath"])
+		return dnSend("s3:get",nHandle,"s12:CallbackPath","")
 
 	Func setCallbackPath P1
-		dnRequest("set",[self,"CallbackPath",P1])
+		dnSend("s3:set",nHandle,"s12:CallbackPath",dnPackItem(P1))
 		return self
 
 	Func getAccessDeniedPath
-		return dnRequest("get",[self,"AccessDeniedPath"])
+		return dnSend("s3:get",nHandle,"s16:AccessDeniedPath","")
 
 	Func setAccessDeniedPath P1
-		dnRequest("set",[self,"AccessDeniedPath",P1])
+		dnSend("s3:set",nHandle,"s16:AccessDeniedPath",dnPackItem(P1))
 		return self
 
 	Func getReturnUrlParameter
-		return dnRequest("get",[self,"ReturnUrlParameter"])
+		return dnSend("s3:get",nHandle,"s18:ReturnUrlParameter","")
 
 	Func setReturnUrlParameter P1
-		dnRequest("set",[self,"ReturnUrlParameter",P1])
+		dnSend("s3:set",nHandle,"s18:ReturnUrlParameter",dnPackItem(P1))
 		return self
 
 	Func getSignInScheme
-		return dnRequest("get",[self,"SignInScheme"])
+		return dnSend("s3:get",nHandle,"s12:SignInScheme","")
 
 	Func setSignInScheme P1
-		dnRequest("set",[self,"SignInScheme",P1])
+		dnSend("s3:set",nHandle,"s12:SignInScheme",dnPackItem(P1))
 		return self
 
 	Func getRemoteAuthenticationTimeout
-		return dnRequest("get",[self,"RemoteAuthenticationTimeout"])
+		return dnSend("s3:get",nHandle,"s27:RemoteAuthenticationTimeout","")
 
 	Func setRemoteAuthenticationTimeout P1
-		dnRequest("set",[self,"RemoteAuthenticationTimeout",P1])
+		dnSend("s3:set",nHandle,"s27:RemoteAuthenticationTimeout",dnPackItem(P1))
 		return self
 
 	Func getSaveTokens
-		return dnRequest("get",[self,"SaveTokens"])
+		return dnSend("s3:get",nHandle,"s10:SaveTokens","")
 
 	Func setSaveTokens P1
-		dnRequest("set",[self,"SaveTokens",P1])
+		dnSend("s3:set",nHandle,"s10:SaveTokens",dnPackItem(P1))
 		return self
 
 	Func getCorrelationCookie
-		return dnRequest("get",[self,"CorrelationCookie"])
+		return dnSend("s3:get",nHandle,"s17:CorrelationCookie","")
 
 	Func setCorrelationCookie P1
-		dnRequest("set",[self,"CorrelationCookie",P1])
+		dnSend("s3:set",nHandle,"s17:CorrelationCookie",dnPackItem(P1))
 		return self
 
 

@@ -647,10 +647,10 @@ Class AntiforgeryApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseAntiforgery P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.AntiforgeryApplicationBuilderExtensions, Microsoft.AspNetCore.Antiforgery'),"UseAntiforgery",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.AntiforgeryApplicationBuilderExtensions, Microsoft.AspNetCore.Antiforgery').nHandle,"s14:UseAntiforgery",dnPackItem(P1))
 
 
 Class ApplicationBuilder from Object
@@ -686,29 +686,29 @@ Class ApplicationBuilder from Object
 		return self
 
 	Func Use P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Use",P1])
+		return dnSend("s4:call",nHandle,"s3:Use",dnPackItem(P1))
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
+		return dnSend("s4:call",nHandle,"s5:Build","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getApplicationServices
-		return dnRequest("get",[self,"ApplicationServices"])
+		return dnSend("s3:get",nHandle,"s19:ApplicationServices","")
 
 	Func setApplicationServices P1
-		dnRequest("set",[self,"ApplicationServices",P1])
+		dnSend("s3:set",nHandle,"s19:ApplicationServices",dnPackItem(P1))
 		return self
 
 	Func getServerFeatures
-		return dnRequest("get",[self,"ServerFeatures"])
+		return dnSend("s3:get",nHandle,"s14:ServerFeatures","")
 
 	Func setServerFeatures P1
 		raise("DotNet Error: ServerFeatures is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnSend("s3:get",nHandle,"s10:Properties","")
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
@@ -726,13 +726,13 @@ Class ApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseRequestLocalization P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ApplicationBuilderExtensions, Microsoft.AspNetCore.Localization'),"UseRequestLocalization",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.ApplicationBuilderExtensions, Microsoft.AspNetCore.Localization').nHandle,"s22:UseRequestLocalization",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ApplicationBuilderExtensions, Microsoft.AspNetCore.Localization'),"UseRequestLocalization",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.ApplicationBuilderExtensions, Microsoft.AspNetCore.Localization').nHandle,"s22:UseRequestLocalization",dnPackItem(P1))
 
 
 Class AuthAppBuilderExtensions from Object
@@ -747,10 +747,10 @@ Class AuthAppBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseAuthentication P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions, Microsoft.AspNetCore.Authentication'),"UseAuthentication",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions, Microsoft.AspNetCore.Authentication').nHandle,"s17:UseAuthentication",dnPackItem(P1))
 
 
 Class AuthorizationAppBuilderExtensions from Object
@@ -765,10 +765,10 @@ Class AuthorizationAppBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseAuthorization P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy'),"UseAuthorization",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy').nHandle,"s16:UseAuthorization",dnPackItem(P1))
 
 
 Class AuthorizationEndpointConventionBuilderExtensions from Object
@@ -783,16 +783,16 @@ Class AuthorizationEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func RequireAuthorization P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy'),"RequireAuthorization",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy').nHandle,"s20:RequireAuthorization",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy'),"RequireAuthorization",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy').nHandle,"s20:RequireAuthorization",dnPackItem(P1))
 
 	Func AllowAnonymous P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy'),"AllowAnonymous",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy').nHandle,"s14:AllowAnonymous",dnPackItem(P1))
 
 
 Class CertificateForwardingBuilderExtensions from Object
@@ -807,10 +807,10 @@ Class CertificateForwardingBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseCertificateForwarding P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.CertificateForwardingBuilderExtensions, Microsoft.AspNetCore.HttpOverrides'),"UseCertificateForwarding",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.CertificateForwardingBuilderExtensions, Microsoft.AspNetCore.HttpOverrides').nHandle,"s24:UseCertificateForwarding",dnPackItem(P1))
 
 
 Class ComponentEndpointConventionBuilder from Object
@@ -825,15 +825,15 @@ Class ComponentEndpointConventionBuilder from Object
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Finally P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Finally",P1])
+		dnSend("s4:call",nHandle,"s7:Finally",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class ComponentEndpointRouteBuilderExtensions from Object
@@ -848,13 +848,13 @@ Class ComponentEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapBlazorHub P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"MapBlazorHub",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server').nHandle,"s12:MapBlazorHub",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"MapBlazorHub",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server').nHandle,"s12:MapBlazorHub",dnPackItem(P1))
 
 
 Class ConfigureHostBuilder from Object
@@ -871,25 +871,25 @@ Class ConfigureHostBuilder from Object
 		return self
 
 	Func ConfigureAppConfiguration P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureAppConfiguration",P1])
+		return dnSend("s4:call",nHandle,"s25:ConfigureAppConfiguration",dnPackItem(P1))
 
 	Func ConfigureContainer P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureContainer",P1])
+		return dnSend("s4:call",nHandle,"s18:ConfigureContainer",dnPackItem(P1))
 
 	Func ConfigureHostConfiguration P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureHostConfiguration",P1])
+		return dnSend("s4:call",nHandle,"s26:ConfigureHostConfiguration",dnPackItem(P1))
 
 	Func ConfigureServices P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureServices",P1])
+		return dnSend("s4:call",nHandle,"s17:ConfigureServices",dnPackItem(P1))
 
 	Func UseServiceProviderFactory P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UseServiceProviderFactory",P1])
+		return dnSend("s4:call",nHandle,"s25:UseServiceProviderFactory",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnSend("s3:get",nHandle,"s10:Properties","")
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
@@ -907,19 +907,19 @@ Class ConfigureWebHostBuilder from Object
 		return self
 
 	Func ConfigureAppConfiguration P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureAppConfiguration",P1])
+		return dnSend("s4:call",nHandle,"s25:ConfigureAppConfiguration",dnPackItem(P1))
 
 	Func ConfigureServices P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ConfigureServices",P1])
+		return dnSend("s4:call",nHandle,"s17:ConfigureServices",dnPackItem(P1))
 
 	Func GetSetting P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetSetting",P1])
+		return dnSend("s4:call",nHandle,"s10:GetSetting",dnPackItem(P1))
 
 	Func UseSetting P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"UseSetting",P1,P2])
+		return dnSend("s4:call",nHandle,"s10:UseSetting",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class ConnectionEndpointRouteBuilder from Object
@@ -934,15 +934,15 @@ Class ConnectionEndpointRouteBuilder from Object
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Finally P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Finally",P1])
+		dnSend("s4:call",nHandle,"s7:Finally",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class ConnectionEndpointRouteBuilderExtensions from Object
@@ -957,17 +957,17 @@ Class ConnectionEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapConnections P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections'),"MapConnections",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections').nHandle,"s14:MapConnections",dnPackItem(P1))
 		ok
 		raise("DotNet Error: MapConnections does not take one argument: use named arguments, MapConnections([ :parameter = value, ... ])")
 
 	Func MapConnectionHandler P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections'),"MapConnectionHandler",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections').nHandle,"s20:MapConnectionHandler",dnPackItem(P1))
 		ok
 		raise("DotNet Error: MapConnectionHandler does not take one argument: use named arguments, MapConnectionHandler([ :parameter = value, ... ])")
 
@@ -984,15 +984,15 @@ Class ControllerActionEndpointConventionBuilder from Object
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Finally P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Finally",P1])
+		dnSend("s4:call",nHandle,"s7:Finally",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class ControllerActionEndpointConventionBuilderResourceCollectionExtensions from Object
@@ -1007,13 +1007,13 @@ Class ControllerActionEndpointConventionBuilderResourceCollectionExtensions from
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func WithStaticAssets P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"WithStaticAssets",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.ControllerActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures').nHandle,"s16:WithStaticAssets",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"WithStaticAssets",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.ControllerActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures').nHandle,"s16:WithStaticAssets",dnPackItem(P1))
 
 
 Class ControllerEndpointRouteBuilderExtensions from Object
@@ -1028,41 +1028,41 @@ Class ControllerEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapControllers P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapControllers",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s14:MapControllers",dnPackItem(P1))
 
 	Func MapDefaultControllerRoute P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapDefaultControllerRoute",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s25:MapDefaultControllerRoute",dnPackItem(P1))
 
 	Func MapControllerRoute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapControllerRoute",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s18:MapControllerRoute",dnPackItem(P1))
 		ok
 		raise("DotNet Error: MapControllerRoute does not take one argument: use named arguments, MapControllerRoute([ :parameter = value, ... ])")
 
 	Func MapAreaControllerRoute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapAreaControllerRoute",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s22:MapAreaControllerRoute",dnPackItem(P1))
 		ok
 		raise("DotNet Error: MapAreaControllerRoute does not take one argument: use named arguments, MapAreaControllerRoute([ :parameter = value, ... ])")
 
 	Func MapFallbackToController P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapFallbackToController",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s23:MapFallbackToController",dnPackItem(P1))
 		ok
 		raise("DotNet Error: MapFallbackToController does not take one argument: use named arguments, MapFallbackToController([ :parameter = value, ... ])")
 
 	Func MapFallbackToAreaController P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapFallbackToAreaController",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s27:MapFallbackToAreaController",dnPackItem(P1))
 		ok
 		raise("DotNet Error: MapFallbackToAreaController does not take one argument: use named arguments, MapFallbackToAreaController([ :parameter = value, ... ])")
 
 	Func MapDynamicControllerRoute P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapDynamicControllerRoute",P1])
+			dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s25:MapDynamicControllerRoute",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: MapDynamicControllerRoute does not take one argument: use named arguments, MapDynamicControllerRoute([ :parameter = value, ... ])")
@@ -1080,13 +1080,13 @@ Class CookiePolicyAppBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseCookiePolicy P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions, Microsoft.AspNetCore.CookiePolicy'),"UseCookiePolicy",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions, Microsoft.AspNetCore.CookiePolicy').nHandle,"s15:UseCookiePolicy",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions, Microsoft.AspNetCore.CookiePolicy'),"UseCookiePolicy",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions, Microsoft.AspNetCore.CookiePolicy').nHandle,"s15:UseCookiePolicy",dnPackItem(P1))
 
 
 Class CookiePolicyOptions from Object
@@ -1123,62 +1123,62 @@ Class CookiePolicyOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMinimumSameSitePolicy
-		return dnRequest("get",[self,"MinimumSameSitePolicy"])
+		return dnSend("s3:get",nHandle,"s21:MinimumSameSitePolicy","")
 
 	Func setMinimumSameSitePolicy P1
-		dnRequest("set",[self,"MinimumSameSitePolicy",P1])
+		dnSend("s3:set",nHandle,"s21:MinimumSameSitePolicy",dnPackItem(P1))
 		return self
 
 	Func getHttpOnly
-		return dnRequest("get",[self,"HttpOnly"])
+		return dnSend("s3:get",nHandle,"s8:HttpOnly","")
 
 	Func setHttpOnly P1
-		dnRequest("set",[self,"HttpOnly",P1])
+		dnSend("s3:set",nHandle,"s8:HttpOnly",dnPackItem(P1))
 		return self
 
 	Func getSecure
-		return dnRequest("get",[self,"Secure"])
+		return dnSend("s3:get",nHandle,"s6:Secure","")
 
 	Func setSecure P1
-		dnRequest("set",[self,"Secure",P1])
+		dnSend("s3:set",nHandle,"s6:Secure",dnPackItem(P1))
 		return self
 
 	Func getConsentCookie
-		return dnRequest("get",[self,"ConsentCookie"])
+		return dnSend("s3:get",nHandle,"s13:ConsentCookie","")
 
 	Func setConsentCookie P1
-		dnRequest("set",[self,"ConsentCookie",P1])
+		dnSend("s3:set",nHandle,"s13:ConsentCookie",dnPackItem(P1))
 		return self
 
 	Func getConsentCookieValue
-		return dnRequest("get",[self,"ConsentCookieValue"])
+		return dnSend("s3:get",nHandle,"s18:ConsentCookieValue","")
 
 	Func setConsentCookieValue P1
-		dnRequest("set",[self,"ConsentCookieValue",P1])
+		dnSend("s3:set",nHandle,"s18:ConsentCookieValue",dnPackItem(P1))
 		return self
 
 	Func getCheckConsentNeeded
-		return dnRequest("get",[self,"CheckConsentNeeded"])
+		return dnSend("s3:get",nHandle,"s18:CheckConsentNeeded","")
 
 	Func setCheckConsentNeeded P1
-		dnRequest("set",[self,"CheckConsentNeeded",P1])
+		dnSend("s3:set",nHandle,"s18:CheckConsentNeeded",dnPackItem(P1))
 		return self
 
 	Func getOnAppendCookie
-		return dnRequest("get",[self,"OnAppendCookie"])
+		return dnSend("s3:get",nHandle,"s14:OnAppendCookie","")
 
 	Func setOnAppendCookie P1
-		dnRequest("set",[self,"OnAppendCookie",P1])
+		dnSend("s3:set",nHandle,"s14:OnAppendCookie",dnPackItem(P1))
 		return self
 
 	Func getOnDeleteCookie
-		return dnRequest("get",[self,"OnDeleteCookie"])
+		return dnSend("s3:get",nHandle,"s14:OnDeleteCookie","")
 
 	Func setOnDeleteCookie P1
-		dnRequest("set",[self,"OnDeleteCookie",P1])
+		dnSend("s3:set",nHandle,"s14:OnDeleteCookie",dnPackItem(P1))
 		return self
 
 
@@ -1194,13 +1194,13 @@ Class CorsEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func RequireCors P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.CorsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Cors'),"RequireCors",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.CorsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Cors').nHandle,"s11:RequireCors",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.CorsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Cors'),"RequireCors",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.CorsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Cors').nHandle,"s11:RequireCors",dnPackItem(P1))
 
 
 Class CorsMiddlewareExtensions from Object
@@ -1215,13 +1215,13 @@ Class CorsMiddlewareExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseCors P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions, Microsoft.AspNetCore.Cors'),"UseCors",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions, Microsoft.AspNetCore.Cors').nHandle,"s7:UseCors",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions, Microsoft.AspNetCore.Cors'),"UseCors",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions, Microsoft.AspNetCore.Cors').nHandle,"s7:UseCors",dnPackItem(P1))
 
 
 Class DefaultFilesExtensions from Object
@@ -1236,13 +1236,13 @@ Class DefaultFilesExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseDefaultFiles P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.DefaultFilesExtensions, Microsoft.AspNetCore.StaticFiles'),"UseDefaultFiles",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.DefaultFilesExtensions, Microsoft.AspNetCore.StaticFiles').nHandle,"s15:UseDefaultFiles",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.DefaultFilesExtensions, Microsoft.AspNetCore.StaticFiles'),"UseDefaultFiles",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.DefaultFilesExtensions, Microsoft.AspNetCore.StaticFiles').nHandle,"s15:UseDefaultFiles",dnPackItem(P1))
 
 
 Class DefaultFilesOptions from DotNetObject
@@ -1295,43 +1295,43 @@ Class DefaultFilesOptions from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func getDefaultFileNames
-		return dnRequest("get",[self,"DefaultFileNames"])
+		return dnSend("s3:get",nHandle,"s16:DefaultFileNames","")
 
 	Func setDefaultFileNames P1
-		dnRequest("set",[self,"DefaultFileNames",P1])
+		dnSend("s3:set",nHandle,"s16:DefaultFileNames",dnPackItem(P1))
 		return self
 
 	Func getRequestPath
-		return dnRequest("get",[self,"RequestPath"])
+		return dnSend("s3:get",nHandle,"s11:RequestPath","")
 
 	Func setRequestPath P1
-		dnRequest("set",[self,"RequestPath",P1])
+		dnSend("s3:set",nHandle,"s11:RequestPath",dnPackItem(P1))
 		return self
 
 	Func getFileProvider
-		return dnRequest("get",[self,"FileProvider"])
+		return dnSend("s3:get",nHandle,"s12:FileProvider","")
 
 	Func setFileProvider P1
-		dnRequest("set",[self,"FileProvider",P1])
+		dnSend("s3:set",nHandle,"s12:FileProvider",dnPackItem(P1))
 		return self
 
 	Func getRedirectToAppendTrailingSlash
-		return dnRequest("get",[self,"RedirectToAppendTrailingSlash"])
+		return dnSend("s3:get",nHandle,"s29:RedirectToAppendTrailingSlash","")
 
 	Func setRedirectToAppendTrailingSlash P1
-		dnRequest("set",[self,"RedirectToAppendTrailingSlash",P1])
+		dnSend("s3:set",nHandle,"s29:RedirectToAppendTrailingSlash",dnPackItem(P1))
 		return self
 
 
@@ -1347,13 +1347,13 @@ Class DeveloperExceptionPageExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseDeveloperExceptionPage P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions, Microsoft.AspNetCore.Diagnostics'),"UseDeveloperExceptionPage",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions, Microsoft.AspNetCore.Diagnostics').nHandle,"s25:UseDeveloperExceptionPage",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions, Microsoft.AspNetCore.Diagnostics'),"UseDeveloperExceptionPage",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions, Microsoft.AspNetCore.Diagnostics').nHandle,"s25:UseDeveloperExceptionPage",dnPackItem(P1))
 
 
 Class DeveloperExceptionPageOptions from Object
@@ -1384,20 +1384,20 @@ Class DeveloperExceptionPageOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getSourceCodeLineCount
-		return dnRequest("get",[self,"SourceCodeLineCount"])
+		return dnSend("s3:get",nHandle,"s19:SourceCodeLineCount","")
 
 	Func setSourceCodeLineCount P1
-		dnRequest("set",[self,"SourceCodeLineCount",P1])
+		dnSend("s3:set",nHandle,"s19:SourceCodeLineCount",dnPackItem(P1))
 		return self
 
 	Func getFileProvider
-		return dnRequest("get",[self,"FileProvider"])
+		return dnSend("s3:get",nHandle,"s12:FileProvider","")
 
 	Func setFileProvider P1
-		dnRequest("set",[self,"FileProvider",P1])
+		dnSend("s3:set",nHandle,"s12:FileProvider",dnPackItem(P1))
 		return self
 
 
@@ -1413,13 +1413,13 @@ Class DirectoryBrowserExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseDirectoryBrowser P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions, Microsoft.AspNetCore.StaticFiles'),"UseDirectoryBrowser",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions, Microsoft.AspNetCore.StaticFiles').nHandle,"s19:UseDirectoryBrowser",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions, Microsoft.AspNetCore.StaticFiles'),"UseDirectoryBrowser",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions, Microsoft.AspNetCore.StaticFiles').nHandle,"s19:UseDirectoryBrowser",dnPackItem(P1))
 
 
 Class DirectoryBrowserOptions from DotNetObject
@@ -1472,43 +1472,43 @@ Class DirectoryBrowserOptions from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func getFormatter
-		return dnRequest("get",[self,"Formatter"])
+		return dnSend("s3:get",nHandle,"s9:Formatter","")
 
 	Func setFormatter P1
-		dnRequest("set",[self,"Formatter",P1])
+		dnSend("s3:set",nHandle,"s9:Formatter",dnPackItem(P1))
 		return self
 
 	Func getRequestPath
-		return dnRequest("get",[self,"RequestPath"])
+		return dnSend("s3:get",nHandle,"s11:RequestPath","")
 
 	Func setRequestPath P1
-		dnRequest("set",[self,"RequestPath",P1])
+		dnSend("s3:set",nHandle,"s11:RequestPath",dnPackItem(P1))
 		return self
 
 	Func getFileProvider
-		return dnRequest("get",[self,"FileProvider"])
+		return dnSend("s3:get",nHandle,"s12:FileProvider","")
 
 	Func setFileProvider P1
-		dnRequest("set",[self,"FileProvider",P1])
+		dnSend("s3:set",nHandle,"s12:FileProvider",dnPackItem(P1))
 		return self
 
 	Func getRedirectToAppendTrailingSlash
-		return dnRequest("get",[self,"RedirectToAppendTrailingSlash"])
+		return dnSend("s3:get",nHandle,"s29:RedirectToAppendTrailingSlash","")
 
 	Func setRedirectToAppendTrailingSlash P1
-		dnRequest("set",[self,"RedirectToAppendTrailingSlash",P1])
+		dnSend("s3:set",nHandle,"s29:RedirectToAppendTrailingSlash",dnPackItem(P1))
 		return self
 
 
@@ -1530,42 +1530,42 @@ Class EndpointBuilder from Object
 		return self
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
+		return dnSend("s4:call",nHandle,"s5:Build","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getFilterFactories
-		return dnRequest("get",[self,"FilterFactories"])
+		return dnSend("s3:get",nHandle,"s15:FilterFactories","")
 
 	Func setFilterFactories P1
 		raise("DotNet Error: FilterFactories is a read-only property")
 
 	Func getRequestDelegate
-		return dnRequest("get",[self,"RequestDelegate"])
+		return dnSend("s3:get",nHandle,"s15:RequestDelegate","")
 
 	Func setRequestDelegate P1
-		dnRequest("set",[self,"RequestDelegate",P1])
+		dnSend("s3:set",nHandle,"s15:RequestDelegate",dnPackItem(P1))
 		return self
 
 	Func getDisplayName
-		return dnRequest("get",[self,"DisplayName"])
+		return dnSend("s3:get",nHandle,"s11:DisplayName","")
 
 	Func setDisplayName P1
-		dnRequest("set",[self,"DisplayName",P1])
+		dnSend("s3:set",nHandle,"s11:DisplayName",dnPackItem(P1))
 		return self
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnSend("s3:get",nHandle,"s8:Metadata","")
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
 	Func getApplicationServices
-		return dnRequest("get",[self,"ApplicationServices"])
+		return dnSend("s3:get",nHandle,"s19:ApplicationServices","")
 
 	Func setApplicationServices P1
-		dnRequest("set",[self,"ApplicationServices",P1])
+		dnSend("s3:set",nHandle,"s19:ApplicationServices",dnPackItem(P1))
 		return self
 
 
@@ -1581,35 +1581,35 @@ Class EndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapGroup P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapGroup",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s8:MapGroup",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MapGet P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapGet",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s6:MapGet",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MapPost P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapPost",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s7:MapPost",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MapPut P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapPut",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s6:MapPut",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MapDelete P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapDelete",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s9:MapDelete",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MapPatch P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapPatch",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s8:MapPatch",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MapMethods P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapMethods",P1,P2,P3,P4])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s10:MapMethods",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func Map P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"Map",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s3:Map",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func MapFallback P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapFallback",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s11:MapFallback",dnPackItem(P1))
 		ok
 		raise("DotNet Error: MapFallback does not take one argument: use named arguments, MapFallback([ :parameter = value, ... ])")
 
@@ -1626,13 +1626,13 @@ Class EndpointRoutingApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseRouting P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions, Microsoft.AspNetCore.Routing'),"UseRouting",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s10:UseRouting",dnPackItem(P1))
 
 	Func UseEndpoints P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions, Microsoft.AspNetCore.Routing'),"UseEndpoints",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s12:UseEndpoints",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class ExceptionHandlerExtensions from Object
@@ -1647,13 +1647,13 @@ Class ExceptionHandlerExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseExceptionHandler P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions, Microsoft.AspNetCore.Diagnostics'),"UseExceptionHandler",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions, Microsoft.AspNetCore.Diagnostics').nHandle,"s19:UseExceptionHandler",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions, Microsoft.AspNetCore.Diagnostics'),"UseExceptionHandler",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions, Microsoft.AspNetCore.Diagnostics').nHandle,"s19:UseExceptionHandler",dnPackItem(P1))
 
 
 Class ExceptionHandlerOptions from Object
@@ -1687,41 +1687,41 @@ Class ExceptionHandlerOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getExceptionHandlingPath
-		return dnRequest("get",[self,"ExceptionHandlingPath"])
+		return dnSend("s3:get",nHandle,"s21:ExceptionHandlingPath","")
 
 	Func setExceptionHandlingPath P1
-		dnRequest("set",[self,"ExceptionHandlingPath",P1])
+		dnSend("s3:set",nHandle,"s21:ExceptionHandlingPath",dnPackItem(P1))
 		return self
 
 	Func getCreateScopeForErrors
-		return dnRequest("get",[self,"CreateScopeForErrors"])
+		return dnSend("s3:get",nHandle,"s20:CreateScopeForErrors","")
 
 	Func setCreateScopeForErrors P1
-		dnRequest("set",[self,"CreateScopeForErrors",P1])
+		dnSend("s3:set",nHandle,"s20:CreateScopeForErrors",dnPackItem(P1))
 		return self
 
 	Func getExceptionHandler
-		return dnRequest("get",[self,"ExceptionHandler"])
+		return dnSend("s3:get",nHandle,"s16:ExceptionHandler","")
 
 	Func setExceptionHandler P1
-		dnRequest("set",[self,"ExceptionHandler",P1])
+		dnSend("s3:set",nHandle,"s16:ExceptionHandler",dnPackItem(P1))
 		return self
 
 	Func getAllowStatusCode404Response
-		return dnRequest("get",[self,"AllowStatusCode404Response"])
+		return dnSend("s3:get",nHandle,"s26:AllowStatusCode404Response","")
 
 	Func setAllowStatusCode404Response P1
-		dnRequest("set",[self,"AllowStatusCode404Response",P1])
+		dnSend("s3:set",nHandle,"s26:AllowStatusCode404Response",dnPackItem(P1))
 		return self
 
 	Func getStatusCodeSelector
-		return dnRequest("get",[self,"StatusCodeSelector"])
+		return dnSend("s3:get",nHandle,"s18:StatusCodeSelector","")
 
 	Func setStatusCodeSelector P1
-		dnRequest("set",[self,"StatusCodeSelector",P1])
+		dnSend("s3:set",nHandle,"s18:StatusCodeSelector",dnPackItem(P1))
 		return self
 
 
@@ -1739,16 +1739,16 @@ Class FallbackEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapFallback P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.FallbackEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapFallback",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.FallbackEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s11:MapFallback",dnPackItem(P1))
 		ok
 		raise("DotNet Error: MapFallback does not take one argument: use named arguments, MapFallback([ :parameter = value, ... ])")
 
 	Func getDefaultPattern
-		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Builder.FallbackEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"DefaultPattern"])
+		return dnSend("s3:get",dnTypeCached('Microsoft.AspNetCore.Builder.FallbackEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s14:DefaultPattern","")
 
 	Func setDefaultPattern P1
 		raise("DotNet Error: DefaultPattern is a read-only property")
@@ -1766,13 +1766,13 @@ Class FileServerExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseFileServer P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.FileServerExtensions, Microsoft.AspNetCore.StaticFiles'),"UseFileServer",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.FileServerExtensions, Microsoft.AspNetCore.StaticFiles').nHandle,"s13:UseFileServer",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.FileServerExtensions, Microsoft.AspNetCore.StaticFiles'),"UseFileServer",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.FileServerExtensions, Microsoft.AspNetCore.StaticFiles').nHandle,"s13:UseFileServer",dnPackItem(P1))
 
 
 Class FileServerOptions from DotNetObject
@@ -1809,68 +1809,68 @@ Class FileServerOptions from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func getStaticFileOptions
-		return dnRequest("get",[self,"StaticFileOptions"])
+		return dnSend("s3:get",nHandle,"s17:StaticFileOptions","")
 
 	Func setStaticFileOptions P1
 		raise("DotNet Error: StaticFileOptions is a read-only property")
 
 	Func getDirectoryBrowserOptions
-		return dnRequest("get",[self,"DirectoryBrowserOptions"])
+		return dnSend("s3:get",nHandle,"s23:DirectoryBrowserOptions","")
 
 	Func setDirectoryBrowserOptions P1
 		raise("DotNet Error: DirectoryBrowserOptions is a read-only property")
 
 	Func getDefaultFilesOptions
-		return dnRequest("get",[self,"DefaultFilesOptions"])
+		return dnSend("s3:get",nHandle,"s19:DefaultFilesOptions","")
 
 	Func setDefaultFilesOptions P1
 		raise("DotNet Error: DefaultFilesOptions is a read-only property")
 
 	Func getEnableDirectoryBrowsing
-		return dnRequest("get",[self,"EnableDirectoryBrowsing"])
+		return dnSend("s3:get",nHandle,"s23:EnableDirectoryBrowsing","")
 
 	Func setEnableDirectoryBrowsing P1
-		dnRequest("set",[self,"EnableDirectoryBrowsing",P1])
+		dnSend("s3:set",nHandle,"s23:EnableDirectoryBrowsing",dnPackItem(P1))
 		return self
 
 	Func getEnableDefaultFiles
-		return dnRequest("get",[self,"EnableDefaultFiles"])
+		return dnSend("s3:get",nHandle,"s18:EnableDefaultFiles","")
 
 	Func setEnableDefaultFiles P1
-		dnRequest("set",[self,"EnableDefaultFiles",P1])
+		dnSend("s3:set",nHandle,"s18:EnableDefaultFiles",dnPackItem(P1))
 		return self
 
 	Func getRequestPath
-		return dnRequest("get",[self,"RequestPath"])
+		return dnSend("s3:get",nHandle,"s11:RequestPath","")
 
 	Func setRequestPath P1
-		dnRequest("set",[self,"RequestPath",P1])
+		dnSend("s3:set",nHandle,"s11:RequestPath",dnPackItem(P1))
 		return self
 
 	Func getFileProvider
-		return dnRequest("get",[self,"FileProvider"])
+		return dnSend("s3:get",nHandle,"s12:FileProvider","")
 
 	Func setFileProvider P1
-		dnRequest("set",[self,"FileProvider",P1])
+		dnSend("s3:set",nHandle,"s12:FileProvider",dnPackItem(P1))
 		return self
 
 	Func getRedirectToAppendTrailingSlash
-		return dnRequest("get",[self,"RedirectToAppendTrailingSlash"])
+		return dnSend("s3:get",nHandle,"s29:RedirectToAppendTrailingSlash","")
 
 	Func setRedirectToAppendTrailingSlash P1
-		dnRequest("set",[self,"RedirectToAppendTrailingSlash",P1])
+		dnSend("s3:set",nHandle,"s29:RedirectToAppendTrailingSlash",dnPackItem(P1))
 		return self
 
 
@@ -1886,13 +1886,13 @@ Class ForwardedHeadersExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseForwardedHeaders P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions, Microsoft.AspNetCore.HttpOverrides'),"UseForwardedHeaders",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions, Microsoft.AspNetCore.HttpOverrides').nHandle,"s19:UseForwardedHeaders",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions, Microsoft.AspNetCore.HttpOverrides'),"UseForwardedHeaders",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions, Microsoft.AspNetCore.HttpOverrides').nHandle,"s19:UseForwardedHeaders",dnPackItem(P1))
 
 
 Class ForwardedHeadersOptions from Object
@@ -1935,102 +1935,102 @@ Class ForwardedHeadersOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getForwardedForHeaderName
-		return dnRequest("get",[self,"ForwardedForHeaderName"])
+		return dnSend("s3:get",nHandle,"s22:ForwardedForHeaderName","")
 
 	Func setForwardedForHeaderName P1
-		dnRequest("set",[self,"ForwardedForHeaderName",P1])
+		dnSend("s3:set",nHandle,"s22:ForwardedForHeaderName",dnPackItem(P1))
 		return self
 
 	Func getForwardedHostHeaderName
-		return dnRequest("get",[self,"ForwardedHostHeaderName"])
+		return dnSend("s3:get",nHandle,"s23:ForwardedHostHeaderName","")
 
 	Func setForwardedHostHeaderName P1
-		dnRequest("set",[self,"ForwardedHostHeaderName",P1])
+		dnSend("s3:set",nHandle,"s23:ForwardedHostHeaderName",dnPackItem(P1))
 		return self
 
 	Func getForwardedProtoHeaderName
-		return dnRequest("get",[self,"ForwardedProtoHeaderName"])
+		return dnSend("s3:get",nHandle,"s24:ForwardedProtoHeaderName","")
 
 	Func setForwardedProtoHeaderName P1
-		dnRequest("set",[self,"ForwardedProtoHeaderName",P1])
+		dnSend("s3:set",nHandle,"s24:ForwardedProtoHeaderName",dnPackItem(P1))
 		return self
 
 	Func getForwardedPrefixHeaderName
-		return dnRequest("get",[self,"ForwardedPrefixHeaderName"])
+		return dnSend("s3:get",nHandle,"s25:ForwardedPrefixHeaderName","")
 
 	Func setForwardedPrefixHeaderName P1
-		dnRequest("set",[self,"ForwardedPrefixHeaderName",P1])
+		dnSend("s3:set",nHandle,"s25:ForwardedPrefixHeaderName",dnPackItem(P1))
 		return self
 
 	Func getOriginalForHeaderName
-		return dnRequest("get",[self,"OriginalForHeaderName"])
+		return dnSend("s3:get",nHandle,"s21:OriginalForHeaderName","")
 
 	Func setOriginalForHeaderName P1
-		dnRequest("set",[self,"OriginalForHeaderName",P1])
+		dnSend("s3:set",nHandle,"s21:OriginalForHeaderName",dnPackItem(P1))
 		return self
 
 	Func getOriginalHostHeaderName
-		return dnRequest("get",[self,"OriginalHostHeaderName"])
+		return dnSend("s3:get",nHandle,"s22:OriginalHostHeaderName","")
 
 	Func setOriginalHostHeaderName P1
-		dnRequest("set",[self,"OriginalHostHeaderName",P1])
+		dnSend("s3:set",nHandle,"s22:OriginalHostHeaderName",dnPackItem(P1))
 		return self
 
 	Func getOriginalProtoHeaderName
-		return dnRequest("get",[self,"OriginalProtoHeaderName"])
+		return dnSend("s3:get",nHandle,"s23:OriginalProtoHeaderName","")
 
 	Func setOriginalProtoHeaderName P1
-		dnRequest("set",[self,"OriginalProtoHeaderName",P1])
+		dnSend("s3:set",nHandle,"s23:OriginalProtoHeaderName",dnPackItem(P1))
 		return self
 
 	Func getOriginalPrefixHeaderName
-		return dnRequest("get",[self,"OriginalPrefixHeaderName"])
+		return dnSend("s3:get",nHandle,"s24:OriginalPrefixHeaderName","")
 
 	Func setOriginalPrefixHeaderName P1
-		dnRequest("set",[self,"OriginalPrefixHeaderName",P1])
+		dnSend("s3:set",nHandle,"s24:OriginalPrefixHeaderName",dnPackItem(P1))
 		return self
 
 	Func getForwardedHeaders
-		return dnRequest("get",[self,"ForwardedHeaders"])
+		return dnSend("s3:get",nHandle,"s16:ForwardedHeaders","")
 
 	Func setForwardedHeaders P1
-		dnRequest("set",[self,"ForwardedHeaders",P1])
+		dnSend("s3:set",nHandle,"s16:ForwardedHeaders",dnPackItem(P1))
 		return self
 
 	Func getForwardLimit
-		return dnRequest("get",[self,"ForwardLimit"])
+		return dnSend("s3:get",nHandle,"s12:ForwardLimit","")
 
 	Func setForwardLimit P1
-		dnRequest("set",[self,"ForwardLimit",P1])
+		dnSend("s3:set",nHandle,"s12:ForwardLimit",dnPackItem(P1))
 		return self
 
 	Func getKnownProxies
-		return dnRequest("get",[self,"KnownProxies"])
+		return dnSend("s3:get",nHandle,"s12:KnownProxies","")
 
 	Func setKnownProxies P1
 		raise("DotNet Error: KnownProxies is a read-only property")
 
 	Func getKnownNetworks
-		return dnRequest("get",[self,"KnownNetworks"])
+		return dnSend("s3:get",nHandle,"s13:KnownNetworks","")
 
 	Func setKnownNetworks P1
 		raise("DotNet Error: KnownNetworks is a read-only property")
 
 	Func getAllowedHosts
-		return dnRequest("get",[self,"AllowedHosts"])
+		return dnSend("s3:get",nHandle,"s12:AllowedHosts","")
 
 	Func setAllowedHosts P1
-		dnRequest("set",[self,"AllowedHosts",P1])
+		dnSend("s3:set",nHandle,"s12:AllowedHosts",dnPackItem(P1))
 		return self
 
 	Func getRequireHeaderSymmetry
-		return dnRequest("get",[self,"RequireHeaderSymmetry"])
+		return dnSend("s3:get",nHandle,"s21:RequireHeaderSymmetry","")
 
 	Func setRequireHeaderSymmetry P1
-		dnRequest("set",[self,"RequireHeaderSymmetry",P1])
+		dnSend("s3:set",nHandle,"s21:RequireHeaderSymmetry",dnPackItem(P1))
 		return self
 
 
@@ -2046,11 +2046,11 @@ Class HealthCheckApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseHealthChecks P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks'),"UseHealthChecks",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks').nHandle,"s15:UseHealthChecks",dnPackItem(P1))
 		ok
 		raise("DotNet Error: UseHealthChecks does not take one argument: use named arguments, UseHealthChecks([ :parameter = value, ... ])")
 
@@ -2067,11 +2067,11 @@ Class HealthCheckEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapHealthChecks P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.HealthCheckEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks'),"MapHealthChecks",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.HealthCheckEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks').nHandle,"s15:MapHealthChecks",dnPackItem(P1))
 		ok
 		raise("DotNet Error: MapHealthChecks does not take one argument: use named arguments, MapHealthChecks([ :parameter = value, ... ])")
 
@@ -2088,10 +2088,10 @@ Class HostFilteringBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseHostFiltering P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HostFilteringBuilderExtensions, Microsoft.AspNetCore.HostFiltering'),"UseHostFiltering",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.HostFilteringBuilderExtensions, Microsoft.AspNetCore.HostFiltering').nHandle,"s16:UseHostFiltering",dnPackItem(P1))
 
 
 Class HostFilteringServicesExtensions from Object
@@ -2106,10 +2106,10 @@ Class HostFilteringServicesExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddHostFiltering P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HostFilteringServicesExtensions, Microsoft.AspNetCore.HostFiltering'),"AddHostFiltering",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.HostFilteringServicesExtensions, Microsoft.AspNetCore.HostFiltering').nHandle,"s16:AddHostFiltering",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class HstsBuilderExtensions from Object
@@ -2124,10 +2124,10 @@ Class HstsBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseHsts P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HstsBuilderExtensions, Microsoft.AspNetCore.HttpsPolicy'),"UseHsts",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.HstsBuilderExtensions, Microsoft.AspNetCore.HttpsPolicy').nHandle,"s7:UseHsts",dnPackItem(P1))
 
 
 Class HstsServicesExtensions from Object
@@ -2142,10 +2142,10 @@ Class HstsServicesExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddHsts P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HstsServicesExtensions, Microsoft.AspNetCore.HttpsPolicy'),"AddHsts",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.HstsServicesExtensions, Microsoft.AspNetCore.HttpsPolicy').nHandle,"s7:AddHsts",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class HttpLoggingBuilderExtensions from Object
@@ -2160,13 +2160,13 @@ Class HttpLoggingBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseHttpLogging P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpLoggingBuilderExtensions, Microsoft.AspNetCore.HttpLogging'),"UseHttpLogging",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.HttpLoggingBuilderExtensions, Microsoft.AspNetCore.HttpLogging').nHandle,"s14:UseHttpLogging",dnPackItem(P1))
 
 	Func UseW3CLogging P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpLoggingBuilderExtensions, Microsoft.AspNetCore.HttpLogging'),"UseW3CLogging",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.HttpLoggingBuilderExtensions, Microsoft.AspNetCore.HttpLogging').nHandle,"s13:UseW3CLogging",dnPackItem(P1))
 
 
 Class HttpLoggingEndpointConventionBuilderExtensions from Object
@@ -2181,11 +2181,11 @@ Class HttpLoggingEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func WithHttpLogging P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpLoggingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.HttpLogging'),"WithHttpLogging",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.HttpLoggingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.HttpLogging').nHandle,"s15:WithHttpLogging",dnPackItem(P1))
 		ok
 		raise("DotNet Error: WithHttpLogging does not take one argument: use named arguments, WithHttpLogging([ :parameter = value, ... ])")
 
@@ -2202,13 +2202,13 @@ Class HttpMethodOverrideExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseHttpMethodOverride P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions, Microsoft.AspNetCore.HttpOverrides'),"UseHttpMethodOverride",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions, Microsoft.AspNetCore.HttpOverrides').nHandle,"s21:UseHttpMethodOverride",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions, Microsoft.AspNetCore.HttpOverrides'),"UseHttpMethodOverride",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions, Microsoft.AspNetCore.HttpOverrides').nHandle,"s21:UseHttpMethodOverride",dnPackItem(P1))
 
 
 Class HttpMethodOverrideOptions from Object
@@ -2238,13 +2238,13 @@ Class HttpMethodOverrideOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getFormFieldName
-		return dnRequest("get",[self,"FormFieldName"])
+		return dnSend("s3:get",nHandle,"s13:FormFieldName","")
 
 	Func setFormFieldName P1
-		dnRequest("set",[self,"FormFieldName",P1])
+		dnSend("s3:set",nHandle,"s13:FormFieldName",dnPackItem(P1))
 		return self
 
 
@@ -2260,10 +2260,10 @@ Class HttpMetricsEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func DisableHttpMetrics P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpMetricsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http.Extensions'),"DisableHttpMetrics",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.HttpMetricsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s18:DisableHttpMetrics",dnPackItem(P1))
 
 
 Class HttpsPolicyBuilderExtensions from Object
@@ -2278,10 +2278,10 @@ Class HttpsPolicyBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseHttpsRedirection P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions, Microsoft.AspNetCore.HttpsPolicy'),"UseHttpsRedirection",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions, Microsoft.AspNetCore.HttpsPolicy').nHandle,"s19:UseHttpsRedirection",dnPackItem(P1))
 
 
 Class HttpsRedirectionServicesExtensions from Object
@@ -2296,10 +2296,10 @@ Class HttpsRedirectionServicesExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddHttpsRedirection P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpsRedirectionServicesExtensions, Microsoft.AspNetCore.HttpsPolicy'),"AddHttpsRedirection",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.HttpsRedirectionServicesExtensions, Microsoft.AspNetCore.HttpsPolicy').nHandle,"s19:AddHttpsRedirection",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class HubEndpointConventionBuilder from Object
@@ -2314,15 +2314,15 @@ Class HubEndpointConventionBuilder from Object
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Finally P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Finally",P1])
+		dnSend("s4:call",nHandle,"s7:Finally",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class HubEndpointRouteBuilderExtensions from Object
@@ -2337,11 +2337,11 @@ Class HubEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapHub P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.HubEndpointRouteBuilderExtensions, Microsoft.AspNetCore.SignalR'),"MapHub",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.HubEndpointRouteBuilderExtensions, Microsoft.AspNetCore.SignalR').nHandle,"s6:MapHub",dnPackItem(P1))
 		ok
 		raise("DotNet Error: MapHub does not take one argument: use named arguments, MapHub([ :parameter = value, ... ])")
 
@@ -2362,26 +2362,26 @@ Class IApplicationBuilder from DotNetObject
 		return self
 
 	Func Use P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Use",P1])
+		return dnSend("s4:call",nHandle,"s3:Use",dnPackItem(P1))
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
+		return dnSend("s4:call",nHandle,"s5:Build","")
 
 	Func getApplicationServices
-		return dnRequest("get",[self,"ApplicationServices"])
+		return dnSend("s3:get",nHandle,"s19:ApplicationServices","")
 
 	Func setApplicationServices P1
-		dnRequest("set",[self,"ApplicationServices",P1])
+		dnSend("s3:set",nHandle,"s19:ApplicationServices",dnPackItem(P1))
 		return self
 
 	Func getServerFeatures
-		return dnRequest("get",[self,"ServerFeatures"])
+		return dnSend("s3:get",nHandle,"s14:ServerFeatures","")
 
 	Func setServerFeatures P1
 		raise("DotNet Error: ServerFeatures is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnSend("s3:get",nHandle,"s10:Properties","")
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
@@ -2399,11 +2399,11 @@ Class IEndpointConventionBuilder from DotNetObject
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Finally P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Finally",P1])
+		dnSend("s4:call",nHandle,"s7:Finally",dnPackItem(P1))
 		return self
 
 
@@ -2448,27 +2448,27 @@ Class IISOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAutomaticAuthentication
-		return dnRequest("get",[self,"AutomaticAuthentication"])
+		return dnSend("s3:get",nHandle,"s23:AutomaticAuthentication","")
 
 	Func setAutomaticAuthentication P1
-		dnRequest("set",[self,"AutomaticAuthentication",P1])
+		dnSend("s3:set",nHandle,"s23:AutomaticAuthentication",dnPackItem(P1))
 		return self
 
 	Func getAuthenticationDisplayName
-		return dnRequest("get",[self,"AuthenticationDisplayName"])
+		return dnSend("s3:get",nHandle,"s25:AuthenticationDisplayName","")
 
 	Func setAuthenticationDisplayName P1
-		dnRequest("set",[self,"AuthenticationDisplayName",P1])
+		dnSend("s3:set",nHandle,"s25:AuthenticationDisplayName",dnPackItem(P1))
 		return self
 
 	Func getForwardClientCertificate
-		return dnRequest("get",[self,"ForwardClientCertificate"])
+		return dnSend("s3:get",nHandle,"s24:ForwardClientCertificate","")
 
 	Func setForwardClientCertificate P1
-		dnRequest("set",[self,"ForwardClientCertificate",P1])
+		dnSend("s3:set",nHandle,"s24:ForwardClientCertificate",dnPackItem(P1))
 		return self
 
 
@@ -2503,41 +2503,41 @@ Class IISServerOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAllowSynchronousIO
-		return dnRequest("get",[self,"AllowSynchronousIO"])
+		return dnSend("s3:get",nHandle,"s18:AllowSynchronousIO","")
 
 	Func setAllowSynchronousIO P1
-		dnRequest("set",[self,"AllowSynchronousIO",P1])
+		dnSend("s3:set",nHandle,"s18:AllowSynchronousIO",dnPackItem(P1))
 		return self
 
 	Func getAutomaticAuthentication
-		return dnRequest("get",[self,"AutomaticAuthentication"])
+		return dnSend("s3:get",nHandle,"s23:AutomaticAuthentication","")
 
 	Func setAutomaticAuthentication P1
-		dnRequest("set",[self,"AutomaticAuthentication",P1])
+		dnSend("s3:set",nHandle,"s23:AutomaticAuthentication",dnPackItem(P1))
 		return self
 
 	Func getAuthenticationDisplayName
-		return dnRequest("get",[self,"AuthenticationDisplayName"])
+		return dnSend("s3:get",nHandle,"s25:AuthenticationDisplayName","")
 
 	Func setAuthenticationDisplayName P1
-		dnRequest("set",[self,"AuthenticationDisplayName",P1])
+		dnSend("s3:set",nHandle,"s25:AuthenticationDisplayName",dnPackItem(P1))
 		return self
 
 	Func getMaxRequestBodyBufferSize
-		return dnRequest("get",[self,"MaxRequestBodyBufferSize"])
+		return dnSend("s3:get",nHandle,"s24:MaxRequestBodyBufferSize","")
 
 	Func setMaxRequestBodyBufferSize P1
-		dnRequest("set",[self,"MaxRequestBodyBufferSize",P1])
+		dnSend("s3:set",nHandle,"s24:MaxRequestBodyBufferSize",dnPackItem(P1))
 		return self
 
 	Func getMaxRequestBodySize
-		return dnRequest("get",[self,"MaxRequestBodySize"])
+		return dnSend("s3:get",nHandle,"s18:MaxRequestBodySize","")
 
 	Func setMaxRequestBodySize P1
-		dnRequest("set",[self,"MaxRequestBodySize",P1])
+		dnSend("s3:set",nHandle,"s18:MaxRequestBodySize",dnPackItem(P1))
 		return self
 
 
@@ -2553,11 +2553,11 @@ Class MapExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Map P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.MapExtensions, Microsoft.AspNetCore.Http.Abstractions'),"Map",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.MapExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s3:Map",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Map does not take one argument: use named arguments, Map([ :parameter = value, ... ])")
 
@@ -2574,11 +2574,11 @@ Class MapRouteRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapRoute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapRoute",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s8:MapRoute",dnPackItem(P1))
 		ok
 		raise("DotNet Error: MapRoute does not take one argument: use named arguments, MapRoute([ :parameter = value, ... ])")
 
@@ -2595,10 +2595,10 @@ Class MapWhenExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapWhen P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.MapWhenExtensions, Microsoft.AspNetCore.Http.Abstractions'),"MapWhen",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.MapWhenExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s7:MapWhen",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class MvcApplicationBuilderExtensions from Object
@@ -2613,16 +2613,16 @@ Class MvcApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseMvc P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"UseMvc",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s6:UseMvc",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"UseMvc",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s6:UseMvc",dnPackItem(P1))
 
 	Func UseMvcWithDefaultRoute P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"UseMvcWithDefaultRoute",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s22:UseMvcWithDefaultRoute",dnPackItem(P1))
 
 
 Class MvcAreaRouteBuilderExtensions from Object
@@ -2637,11 +2637,11 @@ Class MvcAreaRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapAreaRoute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapAreaRoute",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core').nHandle,"s12:MapAreaRoute",dnPackItem(P1))
 		ok
 		raise("DotNet Error: MapAreaRoute does not take one argument: use named arguments, MapAreaRoute([ :parameter = value, ... ])")
 
@@ -2658,10 +2658,10 @@ Class OutputCacheApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseOutputCache P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.OutputCacheApplicationBuilderExtensions, Microsoft.AspNetCore.OutputCaching'),"UseOutputCache",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.OutputCacheApplicationBuilderExtensions, Microsoft.AspNetCore.OutputCaching').nHandle,"s14:UseOutputCache",dnPackItem(P1))
 
 
 Class PageActionEndpointConventionBuilder from Object
@@ -2676,15 +2676,15 @@ Class PageActionEndpointConventionBuilder from Object
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Finally P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Finally",P1])
+		dnSend("s4:call",nHandle,"s7:Finally",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class PageActionEndpointConventionBuilderResourceCollectionExtensions from Object
@@ -2699,13 +2699,13 @@ Class PageActionEndpointConventionBuilderResourceCollectionExtensions from Objec
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func WithStaticAssets P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.PageActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"WithStaticAssets",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.PageActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s16:WithStaticAssets",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.PageActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"WithStaticAssets",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.PageActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s16:WithStaticAssets",dnPackItem(P1))
 
 
 Class RateLimiterApplicationBuilderExtensions from Object
@@ -2720,13 +2720,13 @@ Class RateLimiterApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseRateLimiter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterApplicationBuilderExtensions, Microsoft.AspNetCore.RateLimiting'),"UseRateLimiter",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterApplicationBuilderExtensions, Microsoft.AspNetCore.RateLimiting').nHandle,"s14:UseRateLimiter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterApplicationBuilderExtensions, Microsoft.AspNetCore.RateLimiting'),"UseRateLimiter",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterApplicationBuilderExtensions, Microsoft.AspNetCore.RateLimiting').nHandle,"s14:UseRateLimiter",dnPackItem(P1))
 
 
 Class RateLimiterEndpointConventionBuilderExtensions from Object
@@ -2741,13 +2741,13 @@ Class RateLimiterEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func RequireRateLimiting P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterEndpointConventionBuilderExtensions, Microsoft.AspNetCore.RateLimiting'),"RequireRateLimiting",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterEndpointConventionBuilderExtensions, Microsoft.AspNetCore.RateLimiting').nHandle,"s19:RequireRateLimiting",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DisableRateLimiting P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterEndpointConventionBuilderExtensions, Microsoft.AspNetCore.RateLimiting'),"DisableRateLimiting",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterEndpointConventionBuilderExtensions, Microsoft.AspNetCore.RateLimiting').nHandle,"s19:DisableRateLimiting",dnPackItem(P1))
 
 
 Class RateLimiterServiceCollectionExtensions from Object
@@ -2762,13 +2762,13 @@ Class RateLimiterServiceCollectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddRateLimiter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterServiceCollectionExtensions, Microsoft.AspNetCore.RateLimiting'),"AddRateLimiter",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterServiceCollectionExtensions, Microsoft.AspNetCore.RateLimiting').nHandle,"s14:AddRateLimiter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterServiceCollectionExtensions, Microsoft.AspNetCore.RateLimiting'),"AddRateLimiter",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterServiceCollectionExtensions, Microsoft.AspNetCore.RateLimiting').nHandle,"s14:AddRateLimiter",dnPackItem(P1))
 
 
 Class RazorComponentsEndpointConventionBuilder from Object
@@ -2783,15 +2783,15 @@ Class RazorComponentsEndpointConventionBuilder from Object
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Finally P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Finally",P1])
+		dnSend("s4:call",nHandle,"s7:Finally",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class RazorComponentsEndpointConventionBuilderExtensions from Object
@@ -2806,16 +2806,16 @@ Class RazorComponentsEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddAdditionalAssemblies P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints'),"AddAdditionalAssemblies",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints').nHandle,"s23:AddAdditionalAssemblies",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WithStaticAssets P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints'),"WithStaticAssets",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints').nHandle,"s16:WithStaticAssets",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints'),"WithStaticAssets",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints').nHandle,"s16:WithStaticAssets",dnPackItem(P1))
 
 
 Class RazorComponentsEndpointRouteBuilderExtensions from Object
@@ -2830,10 +2830,10 @@ Class RazorComponentsEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapRazorComponents P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints'),"MapRazorComponents",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints').nHandle,"s18:MapRazorComponents",dnPackItem(P1))
 
 
 Class RazorPagesEndpointRouteBuilderExtensions from Object
@@ -2848,26 +2848,26 @@ Class RazorPagesEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapRazorPages P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"MapRazorPages",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s13:MapRazorPages",dnPackItem(P1))
 
 	Func MapFallbackToPage P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"MapFallbackToPage",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s17:MapFallbackToPage",dnPackItem(P1))
 		ok
 		raise("DotNet Error: MapFallbackToPage does not take one argument: use named arguments, MapFallbackToPage([ :parameter = value, ... ])")
 
 	Func MapFallbackToAreaPage P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"MapFallbackToAreaPage",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s21:MapFallbackToAreaPage",dnPackItem(P1))
 		ok
 		raise("DotNet Error: MapFallbackToAreaPage does not take one argument: use named arguments, MapFallbackToAreaPage([ :parameter = value, ... ])")
 
 	Func MapDynamicPageRoute P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"MapDynamicPageRoute",P1])
+			dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages').nHandle,"s19:MapDynamicPageRoute",dnPackItem(P1))
 			return self
 		ok
 		raise("DotNet Error: MapDynamicPageRoute does not take one argument: use named arguments, MapDynamicPageRoute([ :parameter = value, ... ])")
@@ -2885,10 +2885,10 @@ Class RequestDecompressionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseRequestDecompression P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RequestDecompressionBuilderExtensions, Microsoft.AspNetCore.RequestDecompression'),"UseRequestDecompression",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RequestDecompressionBuilderExtensions, Microsoft.AspNetCore.RequestDecompression').nHandle,"s23:UseRequestDecompression",dnPackItem(P1))
 
 
 Class RequestLocalizationOptions from Object
@@ -2925,71 +2925,71 @@ Class RequestLocalizationOptions from Object
 		return self
 
 	Func AddSupportedCultures P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddSupportedCultures",P1])
+		return dnSend("s4:call",nHandle,"s20:AddSupportedCultures",dnPackItem(P1))
 
 	Func AddSupportedUICultures P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AddSupportedUICultures",P1])
+		return dnSend("s4:call",nHandle,"s22:AddSupportedUICultures",dnPackItem(P1))
 
 	Func SetDefaultCulture P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"SetDefaultCulture",P1])
+		return dnSend("s4:call",nHandle,"s17:SetDefaultCulture",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCultureInfoUseUserOverride
-		return dnRequest("get",[self,"CultureInfoUseUserOverride"])
+		return dnSend("s3:get",nHandle,"s26:CultureInfoUseUserOverride","")
 
 	Func setCultureInfoUseUserOverride P1
-		dnRequest("set",[self,"CultureInfoUseUserOverride",P1])
+		dnSend("s3:set",nHandle,"s26:CultureInfoUseUserOverride",dnPackItem(P1))
 		return self
 
 	Func getDefaultRequestCulture
-		return dnRequest("get",[self,"DefaultRequestCulture"])
+		return dnSend("s3:get",nHandle,"s21:DefaultRequestCulture","")
 
 	Func setDefaultRequestCulture P1
-		dnRequest("set",[self,"DefaultRequestCulture",P1])
+		dnSend("s3:set",nHandle,"s21:DefaultRequestCulture",dnPackItem(P1))
 		return self
 
 	Func getFallBackToParentCultures
-		return dnRequest("get",[self,"FallBackToParentCultures"])
+		return dnSend("s3:get",nHandle,"s24:FallBackToParentCultures","")
 
 	Func setFallBackToParentCultures P1
-		dnRequest("set",[self,"FallBackToParentCultures",P1])
+		dnSend("s3:set",nHandle,"s24:FallBackToParentCultures",dnPackItem(P1))
 		return self
 
 	Func getFallBackToParentUICultures
-		return dnRequest("get",[self,"FallBackToParentUICultures"])
+		return dnSend("s3:get",nHandle,"s26:FallBackToParentUICultures","")
 
 	Func setFallBackToParentUICultures P1
-		dnRequest("set",[self,"FallBackToParentUICultures",P1])
+		dnSend("s3:set",nHandle,"s26:FallBackToParentUICultures",dnPackItem(P1))
 		return self
 
 	Func getApplyCurrentCultureToResponseHeaders
-		return dnRequest("get",[self,"ApplyCurrentCultureToResponseHeaders"])
+		return dnSend("s3:get",nHandle,"s36:ApplyCurrentCultureToResponseHeaders","")
 
 	Func setApplyCurrentCultureToResponseHeaders P1
-		dnRequest("set",[self,"ApplyCurrentCultureToResponseHeaders",P1])
+		dnSend("s3:set",nHandle,"s36:ApplyCurrentCultureToResponseHeaders",dnPackItem(P1))
 		return self
 
 	Func getSupportedCultures
-		return dnRequest("get",[self,"SupportedCultures"])
+		return dnSend("s3:get",nHandle,"s17:SupportedCultures","")
 
 	Func setSupportedCultures P1
-		dnRequest("set",[self,"SupportedCultures",P1])
+		dnSend("s3:set",nHandle,"s17:SupportedCultures",dnPackItem(P1))
 		return self
 
 	Func getSupportedUICultures
-		return dnRequest("get",[self,"SupportedUICultures"])
+		return dnSend("s3:get",nHandle,"s19:SupportedUICultures","")
 
 	Func setSupportedUICultures P1
-		dnRequest("set",[self,"SupportedUICultures",P1])
+		dnSend("s3:set",nHandle,"s19:SupportedUICultures",dnPackItem(P1))
 		return self
 
 	Func getRequestCultureProviders
-		return dnRequest("get",[self,"RequestCultureProviders"])
+		return dnSend("s3:get",nHandle,"s23:RequestCultureProviders","")
 
 	Func setRequestCultureProviders P1
-		dnRequest("set",[self,"RequestCultureProviders",P1])
+		dnSend("s3:set",nHandle,"s23:RequestCultureProviders",dnPackItem(P1))
 		return self
 
 
@@ -3005,10 +3005,10 @@ Class RequestLocalizationOptionsExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddInitialRequestCultureProvider P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RequestLocalizationOptionsExtensions, Microsoft.AspNetCore.Localization'),"AddInitialRequestCultureProvider",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RequestLocalizationOptionsExtensions, Microsoft.AspNetCore.Localization').nHandle,"s32:AddInitialRequestCultureProvider",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class RequestTimeoutsIApplicationBuilderExtensions from Object
@@ -3023,10 +3023,10 @@ Class RequestTimeoutsIApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseRequestTimeouts P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RequestTimeoutsIApplicationBuilderExtensions, Microsoft.AspNetCore.Http'),"UseRequestTimeouts",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RequestTimeoutsIApplicationBuilderExtensions, Microsoft.AspNetCore.Http').nHandle,"s18:UseRequestTimeouts",dnPackItem(P1))
 
 
 Class RequestTimeoutsIEndpointConventionBuilderExtensions from Object
@@ -3041,13 +3041,13 @@ Class RequestTimeoutsIEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func WithRequestTimeout P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http'),"WithRequestTimeout",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http').nHandle,"s18:WithRequestTimeout",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DisableRequestTimeout P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http'),"DisableRequestTimeout",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http').nHandle,"s21:DisableRequestTimeout",dnPackItem(P1))
 
 
 Class ResponseCachingExtensions from Object
@@ -3062,10 +3062,10 @@ Class ResponseCachingExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseResponseCaching P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ResponseCachingExtensions, Microsoft.AspNetCore.ResponseCaching'),"UseResponseCaching",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.ResponseCachingExtensions, Microsoft.AspNetCore.ResponseCaching').nHandle,"s18:UseResponseCaching",dnPackItem(P1))
 
 
 Class ResponseCompressionBuilderExtensions from Object
@@ -3080,10 +3080,10 @@ Class ResponseCompressionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseResponseCompression P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ResponseCompressionBuilderExtensions, Microsoft.AspNetCore.ResponseCompression'),"UseResponseCompression",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.ResponseCompressionBuilderExtensions, Microsoft.AspNetCore.ResponseCompression').nHandle,"s22:UseResponseCompression",dnPackItem(P1))
 
 
 Class ResponseCompressionServicesExtensions from Object
@@ -3098,13 +3098,13 @@ Class ResponseCompressionServicesExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddResponseCompression P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ResponseCompressionServicesExtensions, Microsoft.AspNetCore.ResponseCompression'),"AddResponseCompression",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.ResponseCompressionServicesExtensions, Microsoft.AspNetCore.ResponseCompression').nHandle,"s22:AddResponseCompression",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ResponseCompressionServicesExtensions, Microsoft.AspNetCore.ResponseCompression'),"AddResponseCompression",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.ResponseCompressionServicesExtensions, Microsoft.AspNetCore.ResponseCompression').nHandle,"s22:AddResponseCompression",dnPackItem(P1))
 
 
 Class RewriteBuilderExtensions from Object
@@ -3119,13 +3119,13 @@ Class RewriteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseRewriter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RewriteBuilderExtensions, Microsoft.AspNetCore.Rewrite'),"UseRewriter",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.RewriteBuilderExtensions, Microsoft.AspNetCore.Rewrite').nHandle,"s11:UseRewriter",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RewriteBuilderExtensions, Microsoft.AspNetCore.Rewrite'),"UseRewriter",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RewriteBuilderExtensions, Microsoft.AspNetCore.Rewrite').nHandle,"s11:UseRewriter",dnPackItem(P1))
 
 
 Class RouteHandlerBuilder from Object
@@ -3142,15 +3142,15 @@ Class RouteHandlerBuilder from Object
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1))
 		return self
 
 	Func Finally P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"Finally",P1])
+		dnSend("s4:call",nHandle,"s7:Finally",dnPackItem(P1))
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class RouteShortCircuitEndpointConventionBuilderExtensions from Object
@@ -3165,13 +3165,13 @@ Class RouteShortCircuitEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func ShortCircuit P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"ShortCircuit",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s12:ShortCircuit",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"ShortCircuit",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s12:ShortCircuit",dnPackItem(P1))
 
 
 Class RouterMiddleware from Object
@@ -3188,10 +3188,10 @@ Class RouterMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Invoke",P1])
+		return dnSend("s4:call",nHandle,"s6:Invoke",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class RoutingBuilderExtensions from Object
@@ -3206,10 +3206,10 @@ Class RoutingBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseRouter P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingBuilderExtensions, Microsoft.AspNetCore.Routing'),"UseRouter",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RoutingBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s9:UseRouter",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class RoutingEndpointConventionBuilderExtensions from Object
@@ -3224,40 +3224,40 @@ Class RoutingEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func RequireHost P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"RequireHost",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s11:RequireHost",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WithDisplayName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithDisplayName",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s15:WithDisplayName",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WithMetadata P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithMetadata",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s12:WithMetadata",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WithName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithName",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s8:WithName",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WithGroupName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithGroupName",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s13:WithGroupName",dnPackItem(P1) + dnPackItem(P2))
 
 	Func WithOrder P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithOrder",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s9:WithOrder",dnPackItem(P1) + dnPackItem(P2))
 
 	Func DisableAntiforgery P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"DisableAntiforgery",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s18:DisableAntiforgery",dnPackItem(P1))
 
 	Func WithFormMappingOptions P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithFormMappingOptions",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s22:WithFormMappingOptions",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithFormMappingOptions",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s22:WithFormMappingOptions",dnPackItem(P1))
 
 	Func WithFormOptions P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithFormOptions",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s15:WithFormOptions",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithFormOptions",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing').nHandle,"s15:WithFormOptions",dnPackItem(P1))
 
 
 Class RunExtensions from Object
@@ -3272,10 +3272,10 @@ Class RunExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Run P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RunExtensions, Microsoft.AspNetCore.Http.Abstractions'),"Run",P1,P2])
+		dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.RunExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s3:Run",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 
@@ -3291,13 +3291,13 @@ Class ServerRazorComponentsEndpointConventionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func AddInteractiveServerRenderMode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ServerRazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"AddInteractiveServerRenderMode",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.ServerRazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Server').nHandle,"s30:AddInteractiveServerRenderMode",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ServerRazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"AddInteractiveServerRenderMode",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.ServerRazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Server').nHandle,"s30:AddInteractiveServerRenderMode",dnPackItem(P1))
 
 
 Class SessionMiddlewareExtensions from Object
@@ -3312,13 +3312,13 @@ Class SessionMiddlewareExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseSession P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions, Microsoft.AspNetCore.Session'),"UseSession",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions, Microsoft.AspNetCore.Session').nHandle,"s10:UseSession",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions, Microsoft.AspNetCore.Session'),"UseSession",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions, Microsoft.AspNetCore.Session').nHandle,"s10:UseSession",dnPackItem(P1))
 
 
 Class SessionOptions from Object
@@ -3350,27 +3350,27 @@ Class SessionOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCookie
-		return dnRequest("get",[self,"Cookie"])
+		return dnSend("s3:get",nHandle,"s6:Cookie","")
 
 	Func setCookie P1
-		dnRequest("set",[self,"Cookie",P1])
+		dnSend("s3:set",nHandle,"s6:Cookie",dnPackItem(P1))
 		return self
 
 	Func getIdleTimeout
-		return dnRequest("get",[self,"IdleTimeout"])
+		return dnSend("s3:get",nHandle,"s11:IdleTimeout","")
 
 	Func setIdleTimeout P1
-		dnRequest("set",[self,"IdleTimeout",P1])
+		dnSend("s3:set",nHandle,"s11:IdleTimeout",dnPackItem(P1))
 		return self
 
 	Func getIOTimeout
-		return dnRequest("get",[self,"IOTimeout"])
+		return dnSend("s3:get",nHandle,"s9:IOTimeout","")
 
 	Func setIOTimeout P1
-		dnRequest("set",[self,"IOTimeout",P1])
+		dnSend("s3:set",nHandle,"s9:IOTimeout",dnPackItem(P1))
 		return self
 
 
@@ -3386,13 +3386,13 @@ Class StaticAssetsEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapStaticAssets P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.StaticAssetsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticAssets'),"MapStaticAssets",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.StaticAssetsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticAssets').nHandle,"s15:MapStaticAssets",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.StaticAssetsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticAssets'),"MapStaticAssets",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.StaticAssetsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticAssets').nHandle,"s15:MapStaticAssets",dnPackItem(P1))
 
 
 Class StaticFileExtensions from Object
@@ -3407,13 +3407,13 @@ Class StaticFileExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseStaticFiles P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.StaticFileExtensions, Microsoft.AspNetCore.StaticFiles'),"UseStaticFiles",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.StaticFileExtensions, Microsoft.AspNetCore.StaticFiles').nHandle,"s14:UseStaticFiles",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.StaticFileExtensions, Microsoft.AspNetCore.StaticFiles'),"UseStaticFiles",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.StaticFileExtensions, Microsoft.AspNetCore.StaticFiles').nHandle,"s14:UseStaticFiles",dnPackItem(P1))
 
 
 Class StaticFileOptions from DotNetObject
@@ -3471,78 +3471,78 @@ Class StaticFileOptions from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetType"])
+		return dnSend("s4:call",nHandle,"s7:GetType","")
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToString"])
+		return dnSend("s4:call",nHandle,"s8:ToString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetHashCode"])
+		return dnSend("s4:call",nHandle,"s11:GetHashCode","")
 
 	Func getContentTypeProvider
-		return dnRequest("get",[self,"ContentTypeProvider"])
+		return dnSend("s3:get",nHandle,"s19:ContentTypeProvider","")
 
 	Func setContentTypeProvider P1
-		dnRequest("set",[self,"ContentTypeProvider",P1])
+		dnSend("s3:set",nHandle,"s19:ContentTypeProvider",dnPackItem(P1))
 		return self
 
 	Func getDefaultContentType
-		return dnRequest("get",[self,"DefaultContentType"])
+		return dnSend("s3:get",nHandle,"s18:DefaultContentType","")
 
 	Func setDefaultContentType P1
-		dnRequest("set",[self,"DefaultContentType",P1])
+		dnSend("s3:set",nHandle,"s18:DefaultContentType",dnPackItem(P1))
 		return self
 
 	Func getServeUnknownFileTypes
-		return dnRequest("get",[self,"ServeUnknownFileTypes"])
+		return dnSend("s3:get",nHandle,"s21:ServeUnknownFileTypes","")
 
 	Func setServeUnknownFileTypes P1
-		dnRequest("set",[self,"ServeUnknownFileTypes",P1])
+		dnSend("s3:set",nHandle,"s21:ServeUnknownFileTypes",dnPackItem(P1))
 		return self
 
 	Func getHttpsCompression
-		return dnRequest("get",[self,"HttpsCompression"])
+		return dnSend("s3:get",nHandle,"s16:HttpsCompression","")
 
 	Func setHttpsCompression P1
-		dnRequest("set",[self,"HttpsCompression",P1])
+		dnSend("s3:set",nHandle,"s16:HttpsCompression",dnPackItem(P1))
 		return self
 
 	Func getOnPrepareResponse
-		return dnRequest("get",[self,"OnPrepareResponse"])
+		return dnSend("s3:get",nHandle,"s17:OnPrepareResponse","")
 
 	Func setOnPrepareResponse P1
-		dnRequest("set",[self,"OnPrepareResponse",P1])
+		dnSend("s3:set",nHandle,"s17:OnPrepareResponse",dnPackItem(P1))
 		return self
 
 	Func getOnPrepareResponseAsync
-		return dnRequest("get",[self,"OnPrepareResponseAsync"])
+		return dnSend("s3:get",nHandle,"s22:OnPrepareResponseAsync","")
 
 	Func setOnPrepareResponseAsync P1
-		dnRequest("set",[self,"OnPrepareResponseAsync",P1])
+		dnSend("s3:set",nHandle,"s22:OnPrepareResponseAsync",dnPackItem(P1))
 		return self
 
 	Func getRequestPath
-		return dnRequest("get",[self,"RequestPath"])
+		return dnSend("s3:get",nHandle,"s11:RequestPath","")
 
 	Func setRequestPath P1
-		dnRequest("set",[self,"RequestPath",P1])
+		dnSend("s3:set",nHandle,"s11:RequestPath",dnPackItem(P1))
 		return self
 
 	Func getFileProvider
-		return dnRequest("get",[self,"FileProvider"])
+		return dnSend("s3:get",nHandle,"s12:FileProvider","")
 
 	Func setFileProvider P1
-		dnRequest("set",[self,"FileProvider",P1])
+		dnSend("s3:set",nHandle,"s12:FileProvider",dnPackItem(P1))
 		return self
 
 	Func getRedirectToAppendTrailingSlash
-		return dnRequest("get",[self,"RedirectToAppendTrailingSlash"])
+		return dnSend("s3:get",nHandle,"s29:RedirectToAppendTrailingSlash","")
 
 	Func setRedirectToAppendTrailingSlash P1
-		dnRequest("set",[self,"RedirectToAppendTrailingSlash",P1])
+		dnSend("s3:set",nHandle,"s29:RedirectToAppendTrailingSlash",dnPackItem(P1))
 		return self
 
 
@@ -3558,11 +3558,11 @@ Class StaticFilesEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func MapFallbackToFile P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.StaticFilesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticFiles'),"MapFallbackToFile",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.StaticFilesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticFiles').nHandle,"s17:MapFallbackToFile",dnPackItem(P1))
 		ok
 		raise("DotNet Error: MapFallbackToFile does not take one argument: use named arguments, MapFallbackToFile([ :parameter = value, ... ])")
 
@@ -3579,20 +3579,20 @@ Class StatusCodePagesExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseStatusCodePages P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics'),"UseStatusCodePages",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics').nHandle,"s18:UseStatusCodePages",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics'),"UseStatusCodePages",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics').nHandle,"s18:UseStatusCodePages",dnPackItem(P1))
 
 	Func UseStatusCodePagesWithRedirects P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics'),"UseStatusCodePagesWithRedirects",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics').nHandle,"s31:UseStatusCodePagesWithRedirects",dnPackItem(P1) + dnPackItem(P2))
 
 	Func UseStatusCodePagesWithReExecute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics'),"UseStatusCodePagesWithReExecute",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics').nHandle,"s31:UseStatusCodePagesWithReExecute",dnPackItem(P1))
 		ok
 		raise("DotNet Error: UseStatusCodePagesWithReExecute does not take one argument: use named arguments, UseStatusCodePagesWithReExecute([ :parameter = value, ... ])")
 
@@ -3624,13 +3624,13 @@ Class StatusCodePagesOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getHandleAsync
-		return dnRequest("get",[self,"HandleAsync"])
+		return dnSend("s3:get",nHandle,"s11:HandleAsync","")
 
 	Func setHandleAsync P1
-		dnRequest("set",[self,"HandleAsync",P1])
+		dnSend("s3:set",nHandle,"s11:HandleAsync",dnPackItem(P1))
 		return self
 
 
@@ -3646,10 +3646,10 @@ Class UseExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Use P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.UseExtensions, Microsoft.AspNetCore.Http.Abstractions'),"Use",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.UseExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s3:Use",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class UseMiddlewareExtensions from Object
@@ -3664,11 +3664,11 @@ Class UseMiddlewareExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseMiddleware P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.UseMiddlewareExtensions, Microsoft.AspNetCore.Http.Abstractions'),"UseMiddleware",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.UseMiddlewareExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s13:UseMiddleware",dnPackItem(P1))
 		ok
 		raise("DotNet Error: UseMiddleware does not take one argument: use named arguments, UseMiddleware([ :parameter = value, ... ])")
 
@@ -3685,10 +3685,10 @@ Class UsePathBaseExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UsePathBase P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.UsePathBaseExtensions, Microsoft.AspNetCore.Http.Abstractions'),"UsePathBase",P1,P2])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.UsePathBaseExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s11:UsePathBase",dnPackItem(P1) + dnPackItem(P2))
 
 
 Class UseWhenExtensions from Object
@@ -3703,10 +3703,10 @@ Class UseWhenExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseWhen P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.UseWhenExtensions, Microsoft.AspNetCore.Http.Abstractions'),"UseWhen",P1,P2,P3])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.UseWhenExtensions, Microsoft.AspNetCore.Http.Abstractions').nHandle,"s7:UseWhen",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 
 Class WebApplication from Object
@@ -3729,114 +3729,114 @@ Class WebApplication from Object
 
 	Func StartAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"StartAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:StartAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"StartAsync"])
+			return dnSend("s4:call",nHandle,"s10:StartAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"StartAsync",P1])
+		return dnSend("s4:call",nHandle,"s10:StartAsync",dnPackItem(P1))
 
 	Func StopAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"StopAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:StopAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"StopAsync"])
+			return dnSend("s4:call",nHandle,"s9:StopAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"StopAsync",P1])
+		return dnSend("s4:call",nHandle,"s9:StopAsync",dnPackItem(P1))
 
 	Func RunAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"RunAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:RunAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"RunAsync"])
+			return dnSend("s4:call",nHandle,"s8:RunAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"RunAsync",P1])
+		return dnSend("s4:call",nHandle,"s8:RunAsync",dnPackItem(P1))
 
 	Func Run P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Run",P1])
+			dnSend("s9:callnamed",nHandle,"s3:Run",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"Run"])
+			dnSend("s4:call",nHandle,"s3:Run","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Run",P1])
+		dnSend("s4:call",nHandle,"s3:Run",dnPackItem(P1))
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"DisposeAsync"])
+		return dnSend("s4:call",nHandle,"s12:DisposeAsync","")
 
 	Func Use P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Use",P1])
+		return dnSend("s4:call",nHandle,"s3:Use",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"Create",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore').nHandle,"s6:Create",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"Create"])
+			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore').nHandle,"s6:Create","")
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"Create",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore').nHandle,"s6:Create",dnPackItem(P1))
 
 	Func CreateBuilder P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateBuilder",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore').nHandle,"s13:CreateBuilder",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateBuilder"])
+			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore').nHandle,"s13:CreateBuilder","")
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateBuilder",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore').nHandle,"s13:CreateBuilder",dnPackItem(P1))
 
 	Func CreateSlimBuilder P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateSlimBuilder",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore').nHandle,"s17:CreateSlimBuilder",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateSlimBuilder"])
+			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore').nHandle,"s17:CreateSlimBuilder","")
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateSlimBuilder",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore').nHandle,"s17:CreateSlimBuilder",dnPackItem(P1))
 
 	Func CreateEmptyBuilder P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateEmptyBuilder",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore').nHandle,"s18:CreateEmptyBuilder",dnPackItem(P1))
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnSend("s3:get",nHandle,"s8:Services","")
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
 
 	Func getConfiguration
-		return dnRequest("get",[self,"Configuration"])
+		return dnSend("s3:get",nHandle,"s13:Configuration","")
 
 	Func setConfiguration P1
 		raise("DotNet Error: Configuration is a read-only property")
 
 	Func getEnvironment
-		return dnRequest("get",[self,"Environment"])
+		return dnSend("s3:get",nHandle,"s11:Environment","")
 
 	Func setEnvironment P1
 		raise("DotNet Error: Environment is a read-only property")
 
 	Func getLifetime
-		return dnRequest("get",[self,"Lifetime"])
+		return dnSend("s3:get",nHandle,"s8:Lifetime","")
 
 	Func setLifetime P1
 		raise("DotNet Error: Lifetime is a read-only property")
 
 	Func getLogger
-		return dnRequest("get",[self,"Logger"])
+		return dnSend("s3:get",nHandle,"s6:Logger","")
 
 	Func setLogger P1
 		raise("DotNet Error: Logger is a read-only property")
 
 	Func getUrls
-		return dnRequest("get",[self,"Urls"])
+		return dnSend("s3:get",nHandle,"s4:Urls","")
 
 	Func setUrls P1
 		raise("DotNet Error: Urls is a read-only property")
@@ -3862,49 +3862,49 @@ Class WebApplicationBuilder from Object
 		return self
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Build"])
+		return dnSend("s4:call",nHandle,"s5:Build","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getEnvironment
-		return dnRequest("get",[self,"Environment"])
+		return dnSend("s3:get",nHandle,"s11:Environment","")
 
 	Func setEnvironment P1
 		raise("DotNet Error: Environment is a read-only property")
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnSend("s3:get",nHandle,"s8:Services","")
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
 
 	Func getConfiguration
-		return dnRequest("get",[self,"Configuration"])
+		return dnSend("s3:get",nHandle,"s13:Configuration","")
 
 	Func setConfiguration P1
 		raise("DotNet Error: Configuration is a read-only property")
 
 	Func getLogging
-		return dnRequest("get",[self,"Logging"])
+		return dnSend("s3:get",nHandle,"s7:Logging","")
 
 	Func setLogging P1
 		raise("DotNet Error: Logging is a read-only property")
 
 	Func getMetrics
-		return dnRequest("get",[self,"Metrics"])
+		return dnSend("s3:get",nHandle,"s7:Metrics","")
 
 	Func setMetrics P1
 		raise("DotNet Error: Metrics is a read-only property")
 
 	Func getWebHost
-		return dnRequest("get",[self,"WebHost"])
+		return dnSend("s3:get",nHandle,"s7:WebHost","")
 
 	Func setWebHost P1
 		raise("DotNet Error: WebHost is a read-only property")
 
 	Func getHost
-		return dnRequest("get",[self,"Host"])
+		return dnSend("s3:get",nHandle,"s4:Host","")
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
@@ -3941,41 +3941,41 @@ Class WebApplicationOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getArgs
-		return dnRequest("get",[self,"Args"])
+		return dnSend("s3:get",nHandle,"s4:Args","")
 
 	Func setArgs P1
-		dnRequest("set",[self,"Args",P1])
+		dnSend("s3:set",nHandle,"s4:Args",dnPackItem(P1))
 		return self
 
 	Func getEnvironmentName
-		return dnRequest("get",[self,"EnvironmentName"])
+		return dnSend("s3:get",nHandle,"s15:EnvironmentName","")
 
 	Func setEnvironmentName P1
-		dnRequest("set",[self,"EnvironmentName",P1])
+		dnSend("s3:set",nHandle,"s15:EnvironmentName",dnPackItem(P1))
 		return self
 
 	Func getApplicationName
-		return dnRequest("get",[self,"ApplicationName"])
+		return dnSend("s3:get",nHandle,"s15:ApplicationName","")
 
 	Func setApplicationName P1
-		dnRequest("set",[self,"ApplicationName",P1])
+		dnSend("s3:set",nHandle,"s15:ApplicationName",dnPackItem(P1))
 		return self
 
 	Func getContentRootPath
-		return dnRequest("get",[self,"ContentRootPath"])
+		return dnSend("s3:get",nHandle,"s15:ContentRootPath","")
 
 	Func setContentRootPath P1
-		dnRequest("set",[self,"ContentRootPath",P1])
+		dnSend("s3:set",nHandle,"s15:ContentRootPath",dnPackItem(P1))
 		return self
 
 	Func getWebRootPath
-		return dnRequest("get",[self,"WebRootPath"])
+		return dnSend("s3:get",nHandle,"s11:WebRootPath","")
 
 	Func setWebRootPath P1
-		dnRequest("set",[self,"WebRootPath",P1])
+		dnSend("s3:set",nHandle,"s11:WebRootPath",dnPackItem(P1))
 		return self
 
 
@@ -3991,13 +3991,13 @@ Class WebSocketMiddlewareExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseWebSockets P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.WebSocketMiddlewareExtensions, Microsoft.AspNetCore.WebSockets'),"UseWebSockets",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.WebSocketMiddlewareExtensions, Microsoft.AspNetCore.WebSockets').nHandle,"s13:UseWebSockets",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebSocketMiddlewareExtensions, Microsoft.AspNetCore.WebSockets'),"UseWebSockets",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.WebSocketMiddlewareExtensions, Microsoft.AspNetCore.WebSockets').nHandle,"s13:UseWebSockets",dnPackItem(P1))
 
 
 Class WebSocketOptions from Object
@@ -4030,31 +4030,31 @@ Class WebSocketOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getKeepAliveInterval
-		return dnRequest("get",[self,"KeepAliveInterval"])
+		return dnSend("s3:get",nHandle,"s17:KeepAliveInterval","")
 
 	Func setKeepAliveInterval P1
-		dnRequest("set",[self,"KeepAliveInterval",P1])
+		dnSend("s3:set",nHandle,"s17:KeepAliveInterval",dnPackItem(P1))
 		return self
 
 	Func getKeepAliveTimeout
-		return dnRequest("get",[self,"KeepAliveTimeout"])
+		return dnSend("s3:get",nHandle,"s16:KeepAliveTimeout","")
 
 	Func setKeepAliveTimeout P1
-		dnRequest("set",[self,"KeepAliveTimeout",P1])
+		dnSend("s3:set",nHandle,"s16:KeepAliveTimeout",dnPackItem(P1))
 		return self
 
 	Func getReceiveBufferSize
-		return dnRequest("get",[self,"ReceiveBufferSize"])
+		return dnSend("s3:get",nHandle,"s17:ReceiveBufferSize","")
 
 	Func setReceiveBufferSize P1
-		dnRequest("set",[self,"ReceiveBufferSize",P1])
+		dnSend("s3:set",nHandle,"s17:ReceiveBufferSize",dnPackItem(P1))
 		return self
 
 	Func getAllowedOrigins
-		return dnRequest("get",[self,"AllowedOrigins"])
+		return dnSend("s3:get",nHandle,"s14:AllowedOrigins","")
 
 	Func setAllowedOrigins P1
 		raise("DotNet Error: AllowedOrigins is a read-only property")
@@ -4072,13 +4072,13 @@ Class WelcomePageExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func UseWelcomePage P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.WelcomePageExtensions, Microsoft.AspNetCore.Diagnostics'),"UseWelcomePage",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Builder.WelcomePageExtensions, Microsoft.AspNetCore.Diagnostics').nHandle,"s14:UseWelcomePage",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WelcomePageExtensions, Microsoft.AspNetCore.Diagnostics'),"UseWelcomePage",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Builder.WelcomePageExtensions, Microsoft.AspNetCore.Diagnostics').nHandle,"s14:UseWelcomePage",dnPackItem(P1))
 
 
 Class WelcomePageOptions from Object
@@ -4108,13 +4108,13 @@ Class WelcomePageOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getPath
-		return dnRequest("get",[self,"Path"])
+		return dnSend("s3:get",nHandle,"s4:Path","")
 
 	Func setPath P1
-		dnRequest("set",[self,"Path",P1])
+		dnSend("s3:set",nHandle,"s4:Path",dnPackItem(P1))
 		return self
 
 

@@ -173,10 +173,10 @@ Class Ascii from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func IsValid P1
-		return dnRequest("call",[dnTypeCached('System.Text.Ascii, System.Private.CoreLib'),"IsValid",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Ascii, System.Private.CoreLib').nHandle,"s7:IsValid",dnPackItem(P1))
 
 
 Class CompositeFormat from Object
@@ -194,19 +194,19 @@ Class CompositeFormat from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Parse P1
-		return dnRequest("call",[dnTypeCached('System.Text.CompositeFormat, System.Private.CoreLib'),"Parse",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.CompositeFormat, System.Private.CoreLib').nHandle,"s5:Parse",dnPackItem(P1))
 
 	Func getFormat
-		return dnRequest("get",[self,"Format"])
+		return dnSend("s3:get",nHandle,"s6:Format","")
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getMinimumArgumentCount
-		return dnRequest("get",[self,"MinimumArgumentCount"])
+		return dnSend("s3:get",nHandle,"s20:MinimumArgumentCount","")
 
 	Func setMinimumArgumentCount P1
 		raise("DotNet Error: MinimumArgumentCount is a read-only property")
@@ -227,36 +227,36 @@ Class Decoder from Object
 		return self
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func GetCharCount P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCharCount",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:GetCharCount",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetCharCount does not take one argument: use named arguments, GetCharCount([ :parameter = value, ... ])")
 
 	Func GetChars P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetChars",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:GetChars",dnPackItem(P1))
 		ok
 		raise("DotNet Error: GetChars does not take one argument: use named arguments, GetChars([ :parameter = value, ... ])")
 
 	Func Convert P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Convert",P1,P2,P3,P4,P5,P6,P7])
+		return dnSend("s4:call",nHandle,"s7:Convert",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getFallback
-		return dnRequest("get",[self,"Fallback"])
+		return dnSend("s3:get",nHandle,"s8:Fallback","")
 
 	Func setFallback P1
-		dnRequest("set",[self,"Fallback",P1])
+		dnSend("s3:set",nHandle,"s8:Fallback",dnPackItem(P1))
 		return self
 
 	Func getFallbackBuffer
-		return dnRequest("get",[self,"FallbackBuffer"])
+		return dnSend("s3:get",nHandle,"s14:FallbackBuffer","")
 
 	Func setFallbackBuffer P1
 		raise("DotNet Error: FallbackBuffer is a read-only property")
@@ -278,25 +278,25 @@ Class DecoderFallback from Object
 		return self
 
 	Func CreateFallbackBuffer 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateFallbackBuffer"])
+		return dnSend("s4:call",nHandle,"s20:CreateFallbackBuffer","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMaxCharCount
-		return dnRequest("get",[self,"MaxCharCount"])
+		return dnSend("s3:get",nHandle,"s12:MaxCharCount","")
 
 	Func setMaxCharCount P1
 		raise("DotNet Error: MaxCharCount is a read-only property")
 
 	Func getReplacementFallback
-		return dnRequest("get",[dnTypeCached('System.Text.DecoderFallback, System.Private.CoreLib'),"ReplacementFallback"])
+		return dnSend("s3:get",dnTypeCached('System.Text.DecoderFallback, System.Private.CoreLib').nHandle,"s19:ReplacementFallback","")
 
 	Func setReplacementFallback P1
 		raise("DotNet Error: ReplacementFallback is a read-only property")
 
 	Func getExceptionFallback
-		return dnRequest("get",[dnTypeCached('System.Text.DecoderFallback, System.Private.CoreLib'),"ExceptionFallback"])
+		return dnSend("s3:get",dnTypeCached('System.Text.DecoderFallback, System.Private.CoreLib').nHandle,"s17:ExceptionFallback","")
 
 	Func setExceptionFallback P1
 		raise("DotNet Error: ExceptionFallback is a read-only property")
@@ -316,23 +316,23 @@ Class DecoderFallbackBuffer from Object
 		return self
 
 	Func Fallback P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Fallback",P1,P2])
+		return dnSend("s4:call",nHandle,"s8:Fallback",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetNextChar 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNextChar"])
+		return dnSend("s4:call",nHandle,"s11:GetNextChar","")
 
 	Func MovePrevious 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MovePrevious"])
+		return dnSend("s4:call",nHandle,"s12:MovePrevious","")
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getRemaining
-		return dnRequest("get",[self,"Remaining"])
+		return dnSend("s3:get",nHandle,"s9:Remaining","")
 
 	Func setRemaining P1
 		raise("DotNet Error: Remaining is a read-only property")
@@ -353,30 +353,30 @@ Class Encoder from Object
 		return self
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func GetByteCount P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetByteCount",P1,P2,P3,P4])
+		return dnSend("s4:call",nHandle,"s12:GetByteCount",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func GetBytes P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBytes",P1,P2,P3,P4,P5,P6])
+		return dnSend("s4:call",nHandle,"s8:GetBytes",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6))
 
 	Func Convert P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Convert",P1,P2,P3,P4,P5,P6,P7])
+		return dnSend("s4:call",nHandle,"s7:Convert",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4) + dnPackItem(P5) + dnPackItem(P6) + dnPackItem(P7))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getFallback
-		return dnRequest("get",[self,"Fallback"])
+		return dnSend("s3:get",nHandle,"s8:Fallback","")
 
 	Func setFallback P1
-		dnRequest("set",[self,"Fallback",P1])
+		dnSend("s3:set",nHandle,"s8:Fallback",dnPackItem(P1))
 		return self
 
 	Func getFallbackBuffer
-		return dnRequest("get",[self,"FallbackBuffer"])
+		return dnSend("s3:get",nHandle,"s14:FallbackBuffer","")
 
 	Func setFallbackBuffer P1
 		raise("DotNet Error: FallbackBuffer is a read-only property")
@@ -398,25 +398,25 @@ Class EncoderFallback from Object
 		return self
 
 	Func CreateFallbackBuffer 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CreateFallbackBuffer"])
+		return dnSend("s4:call",nHandle,"s20:CreateFallbackBuffer","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getMaxCharCount
-		return dnRequest("get",[self,"MaxCharCount"])
+		return dnSend("s3:get",nHandle,"s12:MaxCharCount","")
 
 	Func setMaxCharCount P1
 		raise("DotNet Error: MaxCharCount is a read-only property")
 
 	Func getReplacementFallback
-		return dnRequest("get",[dnTypeCached('System.Text.EncoderFallback, System.Private.CoreLib'),"ReplacementFallback"])
+		return dnSend("s3:get",dnTypeCached('System.Text.EncoderFallback, System.Private.CoreLib').nHandle,"s19:ReplacementFallback","")
 
 	Func setReplacementFallback P1
 		raise("DotNet Error: ReplacementFallback is a read-only property")
 
 	Func getExceptionFallback
-		return dnRequest("get",[dnTypeCached('System.Text.EncoderFallback, System.Private.CoreLib'),"ExceptionFallback"])
+		return dnSend("s3:get",dnTypeCached('System.Text.EncoderFallback, System.Private.CoreLib').nHandle,"s17:ExceptionFallback","")
 
 	Func setExceptionFallback P1
 		raise("DotNet Error: ExceptionFallback is a read-only property")
@@ -437,25 +437,25 @@ Class EncoderFallbackBuffer from Object
 
 	Func Fallback P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Fallback",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:Fallback",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Fallback does not take one argument: use named arguments, Fallback([ :parameter = value, ... ])")
 
 	Func GetNextChar 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetNextChar"])
+		return dnSend("s4:call",nHandle,"s11:GetNextChar","")
 
 	Func MovePrevious 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MovePrevious"])
+		return dnSend("s4:call",nHandle,"s12:MovePrevious","")
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Reset"])
+		dnSend("s4:call",nHandle,"s5:Reset","")
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getRemaining
-		return dnRequest("get",[self,"Remaining"])
+		return dnSend("s3:get",nHandle,"s9:Remaining","")
 
 	Func setRemaining P1
 		raise("DotNet Error: Remaining is a read-only property")
@@ -497,226 +497,226 @@ Class Encoding from Object
 		return self
 
 	Func GetPreamble_ 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetPreamble"])
+		return dnSend("s4:call",nHandle,"s11:GetPreamble","")
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clone"])
+		return dnSend("s4:call",nHandle,"s5:Clone","")
 
 	Func GetByteCount P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetByteCount",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:GetByteCount",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetByteCount",P1])
+		return dnSend("s4:call",nHandle,"s12:GetByteCount",dnPackItem(P1))
 
 	Func GetBytes P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetBytes",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:GetBytes",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetBytes",P1])
+		return dnSend("s4:call",nHandle,"s8:GetBytes",dnPackItem(P1))
 
 	Func GetCharCount P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetCharCount",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:GetCharCount",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetCharCount",P1])
+		return dnSend("s4:call",nHandle,"s12:GetCharCount",dnPackItem(P1))
 
 	Func GetChars P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetChars",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:GetChars",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChars",P1])
+		return dnSend("s4:call",nHandle,"s8:GetChars",dnPackItem(P1))
 
 	Func IsAlwaysNormalized P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"IsAlwaysNormalized",P1])
+			return dnSend("s9:callnamed",nHandle,"s18:IsAlwaysNormalized",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"IsAlwaysNormalized"])
+			return dnSend("s4:call",nHandle,"s18:IsAlwaysNormalized","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"IsAlwaysNormalized",P1])
+		return dnSend("s4:call",nHandle,"s18:IsAlwaysNormalized",dnPackItem(P1))
 
 	Func GetDecoder 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetDecoder"])
+		return dnSend("s4:call",nHandle,"s10:GetDecoder","")
 
 	Func GetEncoder 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEncoder"])
+		return dnSend("s4:call",nHandle,"s10:GetEncoder","")
 
 	Func GetMaxByteCount P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMaxByteCount",P1])
+		return dnSend("s4:call",nHandle,"s15:GetMaxByteCount",dnPackItem(P1))
 
 	Func GetMaxCharCount P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetMaxCharCount",P1])
+		return dnSend("s4:call",nHandle,"s15:GetMaxCharCount",dnPackItem(P1))
 
 	Func GetString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetString",P1])
+			return dnSend("s9:callnamed",nHandle,"s9:GetString",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetString",P1])
+		return dnSend("s4:call",nHandle,"s9:GetString",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Convert P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"Convert",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s7:Convert",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
 	Func RegisterProvider P1
-		dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"RegisterProvider",P1])
+		dnSend("s4:call",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s16:RegisterProvider",dnPackItem(P1))
 		return self
 
 	Func GetEncoding P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"GetEncoding",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s11:GetEncoding",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"GetEncoding",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s11:GetEncoding",dnPackItem(P1))
 
 	Func GetEncodings 
-		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"GetEncodings"])
+		return dnSend("s4:call",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s12:GetEncodings","")
 
 	Func CreateTranscodingStream P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"CreateTranscodingStream",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s23:CreateTranscodingStream",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CreateTranscodingStream does not take one argument: use named arguments, CreateTranscodingStream([ :parameter = value, ... ])")
 
 	Func getPreamble
-		return dnRequest("get",[self,"Preamble"])
+		return dnSend("s3:get",nHandle,"s8:Preamble","")
 
 	Func setPreamble P1
 		raise("DotNet Error: Preamble is a read-only property")
 
 	Func getBodyName
-		return dnRequest("get",[self,"BodyName"])
+		return dnSend("s3:get",nHandle,"s8:BodyName","")
 
 	Func setBodyName P1
 		raise("DotNet Error: BodyName is a read-only property")
 
 	Func getEncodingName
-		return dnRequest("get",[self,"EncodingName"])
+		return dnSend("s3:get",nHandle,"s12:EncodingName","")
 
 	Func setEncodingName P1
 		raise("DotNet Error: EncodingName is a read-only property")
 
 	Func getHeaderName
-		return dnRequest("get",[self,"HeaderName"])
+		return dnSend("s3:get",nHandle,"s10:HeaderName","")
 
 	Func setHeaderName P1
 		raise("DotNet Error: HeaderName is a read-only property")
 
 	Func getWebName
-		return dnRequest("get",[self,"WebName"])
+		return dnSend("s3:get",nHandle,"s7:WebName","")
 
 	Func setWebName P1
 		raise("DotNet Error: WebName is a read-only property")
 
 	Func getWindowsCodePage
-		return dnRequest("get",[self,"WindowsCodePage"])
+		return dnSend("s3:get",nHandle,"s15:WindowsCodePage","")
 
 	Func setWindowsCodePage P1
 		raise("DotNet Error: WindowsCodePage is a read-only property")
 
 	Func getIsBrowserDisplay
-		return dnRequest("get",[self,"IsBrowserDisplay"])
+		return dnSend("s3:get",nHandle,"s16:IsBrowserDisplay","")
 
 	Func setIsBrowserDisplay P1
 		raise("DotNet Error: IsBrowserDisplay is a read-only property")
 
 	Func getIsBrowserSave
-		return dnRequest("get",[self,"IsBrowserSave"])
+		return dnSend("s3:get",nHandle,"s13:IsBrowserSave","")
 
 	Func setIsBrowserSave P1
 		raise("DotNet Error: IsBrowserSave is a read-only property")
 
 	Func getIsMailNewsDisplay
-		return dnRequest("get",[self,"IsMailNewsDisplay"])
+		return dnSend("s3:get",nHandle,"s17:IsMailNewsDisplay","")
 
 	Func setIsMailNewsDisplay P1
 		raise("DotNet Error: IsMailNewsDisplay is a read-only property")
 
 	Func getIsMailNewsSave
-		return dnRequest("get",[self,"IsMailNewsSave"])
+		return dnSend("s3:get",nHandle,"s14:IsMailNewsSave","")
 
 	Func setIsMailNewsSave P1
 		raise("DotNet Error: IsMailNewsSave is a read-only property")
 
 	Func getIsSingleByte
-		return dnRequest("get",[self,"IsSingleByte"])
+		return dnSend("s3:get",nHandle,"s12:IsSingleByte","")
 
 	Func setIsSingleByte P1
 		raise("DotNet Error: IsSingleByte is a read-only property")
 
 	Func getEncoderFallback
-		return dnRequest("get",[self,"EncoderFallback"])
+		return dnSend("s3:get",nHandle,"s15:EncoderFallback","")
 
 	Func setEncoderFallback P1
-		dnRequest("set",[self,"EncoderFallback",P1])
+		dnSend("s3:set",nHandle,"s15:EncoderFallback",dnPackItem(P1))
 		return self
 
 	Func getDecoderFallback
-		return dnRequest("get",[self,"DecoderFallback"])
+		return dnSend("s3:get",nHandle,"s15:DecoderFallback","")
 
 	Func setDecoderFallback P1
-		dnRequest("set",[self,"DecoderFallback",P1])
+		dnSend("s3:set",nHandle,"s15:DecoderFallback",dnPackItem(P1))
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnSend("s3:get",nHandle,"s10:IsReadOnly","")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCodePage
-		return dnRequest("get",[self,"CodePage"])
+		return dnSend("s3:get",nHandle,"s8:CodePage","")
 
 	Func setCodePage P1
 		raise("DotNet Error: CodePage is a read-only property")
 
 	Func getDefault
-		return dnRequest("get",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"Default"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s7:Default","")
 
 	Func setDefault P1
 		raise("DotNet Error: Default is a read-only property")
 
 	Func getASCII
-		return dnRequest("get",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"ASCII"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s5:ASCII","")
 
 	Func setASCII P1
 		raise("DotNet Error: ASCII is a read-only property")
 
 	Func getLatin1
-		return dnRequest("get",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"Latin1"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s6:Latin1","")
 
 	Func setLatin1 P1
 		raise("DotNet Error: Latin1 is a read-only property")
 
 	Func getUnicode
-		return dnRequest("get",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"Unicode"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s7:Unicode","")
 
 	Func setUnicode P1
 		raise("DotNet Error: Unicode is a read-only property")
 
 	Func getBigEndianUnicode
-		return dnRequest("get",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"BigEndianUnicode"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s16:BigEndianUnicode","")
 
 	Func setBigEndianUnicode P1
 		raise("DotNet Error: BigEndianUnicode is a read-only property")
 
 	Func getUTF7
-		return dnRequest("get",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"UTF7"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s4:UTF7","")
 
 	Func setUTF7 P1
 		raise("DotNet Error: UTF7 is a read-only property")
 
 	Func getUTF8
-		return dnRequest("get",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"UTF8"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s4:UTF8","")
 
 	Func setUTF8 P1
 		raise("DotNet Error: UTF8 is a read-only property")
 
 	Func getUTF32
-		return dnRequest("get",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"UTF32"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Encoding, System.Private.CoreLib').nHandle,"s5:UTF32","")
 
 	Func setUTF32 P1
 		raise("DotNet Error: UTF32 is a read-only property")
@@ -740,25 +740,25 @@ Class EncodingInfo from Object
 		return self
 
 	Func GetEncoding 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEncoding"])
+		return dnSend("s4:call",nHandle,"s11:GetEncoding","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getCodePage
-		return dnRequest("get",[self,"CodePage"])
+		return dnSend("s3:get",nHandle,"s8:CodePage","")
 
 	Func setCodePage P1
 		raise("DotNet Error: CodePage is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnSend("s3:get",nHandle,"s4:Name","")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDisplayName
-		return dnRequest("get",[self,"DisplayName"])
+		return dnSend("s3:get",nHandle,"s11:DisplayName","")
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
@@ -777,15 +777,15 @@ Class EncodingProvider from Object
 
 	Func GetEncoding P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"GetEncoding",P1])
+			return dnSend("s9:callnamed",nHandle,"s11:GetEncoding",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEncoding",P1])
+		return dnSend("s4:call",nHandle,"s11:GetEncoding",dnPackItem(P1))
 
 	Func GetEncodings 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEncodings"])
+		return dnSend("s4:call",nHandle,"s12:GetEncodings","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 
 Class Rune from ValueType
@@ -841,112 +841,112 @@ Class Rune from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"CompareTo",P1])
+		return dnSend("s4:call",nHandle,"s9:CompareTo",dnPackItem(P1))
 
 	Func GetRuneAt P1,P2
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"GetRuneAt",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s9:GetRuneAt",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsValid P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"IsValid",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s7:IsValid",dnPackItem(P1))
 
 	Func TryCreate P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"TryCreate",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s9:TryCreate",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"TryCreate",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s9:TryCreate",dnPackItem(P1))
 
 	Func TryGetRuneAt P1,P2
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"TryGetRuneAt",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s12:TryGetRuneAt",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetNumericValue P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"GetNumericValue",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s15:GetNumericValue",dnPackItem(P1))
 
 	Func GetUnicodeCategory P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"GetUnicodeCategory",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s18:GetUnicodeCategory",dnPackItem(P1))
 
 	Func IsControl P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"IsControl",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s9:IsControl",dnPackItem(P1))
 
 	Func IsDigit P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"IsDigit",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s7:IsDigit",dnPackItem(P1))
 
 	Func IsLetter P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"IsLetter",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s8:IsLetter",dnPackItem(P1))
 
 	Func IsLetterOrDigit P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"IsLetterOrDigit",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s15:IsLetterOrDigit",dnPackItem(P1))
 
 	Func IsLower P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"IsLower",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s7:IsLower",dnPackItem(P1))
 
 	Func IsNumber P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"IsNumber",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s8:IsNumber",dnPackItem(P1))
 
 	Func IsPunctuation P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"IsPunctuation",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s13:IsPunctuation",dnPackItem(P1))
 
 	Func IsSeparator P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"IsSeparator",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s11:IsSeparator",dnPackItem(P1))
 
 	Func IsSymbol P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"IsSymbol",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s8:IsSymbol",dnPackItem(P1))
 
 	Func IsUpper P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"IsUpper",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s7:IsUpper",dnPackItem(P1))
 
 	Func IsWhiteSpace P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"IsWhiteSpace",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s12:IsWhiteSpace",dnPackItem(P1))
 
 	Func ToLower P1,P2
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"ToLower",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s7:ToLower",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToLowerInvariant P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"ToLowerInvariant",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s16:ToLowerInvariant",dnPackItem(P1))
 
 	Func ToUpper P1,P2
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"ToUpper",P1,P2])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s7:ToUpper",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ToUpperInvariant P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"ToUpperInvariant",P1])
+		return dnSend("s4:call",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s16:ToUpperInvariant",dnPackItem(P1))
 
 	Func getIsAscii
-		return dnRequest("get",[self,"IsAscii"])
+		return dnSend("s3:get",nHandle,"s7:IsAscii","")
 
 	Func setIsAscii P1
 		raise("DotNet Error: IsAscii is a read-only property")
 
 	Func getIsBmp
-		return dnRequest("get",[self,"IsBmp"])
+		return dnSend("s3:get",nHandle,"s5:IsBmp","")
 
 	Func setIsBmp P1
 		raise("DotNet Error: IsBmp is a read-only property")
 
 	Func getPlane
-		return dnRequest("get",[self,"Plane"])
+		return dnSend("s3:get",nHandle,"s5:Plane","")
 
 	Func setPlane P1
 		raise("DotNet Error: Plane is a read-only property")
 
 	Func getUtf16SequenceLength
-		return dnRequest("get",[self,"Utf16SequenceLength"])
+		return dnSend("s3:get",nHandle,"s19:Utf16SequenceLength","")
 
 	Func setUtf16SequenceLength P1
 		raise("DotNet Error: Utf16SequenceLength is a read-only property")
 
 	Func getUtf8SequenceLength
-		return dnRequest("get",[self,"Utf8SequenceLength"])
+		return dnSend("s3:get",nHandle,"s18:Utf8SequenceLength","")
 
 	Func setUtf8SequenceLength P1
 		raise("DotNet Error: Utf8SequenceLength is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnSend("s3:get",nHandle,"s5:Value","")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getReplacementChar
-		return dnRequest("get",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"ReplacementChar"])
+		return dnSend("s3:get",dnTypeCached('System.Text.Rune, System.Private.CoreLib').nHandle,"s15:ReplacementChar","")
 
 	Func setReplacementChar P1
 		raise("DotNet Error: ReplacementChar is a read-only property")
@@ -1005,91 +1005,91 @@ Class StringBuilder from Object
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"EnsureCapacity",P1])
+		return dnSend("s4:call",nHandle,"s14:EnsureCapacity",dnPackItem(P1))
 
 	Func Format P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"ToString",P1])
+			return dnSend("s9:callnamed",nHandle,"s8:ToString",dnPackItem(P1))
 		ok
 		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
 	Func Clear 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Clear"])
+		return dnSend("s4:call",nHandle,"s5:Clear","")
 
 	Func GetChunks 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetChunks"])
+		return dnSend("s4:call",nHandle,"s9:GetChunks","")
 
 	Func Append P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Append",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Append",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Append",P1])
+		return dnSend("s4:call",nHandle,"s6:Append",dnPackItem(P1))
 
 	Func AppendLine P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AppendLine",P1])
+			return dnSend("s9:callnamed",nHandle,"s10:AppendLine",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"AppendLine"])
+			return dnSend("s4:call",nHandle,"s10:AppendLine","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AppendLine",P1])
+		return dnSend("s4:call",nHandle,"s10:AppendLine",dnPackItem(P1))
 
 	Func CopyTo P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(this.nHandle),"CopyTo",P1,P2,P3,P4])
+		dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 		return self
 
 	Func Insert P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Insert",P1])
+			return dnSend("s9:callnamed",nHandle,"s6:Insert",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
 
 	Func Remove P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Remove",P1,P2])
+		return dnSend("s4:call",nHandle,"s6:Remove",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AppendJoin P1,P2
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AppendJoin",P1,P2])
+		return dnSend("s4:call",nHandle,"s10:AppendJoin",dnPackItem(P1) + dnPackItem(P2))
 
 	Func AppendFormat P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AppendFormat",P1])
+			return dnSend("s9:callnamed",nHandle,"s12:AppendFormat",dnPackItem(P1))
 		ok
 		raise("DotNet Error: AppendFormat does not take one argument: use named arguments, AppendFormat([ :parameter = value, ... ])")
 
 	Func Replace P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"Replace",P1])
+			return dnSend("s9:callnamed",nHandle,"s7:Replace",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"get_Item",P1])
+		return dnSend("s4:call",nHandle,"s8:get_Item",dnPackItem(P1))
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"set_Item",P1,P2])
+		dnSend("s4:call",nHandle,"s8:set_Item",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnSend("s3:get",nHandle,"s8:Capacity","")
 
 	Func setCapacity P1
-		dnRequest("set",[self,"Capacity",P1])
+		dnSend("s3:set",nHandle,"s8:Capacity",dnPackItem(P1))
 		return self
 
 	Func getMaxCapacity
-		return dnRequest("get",[self,"MaxCapacity"])
+		return dnSend("s3:get",nHandle,"s11:MaxCapacity","")
 
 	Func setMaxCapacity P1
 		raise("DotNet Error: MaxCapacity is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnSend("s3:get",nHandle,"s6:Length","")
 
 	Func setLength P1
-		dnRequest("set",[self,"Length",P1])
+		dnSend("s3:set",nHandle,"s6:Length",dnPackItem(P1))
 		return self
 
 
@@ -1120,13 +1120,13 @@ Class StringRuneEnumerator from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 	Func MoveNext 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"MoveNext"])
+		return dnSend("s4:call",nHandle,"s8:MoveNext","")
 
 	Func getCurrent
-		return dnRequest("get",[self,"Current"])
+		return dnSend("s3:get",nHandle,"s7:Current","")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -1254,7 +1254,7 @@ Class DecoderReplacementFallback from DecoderFallback
 		return self
 
 	Func getDefaultString
-		return dnRequest("get",[self,"DefaultString"])
+		return dnSend("s3:get",nHandle,"s13:DefaultString","")
 
 	Func setDefaultString P1
 		raise("DotNet Error: DefaultString is a read-only property")
@@ -1371,7 +1371,7 @@ Class EncoderReplacementFallback from EncoderFallback
 		return self
 
 	Func getDefaultString
-		return dnRequest("get",[self,"DefaultString"])
+		return dnSend("s3:get",nHandle,"s13:DefaultString","")
 
 	Func setDefaultString P1
 		raise("DotNet Error: DefaultString is a read-only property")
@@ -1573,7 +1573,7 @@ Class UnicodeEncoding from Encoding
 		return self
 
 	Func getCharSize
-		return dnRequest("get",[dnTypeCached('System.Text.UnicodeEncoding, System.Private.CoreLib'),"CharSize"])
+		return dnSend("s3:get",dnTypeCached('System.Text.UnicodeEncoding, System.Private.CoreLib').nHandle,"s8:CharSize","")
 
 	Func setCharSize P1
 		raise("DotNet Error: CharSize is a read-only property")

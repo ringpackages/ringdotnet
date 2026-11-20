@@ -35,10 +35,10 @@ Class HttpRequestMultipartExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetMultipartBoundary P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.HttpRequestMultipartExtensions, Microsoft.AspNetCore.Http.Extensions'),"GetMultipartBoundary",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Extensions.HttpRequestMultipartExtensions, Microsoft.AspNetCore.Http.Extensions').nHandle,"s20:GetMultipartBoundary",dnPackItem(P1))
 
 
 Class QueryBuilder from Object
@@ -86,17 +86,17 @@ Class QueryBuilder from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(this.nHandle),"Add",P1,P2])
+		dnSend("s4:call",nHandle,"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 		return self
 
 	Func ToQueryString 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ToQueryString"])
+		return dnSend("s4:call",nHandle,"s13:ToQueryString","")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetEnumerator"])
+		return dnSend("s4:call",nHandle,"s13:GetEnumerator","")
 
 
 Class StreamCopyOperation from Object
@@ -111,11 +111,11 @@ Class StreamCopyOperation from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CopyToAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.StreamCopyOperation, Microsoft.AspNetCore.Http.Extensions'),"CopyToAsync",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Extensions.StreamCopyOperation, Microsoft.AspNetCore.Http.Extensions').nHandle,"s11:CopyToAsync",dnPackItem(P1))
 		ok
 		raise("DotNet Error: CopyToAsync does not take one argument: use named arguments, CopyToAsync([ :parameter = value, ... ])")
 
@@ -132,36 +132,36 @@ Class UriHelper from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func BuildRelative P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions').nHandle,"s13:BuildRelative",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative"])
+			return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions').nHandle,"s13:BuildRelative","")
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions').nHandle,"s13:BuildRelative",dnPackItem(P1))
 
 	Func BuildAbsolute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildAbsolute",P1])
+			return dnSend("s9:callnamed",dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions').nHandle,"s13:BuildAbsolute",dnPackItem(P1))
 		ok
 		raise("DotNet Error: BuildAbsolute does not take one argument: use named arguments, BuildAbsolute([ :parameter = value, ... ])")
 
 	Func FromAbsolute P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"FromAbsolute",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions').nHandle,"s12:FromAbsolute",dnPackItem(P1))
 
 	Func Encode P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"Encode",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions').nHandle,"s6:Encode",dnPackItem(P1))
 
 	Func GetEncodedUrl P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"GetEncodedUrl",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions').nHandle,"s13:GetEncodedUrl",dnPackItem(P1))
 
 	Func GetEncodedPathAndQuery P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"GetEncodedPathAndQuery",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions').nHandle,"s22:GetEncodedPathAndQuery",dnPackItem(P1))
 
 	Func GetDisplayUrl P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"GetDisplayUrl",P1])
+		return dnSend("s4:call",dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions').nHandle,"s13:GetDisplayUrl",dnPackItem(P1))
 
 

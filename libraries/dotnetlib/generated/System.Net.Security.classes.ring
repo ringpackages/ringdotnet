@@ -96,37 +96,37 @@ Class AuthenticatedStream from Stream
 		return self
 
 	Func getLeaveInnerStreamOpen
-		return dnRequest("get",[self,"LeaveInnerStreamOpen"])
+		return dnSend("s3:get",nHandle,"s20:LeaveInnerStreamOpen","")
 
 	Func setLeaveInnerStreamOpen P1
 		raise("DotNet Error: LeaveInnerStreamOpen is a read-only property")
 
 	Func getIsAuthenticated
-		return dnRequest("get",[self,"IsAuthenticated"])
+		return dnSend("s3:get",nHandle,"s15:IsAuthenticated","")
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
 
 	Func getIsMutuallyAuthenticated
-		return dnRequest("get",[self,"IsMutuallyAuthenticated"])
+		return dnSend("s3:get",nHandle,"s23:IsMutuallyAuthenticated","")
 
 	Func setIsMutuallyAuthenticated P1
 		raise("DotNet Error: IsMutuallyAuthenticated is a read-only property")
 
 	Func getIsEncrypted
-		return dnRequest("get",[self,"IsEncrypted"])
+		return dnSend("s3:get",nHandle,"s11:IsEncrypted","")
 
 	Func setIsEncrypted P1
 		raise("DotNet Error: IsEncrypted is a read-only property")
 
 	Func getIsSigned
-		return dnRequest("get",[self,"IsSigned"])
+		return dnSend("s3:get",nHandle,"s8:IsSigned","")
 
 	Func setIsSigned P1
 		raise("DotNet Error: IsSigned is a read-only property")
 
 	Func getIsServer
-		return dnRequest("get",[self,"IsServer"])
+		return dnSend("s3:get",nHandle,"s8:IsServer","")
 
 	Func setIsServer P1
 		raise("DotNet Error: IsServer is a read-only property")
@@ -148,10 +148,10 @@ Class CipherSuitesPolicy from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAllowedCipherSuites
-		return dnRequest("get",[self,"AllowedCipherSuites"])
+		return dnSend("s3:get",nHandle,"s19:AllowedCipherSuites","")
 
 	Func setAllowedCipherSuites P1
 		raise("DotNet Error: AllowedCipherSuites is a read-only property")
@@ -181,68 +181,68 @@ Class NegotiateAuthentication from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(this.nHandle),"Dispose"])
+		dnSend("s4:call",nHandle,"s7:Dispose","")
 		return self
 
 	Func GetOutgoingBlob P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"GetOutgoingBlob",P1])
+		return dnSend("s4:call",nHandle,"s15:GetOutgoingBlob",dnPackItem(P1))
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getIsAuthenticated
-		return dnRequest("get",[self,"IsAuthenticated"])
+		return dnSend("s3:get",nHandle,"s15:IsAuthenticated","")
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
 
 	Func getProtectionLevel
-		return dnRequest("get",[self,"ProtectionLevel"])
+		return dnSend("s3:get",nHandle,"s15:ProtectionLevel","")
 
 	Func setProtectionLevel P1
 		raise("DotNet Error: ProtectionLevel is a read-only property")
 
 	Func getIsSigned
-		return dnRequest("get",[self,"IsSigned"])
+		return dnSend("s3:get",nHandle,"s8:IsSigned","")
 
 	Func setIsSigned P1
 		raise("DotNet Error: IsSigned is a read-only property")
 
 	Func getIsEncrypted
-		return dnRequest("get",[self,"IsEncrypted"])
+		return dnSend("s3:get",nHandle,"s11:IsEncrypted","")
 
 	Func setIsEncrypted P1
 		raise("DotNet Error: IsEncrypted is a read-only property")
 
 	Func getIsMutuallyAuthenticated
-		return dnRequest("get",[self,"IsMutuallyAuthenticated"])
+		return dnSend("s3:get",nHandle,"s23:IsMutuallyAuthenticated","")
 
 	Func setIsMutuallyAuthenticated P1
 		raise("DotNet Error: IsMutuallyAuthenticated is a read-only property")
 
 	Func getIsServer
-		return dnRequest("get",[self,"IsServer"])
+		return dnSend("s3:get",nHandle,"s8:IsServer","")
 
 	Func setIsServer P1
 		raise("DotNet Error: IsServer is a read-only property")
 
 	Func getPackage
-		return dnRequest("get",[self,"Package"])
+		return dnSend("s3:get",nHandle,"s7:Package","")
 
 	Func getTargetName
-		return dnRequest("get",[self,"TargetName"])
+		return dnSend("s3:get",nHandle,"s10:TargetName","")
 
 	Func setTargetName P1
 		raise("DotNet Error: TargetName is a read-only property")
 
 	Func getRemoteIdentity
-		return dnRequest("get",[self,"RemoteIdentity"])
+		return dnSend("s3:get",nHandle,"s14:RemoteIdentity","")
 
 	Func setRemoteIdentity P1
 		raise("DotNet Error: RemoteIdentity is a read-only property")
 
 	Func getImpersonationLevel
-		return dnRequest("get",[self,"ImpersonationLevel"])
+		return dnSend("s3:get",nHandle,"s18:ImpersonationLevel","")
 
 	Func setImpersonationLevel P1
 		raise("DotNet Error: ImpersonationLevel is a read-only property")
@@ -280,55 +280,55 @@ Class NegotiateAuthenticationClientOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getPackage
-		return dnRequest("get",[self,"Package"])
+		return dnSend("s3:get",nHandle,"s7:Package","")
 
 	Func setPackage P1
-		dnRequest("set",[self,"Package",P1])
+		dnSend("s3:set",nHandle,"s7:Package",dnPackItem(P1))
 		return self
 
 	Func getCredential
-		return dnRequest("get",[self,"Credential"])
+		return dnSend("s3:get",nHandle,"s10:Credential","")
 
 	Func setCredential P1
-		dnRequest("set",[self,"Credential",P1])
+		dnSend("s3:set",nHandle,"s10:Credential",dnPackItem(P1))
 		return self
 
 	Func getTargetName
-		return dnRequest("get",[self,"TargetName"])
+		return dnSend("s3:get",nHandle,"s10:TargetName","")
 
 	Func setTargetName P1
-		dnRequest("set",[self,"TargetName",P1])
+		dnSend("s3:set",nHandle,"s10:TargetName",dnPackItem(P1))
 		return self
 
 	Func getBinding
-		return dnRequest("get",[self,"Binding"])
+		return dnSend("s3:get",nHandle,"s7:Binding","")
 
 	Func setBinding P1
-		dnRequest("set",[self,"Binding",P1])
+		dnSend("s3:set",nHandle,"s7:Binding",dnPackItem(P1))
 		return self
 
 	Func getRequiredProtectionLevel
-		return dnRequest("get",[self,"RequiredProtectionLevel"])
+		return dnSend("s3:get",nHandle,"s23:RequiredProtectionLevel","")
 
 	Func setRequiredProtectionLevel P1
-		dnRequest("set",[self,"RequiredProtectionLevel",P1])
+		dnSend("s3:set",nHandle,"s23:RequiredProtectionLevel",dnPackItem(P1))
 		return self
 
 	Func getRequireMutualAuthentication
-		return dnRequest("get",[self,"RequireMutualAuthentication"])
+		return dnSend("s3:get",nHandle,"s27:RequireMutualAuthentication","")
 
 	Func setRequireMutualAuthentication P1
-		dnRequest("set",[self,"RequireMutualAuthentication",P1])
+		dnSend("s3:set",nHandle,"s27:RequireMutualAuthentication",dnPackItem(P1))
 		return self
 
 	Func getAllowedImpersonationLevel
-		return dnRequest("get",[self,"AllowedImpersonationLevel"])
+		return dnSend("s3:get",nHandle,"s25:AllowedImpersonationLevel","")
 
 	Func setAllowedImpersonationLevel P1
-		dnRequest("set",[self,"AllowedImpersonationLevel",P1])
+		dnSend("s3:set",nHandle,"s25:AllowedImpersonationLevel",dnPackItem(P1))
 		return self
 
 
@@ -363,48 +363,48 @@ Class NegotiateAuthenticationServerOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getPackage
-		return dnRequest("get",[self,"Package"])
+		return dnSend("s3:get",nHandle,"s7:Package","")
 
 	Func setPackage P1
-		dnRequest("set",[self,"Package",P1])
+		dnSend("s3:set",nHandle,"s7:Package",dnPackItem(P1))
 		return self
 
 	Func getCredential
-		return dnRequest("get",[self,"Credential"])
+		return dnSend("s3:get",nHandle,"s10:Credential","")
 
 	Func setCredential P1
-		dnRequest("set",[self,"Credential",P1])
+		dnSend("s3:set",nHandle,"s10:Credential",dnPackItem(P1))
 		return self
 
 	Func getBinding
-		return dnRequest("get",[self,"Binding"])
+		return dnSend("s3:get",nHandle,"s7:Binding","")
 
 	Func setBinding P1
-		dnRequest("set",[self,"Binding",P1])
+		dnSend("s3:set",nHandle,"s7:Binding",dnPackItem(P1))
 		return self
 
 	Func getRequiredProtectionLevel
-		return dnRequest("get",[self,"RequiredProtectionLevel"])
+		return dnSend("s3:get",nHandle,"s23:RequiredProtectionLevel","")
 
 	Func setRequiredProtectionLevel P1
-		dnRequest("set",[self,"RequiredProtectionLevel",P1])
+		dnSend("s3:set",nHandle,"s23:RequiredProtectionLevel",dnPackItem(P1))
 		return self
 
 	Func getPolicy
-		return dnRequest("get",[self,"Policy"])
+		return dnSend("s3:get",nHandle,"s6:Policy","")
 
 	Func setPolicy P1
-		dnRequest("set",[self,"Policy",P1])
+		dnSend("s3:set",nHandle,"s6:Policy",dnPackItem(P1))
 		return self
 
 	Func getRequiredImpersonationLevel
-		return dnRequest("get",[self,"RequiredImpersonationLevel"])
+		return dnSend("s3:get",nHandle,"s26:RequiredImpersonationLevel","")
 
 	Func setRequiredImpersonationLevel P1
-		dnRequest("set",[self,"RequiredImpersonationLevel",P1])
+		dnSend("s3:set",nHandle,"s26:RequiredImpersonationLevel",dnPackItem(P1))
 		return self
 
 
@@ -458,25 +458,25 @@ Class SslApplicationProtocol from ValueType
 		return self
 
 	Func getProtocol
-		return dnRequest("get",[self,"Protocol"])
+		return dnSend("s3:get",nHandle,"s8:Protocol","")
 
 	Func setProtocol P1
 		raise("DotNet Error: Protocol is a read-only property")
 
 	Func getHttp3
-		return dnRequest("get",[dnTypeCached('System.Net.Security.SslApplicationProtocol, System.Net.Security'),"Http3"])
+		return dnSend("s3:get",dnTypeCached('System.Net.Security.SslApplicationProtocol, System.Net.Security').nHandle,"s5:Http3","")
 
 	Func setHttp3 P1
 		raise("DotNet Error: Http3 is a read-only property")
 
 	Func getHttp2
-		return dnRequest("get",[dnTypeCached('System.Net.Security.SslApplicationProtocol, System.Net.Security'),"Http2"])
+		return dnSend("s3:get",dnTypeCached('System.Net.Security.SslApplicationProtocol, System.Net.Security').nHandle,"s5:Http2","")
 
 	Func setHttp2 P1
 		raise("DotNet Error: Http2 is a read-only property")
 
 	Func getHttp11
-		return dnRequest("get",[dnTypeCached('System.Net.Security.SslApplicationProtocol, System.Net.Security'),"Http11"])
+		return dnSend("s3:get",dnTypeCached('System.Net.Security.SslApplicationProtocol, System.Net.Security').nHandle,"s6:Http11","")
 
 	Func setHttp11 P1
 		raise("DotNet Error: Http11 is a read-only property")
@@ -494,19 +494,19 @@ Class SslCertificateTrust from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func CreateForX509Store P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Net.Security.SslCertificateTrust, System.Net.Security'),"CreateForX509Store",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Net.Security.SslCertificateTrust, System.Net.Security').nHandle,"s18:CreateForX509Store",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Net.Security.SslCertificateTrust, System.Net.Security'),"CreateForX509Store",P1])
+		return dnSend("s4:call",dnTypeCached('System.Net.Security.SslCertificateTrust, System.Net.Security').nHandle,"s18:CreateForX509Store",dnPackItem(P1))
 
 	Func CreateForX509Collection P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Net.Security.SslCertificateTrust, System.Net.Security'),"CreateForX509Collection",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Net.Security.SslCertificateTrust, System.Net.Security').nHandle,"s23:CreateForX509Collection",dnPackItem(P1))
 		ok
-		return dnRequest("call",[dnTypeCached('System.Net.Security.SslCertificateTrust, System.Net.Security'),"CreateForX509Collection",P1])
+		return dnSend("s4:call",dnTypeCached('System.Net.Security.SslCertificateTrust, System.Net.Security').nHandle,"s23:CreateForX509Collection",dnPackItem(P1))
 
 
 Class SslClientAuthenticationOptions from Object
@@ -548,97 +548,97 @@ Class SslClientAuthenticationOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAllowRenegotiation
-		return dnRequest("get",[self,"AllowRenegotiation"])
+		return dnSend("s3:get",nHandle,"s18:AllowRenegotiation","")
 
 	Func setAllowRenegotiation P1
-		dnRequest("set",[self,"AllowRenegotiation",P1])
+		dnSend("s3:set",nHandle,"s18:AllowRenegotiation",dnPackItem(P1))
 		return self
 
 	Func getAllowTlsResume
-		return dnRequest("get",[self,"AllowTlsResume"])
+		return dnSend("s3:get",nHandle,"s14:AllowTlsResume","")
 
 	Func setAllowTlsResume P1
-		dnRequest("set",[self,"AllowTlsResume",P1])
+		dnSend("s3:set",nHandle,"s14:AllowTlsResume",dnPackItem(P1))
 		return self
 
 	Func getLocalCertificateSelectionCallback
-		return dnRequest("get",[self,"LocalCertificateSelectionCallback"])
+		return dnSend("s3:get",nHandle,"s33:LocalCertificateSelectionCallback","")
 
 	Func setLocalCertificateSelectionCallback P1
-		dnRequest("set",[self,"LocalCertificateSelectionCallback",P1])
+		dnSend("s3:set",nHandle,"s33:LocalCertificateSelectionCallback",dnPackItem(P1))
 		return self
 
 	Func getRemoteCertificateValidationCallback
-		return dnRequest("get",[self,"RemoteCertificateValidationCallback"])
+		return dnSend("s3:get",nHandle,"s35:RemoteCertificateValidationCallback","")
 
 	Func setRemoteCertificateValidationCallback P1
-		dnRequest("set",[self,"RemoteCertificateValidationCallback",P1])
+		dnSend("s3:set",nHandle,"s35:RemoteCertificateValidationCallback",dnPackItem(P1))
 		return self
 
 	Func getApplicationProtocols
-		return dnRequest("get",[self,"ApplicationProtocols"])
+		return dnSend("s3:get",nHandle,"s20:ApplicationProtocols","")
 
 	Func setApplicationProtocols P1
-		dnRequest("set",[self,"ApplicationProtocols",P1])
+		dnSend("s3:set",nHandle,"s20:ApplicationProtocols",dnPackItem(P1))
 		return self
 
 	Func getTargetHost
-		return dnRequest("get",[self,"TargetHost"])
+		return dnSend("s3:get",nHandle,"s10:TargetHost","")
 
 	Func setTargetHost P1
-		dnRequest("set",[self,"TargetHost",P1])
+		dnSend("s3:set",nHandle,"s10:TargetHost",dnPackItem(P1))
 		return self
 
 	Func getClientCertificates
-		return dnRequest("get",[self,"ClientCertificates"])
+		return dnSend("s3:get",nHandle,"s18:ClientCertificates","")
 
 	Func setClientCertificates P1
-		dnRequest("set",[self,"ClientCertificates",P1])
+		dnSend("s3:set",nHandle,"s18:ClientCertificates",dnPackItem(P1))
 		return self
 
 	Func getClientCertificateContext
-		return dnRequest("get",[self,"ClientCertificateContext"])
+		return dnSend("s3:get",nHandle,"s24:ClientCertificateContext","")
 
 	Func setClientCertificateContext P1
-		dnRequest("set",[self,"ClientCertificateContext",P1])
+		dnSend("s3:set",nHandle,"s24:ClientCertificateContext",dnPackItem(P1))
 		return self
 
 	Func getCertificateRevocationCheckMode
-		return dnRequest("get",[self,"CertificateRevocationCheckMode"])
+		return dnSend("s3:get",nHandle,"s30:CertificateRevocationCheckMode","")
 
 	Func setCertificateRevocationCheckMode P1
-		dnRequest("set",[self,"CertificateRevocationCheckMode",P1])
+		dnSend("s3:set",nHandle,"s30:CertificateRevocationCheckMode",dnPackItem(P1))
 		return self
 
 	Func getEncryptionPolicy
-		return dnRequest("get",[self,"EncryptionPolicy"])
+		return dnSend("s3:get",nHandle,"s16:EncryptionPolicy","")
 
 	Func setEncryptionPolicy P1
-		dnRequest("set",[self,"EncryptionPolicy",P1])
+		dnSend("s3:set",nHandle,"s16:EncryptionPolicy",dnPackItem(P1))
 		return self
 
 	Func getEnabledSslProtocols
-		return dnRequest("get",[self,"EnabledSslProtocols"])
+		return dnSend("s3:get",nHandle,"s19:EnabledSslProtocols","")
 
 	Func setEnabledSslProtocols P1
-		dnRequest("set",[self,"EnabledSslProtocols",P1])
+		dnSend("s3:set",nHandle,"s19:EnabledSslProtocols",dnPackItem(P1))
 		return self
 
 	Func getCipherSuitesPolicy
-		return dnRequest("get",[self,"CipherSuitesPolicy"])
+		return dnSend("s3:get",nHandle,"s18:CipherSuitesPolicy","")
 
 	Func setCipherSuitesPolicy P1
-		dnRequest("set",[self,"CipherSuitesPolicy",P1])
+		dnSend("s3:set",nHandle,"s18:CipherSuitesPolicy",dnPackItem(P1))
 		return self
 
 	Func getCertificateChainPolicy
-		return dnRequest("get",[self,"CertificateChainPolicy"])
+		return dnSend("s3:get",nHandle,"s22:CertificateChainPolicy","")
 
 	Func setCertificateChainPolicy P1
-		dnRequest("set",[self,"CertificateChainPolicy",P1])
+		dnSend("s3:set",nHandle,"s22:CertificateChainPolicy",dnPackItem(P1))
 		return self
 
 
@@ -690,13 +690,13 @@ Class SslClientHelloInfo from ValueType
 		return self
 
 	Func getServerName
-		return dnRequest("get",[self,"ServerName"])
+		return dnSend("s3:get",nHandle,"s10:ServerName","")
 
 	Func setServerName P1
 		raise("DotNet Error: ServerName is a read-only property")
 
 	Func getSslProtocols
-		return dnRequest("get",[self,"SslProtocols"])
+		return dnSend("s3:get",nHandle,"s12:SslProtocols","")
 
 	Func setSslProtocols P1
 		raise("DotNet Error: SslProtocols is a read-only property")
@@ -741,97 +741,97 @@ Class SslServerAuthenticationOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func getAllowRenegotiation
-		return dnRequest("get",[self,"AllowRenegotiation"])
+		return dnSend("s3:get",nHandle,"s18:AllowRenegotiation","")
 
 	Func setAllowRenegotiation P1
-		dnRequest("set",[self,"AllowRenegotiation",P1])
+		dnSend("s3:set",nHandle,"s18:AllowRenegotiation",dnPackItem(P1))
 		return self
 
 	Func getAllowTlsResume
-		return dnRequest("get",[self,"AllowTlsResume"])
+		return dnSend("s3:get",nHandle,"s14:AllowTlsResume","")
 
 	Func setAllowTlsResume P1
-		dnRequest("set",[self,"AllowTlsResume",P1])
+		dnSend("s3:set",nHandle,"s14:AllowTlsResume",dnPackItem(P1))
 		return self
 
 	Func getClientCertificateRequired
-		return dnRequest("get",[self,"ClientCertificateRequired"])
+		return dnSend("s3:get",nHandle,"s25:ClientCertificateRequired","")
 
 	Func setClientCertificateRequired P1
-		dnRequest("set",[self,"ClientCertificateRequired",P1])
+		dnSend("s3:set",nHandle,"s25:ClientCertificateRequired",dnPackItem(P1))
 		return self
 
 	Func getApplicationProtocols
-		return dnRequest("get",[self,"ApplicationProtocols"])
+		return dnSend("s3:get",nHandle,"s20:ApplicationProtocols","")
 
 	Func setApplicationProtocols P1
-		dnRequest("set",[self,"ApplicationProtocols",P1])
+		dnSend("s3:set",nHandle,"s20:ApplicationProtocols",dnPackItem(P1))
 		return self
 
 	Func getRemoteCertificateValidationCallback
-		return dnRequest("get",[self,"RemoteCertificateValidationCallback"])
+		return dnSend("s3:get",nHandle,"s35:RemoteCertificateValidationCallback","")
 
 	Func setRemoteCertificateValidationCallback P1
-		dnRequest("set",[self,"RemoteCertificateValidationCallback",P1])
+		dnSend("s3:set",nHandle,"s35:RemoteCertificateValidationCallback",dnPackItem(P1))
 		return self
 
 	Func getServerCertificateSelectionCallback
-		return dnRequest("get",[self,"ServerCertificateSelectionCallback"])
+		return dnSend("s3:get",nHandle,"s34:ServerCertificateSelectionCallback","")
 
 	Func setServerCertificateSelectionCallback P1
-		dnRequest("set",[self,"ServerCertificateSelectionCallback",P1])
+		dnSend("s3:set",nHandle,"s34:ServerCertificateSelectionCallback",dnPackItem(P1))
 		return self
 
 	Func getServerCertificate
-		return dnRequest("get",[self,"ServerCertificate"])
+		return dnSend("s3:get",nHandle,"s17:ServerCertificate","")
 
 	Func setServerCertificate P1
-		dnRequest("set",[self,"ServerCertificate",P1])
+		dnSend("s3:set",nHandle,"s17:ServerCertificate",dnPackItem(P1))
 		return self
 
 	Func getServerCertificateContext
-		return dnRequest("get",[self,"ServerCertificateContext"])
+		return dnSend("s3:get",nHandle,"s24:ServerCertificateContext","")
 
 	Func setServerCertificateContext P1
-		dnRequest("set",[self,"ServerCertificateContext",P1])
+		dnSend("s3:set",nHandle,"s24:ServerCertificateContext",dnPackItem(P1))
 		return self
 
 	Func getEnabledSslProtocols
-		return dnRequest("get",[self,"EnabledSslProtocols"])
+		return dnSend("s3:get",nHandle,"s19:EnabledSslProtocols","")
 
 	Func setEnabledSslProtocols P1
-		dnRequest("set",[self,"EnabledSslProtocols",P1])
+		dnSend("s3:set",nHandle,"s19:EnabledSslProtocols",dnPackItem(P1))
 		return self
 
 	Func getCertificateRevocationCheckMode
-		return dnRequest("get",[self,"CertificateRevocationCheckMode"])
+		return dnSend("s3:get",nHandle,"s30:CertificateRevocationCheckMode","")
 
 	Func setCertificateRevocationCheckMode P1
-		dnRequest("set",[self,"CertificateRevocationCheckMode",P1])
+		dnSend("s3:set",nHandle,"s30:CertificateRevocationCheckMode",dnPackItem(P1))
 		return self
 
 	Func getEncryptionPolicy
-		return dnRequest("get",[self,"EncryptionPolicy"])
+		return dnSend("s3:get",nHandle,"s16:EncryptionPolicy","")
 
 	Func setEncryptionPolicy P1
-		dnRequest("set",[self,"EncryptionPolicy",P1])
+		dnSend("s3:set",nHandle,"s16:EncryptionPolicy",dnPackItem(P1))
 		return self
 
 	Func getCipherSuitesPolicy
-		return dnRequest("get",[self,"CipherSuitesPolicy"])
+		return dnSend("s3:get",nHandle,"s18:CipherSuitesPolicy","")
 
 	Func setCipherSuitesPolicy P1
-		dnRequest("set",[self,"CipherSuitesPolicy",P1])
+		dnSend("s3:set",nHandle,"s18:CipherSuitesPolicy",dnPackItem(P1))
 		return self
 
 	Func getCertificateChainPolicy
-		return dnRequest("get",[self,"CertificateChainPolicy"])
+		return dnSend("s3:get",nHandle,"s22:CertificateChainPolicy","")
 
 	Func setCertificateChainPolicy P1
-		dnRequest("set",[self,"CertificateChainPolicy",P1])
+		dnSend("s3:set",nHandle,"s22:CertificateChainPolicy",dnPackItem(P1))
 		return self
 
 
@@ -850,22 +850,22 @@ Class SslStreamCertificateContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(this.nHandle),"Equals",P1])
+		return dnSend("s4:call",nHandle,"s6:Equals",dnPackItem(P1))
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Net.Security.SslStreamCertificateContext, System.Net.Security'),"Create",P1])
+			return dnSend("s9:callnamed",dnTypeCached('System.Net.Security.SslStreamCertificateContext, System.Net.Security').nHandle,"s6:Create",dnPackItem(P1))
 		ok
 		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
 	Func getTargetCertificate
-		return dnRequest("get",[self,"TargetCertificate"])
+		return dnSend("s3:get",nHandle,"s17:TargetCertificate","")
 
 	Func setTargetCertificate P1
 		raise("DotNet Error: TargetCertificate is a read-only property")
 
 	Func getIntermediateCertificates
-		return dnRequest("get",[self,"IntermediateCertificates"])
+		return dnSend("s3:get",nHandle,"s24:IntermediateCertificates","")
 
 	Func setIntermediateCertificates P1
 		raise("DotNet Error: IntermediateCertificates is a read-only property")
@@ -904,73 +904,73 @@ Class NegotiateStream from AuthenticatedStream
 
 	Func BeginAuthenticateAsClient P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginAuthenticateAsClient",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:BeginAuthenticateAsClient",dnPackItem(P1))
 		ok
 		raise("DotNet Error: BeginAuthenticateAsClient does not take one argument: use named arguments, BeginAuthenticateAsClient([ :parameter = value, ... ])")
 
 	Func EndAuthenticateAsClient P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndAuthenticateAsClient",P1])
+		dnSend("s4:call",nHandle,"s23:EndAuthenticateAsClient",dnPackItem(P1))
 		return self
 
 	Func AuthenticateAsServer P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"AuthenticateAsServer",P1])
+			dnSend("s9:callnamed",nHandle,"s20:AuthenticateAsServer",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsServer"])
+			dnSend("s4:call",nHandle,"s20:AuthenticateAsServer","")
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsServer",P1])
+		dnSend("s4:call",nHandle,"s20:AuthenticateAsServer",dnPackItem(P1))
 		return self
 
 	Func BeginAuthenticateAsServer P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginAuthenticateAsServer",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:BeginAuthenticateAsServer",dnPackItem(P1))
 		ok
 		raise("DotNet Error: BeginAuthenticateAsServer does not take one argument: use named arguments, BeginAuthenticateAsServer([ :parameter = value, ... ])")
 
 	Func EndAuthenticateAsServer P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndAuthenticateAsServer",P1])
+		dnSend("s4:call",nHandle,"s23:EndAuthenticateAsServer",dnPackItem(P1))
 		return self
 
 	Func AuthenticateAsClient P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"AuthenticateAsClient",P1])
+			dnSend("s9:callnamed",nHandle,"s20:AuthenticateAsClient",dnPackItem(P1))
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsClient"])
+			dnSend("s4:call",nHandle,"s20:AuthenticateAsClient","")
 		return self
 		ok
 		raise("DotNet Error: AuthenticateAsClient does not take one argument: use named arguments, AuthenticateAsClient([ :parameter = value, ... ])")
 
 	Func AuthenticateAsClientAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AuthenticateAsClientAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:AuthenticateAsClientAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsClientAsync"])
+			return dnSend("s4:call",nHandle,"s25:AuthenticateAsClientAsync","")
 		ok
 		raise("DotNet Error: AuthenticateAsClientAsync does not take one argument: use named arguments, AuthenticateAsClientAsync([ :parameter = value, ... ])")
 
 	Func AuthenticateAsServerAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AuthenticateAsServerAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:AuthenticateAsServerAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsServerAsync"])
+			return dnSend("s4:call",nHandle,"s25:AuthenticateAsServerAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsServerAsync",P1])
+		return dnSend("s4:call",nHandle,"s25:AuthenticateAsServerAsync",dnPackItem(P1))
 
 	Func getImpersonationLevel
-		return dnRequest("get",[self,"ImpersonationLevel"])
+		return dnSend("s3:get",nHandle,"s18:ImpersonationLevel","")
 
 	Func setImpersonationLevel P1
 		raise("DotNet Error: ImpersonationLevel is a read-only property")
 
 	Func getRemoteIdentity
-		return dnRequest("get",[self,"RemoteIdentity"])
+		return dnSend("s3:get",nHandle,"s14:RemoteIdentity","")
 
 	Func setRemoteIdentity P1
 		raise("DotNet Error: RemoteIdentity is a read-only property")
@@ -1021,152 +1021,152 @@ Class SslStream from AuthenticatedStream
 
 	Func BeginAuthenticateAsClient P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginAuthenticateAsClient",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:BeginAuthenticateAsClient",dnPackItem(P1))
 		ok
 		raise("DotNet Error: BeginAuthenticateAsClient does not take one argument: use named arguments, BeginAuthenticateAsClient([ :parameter = value, ... ])")
 
 	Func EndAuthenticateAsClient P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndAuthenticateAsClient",P1])
+		dnSend("s4:call",nHandle,"s23:EndAuthenticateAsClient",dnPackItem(P1))
 		return self
 
 	Func BeginAuthenticateAsServer P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"BeginAuthenticateAsServer",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:BeginAuthenticateAsServer",dnPackItem(P1))
 		ok
 		raise("DotNet Error: BeginAuthenticateAsServer does not take one argument: use named arguments, BeginAuthenticateAsServer([ :parameter = value, ... ])")
 
 	Func EndAuthenticateAsServer P1
-		dnRequest("call",[new DotNetObject(this.nHandle),"EndAuthenticateAsServer",P1])
+		dnSend("s4:call",nHandle,"s23:EndAuthenticateAsServer",dnPackItem(P1))
 		return self
 
 	Func AuthenticateAsClient P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"AuthenticateAsClient",P1])
+			dnSend("s9:callnamed",nHandle,"s20:AuthenticateAsClient",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsClient",P1])
+		dnSend("s4:call",nHandle,"s20:AuthenticateAsClient",dnPackItem(P1))
 		return self
 
 	Func AuthenticateAsServer P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"AuthenticateAsServer",P1])
+			dnSend("s9:callnamed",nHandle,"s20:AuthenticateAsServer",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsServer",P1])
+		dnSend("s4:call",nHandle,"s20:AuthenticateAsServer",dnPackItem(P1))
 		return self
 
 	Func AuthenticateAsClientAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AuthenticateAsClientAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:AuthenticateAsClientAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsClientAsync",P1])
+		return dnSend("s4:call",nHandle,"s25:AuthenticateAsClientAsync",dnPackItem(P1))
 
 	Func AuthenticateAsServerAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"AuthenticateAsServerAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s25:AuthenticateAsServerAsync",dnPackItem(P1))
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"AuthenticateAsServerAsync",P1])
+		return dnSend("s4:call",nHandle,"s25:AuthenticateAsServerAsync",dnPackItem(P1))
 
 	Func ShutdownAsync 
-		return dnRequest("call",[new DotNetObject(this.nHandle),"ShutdownAsync"])
+		return dnSend("s4:call",nHandle,"s13:ShutdownAsync","")
 
 	Func NegotiateClientCertificateAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(this.nHandle),"NegotiateClientCertificateAsync",P1])
+			return dnSend("s9:callnamed",nHandle,"s31:NegotiateClientCertificateAsync",dnPackItem(P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(this.nHandle),"NegotiateClientCertificateAsync"])
+			return dnSend("s4:call",nHandle,"s31:NegotiateClientCertificateAsync","")
 		ok
-		return dnRequest("call",[new DotNetObject(this.nHandle),"NegotiateClientCertificateAsync",P1])
+		return dnSend("s4:call",nHandle,"s31:NegotiateClientCertificateAsync",dnPackItem(P1))
 
 	Func Write P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(this.nHandle),"Write",P1])
+			dnSend("s9:callnamed",nHandle,"s5:Write",dnPackItem(P1))
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(this.nHandle),"Write",P1])
+		dnSend("s4:call",nHandle,"s5:Write",dnPackItem(P1))
 		return self
 
 	Func getTransportContext
-		return dnRequest("get",[self,"TransportContext"])
+		return dnSend("s3:get",nHandle,"s16:TransportContext","")
 
 	Func setTransportContext P1
 		raise("DotNet Error: TransportContext is a read-only property")
 
 	Func getSslProtocol
-		return dnRequest("get",[self,"SslProtocol"])
+		return dnSend("s3:get",nHandle,"s11:SslProtocol","")
 
 	Func setSslProtocol P1
 		raise("DotNet Error: SslProtocol is a read-only property")
 
 	Func getCheckCertRevocationStatus
-		return dnRequest("get",[self,"CheckCertRevocationStatus"])
+		return dnSend("s3:get",nHandle,"s25:CheckCertRevocationStatus","")
 
 	Func setCheckCertRevocationStatus P1
 		raise("DotNet Error: CheckCertRevocationStatus is a read-only property")
 
 	Func getLocalCertificate
-		return dnRequest("get",[self,"LocalCertificate"])
+		return dnSend("s3:get",nHandle,"s16:LocalCertificate","")
 
 	Func setLocalCertificate P1
 		raise("DotNet Error: LocalCertificate is a read-only property")
 
 	Func getRemoteCertificate
-		return dnRequest("get",[self,"RemoteCertificate"])
+		return dnSend("s3:get",nHandle,"s17:RemoteCertificate","")
 
 	Func setRemoteCertificate P1
 		raise("DotNet Error: RemoteCertificate is a read-only property")
 
 	Func getNegotiatedApplicationProtocol
-		return dnRequest("get",[self,"NegotiatedApplicationProtocol"])
+		return dnSend("s3:get",nHandle,"s29:NegotiatedApplicationProtocol","")
 
 	Func setNegotiatedApplicationProtocol P1
 		raise("DotNet Error: NegotiatedApplicationProtocol is a read-only property")
 
 	Func getNegotiatedCipherSuite
-		return dnRequest("get",[self,"NegotiatedCipherSuite"])
+		return dnSend("s3:get",nHandle,"s21:NegotiatedCipherSuite","")
 
 	Func setNegotiatedCipherSuite P1
 		raise("DotNet Error: NegotiatedCipherSuite is a read-only property")
 
 	Func getCipherAlgorithm
-		return dnRequest("get",[self,"CipherAlgorithm"])
+		return dnSend("s3:get",nHandle,"s15:CipherAlgorithm","")
 
 	Func setCipherAlgorithm P1
 		raise("DotNet Error: CipherAlgorithm is a read-only property")
 
 	Func getCipherStrength
-		return dnRequest("get",[self,"CipherStrength"])
+		return dnSend("s3:get",nHandle,"s14:CipherStrength","")
 
 	Func setCipherStrength P1
 		raise("DotNet Error: CipherStrength is a read-only property")
 
 	Func getHashAlgorithm
-		return dnRequest("get",[self,"HashAlgorithm"])
+		return dnSend("s3:get",nHandle,"s13:HashAlgorithm","")
 
 	Func setHashAlgorithm P1
 		raise("DotNet Error: HashAlgorithm is a read-only property")
 
 	Func getHashStrength
-		return dnRequest("get",[self,"HashStrength"])
+		return dnSend("s3:get",nHandle,"s12:HashStrength","")
 
 	Func setHashStrength P1
 		raise("DotNet Error: HashStrength is a read-only property")
 
 	Func getKeyExchangeAlgorithm
-		return dnRequest("get",[self,"KeyExchangeAlgorithm"])
+		return dnSend("s3:get",nHandle,"s20:KeyExchangeAlgorithm","")
 
 	Func setKeyExchangeAlgorithm P1
 		raise("DotNet Error: KeyExchangeAlgorithm is a read-only property")
 
 	Func getKeyExchangeStrength
-		return dnRequest("get",[self,"KeyExchangeStrength"])
+		return dnSend("s3:get",nHandle,"s19:KeyExchangeStrength","")
 
 	Func setKeyExchangeStrength P1
 		raise("DotNet Error: KeyExchangeStrength is a read-only property")
 
 	Func getTargetHostName
-		return dnRequest("get",[self,"TargetHostName"])
+		return dnSend("s3:get",nHandle,"s14:TargetHostName","")
 
 	Func setTargetHostName P1
 		raise("DotNet Error: TargetHostName is a read-only property")
