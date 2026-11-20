@@ -37,7 +37,7 @@ case "$KIND" in
 		# for it only an error that was not caught fails: Ring starts the message of such an error with "Line <number>"
 		if head -3 "$DIR/$FILE" | grep -q "# errors on purpose"; then
 			if echo "$OUT" | grep -q -E "^Line [0-9]+ .*rror"; then BAD=1; else BAD=0; fi
-		elif echo "$OUT" | grep -q -e "Error (R" -e "rror (C" -e "^Line [0-9]* DotNet Error" -e "FAIL:"; then
+		elif echo "$OUT" | grep -q -e "Error (R" -e "rror (C" -e "^Line [0-9]* DotNet Error" -e "FAIL:" -e "could not be restored"; then
 			BAD=1
 		else
 			BAD=0
