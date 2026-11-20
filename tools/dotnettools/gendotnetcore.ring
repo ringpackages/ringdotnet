@@ -1034,6 +1034,15 @@ func genAll aWanted
 	# Only a run for every namespace writes the index: a run for a few namespaces cannot see the types of the namespaces that need another
 	# runtime mode (Windows Forms, WPF, ASP.NET), so its index would be incomplete.
 	if len(aWanted) = 0
+		# wrapassembly.ring (lMergeIndex): another assembly may have been wrapped into the same folder, and its types stay in the index
+		if lMergeIndex and fexists(C_OUTDIR + "classindex.ring")
+			for cOldLine in str2list(read(C_OUTDIR + "classindex.ring"))
+				cOldLine = trim(cOldLine)
+				if left(cOldLine,17) = "aDotNetClassIndex" and not substr(cIndex,cOldLine)
+					cIndex += cOldLine + nl
+				ok
+			next
+		ok
 		write(C_OUTDIR + "classindex.ring",cIndex)
 	ok
 	# Pass 2: generate the requested namespaces

@@ -13,6 +13,7 @@ load "gendotnetcore.ring"
 load "dotnetmanifest.ring"
 
 C_OUTDIR = "../../libraries/dotnetlib/generated/"
+lMergeIndex = false
 
 func main
 	aWanted = []

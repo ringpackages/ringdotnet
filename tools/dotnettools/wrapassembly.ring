@@ -14,6 +14,7 @@
 load "gendotnetcore.ring"
 
 C_OUTDIR = ""
+lMergeIndex = true          # the index of the classes keeps the types of the assemblies that were wrapped into the same folder
 aDotNetManifest = []
 
 func main
